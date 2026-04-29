@@ -1,0 +1,37 @@
+---
+id: vuln-274
+vendor: Xiaomi
+package: com.miui.yellowpage
+verdict: CONFIRMED_MEDIUM
+tag: PERM_GRANT
+category: permission_grant_bypass
+---
+
+# vuln-274 · `com.miui.yellowpage` · Xiaomi
+
+## Metadata
+| Field | Value |
+|---|---|
+| Vendor | Xiaomi |
+| Package | `com.miui.yellowpage` |
+| Verdict | **CONFIRMED_MEDIUM** |
+| Confirmed tag | `PERM_GRANT` |
+| Confidence | 0.75 |
+| Threat type | permission_grant_bypass |
+| Affected firmware | 1 image |
+
+## Privacy Impact
+com.miui.yellowpage receives default runtime permissions automatically without explicit user consent or per-app grant flow.
+
+## Attack Surface
+A pre-installed or privileged OEM app (yellowpage) gains hardcoded access to dangerous permissions (likely contacts, location, camera, microphone) that should normally require user approval.
+
+## Call Graph
+```
+- MiuiDefaultPermissionGrantPolicy.<clinit>() [line 138: hardcoded string]
+- → MiuiDefaultPermissionGrantPolicy.grantDefaultPermissions(I)
+- → PERM_GRANT (grantDefaultPermission)
+```
+
+## Affected Firmware Images
+- xiaomi_firmwarescanner_validated
