@@ -1,0 +1,42 @@
+# macOS
+.DS_Store
+._*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+.venv/
+
+# Pipeline working directories
+/work/
+/tmp/
+
+# API keys / secrets
+.env
+*.key
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test results (not part of the artifact)
+examples/*_results_*.json
+
+# ROM tools build artifacts
+tools/rom_tools/**/*.o
+tools/rom_tools/**/*.so
+tools/rom_tools/**/build/
+
+# Large binary artifacts (should use Git LFS if needed)
+*.img
+*.dat
+*.bin
+*.zip
+*.tgz
+*.tar.gz
