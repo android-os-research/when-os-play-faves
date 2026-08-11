@@ -1,4 +1,4 @@
-# Artifact — When the OS Plays Favorites
+# Artifact — NDSS paper #711
 
 Artifact for NDSS 2027 paper: *"User-denied, System-approved: A Security Analysis of OEM Subversions on Android’s Access Control"*
 
