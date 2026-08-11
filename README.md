@@ -1,6 +1,6 @@
 # Artifact — When the OS Plays Favorites
 
-Artifact for NDSS 2027 paper: *"When the OS Plays Favorites: Systematic Analysis of Privilege Deviations in Android OEM Frameworks."*
+Artifact for NDSS 2027 paper: *"User-denied, System-approved: A Security Analysis of OEM Subversions on Android’s Access Control"*
 
 This repository contains the complete analysis pipeline that takes an Android firmware image (or a live device) and identifies OEM-introduced privilege deviations — cases where third-party apps receive undocumented permissions, enforcement exemptions, or special treatment hardcoded into framework code.
 
@@ -30,7 +30,7 @@ This runs Steps 1–6 + Phase 1 (local LLM triage) on a small pre-extracted devi
 
 To also run Phase 2 (cloud LLM validation):
 ```bash
-export ANTHROPIC_API_KEY="YOUR_API_KEY_HERE"   # standard key (sk-ant-api03-*) or OAuth token (sk-ant-oat01-*)
+export ANTHROPIC_API_KEY="YOUR_API_KEY_HERE"   # OAuth token (sk-ant-oat01-*)
 ./run_pipeline.sh ../../examples/sample_device/ /tmp/work/ samsung --skip-filter
 cat /tmp/work/samsung/claude_validated.json | python3 -m json.tool
 ```
@@ -276,7 +276,6 @@ After vendor-level deduplication: **353 unique patterns** across **28 OEMs**.
 | Phase 1 | Local LLM (Ollama) | $0 |
 | Phase 2 | Claude Haiku API | ~$0.50–$2.00 per device |
 | Phase 2b | Haiku + Sonnet API | included above |
-| **Full corpus** | All 5,205 images | **~$67.91** |
 
 ---
 
