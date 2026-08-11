@@ -7,7 +7,7 @@
 #
 # Pipeline stages:
 #   Step 1    Find all .jar / .dex files in the firmware dump
-#   Step 2    Decompile to smali with baksmali 3.0.9
+#   Step 2    Decompile to smali with baksmali 2.5.2
 #   Step 3    Discover all hardcoded package name references in smali
 #   Step 3b   Filter: keep only packages that exist as real APKs in the wild
 #             (queries Google Play, APKPure, APKMirror, APKFab, Aptoide, APKCombo)
@@ -15,7 +15,7 @@
 #   Step 5    Build smali call graph, trace forward/backward from seed methods (d=5)
 #   Step 6    Synthesize per-package propagation chains from steps 3-5
 #   Phase 1   Local LLM triage (Dolphin/Ollama) — assigns HIGH/MED/LOW
-#   Phase 2   Cloud LLM validation (Claude Haiku, temperature=0.1) — confirms verdicts
+#   Phase 2   Cloud LLM validation (Claude Haiku, temperature=0.0) — confirms verdicts
 #   Phase 2b  NI re-evaluation: re-runs Haiku on NEEDS_INVESTIGATION items with
 #             full smali (no size budget); unresolved NI items escalated to Sonnet
 #
@@ -33,17 +33,28 @@
 #   ./run_pipeline.sh /data/dumps/nokia/   /data/work/ nokia   --skip-phase2
 #
 # Prerequisites:
-#   - baksmali 3.0.9 on PATH (or BAKSMALI env var):
-#       wget https://github.com/JesusFreke/smali/releases/download/v3.0.9/baksmali-3.0.9.jar
-#       alias baksmali="java -jar /path/to/baksmali-3.0.9.jar"
+#   - Run setup.sh first (creates .venv/ with all Python dependencies)
+#   - Activate the venv:  source .venv/bin/activate
+#   - baksmali 2.5.2 on PATH (installed by setup.sh into tools/)
 #   - ollama running locally with dolphin3-r1 pulled (for Phase 1):
 #       ollama pull dolphin3-r1
-#   - ANTHROPIC_API_KEY set (for Phase 2 / 2b)
-#   - Python 3.8+:  pip install anthropic requests
+#   - ANTHROPIC_API_KEY set (for Phase 2 / 2b):
+#       export ANTHROPIC_API_KEY="YOUR_API_KEY_HERE"
 # =============================================================================
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ARTIFACT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+
+# ── Activate venv if available ────────────────────────────────────────────────
+if [[ -z "${VIRTUAL_ENV:-}" ]] && [[ -f "$ARTIFACT_DIR/.venv/bin/activate" ]]; then
+    source "$ARTIFACT_DIR/.venv/bin/activate"
+fi
+
+# ── Add tools/ to PATH (baksmali, etc.) ──────────────────────────────────────
+if [[ -d "$ARTIFACT_DIR/tools" ]]; then
+    export PATH="$ARTIFACT_DIR/tools:$PATH"
+fi
 
 # ── Argument parsing ──────────────────────────────────────────────────────────
 
@@ -186,13 +197,30 @@ REFS_CSV="${STEP3_DIR}/references.csv"
 # ── Step 3b: Filter by APK existence in the wild ────────────────────────────
 
 if [[ "$SKIP_FILTER" == true ]]; then
-    echo "[ Step 3b ] Skipped (--skip-filter)"
-    REFS_FOR_STEP4="$REFS_CSV"
+    # Check for pre-computed filter cache bundled with the sample
+    DUMP_DIR_RESOLVED="$(cd "$DUMP_DIR" && pwd)"
+    PRECOMPUTED_SCAN="${DUMP_DIR_RESOLVED}/step3b_scan_cache/found_anywhere.txt"
+    if [[ -f "$PRECOMPUTED_SCAN" ]]; then
+        echo "[ Step 3b ] Using pre-computed APK filter cache from sample"
+        echo "           ($PRECOMPUTED_SCAN)"
+        mkdir -p "${STEP3B_DIR}/scan_results"
+        cp "$PRECOMPUTED_SCAN" "${STEP3B_DIR}/scan_results/found_anywhere.txt"
+        python3 "${SCRIPT_DIR}/step3b_filter_packages.py" \
+            --references "$REFS_CSV" \
+            --output     "$STEP3B_DIR" \
+            --existing-scan "${STEP3B_DIR}/scan_results"
+        REFS_FOR_STEP4="${STEP3B_DIR}/references.csv"
+    else
+        echo "[ Step 3b ] Skipped (--skip-filter)"
+        REFS_FOR_STEP4="$REFS_CSV"
+    fi
 elif [[ -f "${STEP3B_DIR}/references.csv" ]]; then
     echo "[ Step 3b ] Skipped (existing: ${STEP3B_DIR}/references.csv)"
     REFS_FOR_STEP4="${STEP3B_DIR}/references.csv"
 else
     echo "[ Step 3b ] Filtering packages by wild APK existence..."
+    echo "           This queries external app stores (~5s per package)."
+    echo "           Use --skip-filter to skip (uses pre-computed cache if available)."
     python3 "${SCRIPT_DIR}/step3b_filter_packages.py" \
         --references "$REFS_CSV" \
         --output     "$STEP3B_DIR" \

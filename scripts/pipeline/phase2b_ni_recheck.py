@@ -253,14 +253,19 @@ def call_claude(api_key: str, user_message: str,
     }
     body = json.dumps(payload).encode()
     for attempt in range(8):
+        headers = {
+            "Content-Type":      "application/json",
+            "anthropic-version": "2023-06-01",
+        }
+        if api_key.startswith("sk-ant-oat01-"):
+            headers["Authorization"] = f"Bearer {api_key}"
+        else:
+            headers["x-api-key"] = api_key
+
         req = urllib.request.Request(
             "https://api.anthropic.com/v1/messages",
             data=body, method="POST",
-            headers={
-                "Content-Type":      "application/json",
-                "x-api-key":         api_key,
-                "anthropic-version": "2023-06-01",
-            },
+            headers=headers,
         )
         try:
             with urllib.request.urlopen(req, timeout=120, context=_SSL_CTX) as resp:

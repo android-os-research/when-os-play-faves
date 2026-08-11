@@ -6,12 +6,10 @@ End-to-end pipeline: Android firmware dump → confirmed privilege deviations (C
 
 | Tool | Purpose | Install |
 |---|---|---|
-| `baksmali` **3.0.9** | DEX → smali decompiler | Download `baksmali-3.0.9.jar` from [JesusFreke/smali releases](https://github.com/JesusFreke/smali/releases/tag/v3.0.9); alias to `java -jar baksmali-3.0.9.jar` |
-| `ollama` + `dolphin3-r1` | Phase 1 local LLM triage | `brew install ollama && ollama pull dolphin3-r1` |
-| Python 3.8+ | All analysis scripts | `pip install anthropic requests` |
+| `baksmali` **2.5.2** | DEX → smali decompiler | Installed by `setup.sh`; or download from [JesusFreke/smali releases](https://github.com/JesusFreke/smali/releases/tag/v2.5.2) |
+| `ollama` + `dolphin3-r1` | Phase 1 local LLM triage | Installed by `setup.sh`; or `curl -fsSL https://ollama.ai/install.sh \| sh && ollama pull dolphin3-r1` |
+| Python 3.10+ | All analysis scripts | Installed by `setup.sh` into a virtual environment (`.venv/`) |
 | `ANTHROPIC_API_KEY` | Phase 2/2b cloud validation | export in shell or pass `--api-key` |
-| `google_play_scraper` | Play Store lookups in Step 3b | `pip install google-play-scraper` |
-| `apksearch` | Wild APK store lookups in Step 3b (APKMirror, APKPure, APKFab, Aptoide, APKCombo) | `pip install apksearch` |
 
 
 ## Quick start

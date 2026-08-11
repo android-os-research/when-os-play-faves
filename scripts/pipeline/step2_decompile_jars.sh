@@ -18,6 +18,13 @@ SMALI_DIR="$2"
 BAKSMALI="${BAKSMALI:-baksmali}"
 TMPDIR_BASE="/tmp/oem_decompile_$$"
 
+# Verify baksmali is available before starting
+if ! command -v "$BAKSMALI" &>/dev/null; then
+    echo "[Step 2] ERROR: baksmali not found on PATH."
+    echo "  Run setup.sh first, or set BAKSMALI=/path/to/baksmali"
+    exit 1
+fi
+
 mkdir -p "$SMALI_DIR" "$TMPDIR_BASE"
 
 TOTAL=$(wc -l < "$JARS_LIST")

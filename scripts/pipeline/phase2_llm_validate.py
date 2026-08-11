@@ -177,15 +177,21 @@ def call_claude(
     rate_attempts = 0
 
     while True:
+        headers = {
+            "Content-Type":      "application/json",
+            "anthropic-version": "2023-06-01",
+        }
+        # OAuth tokens (sk-ant-oat01-*) use Bearer auth; standard keys use x-api-key
+        if api_key.startswith("sk-ant-oat01-"):
+            headers["Authorization"] = f"Bearer {api_key}"
+        else:
+            headers["x-api-key"] = api_key
+
         req = urllib.request.Request(
             "https://api.anthropic.com/v1/messages",
             data=body,
             method="POST",
-            headers={
-                "Content-Type":      "application/json",
-                "x-api-key":         api_key,
-                "anthropic-version": "2023-06-01",
-            },
+            headers=headers,
         )
 
         try:

@@ -69,14 +69,70 @@ def load_references(csv_path):
     return refs
 
 
+# Prefixes that are clearly not third-party app package names.
+# Skipping these avoids thousands of pointless external API queries.
+NOT_APP_PREFIXES = (
+    'android.app.',
+    'android.content.',
+    'android.database.',
+    'android.graphics.',
+    'android.hardware.',
+    'android.media.',
+    'android.net.',
+    'android.os.',
+    'android.provider.',
+    'android.security.',
+    'android.service.',
+    'android.telephony.',
+    'android.text.',
+    'android.util.',
+    'android.view.',
+    'android.webkit.',
+    'android.widget.',
+    'android.Manifest.',
+    'android.R.',
+    'com.android.internal.',
+    'com.android.server.',
+    'dalvik.',
+    'java.',
+    'javax.',
+    'kotlin.',
+    'kotlinx.',
+    'org.apache.',
+    'org.json.',
+    'org.xml.',
+    'org.xmlpull.',
+    'org.w3c.',
+    'sun.',
+    'libcore.',
+    'GNU.',
+)
+
+
+def _is_obviously_not_app(pkg):
+    """Return True if pkg is clearly a framework/system class, not an app."""
+    if any(pkg.startswith(p) for p in NOT_APP_PREFIXES):
+        return True
+    parts = pkg.split('.')
+    # Strings with uppercase first segment are usually class names
+    # e.g. DeviceIdleController.deep.locating, FacePreProcessing_jni.camera
+    if len(parts) >= 2 and parts[0][0].isupper():
+        return True
+    # AIDL interfaces: any segment matching I[A-Z]* pattern (e.g. IPrintManager)
+    # These are never real app package names
+    if any(len(p) >= 2 and p[0] == 'I' and p[1].isupper() for p in parts):
+        return True
+    return False
+
+
 def get_packages_to_scan(refs, known):
     """
     Extract unique package-like strings that need an APK existence check.
     Skip types we always keep and packages already in the known list.
-    Scan everything else — don't restrict to string_type=='package_name'
-    since classify_string may tag real packages as 'class_reference' etc.
+    Also skip strings that are obviously framework/system identifiers.
     """
     to_scan = set()
+    skipped = 0
     for r in refs:
         stype = r.get('string_type', '')
         pkg = r.get('package_name', '')
@@ -85,8 +141,13 @@ def get_packages_to_scan(refs, known):
             continue
         if pkg in known:
             continue
-        if pkg:
+        if pkg and not _is_obviously_not_app(pkg):
             to_scan.add(pkg)
+        elif pkg:
+            skipped += 1
+
+    if skipped:
+        print(f"  Pre-filtered {skipped} obvious non-app strings")
 
     return sorted(to_scan)
 

@@ -25,8 +25,17 @@ __pycache__/
 *.swo
 *~
 
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
 # Test results (not part of the artifact)
 examples/*_results_*.json
+!examples/sample_device/sample_device_results_claude_validated.json
 
 # ROM tools build artifacts
 tools/rom_tools/**/*.o
