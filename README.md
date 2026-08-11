@@ -30,7 +30,7 @@ This runs Steps 1–6 + Phase 1 (local LLM triage) on a small pre-extracted devi
 
 To also run Phase 2 (cloud LLM validation):
 ```bash
-export ANTHROPIC_API_KEY="YOUR_API_KEY_HERE"   # OAuth token (sk-ant-oat01-*)
+export ANTHROPIC_API_KEY="YOUR_TOKEN_HERE"   # OAuth token (sk-ant-oat01-*) [tested with] or API key (sk-ant-api03-*)
 ./run_pipeline.sh ../../examples/sample_device/ /tmp/work/ samsung --skip-filter
 cat /tmp/work/samsung/claude_validated.json | python3 -m json.tool
 ```
