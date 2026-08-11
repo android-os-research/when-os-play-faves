@@ -6,9 +6,9 @@ This repository contains the complete analysis pipeline that takes an Android fi
 
 ---
 
-## Quick Start (Kick-the-Tires, ~30 minutes)
+## Quick Start (Kick-the-Tires)
 
-For a quick functionality check without needing firmware images:
+For a quick functionality check without needing firmware images (Steps 1–6: ~3 min, Phase 1: ~4.5h on CPU):
 
 ```bash
 # 1. Install dependencies
@@ -96,8 +96,8 @@ artifacts/
 │       └── setup.sh               # Build erofs-utils, e2fsprogs, vdexExtractor
 ├── reproducibility/
 │   └── vuln/                       # 286 per-finding markdown reports
-│       ├── Cat1/                   # Category 1 case studies (§5.1)
-│       ├── Cat2/                   # Category 2 case studies (§5.2)
+│       ├── Cat1/                   # Consent Subversion (CS) case studies (§VI-A)
+│       ├── Cat2/                   # Revocability Subversion (RS) case studies (§VI-B)
 │       └── vuln-001.md … vuln-286.md  # All confirmed deviations
 ├── poc-videos/                     # Proof-of-concept demonstration videos
 │   ├── cat1_nokia_integrator_content_provider.mp4
@@ -161,7 +161,7 @@ Connect an Android device with USB debugging enabled:
 
 ### Mode B: Android Dumps Archive
 
-Download a device dump from [Android Dumps](https://dumps.tadiphone.dev/) as a `.tar.gz`:
+Download a device dump from [Android Dumps](https://gitlab.com/Android-Dumps) as a `.tar.gz`:
 
 ```bash
 ./scripts/extract_android_dumps.sh /path/to/device.tar.gz /data/dumps/device/
@@ -173,7 +173,7 @@ Download a device dump from [Android Dumps](https://dumps.tadiphone.dev/) as a `
 
 ### Mode C: MIUI Firmware Zip
 
-Download a MIUI ROM from [xiaomifirmwareupdater.com](https://xiaomifirmwareupdater.com/):
+Download a MIUI ROM from [xiaomifirmwareupdater.com](https://xmfirmwareupdater.com/miui/):
 
 ```bash
 ./scripts/extract_miui.sh /path/to/miui_firmware.zip /data/dumps/xiaomi_device/
@@ -223,7 +223,7 @@ Output: claude_validated.json with verdicts:
 # Stop after Phase 1 (no API key needed, $0 cost)
 ./scripts/pipeline/run_pipeline.sh <dump_dir> <work_dir> <vendor> --skip-phase2
 
-# Skip APK store lookups (faster, more false positives)
+# Skip live APK store lookups (uses pre-computed cache if available)
 ./scripts/pipeline/run_pipeline.sh <dump_dir> <work_dir> <vendor> --skip-filter
 
 # Resume a partial run
@@ -240,16 +240,16 @@ The table below maps key paper claims to reproducible experiments. Each can be v
 
 | # | Paper Claim (Section) | Experiment | Expected Output |
 |---|----------------------|------------|-----------------|
-| C1 | Pipeline identifies hardcoded package references in OEM framework code (§3) | Run Steps 1–3 on any OEM device dump | `step3_refs/references.csv` lists all discovered package references with locations |
-| C2 | APK store filtering reduces false positives from internal packages (§3.2) | Run Step 3b after Step 3 | Compare row count of `step3_refs/references.csv` vs `step3b_filtered/references.csv` |
-| C3 | Local LLM triage effectively separates HIGH/MED from LOW candidates (§3.3) | Run Phase 1 on Step 6 output | `triage.json` with priority distribution; paper reports ~86% classified as LOW |
-| C4 | Cloud LLM validation confirms true positives with high precision (§3.4) | Run Phase 2 on a device with known findings | `claude_validated.json` should contain CONFIRMED entries matching `reproducibility/vuln/` |
-| C5 | OEM framework code grants undocumented permissions to named packages (§4, §5) | Browse `reproducibility/vuln/Cat1/` reports | Each report shows the smali call chain from hardcoded package name to `grantRuntimePermission` |
-| C6 | OEM code provides enforcement bypasses to named packages (§4, §5) | Browse `reproducibility/vuln/Cat2/` reports | Each report shows bypass logic (BAL, CTS checks, installer restrictions) |
-| C7 | 707 confirmed deviations across 28 OEMs, 353 unique patterns (§4) | Run on full corpus (see paper datasets) | Dedup output matches Table 2 totals |
-| C8 | Dynamic validation on purchased devices confirms static findings (§5) | Run pipeline on ADB dump from an affected device; compare with PoC videos | `poc-videos/` demonstrates exploitation of confirmed findings |
+| C1 | Pipeline identifies hardcoded package references in OEM framework code (§IV) | Run Steps 1–3 on any OEM device dump | `step3_refs/references.csv` lists all discovered package references with locations |
+| C2 | APK store filtering reduces false positives from internal packages (§IV) | Run Step 3b after Step 3 | Compare row count of `step3_refs/references.csv` vs `step3b_filtered/references.csv` |
+| C3 | Local LLM triage effectively separates HIGH/MED from LOW candidates (§IV) | Run Phase 1 on Step 6 output | `triage.json` with priority distribution; paper reports ~86% classified as LOW |
+| C4 | Cloud LLM validation confirms true positives with high precision (§IV) | Run Phase 2 on a device with known findings | `claude_validated.json` should contain CONFIRMED entries matching `reproducibility/vuln/` |
+| C5 | OEM framework code grants undocumented permissions to named packages (§V, §VI) | Browse `reproducibility/vuln/Cat1/` reports (CS) | Each report shows the smali call chain from hardcoded package name to `grantRuntimePermission` |
+| C6 | OEM code provides enforcement bypasses to named packages (§V, §VI) | Browse `reproducibility/vuln/Cat2/` reports (RS) | Each report shows bypass logic (BAL, CTS checks, installer restrictions) |
+| C7 | 707 confirmed deviations across 28 OEMs, 353 unique patterns (§V) | Run on full corpus (see paper datasets) | Dedup output matches Table 2 totals |
+| C8 | Dynamic validation on purchased devices confirms static findings (§VI) | Run pipeline on ADB dump from an affected device; compare with PoC videos | `poc-videos/` demonstrates exploitation of confirmed findings |
 
-**Minimal validation (Claims C1–C4):** Run the full pipeline on a single device (~1–4 hours).
+**Minimal validation (Claims C1–C4):** Run the full pipeline on a single device (~5–6 hours; ~4.5h without Phase 2).
 **Finding verification (Claims C5–C6):** Read `reproducibility/vuln/` reports (no setup needed).
 **Full reproduction (Claim C7):** Requires access to all three corpora.
 
@@ -286,14 +286,14 @@ After vendor-level deduplication: **353 unique patterns** across **28 OEMs**.
 Any Android 12+ OEM device can be used. Options:
 
 1. **Live device**: Use Mode A (ADB pull) with any available Android phone
-2. **Android Dumps**: Download a free device dump from [dumps.tadiphone.dev](https://dumps.tadiphone.dev/)
-3. **MIUI ROM**: Download from [xiaomifirmwareupdater.com](https://xiaomifirmwareupdater.com/)
+2. **Android Dumps**: Download a free device dump from [android dumps](https://gitlab.com/Android-Dumps)
+3. **MIUI ROM**: Download from [xiaomifirmwareupdater.com](https://xmfirmwareupdater.com/miui/)
 
 ### For full reproduction (paper corpus)
 
-1. **IMDEA FirmwareScanner** (4,585 images): Request access via [firmware.re](https://firmware.re)
-2. **MIUI builds** (565 images): Public downloads from [xiaomifirmwareupdater.com](https://xiaomifirmwareupdater.com/)
-3. **Android Dumps** (55 images): Public downloads from [dumps.tadiphone.dev](https://dumps.tadiphone.dev/)
+1. **IMDEA FirmwareScanner** (4,585 images)
+2. **MIUI builds** (565 images): Public downloads from [xiaomifirmwareupdater.com](https://xmfirmwareupdater.com/miui/)
+3. **Android Dumps** (55 images): Public downloads from [android dumps](https://gitlab.com/Android-Dumps)
 
 ---
 
