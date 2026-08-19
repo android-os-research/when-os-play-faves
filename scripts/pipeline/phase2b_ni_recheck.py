@@ -243,9 +243,10 @@ def load_propagation(prop_dir: Optional[Path], package: str) -> Optional[str]:
 # ─────────────────────────────────────────────────────────────────
 
 def call_claude(api_key: str, user_message: str,
+                model: str = HAIKU_MODEL,
                 max_tokens: int = 1536, temperature: float = 0.0) -> dict:
     payload = {
-        "model":       HAIKU_MODEL,
+        "model":       model,
         "max_tokens":  max_tokens,
         "temperature": temperature,
         "system":      SYSTEM_PROMPT,
@@ -415,11 +416,18 @@ def main() -> None:
                     help="Skip packages already in output file.")
     ap.add_argument("--dry-run",     action="store_true",
                     help="Print prompts, make no API calls.")
+    ap.add_argument("--api-key",     default=None,
+                    help="Anthropic API key (overrides ANTHROPIC_API_KEY env var).")
+    ap.add_argument("--model",       default=HAIKU_MODEL,
+                    help=f"Model for the full-smali re-check pass (default: {HAIKU_MODEL}).")
+    ap.add_argument("--sonnet-model", default="",
+                    help="If set, re-runs items still NEEDS_INVESTIGATION after the "
+                         "first pass with this stronger model (e.g. claude-sonnet-4-6).")
     args = ap.parse_args()
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    api_key = args.api_key or os.environ.get("ANTHROPIC_API_KEY", "")
     if not api_key and not args.dry_run:
-        sys.exit("ERROR: ANTHROPIC_API_KEY not set.")
+        sys.exit("ERROR: ANTHROPIC_API_KEY not set (pass --api-key or export ANTHROPIC_API_KEY).")
 
     # Load existing results for resume
     existing: dict[str, dict] = {}
@@ -481,7 +489,7 @@ def main() -> None:
             print(prompt[:400])
             continue
 
-        resp = call_claude(api_key, prompt)
+        resp = call_claude(api_key, prompt, model=args.model)
         if "error" in resp:
             print(f"  ERROR: {resp['error']}")
             errors += 1
@@ -501,6 +509,33 @@ def main() -> None:
             if ni_res:
                 print(f"  ni_resolution: {ni_res[:120]}")
 
+            model_used = args.model
+            usage      = resp.get("usage", {})
+
+            # Escalation: items still NEEDS_INVESTIGATION after the full-smali pass
+            # are re-run once with a stronger model, when --sonnet-model is set.
+            escalated = None
+            if new_v in NI_VERDICTS and args.sonnet_model:
+                print(f"  ↳ escalating to {args.sonnet_model}...")
+                esc = call_claude(api_key, prompt, model=args.sonnet_model)
+                if "error" in esc:
+                    print(f"    escalation ERROR: {esc['error']}")
+                    escalated = {"error": esc["error"], "model": args.sonnet_model}
+                else:
+                    esc_parsed = parse_json_response(esc["text"])
+                    esc_v = esc_parsed.get("verdict", "PARSE_ERROR").upper()
+                    print(f"    {new_v} → {esc_v}  (model={args.sonnet_model})")
+                    escalated = {
+                        "model":  args.sonnet_model,
+                        "verdict": esc_v,
+                        "parsed":  esc_parsed,
+                        "usage":   esc.get("usage", {}),
+                    }
+                    # Adopt the escalated verdict as authoritative.
+                    parsed, new_v = esc_parsed, esc_v
+                    model_used = args.sonnet_model
+                    usage      = esc.get("usage", {})
+
             if new_v in CONFIRMED:
                 promoted += 1
             elif new_v == "LIKELY_FP":
@@ -512,8 +547,10 @@ def main() -> None:
                 "package":          pkg,
                 "original_verdict": rec.get("verdict"),
                 "new_verdict":      new_v,
+                "model":            model_used,
                 "parsed":           parsed,
-                "usage":            resp.get("usage", {}),
+                "usage":            usage,
+                "escalated":        escalated,
                 "original_record":  rec,
             }
 

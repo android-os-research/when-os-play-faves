@@ -7,7 +7,7 @@ End-to-end pipeline: Android firmware dump → confirmed privilege deviations (C
 | Tool | Purpose | Install |
 |---|---|---|
 | `baksmali` **2.5.2** | DEX → smali decompiler | Installed by `setup.sh`; or download from [JesusFreke/smali releases](https://github.com/JesusFreke/smali/releases/tag/v2.5.2) |
-| `ollama` + `dolphin3-r1` | Phase 1 local LLM triage | Installed by `setup.sh`; or `curl -fsSL https://ollama.ai/install.sh \| sh && ollama pull dolphin3-r1` |
+| `ollama` + `dolphin3-r1` | Phase 1 local LLM triage | Installed by `setup.sh`; or manually: `curl -fsSL https://ollama.com/install.sh \| sh` then `ollama create dolphin3-r1 -f Modelfile` (registers `dphn/Dolphin3.0-R1-Mistral-24B` from the repo-root `Modelfile`) |
 | Python 3.10+ | All analysis scripts | Installed by `setup.sh` into a virtual environment (`.venv/`) |
 | `ANTHROPIC_API_KEY` | Phase 2/2b cloud validation | export in shell or pass `--api-key` |
 

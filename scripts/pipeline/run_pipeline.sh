@@ -36,8 +36,9 @@
 #   - Run setup.sh first (creates .venv/ with all Python dependencies)
 #   - Activate the venv:  source .venv/bin/activate
 #   - baksmali 2.5.2 on PATH (installed by setup.sh into tools/)
-#   - ollama running locally with dolphin3-r1 pulled (for Phase 1):
-#       ollama pull dolphin3-r1
+#   - ollama running locally with the dolphin3-r1 model registered (for Phase 1);
+#     setup.sh does this, or manually from the repo root:
+#       ollama create dolphin3-r1 -f Modelfile
 #   - ANTHROPIC_API_KEY set (for Phase 2 / 2b):
 #       export ANTHROPIC_API_KEY="YOUR_API_KEY_HERE"
 # =============================================================================

@@ -39,7 +39,7 @@ API costs under $5 per device while maintaining high recall.
 
 ## Phase 1: Local LLM Triage
 
-**Model:** `dolphin3-r1` via Ollama (local, no API key needed)
+**Model:** Dolphin 3.0 R1 (`dphn/Dolphin3.0-R1-Mistral-24B`), registered locally in Ollama as `dolphin3-r1` (local, no API key needed)
 **Temperature:** default (Ollama)
 **Input:** Structured summary extracted from the Step 6 propagation trace
 **Output:** JSON with priority classification

@@ -1,0 +1,14 @@
+# Lite Phase-1 triage model for low-RAM hosts (e.g. a 16 GB VM).
+#
+# Dolphin 3.0 (Llama 3.1 8B) from the Ollama library — ~5 GB, runs comfortably
+# in 16 GB RAM. This is NOT the paper's exact model (Dolphin 3.0 R1 Mistral 24B);
+# Phase 1 is non-deterministic triage, so the lighter model is fine for the
+# scaled-down E1 demonstration. Registered under the same name the pipeline
+# expects so `--model dolphin3-r1` keeps working.
+#
+# Used by:  ./setup.sh --lite   (or setup_alt.sh)
+#   ollama create dolphin3-r1 -f Modelfile.8b
+#
+# For the faithful 24B model, use the default Modelfile instead.
+
+FROM dolphin3

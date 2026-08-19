@@ -40,11 +40,14 @@ Phase 2 uses Claude Haiku by default. Candidates marked `NEEDS_INVESTIGATION` ca
 cd scripts/pipeline/
 python3 phase2b_ni_recheck.py \
   --validated /tmp/work/samsung/claude_validated.json \
+  --prop-dir  /tmp/work/samsung/step6_propagation/per_package \
   --smali-dir /tmp/work/samsung/smali \
-  --output /tmp/work/samsung/ni_recheck.json \
-  --api-key "$ANTHROPIC_API_KEY" \
-  --escalate-model claude-sonnet-4-5-20250514
+  --output    /tmp/work/samsung/ni_recheck.json \
+  --api-key   "$ANTHROPIC_API_KEY" \
+  --sonnet-model claude-sonnet-4-6
 ```
+(`run_pipeline.sh` runs this Phase 2b step automatically; the standalone form
+above is for re-running it on its own.)
 
 ### Step 3b: APK store filtering
 
@@ -140,7 +143,12 @@ The setup script installs all dependencies and validates the installation. It wi
 ### Manual prerequisites (if not using setup.sh)
 
 - **baksmali 2.5.2**: Bundled in `tools/rom_tools/tools/`; or download from [JesusFreke/smali releases](https://github.com/JesusFreke/smali/releases/tag/v2.5.2)
-- **Ollama + dolphin3-r1**: `curl -fsSL https://ollama.ai/install.sh | sh && ollama pull dolphin3-r1`
+- **Ollama + Dolphin 3.0 R1** (`dphn/Dolphin3.0-R1-Mistral-24B`): Ollama has no first-party tag for this model, so install Ollama and register it from the bundled `Modelfile`, which pulls its GGUF build and names it `dolphin3-r1` (the pipeline's default `--model`):
+  ```bash
+  curl -fsSL https://ollama.com/install.sh | sh
+  ollama create dolphin3-r1 -f Modelfile   # auto-pulls the ~13 GB Q4_0 GGUF on first run
+  ```
+  Low on RAM (16 GB)? Edit the `Modelfile` `FROM` line to a smaller quant (e.g. `…GGUF:Q3_K_M`), or use the lighter 8B model and pass `--model dolphin3`: `ollama pull dolphin3`.
 - **Python 3.10+**: `python3 -m venv .venv && source .venv/bin/activate && pip install anthropic requests google-play-scraper apksearch protobuf bsdiff4 zstandard`
 - **ROM tools** (for MIUI extraction): `sudo apt install libfuse-dev fuse brotli` + build erofs-utils, e2fsprogs
 

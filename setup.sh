@@ -11,7 +11,7 @@
 # This script installs:
 #   - baksmali 2.5.2 (DEX → smali decompiler)
 #   - Python 3 dependencies (anthropic, requests, google-play-scraper, apksearch)
-#   - Ollama + dolphin3-r1 model (Phase 1 local LLM triage)
+#   - Ollama + Dolphin 3.0 R1 (dphn/Dolphin3.0-R1-Mistral-24B) for Phase 1 triage
 #   - ROM extraction tools (payload_dumper, sdat2img, erofs-utils, e2fsprogs)
 #   - Android platform tools (adb, for live device mode)
 # =============================================================================
@@ -30,9 +30,13 @@ warn() { echo -e "${YELLOW}[setup]${NC} $*"; }
 err()  { echo -e "${RED}[setup]${NC} $*" >&2; }
 
 GITHUB_TOKEN=""
+WITH_ROM_TOOLS=false
+DOLPHIN_LITE=false
 while [[ $# -gt 0 ]]; do
     case "$1" in
-        --github-token) GITHUB_TOKEN="$2"; shift 2 ;;
+        --github-token)      GITHUB_TOKEN="$2"; shift 2 ;;
+        --with-rom-tools)    WITH_ROM_TOOLS=true; shift ;;
+        --lite|--dolphin-8b) DOLPHIN_LITE=true; shift ;;
         *) err "Unknown option: $1"; exit 1 ;;
     esac
 done
@@ -45,16 +49,32 @@ if [[ "$(uname -s)" != "Linux" ]]; then
 fi
 
 # ── System packages ──────────────────────────────────────────────────────────
-log "Installing system packages..."
-sudo apt-get update -qq
-sudo apt-get install -y -qq \
-    openjdk-17-jre-headless \
-    python3 python3-pip python3-venv \
-    unzip wget curl jq axel brotli \
-    libfuse-dev fuse \
-    android-tools-adb \
-    git build-essential autoconf automake libtool pkg-config \
-    2>/dev/null
+# Core tools needed for the bundled E1 reproduction (Steps 1-6 + LLM phases).
+# fuse/build tools below are only required with --with-rom-tools (firmware
+# extraction), so they are not part of this core check.
+CORE_CMDS=(java python3 pip3 unzip file wget curl jq brotli git)
+MISSING_CMDS=()
+for c in "${CORE_CMDS[@]}"; do command -v "$c" &>/dev/null || MISSING_CMDS+=("$c"); done
+
+APT_PKGS="openjdk-17-jre-headless python3 python3-pip python3-venv \
+unzip file wget curl jq axel brotli libfuse-dev fuse android-tools-adb \
+git build-essential autoconf automake libtool pkg-config"
+
+if [[ ${#MISSING_CMDS[@]} -eq 0 ]]; then
+    log "Core system tools already present — skipping apt-get."
+elif command -v sudo &>/dev/null && { sudo -n true 2>/dev/null || [[ -t 0 ]]; }; then
+    # Passwordless sudo, or an interactive terminal where the user can type a
+    # password. (The [[ -t 0 ]] guard avoids hanging on a password prompt when
+    # this script is run non-interactively, e.g. piped or over a headless SSH.)
+    log "Installing system packages (missing: ${MISSING_CMDS[*]})..."
+    sudo apt-get update -qq || warn "apt-get update failed (continuing)."
+    sudo apt-get install -y -qq $APT_PKGS 2>/dev/null \
+        || warn "apt-get install reported errors (continuing)."
+else
+    warn "Missing tools (${MISSING_CMDS[*]}) and sudo is unavailable (or this is a"
+    warn "non-interactive run). Install them manually, then re-run this script:"
+    warn "  sudo apt-get install -y $APT_PKGS"
+fi
 
 # ── Python dependencies ─────────────────────────────────────────────────────
 VENV_DIR="$SCRIPT_DIR/.venv"
@@ -105,8 +125,14 @@ else
 fi
 
 # ── ROM extraction tools (build from source) ─────────────────────────────────
-if [[ -d "$ROM_TOOLS_DIR" ]]; then
-    log "Building ROM extraction tools..."
+# Only needed for firmware/MIUI extraction (Mode C). The bundled E1 sample is
+# already extracted, so these heavy source builds are OFF by default. Enable
+# with --with-rom-tools.
+if [[ "$WITH_ROM_TOOLS" != true ]]; then
+    log "Skipping ROM-tool source builds (not needed for the bundled E1 sample)."
+    log "  Re-run with --with-rom-tools for MIUI/firmware extraction (Mode C)."
+elif [[ -d "$ROM_TOOLS_DIR" ]]; then
+    log "Building ROM extraction tools (--with-rom-tools)..."
 
     # Build erofs-utils (for EROFS filesystem images)
     if [[ ! -f "$ROM_TOOLS_DIR/erofs-utils/fuse/erofsfuse" ]]; then
@@ -199,72 +225,113 @@ else
     warn "MIUI zip extraction will not be available."
 fi
 
-# ── Ollama + Dolphin (Phase 1 local LLM) ────────────────────────────────────
+# ── Ollama + Dolphin 3.0 R1 (Phase 1 local LLM) ──────────────────────────────
+# The paper uses dphn/Dolphin3.0-R1-Mistral-24B. Ollama has no first-party tag
+# for it, so we register it locally as "dolphin3-r1" (the pipeline's default
+# --model) from the vendored upstream Modelfile. That Modelfile's FROM pulls the
+# GGUF build (bartowski/cognitivecomputations_Dolphin3.0-R1-Mistral-24B-GGUF:Q4_0,
+# ~13 GB) from Hugging Face and carries the correct ChatML template and params.
+# Source: https://huggingface.co/dphn/Dolphin3.0-R1-Mistral-24B
+#
+# Low on RAM (16 GB host)? Use the lite 8B model — ./setup.sh --lite (or
+# setup_alt.sh), which registers dolphin3-r1 from Modelfile.8b (FROM dolphin3,
+# ~5 GB). Alternatively keep the 24B and point DOLPHIN_GGUF at a smaller quant:
+#   DOLPHIN_GGUF=hf.co/bartowski/cognitivecomputations_Dolphin3.0-R1-Mistral-24B-GGUF:Q3_K_M ./setup.sh
+DOLPHIN_GGUF="${DOLPHIN_GGUF:-}"
+
 log "Setting up Ollama for Phase 1 local LLM triage..."
 if ! command -v ollama &>/dev/null; then
     log "  Installing Ollama..."
-    curl -fsSL https://ollama.ai/install.sh | sh
+    curl -fsSL https://ollama.com/install.sh | sh
 fi
 
-log "  Pulling dolphin3-r1 model (this may take a while on first run)..."
-ollama pull dolphin3-r1 2>/dev/null || warn "Could not pull dolphin3-r1. Phase 1 requires Ollama running with this model."
+# 'ollama create' needs a reachable server. The Linux installer normally starts
+# a systemd service; if not, start one in the background.
+if ! curl -fsS http://localhost:11434/api/tags &>/dev/null; then
+    log "  Starting Ollama server in the background..."
+    ( ollama serve >/tmp/ollama-serve.log 2>&1 & ) || true
+    for _ in $(seq 1 30); do
+        curl -fsS http://localhost:11434/api/tags &>/dev/null && break
+        sleep 1
+    done
+fi
 
-# ── Validation ───────────────────────────────────────────────────────────────
+# Pick the Modelfile that defines the local 'dolphin3-r1' model:
+#   --lite  → Modelfile.8b  (FROM dolphin3, ~5 GB, fits a 16 GB host)
+#   default → Modelfile     (24B R1 GGUF, ~13 GB; DOLPHIN_GGUF can swap the quant)
+if [[ "$DOLPHIN_LITE" == true ]]; then
+    DOLPHIN_MODELFILE="$SCRIPT_DIR/Modelfile.8b"
+    DOLPHIN_DESC="Dolphin 3.0 (8B, lite) as 'dolphin3-r1' (~5 GB, fits 16 GB RAM)"
+    if [[ ! -f "$DOLPHIN_MODELFILE" ]]; then
+        err "Modelfile.8b not found at $DOLPHIN_MODELFILE — cannot register the lite model."
+    fi
+else
+    DOLPHIN_MODELFILE="$SCRIPT_DIR/Modelfile"
+    DOLPHIN_DESC="Dolphin 3.0 R1 (24B) as 'dolphin3-r1' (pulls ~13 GB GGUF on first run)"
+    if [[ ! -f "$DOLPHIN_MODELFILE" ]]; then
+        err "Modelfile not found at $DOLPHIN_MODELFILE — cannot register dolphin3-r1."
+    elif [[ -n "$DOLPHIN_GGUF" ]]; then
+        DOLPHIN_MODELFILE="$(mktemp)"
+        sed "s#^FROM .*#FROM ${DOLPHIN_GGUF}#" "$SCRIPT_DIR/Modelfile" > "$DOLPHIN_MODELFILE"
+    fi
+fi
+
+if [[ -f "$DOLPHIN_MODELFILE" ]]; then
+    log "  Registering $DOLPHIN_DESC..."
+    if ! ollama create dolphin3-r1 -f "$DOLPHIN_MODELFILE"; then
+        warn "Could not create 'dolphin3-r1'. Phase 1 needs Ollama running with this model."
+        if [[ "$DOLPHIN_LITE" != true ]]; then
+            warn "  Low on RAM (16 GB)? Use the lite 8B model instead:"
+            warn "    ./setup.sh --lite      (or run setup_alt.sh)"
+            warn "  Or a smaller 24B quant:"
+            warn "    DOLPHIN_GGUF=hf.co/bartowski/cognitivecomputations_Dolphin3.0-R1-Mistral-24B-GGUF:Q3_K_M ./setup.sh"
+        fi
+    fi
+fi
+
+# ── Verification ─────────────────────────────────────────────────────────────
 echo ""
-log "============================================"
-log "  Installation Validation"
-log "============================================"
+echo "=== Artifact Setup Verification ==="
+echo ""
 
-PASS=0
+PYBIN="$VENV_DIR/bin/python"
+[[ -x "$PYBIN" ]] || PYBIN="python3"
+
 FAIL=0
-
-check() {
-    local name="$1"
-    local cmd="$2"
+verify() {
+    local name="$1" cmd="$2"
     if eval "$cmd" &>/dev/null; then
-        echo -e "  ${GREEN}✓${NC} $name"
-        ((PASS++))
+        echo "[OK] $name"
     else
-        echo -e "  ${RED}✗${NC} $name"
-        ((FAIL++))
+        echo "[MISSING] $name"
+        FAIL=$((FAIL+1))
     fi
 }
 
-check "Java 17+"              "java -version 2>&1 | grep -q '17\|18\|19\|20\|21\|22\|23'"
-check "baksmali"               "test -f '$SCRIPT_DIR/tools/baksmali' && '$SCRIPT_DIR/tools/baksmali' --version >/dev/null 2>&1"
-check "Python 3 (venv)"       "python3 --version"
-check "anthropic (Python)"    "python3 -c 'import anthropic'"
-check "requests (Python)"     "python3 -c 'import requests'"
-check "google-play-scraper"   "python3 -c 'import google_play_scraper'"
-check "apksearch"             "python3 -c 'import apksearch'"
-check "bsdiff4 (ROM tools)"   "python3 -c 'import bsdiff4'"
-check "protobuf (ROM tools)"  "python3 -c 'import google.protobuf'"
-check "Ollama"                "command -v ollama"
-check "adb"                   "command -v adb"
-
-if [[ -d "$ROM_TOOLS_DIR" ]]; then
-    check "payload_dumper"    "test -f '$ROM_TOOLS_DIR/payload_dumper/payload_dumper.py'"
-    check "sdat2img"          "test -d '$ROM_TOOLS_DIR/sdat2img'"
-    check "erofs-utils"       "test -f '$ROM_TOOLS_DIR/erofs-utils/fuse/erofsfuse' || test -d '$ROM_TOOLS_DIR/erofs-utils'"
-    check "e2fsprogs"         "test -f '$ROM_TOOLS_DIR/e2fsprogs/misc/fuse2fs' || test -d '$ROM_TOOLS_DIR/e2fsprogs'"
-fi
+verify "Java"                       "java -version 2>&1 | grep -qE '(1[7-9]|[2-9][0-9])'"
+verify "Python"                     "$PYBIN --version"
+verify "Python virtual environment" "test -f '$VENV_DIR/bin/activate'"
+verify "baksmali"                   "test -x '$SCRIPT_DIR/tools/baksmali' && '$SCRIPT_DIR/tools/baksmali' --version >/dev/null 2>&1"
+verify "Ollama"                     "command -v ollama"
+verify "Dolphin model"              "ollama list 2>/dev/null | grep -qi dolphin3-r1"
+verify "unzip"                      "command -v unzip"
+verify "file"                       "command -v file"
+verify "Python dependencies"        "$PYBIN -c 'import anthropic, requests, google_play_scraper, apksearch, bsdiff4, google.protobuf'"
+verify "Sample framework"           "test -d '$SCRIPT_DIR/examples/sample_device/system/system/framework'"
+verify "Reference outputs"          "test -f '$SCRIPT_DIR/examples/sample_device/sample_device_results_claude_validated.json'"
 
 echo ""
 if [[ $FAIL -eq 0 ]]; then
-    log "All checks passed ($PASS/$PASS). Setup complete!"
+    echo "Setup complete."
 else
-    warn "$PASS passed, $FAIL failed. See above for details."
-    warn "The pipeline may still work for some input modes."
+    echo "Setup finished with $FAIL missing component(s) — see [MISSING] lines above."
 fi
 
 echo ""
-log "Next steps:"
-log "  1. Activate the virtual environment:  source .venv/bin/activate"
-log "  2. Set your Anthropic API key:        export ANTHROPIC_API_KEY=\"YOUR_API_KEY_HERE\""
-log "  3. Start Ollama:                      ollama serve  (in another terminal)"
-log "  4. Run the pipeline:                  ./scripts/pipeline/run_pipeline.sh <dump_dir> <work_dir> <vendor>"
-log ""
-log "  Or use the extraction helpers first:"
-log "    ./scripts/extract_adb.sh <serial> <output_dir>          # Live device via ADB"
-log "    ./scripts/extract_android_dumps.sh <tar.gz> <output_dir> # Android Dumps archive"
-log "    ./scripts/extract_miui.sh <miui.zip> <output_dir>        # MIUI firmware zip"
+echo "Next:"
+echo "  source .venv/bin/activate"
+echo "  ollama serve                                  # if not already running as a service"
+echo "  export ANTHROPIC_API_KEY=\"YOUR_KEY_HERE\"       # for Phase 2 / 2b (cloud validation)"
+echo "  ./scripts/pipeline/run_pipeline.sh examples/sample_device/ /tmp/work/ samsung --skip-filter --skip-phase2"
+echo ""
+echo "  (Firmware/MIUI extraction is optional — re-run: ./setup.sh --with-rom-tools)"
