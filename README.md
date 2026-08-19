@@ -1,383 +1,812 @@
-# Artifact — NDSS paper #711
-
-Artifact for NDSS 2027 paper: *"User-denied, System-approved: A Security Analysis of OEM Subversions on Android’s Access Control"*
-
-This repository contains the complete analysis pipeline that takes an Android firmware image (or a live device) and identifies OEM-introduced privilege deviations — cases where third-party apps receive undocumented permissions, enforcement exemptions, or special treatment hardcoded into framework code.
-
+# Artifact — NDSS 2027 Paper #711
+Artifact for the NDSS 2027 paper:
+**“User-denied, System-approved: A Security Analysis of OEM Subversions on Android’s Access Control”**
+This artifact supports our analysis of OEM framework-level access-control
+subversions in Android. These subversions arise when OEM framework
+customizations introduce identity-specific privilege decisions that differ
+from AOSP, allowing selected applications to obtain, retain, or bypass access
+to security-sensitive resources.
+The artifact provides:
+1. the static-analysis pipeline used to discover OEM-selected application
+   identities and trace identity-specific framework logic to security-sensitive
+   enforcement surfaces;
+2. 286 consolidated framework-evidence reports prepared from findings examined
+   during the study;
+3. supporting documentation for independently auditing the underlying smali
+   evidence; and
+4. dynamic-validation materials for representative findings reproduced on
+   production devices.
+The repository also contains a bundled Samsung Galaxy A22 5G framework sample
+for a scaled-down reproduction of the analysis workflow.
 ---
-
-## Quick Start (Kick-the-Tires)
-
-For a quick functionality check without needing firmware images (Steps 1–6: ~3 min, Phase 1: ~4.5h on CPU):
-
+# Quick Start — Fresh Ubuntu Machine
+The following commands are intended to be copy-pasted on a fresh Ubuntu
+22.04/24.04 installation.
+The only package installed manually before cloning the artifact is Git.
+All remaining artifact dependencies are installed by `setup.sh`.
 ```bash
-# 1. Install dependencies
-chmod +x setup.sh && ./setup.sh
-
-# 2. Activate the virtual environment
+# 1. Update package metadata and install Git
+sudo apt-get update
+sudo apt-get install -y git
+# 2. Clone the public artifact repository
+git clone https://github.com/android-os-research/when-os-play-faves.git
+cd when-os-play-faves
+# 3. Install and verify artifact dependencies
+chmod +x setup.sh
+./setup.sh
+# 4. Activate the Python virtual environment
 source .venv/bin/activate
-
-# 3. Run on the bundled minimal example (Samsung Galaxy A22 5G, Android 13)
-#    --skip-filter skips APK store lookups (saves ~4 hours, see note below)
-cd scripts/pipeline/
-./run_pipeline.sh ../../examples/sample_device/ /tmp/work/ samsung --skip-filter --skip-phase2
-
-# 4. Check output
-cat /tmp/work/samsung/triage.json | python3 -m json.tool | head -40
+# 5. Run the bundled artifact reproduction
+./scripts/pipeline/run_pipeline.sh \
+    examples/sample_device/ \
+    /tmp/work/ \
+    samsung \
+    --skip-filter \
+    --skip-phase2
+# 6. Inspect the Tier-1 output
+python3 -m json.tool /tmp/work/samsung/triage.json | head -40
 ```
 
-This runs Steps 1–6 + Phase 1 (local LLM triage) on a small pre-extracted device dump. No API keys or firmware downloads needed.
+The default setup uses the original Dolphin 3.0 R1 Mistral 24B
+configuration.
 
-To also run Phase 2 (cloud LLM validation):
+No Anthropic API key is required for the command above.
+
+The bundled sample contains pre-extracted framework artifacts from a Samsung
+Galaxy A22 5G running Android 13, so no firmware download or extraction is
+required for the basic reproduction.
+
+
+# Setup Modes
+
+### Default — Original 24B Model
+
+The normal evaluator configuration is:
 ```bash
-export ANTHROPIC_API_KEY="YOUR_TOKEN_HERE"   # OAuth token (sk-ant-oat01-*) [tested with] or API key (sk-ant-api03-*)
-./run_pipeline.sh ../../examples/sample_device/ /tmp/work/ samsung --skip-filter
-cat /tmp/work/samsung/claude_validated.json | python3 -m json.tool
+./setup.sh
 ```
-
-Phase 2 uses Claude Haiku by default. Candidates marked `NEEDS_INVESTIGATION` can be escalated to Phase 2b, which re-evaluates them with expanded smali context and optionally escalates to Claude Sonnet for higher-quality reasoning:
+This installs and registers the original local model configuration used by the
+pipeline:
 ```bash
-cd scripts/pipeline/
-python3 phase2b_ni_recheck.py \
-  --validated /tmp/work/samsung/claude_validated.json \
-  --prop-dir  /tmp/work/samsung/step6_propagation/per_package \
-  --smali-dir /tmp/work/samsung/smali \
-  --output    /tmp/work/samsung/ni_recheck.json \
-  --api-key   "$ANTHROPIC_API_KEY" \
-  --sonnet-model claude-sonnet-4-6
+Dolphin 3.0 R1 Mistral 24B
 ```
-(`run_pipeline.sh` runs this Phase 2b step automatically; the standalone form
-above is for re-running it on its own.)
+The model is registered in Ollama under the local name:
+```bash
+dolphin3-r1
+```
+The pipeline therefore does not require any additional model argument.
 
-### Step 3b: APK store filtering
+### Lite — 8B Model
 
-Step 3b checks whether each discovered package name exists as a real app in Google Play, APKMirror, APKPure, and other sources. This reduces false positives (internal framework strings that look like package names) but queries external APIs at ~5 seconds per package. For the bundled sample (~3,500 packages to check), a live scan takes **approximately 4–5 hours**.
+For memory-constrained machines, the setup script also supports:
+```bash
+./setup.sh --lite
+```
+This loads the smaller Dolphin 8B configuration from Modelfile.8b and
+registers it under the same local model name:
+```bash
+dolphin3-r1
+```
+This allows the same pipeline command to be used in both configurations.
 
-The bundled sample ships with a **pre-computed filter cache** (`examples/sample_device/step3b_scan_cache/`). When you use `--skip-filter`, the pipeline automatically detects and uses this cache — giving you the same filtered results without any API queries.
+--lite is intended primarily for functionality testing on constrained
+machines. Unless otherwise stated, reproduction results should be obtained
+using the default 24B configuration.
 
-- **Recommended for evaluation:** use `--skip-filter` (uses the bundled cache, no wait).
-- **Full live scan:** omit `--skip-filter` to re-run the APK store lookups from scratch.
 
----
+## What setup.sh Installs
+
+A normal evaluator should not need to install artifact dependencies manually.
+
+setup.sh installs and verifies:
+
+* Java;
+* Python and an isolated virtual environment;
+* required Python packages;
+* baksmali 2.5.2;
+* Ollama;
+* the selected Dolphin model;
+* standard Linux utilities required by the pipeline;
+* the bundled sample framework; and
+* bundled reference outputs.
+
+The setup script also:
+
+* starts or verifies the Ollama service;
+* registers the model as dolphin3-r1;
+* confirms that the Ollama API is reachable; and
+* performs a minimal model-inference sanity check.
+
+A successful setup ends with a verification block in which all required
+components are reported as [OK].
+
+For example:
+```bash
+=== Artifact Setup Verification ===
+[OK] Java
+[OK] Python
+[OK] Python virtual environment
+[OK] baksmali
+[OK] Ollama CLI
+[OK] Ollama server
+[OK] Dolphin model
+[OK] unzip
+[OK] file
+[OK] Python dependencies
+[OK] Sample framework
+[OK] Reference outputs
+Setup complete.
+```
+There is normally no need to run:
+```bash
+ollama serve
+```
+manually after a successful setup. The setup script starts and verifies the
+service.
+
+The Ollama installation can be checked independently with:
+```bash
+systemctl status ollama --no-pager
+ollama list
+```
+The model list should contain:
+```bash
+dolphin3-r1
+```
+
+# Bundled Reproduction
+
+The recommended artifact-evaluation command is:
+```bash
+source .venv/bin/activate
+./scripts/pipeline/run_pipeline.sh \
+    examples/sample_device/ \
+    /tmp/work/ \
+    samsung \
+    --skip-filter \
+    --skip-phase2
+```
+This exercises:
+
+* framework discovery;
+* DEX recovery and smali disassembly;
+* hardcoded identity discovery;
+* method-level enforcement analysis;
+* method-level call-graph construction;
+* identity propagation to security-sensitive enforcement surfaces; and
+* local Dolphin-based Tier-1 triage.
+
+No cloud API key is required.
+
+## Expected runtime
+
+TODO-AE: Replace these values after the clean x86-64/24B and ARM64/8B runs
+complete.
+
+Current test environments:
+
+### Environment A
+
+* OS: Ubuntu 24.04.3 LTS
+* Architecture: x86-64
+* vCPUs: 12
+* RAM: 32 GB
+* Model: Dolphin 3.0 R1 Mistral 24B
+* GPU: none
+* Status: TEST IN PROGRESS
+
+### Environment B
+
+* OS: Ubuntu VM on Apple Silicon
+* Architecture: ARM64
+* Model: Dolphin 8B (--lite)
+* GPU: none
+* Status: TEST IN PROGRESS
+
+TODO-AE: Add:
+
+* total runtime;
+* deterministic Steps 1–6 runtime;
+* Tier-1 runtime;
+* peak RAM;
+* output counts.
+
+
+## APK-Store Filtering
+
+Step 3b attempts to distinguish real application identities from internal
+framework strings that resemble package names by querying external application
+sources.
+
+A live Step 3b execution is substantially slower than the remaining
+deterministic stages because the lookups are network-bound and rate-limited.
+
+The bundled sample includes a pre-computed package-filter cache under:
+```bash
+examples/sample_device/step3b_scan_cache/
+```
+For artifact evaluation, we recommend:
+```bash
+--skip-filter
+```
+to avoid long-running external lookups.
+
+To explicitly exercise the live package-store filtering stage, omit
+--skip-filter:
+```bash
+source .venv/bin/activate
+./scripts/pipeline/run_pipeline.sh \
+    examples/sample_device/ \
+    /tmp/work/ \
+    samsung \
+    --skip-phase2
+```
+Internet access is required for this mode.
+
+TODO-AE: Confirm the exact interaction between --skip-filter and the
+bundled cache after the current reproduction run, and add the measured live
+filter runtime.
+
+## Optional Cloud-Assisted Validation
+
+The cloud-assisted validation stages are optional for the basic bundled
+reproduction.
+
+To enable them:
+```bash
+export ANTHROPIC_API_KEY="YOUR_API_KEY"
+```
+Then run the pipeline without --skip-phase2:
+```bash
+source .venv/bin/activate
+./scripts/pipeline/run_pipeline.sh \
+    examples/sample_device/ \
+    /tmp/work/ \
+    samsung \
+    --skip-filter
+```
+The validation results are written under the device work directory, including:
+```bash
+/tmp/work/samsung/claude_validated.json
+```
+Reference cloud-validation output for the bundled sample is included in the
+artifact, so evaluators can inspect the results of this stage without supplying
+an API key.
+
+The pipeline also includes a re-evaluation stage for unresolved candidates
+using expanded smali context.
+
+It can be executed independently with:
+```bash
+python3 scripts/pipeline/phase2b_ni_recheck.py \
+    --validated /tmp/work/samsung/claude_validated.json \
+    --prop-dir  /tmp/work/samsung/step6_propagation/per_package \
+    --smali-dir /tmp/work/samsung/smali \
+    --output    /tmp/work/samsung/ni_recheck.json \
+    --api-key   "$ANTHROPIC_API_KEY" \
+    --sonnet-model claude-sonnet-4-6
+```
+
+Phase 2 and the re-evaluation stage accept either a funded Anthropic API key
+(`sk-ant-api03-…`) or an OAuth token with API access (`sk-ant-oat01-…`); both
+are passed the same way, via `ANTHROPIC_API_KEY` or `--api-key`.
+
+A plain API key is billed per token. Our reference runs instead use an OAuth
+token, because it draws on an existing Claude plan and therefore avoids
+additional per-usage API charges. Reviewers may use whichever credential is
+more cost-effective for them — an OAuth token if it is covered by an existing
+plan, or a funded API key otherwise; both produce identical results.
+
+## Skipping the Local Triage (Precomputed Tier-1)
+
+The local Tier-1 triage (Phase 1) is the slowest stage on a CPU-only machine.
+To skip it, the artifact bundles a precomputed Tier-1 triage produced with the
+default 24B model:
+```bash
+examples/sample_device/precomputed/triage.json
+```
+Run the pipeline with `--skip-phase1` to use it. The deterministic Steps 1–6
+still run (a few minutes with `--skip-filter`), but the multi-hour local-LLM
+triage is replaced by the bundled result:
+```bash
+source .venv/bin/activate
+export ANTHROPIC_API_KEY="YOUR_API_KEY_OR_OAUTH_TOKEN"
+./scripts/pipeline/run_pipeline.sh \
+    examples/sample_device/ \
+    /tmp/work/ \
+    samsung \
+    --skip-filter \
+    --skip-phase1
+```
+Because the bundled triage is the 24B output, this path yields the same Tier-1
+quality even on a memory-constrained machine that would otherwise use `--lite`.
+It requires no Ollama or GPU. Add `--skip-phase2` to stop after loading the
+precomputed triage (no cloud validation).
 
 ## Repository Structure
-
-```
-artifacts/
-├── setup.sh                        # One-command dependency installer (Ubuntu 22.04/24.04)
-├── README.md                       # This file
+```bash
+when-os-play-faves/
+├── setup.sh
+├── Modelfile
+├── Modelfile.8b
+├── README.md
+│
 ├── examples/
-│   └── sample_device/              # Samsung Galaxy A22 5G (Android 13) framework JARs
-│       └── system/framework/...    # 91 JARs, ~100MB — kick-the-tires test
+│   └── sample_device/
+│       ├── system/...
+│       ├── step3b_scan_cache/
+│       ├── precomputed/triage.json          # precomputed Tier-1 (--skip-phase1)
+│       └── sample_device_results_claude_validated.json
+│
 ├── scripts/
-│   ├── extract_adb.sh              # Mode A: pull from live ADB device
-│   ├── extract_android_dumps.sh    # Mode B: extract Android Dumps tar.gz
-│   ├── extract_miui.sh             # Mode C: extract MIUI firmware zip
-│   ├── normalize_vuln_reports.py   # Convert JSON results → vuln-NNN.md reports
-│   └── pipeline/                   # Core analysis pipeline
-│       ├── run_pipeline.sh         # Entry point — full pipeline for one device
-│       ├── step1_find_jars.sh      # Find JAR/DEX files
-│       ├── step2_decompile_jars.sh # Decompile to smali (baksmali 2.5.2)
-│       ├── step3_find_package_refs.py    # Scan for hardcoded package references
-│       ├── step3b_filter_packages.py     # Filter by APK store presence
-│       ├── step4_analyze_methods.py      # Variable flow + enforcement patterns
-│       ├── step5_smali_callgraph.py      # Method-level call graph
-│       ├── step6_propagation_tracker.py  # Per-package propagation chains
-│       ├── phase1_llm_triage.py          # Local LLM triage (Ollama/Dolphin)
-│       ├── phase2_llm_validate.py        # Cloud LLM validation (Claude Haiku)
-│       ├── phase2b_ni_recheck.py         # NI re-evaluation (Haiku + Sonnet)
-│       └── README.md                     # Detailed pipeline documentation
-├── tools/
-│   ├── baksmali-2.5.2.jar          # Downloaded by setup.sh
-│   ├── baksmali                    # Wrapper script
-│   └── rom_tools/                  # Firmware extraction toolchain
-│       ├── rom.sh                  # Universal ROM extractor
-│       ├── payload_dumper/         # OTA payload.bin extractor
-│       ├── sdat2img/               # system.new.dat converter
-│       ├── splituapp/              # Huawei UPDATE.APP splitter
-│       ├── tools/                  # deimg.sh, devdex.sh, etc.
-│       └── setup.sh               # Build erofs-utils, e2fsprogs, vdexExtractor
+│   ├── extract_adb.sh
+│   ├── extract_android_dumps.sh
+│   ├── extract_miui.sh
+│   ├── normalize_vuln_reports.py
+│   │
+│   └── pipeline/
+│       ├── run_pipeline.sh
+│       ├── step1_find_jars.sh
+│       ├── step2_decompile_jars.sh
+│       ├── step3_find_package_refs.py
+│       ├── step3b_filter_packages.py
+│       ├── step4_analyze_methods.py
+│       ├── step5_smali_callgraph.py
+│       ├── step6_propagation_tracker.py
+│       ├── phase1_llm_triage.py
+│       ├── phase2_llm_validate.py
+│       ├── phase2b_ni_recheck.py
+│       └── README.md
+│
 ├── reproducibility/
-│   └── vuln/                       # 286 per-finding markdown reports
-│       ├── Cat1/                   # Consent Subversion (CS) case studies (§VI-A)
-│       ├── Cat2/                   # Revocability Subversion (RS) case studies (§VI-B)
-│       └── vuln-001.md … vuln-286.md  # All confirmed deviations
-├── poc-videos/                     # Proof-of-concept demonstration videos
-│   ├── cat1_nokia_integrator_content_provider.mp4
-│   ├── cat2_oneplus_silent_sms.mp4
-│   ├── cat2_vivo_bal_bypass.mp4
-│   └── cat2_xiaomi_installer_bypass.mp4
+│   └── vuln/
+│       └── 286 consolidated framework-evidence reports
+│
+├── poc-videos/
+│   └── representative dynamic-validation videos
+│
+├── docs/
+│   ├── SMALI_VERIFICATION_GUIDE.md
+│   ├── PIPELINE_OUTPUT_GUIDE.md
+│   ├── FIRMWARE_EXTRACTION_GUIDE.md
+│   └── LLM_PROMPT_TRANSPARENCY.md
+│
+├── tools/
+│   ├── baksmali-2.5.2.jar
+│   ├── baksmali
+│   └── rom_tools/
+│
 └── LICENSE
 ```
 
----
-
 ## System Requirements
 
+The bundled reproduction is designed for a standard Linux machine.
+
 | Resource | Requirement |
-|----------|-------------|
-| **OS** | Ubuntu 22.04/24.04 LTS or Debian 13 (x86-64) |
+|---|---|
+| **OS** | Ubuntu 22.04/24.04 LTS or Debian 13 |
+| **Architecture** | x86-64 recommended for artifact evaluation |
 | **CPU** | 8+ cores recommended |
-| **RAM** | 16 GB minimum |
-| **Disk** | 50 GB free (for firmware extraction + working files) |
-| **Java** | JRE 17+ (installed by `setup.sh`) |
-| **Python** | 3.10+ (venv created by `setup.sh`) |
-| **Network** | Required for Phase 2 (Anthropic API) and Step 3b (APK store lookups) |
-| **GPU** | Optional — Phase 1 (Ollama) benefits from GPU but works on CPU |
+| **RAM — default model** | 32 GB currently recommended; final requirement pending clean 24B reproduction |
+| **RAM — lite mode** | 16 GB recommended |
+| **Disk** | 30–50 GB free recommended |
+| **GPU** | Not required |
+| **Network** | Required during setup; additionally required for live Step 3b and optional cloud validation |
 
-**API costs:** Running Phase 2 on a single device costs ~$0.50–$2.00 (Claude Haiku).
+Java, Python, baksmali, Ollama, and Python dependencies are installed by
+setup.sh.
 
----
+### Tested Environments
 
-## Installation
+This table should only list configurations that have actually completed the
+documented reproduction.
 
+| Environment | Architecture | Model | Status |
+|---|---|---|---|
+| Ubuntu 24.04.3 VM | x86-64 | Dolphin R1 24B | **TEST IN PROGRESS** |
+| Ubuntu VM on Apple Silicon | ARM64 | Dolphin 8B (`--lite`) | **TEST IN PROGRESS** |
+| Debian 13 | x86-64 | — | **TODO-AE** |
+
+
+## Installation from a Fresh Machine
+
+For a fresh Ubuntu installation:
 ```bash
-git clone <this-repo>
-cd artifacts/
+# Update package metadata
+sudo apt-get update
+# Install Git so the public artifact can be cloned
+sudo apt-get install -y git
+# Clone the artifact
+git clone https://github.com/android-os-research/when-os-play-faves.git
+# Enter the artifact directory
+cd when-os-play-faves
+# Make setup executable
 chmod +x setup.sh
+# Install the default 24B configuration
 ./setup.sh
+# Activate the Python environment
+source .venv/bin/activate
+```
+For the smaller local model:
+```bash
+./setup.sh --lite
+source .venv/bin/activate
+```
+No other manual dependency installation should normally be necessary.
+
+
+#### Optional Firmware-Extraction Tools
+
+The bundled sample is already extracted, so firmware extraction tools are not
+required for the basic artifact evaluation.
+
+To install/build the optional extraction toolchain:
+```bash
+./setup.sh --with-rom-tools
 ```
 
-The setup script installs all dependencies and validates the installation. It will report which components are ready.
+## Input Modes
 
-### Manual prerequisites (if not using setup.sh)
+The pipeline supports three ways of obtaining Android framework artifacts.
 
-- **baksmali 2.5.2**: Bundled in `tools/rom_tools/tools/`; or download from [JesusFreke/smali releases](https://github.com/JesusFreke/smali/releases/tag/v2.5.2)
-- **Ollama + Dolphin 3.0 R1** (`dphn/Dolphin3.0-R1-Mistral-24B`): Ollama has no first-party tag for this model, so install Ollama and register it from the bundled `Modelfile`, which pulls its GGUF build and names it `dolphin3-r1` (the pipeline's default `--model`):
-  ```bash
-  curl -fsSL https://ollama.com/install.sh | sh
-  ollama create dolphin3-r1 -f Modelfile   # auto-pulls the ~13 GB Q4_0 GGUF on first run
-  ```
-  Low on RAM (16 GB)? Edit the `Modelfile` `FROM` line to a smaller quant (e.g. `…GGUF:Q3_K_M`), or use the lighter 8B model and pass `--model dolphin3`: `ollama pull dolphin3`.
-- **Python 3.10+**: `python3 -m venv .venv && source .venv/bin/activate && pip install anthropic requests google-play-scraper apksearch protobuf bsdiff4 zstandard`
-- **ROM tools** (for MIUI extraction): `sudo apt install libfuse-dev fuse brotli` + build erofs-utils, e2fsprogs
-
----
-
-## Three Input Modes
-
-The pipeline analyzes any Android device firmware. There are three ways to obtain a dump:
-
-### Mode A: Live Device via ADB
-
-Connect an Android device with USB debugging enabled:
-
+#### Mode A — Live Android Device via ADB
 ```bash
 ./scripts/extract_adb.sh [SERIAL] /data/dumps/my_device/
-./scripts/pipeline/run_pipeline.sh /data/dumps/my_device/ /data/work/ <vendor>
+./scripts/pipeline/run_pipeline.sh \
+    /data/dumps/my_device/ \
+    /data/work/ \
+    <vendor>
 ```
-
-### Mode B: Android Dumps Archive
-
-Download a device dump from [Android Dumps](https://gitlab.com/Android-Dumps) as a `.tar.gz`:
-
+#### Mode B — Android Dumps Archive
 ```bash
-./scripts/extract_android_dumps.sh /path/to/device.tar.gz /data/dumps/device/
-./scripts/pipeline/run_pipeline.sh /data/dumps/device/ /data/work/ <vendor>
-
-# Fast mode: extract only framework JARs (~50-200MB instead of full dump)
-./scripts/extract_android_dumps.sh /path/to/device.tar.gz /data/dumps/device/ --framework-only
+./scripts/extract_android_dumps.sh \
+    /path/to/device.tar.gz \
+    /data/dumps/device/
 ```
-
-### Mode C: MIUI Firmware Zip
-
-Download a MIUI ROM from [xiaomifirmwareupdater.com](https://xmfirmwareupdater.com/miui/):
-
+Framework-only extraction:
 ```bash
-./scripts/extract_miui.sh /path/to/miui_firmware.zip /data/dumps/xiaomi_device/
-./scripts/pipeline/run_pipeline.sh /data/dumps/xiaomi_device/rom-deodexed/ /data/work/ xiaomi
+./scripts/extract_android_dumps.sh \
+    /path/to/device.tar.gz \
+    /data/dumps/device/ \
+    --framework-only
 ```
-
-**Note:** MIUI extraction requires `sudo` for mounting filesystem images. The `rom.sh` toolchain handles payload.bin, sparse images, EROFS, and deodexing automatically.
-
----
-
-## Pipeline Overview
-
-```
-Input: firmware dump directory (from any of the three modes above)
-       │
-       ├─ Step 1   Find all .jar/.dex files in the dump
-       ├─ Step 2   Decompile JARs to smali bytecode (baksmali 2.5.2)
-       ├─ Step 3   Scan smali for hardcoded third-party package names (const-string)
-       ├─ Step 3b  Filter: keep only packages that exist as real APKs in app stores
-       ├─ Step 4   Analyze methods: variable flow, enforcement pattern classification
-       ├─ Step 5   Build method-level call graph from invoke-* instructions
-       ├─ Step 6   Synthesize per-package propagation chains (steps 3–5)
-       │
-       ├─ Phase 1  Local LLM triage (Dolphin 3.0 R1 via Ollama)
-       │           Assigns HIGH / MEDIUM / LOW to each candidate → triage.json
-       │
-       ├─ Phase 2  Cloud LLM validation (Claude Haiku, temperature=0.0)
-       │           Confirms findings against actual smali + AOSP absence check
-       │           → claude_validated.json
-       │
-       └─ Phase 2b NI re-evaluation (Haiku full smali + Sonnet escalation)
-                   Re-runs NEEDS_INVESTIGATION with no size cap → ni_recheck.json
-
-Output: claude_validated.json with verdicts:
-        CONFIRMED_HIGH     — real privilege escalation / bypass
-        CONFIRMED_MEDIUM   — real but limited risk
-        NEEDS_INVESTIGATION — ambiguous or evidence truncated
-        LIKELY_FP          — Binder plumbing, dead code, etc.
-```
-
-### Running the pipeline
-
+Then:
 ```bash
-# Full pipeline
-./scripts/pipeline/run_pipeline.sh <dump_dir> <work_dir> <vendor_name>
+./scripts/pipeline/run_pipeline.sh \
+    /data/dumps/device/ \
+    /data/work/ \
+    <vendor>
+```
+Mode C — MIUI Firmware
+```bash
+./scripts/extract_miui.sh \
+    /path/to/miui_firmware.zip \
+    /data/dumps/xiaomi_device/
+```
+Then:
+```bash
+./scripts/pipeline/run_pipeline.sh \
+    /data/dumps/xiaomi_device/rom-deodexed/ \
+    /data/work/ \
+    xiaomi
+```
+Mode C requires the optional firmware-extraction toolchain:
+```bash
+./setup.sh --with-rom-tools
+```
+See:
+```bash
+docs/FIRMWARE_EXTRACTION_GUIDE.md
+```
+for detailed extraction instructions.
 
-# Stop after Phase 1 (no API key needed, $0 cost)
-./scripts/pipeline/run_pipeline.sh <dump_dir> <work_dir> <vendor> --skip-phase2
 
-# Skip live APK store lookups (uses pre-computed cache if available)
-./scripts/pipeline/run_pipeline.sh <dump_dir> <work_dir> <vendor> --skip-filter
+## Analysis Workflow
 
-# Resume a partial run
-./scripts/pipeline/run_pipeline.sh <dump_dir> <work_dir> <vendor> --resume
+The executable workflow is:
+```bash
+Input: extracted Android framework artifacts
+        │
+        ├── Step 1
+        │   Discover framework JAR/DEX files
+        │
+        ├── Step 2
+        │   Recover DEX bytecode and disassemble to smali
+        │
+        ├── Step 3
+        │   Discover hardcoded package-like identity references
+        │
+        ├── Step 3b
+        │   Filter candidate identities using external application sources
+        │
+        ├── Step 4
+        │   Analyze seed methods and identity-specific enforcement patterns
+        │
+        ├── Step 5
+        │   Construct the method-level smali call graph
+        │
+        ├── Step 6
+        │   Generate per-package propagation reports and reached
+        │   security-sensitive enforcement surfaces
+        │
+        ├── Tier 1
+        │   Local LLM-assisted triage using Dolphin/Ollama
+        │
+        ├── Tier 2
+        │   Cloud-assisted structured validation using Claude
+        │
+        └── Re-evaluation
+            Re-examine unresolved candidates using expanded smali context
+```
+The LLM stages are used for triage and evidence structuring.
+
+They do not independently establish the paper’s final confirmed findings.
+
+Candidates surviving automated analysis were manually examined against the
+underlying smali and corresponding AOSP evidence during expert review.
+
+The manual audit process is documented in:
+```bash
+docs/SMALI_VERIFICATION_GUIDE.md
 ```
 
-See `scripts/pipeline/README.md` for the full options reference.
+## Running the Pipeline
 
----
+Full pipeline:
+```bash
+./scripts/pipeline/run_pipeline.sh \
+    <dump_dir> \
+    <work_dir> \
+    <vendor>
+```
+Stop before cloud validation:
+```bash
+./scripts/pipeline/run_pipeline.sh \
+    <dump_dir> \
+    <work_dir> \
+    <vendor> \
+    --skip-phase2
+```
+Avoid live application-store filtering:
+```bash
+./scripts/pipeline/run_pipeline.sh \
+    <dump_dir> \
+    <work_dir> \
+    <vendor> \
+    --skip-filter
+```
+Skip the multi-hour local triage (use the bundled precomputed Tier-1):
+```bash
+./scripts/pipeline/run_pipeline.sh \
+    <dump_dir> \
+    <work_dir> \
+    <vendor> \
+    --skip-filter \
+    --skip-phase1
+```
+Skip the re-evaluation (Phase 2b) stage:
+```bash
+./scripts/pipeline/run_pipeline.sh \
+    <dump_dir> \
+    <work_dir> \
+    <vendor> \
+    --skip-ni-recheck
+```
+Resume a partial run:
+```bash
+./scripts/pipeline/run_pipeline.sh \
+    <dump_dir> \
+    <work_dir> \
+    <vendor> \
+    --resume
+```
+See:
+```bash
+scripts/pipeline/README.md
+```
+for the complete command-line reference.
 
-## Mapping Paper Claims to Experiments
+# Claims Supported by the Artifact
 
-The table below maps key paper claims to reproducible experiments. Each can be validated by running the pipeline on the specified input.
+The artifact evaluation focuses on three claims.
 
-| # | Paper Claim (Section) | Experiment | Expected Output |
-|---|----------------------|------------|-----------------|
-| C1 | Pipeline identifies hardcoded package references in OEM framework code (§IV) | Run Steps 1–3 on any OEM device dump | `step3_refs/references.csv` lists all discovered package references with locations |
-| C2 | APK store filtering reduces false positives from internal packages (§IV) | Run Step 3b after Step 3 | Compare row count of `step3_refs/references.csv` vs `step3b_filtered/references.csv` |
-| C3 | Local LLM triage effectively separates HIGH/MED from LOW candidates (§IV) | Run Phase 1 on Step 6 output | `triage.json` with priority distribution; paper reports ~86% classified as LOW |
-| C4 | Cloud LLM validation confirms true positives with high precision (§IV) | Run Phase 2 on a device with known findings | `claude_validated.json` should contain CONFIRMED entries matching `reproducibility/vuln/` |
-| C5 | OEM framework code grants undocumented permissions to named packages (§V, §VI) | Browse `reproducibility/vuln/Cat1/` reports (CS) | Each report shows the smali call chain from hardcoded package name to `grantRuntimePermission` |
-| C6 | OEM code provides enforcement bypasses to named packages (§V, §VI) | Browse `reproducibility/vuln/Cat2/` reports (RS) | Each report shows bypass logic (BAL, CTS checks, installer restrictions) |
-| C7 | 707 confirmed deviations across 28 OEMs, 353 unique patterns (§V) | Run on full corpus (see paper datasets) | Dedup output matches Table 2 totals |
-| C8 | Dynamic validation on purchased devices confirms static findings (§VI) | Run pipeline on ADB dump from an affected device; compare with PoC videos | `poc-videos/` demonstrates exploitation of confirmed findings |
+## C1 - Identity-to-Enforcement Analysis
 
-**Minimal validation (Claims C1–C4):** Run the full pipeline on a single device (~5–6 hours; ~4.5h without Phase 2).
-**Finding verification (Claims C5–C6):** Read `reproducibility/vuln/` reports (no setup needed).
-**Full reproduction (Claim C7):** Requires access to all three corpora.
+The pipeline can identify OEM-selected application identities in framework
+code and trace identity-specific logic through framework call chains to
+security-sensitive enforcement surfaces.
 
----
+### Evaluation
 
-## Expected Outputs (Paper Numbers)
+Run the bundled sample and inspect the generated method-analysis, call-graph,
+propagation, and Tier-1 outputs.
 
-When run on the full datasets described in the paper:
 
-| Dataset | Images | CONF_H | CONF_M | Total confirmed |
-|---------|--------|--------|--------|-----------------|
-| FirmwareScanner (IMDEA) | 4,585 | 4 | 29 | 33 |
-| MIUI official builds | 565 | 1 | 403 | 404 |
-| Android Dumps community | 55 | 19 | 181 | 200 |
-| **Dedup total** | **5,205** | **47** | **660** | **707** |
+## C2 — Inspectable Evidence for Confirmed Subversions
 
-After vendor-level deduplication: **353 unique patterns** across **28 OEMs**.
+The access-control subversions reported in the study are supported by
+inspectable framework evidence connecting selected application identities to
+altered enforcement decisions.
 
-### Cost estimate
+The artifact provides 286 consolidated evidence reports under:
+```bash
+reproducibility/vuln/
+```
+These reports were prepared from evidence examined during the study and group
+equivalent evidence by:
 
-| Phase | Method | Cost |
-|-------|--------|------|
-| Steps 1–6 | Local computation | $0 |
-| Phase 1 | Local LLM (Ollama) | $0 |
-| Phase 2 | Claude Haiku API | ~$0.50–$2.00 per device |
-| Phase 2b | Haiku + Sonnet API | included above |
+* OEM/vendor;
+* package identity;
+* call chain; and
+* enforcement surface.
 
----
+This reviewer-oriented consolidation is separate from the deduplication used
+for the paper’s measurement results.
 
-## Obtaining Firmware
+Each report exposes relevant framework evidence, including the selected
+identity, affected firmware, classification metadata, security/privacy impact,
+and identity-to-enforcement call-chain evidence.
 
-### For artifact evaluation (single-device reproduction)
+Evaluators can independently audit representative reports using:
+```bash
+docs/SMALI_VERIFICATION_GUIDE.md
+```
 
-Any Android 12+ OEM device can be used. Options:
+## C3 — Representative Production-Device Validation
 
-1. **Live device**: Use Mode A (ADB pull) with any available Android phone
-2. **Android Dumps**: Download a free device dump from [android dumps](https://gitlab.com/Android-Dumps)
-3. **MIUI ROM**: Download from [xiaomifirmwareupdater.com](https://xmfirmwareupdater.com/miui/)
+The artifact includes dynamic-validation materials for representative findings
+that were reproduced on production devices.
 
-### For full reproduction (paper corpus)
+These materials allow evaluators to relate representative static framework
+findings to the corresponding runtime behavior.
 
-1. **IMDEA FirmwareScanner** (4,585 images)
-2. **MIUI builds** (565 images): Public downloads from [xiaomifirmwareupdater.com](https://xmfirmwareupdater.com/miui/)
-3. **Android Dumps** (55 images): Public downloads from [android dumps](https://gitlab.com/Android-Dumps)
+Physical Android devices are not required for this part of artifact
+evaluation.
 
----
 
-## Verifying Individual Findings
+# Scope of Reproduction
 
-Each `reproducibility/vuln/vuln-NNN.md` report contains the full evidence chain. To verify manually:
+The paper reports:
 
-1. Decompile the firmware image with baksmali (Steps 1–2)
-2. Locate the anchor class/method listed in the report's call graph
-3. Confirm the hardcoded package name appears as a `const-string` literal
-4. Trace the call chain to the privilege sink (e.g., `grantRuntimePermission`)
-5. Compare against AOSP source for the same Android version — the OEM code should be absent from stock
+* 5,205 firmware images;
+* 707 expert-reviewed, deduplicated confirmed instances; and
+* 28 affected OEMs.
 
-For a detailed guide on reading smali bytecode with real examples from this artifact, see **[docs/SMALI_VERIFICATION_GUIDE.md](docs/SMALI_VERIFICATION_GUIDE.md)**. The guide covers:
-- A 5-minute smali primer (types, registers, instructions)
-- A full walkthrough verifying a real CONFIRMED_HIGH finding (Samsung Pay background allowlist)
-- Common patterns to recognize (allowlists, permission grants, AppOps bypasses, UID checks)
-- Useful grep commands for navigating smali output
-- How to compare findings against AOSP source
+The bundled artifact is not intended to reproduce the complete 5,205-image
+ecosystem measurement during artifact evaluation.
 
-AOSP source tags used for comparison:
-- Android 12: `android-12.0.0_r34`
-- Android 13: `android-13.0.0_r82`
-- Android 14: `android-14.0.0_r61`
-- Android 15: `android-15.0.0_r20`
+Instead, it provides:
 
----
+1. a real OEM framework sample for exercising the core analysis workflow;
+2. reviewer-facing framework evidence from the study; and
+3. representative production-device validation materials.
 
-## Proof-of-Concept Videos
+The 286 evidence reports are a reviewer-oriented consolidation and should not
+be interpreted as a second measurement result or as a one-to-one
+representation of the 707 confirmed instances.
 
-The `poc-videos/` directory contains demonstration videos for selected findings:
+Similarly, static confirmation of an access-control subversion does not imply
+that every confirmed instance is practically exploitable.
 
-| Video | Finding | Description |
-|-------|---------|-------------|
-| `cat1_nokia_integrator_content_provider.mp4` | Cat1 — Nokia | Integrator content provider grants |
-| `cat2_oneplus_silent_sms.mp4` | Cat2 — OnePlus | Silent SMS sending bypass |
-| `cat2_vivo_bal_bypass.mp4` | Cat2 — Vivo | Background activity launch bypass |
-| `cat2_xiaomi_installer_bypass.mp4` | Cat2 — Xiaomi | Package installer restriction bypass |
 
----
+# Verifying Individual Findings
 
-## Troubleshooting
+For a representative report under:
+```bash
+reproducibility/vuln/
+```
+the evaluator can:
 
-| Issue | Solution |
-|-------|----------|
-| `baksmali: command not found` | Run `./setup.sh` or set `export PATH=$PWD/tools:$PATH` |
-| Ollama connection refused | Start Ollama: `ollama serve` (in separate terminal) |
-| Phase 2 HTTP 401 | Check `ANTHROPIC_API_KEY` is set and valid |
-| MIUI extraction fails | Ensure ROM tools are built: `cd tools/rom_tools && ./setup.sh` |
-| EROFS mount fails | Install FUSE: `sudo apt install fuse libfuse-dev` and rebuild erofs-utils |
-| Out of disk space | A single device needs ~5–20 GB working space; use `--framework-only` for Android Dumps |
-| Step 3b slow (store lookups) | Use `--skip-filter` to skip APK store checks (faster, more FPs) |
+1. identify the OEM-selected package identity;
+2. inspect the corresponding framework method;
+3. confirm the relevant hardcoded identity or identity-specific branch;
+4. follow the supplied call-chain path;
+5. inspect the reached enforcement surface;
+6. compare the OEM-specific logic with the corresponding AOSP implementation;
+    and
+7. evaluate whether the supplied evidence supports the reported
+    expert-confirmed classification.
 
----
+The detailed procedure is provided in:
+```bash
+docs/SMALI_VERIFICATION_GUIDE.md
+```
+The guide includes:
 
-## Documentation
+* a concise smali primer;
+* a complete finding walkthrough;
+* common OEM allowlist/enforcement patterns;
+* navigation and grep examples; and
+* guidance for comparison against AOSP.
 
-Detailed guides for artifact evaluators are available in the `docs/` directory:
 
-| Guide | Description |
-|-------|-------------|
-| [Smali Verification Guide](docs/SMALI_VERIFICATION_GUIDE.md) | How to read smali bytecode and manually verify findings — includes a full walkthrough with a real CONFIRMED_HIGH example |
-| [Pipeline Output Guide](docs/PIPELINE_OUTPUT_GUIDE.md) | Field-by-field reference for `triage.json`, `claude_validated.json`, and propagation traces — how to interpret every output |
-| [Firmware Extraction Guide](docs/FIRMWARE_EXTRACTION_GUIDE.md) | Step-by-step instructions for all three input modes (ADB, Android Dumps, MIUI) with common pitfalls |
-| [LLM Prompt Transparency](docs/LLM_PROMPT_TRANSPARENCY.md) | Full disclosure of every LLM prompt used in Phases 1, 2, and 2b — system prompts, user messages, pre-filtering logic, and multi-pass design |
+# Dynamic-Validation Materials
 
----
+Representative production-device validation videos are available under:
+```bash
+poc-videos/
+```
+Current materials include demonstrations corresponding to:
 
-## Artifact Availability
+* Nokia content-provider privilege behavior;
+* OnePlus silent SMS behavior;
+* Vivo background-activity-launch behavior; and
+* Xiaomi installer-policy behavior.
 
-This artifact is associated with NDSS 2027 submission #711. We commit to uploading the artifact to a permanent public archive (e.g., Zenodo) backed by a Digital Object Identifier (DOI) upon badge award. This repository serves as the primary mutable source during the evaluation period.
+Exploit-specific implementation material may be omitted where coordinated
+disclosure is still ongoing.
 
-**License:** See [LICENSE](LICENSE).
 
----
+# Troubleshooting
 
-## Questions and Issues
+## Setup stops with a missing dependency
 
-Please open an issue in this repository. For findings related to specific vendors, see `reproducibility/vuln/` for the full call-chain evidence supporting each claim.
+Re-run:
+```bash
+./setup.sh
+```
+The setup script should fail clearly if a required core dependency cannot be
+installed.
+
+## Ollama
+
+After successful setup:
+```bash
+systemctl status ollama --no-pager
+ollama list
+```
+The model list should contain:
+```bash
+dolphin3-r1
+```
+Do not normally start another ollama serve process manually. The setup script
+configures and verifies the service.
+
+## Default Dolphin model exceeds available memory
+
+Use:
+```bash
+./setup.sh --lite
+```
+for functionality testing on a constrained machine.
+
+## Phase 2 authentication failure
+
+Check:
+```bash
+echo "$ANTHROPIC_API_KEY"
+```
+and confirm that a valid Anthropic API key has been supplied.
+
+## Step 3b is slow
+
+The application-source queries are network-bound and rate-limited.
+
+For the bundled reproduction, use:
+```bash
+--skip-filter
+```
+## ROM extraction dependencies
+
+Install the optional extraction toolchain with:
+```bash
+./setup.sh --with-rom-tools
+```
+
+# Documentation
+
+| Guide | Purpose |
+|---|---|
+| docs/SMALI_VERIFICATION_GUIDE.md | Independently auditing framework findings |
+| docs/PIPELINE_OUTPUT_GUIDE.md | Understanding generated pipeline outputs |
+| docs/FIRMWARE_EXTRACTION_GUIDE.md | Extracting framework artifacts from supported sources |
+| docs/LLM_PROMPT_TRANSPARENCY.md | LLM prompts and automated triage/validation design |
+
+
+# Artifact Availability
+
+Following completion of artifact evaluation, we intend to archive the final
+artifact in permanent public storage with a DOI.
+
+License: see LICENSE.

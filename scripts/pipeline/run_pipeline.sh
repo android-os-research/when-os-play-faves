@@ -288,8 +288,19 @@ fi
 if [[ "$SKIP_PHASE1" == true ]]; then
     echo "[ Phase 1 ] Skipped (--skip-phase1)"
     if [[ ! -f "$TRIAGE_JSON" ]]; then
-        echo "ERROR: --skip-phase1 requires an existing $TRIAGE_JSON"
-        exit 1
+        # Fall back to a precomputed triage bundled with the sample, so
+        # evaluators can skip the multi-hour local-LLM triage entirely.
+        BUNDLED_TRIAGE="${DUMP_DIR}/precomputed/triage.json"
+        if [[ -f "$BUNDLED_TRIAGE" ]]; then
+            echo "           No triage in work dir — using bundled precomputed triage:"
+            echo "           $BUNDLED_TRIAGE"
+            mkdir -p "$WORK_DIR"
+            cp "$BUNDLED_TRIAGE" "$TRIAGE_JSON"
+        else
+            echo "ERROR: --skip-phase1 requires an existing $TRIAGE_JSON"
+            echo "       (or a bundled $BUNDLED_TRIAGE)"
+            exit 1
+        fi
     fi
 else
     echo "[ Phase 1 ] Running local LLM triage ($P1_MODEL)..."

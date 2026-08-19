@@ -239,6 +239,107 @@ def load_propagation(prop_dir: Optional[Path], package: str) -> Optional[str]:
 
 
 # ─────────────────────────────────────────────────────────────────
+# Smali loading via the propagation trace's framework classes
+#
+# Findings are external app identities hardcoded as strings inside FRAMEWORK
+# classes, so the relevant smali lives under the framework class named in the
+# step-6 trace (e.g. DefaultPermissionGrantPolicy in services.jar) — NOT under
+# a directory named after the app package. Resolve the framework classes and
+# load their full (untruncated) smali.
+# ─────────────────────────────────────────────────────────────────
+
+_SKIP_CLASS_PREFIXES = ("java.", "sun.", "libcore.", "kotlin.", "dalvik.")
+
+# Context safety caps (the Claude context window is 200K tokens; smali is token
+# dense at ~2.5 chars/token, so ~380K chars of smali ≈ ~150K tokens, leaving
+# room for the system prompt, propagation trace, and response). These apply
+# even when file_budget/max_files are 0 ("no explicit limit"), so a large
+# framework class can never overflow the context window.
+_PER_FILE_DEFAULT = 100_000     # chars per smali file when no --file-budget
+_MAX_FILES_DEFAULT = 8          # smali files when no --max-files
+_TOTAL_CHAR_CAP    = 380_000    # hard total-smali ceiling regardless of flags
+
+def classes_from_propagation(prop_text: Optional[str]) -> list[str]:
+    """Framework class names from a step-6 trace, seed (anchor) classes first."""
+    if not prop_text:
+        return []
+    seed: list[str] = []
+    other: set[str] = set()
+    for line in prop_text.splitlines():
+        s = line.strip()
+        if s.startswith("Class:"):
+            cls = re.split(r"\$", s.split(":", 1)[1].strip())[0].strip()
+            if cls and "." in cls and cls not in seed:
+                seed.append(cls)
+        elif re.match(r"^\s*[←→]\s+", s):
+            m = re.search(r"<?([\w.]+)", s.lstrip("←→ \t"))
+            if m:
+                cls = re.split(r"\$", m.group(1))[0]
+                if "." in cls and not cls.startswith(_SKIP_CLASS_PREFIXES):
+                    other.add(cls)
+    return seed + sorted(other - set(seed))
+
+
+def load_smali_from_prop(prop_text: Optional[str], smali_dir: Path,
+                         file_budget: int = 0, max_files: int = 0) -> Optional[str]:
+    """
+    Load smali for the framework classes referenced in the propagation trace,
+    anchor class first. Path-suffix matching handles intermediate 'classesN/'
+    dirs (multidex baksmali output). Per-file and total context caps are always
+    enforced so a large framework class can't overflow the 200K-token window.
+    """
+    if not smali_dir or not smali_dir.exists():
+        return None
+    classes = classes_from_propagation(prop_text)
+    if not classes:
+        return None
+
+    per_file  = file_budget if file_budget > 0 else _PER_FILE_DEFAULT
+    max_n     = max_files   if max_files  > 0 else _MAX_FILES_DEFAULT
+
+    wanted = {cls: re.split(r"\$", cls)[0].replace(".", "/") + ".smali" for cls in classes}
+
+    found: dict[str, Path] = {}
+    for f in smali_dir.rglob("*.smali"):
+        posix = f.as_posix()
+        for cls, rel in wanted.items():
+            if cls in found:
+                continue
+            if posix.endswith("/" + rel) or posix == rel:
+                found[cls] = f
+        if len(found) == len(wanted):
+            break
+
+    if not found:
+        return None
+
+    # Preserve trace order (anchor/seed classes first), then apply caps.
+    ordered = [(cls, found[cls]) for cls in classes if cls in found][:max_n]
+
+    parts: list[str] = []
+    total = 0
+    for cls, f in ordered:
+        content = f.read_text(errors="replace")
+        if len(content) > per_file:
+            content = content[:per_file] + f"\n// ... [truncated at {per_file} bytes]"
+        if total + len(content) > _TOTAL_CHAR_CAP:
+            remaining = _TOTAL_CHAR_CAP - total
+            if remaining < 2000:
+                break
+            content = content[:remaining] + "\n// ... [truncated to fit context budget]"
+        parts.append(f"// === {f.name}  (class {cls}) ===\n{content}")
+        total += len(content)
+        if total >= _TOTAL_CHAR_CAP:
+            break
+
+    if not parts:
+        return None
+
+    return (f"// {len(parts)} smali file(s) from propagation classes, {total:,} bytes total\n\n"
+            + "\n\n".join(parts))
+
+
+# ─────────────────────────────────────────────────────────────────
 # API call
 # ─────────────────────────────────────────────────────────────────
 
@@ -459,13 +560,22 @@ def main() -> None:
 
         print(f"\n[{i}/{len(records)}] {pkg}", flush=True)
 
-        # Load smali and propagation
-        smali_text = load_full_smali(
-            args.smali_dir, pkg,
+        # Load propagation first, then the FULL smali for the framework classes
+        # it references (the anchor/callers/callees). Fall back to the legacy
+        # package-path loader for records that are framework packages with
+        # their own smali directory.
+        prop_text = load_propagation(args.prop_dir, pkg)
+        smali_text = load_smali_from_prop(
+            prop_text, args.smali_dir,
             file_budget=args.file_budget,
             max_files=args.max_files,
         )
-        prop_text = load_propagation(args.prop_dir, pkg)
+        if not smali_text:
+            smali_text = load_full_smali(
+                args.smali_dir, pkg,
+                file_budget=args.file_budget,
+                max_files=args.max_files,
+            )
 
         if not smali_text:
             print(f"  [warn] no smali found — skipping API call")

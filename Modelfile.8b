@@ -6,7 +6,7 @@
 # scaled-down E1 demonstration. Registered under the same name the pipeline
 # expects so `--model dolphin3-r1` keeps working.
 #
-# Used by:  ./setup.sh --lite   (or setup_alt.sh)
+# Used by:  ./setup.sh --lite
 #   ollama create dolphin3-r1 -f Modelfile.8b
 #
 # For the faithful 24B model, use the default Modelfile instead.
