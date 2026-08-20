@@ -6,6 +6,8 @@
 FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
+# Stream pipeline output live through `docker compose exec` (no TTY = block-buffered otherwise).
+ENV PYTHONUNBUFFERED=1
 
 # Only what the bundled pipeline needs.
 RUN apt-get update && apt-get install -y --no-install-recommends \
