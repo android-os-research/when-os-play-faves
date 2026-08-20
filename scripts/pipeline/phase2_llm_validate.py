@@ -793,9 +793,6 @@ def main() -> None:
     ap.add_argument("--min-priority",  default="MEDIUM",
                     choices=["HIGH", "MEDIUM", "LOW"],
                     help="Minimum Dolphin priority to validate (default: LOW)")
-    ap.add_argument("--confirmed-packages", default=None, metavar="FILE",
-                    help="step3b_filtered/confirmed_packages.txt — skip packages "
-                         "not confirmed to exist as real APKs in the wild")
     ap.add_argument("--model",         default="claude-haiku-4-5-20251001",
                     help="Anthropic model for Pass 1 (default: claude-haiku-4-5-20251001)")
     ap.add_argument("--sonnet-model",  default="",
@@ -895,7 +892,7 @@ def main() -> None:
     # bypasses for com.facebook.system/de.telekom.tsc, USB permission bypass for
     # com.baidu.carlife, silent package deletion for com.miui.fmservice).
     # Items with dolphin_confidence==0 are always forwarded regardless of --min-priority.
-    before_confirm = [
+    hot_spots = [
         r for r in all_results
         if (
             priority_rank.get(r.get("priority", "SKIP"), 99) <= min_rank
@@ -905,24 +902,6 @@ def main() -> None:
         and r.get("priority") != "ERROR"
     ]
 
-    confirmed: set | None = None
-    if args.confirmed_packages:
-        cp_path = Path(args.confirmed_packages)
-        if not cp_path.exists():
-            print(f"ERROR: --confirmed-packages not found: {cp_path}", file=sys.stderr)
-            sys.exit(1)
-        confirmed = {
-            line.strip() for line in cp_path.read_text().splitlines()
-            if line.strip() and not line.startswith("#")
-        }
-
-    if confirmed is not None:
-        hot_spots = [r for r in before_confirm if r.get("package", "") in confirmed]
-        n_dropped = len(before_confirm) - len(hot_spots)
-    else:
-        hot_spots = before_confirm
-        n_dropped = 0
-
     mode_label = "PRINT-CONTEXT" if args.print_context else ("DRY-RUN" if args.dry_run else "LIVE")
     print(f"[claude_validator] Mode:      {mode_label}")
     print(f"[claude_validator] Triage:    {len(all_results)} total  →  {len(hot_spots)} hot spots ({args.min_priority}+)")
@@ -931,11 +910,6 @@ def main() -> None:
     if slim_smali_dir:
         print(f"[claude_validator] Pass2 threshold: confidence <= {args.pass2_threshold}")
     print(f"[claude_validator] Output:    {output}")
-    if confirmed is not None:
-        print(f"[claude_validator] Confirmed:  {len(confirmed)} packages  "
-              f"({n_dropped} Dolphin hot spots skipped — not real APKs)")
-    else:
-        print("[claude_validator] Confirmed:  (no filter — use --confirmed-packages to reduce scope)")
     if args.print_package:
         print(f"[claude_validator] Filter:    {args.print_package}")
     if args.shared_cache:
