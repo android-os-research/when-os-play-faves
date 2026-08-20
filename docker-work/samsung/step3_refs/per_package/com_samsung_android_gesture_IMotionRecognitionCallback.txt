@@ -1,0 +1,11 @@
+# com.samsung.android.gesture.IMotionRecognitionCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.gesture.IMotionRecognitionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.gesture.IMotionRecognitionCallback$Stub$Proxy: java.lang.String getListenerInfo()>
+<com.samsung.android.gesture.IMotionRecognitionCallback$Stub$Proxy: java.lang.String getListenerPackageName()>
+<com.samsung.android.gesture.IMotionRecognitionCallback$Stub$Proxy: void motionCallback(com.samsung.android.gesture.SemMotionRecognitionEvent)>
+<com.samsung.android.gesture.IMotionRecognitionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.gesture.IMotionRecognitionCallback$Stub: com.samsung.android.gesture.IMotionRecognitionCallback asInterface(android.os.IBinder)>
+<com.samsung.android.gesture.IMotionRecognitionCallback$Stub: void <init>()>

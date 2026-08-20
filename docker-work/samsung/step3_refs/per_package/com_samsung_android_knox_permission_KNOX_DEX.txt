@@ -1,0 +1,10 @@
+# com.samsung.android.knox.permission.KNOX_DEX [NEW]
+# Refs: 6
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.dex.DexPolicy: com.samsung.android.knox.ContextInfo enforceDexPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.dex.DexPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndDexPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.dex.DexPolicy: void enforceDexPermission()>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int enforceKnoxDexPermission()>

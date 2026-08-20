@@ -1,0 +1,9 @@
+# android.messages.historic [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.Notification$MessagingStyle: void addExtras(android.os.Bundle)>
+<android.app.Notification$MessagingStyle: void restoreFromExtras(android.os.Bundle)>
+<android.app.Notification: void visitUris(java.util.function.Consumer)>
+<com.android.internal.widget.ConversationLayout: void setData(android.os.Bundle)>
+<com.android.internal.widget.MessagingLayout: void setData(android.os.Bundle)>

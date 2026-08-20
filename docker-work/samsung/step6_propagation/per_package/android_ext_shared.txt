@@ -1,0 +1,2108 @@
+######################################################################
+# Propagation: android.ext.shared
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PERM_CHECK, PKG_MGMT, PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageManagerService
+  Method:   <com.android.server.pm.PackageManagerService: void <init>(com.android.server.pm.PackageManagerServiceInjector,boolean,boolean,java.lang.String,boolean,boolean,int,java.lang.String)>
+  Line:     5840
+  Register: v0 := "android.ext.shared"
+  Usage:    [invoke] invoke-virtual {v9, v10, v0, v7}, Lcom/android/server/pm/PackageManagerService;->getRequiredSharedLi
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] com.android.server.pm.PackageManagerService.getRequiredShare → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← PackageManagerService.main()
+        ← SystemServer.startBootstrapServices()
+          ← SystemServer.run()
+            ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → ComponentName.unflattenFromString()
+      → Context.getResources()
+      → Context.getSystemService()
+      → Context.getString()
+      → <android.content.pm.ActivityInfo: void <init>()>
+      → FallbackCategoryProvider.loadFallbacks()
+      → PackageInfo.getLongVersionCode()
+      → ParceledListSlice.getList()
+      → <android.content.pm.ResolveInfo: void <init>()>
+      → SharedLibraryInfo.addDependency()
+      → Resources.getSystem()
+      → Resources.getString()
+      → DisplayManager.getDisplay()
+      → Environment.getDataDirectory()
+      → FileUtils.deleteContents()
+      → HandlerThread.getLooper()
+      → HandlerThread.start()
+      → SystemClock.uptimeMillis()
+      → SystemProperties.getBoolean()
+      → SystemProperties.get()
+      → SystemProperties.set()
+      → TextUtils.isEmpty()
+      → ArrayMap.size()
+      → ArrayMap.keyAt()
+      → ArrayMap.valueAt()
+      → ArraySet.add()
+      → <android.util.ArraySet: void <init>()>
+      → <android.util.ArraySet: void <init>(int)>
+      → EventLog.writeEvent()
+      → <android.util.SparseArray: void <init>()>
+      → TimingsTraceLog.traceEnd()
+      → Display.getMetrics()
+      → FrameworkStatsLog.write()
+      → FgThread.get()
+      → LocalServices.getService()
+      → LocalServices.addService()
+      → LockGuard.installLock()
+      → <com.android.server.ServiceThread: void <init>(java.lang.Str
+      → SystemConfig.getAvailableFeatures()
+      → SystemConfig.getSharedLibraries()
+      → SystemConfig.getOverlayConfigSignaturePackage()
+      → Watchdog.getInstance()
+      → Watchdog.addThread()
+      → AbstractStatsBase.read()
+      → AppDataHelper.fixAppsDataOnBoot()
+      → <com.android.server.pm.AppDataHelper: void <init>(com.androi
+      → AppDataHelper.clearAppDataLIF()
+      → <com.android.server.pm.AsecInstallHelper: void <init>(com.an
+      → <com.android.server.pm.AutoDisableHandler: void <init>(andro
+      → <com.android.server.pm.BroadcastHelper: void <init>(com.andr
+      → <com.android.server.pm.ChangedPackagesTracker: void <init>()
+      → <com.android.server.pm.CompilerStats: void <init>()>
+      → CompilerStats.read()
+      → Computer.getPackageInfo() [PKG_QUERY]
+      → Computer.getInstalledPackages()
+      → Computer.getSharedLibraryInfo()
+      → Computer.getPackageStateInternal()
+      → <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+      → <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+      → <com.android.server.pm.DexOptHelper: void <init>(com.android
+      → DexOptHelper.requestCopyPreoptedFiles()
+      → <com.android.server.pm.DistractingPackageHelper: void <init>
+      → <com.android.server.pm.DomainVerificationConnection: void <i
+      → EmergencyModePackageHandler.getEMPackageHanderObj()
+      → EmergencyModePackageHandler.getPendingBroadcastsForBurst()
+      → <com.android.server.pm.EmergencyModePackageHandler: void <in
+      → <com.android.server.pm.FrozenPackageInterceptor: void <init>
+      → InitAppsHelper.initSystemApps()
+      → <com.android.server.pm.InitAppsHelper: void <init>(com.andro [PKG_MGMT]
+      → InitAppsHelper.initNonSystemApps()
+      → <com.android.server.pm.InstallPackageHelper: void <init>(com [PKG_MGMT]
+      → Installer.removeNotTargetedPreloadApksIfNeeded()
+      → Installer.rmdex()
+      → Installer.setFirstBoot()
+      → Installer.setWarnIfHeld()
+      → <com.android.server.pm.InstantAppRegistry: void <init>(andro [PKG_MGMT]
+      → InstantAppRegistry.addInstantApp()
+      → InstructionSets.getDexCodeInstructionSet()
+      → InstructionSets.getPreferredInstructionSet()
+      → <com.android.server.pm.MovePackageHelper$MoveCallbacks: void
+      → NfcFeatureManager.updateFeatureAndPackage()
+      → PackageAbiHelper.getAdjustedAbiForSharedUser()
+      → <com.android.server.pm.PackageManagerService$$ExternalSynthe
+      → <com.android.server.pm.PackageManagerService$$ExternalSynthe
+      → <com.android.server.pm.PackageManagerService$$ExternalSynthe
+      → <com.android.server.pm.PackageManagerService$$ExternalSynthe
+      → <com.android.server.pm.PackageManagerService$$ExternalSynthe
+      → <com.android.server.pm.PackageManagerService$1: void <init>(
+      → <com.android.server.pm.PackageManagerService$2: void <init>(
+      → <com.android.server.pm.PackageManagerService$PackageManagerI
+      → PackageManagerService.getDomainVerificationAgentComponentNameLPr()
+      → PackageManagerService.getInstantAppResolver()
+      → PackageManagerService.getInstantAppResolverSettingsLPr()
+      → PackageManagerService.getIntentFilterVerifierComponentNameLPr()
+      → PackageManagerService.isDeviceUpgrading()
+      → PackageManagerService.createLiveComputer()
+      → PackageManagerService.ensureSystemPackageName()
+      → PackageManagerService.getPackageFromComponentString()
+      → PackageManagerService.getRequiredButNotReallyRequiredVerifierLPr()
+      → PackageManagerService.getRequiredInstallerLPr()
+      → PackageManagerService.getRequiredPermissionControllerLPr()
+      → PackageManagerService.getRequiredSdkSandboxPackageName()
+      → PackageManagerService.getRequiredServicesExtensionPackageLPr()
+      → PackageManagerService.getRequiredSharedLibrary()
+      → PackageManagerService.getRequiredUninstallerLPr()
+      → PackageManagerService.getRetailDemoPackageName()
+      → PackageManagerService.getSamsungRequiredVerifier()
+      → PackageManagerService.getSetupWizardPackageNameImpl()
+      → PackageManagerService.getStorageManagerPackageName()
+      → PackageManagerService.registerObservers()
+      → PackageManagerService.updateInstantAppInstallerLocked()
+      → PackageManagerService.validateRoleFile()
+      → PackageManagerService.writeSettingsLPrTEMP()
+      → PackageManagerServiceInjector$SystemWrapper.disablePackageCaches()
+      → PackageManagerServiceInjector$SystemWrapper.enablePackageCaches()
+      → PackageManagerServiceInjector.getContext()
+      → PackageManagerServiceInjector.getHandler()
+      → PackageManagerServiceInjector.getIncrementalManager()
+      → PackageManagerServiceInjector.getDisplayMetrics()
+      → PackageManagerServiceInjector.getSystemConfig()
+      → PackageManagerServiceInjector.getCompatibility()
+      → PackageManagerServiceInjector.getApexManager()
+      → PackageManagerServiceInjector.getAppsFilter()
+      → PackageManagerServiceInjector.getBackgroundDexOptService()
+      → PackageManagerServiceInjector.getDefaultAppProvider()
+      → PackageManagerServiceInjector.getInstaller()
+      → PackageManagerServiceInjector.getInstantAppResolverConnection()
+      → PackageManagerServiceInjector.getModuleInfoProvider()
+      → PackageManagerServiceInjector.getAbiHelper()
+      → PackageManagerServiceInjector.getPackageDexOptimizer()
+      → PackageManagerServiceInjector.getPackageInstallerService()
+      → PackageManagerServiceInjector.getSystemWrapper()
+      → PackageManagerServiceInjector.getLock()
+      → PackageManagerServiceInjector.getSettings()
+      → PackageManagerServiceInjector.getSharedLibrariesImpl()
+      → PackageManagerServiceInjector.getUserManagerInternal()
+      → PackageManagerServiceInjector.getUserManagerService()
+      → PackageManagerServiceInjector.getArtManagerService()
+      → PackageManagerServiceInjector.getDexManager()
+      → PackageManagerServiceInjector.getViewCompiler()
+      → PackageManagerServiceInjector.getScanningCachingPackageParser()
+      → PackageManagerServiceInjector.getLegacyPermissionManagerInternal()
+      → PackageManagerServiceInjector.getPermissionManagerServiceInternal()
+      → PackageManagerServiceInjector.getComponentResolver()
+      → PackageManagerServiceInjector.getDomainVerificationManagerInternal()
+      → PackageManagerServiceInjector.getInstallLock()
+      → PackageManagerServiceInjector.getSystemPartitions()
+      → PackageManagerServiceInjector.bootstrap()
+      → PackageManagerServiceUtils.preparePackageParserCache()
+      → PackageManagerServiceUtils.logCriticalInfo()
+      → <com.android.server.pm.PackageManagerTracedLock: void <init>
+      → <com.android.server.pm.PackageObserverHelper: void <init>()>
+      → <com.android.server.pm.PackageProperty: void <init>()>
+      → PackageSetting.disableComponentLPw()
+      → PackageSetting.getPkg()
+      → PackageSetting.getPackageName()
+      → PackageSetting.getVolumeUuid()
+      → <com.android.server.pm.PackageUsage: void <init>()>
+      → <com.android.server.pm.PendingPackageBroadcasts: void <init>
+      → <com.android.server.pm.PersonaManagerService: void <init>(an
+      → PersonaServiceHelper.isSpfKnoxSupported()
+      → <com.android.server.pm.PreferredActivityHelper: void <init>(
+      → <com.android.server.pm.ProcessLoggingHandler: void <init>()>
+      → <com.android.server.pm.ProtectedPackages: void <init>(androi
+      → <com.android.server.pm.RemovePackageHelper: void <init>(com.
+      → <com.android.server.pm.ResolveIntentHelper: void <init>(andr
+      → SELinuxMMAC.readInstallPolicy()
+      → <com.android.server.pm.SProtect: void <init>(com.android.ser
+      → ScanPackageUtils.applyAdjustedAbiToSharedUser()
+      → SettingBase.getFlags()
+      → Settings.readLPw()
+      → Settings.getInternalVersion()
+      → Settings.addSharedUserLPw()
+      → Settings.getPackagesLocked()
+      → Settings.getAllSharedUsersLPw()
+      → Settings.applyDefaultPreferredAppsLPw()
+      → Settings.setPermissionControllerVersion()
+      → SharedLibrariesImpl.updateAllSharedLibrariesLPw()
+      → SharedLibrariesImpl.addBuiltInSharedLibraryLPw()
+      → SharedLibrariesImpl.setDeletePackageHelper() [PKG_MGMT]
+      → SharedUserSetting.getPackageStates()
+      → SharedUserSetting.fixSeInfoLocked()
+      → SharedUserSetting.updateProcesses()
+      → <com.android.server.pm.SnapshotStatistics: void <init>()>
+      → <com.android.server.pm.StorageEventHelper: void <init>(com.a [PKG_MGMT]
+      → <com.android.server.pm.SuspendPackageHelper: void <init>(com
+      → UserManagerInternal.getUsers()
+      → UserManagerInternal.getUsers()
+      → UserManagerService.getUserIds()
+      → UserManagerService.getUsers()
+      → <com.android.server.pm.UserNeedsBadgingCache: void <init>(co
+      → DexManager.load()
+      → PackageParser2.close()
+      → PermissionManagerServiceInternal.onStorageVolumeMounted()
+      → PermissionManagerServiceInternal.readLegacyPermissionStateTEMP()
+      → PermissionManagerServiceInternal.readLegacyPermissionsTEMP()
+      → AndroidPackageApi.isSystem()
+      → PackageState.getAppId()
+      → PackageStateInternal.getUserStateOrDefault()
+      → PackageUserState.isInstalled()
+      → PackageUserState.isInstantApp()
+      → <com.android.server.pm.pkg.mutate.PackageStateMutator: void 
+      → ParsingPackageUtils.readConfigUseRoundIcon()
+      → PkgWithoutStatePackageInfo.getPackageName()
+      → ComponentResolver.fixProtectedFilterPriorities()
+      → DomainVerificationManagerInternal.getCollector()
+      → DomainVerificationManagerInternal.setConnection()
+      → DomainVerificationManagerInternal.setProxy()
+      → DomainVerificationProxy.makeProxy()
+      → <com.android.server.utils.SnapshotCache$Auto: void <init>(co
+      → <com.android.server.utils.TimingsTraceAndSlog: void <init>(j
+      → TimingsTraceAndSlog.traceBegin()
+      → WatchedArrayMap.size()
+      → WatchedArrayMap.valueAt()
+      → WatchedArrayMap.values()
+      → <com.android.server.utils.WatchedArrayMap: void <init>()>
+      → <com.android.server.utils.WatchedSparseBooleanArray: void <i
+      → <com.android.server.utils.WatchedSparseIntArray: void <init>
+      → RestrictedReceiverFilter.getInstance()
+      → RestrictedReceiverFilter.enableAndConfigure()
+      → SemPersonaManager.getKnoxInfo()
+      → PmLog.logCriticalInfoAndLogcat()
+      → <com.samsung.android.server.pm.google.ChinaGmsToggleUtils: v
+      → <com.samsung.android.server.pm.install.OmcInstallHelper: voi
+      → OmcInstallHelper.deleteContentsIfNeeded()
+      → OmcInstallHelper.setOmcAndTssInit()
+      → OmcInstallHelper.waitToReadAIDwhenTssAndNonActivated()
+      → PdpUtils.waitUntilInstalldConnected()
+      → <com.samsung.android.server.pm.install.SkippingApks: void <i
+      → SkippingApks.initSkippingApkList()
+      → MonetizationUtils.getInstance()
+      → <com.samsung.android.server.pm.rescueparty.PackageManagerBac
+      → SystemFileBackupManager.getInstance()
+      → SystemFileBackupManager.registerController()
+      → CacheCorruptionChecker.isPackageCacheCorrupted()
+      → CacheCorruptionChecker.deletePackageCaches() [PKG_MGMT]
+      → CacheCorruptionChecker.setPackageScanStarted()
+      → BmodeUtils.restoreBmodeSettingsWhenUpgrading()
+      → VMRuntime.getRuntime()
+      → VMRuntime.requestConcurrentGC()
+      → <java.io.File: void <init>(java.io.File,java.lang.String)>
+      → <java.util.ArrayList: void <init>()>
+      → Collection.iterator()
+      → Collections.synchronizedMap()
+      → Collections.unmodifiableMap()
+      → <java.util.HashMap: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.size()
+      → List.get()
+      → List.iterator()
+      → Map.put()
+      → Objects.equals()
+      → Objects.requireNonNull()
+      → AtomicInteger.incrementAndGet()
+      → <java.util.concurrent.atomic.AtomicInteger: void <init>()>
+        → AssetManager.addAssetPath()
+        → <android.content.res.AssetManager: void <init>()>
+        → Resources.openRawResource()
+        → <android.content.res.Resources: void <init>(android.content.
+        → ArrayMap.put()
+        → ArrayMap.clear()
+        → BufferedReader.readLine()
+        → <java.io.BufferedReader: void <init>(java.io.Reader)>
+        → BufferedReader.close()
+        → <java.io.InputStreamReader: void <init>(java.io.InputStream)
+        → Throwable.addSuppressed()
+        → PackageInfo.composeLongVersionCode()
+        → List.add()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → CharSequence.length()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → ArraySet.indexOf()
+        → ArraySet.indexOfNull()
+        → ArraySet.allocArrays()
+        → ArraySet.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → <android.util.SparseArray: void <init>(int)>
+        → SystemClock.elapsedRealtime()
+        → Trace.traceEnd()
+        → TimingsTraceLog.assertSameThread()
+        → TimingsTraceLog.logDuration()
+        → StatsEvent$Builder.build()
+        → StatsEvent$Builder.setAtomId()
+        → StatsEvent$Builder.usePooledBuffer()
+        → StatsEvent$Builder.writeInt()
+        → StatsEvent$Builder.writeLong()
+        → StatsEvent.newBuilder()
+        → StatsLog.write()
+        → FgThread.ensureThreadLocked()
+        → ArrayMap.get()
+        → ArrayMap.containsKey()
+        → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → LockGuard.installLock()
+        → <android.os.HandlerThread: void <init>(java.lang.String,int)
+        → <com.android.server.Watchdog: void <init>()>
+        → Handler.getLooper()
+        → Looper.getThread()
+        → <com.android.server.Watchdog$HandlerChecker: void <init>(com
+        → Watchdog$HandlerCheckerAndTimeout.withCustomTimeout()
+        → Thread.getName()
+        → ArrayList.add()
+        → AbstractStatsBase.readInternal()
+        → AtomicLong.set()
+        → StorageManager.isFileEncryptedNativeOrEmulated()
+        → SystemServerInitThreadPool.submit()
+        → <com.android.server.pm.AppDataHelper$$ExternalSyntheticLambd
+        → AppDataHelper.reconcileAppsDataLI()
+        → AppDataHelper.clearAppDataLeafLIF()
+        → AppDataHelper.clearAppProfilesLIF()
+        → <com.android.server.pm.InstallPackageHelper: void <init>(com [PKG_MGMT]
+        → <com.android.server.pm.AutoDisableHandler$AutoDisableThread:
+        → Thread.start()
+        → PackageManagerServiceInjector.getActivityManagerInternal()
+        → <com.android.server.pm.AbstractStatsBase: void <init>(java.l
+        → <com.samsung.android.server.pm.install.SilentUninstallerList
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → SystemProperties.getInt()
+        → Thread.sleep()
+        → PackageManagerServiceInjector.getLocalService()
+        → <com.android.server.pm.EmergencyModePackageHandler$EMPackage
+        → <com.android.server.pm.EmergencyModePackageHandler$PendingPa
+        → <com.android.server.pm.FrozenPackageInterceptor$1: void <ini
+        → <android.util.ArrayMap: void <init>()>
+        → OverlayConfig.initializeSystemInstance()
+        → ApexManager.getActiveApexInfos()
+        → ApexManager.getApksInApex()
+        → ApexManager.scanApexPackagesTraced()
+        → <com.android.server.pm.InitAppsHelper$$ExternalSyntheticLamb
+        → InitAppsHelper.logSystemAppsScanningTime()
+        → InitAppsHelper.scanSystemDirs()
+        → InitAppsHelper.updateStubSystemAppsList()
+        → InstallPackageHelper.prepareSystemPackageCleanUp() [PKG_MGMT]
+        → InitAppsHelper.getSystemScanPartitions()
+        → PackageManagerService.isFirstBoot()
+        → PackageManagerService.isOnlyCoreApps()
+        → PackageManagerService.getDefParseFlags()
+        → ParallelPackageParser.makeExecutorService()
+        → InitAppsHelper.fixSystemPackages()
+        → InitAppsHelper.logNonSystemAppScanningTime()
+        → InitAppsHelper.scanDirTracedLI()
+        → PackageManagerService.getAppInstallDir()
+        → Settings.pruneRenamedPackagesLPw()
+        → File.exists()
+        → <java.io.File: void <init>(java.lang.String)>
+        → List.isEmpty()
+        → ExecutorService.shutdownNow()
+        → <com.android.server.pm.RemovePackageHelper: void <init>(com.
+        → <com.samsung.android.server.pm.install.PreloadDuplicateApps:
+        → IInstalld.removeNotTargetedPreloadApksIfNeeded()
+        → IInstalld.rmdex()
+        → Installer$InstallerException.from()
+        → Installer.checkBeforeRemote()
+        → Installer.assertValidInstructionSet()
+        → BlockGuard$VmPolicy.onPathAccess()
+        → BlockGuard.getVmPolicy()
+        → IInstalld.setFirstBoot()
+        → BackgroundThread.getHandler()
+        → <com.android.server.pm.InstantAppRegistry$1: void <init>(com
+        → <com.android.server.pm.InstantAppRegistry$CookiePersistence:
+        → InstantAppRegistry.makeCache()
+        → Watchable.verifyWatchedAttributes()
+        → <com.android.server.utils.WatchableImpl: void <init>()>
+        → <com.android.server.utils.WatchedSparseArray: void <init>()>
+        → WatchedSparseArray.registerObserver()
+        → InstantAppRegistry.onChanged()
+        → WatchedSparseArray.get()
+        → WatchedSparseArray.put()
+        → WatchedSparseBooleanArray.put()
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → <android.os.RemoteCallbackList: void <init>()>
+        → <android.util.SparseIntArray: void <init>()>
+        → SystemProperties.get()
+        → ArrayMap.remove()
+        → NfcFeatureManager.supportEse()
+        → NfcFeatureManager.supportEse()
+        → NfcFeatureManager.supportNfc()
+        → NfcFeatureManager.supportSim()
+        → NfcFeatureManager.supportSim()
+        → SkippingApks.addSkippingPackage()
+        → SkippingApks.getSkippingApkList()
+        → List.contains()
+        → <com.android.server.utils.Watcher: void <init>()>
+        → <com.android.server.pm.parsing.PackageParser2$Callback: void
+        → <com.android.server.pm.PackageManagerInternalBase: void <ini
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → ComponentInfo.getComponentName()
+        → ResolveInfo.getComponentInfo()
+        → Binder.getCallingUid() [UID_CHECK]
+        → Computer.isComponentEffectivelyEnabled()
+        → PackageManagerService.checkPermission() [PERM_CHECK]
+        → ResolveIntentHelper.queryIntentReceiversInternal()
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → Resources.getStringArray()
+        → <android.util.ArraySet: void <init>(java.util.Collection)>
+        → Computer.queryIntentServicesInternal()
+        → Set.contains()
+        → ComponentName.getPackageName()
+        → Intent.addCategory()
+        → Intent.setPackage()
+        → Computer.queryIntentActivitiesInternal()
+        → <com.android.server.pm.ComputerLocked: void <init>(com.andro
+        → <com.android.server.pm.PackageManagerService$Snapshot: void 
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → EventLog.writeEvent()
+        → <java.lang.RuntimeException: void <init>(java.lang.String)>
+        → Intent.setDataAndType()
+        → ApplicationInfo.isPrivilegedApp()
+        → Uri.parse()
+        → Process.myUid()
+        → SharedLibraryInfo.getPackageName()
+        → Intent.setData()
+        → Uri.fromParts()
+        → ResolveIntentHelper.resolveIntentInternal()
+        → Signature.toByteArray()
+        → SigningDetails.getSignatures()
+        → TextUtils.equals()
+        → ParsingPackageRead.getSigningDetails() [SIG_CHECK]
+        → WatchedArrayMap.get()
+        → MessageDigest.digest()
+        → MessageDigest.getInstance()
+        → HexEncoding.encodeToString()
+        → UserHandle.myUserId()
+        → AppsFilterImpl.registerObserver()
+        → InstantAppRegistry.registerObserver()
+        → Settings.registerObserver()
+        → SharedLibrariesImpl.registerObserver()
+        → Watchable.verifyWatchedAttributes()
+        → WatchableImpl.registerObserver()
+        → WatchedArrayMap.registerObserver()
+        → ActivityInfo.getComponentName()
+        → PackageManagerService.getInstantAppInstallerLPr()
+        → PackageManagerService.setUpInstantAppInstallerActivityLP()
+        → UserHandle.of()
+        → PackageManagerSamsungUtils.deletePermissionApexFile()
+        → Exception.printStackTrace()
+        → Method.invoke()
+        → Settings.writeLPr()
+        → PermissionManagerServiceInternal.writeLegacyPermissionsTEMP()
+        → PackageManagerServiceInjector$Singleton.get()
+        → PackageManagerServiceInjector$ProducerWithArgument.produce()
+        → UserManagerService.getInternalForInjectorOnly()
+        → PackageManagerServiceInjector$Producer.produce()
+        → Environment.getPackageCacheDirectory()
+        → Environment.getRootDirectory()
+        → FileUtils.createDir()
+        → FileUtils.deleteContentsAndDir()
+        → FileUtils.createDir()
+        → FileUtils.listFilesOrEmpty()
+        → File.getName()
+        → File.lastModified()
+        → FileUtils.setPermissions()
+        → <com.android.internal.util.FastPrintWriter: void <init>(java
+        → EventLogTags.writePmCriticalInfo()
+        → PackageManagerServiceUtils.getSettingsProblemFile()
+        → File.toString()
+        → <java.io.FileOutputStream: void <init>(java.io.File,boolean)
+        → PrintWriter.close()
+        → PrintWriter.println()
+        → SimpleDateFormat.format()
+        → <java.text.SimpleDateFormat: void <init>()>
+        → <java.util.Date: void <init>(long)>
+        → PackageSetting.modifyUserStateComponents()
+        → SettingBase.onChanged()
+        → PackageUserStateImpl.getDisabledComponentsNoCopy()
+        → PackageUserStateImpl.getEnabledComponentsNoCopy()
+        → WatchedArraySet.add()
+        → WatchedArraySet.remove()
+        → <com.android.server.pm.PersonaManagerService: void <init>(an
+        → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+        → Xml.newPullParser()
+        → PolicyComparator.foundDuplicate()
+        → <com.android.server.pm.PolicyComparator: void <init>()>
+        → SELinuxMMAC.readSignerOrThrow()
+        → SELinuxMMAC.skip()
+        → <java.io.FileReader: void <init>(java.io.File)>
+        → Collections.sort()
+        → List.addAll()
+        → List.clear()
+        → IoUtils.closeQuietly()
+        → XmlPullParser.getEventType()
+        → XmlPullParser.next()
+        → XmlPullParser.nextTag()
+        → XmlPullParser.getName()
+        → XmlPullParser.getPositionDescription()
+        → XmlPullParser.require()
+        → XmlPullParser.setInput()
+        → <com.android.server.pm.SProtect$SProtectSettingsObserver: vo
+        → PackageSetting.setPrimaryCpuAbi()
+        → PackageSetting.getPathString()
+        → PackageSetting.getPrimaryCpuAbi()
+        → SharedUserSetting.getPackageSettings()
+        → AndroidPackageUtils.getRawPrimaryCpuAbi()
+        → ParsedPackage.setPrimaryCpuAbi()
+        → WatchedArraySet.size()
+        → WatchedArraySet.valueAt()
+        → VerifierDeviceIdentity.parse()
+        → TypedXmlPullParser.getAttributeInt()
+        → TypedXmlPullParser.getAttributeInt()
+        → TypedXmlPullParser.getDepth()
+        → TypedXmlPullParser.next()
+        → TypedXmlPullParser.getAttributeValue()
+        → TypedXmlPullParser.getName()
+        → Xml.resolvePullParser()
+        → XmlUtils.readStringAttribute()
+        → XmlUtils.skipCurrentTag()
+        → KeySetManagerService.readKeySetsLPw()
+        → PackageManagerService.reportSettingsProblem()
+        → PackageSetting.getAppId()
+        → PackageSetting.getSharedUserAppId()
+        → PackageSetting.setSharedUserAppId()
+        → Settings$RuntimePermissionPersistence.readStateForUserSync()
+        → Settings$VersionInfo.forceCurrent()
+        → Settings.validateSettingsFile()
+        → Settings.getSettingLPr()
+        → Settings.findOrCreateVersion()
+        → Settings.getUserRuntimePermissionsFile()
+        → Settings.addPackageSettingLPw()
+        → Settings.copyFile()
+        → Settings.readCrossProfileIntentFiltersLPw()
+        → Settings.readDefaultAppsLPw()
+        → Settings.readDisabledSysPackageLPw()
+        → Settings.readPackageLPw()
+        → Settings.readPackageRestrictionsLPr()
+        → Settings.readPersistentPreferredActivitiesLPw()
+        → Settings.readPreferredActivitiesLPw()
+        → Settings.readSharedUserLPw()
+        → Settings.readStoppedLPw()
+        → Settings.resetSystemServer()
+        → Settings.restorePackages()
+        → Settings.writeKernelMappingLPr()
+        → Settings.writePackageRestrictionsLPr()
+        → LegacyPermissionSettings.readPermissionTrees()
+        → LegacyPermissionSettings.readPermissions()
+        → DomainVerificationManagerInternal.readLegacySettings()
+        → DomainVerificationManagerInternal.readSettings()
+        → WatchedArrayList.size()
+        → WatchedArrayList.get()
+        → WatchedArrayList.clear()
+        → WatchedArrayMap.untrackedStorage()
+        → WatchedArrayMap.containsKey()
+        → WatchedArrayMap.put()
+        → WatchedArrayMap.clear()
+        → WatchedArraySet.clear()
+        → File.delete()
+        → <java.io.FileInputStream: void <init>(java.io.File)>
+        → FileInputStream.close()
+        → Exception.toString()
+        → IllegalArgumentException.getMessage()
+        → AppIdSettingMap.registerExistingAppId()
+        → <com.android.server.pm.SharedUserSetting: void <init>(java.l
+        → PackagePartitions$SystemPartition.getFolder()
+        → ArrayUtils.isEmpty()
+        → Settings.applyDefaultPreferredActivityLPw()
+        → Settings.readDefaultPreferredActivitiesLPw()
+        → ParsedIntentInfo.getIntentFilter()
+        → ParsingPackageRead.getPreferredActivityFilters()
+        → File.canRead()
+        → File.isDirectory()
+        → File.listFiles()
+        → File.getPath()
+        → InputStream.close()
+        → Settings$RuntimePermissionPersistence.setPermissionControllerVersion()
+        → ArraySet.contains()
+        → Pair.create()
+        → ArrayUtils.contains()
+        → DeletePackageHelper.deletePackageLIF() [PKG_MGMT]
+        → PackageSetting.getPkgState()
+        → Settings.getPackageLPr()
+        → SharedLibrariesImpl.hasString()
+        → SharedLibrariesImpl.updateSharedLibrariesLPw()
+        → PackageStateUnserialized.isUpdatedSystemApp()
+        → ParsingPackageRead.getSdkLibName()
+        → ParsingPackageRead.getStaticSharedLibName()
+        → ParsingPackageRead.getLibraryNames()
+        → ParsingPackageRead.getUsesLibraries()
+        → ParsingPackageRead.getUsesOptionalLibraries()
+        → ParsingPackageRead.getUsesSdkLibraries()
+        → ParsingPackageRead.getUsesStaticLibraries()
+        → Exception.getMessage()
+        → <java.util.ArrayList: void <init>(int)>
+        → List.remove()
+        → <android.content.pm.SharedLibraryInfo: void <init>(java.lang
+        → <android.content.pm.VersionedPackage: void <init>(java.lang.
+        → SharedLibrariesImpl.getSharedLibraryInfo()
+        → SharedLibrariesImpl.commitSharedLibraryInfoLPw()
+        → WatchedArraySet.untrackedStorage()
+        → SELinuxMMAC.getSeInfo()
+        → SharedUserSetting.isPrivileged()
+        → AndroidPackageApi.isPrivileged()
+        → PackageStateUnserialized.setOverrideSeInfo()
+        → PkgWithoutStateAppInfo.getTargetSdkVersion()
+        → SharedUserSetting.addProcesses()
+        → ParsingPackageRead.getProcesses()
+        → Looper.getMainLooper()
+        → SystemClock.currentTimeMicro()
+        → <com.android.server.pm.SnapshotStatistics$1: void <init>(com
+        → <com.android.server.pm.SnapshotStatistics$BinMap: void <init
+        → <com.android.server.pm.SnapshotStatistics$Stats: void <init>
+        → SnapshotStatistics.scheduleTick()
+        → <android.os.storage.StorageEventListener: void <init>()>
+        → UserManagerService.getUsers()
+        → <android.util.SparseBooleanArray: void <init>()>
+        → DexManager.loadInternal()
+        → DynamicCodeLogger.clear()
+        → PackageDexUsage.clear()
+        → ThreadLocal.remove()
+        → SparseArray.get()
+        → PackageStateInternal.getUserStates()
+        → <com.android.server.pm.pkg.mutate.PackageStateMutator$StateW
+        → ActivityThread.getPackageManager()
+        → ResourcesManager.getInstance()
+        → ResourcesManager.getResources()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Resources.getCompatibilityInfo()
+        → Resources.getBoolean()
+        → Resources.getClassLoader()
+        → RemoteException.rethrowFromSystemServer()
+        → IntentFilter.setPriority()
+        → ParsedComponent.getPackageName()
+        → ParsedMainComponent.getClassName()
+        → ComponentResolver.onChanged()
+        → <com.android.server.pm.verify.domain.proxy.DomainVerificatio
+        → <com.android.server.pm.verify.domain.proxy.DomainVerificatio
+        → <com.android.server.pm.verify.domain.proxy.DomainVerificatio
+        → <com.android.server.pm.verify.domain.proxy.DomainVerificatio
+        → <com.android.server.utils.SnapshotCache: void <init>(java.la
+        → <android.util.TimingsTraceLog: void <init>(java.lang.String,
+        → TimingsTraceLog.traceBegin()
+        → ArrayMap.values()
+        → Collections.unmodifiableCollection()
+        → <com.android.server.utils.WatchedArrayMap: void <init>(int,b
+        → <com.samsung.android.core.pm.RestrictedReceiverFilter: void 
+        → RestrictedReceiverFilter.clearItemsLocked()
+        → RestrictedReceiverFilter.loadItemsLocked()
+        → KnoxInfoImpl.getKnoxInfo()
+        → OmcInstallHelper.needsOmcOrTssInit()
+        → OmcInstallHelper.needsOmcInit()
+        → OmcInstallHelper.needsTssInit()
+        → OmcInstallHelper.isTssPropertyInitialized()
+        → OmcInstallHelper.supportTss()
+        → <com.samsung.android.server.pm.install.PdpUtils$$ExternalSyn
+        → ExecutorService.submit()
+        → Executors.newSingleThreadExecutor()
+        → Future.cancel()
+        → Future.get()
+        → SkippingApks.initSkippingApkList()
+        → <com.samsung.android.server.pm.monetization.MonetizationUtil
+        → AbstractBackupController.getBackupConfigInt()
+        → <com.samsung.android.server.pm.rescueparty.AbstractBackupCon
+        → PackageManagerBackupController.getPackagesBackupFile()
+        → PackageManagerBackupController.getPackagesFile()
+        → <com.samsung.android.server.pm.rescueparty.SystemFileBackupM
+        → BackupController.getControllerName()
+        → PmSharedPreferences.getBoolean()
+        → PmSharedPreferences.putBoolean()
+        → UserInfo.isBMode()
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → ArraySet.binarySearch()
+          → ArrayUtils.newUnpaddedObjectArray()
+          → Thread.getId()
+          → Looper.setSlowLogThresholdMs()
+          → Looper.setTraceTag()
+          → <com.android.server.FgThread: void <init>()>
+          → ArrayMap.indexOfKey()
+          → LockGuard.findOrCreateLockInfo()
+          → LockGuard.lockToString()
+          → <java.lang.Thread: void <init>(java.lang.String)>
+          → Process.myPid()
+          → <com.android.internal.os.ProcessCpuTracker: void <init>(bool
+          → ProcessCpuTracker.init()
+          → AnimationThread.getHandler()
+          → DisplayThread.getHandler()
+          → FgThread.getHandler()
+          → IoThread.getHandler()
+          → UiThread.getHandler()
+          → <com.android.server.Watchdog$$ExternalSyntheticLambda0: void
+          → <com.android.server.Watchdog$BinderThreadMonitor: void <init
+          → <com.android.server.Watchdog$FileDescriptorWatcher: void <in
+          → Watchdog$HandlerCheckerAndTimeout.withDefaultTimeout()
+          → Watchdog.addMonitor()
+          → <com.android.server.am.TraceErrorLogger: void <init>()>
+          → SurfaceAnimationThread.getHandler()
+          → <java.lang.Thread: void <init>(java.lang.Runnable,java.lang.
+          → <com.android.server.Watchdog$HandlerCheckerAndTimeout: void 
+          → Optional.of()
+          → Preconditions.checkState()
+          → SystemServerInitThreadPool.submitTask()
+          → Objects.requireNonNull()
+          → Environment.getDataUserCeDirectory()
+          → Environment.getDataUserDeDirectory()
+          → Trace.traceBegin()
+          → StorageManager.isUserKeyUnlocked()
+          → AppDataHelper.assertPackageStorageValid()
+          → AppDataHelper.executeBatchLI()
+          → AppDataHelper.prepareAppDataAndMigrate()
+          → Computer.getVolumePackages()
+          → <com.android.server.pm.Installer$Batch: void <init>()>
+          → Installer.cleanupInvalidPackageDirs()
+          → Installer.destroyAppData()
+          → PackageManagerService.snapshotComputer()
+          → AndroidPackageApi.isCoreApp()
+          → PackageState.getPackageName()
+          → PackageStateInternal.getPkg()
+          → Installer.clearAppData()
+          → PackageManagerService.resolveUserIds()
+          → PackageSetting.getCeDataInode()
+          → PkgWithoutStateAppInfo.getVolumeUuid()
+          → ArtManagerService.clearAppProfiles()
+          → <java.lang.Throwable: void <init>()>
+          → <java.util.concurrent.atomic.AtomicBoolean: void <init>(bool
+          → <java.util.concurrent.atomic.AtomicLong: void <init>(long)>
+          → PackageManagerServiceInjector$ServiceProducer.produce()
+          → <com.android.server.pm.EmergencyModePackageHandler$EMPackage
+          → <com.android.server.wm.ActivityInterceptorCallback: void <in
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → <com.android.internal.content.om.OverlayConfig: void <init>(
+          → Settings.pruneSharedUsersLPw()
+          → PmLog.logFinishedScanningInfo()
+          → AtomicInteger.get()
+          → PackagePartitions$SystemPartition.getAppFolder()
+          → PackagePartitions$SystemPartition.getOverlayFolder()
+          → PackagePartitions$SystemPartition.getPrivAppFolder()
+          → AndroidPackageApi.isStub()
+          → PackageSetting.isSystem()
+          → PackageSetting.getPath()
+          → PackageSetting.getName()
+          → PackageSetting.getVersionCode()
+          → RemovePackageHelper.removePackageDataLIF()
+          → RemovePackageHelper.removePackageLI()
+          → SettingBase.setFlags()
+          → Settings.getDisabledSystemPkgLPr()
+          → PkgWithoutStateAppInfo.getLongVersionCode()
+          → PmConfigParser.parsePackages()
+          → <com.samsung.android.server.pm.install.PmConfigParser: void 
+          → InitAppsHelper.getApexScanPartitions()
+          → ConcurrentUtils.newFixedThreadPool()
+          → InstallPackageHelper.checkExistingBetterPackages() [PKG_MGMT]
+          → InstallPackageHelper.cleanupDisabledPackageSettings() [PKG_MGMT]
+          → InstallPackageHelper.installSystemStubPackages() [PKG_MGMT]
+          → InstallPackageHelper.updateDuplicatePreloadApps() [PKG_MGMT]
+          → InstallPackageHelper.installPackagesFromDir() [PKG_MGMT]
+          → File.getAbsolutePath()
+          → WatchedArrayMap.removeAt()
+          → <com.android.server.pm.Installer$InstallerException: void <i
+          → Thread.holdsLock()
+          → CountDownLatch.await()
+          → VMRuntime.getInstructionSet()
+          → BackgroundThread.ensureThreadLocked()
+          → <com.android.server.pm.InstantAppRegistry$2: void <init>(com
+          → <com.android.server.utils.WatchedSparseArray$1: void <init>(
+          → SparseArray.size()
+          → SparseArray.valueAt()
+          → WatchableImpl.registeredObserverCount()
+          → WatchedSparseArray.registerChild()
+          → InstantAppRegistry.dispatchChange()
+          → SparseArray.put()
+          → WatchedSparseArray.onChanged()
+          → WatchedSparseArray.unregisterChildIf()
+          → SparseBooleanArray.put()
+          → WatchedSparseBooleanArray.onChanged()
+          → <android.util.SparseIntArray: void <init>(int)>
+          → ArrayMap.removeAt()
+          → SemCscFeature.getBoolean()
+          → SemCscFeature.getInstance()
+          → ArrayList.contains()
+          → <android.content.pm.PackageManagerInternal: void <init>()>
+          → PermissionManagerServiceInternal.checkPermission() [PERM_CHECK]
+          → ResolveIntentHelper.queryIntentReceiversInternal()
+          → ArraySet.addAll()
+          → <com.android.server.pm.ComputerEngine: void <init>(com.andro
+          → ComponentName.clone()
+          → <android.content.pm.ActivityInfo: void <init>(android.conten
+          → <android.content.pm.ApplicationInfo: void <init>(android.con
+          → <android.content.pm.ResolveInfo: void <init>(android.content
+          → AppsFilterImpl.snapshot()
+          → InstantAppRegistry.snapshot()
+          → <com.android.server.pm.PackageManagerService: android.conten
+          → <com.android.server.pm.PackageManagerService: android.conten
+          → <com.android.server.pm.PackageManagerService: android.conten
+          → <com.android.server.pm.PackageManagerService: com.android.se
+          → <com.android.server.pm.PackageManagerService: com.android.se
+          → <com.android.server.pm.PackageManagerService: com.android.se
+          → <com.android.server.pm.PackageManagerService: com.android.se
+          → <com.android.server.pm.PackageManagerService: com.android.se
+          → <com.android.server.pm.PackageManagerService: com.android.se
+          → <com.android.server.pm.PackageManagerService: com.android.se
+          → Settings.snapshot()
+          → SharedLibrariesImpl.snapshot()
+          → ComponentResolver.snapshot()
+          → SnapshotCache.snapshot()
+          → WatchedSparseBooleanArray.snapshot()
+          → <java.lang.IllegalArgumentException: void <init>()>
+          → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+          → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+          → Uri$Part.fromDecoded()
+          → <java.lang.NullPointerException: void <init>(java.lang.Strin
+          → UserHandle.getAppId()
+          → Computer.isImplicitImageCaptureIntentAndNotSetByDpc()
+          → Computer.queryIntentActivitiesInternal()
+          → Computer.updateFlagsForResolve()
+          → Computer.enforceCrossUserPermission()
+          → ResolveIntentHelper.chooseBestActivity()
+          → SProtect.isAppLockEnabled()
+          → SProtect.filterSprotectHiddenList()
+          → UserManagerService.exists()
+          → CharSequence.charAt()
+          → Watchable.isRegisteredObserver()
+          → Watchable.handleVerifyError()
+          → Watched.manual()
+          → Field.get()
+          → Field.getName()
+          → Field.getAnnotation()
+          → Field.setAccessible()
+          → WatchedArrayMap.registerChild()
+          → Intent.setAction()
+          → <android.content.Intent: void <init>()>
+          → Uri.fromFile()
+          → Iterator.remove()
+          → PackageManagerService.onChanged()
+          → PackageManagerSamsungUtils.getPermissionApexFile()
+          → VerifierDeviceIdentity.toString()
+          → FileUtils.sync()
+          → TypedXmlSerializer.attribute()
+          → TypedXmlSerializer.attributeInt()
+          → TypedXmlSerializer.endTag()
+          → TypedXmlSerializer.startTag()
+          → TypedXmlSerializer.endDocument()
+          → TypedXmlSerializer.setFeature()
+          → TypedXmlSerializer.startDocument()
+          → Xml.resolveSerializer()
+          → EventLogTags.writeCommitSysConfigFile()
+          → XmlUtils.writeStringAttribute()
+          → KeySetManagerService.writeKeySetManagerServiceLPr()
+          → PackageSignatures.writeXml()
+          → Settings.invalidatePackageCache()
+          → Settings.writeAllRuntimePermissionsLPr()
+          → Settings.writeAllUsersPackageRestrictionsLPr()
+          → Settings.writeDisabledSysPackageLPr()
+          → Settings.writePackageLPr()
+          → Settings.writePackageListLPr()
+          → LegacyPermissionSettings.writePermissionTrees()
+          → LegacyPermissionSettings.writePermissions()
+          → DomainVerificationManagerInternal.writeSettings()
+          → WatchedArrayList.untrackedStorage()
+          → WatchedArrayMap.keyAt()
+          → WatchedArrayMap.entrySet()
+          → File.renameTo()
+          → <java.io.FileOutputStream: void <init>(java.io.File)>
+          → FileOutputStream.close()
+          → FileOutputStream.flush()
+          → Map$Entry.getKey()
+          → Map$Entry.getValue()
+          → Set.iterator()
+          → <com.android.internal.util.FastPrintWriter: void <init>(java
+          → EventLog.writeEvent()
+          → PackageSetting.modifyUserState()
+          → PackageUserStateImpl.setDisabledComponents()
+          → PackageUserStateImpl.setEnabledComponents()
+          → SettingBase.dispatchChange()
+          → PackageStateMutator.onPackageStateChanged()
+          → WatchedArraySet.onChanged()
+          → WatchedArraySet.registerChild()
+          → ArraySet.remove()
+          → WatchedArraySet.unregisterChildIf()
+          → <com.android.server.pm.PersonaManagerService$Injector: void 
+          → <com.android.server.pm.PersonaManagerService: void <init>(co
+          → Preconditions.checkNotNull()
+          → <java.lang.AssertionError: void <init>()>
+          → XmlObjectFactory.newXmlPullParser()
+          → XmlPullParser.setFeature()
+          → Policy$PolicyBuilder.build()
+          → Policy$PolicyBuilder.addSignature()
+          → Policy$PolicyBuilder.setGlobalSeinfoOrThrow()
+          → <com.android.server.pm.Policy$PolicyBuilder: void <init>()>
+          → SELinuxMMAC.readCert()
+          → SELinuxMMAC.readPackageOrThrow()
+          → SELinuxMMAC.readSeinfo()
+          → XmlPullParser.getAttributeValue()
+          → <java.lang.IllegalStateException: void <init>()>
+          → <android.database.ContentObserver: void <init>(android.os.Ha
+          → <android.os.Handler: void <init>()>
+          → AndroidPackageHidden.getPrimaryCpuAbi()
+          → ArraySet.size()
+          → ArraySet.valueAt()
+          → VerifierDeviceIdentity.decodeBase32()
+          → <android.content.pm.VerifierDeviceIdentity: void <init>(long
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → TypedXmlPullParser.getAttributeIndexOrThrow()
+          → TypedXmlPullParser.getAttributeInt()
+          → TypedXmlPullParser.getAttributeIndex()
+          → ErrnoException.rethrowAsIOException()
+          → Os.pread()
+          → TypedXmlPullParser.setInput()
+          → Xml.newBinaryPullParser()
+          → Xml.newFastPullParser()
+          → <java.io.BufferedInputStream: void <init>(java.io.InputStrea
+          → FileInputStream.getFD()
+          → <java.io.IOException: void <init>(java.lang.Throwable)>
+          → InputStream.markSupported()
+          → InputStream.read()
+          → InputStream.mark()
+          → InputStream.reset()
+          → Charset.name()
+          → XmlPullParser.getDepth()
+          → TypedXmlPullParser.getAttributeLong()
+          → KeySetManagerService.addRefCountsFromSavedPackagesLPw()
+          → KeySetManagerService.clearPackageKeySetDataLPw()
+          → KeySetManagerService.readKeySetListLPw()
+          → KeySetManagerService.readKeysLPw()
+          → SparseIntArray.put()
+          → RuntimePermissionsPersistence.readForUser()
+          → RuntimePermissionsState.getVersion()
+          → RuntimePermissionsState.getFingerprint()
+          → RuntimePermissionsState.getPackagePermissions()
+          → RuntimePermissionsState.getSharedUserPermissions()
+          → PackageSetting.hasSharedUser()
+          → PackageSetting.setInstallPermissionsFixed()
+          → PackageSetting.getLegacyPermissionState()
+          → SettingBase.getLegacyPermissionState()
+          → Settings$RuntimePermissionPersistence.readLegacyStateForUserSync()
+          → Settings$RuntimePermissionPersistence.readPermissionsState()
+          → Settings$RuntimePermissionPersistence.writeStateForUserAsync()
+          → LegacyPermissionState.setMissing()
+          → Slogf.w()
+          → Map.get()
+          → RandomAccessFile.length()
+          → <java.io.RandomAccessFile: void <init>(java.io.File,java.lan
+          → RandomAccessFile.close()
+          → AppIdSettingMap.getSetting()
+          → <com.android.server.pm.Settings$VersionInfo: void <init>()>
+          → AppIdSettingMap.replaceSetting()
+          → PackageSetting.setAppId()
+          → Settings.getSharedUserSettingLPr()
+          → SharedUserSetting.removePackage()
+          → SharedUserSetting.addPackage()
+          → FileInputStream.read()
+          → FileOutputStream.write()
+          → IOException.printStackTrace()
+          → <com.android.server.pm.CrossProfileIntentFilter: void <init>
+          → Settings.editCrossProfileIntentResolverLPw()
+          → WatchedIntentResolver.addFilter()
+          → TypedXmlPullParser.getAttributeFloat()
+          → TypedXmlPullParser.getAttributeLong()
+          → TypedXmlPullParser.getAttributeLongHex()
+          → PackageSetting.setLastModifiedTime()
+          → PackageSetting.setLastUpdateTime()
+          → PackageSetting.setLoadingProgress()
+          → <com.android.server.pm.PackageSetting: void <init>(java.lang
+          → Settings.readInstallPermissionsLPr()
+          → Settings.readUsesSdkLibLPw()
+          → Settings.readUsesStaticLibLPw()
+          → <android.content.pm.IntentFilterVerificationInfo: void <init
+          → TypedXmlPullParser.getAttributeBoolean()
+          → TypedXmlPullParser.getPositionDescription()
+          → InstallSource.create()
+          → InstallSource.setInitiatingPackageSignatures()
+          → PackageKeySetData.addDefinedKeySet()
+          → PackageKeySetData.addUpgradeKeySetById()
+          → PackageKeySetData.setProperSigningKeySet()
+          → PackageSetting.getInstallSource()
+          → PackageSetting.getKeySetData()
+          → PackageSetting.addMimeTypes()
+          → PackageSetting.setCategoryOverride()
+          → PackageSetting.setForceQueryableOverride()
+          → PackageSetting.setInstallSource()
+          → PackageSetting.setLegacyNativeLibraryPath()
+          → PackageSetting.setSecondaryCpuAbi()
+          → PackageSetting.setUpdateAvailable()
+          → PackageSetting.setVolumeUuid()
+          → PackageSetting.getSignatures()
+          → PackageSetting.setEnabled()
+          → <com.android.server.pm.PackageSignatures: void <init>()>
+          → PackageSignatures.readXml()
+          → Settings.readMimeGroupLPw()
+          → Settings.addPackageLPw()
+          → Settings.addInstallerPackageNames()
+          → Settings.readDisabledComponentsLPw()
+          → Settings.readEnabledComponentsLPw()
+          → DomainVerificationManagerInternal.generateNewId()
+          → DomainVerificationManagerInternal.addLegacySetting()
+          → WatchedArrayList.add()
+          → UUID.fromString()
+          → SuspendDialogInfo$Builder.build()
+          → SuspendDialogInfo$Builder.setMessage()
+          → <android.content.pm.SuspendDialogInfo$Builder: void <init>()
+          → SuspendDialogInfo.restoreFromXml()
+          → PersistableBundle.restoreFromXml()
+          → ArrayMap.getOrDefault()
+          → PackageSetting.setUserState()
+          → Settings.readComponentsLPr()
+          → Settings.getUserPackagesStateBackupFile()
+          → Settings.getUserPackagesStateBackupFile2()
+          → Settings.getUserPackagesStateFile()
+          → Settings.readBlockUninstallPackagesLPw() [PKG_MGMT]
+          → Settings.restorePackagesState()
+          → Settings.setBlockUninstallLPw()
+          → SuspendParams.restoreFromXml()
+          → <com.android.server.pm.pkg.SuspendParams: void <init>(androi
+          → DomainVerificationManagerInternal.setLegacyUserState()
+          → <com.android.server.pm.PersistentPreferredActivity: void <in
+          → Settings.editPersistentPreferredActivitiesLPw()
+          → <com.android.server.pm.PreferredActivity: void <init>(androi
+          → PreferredComponent.getParseError()
+          → PreferredIntentResolver.shouldAddPreferredActivity()
+          → Settings.editPreferredActivitiesLPw()
+          → PackageSetting.setNotLaunched()
+          → PackageSetting.setStopped()
+          → IOException.toString()
+          → XmlPullParserException.toString()
+          → Process.killProcess()
+          → PackageManagerBackupController.getRebootCntByPackages()
+          → PackageManagerBackupController.getBackupPackagesFile()
+          → PackageManagerBackupController.incRebootCntByPackages()
+          → Settings.writeKernelMappingLPr()
+          → WatchedArrayMap.remove()
+          → File.list()
+          → TypedXmlSerializer.attributeBoolean()
+          → TypedXmlSerializer.attributeLong()
+          → TypedXmlSerializer.attributeLongHex()
+          → PackageSetting.readUserState()
+          → Settings.writeBlockUninstallPackagesLPr() [PKG_MGMT]
+          → Settings.writeCrossProfileIntentFiltersLPr()
+          → Settings.writeDefaultAppsLPr()
+          → Settings.writePersistentPreferredActivitiesLPr()
+          → Settings.writePreferredActivitiesLPr()
+          → PackageUserState.getDisabledComponents()
+          → PackageUserState.getEnabledComponents()
+          → PackageUserState.isHidden()
+          → PackageUserState.isNotLaunched()
+          → PackageUserState.isStopped()
+          → PackageUserState.isSuspended()
+          → PackageUserState.isVirtualPreload()
+          → PackageUserState.getDistractionFlags()
+          → PackageUserState.getEnabledState()
+          → PackageUserState.getInstallReason()
+          → PackageUserState.getUninstallReason()
+          → PackageUserState.getHarmfulAppWarning()
+          → PackageUserState.getLastDisableAppCaller()
+          → PackageUserState.getSplashScreenTheme()
+          → PackageUserState.getCeDataInode()
+          → PackageUserState.getFirstInstallTime()
+          → PackageUserStateInternal.getSuspendParams()
+          → SuspendParams.saveToXml()
+          → File.mkdirs()
+          → File.getParent()
+          → LegacyPermissionSettings.readPermissions()
+          → ArrayList.size()
+          → ArrayList.get()
+          → WatchedArrayList.onChanged()
+          → WatchedArrayList.unregisterChild()
+          → ArrayList.clear()
+          → WatchedArrayMap.onChanged()
+          → WatchedArrayMap.unregisterChild()
+          → ArraySet.clear()
+          → WatchedArraySet.unregisterChild()
+          → WatchedArrayList.set()
+          → <com.android.server.pm.SettingBase: void <init>(int,int)>
+          → <com.android.server.pm.SharedUserSetting$1: void <init>(com.
+          → SharedUserSetting.makeCache()
+          → SharedUserSetting.registerObservers()
+          → <com.android.server.utils.WatchedArraySet: void <init>()>
+          → <android.content.pm.PackagePartitions$DeferredCanonicalFile:
+          → Intent.setType()
+          → <android.content.Intent: void <init>(android.content.Intent)
+          → IntentFilter$AuthorityEntry.getHost()
+          → IntentFilter.getDataAuthority()
+          → IntentFilter.getDataPath()
+          → IntentFilter.getDataSchemeSpecificPart()
+          → IntentFilter.countCategories()
+          → IntentFilter.countDataAuthorities()
+          → IntentFilter.countDataPaths()
+          → IntentFilter.countDataSchemeSpecificParts()
+          → IntentFilter.countDataSchemes()
+          → IntentFilter.countDataTypes()
+          → IntentFilter.getAction()
+          → IntentFilter.getCategory()
+          → IntentFilter.getDataScheme()
+          → IntentFilter.getDataType()
+          → Uri$Builder.build()
+          → Uri$Builder.authority()
+          → Uri$Builder.opaquePart()
+          → Uri$Builder.path()
+          → Uri$Builder.scheme()
+          → <android.net.Uri$Builder: void <init>()>
+          → PatternMatcher.getPath()
+          → Settings.applyDefaultPreferredActivityLPw()
+          → WatchedIntentFilter.getIntentFilter()
+          → SparseArray.keyAt()
+          → Settings$RuntimePermissionPersistence.getExtendedFingerprint()
+          → ArraySet.indexOf()
+          → <android.util.Pair: void <init>(java.lang.Object,java.lang.O
+          → DeletePackageHelper.mayDeletePackageLocked() [PKG_MGMT]
+          → DeletePackageHelper.executeDeletePackageLIF() [PKG_MGMT]
+          → Settings.getDisabledSystemPkgLPr()
+          → SharedLibrariesImpl.collectSharedLibraryInfos()
+          → SharedLibrariesImpl.executeSharedLibrariesUpdateLPw()
+          → WatchedLongSparseArray.get()
+          → SharedLibraryInfo.getDeclaringPackage()
+          → SharedLibraryInfo.getType()
+          → SharedLibraryInfo.getName()
+          → SharedLibraryInfo.getLongVersion()
+          → VersionedPackage.getPackageName()
+          → <com.android.server.utils.WatchedLongSparseArray: void <init
+          → WatchedLongSparseArray.put()
+          → Policy.getMatchedSeInfo()
+          → SettingBase.getPrivateFlags()
+          → ComponentMutateUtils.addStateFrom()
+          → ParsedProcess.getName()
+          → <com.android.server.pm.pkg.component.ParsedProcessImpl: void
+          → Map.keySet()
+          → <com.android.server.pm.SnapshotStatistics$Stats: void <init>
+          → Handler.sendEmptyMessageDelayed()
+          → UserManagerService.getUsersInternal()
+          → UserManagerService.checkCreateUsersPermission()
+          → <android.util.SparseBooleanArray: void <init>(int)>
+          → DexManager.putIfAbsent()
+          → DexManager.cachePackageInfo()
+          → DynamicCodeLogger.readAndSync()
+          → PackageDexUsage.read()
+          → PackageDexUsage.syncData()
+          → Collections.addAll()
+          → <java.util.HashSet: void <init>()>
+          → Map.entrySet()
+          → Set.add()
+          → PackageDynamicCodeLoading.clear()
+          → Map.clear()
+          → SparseArray.get()
+          → <com.android.server.pm.pkg.mutate.PackageStateMutator$StateW
+          → <android.app.ResourcesManager: void <init>()>
+          → ResourcesManager.getResources()
+          → <android.os.DeadSystemRuntimeException: void <init>()>
+          → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+          → WatchableImpl.dispatchChange()
+          → <com.android.server.utils.SnapshotCache$Statistics: void <in
+          → Watchable.registerObserver()
+          → WeakHashMap.put()
+          → <android.util.TimingsTraceLog: void <init>(java.lang.String,
+          → ArrayMap.getCollection()
+          → MapCollections.getValues()
+          → <com.android.server.utils.WatchedArrayMap$1: void <init>(com
+          → Set.clear()
+          → RestrictedReceiverFilter.loadItemsInternalLocked()
+          → <android.os.Bundle: void <init>()>
+          → Context.createDeviceProtectedStorageContext()
+          → Context.getSharedPreferences()
+          → SharedPreferences.getBoolean()
+          → Environment.getDataSystemDirectory()
+          → OmcInstallHelper.isTssActivated()
+          → AdditionalSkippingApkListParser.hasAdditionalSkippingApkList()
+          → AdditionalSkippingApkListParser.getAdditionalSkippingApkList()
+          → <com.samsung.android.server.pm.install.AdditionalSkippingApk
+          → SkippingApks.isFileExists()
+          → SkippingApks.addSkippingApksFromFile()
+          → SkippingApks.removeSkippingApksFromFile()
+          → SharedPreferences.getInt()
+          → AbstractBackupController.getSharedPreferencesForConfigs()
+          → AbstractBackupController.getControllerName()
+          → AbstractBackupController.initController()
+          → <java.util.concurrent.atomic.AtomicInteger: void <init>(int)
+          → AbstractBackupController.injectSystemDataDir()
+          → SharedPreferences$Editor.putBoolean()
+          → SharedPreferences$Editor.apply()
+          → SharedPreferences.edit()
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ContainerHelpers.binarySearch()
+            → <com.android.server.LockGuard$LockInfo: void <init>(com.andr
+            → StackTraceElement.toString()
+            → Throwable.getStackTrace()
+            → AnimationThread.ensureThreadLocked()
+            → DisplayThread.ensureThreadLocked()
+            → IoThread.ensureThreadLocked()
+            → UiThread.ensureThreadLocked()
+            → <com.android.server.Watchdog$BinderThreadMonitor: void <init
+            → <com.android.server.Watchdog$FileDescriptorWatcher: void <in
+            → Optional.empty()
+            → Watchdog$HandlerChecker.addMonitorLocked()
+            → SurfaceAnimationThread.ensureThreadLocked()
+            → <com.android.server.SystemServerInitThreadPool$$ExternalSynt
+            → ExecutorService.submit()
+            → AppDataHelper.shouldHaveAppStorage()
+            → <com.android.server.pm.PackageManagerException: void <init>(
+            → PackageState.getVolumeUuid()
+            → Installer$Batch.execute()
+            → <com.android.server.pm.AppDataHelper$$ExternalSyntheticLambd
+            → AppDataHelper.prepareAppData()
+            → CompletableFuture.thenRun()
+            → IInstalld.cleanupInvalidPackageDirs()
+            → IInstalld.destroyAppData()
+            → Computer.use()
+            → Computer.getVersion()
+            → PackageManagerService.rebuildSnapshot()
+            → AtomicReference.get()
+            → AtomicReference.set()
+            → IInstalld.clearAppData()
+            → Installer.clearAppProfiles()
+            → ArtManagerService.getPackageProfileNames()
+            → <android.content.IIntentReceiver$Stub: void <init>()>
+            → PackagePartitions.getOrderedPartitions()
+            → <com.android.internal.content.om.OverlayConfig$$ExternalSynt
+            → <com.android.internal.content.om.OverlayConfig$$ExternalSynt
+            → <com.android.internal.content.om.OverlayConfig$Configuration
+            → OverlayConfig.getActiveApexes()
+            → OverlayConfig.getOverlayPackageInfos()
+            → OverlayConfigParser$OverlayPartition.containsFile()
+            → <com.android.internal.content.om.OverlayConfigParser$ParsedC
+            → OverlayConfigParser.getConfigurations()
+            → OverlayScanner$ParsedOverlayInfo.getOriginalPartitionPath()
+            → OverlayScanner.getAllParsedInfos()
+            → Preconditions.checkArgument()
+            → ArrayList.addAll()
+            → ArrayList.remove()
+            → ArrayList.sort()
+            → Collections.emptyList()
+            → Map.values()
+            → Supplier.get()
+            → <com.android.server.pm.Settings$$ExternalSyntheticLambda4: v
+            → <com.android.server.pm.Settings$$ExternalSyntheticLambda5: v
+            → SharedUserSetting.getDisabledPackageSettings()
+            → WatchedArraySet.isEmpty()
+            → WatchedArraySet.removeAt()
+            → List.forEach()
+            → Handler.post()
+            → SparseBooleanArray.size()
+            → ArrayUtils.contains()
+            → AppDataHelper.destroyAppDataLIF()
+            → AppDataHelper.destroyAppProfilesLIF()
+            → AppsFilterImpl.removePackage()
+            → KeySetManagerService.removeAppKeySetDataLPw()
+            → PackageManagerService.clearPackagePreferredActivitiesLPw()
+            → PackageManagerService.postPreferredActivityChangedBroadcast()
+            → PackageManagerServiceInjector.getBackgroundHandler()
+            → PackageRemovedInfo.populateUsers()
+            → PackageSetting.getInstalled()
+            → PackageSetting.isExternalStorage()
+            → PackageSetting.queryInstalledUsers()
+            → PackageSetting.getRealName()
+            → PackageSetting.setInstalled()
+            → PackageSetting.setUninstallReason()
+            → PreferredActivityHelper.updateDefaultHomeNotLocked()
+            → <com.android.server.pm.RemovePackageHelper$$ExternalSyntheti
+            → RemovePackageHelper.removePackageLI()
+            → RemovePackageHelper.removeSdpPackageDir()
+            → Settings.isDisabledSystemPackageLPr()
+            → Settings.getKeySetManagerService()
+            → Settings.removePackageLPw()
+            → Settings.checkAndConvertSharedUserSettingsLPw()
+            → Settings.removeRenamedPackageLPw()
+            → SharedUserSetting.getPackages()
+            → UserManagerInternal.getUserIds()
+            → PackageImpl.buildFakeForDeletion()
+            → PermissionManagerServiceInternal.onPackageUninstalled()
+            → DomainVerificationManagerInternal.clearPackage()
+            → PmConfigParser.parsePackageInternal()
+            → XmlPullParser.setInput()
+            → InitAppsHelper.resolveApexToScanPartition()
+            → ApexScanUtils.assertApexInfosAreValid()
+            → <com.android.internal.util.ConcurrentUtils$1: void <init>(ja
+            → Executors.newFixedThreadPool()
+            → InstallPackageHelper.scanSystemPackageTracedLI() [PKG_MGMT]
+            → PackageManagerService.getSystemPackageRescanFlagsAndReparseFlags()
+            → Settings.enableSystemPackageLPw()
+            → Settings.removeDisabledSystemPackageLPw()
+            → PkgWithoutStateAppInfo.getPath()
+            → InstallPackageHelper.installStubPackageLI() [PKG_MGMT]
+            → PackageSetting.getEnabled()
+            → <com.android.server.pm.InstallPackageHelper$$ExternalSynthet [PKG_MGMT]
+            → PreloadDuplicateApps.addSystemPackagesTo()
+            → PreloadDuplicateApps.clearPackages()
+            → PreloadDuplicateApps.installDuplicatePackages()
+            → ApkLiteParseUtils.isApkFile()
+            → ApexManager.reportErrorWithApkInApex()
+            → InstallPackageHelper.addForInitLI() [PKG_MGMT]
+            → PackageInstallerService.isStageName()
+            → PackageManagerService.getCacheDir()
+            → PackageManagerService.renameStaticSharedLibraryPackage()
+            → ParallelPackageParser.take()
+            → <com.android.server.pm.ParallelPackageParser: void <init>(co
+            → ParallelPackageParser.submit()
+            → RemovePackageHelper.removeCodePathLI()
+            → <com.android.server.pm.parsing.PackageCacher: void <init>(ja
+            → PackageCacher.cleanCachedResult()
+            → PkgWithoutStateAppInfo.isStaticSharedLibrary()
+            → PreloadDuplicateApps.hasDuplicatePackage()
+            → SkippingApks.isSkippingApk()
+            → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+            → WatchedArrayMap.unregisterChildIf()
+            → <java.lang.Exception: void <init>(java.lang.String)>
+            → BackgroundThread.getLooper()
+            → <com.android.internal.os.BackgroundThread: void <init>()>
+            → BackgroundThread.start()
+            → <com.android.server.utils.SnapshotCache: void <init>(java.la
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → SparseArray.indexOfValue()
+            → Watchable.unregisterObserver()
+            → GrowingArrayUtils.insert()
+            → ArrayUtils.newUnpaddedIntArray()
+            → Hashtable.get()
+            → <com.samsung.android.feature.SemCscFeature: void <init>()>
+            → Intent.getComponent()
+            → Intent.getSelector()
+            → Intent.getAction()
+            → Intent.getPackage()
+            → Computer.getReceiverInfo()
+            → Computer.getPackage()
+            → Computer.getComponentResolver()
+            → Computer.getInstantAppPackageName()
+            → Computer.applyPostResolutionFilter()
+            → PackageManagerServiceUtils.applyEnforceIntentFilterMatching()
+            → PkgWithoutStatePackageInfo.getReceivers()
+            → ComponentResolverApi.queryReceivers()
+            → ComponentResolverApi.queryReceivers()
+            → SemDualAppManager.isDualAppId()
+            → ArraySet.ensureCapacity()
+            → Collection.size()
+            → <com.android.server.pm.ComputerEngine$Settings: void <init>(
+            → PackageManagerService.getDefaultAppProvider()
+            → PackageManagerService.getDexManager()
+            → <com.android.server.utils.SnapshotCache$Statistics: java.uti
+            → <com.android.server.utils.SnapshotCache$Statistics: java.uti
+            → SnapshotCache.createSnapshot()
+            → WatchableImpl.seal()
+            → <com.android.server.utils.WatchedSparseBooleanArray: void <i
+            → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+            → Uri$Part.from()
+            → Intent.hasCategory()
+            → Intent.getFlags()
+            → ApplicationInfo.isInstantApp()
+            → Bundle.putBoolean()
+            → UserHandle.getUid()
+            → ResolverActivity.getLabelRes()
+            → PackageManagerServiceUtils.hasAnyDomainApproval()
+            → PreferredActivityHelper.findPreferredActivityNotLocked()
+            → ResolveIntentHelper.allHavePackage()
+            → UserNeedsBadgingCache.get()
+            → ProKioskManager.getProKioskState()
+            → ProKioskManager.getInstance()
+            → ProKioskManager.getHomeActivity()
+            → AtomicBoolean.get()
+            → SProtect.isHiddenBySprotect()
+            → UserManagerService$LocalService.exists()
+            → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+            → Uri$PathPart.fromDecoded()
+            → PackageManagerService.onChange()
+            → ApexEnvironment.getApexEnvironment()
+            → ApexEnvironment.getDeviceProtectedDataDirForUser()
+            → TypedXmlSerializer.setOutput()
+            → Xml.newBinarySerializer()
+            → Xml.newFastSerializer()
+            → CharSequence.toString()
+            → XmlSerializer.attribute()
+            → KeySetManagerService.writeKeySetsLPr()
+            → KeySetManagerService.writePublicKeysLPr()
+            → SigningDetails.getPastSigningCertificates()
+            → SigningDetails.getSignatureSchemeVersion()
+            → PackageSignatures.writeCertsListXml()
+            → ChangeIdStateCache.invalidate()
+            → PackageManagerService.invalidatePackageInfoCache()
+            → Settings.onChanged()
+            → UserManagerService.getInstance()
+            → Settings.getAllUsers()
+            → TypedXmlSerializer.attributeFloat()
+            → PackageSetting.getLoadingProgress()
+            → PackageSetting.getCpuAbiOverride()
+            → PackageSetting.getLegacyNativeLibraryPath()
+            → PackageSetting.getSecondaryCpuAbi()
+            → PackageSetting.getUsesSdkLibraries()
+            → PackageSetting.getUsesStaticLibraries()
+            → PackageSetting.getLastModifiedTime()
+            → PackageSetting.getLastUpdateTime()
+            → PackageSetting.getUsesSdkLibrariesVersionsMajor()
+            → PackageSetting.getUsesStaticLibrariesVersions()
+            → Settings.writeUsesSdkLibLPw()
+            → Settings.writeUsesStaticLibLPw()
+            → PackageSetting.isForceQueryableOverride()
+            → PackageSetting.isLoading()
+            → PackageSetting.isUpdateAvailable()
+            → PackageSetting.getCategoryOverride()
+            → PackageSetting.getMimeGroups()
+            → PackageSetting.getDomainSetId()
+            → Settings.writeKeySetAliasesLPr()
+            → Settings.writeMimeGroupLPr()
+            → Settings.writeSigningKeySetLPr()
+            → Settings.writeUpgradeKeySetsLPr()
+            → UUID.toString()
+            → Settings.writePackageListLPr()
+            → LegacyPermission.write()
+            → ArrayMap.entrySet()
+            → Collections.unmodifiableSet()
+            → <com.android.internal.util.FastPrintWriter$DummyWriter: void
+            → FastPrintWriter.initDefaultEncoder()
+            → <java.io.PrintWriter: void <init>(java.io.Writer,boolean)>
+            → ByteBuffer.allocate()
+            → <com.android.server.pm.pkg.PackageUserStateImpl: void <init>
+            → PackageUserStateImpl.onChanged()
+            → WatchedArraySet.addAll()
+            → WatchedArraySet.registerObserver()
+            → Watchable.dispatchChange()
+            → AtomicLong.incrementAndGet()
+            → ArraySet.removeAt()
+            → <com.android.server.knox.IKnoxAnalyticsContainerImpl: void <
+            → <com.android.server.knox.KnoxAnalyticsContainer: void <init>
+            → <com.android.server.pm.PersonaManagerService$1: void <init>(
+            → <com.android.server.pm.PersonaManagerService$2: void <init>(
+            → <com.android.server.pm.PersonaManagerService$3: void <init>(
+            → <com.android.server.pm.PersonaManagerService$4: void <init>(
+            → <com.android.server.pm.PersonaManagerService$5: void <init>(
+            → <com.android.server.pm.PersonaManagerService$6: void <init>(
+            → <com.android.server.pm.PersonaManagerService$7: void <init>(
+            → PersonaManagerService$Injector.getDevicePolicyManager()
+            → PersonaManagerService$Injector.getContext()
+            → PersonaManagerService$Injector.isTestingMode()
+            → PersonaManagerService$Injector.getContainerDependencyWrapper()
+            → PersonaManagerService$Injector.getPersonaPolicyManagerService()
+            → PersonaManagerService$Injector.getPackageManagerService()
+            → PersonaManagerService$Injector.getBaseUserPath()
+            → PersonaManagerService$Injector.getDataDir()
+            → PersonaManagerService$Injector.getCorePackageUid()
+            → <com.android.server.pm.PersonaManagerService$LocalService: v
+            → <com.android.server.pm.PersonaManagerService$PersonaHandler:
+            → PersonaManagerService.readPersonaCacheLocked()
+            → <com.samsung.android.knox.ISemPersonaManager$Stub: void <ini
+            → File.createNewFile()
+            → <com.android.server.pm.Policy: java.util.Set -$$Nest$fgetmCe
+            → <com.android.server.pm.Policy: void <init>(com.android.serve
+            → Set.isEmpty()
+            → <android.content.pm.Signature: void <init>(java.lang.String)
+            → Policy$PolicyBuilder.validateValue()
+            → <java.util.HashMap: void <init>(int)>
+            → <java.util.HashSet: void <init>(int)>
+            → Policy$PolicyBuilder.addInnerPackageMapOrThrow()
+            → ArraySet.valueAtUnchecked()
+            → VerifierDeviceIdentity.encodeBase32()
+            → <org.xmlpull.v1.XmlPullParserException: void <init>(java.lan
+            → TypedXmlPullParser.getAttributeCount()
+            → TypedXmlPullParser.getAttributeName()
+            → TypedXmlPullParser.getAttributeNamespace()
+            → <com.android.internal.util.BinaryXmlPullParser: void <init>(
+            → XmlUtils.makeTyped()
+            → TypedXmlPullParser.getAttributeLong()
+            → LongSparseArray.size()
+            → LongSparseArray.get()
+            → LongSparseArray.valueAt()
+            → LongSparseArray.keyAt()
+            → KeySetHandle.getRefCountLPr()
+            → KeySetHandle.setRefCountLPw()
+            → KeySetManagerService$PublicKeyHandle.incrRefCountLPw()
+            → KeySetManagerService.decrementKeySetLPw()
+            → PackageKeySetData.removeAllDefinedKeySets()
+            → PackageKeySetData.removeAllUpgradeKeySets()
+            → LongSparseArray.put()
+            → <com.android.server.pm.KeySetHandle: void <init>(long,int)>
+            → KeySetManagerService.readPublicKeyLPw()
+            → AtomicFile.openRead()
+            → <android.util.AtomicFile: void <init>(java.io.File)>
+            → Settings$RuntimePermissionPersistence.parseLegacyRuntimePermissions()
+            → RuntimePermissionsState$PermissionState.isGranted()
+            → RuntimePermissionsState$PermissionState.getFlags()
+            → RuntimePermissionsState$PermissionState.getName()
+            → <com.android.server.pm.permission.LegacyPermissionState$Perm
+            → LegacyPermissionState.putPermissionState()
+            → Handler.obtainMessage()
+            → Handler.sendMessageDelayed()
+            → Handler.removeMessages()
+            → Message.sendToTarget()
+            → SparseBooleanArray.get()
+            → SparseLongArray.get()
+            → SparseLongArray.put()
+            → Settings$RuntimePermissionPersistence.nextWritePermissionDelayMillis()
+            → SparseBooleanArray.delete()
+            → LegacyPermissionState.checkUserId()
+            → Slogf.isLoggable()
+            → Slogf.w()
+            → Slogf.getMessage()
+            → SettingBase.setPrivateFlags()
+            → IntentFilter.readFromXml()
+            → CrossProfileIntentFilter.makeCache()
+            → CrossProfileIntentFilter.getStringFromXml()
+            → <com.android.server.pm.WatchedIntentFilter: void <init>()>
+            → <com.android.server.pm.CrossProfileIntentResolver: void <ini
+            → IntentResolver.addFilter()
+            → WatchedIntentResolver.onChanged()
+            → TypedXmlPullParser.getAttributeFloat()
+            → TypedXmlPullParser.getAttributeLongHex()
+            → <com.android.server.pm.PackageKeySetData: void <init>()>
+            → PackageSetting.makeCache()
+            → PackageSetting.copyMimeGroups()
+            → <com.android.server.pm.pkg.PackageStateUnserialized: void <i
+            → TypedXmlPullParser.getAttributeIntHex()
+            → ArrayUtils.appendElement()
+            → ArrayUtils.appendLong()
+            → PackageSetting.setUsesSdkLibraries()
+            → PackageSetting.setUsesSdkLibrariesVersionsMajor()
+            → PackageSetting.setUsesStaticLibraries()
+            → PackageSetting.setUsesStaticLibrariesVersions()
+            → IntentFilterVerificationInfo.readFromXml()
+            → TypedXmlPullParser.getAttributeBoolean()
+            → InstallSource.createInternal()
+            → InstallSource.intern()
+            → Set.addAll()
+            → PackageUserStateImpl.setEnabledState()
+            → PackageUserStateImpl.setLastDisableAppCaller()
+            → SigningDetails$Builder.build()
+            → SigningDetails$Builder.setSignatureSchemeVersion()
+            → SigningDetails$Builder.setSignatures()
+            → <android.content.pm.SigningDetails$Builder: void <init>()>
+            → PackageSignatures.readCertsListXml()
+            → ArrayList.toArray()
+            → PackageSetting.addDisabledComponent()
+            → PackageSetting.addEnabledComponent()
+            → WatchedArrayList.registerChild()
+            → <android.content.pm.SuspendDialogInfo: void <init>(android.c
+            → Preconditions.checkStringNotEmpty()
+            → SuspendDialogInfo$Builder.setIcon()
+            → SuspendDialogInfo$Builder.setMessage()
+            → SuspendDialogInfo$Builder.setNeutralButtonAction()
+            → SuspendDialogInfo$Builder.setNeutralButtonText()
+            → SuspendDialogInfo$Builder.setNeutralButtonText()
+            → SuspendDialogInfo$Builder.setTitle()
+            → SuspendDialogInfo$Builder.setTitle()
+            → <android.os.PersistableBundle$MyReadMapCallback: void <init>
+            → <android.os.PersistableBundle: void <init>()>
+            → <android.os.PersistableBundle: void <init>(android.util.Arra
+            → XmlUtils.readThisArrayMapXml()
+            → PackageUserStateImpl.setCeDataInode()
+            → PackageUserStateImpl.setDistractionFlags()
+            → PackageUserStateImpl.setFirstInstallTime()
+            → PackageUserStateImpl.setHarmfulAppWarning()
+            → PackageUserStateImpl.setHidden()
+            → PackageUserStateImpl.setInstallReason()
+            → PackageUserStateImpl.setInstalled()
+            → PackageUserStateImpl.setInstantApp()
+            → PackageUserStateImpl.setNotLaunched()
+            → PackageUserStateImpl.setSplashScreenTheme()
+            → PackageUserStateImpl.setStopped()
+            → PackageUserStateImpl.setSuspendParams()
+            → PackageUserStateImpl.setUninstallReason()
+            → PackageUserStateImpl.setVirtualPreload()
+            → ArraySet.isEmpty()
+            → WatchedSparseArray.remove()
+            → PackageManagerBackupController.getRebootCntByPackageState()
+            → PackageManagerBackupController.getBackupPackagesStateFile()
+            → PackageManagerBackupController.incRebootCntByPkgsState()
+            → PersistentPreferredActivity.makeCache()
+            → <com.android.server.pm.PersistentPreferredIntentResolver: vo
+            → PreferredActivity.makeCache()
+            → <com.android.server.pm.PreferredComponent: void <init>(com.a
+            → PreferredComponent.sameSet()
+            → WatchedIntentResolver.findFilters()
+            → ArrayList.isEmpty()
+            → <com.android.server.pm.PreferredIntentResolver: void <init>(
+            → AbstractBackupController.getLatestBackupItemDir()
+            → AbstractBackupController.putBackupConfigInt()
+            → PackageSetting.getNotInstalledUserIds()
+            → Settings.writeKernelMappingLPr()
+            → IntentResolver.filterSet()
+            → CrossProfileIntentFilter.writeToXml()
+            → XmlSerializer.endTag()
+            → XmlSerializer.startTag()
+            → PersistentPreferredActivity.writeToXml()
+            → PreferredActivity.writeToXml()
+            → SuspendDialogInfo.saveToXml()
+            → PersistableBundle.saveToXml()
+            → LegacyPermission.read()
+            → WatchedArrayList.unregisterChildIf()
+            → ArrayList.set()
+            → <com.android.server.pm.permission.LegacyPermissionState: voi
+            → <com.android.server.pm.SharedUserSetting$2: void <init>(com.
+            → <com.android.server.utils.WatchedArraySet: void <init>(int,b
+            → PackagePartitions$DeferredCanonicalFile.getFile()
+            → Uri$Builder.hasSchemeOrAuthority()
+            → Uri$PathPart.makeAbsolute()
+            → Uri$Builder.authority()
+            → Uri$Builder.opaquePart()
+            → Uri$Builder.path()
+            → ComponentName.flattenToShortString()
+            → ComponentName.getClassName()
+            → Intent.getType()
+            → Intent.getCategories()
+            → PackageManagerInternal.queryIntentActivities()
+            → PatternMatcher.getType()
+            → <com.android.server.pm.PreferredActivity: void <init>(com.an
+            → Settings.removeFilters()
+            → WatchedIntentFilter.addAction()
+            → WatchedIntentFilter.addCategory()
+            → WatchedIntentFilter.addDataAuthority()
+            → WatchedIntentFilter.addDataPath()
+            → WatchedIntentFilter.addDataScheme()
+            → WatchedIntentFilter.addDataSchemeSpecificPart()
+            → WatchedIntentFilter.addDataType()
+            → UserHandle.getIdentifier()
+            → <com.android.server.pm.DeletePackageAction: void <init>(com. [PKG_MGMT]
+            → PackageManagerServiceUtils.isSystemApp()
+            → DeletePackageHelper.clearPackageStateForUserLIF() [PKG_MGMT]
+            → DeletePackageHelper.deleteInstalledPackageLIF() [PKG_MGMT]
+            → DeletePackageHelper.deleteInstalledSystemPackage() [PKG_MGMT]
+            → DeletePackageHelper.markPackageUninstalledForUserLPw() [PKG_MGMT]
+            → InstallPackageHelper.restoreDisabledSystemPackageLIF() [PKG_MGMT]
+            → PackageManagerService.shouldKeepUninstalledPackageLPr()
+            → PackageManagerService.removeAllDistractingPackageRestrictions()
+            → PackageManagerService.scheduleWritePackageRestrictions()
+            → PackageManagerService.unsuspendForSuspendingPackage()
+            → PackageSetting.isAnyInstalled()
+            → PlatformCompat.isChangeEnabledInternal()
+            → SharedLibrariesImpl.collectSharedLibraryInfos()
+            → ParsingPackageRead.getUsesSdkLibrariesCertDigests()
+            → ParsingPackageRead.getUsesStaticLibrariesCertDigests()
+            → ParsingPackageRead.getUsesNativeLibraries()
+            → ParsingPackageRead.getUsesOptionalNativeLibraries()
+            → ParsingPackageRead.getUsesSdkLibrariesVersionsMajor()
+            → ParsingPackageRead.getUsesStaticLibrariesVersions()
+            → SharedLibraryInfo.isStatic()
+            → PackageManagerService.getPackageSettingForMutation()
+            → PackageSetting.setPkgStateLibraryFiles()
+            → <com.android.server.pm.SharedLibrariesImpl$$ExternalSyntheti
+            → SharedLibrariesImpl.addSharedLibraryLPr()
+            → SharedLibrariesImpl.applyDefiningSharedLibraryUpdateLPr()
+            → PackageStateUnserialized.setUsesLibraryFiles()
+            → PackageStateUnserialized.setUsesLibraryInfos()
+            → ArrayList.iterator()
+            → <java.util.LinkedHashSet: void <init>()>
+            → <android.util.LongSparseArray: void <init>()>
+            → <com.android.server.utils.WatchedLongSparseArray$1: void <in
+            → WatchedLongSparseArray.onChanged()
+            → WatchedLongSparseArray.registerChild()
+            → WatchedLongSparseArray.unregisterChildIf()
+            → Signature.areExactMatch()
+            → SigningDetails.hasCertificate()
+            → Set.toArray()
+            → ParsedProcessImpl.addStateFrom()
+            → <android.util.ArrayMap: void <init>(android.util.ArrayMap)>
+            → ParsedProcess.getAppClassNamesByPackage()
+            → ParsedProcess.getGwpAsanMode()
+            → ParsedProcess.getMemtagMode()
+            → ParsedProcess.getNativeHeapZeroInitialized()
+            → ParsedProcess.getDeniedPermissions()
+            → Collections.emptySet()
+            → SnapshotStatistics$BinMap.count()
+            → <com.android.server.pm.SnapshotStatistics: com.android.serve
+            → <com.android.server.pm.SnapshotStatistics: com.android.serve
+            → UserManagerService.userWithName()
+            → UserManagerService.hasCreateUsersPermission()
+            → <java.lang.SecurityException: void <init>(java.lang.String)>
+            → Map.putIfAbsent()
+            → DexManager.cachePackageCodeLocation()
+            → PackageDynamicCodeLoading.read()
+            → PackageDynamicCodeLoading.syncData()
+            → <com.android.server.pm.dex.PackageDexUsage$DexUseInfo: int -
+            → PackageDexUsage$PackageUseInfo.isAnyCodePathUsedByOtherApps()
+            → <com.android.server.pm.dex.PackageDexUsage$PackageUseInfo: j
+            → <com.android.server.pm.dex.PackageDexUsage$PackageUseInfo: j
+            → Map.containsKey()
+            → Map.isEmpty()
+            → <com.android.server.pm.pkg.mutate.PackageStateMutator$StateW
+            → <android.app.ResourcesManager$UpdateHandler: void <init>(and
+            → <android.content.res.Configuration: void <init>()>
+            → <java.lang.ref.ReferenceQueue: void <init>()>
+            → <java.util.WeakHashMap: void <init>()>
+            → ResourcesManager.getResources()
+            → <android.os.DeadSystemException: void <init>()>
+            → Watcher.onChange()
+            → TimingsTraceLog.createAndGetStartNamesArray()
+            → TimingsTraceLog.createAndGetStartTimesArray()
+            → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+            → <android.util.MapCollections$ValuesCollection: void <init>(a
+            → BroadcastReceiverListParser.getAllowedPackagePrefixNames()
+            → BroadcastReceiverListParser.getRestricedIntent()
+            → BroadcastReceiverListParser.getRestrictedPackagePrefixNames()
+            → BroadcastReceiverListParser.getPackageMap()
+            → BroadcastReceiverListParser.getAllowedPackageNames()
+            → BroadcastReceiverListParser.getRestrictedPackageNames()
+            → BroadcastReceiverListParser.parseAllowList()
+            → BroadcastReceiverListParser.parseAllowList()
+            → <com.samsung.android.core.pm.BroadcastReceiverListParserWith
+            → Map.putAll()
+            → AdditionalSkippingApkListParser.parseSkippingApkList()
+            → SkippingApks.getApkNamesFromFile()
+            → ArrayList.remove()
+            → AbstractBackupController.getControllerDir()
+            → AbstractBackupController.readBackupItems()
+            → AbstractBackupController.readLastSelectedItem()
+            → AtomicInteger.set()
+              → <com.android.server.LockGuard$LockInfo: void <init>()>
+              → <com.android.server.AnimationThread: void <init>()>
+              → <com.android.server.DisplayThread: void <init>()>
+              → <com.android.server.IoThread: void <init>()>
+              → <com.android.server.UiThread: void <init>()>
+              → <com.android.server.wm.SurfaceAnimationThread: void <init>()
+              → PackageManager$Property.getBoolean()
+              → ParsingPackageRead.getProperties()
+              → Installer.createAppDataBatched()
+              → CompletableFuture.complete()
+              → CompletableFuture.completeExceptionally()
+              → SemSamsungThemeUtils.isZippedLocaleOverlay()
+              → AppDataHelper.prepareAppDataLeaf()
+              → ParsingPackageRead.isSamsungThemeOverlay()
+              → CompletableFuture.completedFuture()
+              → Computer.getUsed()
+              → SnapshotStatistics.rebuild()
+              → IInstalld.clearAppProfiles()
+              → ArtManager.getProfileName()
+              → ParsingPackageRead.getSplitFlags()
+              → PkgWithoutStateAppInfo.isHasCode()
+              → PkgWithoutStateAppInfo.getBaseApkPath()
+              → PkgWithoutStateAppInfo.getSplitCodePaths()
+              → PkgWithoutStatePackageInfo.getSplitNames()
+              → IIntentReceiver$Stub.attachInterface()
+              → <android.os.Binder: void <init>()>
+              → Function.apply()
+              → ApexInfo.getIsActive()
+              → ApexInfo.getModuleName()
+              → ApexInfo.getPreinstalledModulePath()
+              → ApexInfoList.getApexInfo()
+              → XmlParser.readApexInfoList()
+              → OverlayConfigParser$OverlayPartition.containsPath()
+              → <com.android.internal.content.om.OverlayConfig$$ExternalSynt
+              → OverlayConfig$PackageProvider.forEachPackage()
+              → OverlayConfigParser$OverlayPartition.getOverlayFolder()
+              → <com.android.internal.content.om.OverlayConfigParser$Parsing
+              → <com.android.internal.content.om.OverlayConfigParser$Parsing
+              → OverlayConfigParser.readConfigFile()
+              → OverlayScanner.scanDir()
+              → AppDataHelper.destroyAppDataLeafLIF()
+              → AppDataHelper.destroyAppProfilesLeafLIF()
+              → <android.util.ArraySet: void <init>(android.util.ArraySet)>
+              → OverlayReferenceMapper.removePkg()
+              → AppsFilterBase.getSharedUserPackages()
+              → AppsFilterImpl.addPackageInternal()
+              → AppsFilterImpl.collectProtectedBroadcasts()
+              → AppsFilterImpl.invalidateCache()
+              → AppsFilterImpl.onChanged()
+              → AppsFilterImpl.removeAppIdFromVisibilityCache()
+              → AppsFilterImpl.updateShouldFilterCacheForPackage()
+              → FeatureConfig.updatePackageState()
+              → PackageState.hasSharedUser()
+              → PackageState.getSharedUserAppId()
+              → ParsingPackageRead.getProtectedBroadcasts()
+              → PackageDataSnapshot.getUserInfos()
+              → PackageDataSnapshot.getPackageStates()
+              → PackageDataSnapshot.getAllSharedUsers()
+              → WatchedArraySet.containsAll()
+              → WatchedSparseSetArray.remove()
+              → WatchedSparseSetArray.keyAt()
+              → WatchedSparseSetArray.size()
+              → WatchedSparseSetArray.remove()
+              → AtomicBoolean.set()
+              → PackageKeySetData.getAliases()
+              → PackageKeySetData.getProperSigningKeySet()
+              → Settings.clearPackagePreferredActivities()
+              → <com.android.server.pm.PackageManagerService$$ExternalSynthe
+              → ArrayUtils.appendInt()
+              → PackageSetting.getInstantApp()
+              → SparseBooleanArray.keyAt()
+              → PreferredActivityHelper.updateDefaultHomeNotLocked()
+              → RemovePackageHelper.cleanPackageDataStructuresLILPw()
+              → PermissionManagerServiceInternal.removePackageGrantedPermissionsForMDM()
+              → Settings.checkAndPruneSharedUserLPw()
+              → Settings.removeAppIdLPw()
+              → Settings.removeInstallerPackageStatus()
+              → Settings.convertSharedUserSettingsLPw()
+              → SharedUidMigration.applyStrategy()
+              → SharedUserSetting.isSingleUser()
+              → ParsingPackageRead.isLeavingSharedUid()
+              → PackageImpl.forTesting()
+              → ParsedPackage.hideAsFinal()
+              → ParsingPackage.setVolumeUuid()
+              → ParsingPackage.hideAsParsed()
+              → <com.android.server.pm.ScanPartition: void <init>(java.io.Fi
+              → PmLog.logDebugInfo()
+              → InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+              → PackagePartitions$SystemPartition.containsApp()
+              → PackagePartitions$SystemPartition.containsPrivApp()
+              → InitAppsHelper.getDirsToScanAsSystem()
+              → PackageStateUnserialized.setUpdatedSystemApp()
+              → InstallPackageHelper.decompressPackage() [PKG_MGMT]
+              → Settings.disableSystemPackageLPw()
+              → <com.samsung.android.server.pm.install.PreloadDuplicateApps$
+              → Map.forEach()
+              → ApkLiteParseUtils.isApkPath()
+              → IncrementalManager.isIncrementalPath()
+              → IncrementalManager.registerLoadingProgressCallback()
+              → <com.android.server.pm.IncrementalProgressListener: void <in
+              → InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+              → InstallPackageHelper.optimisticallyRegisterAppId() [PKG_MGMT]
+              → InstallPackageHelper.commitReconciledScanResultLocked() [PKG_MGMT]
+              → InstallPackageHelper.cleanUpAppIdCreation() [PKG_MGMT]
+              → PackageManagerService.getSettingsVersionForPackage()
+              → ReconcilePackageUtils.reconcilePackages()
+              → <com.android.server.pm.ReconcileRequest: void <init>(java.ut
+              → Collections.singletonMap()
+              → PackageManagerService.toStaticSharedLibraryPackageName()
+              → ParsedPackage.setPackageName()
+              → ParsingPackageRead.getStaticSharedLibVersion()
+              → <java.lang.IllegalStateException: void <init>(java.lang.Thro
+              → <java.lang.InterruptedException: void <init>(java.lang.Strin
+              → BlockingQueue.take()
+              → <java.util.concurrent.ArrayBlockingQueue: void <init>(int)>
+              → <com.android.server.pm.ParallelPackageParser$$ExternalSynthe
+              → IncrementalManager.rmPackageDir()
+              → Installer.rmPackageDir()
+              → RemovePackageHelper.removeCachedResult()
+              → File.getParentFile()
+              → FileUtils.listFilesOrEmpty()
+              → <com.android.server.pm.parsing.PackageCacher$$ExternalSynthe
+              → ArrayMap.containsValue()
+              → SemCscFeature.loadFeatureFile()
+              → <java.util.Hashtable: void <init>()>
+              → ActivityManager.checkComponentPermission()
+              → PlatformCompat.isChangeEnabledInternal()
+              → <com.android.server.pm.PackageManagerServiceUtils$$ExternalS
+              → ParsedComponent.getComponentName()
+              → ParsedComponent.getIntents()
+              → ComponentResolverApi.getActivity()
+              → ComponentResolverApi.getReceiver()
+              → ComponentResolverApi.getService()
+              → List.stream()
+              → Stream.anyMatch()
+              → SparseBooleanArray.clone()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+              → <android.net.Uri: void <init>(android.net.Uri-IA)>
+              → <android.net.Uri$Part: void <init>(java.lang.String,java.lan
+              → ResolverActivity$ActionTitle.forAction()
+              → DomainVerificationManagerInternal.approvalLevelForDomain()
+              → Context.getContentResolver()
+              → Settings$Global.getInt()
+              → Computer.findPreferredActivityInternal2()
+              → PackageManagerService.scheduleWritePackageRestrictions()
+              → ArrayUtils.isEmpty()
+              → UserInfo.isManagedProfile()
+              → SparseBooleanArray.valueAt()
+              → SparseBooleanArray.indexOfKey()
+              → UserManagerService.getUserInfo()
+              → IKnoxCustomManager.getProKioskState()
+              → ProKioskManager.getService()
+              → <com.samsung.android.knox.ContextInfo: void <init>()>
+              → <com.samsung.android.knox.custom.ProKioskManager: void <init
+              → IKnoxCustomManager.getHomeActivity()
+              → ReentrantReadWriteLock$ReadLock.lock()
+              → ReentrantReadWriteLock$ReadLock.unlock()
+              → ReentrantReadWriteLock.readLock()
+              → <com.android.server.pm.UserManagerService: android.content.p
+              → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+              → Uri$PathPart.from()
+              → <android.content.ApexEnvironment: void <init>(java.lang.Stri
+              → Environment.buildPath()
+              → Environment.getDataMiscDeDirectory()
+              → <com.android.internal.util.BinaryXmlSerializer: void <init>(
+              → <com.android.internal.util.FastXmlSerializer: void <init>()>
+              → XmlUtils.makeTyped()
+              → ArraySet.iterator()
+              → TypedXmlSerializer.attributeBytesBase64()
+              → KeySetManagerService$PublicKeyHandle.getKey()
+              → PublicKey.getEncoded()
+              → Signature.equals()
+              → Signature.getFlags()
+              → Signature.hashCode()
+              → Signature.writeToXmlAttributeBytesHex()
+              → PropertyInvalidatedCache.invalidateCache()
+              → PackageManager.invalidatePackageInfoCache()
+              → Settings.dispatchChange()
+              → Settings.getUsers()
+              → ArrayUtils.isEmpty()
+              → CollectionUtils.isEmpty()
+              → Collections.emptyMap()
+              → PackageKeySetData.isUsingUpgradeKeySets()
+              → PackageKeySetData.getUpgradeKeySets()
+              → SELinux.setFSCreateContext()
+              → SELinux.fileSelabelLookup()
+              → Settings.writePackageListLPrInternal()
+              → MapCollections.getEntrySet()
+              → <com.android.internal.util.FastPrintWriter$DummyWriter: void
+              → Charset.defaultCharset()
+              → Charset.newEncoder()
+              → CharsetEncoder.onMalformedInput()
+              → CharsetEncoder.onUnmappableCharacter()
+              → PackageUserStateImpl.makeCache()
+              → ArraySet.shouldShrink()
+              → ArraySet.getNewShrunkenSize()
+              → <com.android.server.knox.BasicContainerAnalytics: void <init
+              → <com.android.server.knox.KnoxAnalyticsContainer$AnalyticsHan
+              → <com.android.server.knox.SeparatedAppsAnalytics: void <init>
+              → <android.app.UserSwitchObserver: void <init>()>
+              → <android.content.BroadcastReceiver: void <init>()>
+              → ContainerDependencyWrapper.getInstance()
+              → PersonaPolicyManagerService.getInstance()
+              → <com.android.server.pm.PersonaManagerService$LocalService: v
+              → <com.android.server.pm.PersonaManagerService: int -$$Nest$mc
+              → PersonaManagerService.atomicFileProcessDamagedFile()
+              → HashMap.put()
+              → XmlPullParser.getAttributeName()
+              → XmlPullParser.getAttributeValue()
+              → XmlPullParserException.printStackTrace()
+              → ISemPersonaManager$Stub.attachInterface()
+              → <com.android.server.pm.Policy: void <init>(com.android.serve
+              → Signature.parseHexDigit()
+              → <com.android.internal.util.XmlUtils$ForcedTypedXmlPullParser
+              → LongSparseArray.gc()
+              → LongSparseArray.get()
+              → LongSparseArray.delete()
+              → KeySetHandle.decrRefCountLPw()
+              → KeySetManagerService.decrementPublicKeyLPw()
+              → ArrayMap.erase()
+              → ContainerHelpers.binarySearch()
+              → GrowingArrayUtils.insert()
+              → FrameworkParsingPackageUtils.parsePublicKey()
+              → TypedXmlPullParser.getAttributeBytesBase64()
+              → <com.android.server.pm.KeySetManagerService$PublicKeyHandle:
+              → AtomicFile.rename()
+              → <android.util.AtomicFile: void <init>(java.io.File,android.u
+              → Settings$RuntimePermissionPersistence.parseLegacyPermissionsLPr()
+              → PackageStateInternal.getLegacyPermissionState()
+              → <com.android.server.pm.permission.LegacyPermissionState$User
+              → LegacyPermissionState$UserState.putPermissionState()
+              → Handler.sendMessage()
+              → SparseBooleanArray.get()
+              → SparseLongArray.get()
+              → Settings$RuntimePermissionPersistence.uniformRandom()
+              → Formatter.format()
+              → <com.android.server.pm.CrossProfileIntentFilter$1: void <ini
+              → <android.content.IntentFilter: void <init>()>
+              → CrossProfileIntentResolver.makeCache()
+              → <com.android.server.pm.WatchedIntentResolver: void <init>()>
+              → IntentFilter.actionsIterator()
+              → IntentFilter.schemesIterator()
+              → IntentResolver.getIntentFilter()
+              → IntentResolver.register_intent_filter()
+              → IntentResolver.register_mime_types()
+              → WatchedIntentResolver.dispatchChange()
+              → <com.android.server.pm.PackageSetting$1: void <init>(com.and
+              → <android.util.ArrayMap: void <init>(int)>
+              → Map.size()
+              → TypedXmlPullParser.getAttributeIntHex()
+              → IntentFilterVerificationInfo.getIntFromXml()
+              → IntentFilterVerificationInfo.getStringFromXml()
+              → <com.android.server.pm.InstallSource: void <init>(java.lang.
+              → SigningDetails$Builder.checkInvariants()
+              → <android.content.pm.SigningDetails: void <init>(android.cont
+              → <android.content.pm.Signature: void <init>(android.content.p
+              → <android.content.pm.Signature: void <init>(byte[])>
+              → Signature.setFlags()
+              → SigningDetails$Builder.setPastSigningCertificates()
+              → TypedXmlPullParser.getAttributeBytesHex()
+              → <android.content.pm.SuspendDialogInfo$Builder: int -$$Nest$f
+              → <android.content.pm.SuspendDialogInfo$Builder: int -$$Nest$f
+              → <android.content.pm.SuspendDialogInfo$Builder: int -$$Nest$f
+              → <android.content.pm.SuspendDialogInfo$Builder: int -$$Nest$f
+              → <android.content.pm.SuspendDialogInfo$Builder: int -$$Nest$f
+              → <android.content.pm.SuspendDialogInfo$Builder: java.lang.Str
+              → <android.content.pm.SuspendDialogInfo$Builder: java.lang.Str
+              → <android.content.pm.SuspendDialogInfo$Builder: java.lang.Str
+              → ResourceId.isValid()
+              → <android.os.BaseBundle: void <init>()>
+              → PersistableBundle.isValidType()
+              → <android.os.PersistableBundle: void <init>(android.os.Bundle
+              → PersistableBundle.putAll()
+              → ArrayMap.setValueAt()
+              → TypedXmlPullParser.getEventType()
+              → XmlUtils.readThisValueXml()
+              → AnnotationValidations.validate()
+              → WatchedArrayMap.putAll()
+              → WatchedSparseArray.delete()
+              → <com.android.server.pm.PersistentPreferredActivity$1: void <
+              → PersistentPreferredIntentResolver.makeCache()
+              → <com.android.server.pm.PreferredActivity$1: void <init>(com.
+              → PreferredComponent$Callbacks.onReadTag()
+              → PreferredComponent.sameComponent()
+              → IntentResolver.findFilters()
+              → PreferredIntentResolver.makeCache()
+              → AbstractBackupController.getLatestBackupItemSinceLastSelected()
+              → AbstractBackupController.setLastSelectedItemIndex()
+              → AbstractBackupController.writeLastSelectedItem()
+              → SharedPreferences$Editor.putInt()
+              → SharedPreferences$Editor.commit()
+              → PackageUserStateImpl.isInstalled()
+              → <com.android.server.pm.Settings$KernelPackageState: void <in
+              → Settings.writeIntToFile()
+              → File.mkdir()
+              → IntentFilter.writeToXml()
+              → PreferredComponent.writeToXml()
+              → PersistableBundle.unparcel()
+              → XmlUtils.writeMapXml()
+              → PermissionInfo.fixProtectionLevel()
+              → LegacyPermission.readInt()
+              → <com.android.server.pm.permission.LegacyPermission: void <in
+              → <com.android.server.utils.WatchedArraySet$1: void <init>(com
+              → <android.content.pm.PackagePartitions: java.io.File -$$Nest$
+              → <android.net.Uri$PathPart: void <init>(java.lang.String,java
+              → <com.android.server.pm.PreferredActivity: void <init>(androi
+              → PackageManagerSamsungUtils.logPreferenceChange()
+              → WatchedIntentResolver.removeFilter()
+              → IntentFilter.addAction()
+              → WatchedIntentFilter.onChanged()
+              → IntentFilter.addCategory()
+              → IntentFilter.addDataAuthority()
+              → IntentFilter.addDataPath()
+              → IntentFilter.addDataScheme()
+              → IntentFilter.addDataSchemeSpecificPart()
+              → IntentFilter.addDataType()
+              → AppDataHelper.clearKeystoreData()
+              → PreferredActivityHelper.clearPackagePreferredActivities()
+              → DomainVerificationManagerInternal.clearPackageForUser()
+              → AppsFilterBase.getVisibilityAllowList()
+              → AsecInstallHelper.packageFlagsToInstallFlags()
+              → InstructionSets.getAppDexInstructionSets()
+              → PackageManagerService.createInstallArgsForExisting()
+              → InstallPackageHelper.disableStubPackage() [PKG_MGMT]
+              → InstallPackageHelper.installPackageFromSystemLIF() [PKG_MGMT]
+              → PackageManagerServiceUtils.removeNativeBinariesLI()
+              → <com.android.server.pm.SystemDeleteException: void <init>(co
+              → Computer.getAllAvailablePackageNames()
+              → DistractingPackageHelper.removeDistractingPackageRestrictions()
+              → ArrayMap.keySet()
+              → Computer.getPackageStates()
+              → <com.android.server.pm.PackageManagerService$$ExternalSynthe
+              → SuspendPackageHelper.removeSuspensionsBySuspendingPackage()
+              → <android.content.pm.ApplicationInfo: void <init>()>
+              → CompatConfig.willChangeBeEnabled()
+              → PlatformCompat.isChangeEnabledInternalNoLogging()
+              → SigningDetails.hasSha256Certificate()
+              → PackageUtils.computeSignaturesSha256Digests()
+              → <com.android.server.pm.PackageManagerException: void <init>(
+              → SharedLibraryUtils.getSharedLibraryInfo()
+              → HexEncoding.decode()
+              → PackageSetting.getUsesLibraryFiles()
+              → Collection.containsAll()
+              → SharedLibraryInfo.getPath()
+              → <com.android.server.pm.SharedLibrariesImpl$$ExternalSyntheti
+              → AndroidPackageUtils.getAllCodePaths()
+              → PackageStateUnserialized.getUsesLibraryFiles()
+              → AndroidPackageUtils.isLibrary()
+              → ParsingPackageRead.getSdkLibVersionMajor()
+              → BiConsumer.accept()
+              → <android.util.LongSparseArray: void <init>(int)>
+              → LongSparseArray.indexOfValue()
+              → ArrayUtils.containsAll()
+              → ArrayUtils.size()
+              → SigningDetails.hasCertificateInternal()
+              → CollectionUtils.addAll()
+              → ArrayMap.putAll()
+              → UserInfo.isGuest()
+              → <android.content.pm.UserInfo: void <init>(android.content.pm
+              → UserManagerService.getGuestName()
+              → UserManagerService.getOwnerName()
+              → UserManagerService.hasManageUsersOrPermission()
+              → <com.android.server.pm.dex.DexManager$PackageCodeLocations: 
+              → DexManager$PackageCodeLocations.mergeAppDataDirs()
+              → DexManager$PackageCodeLocations.updateCodeLocation()
+              → <com.android.server.pm.dex.PackageDynamicCodeLoading$Package
+              → <com.android.server.pm.pkg.mutate.PackageStateMutator$StateW
+              → <android.app.ResourcesManager$UpdateHandler: void <init>(and
+              → ResourcesManager.getResources()
+              → <android.os.DeadObjectException: void <init>()>
+              → <android.util.MapCollections: void <init>()>
+              → <com.samsung.android.core.pm.BroadcastReceiverListParser$$Ex
+              → BroadcastReceiverListParser.parseAllowListInternal()
+              → <com.samsung.android.core.pm.BroadcastReceiverListParser: vo
+              → AdditionalSkippingApkListParser.parseSkippingApkListElement()
+              → DataInputStream.available()
+              → DataInputStream.readLine()
+              → <java.io.DataInputStream: void <init>(java.io.InputStream)>
+              → DataInputStream.close()
+              → <java.io.FileInputStream: void <init>(java.lang.String)>
+              → <java.io.FileNotFoundException: void <init>(java.lang.String
+              → FileNotFoundException.printStackTrace()
+              → AbstractBackupController.getBackupRootDir()
+              → AbstractBackupController.getBackupConfigStr()
+

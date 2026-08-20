@@ -1,0 +1,20 @@
+# android.media.midi.IMidiManager [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.media.midi.IMidiManager$Stub$Proxy: android.media.midi.MidiDeviceInfo getServiceDeviceInfo(java.lang.String,java.lang.String)>
+<android.media.midi.IMidiManager$Stub$Proxy: android.media.midi.MidiDeviceInfo registerDeviceServer(android.media.midi.IMidiDeviceServer,int,int,java.lang.String[],java.lang.String[],android.os.Bundle,int,int)>
+<android.media.midi.IMidiManager$Stub$Proxy: android.media.midi.MidiDeviceInfo[] getDevices()>
+<android.media.midi.IMidiManager$Stub$Proxy: android.media.midi.MidiDeviceInfo[] getDevicesForTransport(int)>
+<android.media.midi.IMidiManager$Stub$Proxy: android.media.midi.MidiDeviceStatus getDeviceStatus(android.media.midi.MidiDeviceInfo)>
+<android.media.midi.IMidiManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.midi.IMidiManager$Stub$Proxy: void closeDevice(android.os.IBinder,android.os.IBinder)>
+<android.media.midi.IMidiManager$Stub$Proxy: void openBluetoothDevice(android.os.IBinder,android.bluetooth.BluetoothDevice,android.media.midi.IMidiDeviceOpenCallback)>
+<android.media.midi.IMidiManager$Stub$Proxy: void openDevice(android.os.IBinder,android.media.midi.MidiDeviceInfo,android.media.midi.IMidiDeviceOpenCallback)>
+<android.media.midi.IMidiManager$Stub$Proxy: void registerListener(android.os.IBinder,android.media.midi.IMidiDeviceListener)>
+<android.media.midi.IMidiManager$Stub$Proxy: void setDeviceStatus(android.media.midi.IMidiDeviceServer,android.media.midi.MidiDeviceStatus)>
+<android.media.midi.IMidiManager$Stub$Proxy: void unregisterDeviceServer(android.media.midi.IMidiDeviceServer)>
+<android.media.midi.IMidiManager$Stub$Proxy: void unregisterListener(android.os.IBinder,android.media.midi.IMidiDeviceListener)>
+<android.media.midi.IMidiManager$Stub: android.media.midi.IMidiManager asInterface(android.os.IBinder)>
+<android.media.midi.IMidiManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.midi.IMidiManager$Stub: void <init>()>

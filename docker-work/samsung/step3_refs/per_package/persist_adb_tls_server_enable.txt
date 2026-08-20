@@ -1,0 +1,7 @@
+# persist.adb.tls_server.enable [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.adb.AdbDebuggingManager$AdbDebuggingHandler: void handleMessage(android.os.Message)>
+<com.android.server.adb.AdbService: void setAdbEnabled(boolean,byte)>
+<com.android.server.adb.AdbService: void systemReady()>

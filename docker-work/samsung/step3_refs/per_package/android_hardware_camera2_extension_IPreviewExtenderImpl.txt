@@ -1,0 +1,20 @@
+# android.hardware.camera2.extension.IPreviewExtenderImpl [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.CaptureStageImpl getCaptureStage()>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.CaptureStageImpl onDisableSession()>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.CaptureStageImpl onEnableSession()>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.CaptureStageImpl onPresetSession()>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.IPreviewImageProcessorImpl getPreviewImageProcessor()>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.IRequestUpdateProcessorImpl getRequestUpdateProcessor()>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: boolean isExtensionAvailable(java.lang.String,android.hardware.camera2.impl.CameraMetadataNative)>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: int getProcessorType()>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: java.util.List getSupportedResolutions()>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: void init(java.lang.String,android.hardware.camera2.impl.CameraMetadataNative)>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: void onDeInit()>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub$Proxy: void onInit(java.lang.String,android.hardware.camera2.impl.CameraMetadataNative)>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub: android.hardware.camera2.extension.IPreviewExtenderImpl asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.IPreviewExtenderImpl$Stub: void <init>()>

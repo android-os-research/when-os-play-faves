@@ -1,0 +1,17 @@
+# com.sec.android.easyMover [NEW]
+# Refs: 13
+# JARs: framework, services
+
+<android.mtp.MtpDatabase: void initializeSerivce()>
+<com.android.internal.app.MaintenanceModeBackupActivity: void lambda$setContentView$3$com-android-internal-app-MaintenanceModeBackupActivity(android.widget.AdapterView,android.view.View,int,long)>
+<com.android.server.appprelauncher.AppPrelaunchService: boolean shouldSkipPrelForPackage(com.android.server.pm.parsing.pkg.AndroidPackage)>
+<com.android.server.backup.UserBackupManagerService: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.backup.internal.LifecycleOperationStorage)>
+<com.android.server.backup.UserBackupManagerService: void <init>(int,android.content.Context,com.android.server.backup.BackupManagerService,android.os.HandlerThread,java.io.File,java.io.File,com.android.server.backup.TransportManager)>
+<com.android.server.logcat.LogcatManagerService: boolean isSmartSwitchApp(com.android.server.logcat.LogcatManagerService$LogAccessClient)>
+<com.android.server.notification.PermissionHelper: void setNotificationPermission(java.lang.String,int,boolean,boolean,boolean)>
+<com.android.server.pm.InstallPackageHelper: boolean isSpegSkipped(com.android.server.pm.ReconciledPackage,boolean)>
+<com.android.server.pm.InstallPackageHelper: com.android.server.pm.PrepareResult preparePackageLI(com.android.server.pm.InstallArgs,com.android.server.pm.PackageInstalledInfo)>
+<com.android.server.pm.PackageInstallerService: boolean isValidSmartSwitchSession(int,long)>
+<com.android.server.pm.PackageInstallerService: void expireSessionsLocked()>
+<com.android.server.usb.UsbProfileGroupSettingsManager: android.content.pm.ActivityInfo getSmartSwitchActivityInfo(android.hardware.usb.UsbDevice,java.util.ArrayList)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>

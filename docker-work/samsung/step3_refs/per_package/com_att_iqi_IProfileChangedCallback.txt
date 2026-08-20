@@ -1,0 +1,9 @@
+# com.att.iqi.IProfileChangedCallback [NEW]
+# Refs: 5
+# JARs: services
+
+<com.att.iqi.IProfileChangedCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.att.iqi.IProfileChangedCallback$Stub$Proxy: void onProfileChanged()>
+<com.att.iqi.IProfileChangedCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.att.iqi.IProfileChangedCallback$Stub: com.att.iqi.IProfileChangedCallback asInterface(android.os.IBinder)>
+<com.att.iqi.IProfileChangedCallback$Stub: void <init>()>

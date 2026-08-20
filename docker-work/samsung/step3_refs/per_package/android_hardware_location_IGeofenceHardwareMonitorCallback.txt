@@ -1,0 +1,9 @@
+# android.hardware.location.IGeofenceHardwareMonitorCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.location.IGeofenceHardwareMonitorCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.location.IGeofenceHardwareMonitorCallback$Stub$Proxy: void onMonitoringSystemChange(android.hardware.location.GeofenceHardwareMonitorEvent)>
+<android.hardware.location.IGeofenceHardwareMonitorCallback$Stub: android.hardware.location.IGeofenceHardwareMonitorCallback asInterface(android.os.IBinder)>
+<android.hardware.location.IGeofenceHardwareMonitorCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.location.IGeofenceHardwareMonitorCallback$Stub: void <init>()>

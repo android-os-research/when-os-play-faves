@@ -1,0 +1,10 @@
+# com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCommand [NEW]
+# Refs: 6
+# JARs: services
+
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCommand$Stub$a: int internalCommand(android.os.Message)>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCommand$Stub$a: int internalCommandWithReturnValue(android.os.Message,android.os.Bundle)>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCommand$Stub$a: java.lang.String a()>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCommand$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCommand$Stub: com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCommand asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCommand$Stub: void <init>()>

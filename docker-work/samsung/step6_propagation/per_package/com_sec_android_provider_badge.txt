@@ -1,0 +1,26 @@
+######################################################################
+# Propagation: com.sec.android.provider.badge
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: void <clinit>()>
+  Line:     276
+  Register: v6 := "com.sec.android.provider.badge"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+

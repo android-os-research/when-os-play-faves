@@ -1,0 +1,10 @@
+# com.samsung.android.sepunion.IGalaxyRegistryService [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.sepunion.IGalaxyRegistryService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.sepunion.IGalaxyRegistryService$Stub$Proxy: void registerListener(java.lang.String,android.os.IBinder)>
+<com.samsung.android.sepunion.IGalaxyRegistryService$Stub$Proxy: void unRegisterListener(java.lang.String,android.os.IBinder)>
+<com.samsung.android.sepunion.IGalaxyRegistryService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.sepunion.IGalaxyRegistryService$Stub: com.samsung.android.sepunion.IGalaxyRegistryService asInterface(android.os.IBinder)>
+<com.samsung.android.sepunion.IGalaxyRegistryService$Stub: void <init>()>

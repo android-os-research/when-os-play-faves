@@ -1,0 +1,76 @@
+######################################################################
+# Propagation: com.sec.android.app.popupuireceiver
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     202
+  Register: v27 := "com.sec.android.app.popupuireceiver"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.sepunion.cover.CoverManagerUtils
+  Method:   <com.android.server.sepunion.cover.CoverManagerUtils: void showRuggedizedPopup(android.content.Context,boolean,boolean)>
+  Line:     1057
+  Register: v1 := "com.sec.android.app.popupuireceiver"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [invoke] android.content.Intent.setClassName() → [other] const-string/j
+
+  CALLEES (what this method invokes):
+      → Context.startActivityAsUser()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → CoverManagerUtils.getValueFromSysFS()
+      → Feature.isChinaModel()
+      → Feature.getInstance()
+      → Log.d()
+        → CoverManagerUtils.isFileExists()
+        → FileReader.read()
+        → <java.io.FileReader: void <init>(java.lang.String)>
+        → FileReader.close()
+        → SystemProperties.get()
+        → <com.android.server.sepunion.cover.Feature: void <init>(andr
+        → Log.getCodeInfoString()
+          → File.exists()
+          → <java.io.File: void <init>(java.lang.String)>
+          → Feature.getSystemProperties()
+          → Feature.updateDeviceSupportFeature()
+          → Feature.updateSystemFeature()
+          → StackTraceElement.toString()
+          → StringBuffer.toString()
+          → StringBuffer.append()
+          → <java.lang.StringBuffer: void <init>(java.lang.String)>
+          → Thread.getStackTrace()
+          → Thread.currentThread()
+            → Context.getPackageManager()
+            → PackageManager.hasSystemFeature()
+            → SemFloatingFeature.getInstance()
+            → SemFloatingFeature.getInteger()
+              → SemFloatingFeature.getInt()
+

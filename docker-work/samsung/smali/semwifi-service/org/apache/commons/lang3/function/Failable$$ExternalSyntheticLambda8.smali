@@ -1,0 +1,36 @@
+.class public final synthetic Lorg/apache/commons/lang3/function/Failable$$ExternalSyntheticLambda8;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/util/function/BiPredicate;
+
+
+# instance fields
+.field public final synthetic f$0:Lorg/apache/commons/lang3/function/FailableBiPredicate;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lorg/apache/commons/lang3/function/FailableBiPredicate;)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lorg/apache/commons/lang3/function/Failable$$ExternalSyntheticLambda8;->f$0:Lorg/apache/commons/lang3/function/FailableBiPredicate;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final test(Ljava/lang/Object;Ljava/lang/Object;)Z
+    .registers 3
+
+    iget-object p0, p0, Lorg/apache/commons/lang3/function/Failable$$ExternalSyntheticLambda8;->f$0:Lorg/apache/commons/lang3/function/FailableBiPredicate;
+
+    invoke-static {p0, p1, p2}, Lorg/apache/commons/lang3/function/Failable;->$r8$lambda$ZIuHEQWvA_bDAkVa3qYROhaakmo(Lorg/apache/commons/lang3/function/FailableBiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result p0
+
+    return p0
+.end method

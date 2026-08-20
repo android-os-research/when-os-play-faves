@@ -1,0 +1,27 @@
+# android.hardware.telephony [NEW]
+# Refs: 24
+# JARs: framework, services, telephony-common
+
+<com.android.internal.telephony.emergency.SemEmergencyNumberTracker: void <init>(com.android.internal.telephony.Phone,com.android.internal.telephony.CommandsInterface)>
+<com.android.server.SystemServer: void lambda$startOtherServices$6(com.android.server.utils.TimingsTraceAndSlog,com.android.server.devicepolicy.DevicePolicyManagerService$Lifecycle,com.android.server.ExtendedEthernetService,boolean,android.net.ConnectivityManager,com.android.server.NetworkManagementService,com.android.server.net.NetworkPolicyManagerService,com.android.server.VpnManagerService,com.android.server.VcnManagementService,com.android.server.net.UrspService,android.os.IBinder,android.content.Context,com.samsung.accessory.manager.SAccessoryManager,com.android.server.CountryDetectorService,com.android.server.NetworkTimeUpdateService,com.android.server.input.InputManagerService,com.android.server.TelephonyRegistry,com.android.server.media.MediaRouterService,boolean,com.android.server.MmsServiceBroker,boolean)>
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.devicepolicy.DevicePolicyManagerService: void <init>(com.android.server.devicepolicy.DevicePolicyManagerService$Injector,com.android.server.devicepolicy.PolicyPathProvider)>
+<com.android.server.notification.NotificationManagerService: void init(com.android.server.notification.NotificationManagerService$WorkerHandler,com.android.server.notification.RankingHandler,android.content.pm.IPackageManager,android.content.pm.PackageManager,com.android.server.lights.LightsManager,com.android.server.notification.NotificationManagerService$NotificationListeners,com.android.server.notification.NotificationManagerService$NotificationAssistants,com.android.server.notification.ConditionProviders,android.companion.ICompanionDeviceManager,com.android.server.notification.SnoozeHelper,com.android.server.notification.NotificationUsageStats,android.util.AtomicFile,android.app.ActivityManager,com.android.server.notification.GroupHelper,android.app.IActivityManager,com.android.server.wm.ActivityTaskManagerInternal,android.app.usage.UsageStatsManagerInternal,android.app.admin.DevicePolicyManagerInternal,android.app.IUriGrantsManager,com.android.server.uri.UriGrantsManagerInternal,android.app.AppOpsManager,com.android.internal.app.IAppOpsService,android.os.UserManager,com.android.server.notification.NotificationHistoryManager,android.app.StatsManager,android.telephony.TelephonyManager,android.app.ActivityManagerInternal,com.android.server.utils.quota.MultiRateLimiter,com.android.server.notification.PermissionHelper,android.app.usage.UsageStatsManagerInternal,android.telecom.TelecomManager,com.android.server.notification.NotificationChannelLogger,com.android.server.notification.edgelighting.EdgeLightingManager)>
+<com.android.server.policy.AppOpsPolicy: void <init>(android.content.Context)>
+<com.android.server.policy.LegacyGlobalActions: void <init>(android.content.Context,com.android.server.policy.WindowManagerPolicy$WindowManagerFuncs,java.lang.Runnable)>
+<com.android.server.timezonedetector.ServiceConfigAccessorImpl: boolean isTelephonyTimeZoneDetectionFeatureSupported()>
+<com.samsung.android.globalactions.util.TelephonyManagerWrapper: void <init>(android.content.Context)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int addAutoCallNumber(java.lang.String,int,int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int getMobileNetworkType()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int removeAutoCallNumber(java.lang.String)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setAutoCallPickupState(int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setCallScreenDisabledItems(boolean,int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setExtendedCallInfoState(boolean)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setLTESettingState(boolean)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setMobileDataRoamingState(boolean)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setMobileDataState(boolean)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setMobileNetworkType(int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setUnlockSimOnBootState(boolean)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setUnlockSimPin(java.lang.String)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setWifiHotspotEnabledState(int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.Integer lambda$dialEmergencyNumber$52(java.lang.String)>

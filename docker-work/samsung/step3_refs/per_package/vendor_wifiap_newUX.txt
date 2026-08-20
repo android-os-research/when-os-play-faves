@@ -1,0 +1,6 @@
+# vendor.wifiap.newUX [NEW]
+# Refs: 2
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.SemWifiManagerProxy: boolean isSemWifiApDataUsageSupported()>
+<com.samsung.android.server.wifi.SemWifiManagerProxy: boolean isSemWifiApGuestModeSupported()>

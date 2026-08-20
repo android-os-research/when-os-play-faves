@@ -1,0 +1,35 @@
+######################################################################
+# Propagation: com.google.android.documentsui
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PKG_MGMT
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.devicepolicy.KnoxUtils
+  Method:   <com.android.server.devicepolicy.KnoxUtils: void disableDocumentsUIComponent(int)>
+  Line:     216
+  Register: v1 := "com.google.android.documentsui"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← DevicePolicyManagerService.createAndProvisionManagedProfile()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → KnoxUtils.disableComponent()
+        → IPackageManager$Stub.asInterface()
+        → ServiceManager.getService()
+        → KnoxUtils.setComponentEnabledSetting() [PKG_MGMT]
+          → ComponentName.toShortString()
+          → IPackageManager.setComponentEnabledSetting() [PKG_MGMT]
+

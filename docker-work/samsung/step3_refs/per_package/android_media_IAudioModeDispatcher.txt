@@ -1,0 +1,9 @@
+# android.media.IAudioModeDispatcher [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.IAudioModeDispatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IAudioModeDispatcher$Stub$Proxy: void dispatchAudioModeChanged(int)>
+<android.media.IAudioModeDispatcher$Stub: android.media.IAudioModeDispatcher asInterface(android.os.IBinder)>
+<android.media.IAudioModeDispatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IAudioModeDispatcher$Stub: void <init>()>

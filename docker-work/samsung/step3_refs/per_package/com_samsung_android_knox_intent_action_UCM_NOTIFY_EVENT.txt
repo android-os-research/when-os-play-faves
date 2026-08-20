@@ -1,0 +1,6 @@
+# com.samsung.android.knox.intent.action.UCM_NOTIFY_EVENT [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: boolean notifyLicenseStatus(int,java.lang.String)>
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: void notifyPluginIsUninstalled(java.lang.String)>

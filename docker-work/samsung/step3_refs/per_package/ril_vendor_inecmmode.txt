@@ -1,0 +1,7 @@
+# ril.vendor.inecmmode [NEW]
+# Refs: 3
+# JARs: framework, telephony-common
+
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: void in_ecm_mode(java.lang.String)>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional in_ecm_mode()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void in_ecm_mode(java.lang.String)>

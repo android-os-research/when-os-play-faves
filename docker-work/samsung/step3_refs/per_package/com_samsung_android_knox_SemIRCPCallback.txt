@@ -1,0 +1,12 @@
+# com.samsung.android.knox.SemIRCPCallback [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.samsung.android.knox.SemIRCPCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.SemIRCPCallback$Stub$Proxy: void onComplete(java.util.List,int,int)>
+<com.samsung.android.knox.SemIRCPCallback$Stub$Proxy: void onDone(java.lang.String,int)>
+<com.samsung.android.knox.SemIRCPCallback$Stub$Proxy: void onFail(java.lang.String,int,int)>
+<com.samsung.android.knox.SemIRCPCallback$Stub$Proxy: void onProgress(java.lang.String,int,int)>
+<com.samsung.android.knox.SemIRCPCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.SemIRCPCallback$Stub: com.samsung.android.knox.SemIRCPCallback asInterface(android.os.IBinder)>
+<com.samsung.android.knox.SemIRCPCallback$Stub: void <init>()>

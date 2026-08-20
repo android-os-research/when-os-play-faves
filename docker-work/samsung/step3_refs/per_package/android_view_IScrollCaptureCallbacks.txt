@@ -1,0 +1,11 @@
+# android.view.IScrollCaptureCallbacks [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.view.IScrollCaptureCallbacks$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IScrollCaptureCallbacks$Stub$Proxy: void onCaptureEnded()>
+<android.view.IScrollCaptureCallbacks$Stub$Proxy: void onCaptureStarted()>
+<android.view.IScrollCaptureCallbacks$Stub$Proxy: void onImageRequestCompleted(int,android.graphics.Rect)>
+<android.view.IScrollCaptureCallbacks$Stub: android.view.IScrollCaptureCallbacks asInterface(android.os.IBinder)>
+<android.view.IScrollCaptureCallbacks$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IScrollCaptureCallbacks$Stub: void <init>()>

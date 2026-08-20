@@ -1,0 +1,19 @@
+# com.samsung.android.sepunion.IDeviceInfoManager [NEW]
+# Refs: 15
+# JARs: framework
+
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: int getNumPendingIntentAsUser(int,java.lang.String,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: void clearPendingIntentAsUser(java.lang.String,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: void registerPendingIntent(android.content.IntentFilter,android.app.PendingIntent,int,java.util.List,java.lang.String,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: void registerPendingIntentForCustomEventAsUser(java.lang.String,android.app.PendingIntent,android.os.Bundle,java.lang.String,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: void registerPendingIntentForIntentAsUser(android.content.IntentFilter,android.app.PendingIntent,java.lang.String,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: void registerPendingIntentForIntentForAllUsers(android.content.IntentFilter,android.app.PendingIntent,java.lang.String,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: void registerPendingIntentForUriAsUser(android.net.Uri,android.app.PendingIntent,java.lang.String,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: void unregisterPendingIntent(android.content.IntentFilter,android.app.PendingIntent,java.lang.String,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: void unregisterPendingIntentForCustomEventAsUser(java.lang.String,android.app.PendingIntent,android.os.Bundle,java.lang.String,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: void unregisterPendingIntentForIntentAsUser(android.content.IntentFilter,android.app.PendingIntent,java.lang.String,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub$Proxy: void unregisterPendingIntentForUriAsUser(android.net.Uri,android.app.PendingIntent,java.lang.String,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub: com.samsung.android.sepunion.IDeviceInfoManager asInterface(android.os.IBinder)>
+<com.samsung.android.sepunion.IDeviceInfoManager$Stub: void <init>()>

@@ -1,0 +1,14 @@
+# android.app.timezonedetector.ITimeZoneDetectorService [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.app.timezonedetector.ITimeZoneDetectorService$Stub$Proxy: android.app.time.TimeZoneCapabilitiesAndConfig getCapabilitiesAndConfig()>
+<android.app.timezonedetector.ITimeZoneDetectorService$Stub$Proxy: boolean suggestManualTimeZone(android.app.timezonedetector.ManualTimeZoneSuggestion)>
+<android.app.timezonedetector.ITimeZoneDetectorService$Stub$Proxy: boolean updateConfiguration(android.app.time.TimeZoneConfiguration)>
+<android.app.timezonedetector.ITimeZoneDetectorService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.timezonedetector.ITimeZoneDetectorService$Stub$Proxy: void addListener(android.app.time.ITimeZoneDetectorListener)>
+<android.app.timezonedetector.ITimeZoneDetectorService$Stub$Proxy: void removeListener(android.app.time.ITimeZoneDetectorListener)>
+<android.app.timezonedetector.ITimeZoneDetectorService$Stub$Proxy: void suggestTelephonyTimeZone(android.app.timezonedetector.TelephonyTimeZoneSuggestion)>
+<android.app.timezonedetector.ITimeZoneDetectorService$Stub: android.app.timezonedetector.ITimeZoneDetectorService asInterface(android.os.IBinder)>
+<android.app.timezonedetector.ITimeZoneDetectorService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.timezonedetector.ITimeZoneDetectorService$Stub: void <init>()>

@@ -1,0 +1,12 @@
+# android.telephony.ims.aidl.ISipDelegate [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.telephony.ims.aidl.ISipDelegate$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.ISipDelegate$Stub$Proxy: void cleanupSession(java.lang.String)>
+<android.telephony.ims.aidl.ISipDelegate$Stub$Proxy: void notifyMessageReceiveError(java.lang.String,int)>
+<android.telephony.ims.aidl.ISipDelegate$Stub$Proxy: void notifyMessageReceived(java.lang.String)>
+<android.telephony.ims.aidl.ISipDelegate$Stub$Proxy: void sendMessage(android.telephony.ims.SipMessage,long)>
+<android.telephony.ims.aidl.ISipDelegate$Stub: android.telephony.ims.aidl.ISipDelegate asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.ISipDelegate$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.ISipDelegate$Stub: void <init>()>

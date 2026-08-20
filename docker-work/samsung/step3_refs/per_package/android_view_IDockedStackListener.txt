@@ -1,0 +1,13 @@
+# android.view.IDockedStackListener [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.view.IDockedStackListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IDockedStackListener$Stub$Proxy: void onAdjustedForImeChanged(boolean,long)>
+<android.view.IDockedStackListener$Stub$Proxy: void onDividerVisibilityChanged(boolean)>
+<android.view.IDockedStackListener$Stub$Proxy: void onDockSideChanged(int)>
+<android.view.IDockedStackListener$Stub$Proxy: void onDockedStackExistsChanged(boolean)>
+<android.view.IDockedStackListener$Stub$Proxy: void onDockedStackMinimizedChanged(boolean,long,boolean)>
+<android.view.IDockedStackListener$Stub: android.view.IDockedStackListener asInterface(android.os.IBinder)>
+<android.view.IDockedStackListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IDockedStackListener$Stub: void <init>()>

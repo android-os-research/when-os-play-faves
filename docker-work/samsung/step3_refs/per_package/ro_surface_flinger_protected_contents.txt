@@ -1,0 +1,7 @@
+# ro.surface_flinger.protected_contents [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.sysprop.SurfaceFlingerProperties: java.util.Optional enable_protected_contents()>
+<com.samsung.android.rune.CoreRune: void <clinit>()>
+<com.samsung.android.rune.ViewRune: void <clinit>()>

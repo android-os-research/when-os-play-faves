@@ -1,0 +1,24 @@
+# android.media.tv.interactive.ITvInteractiveAppSessionCallback [NEW]
+# Refs: 20
+# JARs: framework
+
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onAdRequest(android.media.tv.AdRequest)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onBiInteractiveAppCreated(android.net.Uri,java.lang.String)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onBroadcastInfoRequest(android.media.tv.BroadcastInfoRequest)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onCommandRequest(java.lang.String,android.os.Bundle)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onLayoutSurface(int,int,int,int)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onRemoveBroadcastInfo(int)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onRequestCurrentChannelLcn()>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onRequestCurrentChannelUri()>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onRequestCurrentTvInputId()>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onRequestSigning(java.lang.String,java.lang.String,java.lang.String,byte[])>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onRequestStreamVolume()>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onRequestTrackInfoList()>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onSessionCreated(android.media.tv.interactive.ITvInteractiveAppSession)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onSessionStateChanged(int,int)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onSetVideoBounds(android.graphics.Rect)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub$Proxy: void onTeletextAppStateChanged(int)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub: android.media.tv.interactive.ITvInteractiveAppSessionCallback asInterface(android.os.IBinder)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.tv.interactive.ITvInteractiveAppSessionCallback$Stub: void <init>()>

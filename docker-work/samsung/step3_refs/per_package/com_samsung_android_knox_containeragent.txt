@@ -1,0 +1,26 @@
+# com.samsung.android.knox.containeragent [NEW]
+# Refs: 22
+# JARs: framework, services
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<com.android.server.enterprise.adapterlayer.PersonaManagerAdapter: boolean isContainerAgent(java.lang.String)>
+<com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: android.content.ComponentName findMatchingComponent(int,int)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: int setCustomResource(int,com.samsung.android.knox.ContextInfo,android.os.Bundle)>
+<com.android.server.enterprise.security.PasswordPolicy$1: void <init>(com.android.server.enterprise.security.PasswordPolicy)>
+<com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl: void <init>(com.android.server.knox.dar.DarManagerService$Injector)>
+<com.android.server.pm.PersonaManagerService$5: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.pm.PersonaManagerService$PersonaHandler: void handleMessage(android.os.Message)>
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxGlobalSettingsIcon()>
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxIcon(java.lang.String,java.lang.String,int)>
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxPhoneOrMessageIcon(java.lang.String)>
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxSwitcherIcon(java.lang.String,java.lang.String,int)>
+<com.android.server.pm.PersonaManagerService: java.lang.String getKnoxSettingsCustomName(int)>
+<com.android.server.pm.PersonaManagerService: java.lang.String getWorkspaceName(android.content.pm.UserInfo,boolean)>
+<com.android.server.pm.PersonaManagerService: void <clinit>()>
+<com.android.server.pm.PersonaManagerService: void systemReady()>
+<com.samsung.android.knox.SemPersonaManager: android.content.ComponentName getAgentAdminReceiver()>
+<com.samsung.android.knox.SemPersonaManager: android.content.Intent createSwitchProfileIntent(int)>
+<com.samsung.android.knox.SemPersonaManager: boolean isKnoxIcon(java.lang.String,java.lang.String)>
+<com.samsung.android.knox.SemPersonaManager: byte[] getKnoxIcon(int)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>

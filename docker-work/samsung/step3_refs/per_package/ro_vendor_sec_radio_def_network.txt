@@ -1,0 +1,6 @@
+# ro.vendor.sec.radio.def_network [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.samsung.telephony.sysprop.SemTelephonyVendorProps: java.util.Optional sec_radio_def_network()>
+<com.samsung.telephony.sysprop.SemTelephonyVendorProps: void sec_radio_def_network(java.lang.String)>

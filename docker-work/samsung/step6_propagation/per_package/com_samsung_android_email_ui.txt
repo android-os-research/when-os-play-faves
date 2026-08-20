@@ -1,0 +1,23 @@
+######################################################################
+# Propagation: com.samsung.android.email.ui
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          array_init
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnConstants
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnConstants: void <clinit>()>
+  Line:     521
+  Register: v4 := "com.samsung.android.email.ui"
+  Usage:    [array_init] filled-new-array {v0, v2, v4, v6, v7}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v2, v4, v6, v7}, [Ljava/lang/String;
+

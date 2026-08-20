@@ -1,0 +1,11 @@
+# android.hardware.location.IContextHubClient [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.hardware.location.IContextHubClient$Stub$Proxy: int getId()>
+<android.hardware.location.IContextHubClient$Stub$Proxy: int sendMessageToNanoApp(android.hardware.location.NanoAppMessage)>
+<android.hardware.location.IContextHubClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.location.IContextHubClient$Stub$Proxy: void close()>
+<android.hardware.location.IContextHubClient$Stub: android.hardware.location.IContextHubClient asInterface(android.os.IBinder)>
+<android.hardware.location.IContextHubClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.location.IContextHubClient$Stub: void <init>()>

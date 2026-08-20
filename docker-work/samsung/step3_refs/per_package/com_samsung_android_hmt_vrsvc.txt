@@ -1,0 +1,17 @@
+# com.samsung.android.hmt.vrsvc [NEW]
+# Refs: 13
+# JARs: framework, services
+
+<com.android.server.vr.HmtManager: java.util.ArrayList getSupportDevices(java.lang.String)>
+<com.android.server.vr.XrManagerService: boolean isReady()>
+<com.android.server.vr.XrManagerService: void updateDockStateLocked()>
+<com.android.server.vr.XrPackageHelper$1: void onPackageAdded(java.lang.String,int)>
+<com.android.server.vr.XrPackageHelper$1: void onPackageAppeared(java.lang.String,int)>
+<com.android.server.vr.XrPackageHelper$1: void onPackageDisappeared(java.lang.String,int)>
+<com.android.server.vr.XrPackageHelper$1: void onPackageModified(java.lang.String)>
+<com.android.server.vr.XrPackageHelper$1: void onPackageRemoved(java.lang.String,int)>
+<com.android.server.vr.XrPackageHelper$1: void onPackageUpdateFinished(java.lang.String,int)>
+<com.android.server.vr.XrPackageHelper$1: void onPackageUpdateStarted(java.lang.String,int)>
+<com.android.server.vr.XrPackageHelper: boolean isVrServiceEnabled()>
+<com.android.server.vr.XrPackageHelper: boolean isVrServiceInstalled()>
+<com.samsung.android.vr.GearVrManager: android.content.Intent createWaitActivityIntent(java.lang.String,android.content.IntentSender,int)>

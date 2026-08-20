@@ -1,0 +1,21 @@
+# com.gsma.services.rcs.sharing.video.IVideoSharing [NEW]
+# Refs: 17
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: com.gsma.services.rcs.RcsService$Direction getDirection()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: com.gsma.services.rcs.sharing.video.VideoDescriptor getVideoDescriptor()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: com.gsma.services.rcs.sharing.video.VideoSharing$ReasonCode getReasonCode()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: com.gsma.services.rcs.sharing.video.VideoSharing$State getState()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: java.lang.String getRemoteContact()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: java.lang.String getSharingId()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: java.lang.String getVideoEncoding()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: long getDuration()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: long getTimeStamp()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: void abortSharing()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: void acceptInvitation(com.gsma.services.rcs.sharing.video.IVideoPlayer)>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: void rejectInvitation()>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub$Proxy: void setOrientation(int)>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub: com.gsma.services.rcs.sharing.video.IVideoSharing asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.sharing.video.IVideoSharing$Stub: void <init>()>

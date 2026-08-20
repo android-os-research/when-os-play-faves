@@ -1,0 +1,6 @@
+# android.hardware.hdmi.action.OSD_MESSAGE [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.hdmi.HdmiControlService: void displayOsd(int)>
+<com.android.server.hdmi.HdmiControlService: void displayOsd(int,int)>

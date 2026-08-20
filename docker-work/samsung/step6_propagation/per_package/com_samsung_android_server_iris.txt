@@ -1,0 +1,259 @@
+######################################################################
+# Propagation: com.samsung.android.server.iris
+######################################################################
+
+JARs:                 framework
+Classes:              2
+Occurrences:          6
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.bio.iris.SemIrisManager
+  Method:   <com.samsung.android.bio.iris.SemIrisManager: java.lang.String getAcquiredString(int)>
+  Line:     1497
+  Register: v1 := "com.samsung.android.server.iris"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/
+  Patterns: (none)
+  Flow:     [invoke] android.content.pm.PackageManager.getResourcesForApplication → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemIrisManager.sendAcquiredResult()
+        ← <com.samsung.android.bio.iris.SemIrisManager: void -$$Nest$m
+          ← SemIrisManager$4$1.run()
+          ← SemIrisManager$MyHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getResourcesForApplication()
+      → Resources.getIdentifier()
+      → Resources.getString()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.bio.iris.SemIrisManager
+  Method:   <com.samsung.android.bio.iris.SemIrisManager: java.lang.String getErrorString(int)>
+  Line:     1732
+  Register: v1 := "com.samsung.android.server.iris"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/
+  Patterns: (none)
+  Flow:     [invoke] android.content.pm.PackageManager.getResourcesForApplication → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemIrisManager.authenticate()
+      ← SemIrisManager.checkAuthViewWindowToken()
+      ← SemIrisManager.checkEnrollViewWindowToken()
+      ← SemIrisManager.enroll()
+      ← SemIrisManager.remove()
+      ← SemIrisManager.remove()
+      ← SemIrisManager.sendErrorResult()
+        ← SemIrisManager.authenticate()
+        ← <com.samsung.android.bio.iris.SemIrisManager: void -$$Nest$m
+        ← <com.samsung.android.bio.iris.SemIrisManager: void -$$Nest$m
+        ← SemIrisManager.enroll()
+        ← <com.samsung.android.bio.iris.SemIrisManager: void -$$Nest$m
+          ← SemIrisManager.authenticate()
+          ← SemIrisManager.authenticate()
+          ← SemIrisManager$1.run()
+          ← SemIrisManager$2.run()
+          ← SemIrisManager$4$4.run()
+          ← SemIrisManager$MyHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getResourcesForApplication()
+      → Resources.getIdentifier()
+      → Resources.getString()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.bio.iris.SemIrisManager
+  Method:   <com.samsung.android.bio.iris.SemIrisManager: void startIrisService()>
+  Line:     2571
+  Register: v2 := "com.samsung.android.server.iris"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] sget-object v2, Landroid/os/UserHandle;->CURRENT_OR_SELF:Lan →
+
+  CALLERS (who invokes this method):
+      ← SemIrisManager.ensureServiceConnected()
+        ← SemIrisManager.getEnrolledIrisUniqueID()
+        ← SemIrisManager.hasDisabledIris()
+        ← SemIrisManager.hasEnrolledIris()
+        ← SemIrisManager.hasEnrolledIrises()
+        ← SemIrisManager.hasEnrolledIrises()
+        ← SemIrisManager.requestGetUniqueID()
+        ← SemIrisManager.getService()
+        ← SemIrisManager.postEnroll()
+        ← SemIrisManager.request()
+        ← SemIrisManager.getEnrolledIrisId()
+        ← SemIrisManager.getEnrolledIrises()
+        ← SemIrisManager.getAuthenticatorId()
+        ← SemIrisManager.preEnroll()
+        ← SemIrisManager.addLockoutResetCallback()
+        ← SemIrisManager.authenticate()
+        ← SemIrisManager.cancelAuthentication()
+        ← SemIrisManager.cancelAuthentication()
+        ← SemIrisManager.cancelEnrollment()
+        ← SemIrisManager.enableIRImageCallback()
+        ← SemIrisManager.enroll()
+        ← SemIrisManager.remove()
+        ← SemIrisManager.remove()
+        ← SemIrisManager.rename()
+        ← SemIrisManager.resetTimeout()
+        ← SemIrisManager.setIrisViewType()
+          ← SemIrisManager.isEnrollSession()
+          ← SemIrisManager.requestCameraVersion()
+          ← SemIrisManager.requestCapture()
+          ← SemIrisManager.requestFullPreview()
+          ← SemIrisManager.requestLedOn()
+          ← SemIrisManager.requestPreviewMode()
+          ← SemIrisManager.requestSessionOpen()
+          ← SemIrisManager.requestUpdateSID()
+          ← SemIrisManager.requestGetVersion()
+          ← SemIrisManager.requestProcessFIDO()
+          ← SemIrisManager.getEnrolledIrises()
+          ← SemIrisManager.authenticate()
+          ← <com.samsung.android.bio.iris.SemIrisManager: void -$$Nest$m
+          ← <com.samsung.android.bio.iris.SemIrisManager: void -$$Nest$m
+          ← SemIrisManager.setOnIrImageReadyListener()
+          ← SemIrisManager.enroll()
+            ← SemIrisManager.authenticate()
+            ← SemIrisManager.authenticate()
+            ← SemIrisManager$OnAuthenticationCancelListener.onCancel()
+            ← SemIrisManager$OnEnrollCancelListener.onCancel()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startServiceAsUser()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.camera.iris.SemIrisManager
+  Method:   <com.samsung.android.camera.iris.SemIrisManager: java.lang.String getAcquiredString(int)>
+  Line:     1454
+  Register: v1 := "com.samsung.android.server.iris"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/
+  Patterns: (none)
+  Flow:     [invoke] android.content.pm.PackageManager.getResourcesForApplication → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.camera.iris.SemIrisManager: java.lang.S
+        ← SemIrisManager$MyHandler.sendAcquiredResult()
+          ← SemIrisManager$MyHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getResourcesForApplication()
+      → Resources.getIdentifier()
+      → Resources.getString()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.camera.iris.SemIrisManager
+  Method:   <com.samsung.android.camera.iris.SemIrisManager: java.lang.String getErrorString(int)>
+  Line:     1689
+  Register: v1 := "com.samsung.android.server.iris"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/
+  Patterns: (none)
+  Flow:     [invoke] android.content.pm.PackageManager.getResourcesForApplication → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.camera.iris.SemIrisManager: java.lang.S
+      ← SemIrisManager.authenticate()
+      ← SemIrisManager.checkAuthViewWindowToken()
+      ← SemIrisManager.checkEnrollViewWindowToken()
+      ← SemIrisManager.enroll()
+      ← SemIrisManager.remove()
+      ← SemIrisManager.remove()
+        ← SemIrisManager$MyHandler.sendErrorResult()
+        ← SemIrisManager.authenticate()
+        ← <com.samsung.android.camera.iris.SemIrisManager: void -$$Nes
+        ← <com.samsung.android.camera.iris.SemIrisManager: void -$$Nes
+        ← SemIrisManager.enroll()
+          ← SemIrisManager$MyHandler.handleMessage()
+          ← SemIrisManager.authenticate()
+          ← SemIrisManager$1.run()
+          ← SemIrisManager$2.run()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getResourcesForApplication()
+      → Resources.getIdentifier()
+      → Resources.getString()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.camera.iris.SemIrisManager
+  Method:   <com.samsung.android.camera.iris.SemIrisManager: void startIrisService()>
+  Line:     2278
+  Register: v2 := "com.samsung.android.server.iris"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] sget-object v2, Landroid/os/UserHandle;->CURRENT_OR_SELF:Lan →
+
+  CALLERS (who invokes this method):
+      ← SemIrisManager.ensureServiceConnected()
+        ← SemIrisManager.getEnrolledIrisUniqueID()
+        ← SemIrisManager.hasDisabledIris()
+        ← SemIrisManager.hasEnrolledIrises()
+        ← SemIrisManager.hasEnrolledIrises()
+        ← SemIrisManager.requestGetUniqueID()
+        ← SemIrisManager.getService()
+        ← SemIrisManager.postEnroll()
+        ← SemIrisManager.request()
+        ← SemIrisManager.getEnrolledIrises()
+        ← SemIrisManager.getAuthenticatorId()
+        ← SemIrisManager.preEnroll()
+        ← SemIrisManager.addLockoutResetCallback()
+        ← SemIrisManager.authenticate()
+        ← SemIrisManager.cancelAuthentication()
+        ← SemIrisManager.cancelEnrollment()
+        ← SemIrisManager.enableIRImageCallback()
+        ← SemIrisManager.enroll()
+        ← SemIrisManager.remove()
+        ← SemIrisManager.remove()
+        ← SemIrisManager.rename()
+        ← SemIrisManager.resetTimeout()
+        ← SemIrisManager.setIrisViewType()
+          ← SemIrisManager.isEnrollSession()
+          ← SemIrisManager.requestCameraVersion()
+          ← SemIrisManager.requestCapture()
+          ← SemIrisManager.requestFullPreview()
+          ← SemIrisManager.requestLedOn()
+          ← SemIrisManager.requestPreviewMode()
+          ← SemIrisManager.requestSessionOpen()
+          ← SemIrisManager.requestUpdateSID()
+          ← SemIrisManager.requestGetVersion()
+          ← SemIrisManager.requestProcessFIDO()
+          ← SemIrisManager.getEnrolledIrises()
+          ← SemIrisManager.authenticate()
+          ← <com.samsung.android.camera.iris.SemIrisManager: void -$$Nes
+          ← <com.samsung.android.camera.iris.SemIrisManager: void -$$Nes
+          ← SemIrisManager.enroll()
+            ← SemIrisManager.authenticate()
+            ← SemIrisManager$OnAuthenticationCancelListener.onCancel()
+            ← SemIrisManager$OnEnrollCancelListener.onCancel()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startServiceAsUser()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+

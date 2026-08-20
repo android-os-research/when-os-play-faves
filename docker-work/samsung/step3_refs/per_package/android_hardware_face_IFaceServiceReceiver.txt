@@ -1,0 +1,23 @@
+# android.hardware.face.IFaceServiceReceiver [NEW]
+# Refs: 19
+# JARs: framework
+
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onAcquired(int,int)>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onAuthenticationFailed()>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onAuthenticationFrame(android.hardware.face.FaceAuthenticationFrame)>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onAuthenticationSucceeded(android.hardware.face.Face,int,boolean)>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onChallengeGenerated(int,int,long)>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onEnrollResult(android.hardware.face.Face,int)>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onEnrollmentFrame(android.hardware.face.FaceEnrollFrame)>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onError(int,int)>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onFaceDetected(int,int,boolean)>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onFeatureGet(boolean,int[],boolean[])>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onFeatureSet(boolean,int)>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onRemoved(android.hardware.face.Face,int)>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onSemAuthenticationSucceeded(android.hardware.face.Face,int,boolean,byte[])>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onSemImageProcessed(byte[],int,int,int,int,android.os.Bundle)>
+<android.hardware.face.IFaceServiceReceiver$Stub$Proxy: void onSemStatusUpdate(int,java.lang.String)>
+<android.hardware.face.IFaceServiceReceiver$Stub: android.hardware.face.IFaceServiceReceiver asInterface(android.os.IBinder)>
+<android.hardware.face.IFaceServiceReceiver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.face.IFaceServiceReceiver$Stub: void <init>()>

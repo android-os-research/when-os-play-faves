@@ -1,0 +1,9 @@
+# android.view.contentcapture.IContentCaptureDirectManager [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.contentcapture.IContentCaptureDirectManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.contentcapture.IContentCaptureDirectManager$Stub$Proxy: void sendEvents(android.content.pm.ParceledListSlice,int,android.content.ContentCaptureOptions)>
+<android.view.contentcapture.IContentCaptureDirectManager$Stub: android.view.contentcapture.IContentCaptureDirectManager asInterface(android.os.IBinder)>
+<android.view.contentcapture.IContentCaptureDirectManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.contentcapture.IContentCaptureDirectManager$Stub: void <init>()>

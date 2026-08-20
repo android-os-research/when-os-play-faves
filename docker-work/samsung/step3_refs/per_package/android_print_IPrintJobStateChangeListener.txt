@@ -1,0 +1,9 @@
+# android.print.IPrintJobStateChangeListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.print.IPrintJobStateChangeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.print.IPrintJobStateChangeListener$Stub$Proxy: void onPrintJobStateChanged(android.print.PrintJobId)>
+<android.print.IPrintJobStateChangeListener$Stub: android.print.IPrintJobStateChangeListener asInterface(android.os.IBinder)>
+<android.print.IPrintJobStateChangeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.print.IPrintJobStateChangeListener$Stub: void <init>()>

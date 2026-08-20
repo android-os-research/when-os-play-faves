@@ -1,0 +1,6 @@
+# com.samsung.android.knox.intent.extra.RESULT [NEW]
+# Refs: 2
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.email.AccountsReceiver$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.knox.integrity.AttestationPolicy: android.content.Intent makeReturnIntent(int,java.lang.String)>

@@ -1,0 +1,6 @@
+# sec.app.policy.UPDATE.gmsnet [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.alarm.GmsAlarmManager$SCPMReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.alarm.GmsAlarmManager: void initSCPMReceiver()>

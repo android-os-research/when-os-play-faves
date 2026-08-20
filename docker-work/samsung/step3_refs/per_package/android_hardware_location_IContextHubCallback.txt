@@ -1,0 +1,9 @@
+# android.hardware.location.IContextHubCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.location.IContextHubCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.location.IContextHubCallback$Stub$Proxy: void onMessageReceipt(int,int,android.hardware.location.ContextHubMessage)>
+<android.hardware.location.IContextHubCallback$Stub: android.hardware.location.IContextHubCallback asInterface(android.os.IBinder)>
+<android.hardware.location.IContextHubCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.location.IContextHubCallback$Stub: void <init>()>

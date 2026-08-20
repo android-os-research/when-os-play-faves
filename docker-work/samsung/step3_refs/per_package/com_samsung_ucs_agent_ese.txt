@@ -1,0 +1,11 @@
+# com.samsung.ucs.agent.ese [NEW]
+# Refs: 7
+# JARs: services
+
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: int configureCredentialStoragePlugin(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.ucm.configurator.CredentialStorage,android.os.Bundle)>
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: void <clinit>()>
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: void registerPackageReceiver()>
+<com.samsung.ucm.ucmservice.CredentialManagerService: void registerPackageReceiver()>
+<com.samsung.ucm.ucmservice.UcmServiceAgentManager: boolean isEseManaged()>
+<com.samsung.ucm.ucmservice.UcmServiceAgentManager: boolean isSystemStorage(java.lang.String)>
+<com.samsung.ucm.ucmservice.UcmServiceAgentManager: void refreshAgentListInternal(android.util.ArraySet,android.os.Bundle)>

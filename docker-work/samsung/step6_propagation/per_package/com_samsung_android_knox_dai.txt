@@ -1,0 +1,36 @@
+######################################################################
+# Propagation: com.samsung.android.knox.dai
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          array_init
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+  Line:     305
+  Register: v4 := "com.samsung.android.knox.dai"
+  Usage:    [array_init] filled-new-array {v3, v4, v5, v6, v7}, [Ljava/lang/String;
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] java.util.List.add() → [other] new-instance v0, Landroid/os/ConditionVariable; → [invoke] android.os.ConditionV
+
+  CALLEES (what this method invokes):
+      → <android.os.ConditionVariable: void <init>()>
+      → Process.myPid()
+      → SystemProperties.get()
+      → EnterpriseDeviceManagerServiceImpl.isPackageInstalled()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → ActivityThread.getPackageManager()
+

@@ -1,0 +1,11 @@
+# android.companion.IAssociationRequestCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.companion.IAssociationRequestCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.companion.IAssociationRequestCallback$Stub$Proxy: void onAssociationCreated(android.companion.AssociationInfo)>
+<android.companion.IAssociationRequestCallback$Stub$Proxy: void onAssociationPending(android.app.PendingIntent)>
+<android.companion.IAssociationRequestCallback$Stub$Proxy: void onFailure(java.lang.CharSequence)>
+<android.companion.IAssociationRequestCallback$Stub: android.companion.IAssociationRequestCallback asInterface(android.os.IBinder)>
+<android.companion.IAssociationRequestCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.companion.IAssociationRequestCallback$Stub: void <init>()>

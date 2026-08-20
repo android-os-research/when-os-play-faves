@@ -1,0 +1,9 @@
+# android.media.midi.IBluetoothMidiService [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.midi.IBluetoothMidiService$Stub$Proxy: android.os.IBinder addBluetoothDevice(android.bluetooth.BluetoothDevice)>
+<android.media.midi.IBluetoothMidiService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.midi.IBluetoothMidiService$Stub: android.media.midi.IBluetoothMidiService asInterface(android.os.IBinder)>
+<android.media.midi.IBluetoothMidiService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.midi.IBluetoothMidiService$Stub: void <init>()>

@@ -1,0 +1,68 @@
+######################################################################
+# Propagation: com.samsung.android.app.airwakeupview
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.accessibility.GestureWakeup
+  Method:   <com.android.server.accessibility.GestureWakeup: void launchGestureWakeup()>
+  Line:     621
+  Register: v0 := "com.samsung.android.app.airwakeupview"
+  Usage:    [invoke] invoke-static {p0, v0, v1}, Lcom/android/server/accessibility/GestureWakeup;->insertLog(Landroid/con
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.accessibility.GestureWakeup.insertLog() → [invoke] android.util.Log.d()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.accessibility.GestureWakeup: void -$$Nes
+        ← GestureWakeup$1.onSemContextChanged()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → PowerManager.semWakeUp()
+      → SystemClock.uptimeMillis()
+      → TelephonyManager.getCallState()
+      → GestureWakeup.insertLog()
+      → CoverManager.getCoverState()
+      → CoverState.getSwitchState()
+      → SemDesktopModeManager.isDesktopMode()
+      → Exception.printStackTrace()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → Context.sendBroadcast()
+        → Intent.putExtra()
+        → Intent.setAction()
+        → Intent.setPackage()
+        → <android.content.Intent: void <init>()>
+        → SemFloatingFeature.getBoolean()
+        → SemFloatingFeature.getInstance()
+        → Process.myUid()
+        → CoverManager.isSupportCover()
+        → CoverManager.getService()
+        → ICoverManager.getCoverState()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → SemFloatingFeature.loge()
+          → Hashtable.get()
+          → ServiceManager.getService()
+          → ICoverManager$Stub.asInterface()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.cover.ICoverManager$Stub$Proxy: void <i
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+

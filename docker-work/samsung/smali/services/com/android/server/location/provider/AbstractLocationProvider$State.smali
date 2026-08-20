@@ -1,0 +1,328 @@
+.class public final Lcom/android/server/location/provider/AbstractLocationProvider$State;
+.super Ljava/lang/Object;
+.source "AbstractLocationProvider.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/location/provider/AbstractLocationProvider;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "State"
+.end annotation
+
+
+# static fields
+.field public static final EMPTY_STATE:Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+
+# instance fields
+.field public final allowed:Z
+
+.field public final extraAttributionTags:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final identity:Landroid/location/util/identity/CallerIdentity;
+
+.field public final properties:Landroid/location/provider/ProviderProperties;
+
+
+# direct methods
+.method public static constructor <clinit>()V
+    .registers 4
+
+    .line 72
+    new-instance v0, Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+    .line 73
+    invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    invoke-direct {v0, v2, v3, v3, v1}, Lcom/android/server/location/provider/AbstractLocationProvider$State;-><init>(ZLandroid/location/provider/ProviderProperties;Landroid/location/util/identity/CallerIdentity;Ljava/util/Set;)V
+
+    sput-object v0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->EMPTY_STATE:Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+    return-void
+.end method
+
+.method public constructor <init>(ZLandroid/location/provider/ProviderProperties;Landroid/location/util/identity/CallerIdentity;Ljava/util/Set;)V
+    .registers 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(Z",
+            "Landroid/location/provider/ProviderProperties;",
+            "Landroid/location/util/identity/CallerIdentity;",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 97
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 98
+    iput-boolean p1, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->allowed:Z
+
+    .line 99
+    iput-object p2, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->properties:Landroid/location/provider/ProviderProperties;
+
+    .line 100
+    iput-object p3, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->identity:Landroid/location/util/identity/CallerIdentity;
+
+    .line 101
+    invoke-static {p4}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    check-cast p4, Ljava/util/Set;
+
+    iput-object p4, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->extraAttributionTags:Ljava/util/Set;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public equals(Ljava/lang/Object;)Z
+    .registers 6
+
+    const/4 v0, 0x1
+
+    if-ne p0, p1, :cond_4
+
+    return v0
+
+    .line 154
+    :cond_4
+    instance-of v1, p1, Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+    const/4 v2, 0x0
+
+    if-nez v1, :cond_a
+
+    return v2
+
+    .line 157
+    :cond_a
+    check-cast p1, Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+    .line 158
+    iget-boolean v1, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->allowed:Z
+
+    iget-boolean v3, p1, Lcom/android/server/location/provider/AbstractLocationProvider$State;->allowed:Z
+
+    if-ne v1, v3, :cond_2d
+
+    iget-object v1, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->properties:Landroid/location/provider/ProviderProperties;
+
+    iget-object v3, p1, Lcom/android/server/location/provider/AbstractLocationProvider$State;->properties:Landroid/location/provider/ProviderProperties;
+
+    if-ne v1, v3, :cond_2d
+
+    iget-object v1, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->identity:Landroid/location/util/identity/CallerIdentity;
+
+    iget-object v3, p1, Lcom/android/server/location/provider/AbstractLocationProvider$State;->identity:Landroid/location/util/identity/CallerIdentity;
+
+    .line 159
+    invoke-static {v1, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2d
+
+    iget-object p0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->extraAttributionTags:Ljava/util/Set;
+
+    iget-object p1, p1, Lcom/android/server/location/provider/AbstractLocationProvider$State;->extraAttributionTags:Ljava/util/Set;
+
+    .line 160
+    invoke-interface {p0, p1}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_2d
+
+    goto :goto_2e
+
+    :cond_2d
+    move v0, v2
+
+    :goto_2e
+    return v0
+.end method
+
+.method public hashCode()I
+    .registers 4
+
+    const/4 v0, 0x4
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    .line 165
+    iget-boolean v1, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->allowed:Z
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    iget-object v1, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->properties:Landroid/location/provider/ProviderProperties;
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    iget-object v1, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->identity:Landroid/location/util/identity/CallerIdentity;
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    iget-object p0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->extraAttributionTags:Ljava/util/Set;
+
+    const/4 v1, 0x3
+
+    aput-object p0, v0, v1
+
+    invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public withAllowed(Z)Lcom/android/server/location/provider/AbstractLocationProvider$State;
+    .registers 5
+
+    .line 108
+    iget-boolean v0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->allowed:Z
+
+    if-ne p1, v0, :cond_5
+
+    return-object p0
+
+    .line 111
+    :cond_5
+    new-instance v0, Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+    iget-object v1, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->properties:Landroid/location/provider/ProviderProperties;
+
+    iget-object v2, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->identity:Landroid/location/util/identity/CallerIdentity;
+
+    iget-object p0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->extraAttributionTags:Ljava/util/Set;
+
+    invoke-direct {v0, p1, v1, v2, p0}, Lcom/android/server/location/provider/AbstractLocationProvider$State;-><init>(ZLandroid/location/provider/ProviderProperties;Landroid/location/util/identity/CallerIdentity;Ljava/util/Set;)V
+
+    return-object v0
+.end method
+
+.method public withExtraAttributionTags(Ljava/util/Set;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
+    .registers 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;)",
+            "Lcom/android/server/location/provider/AbstractLocationProvider$State;"
+        }
+    .end annotation
+
+    .line 141
+    iget-object v0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->extraAttributionTags:Ljava/util/Set;
+
+    invoke-interface {p1, v0}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    return-object p0
+
+    .line 144
+    :cond_9
+    new-instance v0, Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+    iget-boolean v1, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->allowed:Z
+
+    iget-object v2, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->properties:Landroid/location/provider/ProviderProperties;
+
+    iget-object p0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->identity:Landroid/location/util/identity/CallerIdentity;
+
+    invoke-direct {v0, v1, v2, p0, p1}, Lcom/android/server/location/provider/AbstractLocationProvider$State;-><init>(ZLandroid/location/provider/ProviderProperties;Landroid/location/util/identity/CallerIdentity;Ljava/util/Set;)V
+
+    return-object v0
+.end method
+
+.method public withIdentity(Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
+    .registers 5
+
+    .line 130
+    iget-object v0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->identity:Landroid/location/util/identity/CallerIdentity;
+
+    invoke-static {p1, v0}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    return-object p0
+
+    .line 133
+    :cond_9
+    new-instance v0, Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+    iget-boolean v1, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->allowed:Z
+
+    iget-object v2, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->properties:Landroid/location/provider/ProviderProperties;
+
+    iget-object p0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->extraAttributionTags:Ljava/util/Set;
+
+    invoke-direct {v0, v1, v2, p1, p0}, Lcom/android/server/location/provider/AbstractLocationProvider$State;-><init>(ZLandroid/location/provider/ProviderProperties;Landroid/location/util/identity/CallerIdentity;Ljava/util/Set;)V
+
+    return-object v0
+.end method
+
+.method public withProperties(Landroid/location/provider/ProviderProperties;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
+    .registers 5
+
+    .line 119
+    iget-object v0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->properties:Landroid/location/provider/ProviderProperties;
+
+    invoke-static {p1, v0}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    return-object p0
+
+    .line 122
+    :cond_9
+    new-instance v0, Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+    iget-boolean v1, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->allowed:Z
+
+    iget-object v2, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->identity:Landroid/location/util/identity/CallerIdentity;
+
+    iget-object p0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$State;->extraAttributionTags:Ljava/util/Set;
+
+    invoke-direct {v0, v1, p1, v2, p0}, Lcom/android/server/location/provider/AbstractLocationProvider$State;-><init>(ZLandroid/location/provider/ProviderProperties;Landroid/location/util/identity/CallerIdentity;Ljava/util/Set;)V
+
+    return-object v0
+.end method

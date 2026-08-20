@@ -1,0 +1,205 @@
+######################################################################
+# Propagation: com.samsung.android.vtcamerasettings
+######################################################################
+
+JARs:                 services
+Classes:              4
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.camera.CameraServiceWorker$DeviceInjectorRequirementChecker
+  Method:   <com.samsung.android.camera.CameraServiceWorker$DeviceInjectorRequirementChecker: void notifyDeviceInjectorAvailabilityChanged()>
+  Line:     402
+  Register: v1 := "com.samsung.android.vtcamerasettings"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-boolean v1, p0, Lcom/samsung/android/camera/CameraServi → [i
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.camera.CameraServiceWorker$DeviceInject
+      ← CameraServiceWorker$DeviceInjectorRequirementChecker.onReceive()
+        ← CameraServiceWorker$DeviceInjectorRequirementChecker$1.onSemCameraDeviceRawStatus()
+
+  CALLEES (what this method invokes):
+      → Context.startServiceAsUser()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <com.samsung.android.camera.CameraServiceWorker: android.con
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.camera.requestinjector.RequestInjectorService
+  Method:   <com.samsung.android.camera.requestinjector.RequestInjectorService: void tryRegisterCameraOpenListener()>
+  Line:     1199
+  Register: v0 := "com.samsung.android.vtcamerasettings"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/samsung/android/camera/requestinjector/RequestInjectorService;->pkgIns
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.camera.requestinjector.RequestInjectorSe → [other] move-result v0 → [branch] if-eqz v0, :co
+
+  CALLERS (who invokes this method):
+      ← CameraServiceWorker.onBootPhase()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → CameraManager.registerSemCameraDeviceStateCallback()
+      → Logger.log()
+      → <com.samsung.android.camera.requestinjector.RequestInjectorS
+      → RequestInjectorService.pkgInstalledOrNot()
+        → CameraManager$CameraManagerGlobal.get()
+        → CameraManager$CameraManagerGlobal.registerSemCameraDeviceStateCallback()
+        → CameraDeviceImpl.checkAndWrapHandler()
+        → Logger.getInstance()
+        → Logger.addLogInternal()
+        → SimpleDateFormat.format()
+        → <java.text.SimpleDateFormat: void <init>(java.lang.String,ja
+        → <java.util.Date: void <init>()>
+        → Locale.getDefault()
+        → <android.hardware.camera2.CameraManager$SemCameraDeviceState
+        → Context.getPackageManager()
+        → ApplicationInfo.isSystemApp()
+        → ApplicationInfo.isUpdatedSystemApp()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+          → CameraManager$CameraManagerGlobal.connectCameraServiceLocked()
+          → CameraManager$CameraManagerGlobal.scheduleCameraServiceReconnectionLocked()
+          → CameraManager$CameraManagerGlobal.updateSemCameraDeviceStateCallbackLocked()
+          → ArrayMap.put()
+          → <android.hardware.camera2.impl.CameraDeviceImpl$CameraHandle
+          → CameraDeviceImpl.checkHandler()
+          → <com.samsung.android.camera.Logger: void <init>()>
+          → Enum.ordinal()
+          → Queue.add()
+          → Queue.size()
+          → Queue.remove()
+            → ICameraService$Stub.asInterface()
+            → ICameraService.addListener()
+            → ICameraService.getConcurrentCameraIds()
+            → CameraManager$CameraManagerGlobal.handleRecoverableSetupErrors()
+            → CameraManager$CameraManagerGlobal.onCameraOpenedLocked()
+            → CameraManager$CameraManagerGlobal.onPhysicalCameraStatusChangedLocked()
+            → CameraManager$CameraManagerGlobal.onStatusChangedLocked()
+            → CameraMetadataNative.setupGlobalVendorTagDescriptor()
+            → ConcurrentCameraIdCombination.getConcurrentCameraIdCombination()
+            → IBinder.linkToDeath()
+            → ServiceManager.getService()
+            → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+            → Set.add()
+            → <android.hardware.camera2.CameraManager$CameraManagerGlobal$
+            → ArrayMap.isEmpty()
+            → ScheduledExecutorService.schedule()
+            → CameraManager$CameraManagerGlobal.postSingleCameraDeviceStateUpdate()
+            → ArrayMap.size()
+            → ArrayMap.keyAt()
+            → ArrayMap.valueAt()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → Objects.requireNonNull()
+            → <android.os.Handler: void <init>(android.os.Looper)>
+            → Looper.myLooper()
+            → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+            → <java.util.LinkedList: void <init>()>
+              → ServiceSpecificException.getMessage()
+              → <java.lang.IllegalStateException: void <init>(java.lang.Thro
+              → CameraManager$CameraManagerGlobal.postSingleCameraOpenedUpdate()
+              → CameraManager$CameraManagerGlobal.isAvailable()
+              → CameraManager$CameraManagerGlobal.validStatus()
+              → CameraManager$CameraManagerGlobal.postSingleUpdate()
+              → ArrayMap.containsKey()
+              → ArrayMap.get()
+              → ArrayList.add()
+              → ArrayList.contains()
+              → ArrayList.remove()
+              → CameraManager$CameraManagerGlobal.postSemSingleUpdate()
+              → ArrayMap.remove()
+              → <java.util.ArrayList: void <init>()>
+              → <android.hardware.camera2.CameraManager$CameraManagerGlobal$
+              → Binder.clearCallingIdentity()
+              → Binder.restoreCallingIdentity()
+              → Executor.execute()
+              → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ThreadLocal.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.camera.requestinjector.RequestInjectorService$1
+  Method:   <com.samsung.android.camera.requestinjector.RequestInjectorService$1: void onCameraDeviceStateChanged(java.lang.String,int,int,java.lang.String,int)>
+  Line:     63
+  Register: v1 := "com.samsung.android.vtcamerasettings"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritte
+
+  CALLEES (what this method invokes):
+      → Context.startServiceAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → CameraServiceWorker.isSamsungCameraApp()
+      → CameraServiceWorker.getTaskInfo()
+      → Logger.log()
+      → <com.samsung.android.camera.requestinjector.RequestInjectorS
+      → <com.samsung.android.camera.requestinjector.RequestInjectorS
+        → ActivityTaskManager.getService()
+        → IActivityTaskManager.getRecentTasks()
+        → ActivityInfo.isFixedOrientationLandscape()
+        → ActivityInfo.isFixedOrientationPortrait()
+        → ParceledListSlice.getList()
+        → <com.samsung.android.camera.CameraServiceWorker$TaskInfo: vo
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.isEmpty()
+        → List.iterator()
+        → Objects.equals()
+        → Logger.getInstance()
+        → Logger.addLogInternal()
+        → SimpleDateFormat.format()
+        → <java.text.SimpleDateFormat: void <init>(java.lang.String,ja
+        → <java.util.Date: void <init>()>
+        → Locale.getDefault()
+          → Singleton.get()
+          → <com.samsung.android.camera.Logger: void <init>()>
+          → Enum.ordinal()
+          → Queue.add()
+          → Queue.size()
+          → Queue.remove()
+            → Singleton.create()
+            → <java.util.LinkedList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.camera.requestinjector.VtCameraProviderObserver
+  Method:   <com.samsung.android.camera.requestinjector.VtCameraProviderObserver: boolean providerExistOrNot()>
+  Line:     486
+  Register: v2 := "com.samsung.android.vtcamerasettings"
+  Usage:    [invoke] invoke-virtual {p0, v2, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [other] iget-object v2, p0, Landroid/content/pm/PackageInf
+
+  CALLERS (who invokes this method):
+      ← VtCameraProviderObserver.tryRegisterContentObserver()
+        ← CameraServiceWorker$BootCompleteReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → ApplicationInfo.isSystemApp()
+      → ApplicationInfo.isUpdatedSystemApp()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+

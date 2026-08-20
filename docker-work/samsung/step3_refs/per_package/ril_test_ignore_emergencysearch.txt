@@ -1,0 +1,5 @@
+# ril.test.ignore.emergencysearch [NEW]
+# Refs: 1
+# JARs: telephony-common
+
+<com.android.internal.telephony.SemTelephonyTester: boolean isIgnoreEmergencySearch()>

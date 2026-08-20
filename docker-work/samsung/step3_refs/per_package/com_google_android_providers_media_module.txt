@@ -1,0 +1,13 @@
+# com.google.android.providers.media.module [NEW]
+# Refs: 9
+# JARs: framework, services, ssrm
+
+<com.android.internal.util.DumpUtils: boolean isSecMediaPackage(java.lang.String)>
+<com.android.internal.util.jobs.DumpUtils: boolean isSecMediaPackage(java.lang.String)>
+<com.android.server.StorageManagerService: void mount(android.os.storage.VolumeInfo)>
+<com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+<com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl: void <init>(com.android.server.knox.dar.DarManagerService$Injector)>
+<com.android.server.pm.PersonaServiceHelper$1: void <init>()>
+<com.android.server.pm.PersonaServiceHelper$2: void <init>()>
+<com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+<com.android.server.ssrm.CPUSetController: ???>

@@ -1,0 +1,9 @@
+# vl.rst.token.handle [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.knox.dar.VirtualLockImpl: boolean clearResetPasswordToken(int)>
+<com.android.server.knox.dar.VirtualLockImpl: boolean clearResetPasswordTokenInternal(long,int)>
+<com.android.server.knox.dar.VirtualLockImpl: boolean isResetPasswordTokenActive(int)>
+<com.android.server.knox.dar.VirtualLockImpl: boolean resetPasswordWithToken(java.lang.String,byte[],int)>
+<com.android.server.knox.dar.VirtualLockImpl: boolean setResetPasswordToken(byte[],int)>

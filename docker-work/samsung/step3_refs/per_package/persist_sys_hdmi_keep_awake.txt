@@ -1,0 +1,5 @@
+# persist.sys.hdmi.keep_awake [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.hdmi.HdmiCecLocalDevicePlayback: com.android.server.hdmi.HdmiCecLocalDevicePlayback$ActiveWakeLock getWakeLock()>

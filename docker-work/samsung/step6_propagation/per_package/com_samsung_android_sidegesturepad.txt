@@ -1,0 +1,358 @@
+######################################################################
+# Propagation: com.samsung.android.sidegesturepad
+######################################################################
+
+JARs:                 semwifi-service, services
+Classes:              4
+Occurrences:          5
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PERM_CHECK, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.db.WifiControlMonitor
+  Method:   <com.samsung.android.server.wifi.db.WifiControlMonitor: void notifyToClients(java.lang.String,boolean)>
+  Line:     209
+  Register: v1 := "com.samsung.android.sidegesturepad"
+  Usage:    [invoke] invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-eqz v1, :cond_24 → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.db.WifiControlMonitor: void
+        ← <com.samsung.android.server.wifi.db.WifiControlMonitor$1: vo
+          ← <com.samsung.android.server.wifi.db.WifiControlMonitor$1: vo
+            ← WifiControlMonitor$1$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → <com.samsung.android.server.wifi.db.WifiControlMonitor$$Exte
+      → Set.forEach()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     227
+  Register: v0 := "com.samsung.android.sidegesturepad"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.sepunion.OneHandService
+  Method:   <com.android.server.sepunion.OneHandService: boolean isInstalled()>
+  Line:     308
+  Register: v0 := "com.samsung.android.sidegesturepad"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo()
+
+  CALLERS (who invokes this method):
+      ← OneHandService.onBootPhase()
+      ← OneHandService.startGestureService()
+        ← <com.android.server.sepunion.OneHandService: void -$$Nest$ms
+          ← OneHandService$1.onReceive()
+          ← <com.android.server.sepunion.OneHandService$OneHandServiceMo
+            ← <com.android.server.sepunion.OneHandService$OneHandServiceMo
+              ← OneHandService$OneHandServiceMonitor$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.sepunion.OneHandService
+  Method:   <com.android.server.sepunion.OneHandService: void startGestureService()>
+  Line:     488
+  Register: v1 := "com.samsung.android.sidegesturepad"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] new-instance v1, Landroid/content/Intent; → [invoke] android.c
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.sepunion.OneHandService: void -$$Nest$ms
+        ← OneHandService$1.onReceive()
+        ← <com.android.server.sepunion.OneHandService$OneHandServiceMo
+          ← <com.android.server.sepunion.OneHandService$OneHandServiceMo
+            ← OneHandService$OneHandServiceMonitor$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startService()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → OneHandService.isInstalled()
+        → Context.getPackageManager()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.MultiTaskingBinder
+  Method:   <com.android.server.wm.MultiTaskingBinder: boolean toggleFreeformWindowingMode()>
+  Line:     5266
+  Register: v3 := "com.samsung.android.sidegesturepad"
+  Usage:    [array_init] filled-new-array {v3}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v3}, [Ljava/lang/String; → [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → MultiStarController.toggleFreeformWindowingMode()
+      → MultiStarController.checkMultiStarPackageAndPermission()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → ActivityOptions.makeBasic()
+        → ActivityOptions.setLaunchWindowingMode()
+        → Rect.isEmpty()
+        → ActivityClientController.toggleFreeformWindowingMode()
+        → ActivityRecord.supportsFreeform()
+        → ActivityRecord.getTask()
+        → ActivityTaskSupervisor.getLaunchParamsController()
+        → ConfigurationContainer.inFreeformWindowingMode()
+        → DisplayContent.getRootTask()
+        → LaunchParamsController.layoutTask()
+        → Task.topRunningActivityLocked()
+        → TaskFragment.getDisplayId()
+        → WindowManagerService.getDefaultDisplayContentLocked()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → ActivityTaskManagerService.enforceTaskPermission()
+        → MultiStarController.ensureCallingPkg()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → <java.util.ArrayList: void <init>()>
+        → List.addAll()
+          → <android.app.ActivityOptions: void <init>()>
+          → ActivityManagerPerformance.onActivityRelaunchLocked()
+          → ActivityRecord.forTokenLocked()
+          → ActivityRecord.getRootTask()
+          → ConfigurationContainer.getWindowingMode()
+          → Task.isResizeable()
+          → Task.getTopResumedActivity()
+          → Task.setWindowingMode()
+          → TaskDisplayArea.getTopRootTaskInWindowingMode()
+          → TaskFragment.startPausing()
+          → TaskFragment.topRunningActivity()
+          → TaskFragment.getDisplayArea()
+          → TaskFragment.getVisibility()
+          → WindowContainer.getParent()
+          → WindowManagerService.boostPriorityForLockedSection()
+          → WindowManagerService.resetPriorityAfterLockedSection()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → ActivityRecord.supportsFreeformInDisplayArea()
+          → ActivityRecord.getDisplayArea()
+          → WindowConfiguration.getWindowingMode()
+          → <com.android.server.wm.DisplayContent$$ExternalSyntheticLamb
+          → WindowContainer.getItemFromTaskDisplayAreas()
+          → ActivityTaskManagerService.continueWindowLayout()
+          → ActivityTaskManagerService.deferWindowLayout()
+          → ConfigurationContainer.inMultiWindowMode()
+          → DisplayContent.getDefaultTaskDisplayArea()
+          → LaunchParamsController$LaunchParams.isEmpty()
+          → LaunchParamsController.calculate()
+          → RootWindowContainer.getDisplayContent()
+          → Task.setBounds()
+          → Task.setLastNonFullscreenBounds()
+          → TaskFragment.getRootTask()
+          → <com.android.server.wm.ActivityRecordGroup$$ExternalSyntheti
+          → WindowContainer.getActivity()
+          → WindowContainer.getDisplayContent()
+          → ActivityTaskManagerService.checkCallingPermission()
+          → AppGlobals.getPackageManager()
+          → IPackageManager.getPackagesForUid()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.iterator()
+            → <android.app.ComponentOptions: void <init>()>
+            → ActivityManagerPerformance.getCurBoostInfoStr()
+            → ActivityManagerPerformance.setBoosterRelaunchResume()
+            → <java.lang.Exception: void <init>()>
+            → Exception.printStackTrace()
+            → WeakReference.get()
+            → Task.isResizeable()
+            → Task.isLeafTask()
+            → TaskFragment.getResumedActivity()
+            → TaskFragment.getTopResumedActivity()
+            → WindowContainer.asActivityRecord()
+            → WindowContainer.asTask()
+            → WindowContainer.asTaskFragment()
+            → ArrayList.size()
+            → ArrayList.get()
+            → ConfigurationContainer.setWindowingMode()
+            → Task.isRootTask()
+            → Task.setWindowingMode()
+            → TaskDisplayArea.getRootTask()
+            → TaskFragment.startPausing()
+            → TaskFragment.topRunningActivity()
+            → WindowContainer.getDisplayArea()
+            → Rect.intersect()
+            → Rect.set()
+            → ConfigurationContainer.getBounds()
+            → ConfigurationContainer.isActivityTypeAssistant()
+            → ConfigurationContainer.isActivityTypeHome()
+            → ConfigurationContainer.isAlwaysOnTop()
+            → ConfigurationContainer.matchParentBounds()
+            → Task.isFullscreenRootForStageTask()
+            → Task.isMinimized()
+            → Task.isUnderHomeRootTask()
+            → TaskDisplayArea.hasChildTaskInSideStage()
+            → TaskDisplayArea.isSplitScreenModeActivated()
+            → TaskFragment.hasRunningActivity()
+            → TaskFragment.isAttached()
+            → TaskFragment.isEmbedded()
+            → TaskFragment.isForceHidden()
+            → TaskFragment.isTopActivityLaunchedBehind()
+            → TaskFragment.isTranslucent()
+            → TaskFragment.isTranslucent()
+            → TaskFragment.getTask()
+            → WindowContainer.isDescendantOf()
+            → WindowContainer.getTaskDisplayArea()
+            → WindowContainer.getChildAt()
+            → WindowContainer.getChildCount()
+            → WindowOrganizerController.whileEnterSplitWithSingleStage()
+            → List.add()
+            → List.contains()
+            → List.isEmpty()
+            → List.size()
+            → List.get()
+            → WindowManagerThreadPriorityBooster.boost()
+            → WindowManagerThreadPriorityBooster.reset()
+            → ActivityRecord.supportsMultiWindowInDisplayArea()
+            → WindowContainer.getItemFromTaskDisplayAreas()
+            → WindowSurfacePlacer.continueLayout()
+            → WindowSurfacePlacer.isLayoutDeferred()
+            → WindowSurfacePlacer.deferLayout()
+            → WindowConfiguration.inMultiWindowMode()
+            → DisplayAreaPolicy.getDefaultTaskDisplayArea()
+            → ActivityOptions.getLaunchWindowingMode()
+            → LaunchParamsController$LaunchParams.reset()
+            → LaunchParamsController$LaunchParams.set()
+            → LaunchParamsController$LaunchParamsModifier.onCalculate()
+            → LaunchParamsPersister.getLaunchParams()
+            → RootWindowContainer.getDefaultTaskDisplayArea()
+            → ConfigurationContainer.getRequestedOverrideBounds()
+            → ConfigurationContainer.setBounds()
+            → DisplayContent.getDisplayInfo()
+            → Task.setBounds()
+            → WindowContainer.updateSurfacePositionNonOrganized()
+            → <android.graphics.Rect: void <init>(android.graphics.Rect)>
+            → TaskFragment.getRootTaskFragment()
+            → WindowContainer.getActivity()
+            → ActivityTaskManagerService.checkPermission() [PERM_CHECK]
+            → ActivityThread.getPackageManager()
+              → ActivityManagerPerformance.topStateToString()
+              → SemDvfsManager.createInstance()
+              → SemDvfsManager.acquire()
+              → ActivityInfo.isResizeableMode()
+              → TaskFragment.getActivityType()
+              → WindowConfiguration.setWindowingMode()
+              → Configuration.setTo()
+              → ConfigurationContainer.getRequestedOverrideConfiguration()
+              → ConfigurationContainer.onRequestedOverrideConfigurationChanged()
+              → <com.android.server.wm.Task$$ExternalSyntheticLambda54: void
+              → WindowManagerService.inSurfaceTransaction()
+              → <com.android.server.wm.TaskDisplayArea$$ExternalSyntheticLam
+              → WindowContainer.getRootTask()
+              → ActivityManagerInternal.onPackagePausedBG()
+              → PictureInPictureParams.isAutoEnterEnabled()
+              → ProtoLogImpl.d()
+              → ProtoLogImpl.v()
+              → ActivityRecord.attachedToProcess()
+              → ActivityRecord.checkEnterPictureInPictureState()
+              → ActivityRecord.isInSplitActivityMode()
+              → ActivityRecord.isNoHistory()
+              → ActivityRecord.isState()
+              → ActivityRecord.occludesParent()
+              → ActivityRecord.getState()
+              → ActivityRecord.getActivityGroup()
+              → ActivityRecord.getLastParentBeforePip()
+              → ActivityRecord.activityPaused()
+              → ActivityRecord.pauseKeyDispatchingLocked()
+              → ActivityRecord.schedulePauseTimeout()
+              → ActivityRecord.setState()
+              → ActivityRecordGroup.getResumedActivity()
+              → ActivityTaskManagerService.enterPictureInPictureMode()
+              → ActivityTaskManagerService.isSleepingOrShuttingDownLocked()
+              → ActivityTaskManagerService.updateCpuStats()
+              → ActivityTaskSupervisor.acquireLaunchWakelock()
+              → RootWindowContainer.resumeFocusedTasksTopActivities()
+              → Task.touchActiveTime()
+              → TaskFragment.hasDirectChildActivities()
+              → TaskFragment.isEmbeddedTaskInMultiWindow()
+              → TaskFragment.shouldSleepActivities()
+              → TaskFragment.completePause()
+              → TaskFragment.schedulePauseActivity()
+              → TransitionController.setReady()
+              → ArrayList.add()
+              → ArrayList.contains()
+              → ArrayList.remove()
+              → TaskFragment.topRunningActivity()
+              → Rect.intersect()
+              → WindowConfiguration.getBounds()
+              → ConfigurationContainer.getConfiguration()
+              → ConfigurationContainer.getActivityType()
+              → WindowConfiguration.isAlwaysOnTop()
+              → ConfigurationContainer.getResolvedOverrideBounds()
+              → ConfigurationContainer.inFullscreenWindowingMode()
+              → TaskDisplayArea.getTopRootTaskInStageType()
+              → Task.supportsMinimizeState()
+              → TaskDisplayArea.isUnderHomeTask()
+              → ConfigurationContainer.hasChild()
+              → TaskDisplayArea.getRootSideStageTask()
+              → TaskDisplayArea.getRootMainStageTask()
+              → TaskDisplayArea.isRemoved()
+              → PooledLambda.__()
+              → PooledLambda.obtainPredicate()
+              → PooledPredicate.recycle()
+              → <com.android.server.wm.TaskFragment$$ExternalSyntheticLambda
+              → HashSet.isEmpty()
+              → Process.myTid()
+              → ThreadPriorityBooster.boost()
+              → ThreadPriorityBooster.reset()
+              → ActivityRecord.isResizeable()
+              → MultiWindowSupportPolicyController.supportsMultiWindowInDisplayArea()
+              → Debug.getCallers()
+              → WindowSurfacePlacer.performSurfacePlacement()
+              → Rect.setEmpty()
+              → FreeformPersistBoundsParams.reset()
+              → FreeformPersistBoundsParams.set()
+              → ArrayMap.get()
+              → ArraySet.size()
+              → ArraySet.valueAt()
+              → SparseArray.get()
+              → RootWindowContainer.getDisplayContent()
+              → Map.get()
+              → WindowConfiguration.setBounds()
+              → ConfigurationContainer.providesMaxBounds()
+              → ConfigurationContainer.diffRequestedOverrideBounds()
+              → ConfigurationContainer.diffRequestedOverrideMaxBounds()
+              → ConfigurationContainer.equivalentBounds()
+              → Task.updateSurfaceBounds()
+              → WindowContainer.getSyncTransaction()
+              → WindowContainer.isOrganized()
+              → WindowContainer.updateSurfacePosition()
+              → WindowContainer.getActivity()
+              → ActivityTaskManagerService.checkComponentPermission()
+

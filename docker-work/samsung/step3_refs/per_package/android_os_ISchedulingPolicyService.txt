@@ -1,0 +1,10 @@
+# android.os.ISchedulingPolicyService [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.ISchedulingPolicyService$Stub$Proxy: int requestCpusetBoost(boolean,android.os.IBinder)>
+<android.os.ISchedulingPolicyService$Stub$Proxy: int requestPriority(int,int,int,boolean)>
+<android.os.ISchedulingPolicyService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.ISchedulingPolicyService$Stub: android.os.ISchedulingPolicyService asInterface(android.os.IBinder)>
+<android.os.ISchedulingPolicyService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.ISchedulingPolicyService$Stub: void <init>()>

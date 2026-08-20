@@ -1,0 +1,27 @@
+# android.app.IUiAutomationConnection [NEW]
+# Refs: 23
+# JARs: framework
+
+<android.app.IUiAutomationConnection$Stub$Proxy: android.graphics.Bitmap takeScreenshot(android.graphics.Rect)>
+<android.app.IUiAutomationConnection$Stub$Proxy: android.graphics.Bitmap takeSurfaceControlScreenshot(android.view.SurfaceControl)>
+<android.app.IUiAutomationConnection$Stub$Proxy: android.view.WindowAnimationFrameStats getWindowAnimationFrameStats()>
+<android.app.IUiAutomationConnection$Stub$Proxy: android.view.WindowContentFrameStats getWindowContentFrameStats(int)>
+<android.app.IUiAutomationConnection$Stub$Proxy: boolean clearWindowContentFrameStats(int)>
+<android.app.IUiAutomationConnection$Stub$Proxy: boolean injectInputEvent(android.view.InputEvent,boolean,boolean)>
+<android.app.IUiAutomationConnection$Stub$Proxy: boolean setRotation(int)>
+<android.app.IUiAutomationConnection$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IUiAutomationConnection$Stub$Proxy: java.util.List getAdoptedShellPermissions()>
+<android.app.IUiAutomationConnection$Stub$Proxy: void adoptShellPermissionIdentity(int,java.lang.String[])>
+<android.app.IUiAutomationConnection$Stub$Proxy: void clearWindowAnimationFrameStats()>
+<android.app.IUiAutomationConnection$Stub$Proxy: void connect(android.accessibilityservice.IAccessibilityServiceClient,int)>
+<android.app.IUiAutomationConnection$Stub$Proxy: void disconnect()>
+<android.app.IUiAutomationConnection$Stub$Proxy: void dropShellPermissionIdentity()>
+<android.app.IUiAutomationConnection$Stub$Proxy: void executeShellCommand(java.lang.String,android.os.ParcelFileDescriptor,android.os.ParcelFileDescriptor)>
+<android.app.IUiAutomationConnection$Stub$Proxy: void executeShellCommandWithStderr(java.lang.String,android.os.ParcelFileDescriptor,android.os.ParcelFileDescriptor,android.os.ParcelFileDescriptor)>
+<android.app.IUiAutomationConnection$Stub$Proxy: void grantRuntimePermission(java.lang.String,java.lang.String,int)>
+<android.app.IUiAutomationConnection$Stub$Proxy: void revokeRuntimePermission(java.lang.String,java.lang.String,int)>
+<android.app.IUiAutomationConnection$Stub$Proxy: void shutdown()>
+<android.app.IUiAutomationConnection$Stub$Proxy: void syncInputTransactions(boolean)>
+<android.app.IUiAutomationConnection$Stub: android.app.IUiAutomationConnection asInterface(android.os.IBinder)>
+<android.app.IUiAutomationConnection$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IUiAutomationConnection$Stub: void <init>()>

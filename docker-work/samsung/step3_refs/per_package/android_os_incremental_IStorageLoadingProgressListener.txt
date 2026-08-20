@@ -1,0 +1,9 @@
+# android.os.incremental.IStorageLoadingProgressListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.incremental.IStorageLoadingProgressListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.incremental.IStorageLoadingProgressListener$Stub$Proxy: void onStorageLoadingProgressChanged(int,float)>
+<android.os.incremental.IStorageLoadingProgressListener$Stub: android.os.incremental.IStorageLoadingProgressListener asInterface(android.os.IBinder)>
+<android.os.incremental.IStorageLoadingProgressListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.incremental.IStorageLoadingProgressListener$Stub: void <init>()>

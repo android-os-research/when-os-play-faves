@@ -1,0 +1,465 @@
+######################################################################
+# Propagation: com.android.printspooler
+######################################################################
+
+JARs:                 services
+Classes:              3
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return, permission_grant, string_compare, system_property_read
+Security tags:        APPOPS, PERM_FLAGS, PERM_GRANT, PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.permission.DefaultPermissionGrantPolicy
+  Method:   <com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+  Line:     8150
+  Register: v0 := "com.android.printspooler"
+  Usage:    [invoke] invoke-virtual {v8, v9, v0, v10, v4}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy
+  Patterns: string_compare, early_return, permission_grant, system_property_read
+
+  CALLERS (who invokes this method):
+      ← DefaultPermissionGrantPolicy.grantDefaultPermissions() [PERM_GRANT]
+        ← LegacyPermissionManagerService$Internal.grantDefaultPermissions() [PERM_GRANT]
+
+  CALLEES (what this method invokes):
+      → ActivityManager.isLowRamDeviceStatic()
+      → AppOpsManager.setUidMode()
+      → Context.getContentResolver()
+      → Context.getPackageManager()
+      → Context.getResources()
+      → Context.getSystemService()
+      → Intent.addCategory()
+      → Intent.setDataAndType()
+      → Intent.setType()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → IPackageManager$Stub.asInterface()
+      → IPackageManager.isFirstBoot()
+      → PackageManager.hasSystemFeature()
+      → PackageManager.checkSignatures() [SIG_CHECK]
+      → PackageManager.getPermissionControllerPackageName()
+      → Resources.getBoolean()
+      → Uri.fromFile()
+      → SemSystemProperties.get()
+      → ServiceManager.getService()
+      → SystemProperties.get()
+      → UserHandle.of()
+      → Settings$Global.putString()
+      → TextUtils.isEmpty()
+      → <android.util.ArraySet: void <init>()>
+      → ArrayUtils.firstOrNull()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPackageInfo() [PKG_QUERY]
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.getSystemPackageInfo()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSystemPackage()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.updatePermissionFlags() [PERM_FLAGS]
+      → DefaultPermissionGrantPolicy.doesPackageSupportRuntimePermissions()
+      → DefaultPermissionGrantPolicy.isDuoStubModel()
+      → DefaultPermissionGrantPolicy.getDefaultCaptivePortalLoginPackage()
+      → DefaultPermissionGrantPolicy.getDefaultProviderAuthorityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSearchSelectorPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackageForCategory()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerServicePackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerServicePackage()
+      → DefaultPermissionGrantPolicy.getKnownPackages()
+      → DefaultPermissionGrantPolicy.getHeadlessSyncAdapterPackages()
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToAsrApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToAttApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToCharterApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToCricketApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemDialerApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemSimCallManager() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemSmsApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemUseOpenWifiApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToMetroApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToSprintApps() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToTmoApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToUSCApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToVerizonApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToVerizonAppForVPP() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionToEachSystemPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionsToPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionsToSystemPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantSystemFixedPermissionsToSystemPackage()
+      → DefaultPermissionGrantPolicy.setAppOpToSystemPackage()
+      → LegacyPermissionManagerInternal$PackagesProvider.getPackages()
+      → LegacyPermissionManagerInternal$SyncAdapterPackagesProvider.getPackages()
+      → SemCscFeature.getBoolean()
+      → SemCscFeature.getInstance()
+      → <java.io.File: void <init>(java.lang.String)>
+      → Set.add()
+      → Set.addAll()
+        → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+        → Uri$PathPart.fromDecoded()
+        → File.getAbsolutePath()
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+        → CharSequence.length()
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → ApplicationInfo.isSystemApp()
+        → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSystemPackage()
+        → Context.getString()
+        → PackageManager.resolveContentProviderAsUser()
+        → PackageManager.resolveActivityAsUser()
+        → PackageManagerInternal.isResolveActivityComponent()
+        → PackageManager.queryIntentServicesAsUser()
+        → List.size()
+        → List.get()
+        → PackageManagerInternal.getKnownPackageNames()
+        → Intent.setPackage()
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+        → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSimCallManager() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.isSprintOreoMRUpgradeModel()
+        → ArrayList.size()
+        → ArrayList.get()
+        → DefaultPermissionGrantPolicy.grantPermissionsToPackage() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.grantPermissionsToSystemPackage() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+        → AppOpsManager.setMode() [APPOPS]
+        → Hashtable.get()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+          → Uri$PathPart.from()
+          → ArraySet.allocArrays()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSysComponentOrPersistentPlatformSignedPrivApp()
+          → ApplicationInfo.isUpdatedSystemApp()
+          → PackageManagerInternal.getDisabledSystemPackageName()
+          → Bundle.getBoolean()
+          → PermissionManager$SplitPermissionInfo.getTargetSdk()
+          → PermissionManager$SplitPermissionInfo.getSplitPermission()
+          → PermissionManager$SplitPermissionInfo.getNewPermissions()
+          → PermissionManager.getSplitPermissions()
+          → ArraySet.addAll()
+          → ArraySet.contains()
+          → <android.util.ArraySet: void <init>(java.util.Collection)>
+          → ArrayUtils.contains()
+          → ArrayUtils.isEmpty()
+          → ArrayUtils.filterNotNull()
+          → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isGranted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isPermissionRestricted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionFlags()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getBackgroundPermission()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.grantPermission() [PERM_GRANT]
+          → DefaultPermissionGrantPolicy.isFixedOrUserSet()
+          → Map.get()
+          → Map.put()
+          → Set.contains()
+          → SystemProperties.get()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → Uri$Part.nonNull()
+            → <android.net.Uri$PathPart: void <init>(java.lang.String,java
+            → ApplicationInfo.isPrivilegedApp()
+            → PackageManagerInternal.isPlatformSigned()
+            → UserHandle.getAppId()
+            → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+            → SplitPermissionInfoParcelable.getTargetSdk()
+            → SplitPermissionInfoParcelable.getSplitPermission()
+            → SplitPermissionInfoParcelable.getNewPermissions()
+            → ActivityThread.getPermissionManager()
+            → IPermissionManager.getSplitPermissions()
+            → PermissionManager.splitPermissionInfoListToNonParcelableList()
+            → Collections.emptyList()
+            → ArraySet.add()
+            → ArraySet.ensureCapacity()
+            → Collection.size()
+            → Collection.iterator()
+            → Iterator.hasNext()
+            → Iterator.next()
+            → ArraySet.indexOf()
+            → PermissionInfo.isRestricted()
+            → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionInfo()
+            → SemCscFeature.loadFeatureFile()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+              → <android.net.Uri$AbstractPart: void <init>(java.lang.String,
+              → <android.permission.PermissionManager$SplitPermissionInfo: v
+              → <java.util.ArrayList: void <init>(int)>
+              → List.add()
+              → ArraySet.indexOf()
+              → ArraySet.indexOfNull()
+              → ArraySet.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.print.RemotePrintSpooler
+  Method:   <com.android.server.print.RemotePrintSpooler: void <init>(android.content.Context,int,boolean,com.android.server.print.RemotePrintSpooler$PrintSpoolerCallbacks)>
+  Line:     268
+  Register: p2 := "com.android.printspooler"
+  Usage:    [invoke] invoke-direct {p0, p2, p3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.print.UserState: void <init>(android.con
+        ← PrintManagerService$PrintManagerImpl.getOrCreateUserStateLocked()
+          ← <com.android.server.print.PrintManagerService$PrintManagerIm
+          ← PrintManagerService$PrintManagerImpl.getOrCreateUserStateLocked()
+            ← PrintManagerService$PrintManagerImpl$2.onHandleForceStop()
+            ← PrintManagerService$PrintManagerImpl$2.onPackageAdded()
+            ← PrintManagerService$PrintManagerImpl$2.onPackageModified()
+            ← PrintManagerService$PrintManagerImpl$2.onPackageRemoved()
+            ← PrintManagerService$PrintManagerImpl$3.run()
+            ← PrintManagerService$PrintManagerImpl.getCustomPrinterIcon()
+            ← PrintManagerService$PrintManagerImpl.print()
+            ← PrintManagerService$PrintManagerImpl.getPrintJobInfo()
+            ← PrintManagerService$PrintManagerImpl.getBindInstantServiceAllowed()
+            ← PrintManagerService$PrintManagerImpl.isPrintServiceEnabled()
+            ← PrintManagerService$PrintManagerImpl.getPrintJobInfos()
+            ← PrintManagerService$PrintManagerImpl.getPrintServiceRecommendations()
+            ← PrintManagerService$PrintManagerImpl.getPrintServices()
+            ← PrintManagerService$PrintManagerImpl.addPrintJobStateChangeListener()
+            ← PrintManagerService$PrintManagerImpl.addPrintServiceRecommendationsChangeListener()
+            ← PrintManagerService$PrintManagerImpl.addPrintServicesChangeListener()
+            ← PrintManagerService$PrintManagerImpl.cancelPrintJob()
+            ← PrintManagerService$PrintManagerImpl.createPrinterDiscoverySession()
+            ← PrintManagerService$PrintManagerImpl.destroyPrinterDiscoverySession()
+            ← PrintManagerService$PrintManagerImpl.removePrintJobStateChangeListener()
+            ← PrintManagerService$PrintManagerImpl.removePrintServiceRecommendationsChangeListener()
+            ← PrintManagerService$PrintManagerImpl.removePrintServicesChangeListener()
+            ← PrintManagerService$PrintManagerImpl.restartPrintJob()
+            ← PrintManagerService$PrintManagerImpl.setBindInstantServiceAllowed()
+            ← PrintManagerService$PrintManagerImpl.setPrintServiceEnabled()
+            ← PrintManagerService$PrintManagerImpl.startPrinterDiscovery()
+            ← PrintManagerService$PrintManagerImpl.startPrinterStateTracking()
+            ← PrintManagerService$PrintManagerImpl.stopPrinterDiscovery()
+            ← PrintManagerService$PrintManagerImpl.stopPrinterStateTracking()
+            ← PrintManagerService$PrintManagerImpl.validatePrinters()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → <android.os.UserHandle: void <init>(int)>
+      → <com.android.server.print.RemotePrintSpooler$ClearCustomPrin
+      → <com.android.server.print.RemotePrintSpooler$GetCustomPrinte
+      → <com.android.server.print.RemotePrintSpooler$GetPrintJobInfo
+      → <com.android.server.print.RemotePrintSpooler$GetPrintJobInfo
+      → <com.android.server.print.RemotePrintSpooler$MyServiceConnec
+      → <com.android.server.print.RemotePrintSpooler$OnCustomPrinter
+      → <com.android.server.print.RemotePrintSpooler$PrintSpoolerCli
+      → <com.android.server.print.RemotePrintSpooler$SetPrintJobStat
+      → <com.android.server.print.RemotePrintSpooler$SetPrintJobTagC
+        → <android.util.TimedRemoteCaller: void <init>(long)>
+        → <com.android.server.print.RemotePrintSpooler$ClearCustomPrin
+        → <com.android.server.print.RemotePrintSpooler$GetCustomPrinte
+        → <com.android.server.print.RemotePrintSpooler$GetPrintJobInfo
+        → <com.android.server.print.RemotePrintSpooler$GetPrintJobInfo
+        → <com.android.server.print.RemotePrintSpooler$MyServiceConnec
+        → <com.android.server.print.RemotePrintSpooler$OnCustomPrinter
+        → <android.print.IPrintSpoolerClient$Stub: void <init>()>
+        → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+        → <com.android.server.print.RemotePrintSpooler$SetPrintJobStat
+        → <com.android.server.print.RemotePrintSpooler$SetPrintJobTagC
+          → <android.util.SparseArray: void <init>(int)>
+          → <android.util.SparseIntArray: void <init>(int)>
+          → <com.android.server.print.RemotePrintSpooler$BasePrintSpoole
+          → <android.os.Binder: void <init>()>
+          → IPrintSpoolerClient$Stub.attachInterface()
+            → ArrayUtils.newUnpaddedObjectArray()
+            → ArrayUtils.newUnpaddedIntArray()
+            → <com.android.server.print.RemotePrintSpooler$BasePrintSpoole
+            → <android.os.Binder: void <init>(java.lang.String)>
+              → <android.print.IPrintSpoolerCallbacks$Stub: void <init>()>
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.print.PrintManagerService$PrintManagerImpl
+  Method:   <com.android.server.print.PrintManagerService$PrintManagerImpl: void setPrintServiceEnabled(android.content.ComponentName,boolean,int)>
+  Line:     2830
+  Register: v2 := "com.android.printspooler"
+  Usage:    [invoke] invoke-virtual {v1, v2, p3}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageUidAsUser() → [other] move-result v2 → [branch] if-eq v1, v2, :cond
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageUidAsUser()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → UserHandle.getAppId()
+      → PrintManagerService$PrintManagerImpl.getOrCreateUserStateLocked()
+      → PrintManagerService$PrintManagerImpl.getCurrentUserId()
+      → PrintManagerService$PrintManagerImpl.resolveCallingProfileParentLocked()
+      → PrintManagerService$PrintManagerImpl.resolveCallingUserEnforcingPermissions()
+      → UserState.setPrintServiceEnabled()
+      → <java.lang.SecurityException: void <init>(java.lang.String)>
+      → Objects.requireNonNull()
+        → PrintManagerService$PrintManagerImpl.getOrCreateUserStateLocked()
+        → ActivityManager.getCurrentUser()
+        → UserInfo.getUserHandle()
+        → UserHandle.getIdentifier()
+        → UserManager.getProfileParent()
+        → ActivityManager.getService()
+        → IActivityManager.handleIncomingUser()
+        → Binder.getCallingPid() [UID_CHECK]
+        → ComponentName.equals()
+        → PrintServiceInfo.getComponentName()
+        → MetricsLogger.action()
+        → UserState.onConfigurationChangedLocked()
+        → UserState.writeDisabledPrintServicesLocked()
+        → List.size()
+        → List.get()
+        → Set.add()
+        → Set.remove()
+          → UserManager.isUserUnlockingOrUnlocked()
+          → SparseArray.get()
+          → SparseArray.put()
+          → <com.android.server.print.UserState: void <init>(android.con
+          → UserState.increasePriority()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → UserHandle.of()
+          → <android.content.ComponentName: void <init>(java.lang.String
+          → ArrayMap.containsKey()
+          → ArrayMap.remove()
+          → ArrayMap.entrySet()
+          → <com.android.server.print.RemotePrintService: void <init>(an
+          → UserState.getInstalledComponents()
+          → UserState.addServiceLocked()
+          → UserState.onPrintServicesChanged()
+          → UserState.removeServiceLocked()
+          → ArrayList.contains()
+          → ArrayList.size()
+          → ArrayList.get()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → Iterator.remove()
+          → Map$Entry.getKey()
+          → Map$Entry.getValue()
+          → Set.contains()
+          → Set.iterator()
+          → ComponentName.flattenToShortString()
+          → Context.getContentResolver()
+          → Settings$Secure.putStringForUser()
+            → SparseArray.get()
+            → ContainerHelpers.binarySearch()
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → <android.content.Intent: void <init>(java.lang.String)>
+            → <android.text.TextUtils$SimpleStringSplitter: void <init>(ch
+            → <android.util.ArrayMap: void <init>()>
+            → <android.util.ArraySet: void <init>()>
+            → <com.android.server.print.RemotePrintSpooler: void <init>(an
+            → <com.android.server.print.UserState$PrintJobForAppCache: voi
+            → UserState.onConfigurationChanged()
+            → UserState.prunePrintServices()
+            → UserState.readDisabledPrintServicesLocked()
+            → UserState.readInstalledPrintServicesLocked()
+            → UserState.upgradePersistentStateIfNeeded()
+            → <java.util.ArrayList: void <init>()>
+            → RemotePrintSpooler.increasePriority()
+            → ArrayMap.indexOfKey()
+            → ArrayMap.removeAt()
+            → ArrayMap.getCollection()
+            → MapCollections.getEntrySet()
+            → Intent.setComponent()
+            → <android.content.Intent: void <init>()>
+            → <com.android.server.print.RemotePrintService$RemotePrintServ
+            → <com.android.server.print.RemotePrintService$RemoteServiceCo
+            → PrintServiceInfo.getResolveInfo()
+            → ArrayList.add()
+            → ArrayMap.put()
+            → RemotePrintService.getComponentName()
+            → UserState$PrinterDiscoverySessionMediator.onServiceAddedLocked()
+            → Handler.getMain()
+            → Handler.sendMessage()
+            → PooledLambda.obtainMessage()
+            → <com.android.server.print.UserState$$ExternalSyntheticLambda
+            → RemotePrintService.destroy()
+            → UserState$PrinterDiscoverySessionMediator.onServiceRemovedLocked()
+            → UserState.failActivePrintJobsForService()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → <android.util.ArraySet: void <init>(int,boolean)>
+              → <android.os.UserHandle: void <init>(int)>
+              → <com.android.server.print.RemotePrintSpooler$ClearCustomPrin
+              → <com.android.server.print.RemotePrintSpooler$GetCustomPrinte
+              → <com.android.server.print.RemotePrintSpooler$GetPrintJobInfo
+              → <com.android.server.print.RemotePrintSpooler$GetPrintJobInfo
+              → <com.android.server.print.RemotePrintSpooler$MyServiceConnec
+              → <com.android.server.print.RemotePrintSpooler$OnCustomPrinter
+              → <com.android.server.print.RemotePrintSpooler$PrintSpoolerCli
+              → <com.android.server.print.RemotePrintSpooler$SetPrintJobStat
+              → <com.android.server.print.RemotePrintSpooler$SetPrintJobTagC
+              → <com.android.server.print.UserState$PrintJobForAppCache: voi
+              → RemotePrintSpooler.pruneApprovedPrintServices()
+              → Set.retainAll()
+              → UserState.readPrintServicesFromSettingLocked()
+              → <java.util.HashSet: void <init>()>
+              → Set.addAll()
+              → Set.equals()
+              → Set.clear()
+              → PackageManager.queryIntentServicesAsUser()
+              → PrintServiceInfo.create()
+              → List.addAll()
+              → List.clear()
+              → Settings$Secure.getStringForUser()
+              → ArraySet.add()
+              → RemotePrintSpooler.throwIfDestroyedLocked()
+              → RemotePrintSpooler.unbindLocked()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+              → <android.util.MapCollections$EntrySet: void <init>(android.u
+              → <android.printservice.IPrintServiceClient$Stub: void <init>(
+              → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+              → <com.android.server.print.RemotePrintService$RemoteServiceCo
+              → PrinterId.getServiceName()
+              → PooledLambda.obtainMessage()
+              → <com.android.server.print.UserState$PrinterDiscoverySessionM
+              → <com.android.server.print.UserState$PrinterDiscoverySessionM
+              → <com.android.server.print.UserState$PrinterDiscoverySessionM
+              → List.isEmpty()
+              → Message.obtain()
+              → Message.setCallback()
+              → PooledLambdaImpl.acquire()
+              → PooledRunnable.recycleOnUse()
+              → <com.android.server.print.RemotePrintService$$ExternalSynthe
+              → UserState$PrinterDiscoverySessionMediator.removePrintersForServiceLocked()
+              → Looper.getMainLooper()
+              → Looper.isCurrentThread()
+              → BackgroundThread.getHandler()
+              → <com.android.server.print.UserState$$ExternalSyntheticLambda
+              → UserState.failScheduledPrintJobsForServiceInternal()
+

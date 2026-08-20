@@ -1,0 +1,9 @@
+# android.companion.virtual.audio.IAudioRoutingCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.companion.virtual.audio.IAudioRoutingCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.companion.virtual.audio.IAudioRoutingCallback$Stub$Proxy: void onAppsNeedingAudioRoutingChanged(int[])>
+<android.companion.virtual.audio.IAudioRoutingCallback$Stub: android.companion.virtual.audio.IAudioRoutingCallback asInterface(android.os.IBinder)>
+<android.companion.virtual.audio.IAudioRoutingCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.companion.virtual.audio.IAudioRoutingCallback$Stub: void <init>()>

@@ -1,0 +1,10 @@
+# com.sec.ims.imsmanager.RESTART [NEW]
+# Refs: 6
+# JARs: framework, imsmanager
+
+<com.samsung.android.ims.SemImsManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.ims.SemImsManager: void connectService()>
+<com.samsung.android.ims.options.SemCapabilityManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.ims.options.SemCapabilityManager: void init()>
+<com.sec.ims.ImsManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.sec.ims.ImsManager: void connectService()>

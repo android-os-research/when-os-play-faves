@@ -1,0 +1,10 @@
+# android.hardware.fingerprint.IUdfpsHbmListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.hardware.fingerprint.IUdfpsHbmListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.fingerprint.IUdfpsHbmListener$Stub$Proxy: void onHbmDisabled(int)>
+<android.hardware.fingerprint.IUdfpsHbmListener$Stub$Proxy: void onHbmEnabled(int)>
+<android.hardware.fingerprint.IUdfpsHbmListener$Stub: android.hardware.fingerprint.IUdfpsHbmListener asInterface(android.os.IBinder)>
+<android.hardware.fingerprint.IUdfpsHbmListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.fingerprint.IUdfpsHbmListener$Stub: void <init>()>

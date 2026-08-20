@@ -1,0 +1,14 @@
+# com.samsung.android.email.provider [NEW]
+# Refs: 10
+# JARs: framework, services
+
+<com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: boolean isEmailAdminPkg(java.lang.String)>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+<com.android.server.enterprise.application.ApplicationPolicy: void onAdminRemoved(int)>
+<com.android.server.enterprise.email.SettingsUtils: java.lang.String getEasPackageName(int)>
+<com.android.server.enterprise.email.SettingsUtils: java.lang.String getEmailPackageName(int)>
+<com.android.server.enterprise.security.SecurityPolicy: void <init>(com.android.server.enterprise.security.SecurityPolicy$Injector)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnConstants: void <clinit>()>
+<com.android.server.knox.dar.sdp.engine.SdpServiceKeeper: void initWhitelist()>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>

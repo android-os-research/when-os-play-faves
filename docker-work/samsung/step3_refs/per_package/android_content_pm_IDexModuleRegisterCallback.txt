@@ -1,0 +1,9 @@
+# android.content.pm.IDexModuleRegisterCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.pm.IDexModuleRegisterCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IDexModuleRegisterCallback$Stub$Proxy: void onDexModuleRegistered(java.lang.String,boolean,java.lang.String)>
+<android.content.pm.IDexModuleRegisterCallback$Stub: android.content.pm.IDexModuleRegisterCallback asInterface(android.os.IBinder)>
+<android.content.pm.IDexModuleRegisterCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IDexModuleRegisterCallback$Stub: void <init>()>

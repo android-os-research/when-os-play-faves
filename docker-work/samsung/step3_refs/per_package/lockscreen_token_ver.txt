@@ -1,0 +1,6 @@
+# lockscreen.token.ver [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.locksettings.SyntheticPasswordManager: com.android.server.locksettings.SyntheticPasswordManager$AuthenticationResult unwrapPasswordBasedSyntheticPassword(android.service.gatekeeper.IGateKeeperService,long,com.android.internal.widget.LockscreenCredential,int,com.android.internal.widget.ICheckCredentialProgressCallback)>
+<com.android.server.locksettings.SyntheticPasswordManager: long createPasswordBasedSyntheticPassword(android.service.gatekeeper.IGateKeeperService,com.android.internal.widget.LockscreenCredential,com.android.server.locksettings.SyntheticPasswordManager$AuthenticationToken,int)>

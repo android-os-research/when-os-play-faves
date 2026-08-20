@@ -1,0 +1,9 @@
+# android.content.ISyncStatusObserver [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.ISyncStatusObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.ISyncStatusObserver$Stub$Proxy: void onStatusChanged(int)>
+<android.content.ISyncStatusObserver$Stub: android.content.ISyncStatusObserver asInterface(android.os.IBinder)>
+<android.content.ISyncStatusObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.ISyncStatusObserver$Stub: void <init>()>

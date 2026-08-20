@@ -1,0 +1,6 @@
+# android.hardware.location.extra.MESSAGE [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<android.hardware.location.ContextHubIntentEvent: android.hardware.location.ContextHubIntentEvent fromIntent(android.content.Intent)>
+<com.android.server.location.contexthub.ContextHubClientBroker: android.content.Intent lambda$sendMessageToClient$1(long,android.hardware.location.NanoAppMessage)>

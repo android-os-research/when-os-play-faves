@@ -1,0 +1,1689 @@
+######################################################################
+# Propagation: com.samsung.android.knox.containeragent
+######################################################################
+
+JARs:                 framework, services
+Classes:              10
+Occurrences:          22
+Usage types:          array_init, invoke
+Enforcement patterns: allowlist_check, early_return, package_enable_disable, string_compare, system_property_read
+Security tags:        PKG_MGMT, PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     260
+  Register: v56 := "com.samsung.android.knox.containeragent"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     534
+  Register: v1 := "com.samsung.android.knox.containeragent"
+  Usage:    [array_init] filled-new-array {v1, v2}, [Ljava/lang/String;
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: android.content.Intent createSwitchProfileIntent(int)>
+  Line:     1879
+  Register: v1 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: (none)
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] const v1, 0x10804000 → [invoke] android.content.Intent.setFlags()
+
+  CALLEES (what this method invokes):
+      → Intent.putExtra()
+      → Intent.setFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: android.content.ComponentName getAgentAdminReceiver()>
+  Line:     2022
+  Register: v1 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: (none)
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← PersonaManagerService.isContainerService()
+      ← SemPersonaManager.isContainerService()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: byte[] getKnoxIcon(int)>
+  Line:     3106
+  Register: v2 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-static {v2, v1, p0}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxIcon(Ljava/lang/Str
+  Patterns: (none)
+  Flow:     [invoke] com.samsung.android.knox.SemPersonaManager.getKnoxIcon()
+
+  CALLEES (what this method invokes):
+      → UserInfo.isManagedProfile()
+      → UserInfo.isSecureFolder()
+      → ISemPersonaManager.getProfiles()
+      → SemPersonaManager.getKnoxIcon()
+      → SemPersonaManager.getPersonaService()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → UserManager.isUserTypeManagedProfile()
+        → ISemPersonaManager.getKnoxIcon()
+        → ServiceManager.getService()
+        → ISemPersonaManager$Stub.asInterface()
+          → IBinder.queryLocalInterface()
+          → <com.samsung.android.knox.ISemPersonaManager$Stub$Proxy: voi
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: boolean isKnoxIcon(java.lang.String,java.lang.String)>
+  Line:     4544
+  Register: v0 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_1e → [other] const-string/jumbo 
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService$5
+  Method:   <com.android.server.pm.PersonaManagerService$5: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     114
+  Register: v5 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return, package_enable_disable
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v5 → [branch] if-eqz v5, :cond_70 → [other] iget-object v5, p0,
+
+  CALLEES (what this method invokes):
+      → BroadcastReceiver.onReceive()
+      → Context.getPackageManager()
+      → Intent.getData()
+      → Intent.getIntExtra()
+      → Intent.getAction()
+      → PackageManager.getApplicationEnabledSetting()
+      → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+      → Uri.getSchemeSpecificPart()
+      → ContainerDependencyWrapper.isDisallowedAppForKnox()
+      → ContainerDependencyWrapper.isRequiredAppForKnox()
+      → <com.android.server.pm.PersonaManagerService: android.conten
+      → <com.android.server.pm.PersonaManagerService: android.conten
+      → <com.android.server.pm.PersonaManagerService: boolean -$$Nes
+      → <com.android.server.pm.PersonaManagerService: boolean -$$Nes
+      → <com.android.server.pm.PersonaManagerService: boolean -$$Nes
+      → <com.android.server.pm.PersonaManagerService: com.samsung.an
+      → <com.android.server.pm.PersonaManagerService: int -$$Nest$mi
+      → SemPersonaManager.isKnoxId()
+      → SemPersonaManager.getKnoxIds()
+      → Exception.printStackTrace()
+      → List.size()
+      → List.get()
+        → PersonaServiceHelper.isDisallowedAppForKnox()
+        → PersonaServiceHelper.isRequiredAppForKnox()
+        → PersonaManagerService.deletePkg()
+        → PersonaManagerService.isPackageInstalledAsUser()
+        → PersonaManagerService.isStubApp()
+        → PersonaManagerService.getPersonaManager()
+        → PersonaManagerService.installExistingPackageForPersona()
+        → SemPersonaManager.checkContainerType()
+        → SemPersonaManager.isDualAppId()
+        → UserInfo.isDualAppProfile()
+        → UserInfo.isEnabled()
+        → ISemPersonaManager.getProfiles()
+        → <java.util.ArrayList: void <init>()>
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.add()
+        → List.iterator()
+          → IPackageManager.getApplicationInfo() [PKG_QUERY]
+          → PersonaServiceHelper.getIPackageManager()
+          → PersonaServiceHelper.isDisallowedAppForKnox()
+          → PersonaServiceHelper.isRequiredAppForKnox()
+          → ContainerDependencyWrapper.deletePackageAsUserAndPersona() [PKG_MGMT]
+          → <com.android.server.pm.PersonaManagerService$PackageDeleteOb
+          → IPackageManager.getPackageInfo() [PKG_QUERY]
+          → PersonaManagerService.getIPackageManager()
+          → PersonaManagerService.getLaunchableApps()
+          → List.contains()
+          → Set.contains()
+          → Context.getSystemService()
+          → ContainerDependencyWrapper.isPackageInstalled()
+          → ContainerDependencyWrapper.installExistingPackageForPersona()
+          → SystemProperties.get()
+          → SemDualAppManager.isDualAppId()
+            → ActivityThread.getPackageManager()
+            → IPackageManager.getInstallerPackageName()
+            → SystemProperties.getBoolean()
+            → PackageManagerSamsungUtils.isMetaDataInBundle()
+            → SemPersonaManager.isDoEnabled()
+            → ArrayList.contains()
+            → PackageManagerService.deletePackageAsUserAndPersona() [PKG_MGMT]
+            → <android.content.pm.IPackageDeleteObserver$Stub: void <init>
+            → Intent.addCategory()
+            → <android.content.Intent: void <init>(java.lang.String)>
+            → PackageManager.queryIntentActivitiesAsUser()
+            → <android.util.ArraySet: void <init>()>
+            → Set.add()
+            → PackageManagerService.isPackageInstalled()
+            → PackageManagerService.installExistingPackageForPersona()
+              → Bundle.getBoolean()
+              → PersonaServiceHelper.deletePackageAsUserAndPersona() [PKG_MGMT]
+              → IPackageDeleteObserver$Stub.attachInterface()
+              → <android.os.Binder: void <init>()>
+              → <android.util.ArraySet: void <init>(int,boolean)>
+              → WatchedArrayMap.containsKey()
+              → Context.enforceCallingOrSelfPermission()
+              → SigningDetails.getSignatures()
+              → Binder.clearCallingIdentity()
+              → Binder.restoreCallingIdentity()
+              → <android.os.Bundle: void <init>(int)>
+              → Bundle.putInt()
+              → ServiceManager.getService()
+              → UserHandle.getUid()
+              → PackageManagerService.sendPackageBroadcast()
+              → PackageSetting.getInstalled()
+              → PackageSetting.getPkg()
+              → PackageSetting.getAppId()
+              → PackageSetting.setInstalled()
+              → PersonaManagerService.getSeparationConfigfromCache()
+              → PersonaManagerService.processAppSeparationInstallation()
+              → PersonaServiceHelper.isSpfKnoxSupported()
+              → Settings.writePackageRestrictionsLPr()
+              → ParsingPackageRead.getSigningDetails() [SIG_CHECK]
+              → PkgWithoutStatePackageInfo.getRequestedPermissions()
+              → WatchedArrayMap.get()
+              → IApplicationPolicy$Stub.asInterface()
+              → IApplicationPolicy.isApplicationInstallationEnabled()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: void <clinit>()>
+  Line:     854
+  Register: v2 := "com.samsung.android.knox.containeragent"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+
+  CALLEES (what this method invokes):
+      → SystemProperties.get()
+      → PersonaManagerService.isKnoxSupported()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → Bundle.getString()
+        → SemPersonaManager.getKnoxInfo()
+          → KnoxInfoImpl.getKnoxInfo()
+            → <android.os.Bundle: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: byte[] getKnoxGlobalSettingsIcon()>
+  Line:     7879
+  Register: v3 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {v4, v3, v5}, Landroid/content/pm/PackageManager;->getResourcesForApplicationAsUser(L
+  Patterns: string_compare
+  Flow:     [invoke] android.content.pm.PackageManager.getResourcesForApplication → [invoke] java.lang.StringBuilder.append() → [inv
+
+  CALLERS (who invokes this method):
+      ← PersonaManagerService.getKnoxIcon()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getLauncherLargeIconDensity()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → Intent.addCategory()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → ActivityInfo.getIconResource()
+      → PackageManager.getResourcesForApplicationAsUser()
+      → PackageManager.queryIntentActivitiesAsUser()
+      → Resources.getDrawableForDensity()
+      → Resources.getIdentifier()
+      → Bitmap.compress()
+      → ContainerDependencyWrapper.isPackageInstalled()
+      → PersonaManagerService.drawableToBitmap()
+      → ByteArrayOutputStream.toByteArray()
+      → <java.io.ByteArrayOutputStream: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → PackageManagerService.isPackageInstalled()
+        → Bitmap.createBitmap()
+        → Canvas.getHeight()
+        → Canvas.getWidth()
+        → <android.graphics.Canvas: void <init>(android.graphics.Bitma
+        → Rect.isEmpty()
+        → Rect.height()
+        → Rect.width()
+        → BitmapDrawable.getBitmap()
+        → Drawable.getBounds()
+        → Drawable.getIntrinsicHeight()
+        → Drawable.getIntrinsicWidth()
+        → Drawable.draw()
+        → Drawable.setBounds()
+          → WatchedArrayMap.containsKey()
+            → ArrayMap.containsKey()
+              → ArrayMap.indexOfKey()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: byte[] getKnoxIcon(java.lang.String,java.lang.String,int)>
+  Line:     8027
+  Register: v5 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [invoke] java.lang.String.equals() → [invoke] java.lang.String.equals() → [invoke] 
+
+  CALLEES (what this method invokes):
+      → PersonaManagerService$Injector.binderClearCallingIdentity()
+      → PersonaManagerService$Injector.binderRestoreCallingIdentity()
+      → PersonaManagerService.getKnoxGlobalSettingsIcon()
+      → PersonaManagerService.getKnoxPhoneOrMessageIcon()
+      → PersonaManagerService.getKnoxSettingsIcon()
+      → PersonaManagerService.getKnoxSwitcherIcon()
+      → PersonaManagerService.getSecureFolderIcon()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → ActivityManager.getLauncherLargeIconDensity()
+        → Context.getPackageManager()
+        → Context.getSystemService()
+        → Intent.addCategory()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → ActivityInfo.getIconResource()
+        → PackageManager.getResourcesForApplicationAsUser()
+        → PackageManager.queryIntentActivitiesAsUser()
+        → Resources.getDrawableForDensity()
+        → Resources.getIdentifier()
+        → Bitmap.compress()
+        → ContainerDependencyWrapper.isPackageInstalled()
+        → PersonaManagerService.drawableToBitmap()
+        → ByteArrayOutputStream.toByteArray()
+        → <java.io.ByteArrayOutputStream: void <init>()>
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+        → Intent.setPackage()
+        → Intent.removeCategory()
+        → List.size()
+        → List.get()
+        → PersonaManagerService.loadDefaultIconRes()
+        → SemPersonaManager.getCustomResource()
+        → Context.getContentResolver()
+        → UserInfo.isQuietModeEnabled()
+        → UserManager.getUserInfo()
+        → UserManager.get()
+        → UserManager.getUsers()
+        → Settings$System.getIntForUser()
+        → ContainerDependencyWrapper.convertToGreyIcon()
+        → ActivityThread.currentActivityThread()
+        → ActivityThread.getSystemUiContext()
+        → PackageManager.getApplicationIcon()
+        → PackageManager.semGetApplicationIconForIconTray()
+        → Settings$Secure.getStringForUser()
+        → Exception.getMessage()
+          → PackageManagerService.isPackageInstalled()
+          → Bitmap.createBitmap()
+          → Canvas.getHeight()
+          → Canvas.getWidth()
+          → <android.graphics.Canvas: void <init>(android.graphics.Bitma
+          → Rect.isEmpty()
+          → Rect.height()
+          → Rect.width()
+          → BitmapDrawable.getBitmap()
+          → Drawable.getBounds()
+          → Drawable.getIntrinsicHeight()
+          → Drawable.getIntrinsicWidth()
+          → Drawable.draw()
+          → Drawable.setBounds()
+          → Resources.getDrawable()
+          → PersonaManagerService.getBitmapFromDrawable()
+          → ISemPersonaManager.getCustomResource()
+          → SemPersonaManager.readECFile()
+          → SemPersonaManager.getPersonaService()
+            → WatchedArrayMap.containsKey()
+            → File.getName()
+            → File.length()
+            → <java.io.File: void <init>(java.lang.String)>
+            → FileInputStream.read()
+            → <java.io.FileInputStream: void <init>(java.io.File)>
+            → FileInputStream.close()
+            → <java.io.IOException: void <init>(java.lang.String)>
+            → ServiceManager.getService()
+            → ISemPersonaManager$Stub.asInterface()
+              → ArrayMap.containsKey()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.ISemPersonaManager$Stub$Proxy: voi
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: byte[] getKnoxPhoneOrMessageIcon(java.lang.String)>
+  Line:     8228
+  Register: v6 := "com.samsung.android.knox.containeragent"
+  Usage:    [] 
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.knox.ContainerDependencyWrapper.isPackage → [invoke] android.content.Intent.setPackage() → [
+
+  CALLERS (who invokes this method):
+      ← PersonaManagerService.getKnoxIcon()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getLauncherLargeIconDensity()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → Intent.addCategory()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Intent.removeCategory()
+      → ActivityInfo.getIconResource()
+      → PackageManager.getResourcesForApplicationAsUser()
+      → PackageManager.queryIntentActivitiesAsUser()
+      → Resources.getDrawableForDensity()
+      → Resources.getIdentifier()
+      → Bitmap.compress()
+      → ContainerDependencyWrapper.isPackageInstalled()
+      → PersonaManagerService.drawableToBitmap()
+      → ByteArrayOutputStream.toByteArray()
+      → <java.io.ByteArrayOutputStream: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.size()
+      → List.get()
+      → List.iterator()
+        → PackageManagerService.isPackageInstalled()
+        → Bitmap.createBitmap()
+        → Canvas.getHeight()
+        → Canvas.getWidth()
+        → <android.graphics.Canvas: void <init>(android.graphics.Bitma
+        → Rect.isEmpty()
+        → Rect.height()
+        → Rect.width()
+        → BitmapDrawable.getBitmap()
+        → Drawable.getBounds()
+        → Drawable.getIntrinsicHeight()
+        → Drawable.getIntrinsicWidth()
+        → Drawable.draw()
+        → Drawable.setBounds()
+          → WatchedArrayMap.containsKey()
+            → ArrayMap.containsKey()
+              → ArrayMap.indexOfKey()
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: java.lang.String getKnoxSettingsCustomName(int)>
+  Line:     8623
+  Register: v0 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {v2, v0, v4, v3}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/St
+  Patterns: (none)
+  Flow:     [invoke] android.content.Context.createPackageContextAsUser() → [invoke] android.content.res.Resources.getIdentifier() →
+
+  CALLEES (what this method invokes):
+      → Context.createPackageContextAsUser()
+      → Context.getResources()
+      → Resources.getIdentifier()
+      → Resources.getString()
+      → <android.os.UserHandle: void <init>(int)>
+      → PersonaManagerService$LocalService.isKnoxId()
+      → PersonaManagerService.getContainerName()
+        → SemPersonaManager.isKnoxId()
+        → PersonaManagerService$Injector.getUserManager()
+        → PersonaManagerService$Injector.binderClearCallingIdentity()
+        → PersonaManagerService$Injector.binderRestoreCallingIdentity()
+        → PersonaManagerService.isSecureFolderIds()
+        → PersonaManagerService.getContainerNamePerTypes()
+        → PersonaManagerService.getSecureFolderName()
+          → SemPersonaManager.checkContainerType()
+          → SemPersonaManager.isDualAppId()
+          → Context.getSystemService()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → SemPersonaManager.isSecureFolderId()
+          → UserManager.getUserInfo()
+          → PersonaManagerService.getAppSeparationName()
+          → PersonaManagerService.getECName()
+          → PersonaManagerService.getProfileName()
+          → PersonaManagerService.getWorkProfileName()
+          → ApplicationInfo.loadUnsafeLabel()
+          → PackageManager.getPackageInfo() [PKG_QUERY]
+          → PersonaManagerService$Injector.getPackageManager()
+          → Exception.printStackTrace()
+            → SystemProperties.get()
+            → SemDualAppManager.isDualAppId()
+            → UserInfo.isUserTypeAppSeparation()
+            → TextUtils.isEmpty()
+            → PersonaManagerService$Injector.isTestingMode()
+            → PersonaManagerService$Injector.getPersonaManagerInternal()
+            → PersonaManagerService$LocalService.getECName()
+            → PersonaManagerInternal.getECName()
+            → PersonaPolicyManagerService.getCustomNamePersona()
+            → PersonaManagerService$Injector.getPersonaPolicyManagerService()
+            → DevicePolicyManager.getResources()
+            → DevicePolicyResourcesManager.getString()
+            → <com.android.server.pm.PersonaManagerService$$ExternalSynthe
+            → Context.getPackageManager()
+              → CharSequence.length()
+              → ContainerDependencyWrapper.getECName()
+              → PersonaPolicyManagerService.getPersonaData()
+              → PersonaPolicyManagerService.getInstance()
+              → IDevicePolicyManager.getString()
+              → ParcelableResource.getString()
+              → ParcelableResource.loadDefaultString()
+              → DeviceConfig.getBoolean()
+              → Objects.requireNonNull()
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: byte[] getKnoxSwitcherIcon(java.lang.String,java.lang.String,int)>
+  Line:     8760
+  Register: v4 := "com.samsung.android.knox.containeragent"
+  Usage:    [] 
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.pm.PersonaManagerService.loadDefaultIconR → [invoke] com.android.server.pm.PersonaManagerSer
+
+  CALLERS (who invokes this method):
+      ← PersonaManagerService.getKnoxIcon()
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → UserInfo.isQuietModeEnabled()
+      → UserManager.getUserInfo()
+      → UserManager.get()
+      → UserManager.getUsers()
+      → Settings$System.getIntForUser()
+      → ContainerDependencyWrapper.convertToGreyIcon()
+      → PersonaManagerService.loadDefaultIconRes()
+      → SemPersonaManager.getCustomResource()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → Context.getPackageManager()
+        → PackageManager.getResourcesForApplicationAsUser()
+        → Resources.getDrawable()
+        → Resources.getIdentifier()
+        → Bitmap.compress()
+        → BitmapDrawable.getBitmap()
+        → PersonaManagerService.getBitmapFromDrawable()
+        → ByteArrayOutputStream.toByteArray()
+        → <java.io.ByteArrayOutputStream: void <init>()>
+        → ISemPersonaManager.getCustomResource()
+        → SemPersonaManager.readECFile()
+        → SemPersonaManager.getPersonaService()
+          → Bitmap.createBitmap()
+          → Canvas.getHeight()
+          → Canvas.getWidth()
+          → <android.graphics.Canvas: void <init>(android.graphics.Bitma
+          → Drawable.getIntrinsicHeight()
+          → Drawable.getIntrinsicWidth()
+          → Drawable.draw()
+          → Drawable.setBounds()
+          → File.getName()
+          → File.length()
+          → <java.io.File: void <init>(java.lang.String)>
+          → FileInputStream.read()
+          → <java.io.FileInputStream: void <init>(java.io.File)>
+          → FileInputStream.close()
+          → <java.io.IOException: void <init>(java.lang.String)>
+          → ServiceManager.getService()
+          → ISemPersonaManager$Stub.asInterface()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.ISemPersonaManager$Stub$Proxy: voi
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: java.lang.String getWorkspaceName(android.content.pm.UserInfo,boolean)>
+  Line:     11590
+  Register: v0 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getResourcesForApplication → [invoke] java.lang.StringBuilder.append()
+
+  CALLEES (what this method invokes):
+      → PackageManager.getResourcesForApplication()
+      → Resources.getIdentifier()
+      → Resources.getString()
+      → PersonaManagerService$Injector.getPackageManager()
+        → Context.getPackageManager()
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: void systemReady()>
+  Line:     17855
+  Register: v2 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {p0, v2}, Lcom/android/server/pm/PersonaManagerService;->clearHomeCrossProfileFilter(
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageUidAsUser()
+
+  CALLERS (who invokes this method):
+      ← SystemServer.startOtherServices()
+        ← SystemServer.run()
+          ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → ActivityManagerNative.getDefault()
+      → IActivityManager.registerUserSwitchObserver()
+      → DevicePolicyManager.getDeviceOwnerComponentOnAnyUser()
+      → Context.registerReceiver()
+      → Context.registerReceiverAsUser()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → <android.content.IntentFilter: void <init>()>
+      → <android.content.IntentFilter: void <init>(java.lang.String)
+      → IntentFilter.addAction()
+      → PackageManager.getPackageUidAsUser()
+      → UserInfo.isSuperLocked()
+      → Handler.obtainMessage()
+      → Handler.sendMessage()
+      → PowerManager.isInteractive()
+      → RemoteException.printStackTrace()
+      → UserManager.getUserInfo()
+      → <com.android.internal.widget.LockPatternUtils: void <init>(a
+      → <com.android.server.knox.SeamLessSwitchHandler: void <init>(
+      → <com.android.server.pm.PersonaManagerService$BootReceiver: v
+      → PersonaManagerService$LocalService.isKnoxId()
+      → PersonaManagerService.getAppSeparationConfig()
+      → PersonaManagerService.getUserManager()
+      → PersonaManagerService.clearHomeCrossProfileFilter()
+      → PersonaManagerService.isQuickSwitchToSecureFolderSupported()
+      → PersonaManagerService.checkCallerPermissionFor()
+      → PersonaManagerService.getProfiles()
+      → PersonaManagerService.migrateNewPo()
+      → PersonaManagerService.registerContentObserver()
+      → PersonaManagerService.registerPackageReceiver()
+      → <com.android.server.pm.PersonaServiceProxy: void <init>(andr
+      → SemPersonaManager.isDoEnabled()
+      → SemPersonaManager.isSecureFolderId()
+      → List.add()
+      → List.size()
+      → List.get()
+        → ActivityManager.getService()
+        → Context.getSystemService()
+        → LocalServices.getService()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → <android.content.BroadcastReceiver: void <init>()>
+        → SemPersonaManager.isKnoxId()
+        → ContainerDependencyWrapper.getAppSeparationConfig()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.clearCrossProfileIntentFilters()
+        → PersonaManagerService$Injector.binderClearCallingIdentity()
+        → PersonaManagerService$Injector.binderRestoreCallingIdentity()
+        → ContainerDependencyWrapper.isSupportPrivateMode()
+        → ContainerDependencyWrapper.checkCallerPermissionFor()
+        → IPackageManager.checkUidSignatures()
+        → UserInfo.isDualAppProfile()
+        → <android.content.pm.UserInfo: void <init>(android.content.pm
+        → Binder.getCallingUid() [UID_CHECK]
+        → UserManager.getProfiles()
+        → PersonaManagerService.getIPackageManager()
+        → <java.util.ArrayList: void <init>()>
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+        → ContentResolver.registerContentObserver()
+        → Context.getContentResolver()
+        → Settings$Secure.getUriFor()
+        → IntentFilter.addDataScheme()
+        → IntentFilter.addDataSchemeSpecificPart()
+        → <com.android.server.pm.PersonaServiceProxy$2: void <init>(co
+        → <com.android.server.pm.PersonaServiceProxy$3: void <init>(co
+        → PersonaServiceProxy.registerContainerReceiver()
+        → <java.util.HashMap: void <init>()>
+        → SystemProperties.getBoolean()
+        → SemPersonaManager.checkContainerType()
+          → ArrayMap.get()
+          → SemPersonaManager.isDualAppId()
+          → KnoxContainerManager.getAppSeparationConfig()
+          → ActivityThread.getPackageManager()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → SemCscFeature.getBoolean()
+          → SemCscFeature.getInstance()
+          → Binder.getCallingPid() [UID_CHECK]
+          → ServiceKeeper.isAuthorized()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → SecurityException.printStackTrace()
+          → ContainerStateReceiver.register()
+          → <com.android.server.pm.PersonaServiceProxy$1: void <init>(co
+          → SystemProperties.get()
+            → ArrayMap.indexOfKey()
+            → SemDualAppManager.isDualAppId()
+            → ContextInfo$$ExternalSyntheticOutline0.m()
+            → ContextInfo$$ExternalSyntheticOutline0.m()
+            → IKnoxContainerManager.getAppSeparationConfig()
+            → KnoxContainerManager.getContainerService()
+            → Hashtable.get()
+            → <com.samsung.android.feature.SemCscFeature: void <init>()>
+            → Process.myPid()
+            → SKLogger.logAll()
+            → SKLogger.logAll()
+            → ServiceKeeper.checkForMethodAuthorization()
+            → ServiceKeeper.checkForServiceAuthorization()
+            → ServiceKeeper.isFilterAPI()
+            → ServiceKeeper.getPackageName()
+            → ServiceKeeper.getSeinfo()
+            → Exception.getMessage()
+            → HashSet.contains()
+            → HashSet.isEmpty()
+            → <android.os.ContainerStateReceiver: void <init>()>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ServiceManager.getService()
+              → IKnoxContainerManager$Stub.asInterface()
+              → SystemProperties.get()
+              → SemCscFeature.loadFeatureFile()
+              → Exception.toString()
+              → <java.util.Hashtable: void <init>()>
+              → Time.format()
+              → <android.text.format.Time: void <init>()>
+              → Time.set()
+              → Logger.log()
+              → SKLogger.getStackTraceString()
+              → HashSet.iterator()
+              → ArrayList.size()
+              → ArrayList.get()
+              → ActivityManager.getPackageFromAppProcesses()
+              → IPackageManager.getApplicationInfo() [PKG_QUERY]
+              → UserHandle.getUserId()
+              → ASKSManagerService.getSEInfo()
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService$PersonaHandler
+  Method:   <com.android.server.pm.PersonaManagerService$PersonaHandler: void handleMessage(android.os.Message)>
+  Line:     1129
+  Register: v2 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-static {v1, v0, v2}, Lcom/android/server/pm/PersonaManagerService;->-$$Nest$mdeletePkg(Lcom/a
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] com.android.server.pm.PersonaManagerService.-$$Nest$mdeleteP → [other] new-instance v2, Ljava/lang/StringBuilde
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.putStringArrayListExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → IPackageManager.getApplicationEnabledSetting()
+      → IPackageManager.getComponentEnabledSetting()
+      → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+      → UserInfo.isDualAppProfile()
+      → UserInfo.isManagedProfile()
+      → UserInfo.isSecureFolder()
+      → UserInfo.isUserTypeAppSeparation()
+      → Bundle.getStringArrayList()
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putInt()
+      → Message.getData()
+      → RemoteException.printStackTrace()
+      → UserManager.get()
+      → UserManager.getUsers()
+      → ContainerDependencyWrapper.deactivateKnoxCore()
+      → ContainerDependencyWrapper.handlePwdChangeNotificationForDeviceOwner()
+      → ContainerDependencyWrapper.updateUserInfo()
+      → KnoxAnalyticsContainer.logEventAccountChanged()
+      → KnoxAnalyticsContainer.logEventActivationForAppSep()
+      → SeamLessSwitchHandler.insertSALog()
+      → SeamLessSwitchHandler.launchSeamLessForSF()
+      → <com.android.server.pm.PersonaLegacyStateMonitor: void <init
+      → <com.android.server.pm.PersonaManagerService: android.conten
+      → <com.android.server.pm.PersonaManagerService: android.conten
+      → PersonaManagerService.getAppSeparationConfig()
+      → <com.android.server.pm.PersonaManagerService: boolean -$$Nes
+      → <com.android.server.pm.PersonaManagerService: boolean -$$Nes
+      → PersonaManagerService.applyDefaultPolicyForNewPO()
+      → PersonaManagerService.setPackageSettingInstalled()
+      → <com.android.server.pm.PersonaManagerService: com.android.se
+      → <com.android.server.pm.PersonaManagerService: com.android.se
+      → <com.android.server.pm.PersonaManagerService: com.samsung.an
+      → <com.android.server.pm.PersonaManagerService: int -$$Nest$mc
+      → PersonaManagerService.processAppSeparationInstallationInternal()
+      → <com.android.server.pm.PersonaManagerService: java.io.File -
+      → <com.android.server.pm.PersonaManagerService: java.io.File -
+      → <com.android.server.pm.PersonaManagerService: java.lang.Stri
+      → <com.android.server.pm.PersonaManagerService: java.util.Arra
+      → <com.android.server.pm.PersonaManagerService: java.util.Hash
+      → <com.android.server.pm.PersonaManagerService: java.util.Hash
+      → <com.android.server.pm.PersonaManagerService: java.util.List
+      → PersonaManagerService.getProfiles()
+      → <com.android.server.pm.PersonaManagerService: java.util.Set 
+      → <com.android.server.pm.PersonaManagerService: java.util.Set 
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$f
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$f
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$m
+      → <com.android.server.pm.PersonaManagerService: void -$$Nest$s
+      → PersonaManagerService.enforceAppSeparationDeletion()
+      → SemPersonaManager.clearAttributes()
+      → SemPersonaManager.isDoEnabled()
+      → SemPersonaManager.getKnoxIds()
+      → SemPersonaManager.sendContainerEvent()
+      → File.delete()
+      → File.exists()
+      → <java.io.File: void <init>(java.io.File,java.lang.String)>
+      → Exception.printStackTrace()
+      → ArrayList.add()
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → HashMap.get()
+      → HashMap.put()
+      → HashSet.size()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.size()
+      → List.get()
+      → List.iterator()
+        → UserManager.isUserTypeManagedProfile()
+        → ContainerDependencyWrapper.getContextInfo()
+        → ContainerDependencyWrapper.getEdmService()
+        → IEnterpriseDeviceManager.setAdminRemovable()
+        → IEnterpriseDeviceManager.removeActiveAdminFromDpm()
+        → Notification$BigTextStyle.bigText()
+        → <android.app.Notification$BigTextStyle: void <init>()>
+        → Notification$Builder.build()
+        → Notification$Builder.setAutoCancel()
+        → Notification$Builder.setColor()
+        → Notification$Builder.setContentIntent()
+        → Notification$Builder.setContentText()
+        → Notification$Builder.setContentTitle()
+        → Notification$Builder.setOngoing()
+        → Notification$Builder.setSmallIcon()
+        → Notification$Builder.setStyle()
+        → Notification$Builder.setTicker()
+        → Notification$Builder.setVisibility()
+        → Notification$Builder.setWhen()
+        → <android.app.Notification$Builder: void <init>(android.conte
+        → NotificationManager.notify()
+        → PendingIntent.getActivity()
+        → Context.getColor()
+        → Context.getText()
+        → Context.getSystemService()
+        → <android.content.Intent: void <init>()>
+        → SemPersonaManager.isKnoxId()
+        → CharSequence.toString()
+        → UserManager.updateUserInfo()
+        → BasicContainerAnalytics.logEventAccountChanged()
+        → SeparatedAppsAnalytics.logEventActivationForAppSep()
+        → Handler.post()
+        → BackgroundThread.getHandler()
+        → <com.android.server.knox.SeamLessSwitchHandler$1: void <init
+        → ActivityManager.getRunningTasks()
+        → KeyguardManager.isKeyguardLocked()
+        → UserManager.isUserRunning()
+        → Toast.makeText()
+        → Toast.show()
+        → LockPatternUtils.getKeyguardStoredPasswordQuality()
+        → SeamLessSwitchHandler.isSeamLessSwitchSupported()
+        → SeamLessSwitchHandler.isSettingsExceptionalCase()
+        → SeamLessSwitchHandler.getLaunchUserId()
+        → SeamLessSwitchHandler.hideNotificationPanel()
+        → SeamLessSwitchHandler.launchSecureFolderAppsAtLockscreen()
+        → SeamLessSwitchHandler.startActivityForSecureFolderUser()
+        → SemEmergencyManager.isEmergencyMode()
+        → SemEmergencyManager.isMinimalBatteryUseMode()
+        → SemPersonaManager.isSecureFolderId()
+        → <android.os.RemoteCallbackList: void <init>()>
+        → <com.android.server.enterprise.storage.EdmStorageProvider: v
+        → <com.android.server.pm.PersonaLegacyStateMonitor$1: void <in
+        → PersonaLegacyStateMonitor.init()
+        → EnterpriseDeviceManager.getInstance()
+        → <java.util.HashMap: void <init>()>
+        → PersonaManagerService.getIPackageManager()
+        → ContainerDependencyWrapper.getAppSeparationConfig()
+        → PersonaManagerService.deletePkg()
+        → PersonaManagerService.enforceSeparatedAppsRemoveInternal()
+        → ContainerDependencyWrapper.applyDefaultPolicyForNewPO()
+        → ContainerDependencyWrapper.setPackageSettingInstalled()
+        → PersonaManagerService.checkCallerPermissionFor()
+        → PersonaManagerService.getPersonaManager()
+        → Bundle.getBoolean()
+        → PersonaManagerService.getSeparationPackageInfo()
+        → PersonaManagerService.getSeparationConfigfromCache()
+        → PersonaManagerService.checkNullParameter()
+        → PersonaManagerService.deletePackageForAppSeparation() [PKG_MGMT]
+        → PersonaManagerService.isAppSeparationIndepdentApp()
+        → PersonaManagerService.isAppSeparationInstallationRequired()
+        → PersonaManagerService.isPackageInstalledInAppSeparation()
+        → PersonaManagerService.getAppSeparationId()
+        → PersonaManagerService.installPackageForAppSeparation() [PKG_MGMT]
+        → PersonaManagerService.getSeparationAppsList()
+        → HashSet.contains()
+        → <java.util.HashSet: void <init>(java.util.Collection)>
+        → PersonaManagerService.getDeviceFirmwareVersion()
+        → PersonaManagerService.getWorkTabSupportLauncherUids()
+        → PersonaManagerService.getRequiredApps()
+        → IPackageManager.checkUidSignatures()
+        → <android.content.pm.UserInfo: void <init>(android.content.pm
+        → Binder.getCallingUid() [UID_CHECK]
+        → UserManager.getProfiles()
+        → PersonaManagerService$Injector.binderClearCallingIdentity()
+        → PersonaManagerService$Injector.binderRestoreCallingIdentity()
+        → <java.util.ArrayList: void <init>()>
+        → List.add()
+        → PersonaManagerService.getIMEPackages()
+        → PersonaManagerService.enableMyFilesLauncherActivity()
+        → PersonaManagerService.enforceAppSeparationAllowListUpdateInternal()
+        → PersonaManagerService.enforceAppSeparationDeletionInternal()
+        → PersonaManagerService.handleFOTAInstallToPackages()
+        → PersonaManagerService.handleFotaResetSecureFolderAdmin()
+        → PersonaManagerService.logUserRemoval()
+        → PersonaManagerService.migrateKnoxFingerprintPlusValueIfNeeded()
+        → PersonaManagerService.migrateKnoxLockTimeoutValueIfNeeded()
+        → PersonaManagerService.recoverContainerInfo()
+        → PersonaManagerService.removeDisallowedSFpackages()
+        → PersonaManagerService.sendMessageAndLockTimeout()
+        → PersonaManagerService.setDpmScreenTimeoutFlag()
+        → PersonaManagerService.writePersonaCacheLocked()
+        → Handler.obtainMessage()
+        → Handler.sendMessage()
+        → ISemPersonaManager.clearAttributes()
+        → SemPersonaManager.getPersonaService()
+        → SystemProperties.getBoolean()
+        → UserInfo.isEnabled()
+        → ISemPersonaManager.getProfiles()
+        → SemPersonaManager.sendContainerEvent()
+          → <com.samsung.android.knox.ContextInfo: void <init>()>
+          → ServiceManager.getService()
+          → IEnterpriseDeviceManager$Stub.asInterface()
+          → Notification.secSafeCharSequence()
+          → <android.app.Notification$Style: void <init>()>
+          → SemPersonaManager.checkContainerType()
+          → SemPersonaManager.isDualAppId()
+          → Bundle.putString()
+          → BasicContainerAnalytics.getContainerType()
+          → BasicContainerAnalytics.logEvent()
+          → IKnoxAnalyticsContainer.isKnoxId()
+          → IKnoxAnalyticsContainer.isSecureFolderId()
+          → SeparatedAppsAnalytics.logEvent()
+          → ArrayList.size()
+          → BackgroundThread.ensureThreadLocked()
+          → Toast.makeText()
+          → INotificationManager.enqueueTextToastForDex()
+          → INotificationManager.enqueueToastForDex()
+          → Compatibility.isChangeEnabled()
+          → Context.getApplicationInfo() [PKG_QUERY]
+          → Context.getPackageManager()
+          → Context.getDisplayId()
+          → Context.getOpPackageName()
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → PackageManager.getApplicationLabel()
+          → Debug.getCallers()
+          → Html.fromHtml()
+          → Html.toHtml()
+          → <android.text.SpannableString: void <init>(java.lang.CharSeq
+          → View.findViewById()
+          → TextView.getText()
+          → TextView.setText()
+          → <android.widget.Toast$CallbackBinder: void <init>(java.util.
+          → Toast.getService()
+          → Toast.checkGameHomeAllowList()
+          → Toast.isSpeg()
+          → Toast.semGetMessageFromTv()
+          → Preconditions.checkState()
+          → CustomDeviceManagerProxy.getToastEnabledState()
+          → CustomDeviceManagerProxy.getToastShowPackageNameState()
+          → CustomDeviceManagerProxy.getInstance()
+          → <java.lang.RuntimeException: void <init>(java.lang.String)>
+          → ActivityManager.isInLockTaskMode()
+          → WindowConfiguration.getWindowingMode()
+          → ComponentName.getPackageName()
+          → SeamLessSwitchHandler.isPopupWindowRunning()
+          → List.contains()
+          → PersonaManagerService.getFocusedUser()
+          → ActivityTaskManagerService.getPersonaActivityHelper()
+          → PersonaActivityHelper.isQuickSwitchExceptionalCase()
+          → SemStatusBarManager.isPanelExpanded()
+          → SemStatusBarManager.collapsePanels()
+          → KeyguardManager.semSetPendingIntentAfterUnlock()
+          → PendingIntent.getActivityAsUser()
+          → Intent.putExtra()
+          → Intent.putExtra()
+          → Intent.setPackage()
+          → <android.os.UserHandle: void <init>(int)>
+          → SeamLessSwitchHandler.getLaunchIntentForPackage()
+          → SeamLessSwitchHandler.isAllowedAppsInLockscreen()
+          → SeamLessSwitchHandler.isSecureFolderHidden()
+          → PersonaManagerInternal.shouldConfirmCredentials()
+          → Context.startActivityAsUser()
+          → SeamLessSwitchHandler.isAppLaunchable()
+          → SeamLessSwitchHandler.isPackageEnabled()
+          → SeamLessSwitchHandler.launchFolderContainerOrHome()
+          → SeamLessSwitchHandler.printToastDelayed()
+          → Context.getContentResolver()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → Settings$System.getIntForUser()
+          → Elog.d()
+          → SemEmergencyManager.loadFloatingFeatures()
+          → <android.util.ArrayMap: void <init>()>
+          → <com.android.server.enterprise.storage.EdmStorageProviderBas
+          → <android.os.ContainerStateReceiver: void <init>()>
+          → KeyguardManager.isDeviceLocked()
+          → KeyguardManager.isDeviceSecure()
+          → UserInfo.getAttributes()
+          → ContainerStateReceiver.register()
+          → Process.myPid()
+          → Process.myTid()
+          → Process.myUid()
+          → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+          → KnoxsdkFileLog.d()
+          → KnoxsdkFileLog.w()
+          → ActivityThread.getPackageManager()
+          → KnoxContainerManager.getAppSeparationConfig()
+          → ContainerDependencyWrapper.deletePackageAsUserAndPersona() [PKG_MGMT]
+          → <com.android.server.pm.PersonaManagerService$PackageDeleteOb
+          → PersonaManagerService.isPackageInstalledAsUser()
+          → Intent.setAction()
+          → PackageManager.getInstalledPackagesAsUser()
+          → PersonaManagerService.deletePackageAsUser() [PKG_MGMT]
+          → PersonaManagerService.isKeyboardApp()
+          → PersonaManagerService.disableAppInOwner()
+          → PersonaManagerService.getIMEPackagesAsUser()
+          → <java.util.HashSet: void <init>()>
+          → Set.contains()
+          → DevicePolicyManager.addUserRestrictionForKnox()
+          → UserInfo.isPremiumContainer()
+          → ContainerDependencyWrapper.getDevicePolicyManager()
+          → ContainerDependencyWrapper.getAdminComponentNameFromEdm()
+          → ContainerDependencyWrapper.getContextInfo()
+          → ContainerDependencyWrapper.getOwnerUidFromEdm()
+          → EnterpriseDeviceManager.getProfilePolicy()
+          → EnterpriseKnoxManager.getInstance()
+          → EnterpriseKnoxManager.getKnoxContainerManager()
+          → KnoxContainerManager.getRCPPolicy()
+          → RCPPolicy.allowMoveFilesToContainer()
+          → ProfilePolicy.setRestriction()
+          → PackageManagerService.setPackageSettingInstalled()
+          → ContainerDependencyWrapper.checkCallerPermissionFor()
+          → IPackageManager.getPackageInfo() [PKG_QUERY]
+          → ContainerDependencyWrapper.getKPUPackageName()
+          → PersonaManagerService.getDeviceOwnerPackage()
+          → PersonaManagerService.isInputMethodApp()
+          → UserManager.getUsers()
+          → PersonaManagerService$Injector.getUserManager()
+          → IPackageManager.installExistingPackageAsUser()
+          → SystemProperties.get()
+          → PersonaManagerService.trimHiddenVersion()
+          → PersonaManagerService.getLauncherPackages()
+          → Context.getResources()
+          → Resources.getStringArray()
+          → <android.util.ArraySet: void <init>(java.util.Collection)>
+          → PersonaManagerService.getLaunchableApps()
+          → List.isEmpty()
+          → List.removeAll()
+          → ContentResolver.call()
+          → Context.createContextAsUser()
+          → Bundle.putBoolean()
+          → UserHandle.of()
+          → KnoxAnalyticsContainer.onSeparatedAppsCreated()
+          → KnoxAnalyticsContainer.onSeparatedAppsPolicyUpdated()
+          → PersonaManagerService.getUserManager()
+          → PersonaManagerService.getUpdatedPackageInfo()
+          → PersonaManagerService.notifyStatusToKspAgent()
+          → PersonaManagerService.processAppSeparationCreation()
+          → Intent.putExtra()
+          → UserManager.removeUser()
+          → KnoxAnalyticsContainer.logEventDeactivationForAppSep()
+          → ContainerDependencyWrapper.isDisallowedAppForKnox()
+          → ContainerDependencyWrapper.isRequiredAppForKnox()
+          → PersonaManagerService$LocalService.isKnoxId()
+          → PersonaManagerService.installExistingPackageForPersona()
+          → PersonaManagerService.getSystemApps()
+          → PersonaManagerService.resetSecureFolderAdmin()
+          → PersonaManagerService.isMigrationNeededForKnoxFingerprintPlus()
+          → PersonaManagerService.migrateKnoxFingerprintPlus()
+          → PersonaManagerService.isMigrationNeededForKnoxLockTimeout()
+          → PersonaManagerService.migrateKnoxLockTimeout()
+          → SystemProperties.get()
+          → ContainerDependencyWrapper.setContainerInfo()
+          → PersonaManagerService.removeDisallowedSecureFolderPackages()
+          → PersonaManagerService.getScreenOffTimeoutLocked()
+          → ContainerProxy.sendEvent()
+          → DevicePolicyManager.getMaximumTimeToLock()
+          → Settings$Secure.getIntForUser()
+          → PersonaManagerService.getAdminComponentName()
+          → AtomicFile.startWrite()
+          → <android.util.AtomicFile: void <init>(java.io.File)>
+          → AtomicFile.failWrite()
+          → AtomicFile.finishWrite()
+          → <com.android.internal.util.FastXmlSerializer: void <init>()>
+          → <java.io.BufferedOutputStream: void <init>(java.io.OutputStr
+          → HashMap.entrySet()
+          → Map$Entry.getKey()
+          → Map$Entry.getValue()
+          → Set.iterator()
+          → XmlSerializer.attribute()
+          → XmlSerializer.endTag()
+          → XmlSerializer.startTag()
+          → XmlSerializer.endDocument()
+          → XmlSerializer.setFeature()
+          → XmlSerializer.setOutput()
+          → XmlSerializer.startDocument()
+          → ISemPersonaManager$Stub.asInterface()
+          → Intent.putExtras()
+            → UserHandle.getUserId()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+            → Notification.removeTextSizeSpans()
+            → CharSequence.length()
+            → CharSequence.subSequence()
+            → SemDualAppManager.isDualAppId()
+            → BasicContainerAnalytics.isUserSetupCompleted()
+            → IKnoxAnalyticsContainer.isDoEnabled()
+            → IKnoxAnalyticsContainer.isLegacyClId()
+            → IKnoxAnalyticsContainer.isOrganizationOwned()
+            → Bundle.get()
+            → Bundle.keySet()
+            → IKnoxAnalyticsContainer.getSeparatedAppsUserId()
+            → IKnoxAnalyticsContainer.sendAnalyticsLog()
+            → KnoxAnalyticsData.toString()
+            → <com.samsung.android.knox.analytics.KnoxAnalyticsData: void 
+            → KnoxAnalyticsData.setProperty()
+            → KnoxAnalyticsData.setProperty()
+            → Bundle.putLong()
+            → IKnoxAnalyticsContainer.getSeparatedAppsContainerId()
+            → <android.os.Handler: void <init>(android.os.Looper)>
+            → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+            → Looper.setSlowLogThresholdMs()
+            → Looper.setTraceTag()
+            → BackgroundThread.getLooper()
+            → <com.android.internal.os.BackgroundThread: void <init>()>
+            → BackgroundThread.start()
+            → <android.widget.Toast: void <init>(android.content.Context,a
+            → ToastPresenter.getTextToastView()
+            → <android.text.SpannableString: void <init>(java.lang.CharSeq
+            → <android.widget.Toast$CallbackBinder: void <init>(java.util.
+            → INotificationManager$Stub.asInterface()
+            → Context.getPackageName()
+            → Settings$System.getInt()
+            → Settings$System.getString()
+            → ActivityThread.currentApplication()
+            → PackageManager.isSpeg()
+            → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+            → IEDMProxy.getToastEnabledState()
+            → IEDMProxy.getToastShowPackageNameState()
+            → <com.samsung.android.knox.custom.CustomDeviceManagerProxy: v
+            → ActivityManager$RunningTaskInfo.semIsFreeform()
+            → ActivityManager.getCurrentUser()
+            → Intent.getIntExtra()
+            → RootWindowContainer.anyTaskForId()
+            → TaskFragment.getTopNonFinishingActivity()
+            → WindowManagerService.boostPriorityForLockedSection()
+            → WindowManagerService.resetPriorityAfterLockedSection()
+            → Exception.getMessage()
+            → SemStatusBarManager.getService()
+            → SemStatusBarManager.getBarTypeFromContext()
+            → IStatusBarService.getPanelExpandStateToType()
+            → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+            → IStatusBarService.collapsePanelsToType()
+            → Intent.addCategory()
+            → Intent.setFlags()
+            → <android.content.Intent: void <init>(android.content.Intent)
+            → Intent.removeCategory()
+            → PackageManager.queryIntentActivitiesAsUser()
+            → SeamLessSwitchHandler.isCameraRunning()
+            → <android.content.Intent: void <init>(java.lang.String,androi
+            → SeamLessSwitchHandler.getIPackageManager()
+            → Intent.setComponent()
+            → PackageManager.resolveActivityAsUser()
+            → Handler.postDelayed()
+            → Looper.getMainLooper()
+            → <com.android.server.knox.SeamLessSwitchHandler$$ExternalSynt
+            → SemFloatingFeature.getBoolean()
+            → SemFloatingFeature.getInstance()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → SQLiteDatabase.enableWriteAheadLogging()
+            → SQLiteOpenHelper.getWritableDatabase()
+            → EdmStorageHelper.getInstance()
+            → <android.content.BroadcastReceiver: void <init>()>
+            → Context.registerReceiver()
+            → <android.content.IntentFilter: void <init>()>
+            → IntentFilter.addAction()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.fileLog()
+            → SemLog.d()
+            → SemLog.w()
+            → ContextInfo$$ExternalSyntheticOutline0.m()
+            → ContextInfo$$ExternalSyntheticOutline0.m()
+            → IKnoxContainerManager.getAppSeparationConfig()
+            → KnoxContainerManager.getContainerService()
+            → PackageManagerService.deletePackageAsUserAndPersona() [PKG_MGMT]
+            → <android.content.pm.IPackageDeleteObserver$Stub: void <init>
+            → IPackageManager$Stub.asInterface()
+            → IPackageManager.deletePackageAsUser() [PKG_MGMT]
+            → <com.android.server.pm.PersonaManagerService$PackageDeleteOb
+            → IPackageManager.setComponentEnabledSettings() [PKG_MGMT]
+            → <android.content.pm.PackageManager$ComponentEnabledSetting: 
+            → Set.add()
+            → PackageManager.queryIntentServicesAsUser()
+            → EdmStorageProviderBase.getComponentNameForUid()
+            → EdmStorageProviderBase.getMUMContainerOwnerUid()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int,int)>
+            → ContainerDependencyWrapper.getEdmStorageProvider()
+            → AccessController.throwIfParentInstance()
+            → <com.samsung.android.knox.profile.ProfilePolicy: void <init>
+            → <com.samsung.android.knox.EnterpriseKnoxManager: void <init>
+            → <android.util.Pair: void <init>(java.lang.Object,java.lang.O
+            → <com.samsung.android.knox.container.KnoxContainerManager: vo
+            → HashMap.containsKey()
+            → HashMap.remove()
+            → <com.samsung.android.knox.container.RCPPolicy: void <init>(c
+            → <com.samsung.android.knox.ContextInfo$$ExternalSyntheticOutl
+            → IRCPPolicy.allowMoveFilesToContainer()
+            → RCPPolicy.getRCPPolicyService()
+            → EnterpriseLicenseManager.log()
+            → IProfilePolicy.setRestrictionPolicy()
+            → PackageSetting.setInstalled()
+            → WatchedArrayMap.get()
+            → Binder.getCallingPid() [UID_CHECK]
+            → ServiceKeeper.isAuthorized()
+            → <java.lang.SecurityException: void <init>(java.lang.String)>
+            → SecurityException.printStackTrace()
+            → IEnterpriseDeviceManager.getKPUPackageName()
+            → IDevicePolicyManager$Stub.asInterface()
+            → IDevicePolicyManager.getDeviceOwnerComponent()
+            → PersonaManagerService.isInputMethodAppAsUser()
+            → ArraySet.addAll()
+            → <android.util.ArraySet: void <init>()>
+            → SeparatedAppsAnalytics.onSeparatedAppsCreated()
+            → SeparatedAppsAnalytics.onSeparatedAppsPolicyUpdated()
+            → HashSet.iterator()
+            → Context.sendBroadcastAsUser()
+            → PersonaManagerService.isAppSeparationApp()
+            → ArrayList.addAll()
+            → SeparatedAppsAnalytics.logEventDeactivationForAppSep()
+            → PersonaServiceHelper.isDisallowedAppForKnox()
+            → PersonaServiceHelper.isRequiredAppForKnox()
+            → ContainerDependencyWrapper.isPackageInstalled()
+            → ContainerDependencyWrapper.installExistingPackageForPersona()
+            → ContainerDependencyWrapper.isSecureFolderAdminActive()
+            → PersonaManagerService.deactivateSecureFolderAdmin()
+            → PersonaManagerService.isFingerprintPlusSecureValueExist()
+            → PersonaManagerService.isFingerprintPlusSystemValueExist()
+            → Settings$Secure.putIntForUser()
+            → PersonaManagerService.isScreenOffTimeoutSecureValueExist()
+            → PersonaManagerService.isScreenOffTimeoutSystemValueExist()
+            → UserManagerService.setContainerInfo()
+            → PersonaManagerService.getSecureFolderPolicy()
+            → Set.addAll()
+            → Set.removeAll()
+            → PersonaManagerService.isDpmEnforced()
+            → PersonaManagerService.isTimeOutComputable()
+            → PersonaManagerService.getDpmLimitTimeout()
+            → PersonaManagerService.getTimeoutFromDeviceSettings()
+            → ContainerProxy.sendProxyMessage()
+            → UserManager.getUserInfo()
+            → ContainerDependencyWrapper.isDualDarDO()
+            → PersonaManagerService$Injector.isTestingMode()
+            → PersonaManagerService$Injector.getPersonaManagerInternal()
+            → PersonaManagerService$LocalService.getAdminComponentNameFromEdm()
+            → PersonaManagerInternal.getAdminComponentNameFromEdm()
+            → AtomicFile.startWrite()
+            → <android.util.AtomicFile: void <init>(java.io.File,android.u
+            → FileUtils.sync()
+            → FileOutputStream.close()
+            → AtomicFile.rename()
+            → SystemConfigFileCommitEventLogger.onFinishWrite()
+            → <com.android.internal.util.FastXmlSerializer: void <init>(in
+            → <com.samsung.android.knox.ISemPersonaManager$Stub$Proxy: voi
+              → <android.text.SpannableStringBuilder: void <init>(java.lang.
+              → SpannableStringBuilder.setSpan()
+              → Spanned.getSpanEnd()
+              → Spanned.getSpanFlags()
+              → Spanned.getSpanStart()
+              → Spanned.length()
+              → Spanned.getSpans()
+              → CharacterStyle.getUnderlying()
+              → TextAppearanceSpan.getLinkTextColor()
+              → TextAppearanceSpan.getTextColor()
+              → TextAppearanceSpan.getTextStyle()
+              → TextAppearanceSpan.getFamily()
+              → <android.text.style.TextAppearanceSpan: void <init>(java.lan
+              → Settings$Secure.getInt()
+              → Bundle.toString()
+              → KnoxAnalyticsData.generateTimestamp()
+              → Bundle.putSerializable()
+              → Preconditions.checkNotNull()
+              → <android.os.HandlerThread: void <init>(java.lang.String,int)
+              → Resources.getDimensionPixelSize()
+              → Resources.getInteger()
+              → <android.os.Binder: void <init>()>
+              → <android.widget.Toast$TN: void <init>(android.content.Contex
+              → Toast.getLooper()
+              → Context.getTheme()
+              → Resources$Theme.resolveAttribute()
+              → <android.util.TypedValue: void <init>()>
+              → LayoutInflater.from()
+              → LayoutInflater.inflate()
+              → ToastPresenter.semCheckMaxFontScale()
+              → <android.text.SpannableStringInternal: void <init>(java.lang
+              → <android.app.ITransientNotificationCallback$Stub: void <init
+              → IEDMProxy$Stub.asInterface()
+              → RootWindowContainer.anyTaskForId()
+              → TaskFragment.getTopNonFinishingActivity()
+              → WindowManagerThreadPriorityBooster.boost()
+              → WindowManagerThreadPriorityBooster.reset()
+              → IStatusBarService$Stub.asInterface()
+              → Resources.getConfiguration()
+              → SemFloatingFeature.loge()
+              → Hashtable.get()
+              → ArrayMap.allocArrays()
+              → SQLiteOpenHelper.getDatabaseLocked()
+              → <com.android.server.enterprise.storage.EdmStorageHelper: voi
+              → <com.samsung.android.knox.ContextInfo: void <init>(int,int,b
+              → KnoxsdkFileLog.d()
+              → <java.lang.Exception: void <init>(java.lang.String)>
+              → Logger.log()
+              → IKnoxContainerManager$Stub.asInterface()
+              → PersonaServiceHelper.deletePackageAsUserAndPersona() [PKG_MGMT]
+              → IPackageDeleteObserver$Stub.attachInterface()
+              → <com.android.server.pm.PersonaManagerService$PackageDeleteOb
+              → Objects.nonNull()
+              → ComponentName.unflattenFromString()
+              → EdmStorageProviderBase.getString()
+              → <android.content.ContentValues: void <init>()>
+              → ContentValues.put()
+              → EdmStorageProviderBase.getInt()
+              → ProfilePolicy.getService()
+              → KnoxContainerManager.checkContainerType()
+              → <java.lang.NoSuchFieldException: void <init>(java.lang.Strin
+              → IRCPPolicy$Stub.asInterface()
+              → EnterpriseLicenseManager.getService()
+              → IEnterpriseLicense.log()
+              → PackageSetting.modifyUserState()
+              → SettingBase.onChanged()
+              → PackageUserStateImpl.setInstalled()
+              → ArrayMap.get()
+              → SKLogger.logAll()
+              → SKLogger.logAll()
+              → ServiceKeeper.checkForMethodAuthorization()
+              → ServiceKeeper.checkForServiceAuthorization()
+              → ServiceKeeper.isFilterAPI()
+              → ServiceKeeper.getPackageName()
+              → ServiceKeeper.getSeinfo()
+              → HashSet.isEmpty()
+              → <android.app.admin.IDevicePolicyManager$Stub$Proxy: void <in
+              → ArraySet.add()
+              → ArraySet.ensureCapacity()
+              → Collection.size()
+              → Collection.iterator()
+              → <android.util.ArraySet: void <init>(int,boolean)>
+              → IKnoxAnalyticsContainer.getPackageInfo() [PKG_QUERY]
+              → IKnoxAnalyticsContainer.getSeparatedAppsConfig()
+              → IKnoxAnalyticsContainer.getDeviceOwnerPackage()
+              → PersonaManagerService.getSeparationPackageInfo()
+              → PersonaManagerService.isAppSeparationAppInternal()
+              → IPackageManager.getApplicationInfo() [PKG_QUERY]
+              → PersonaServiceHelper.getIPackageManager()
+              → PersonaServiceHelper.isDisallowedAppForKnox()
+              → PersonaServiceHelper.isRequiredAppForKnox()
+              → PackageManagerService.isPackageInstalled()
+              → PackageManagerService.installExistingPackageForPersona()
+              → IEnterpriseDeviceManager.isAdminActive()
+              → ContainerDependencyWrapper.deactivateSecureFolderAdmin()
+              → Settings$Secure.getIntForUser()
+              → Settings$System.getIntForUser()
+              → PersonaPolicyManagerService.getSecureFolderPolicy()
+              → ContainerProxy.getService()
+              → ISemPersonaManager.sendProxyMessage()
+              → DualDarManager.isOnDeviceOwner()
+              → FileUtils.setPermissions()
+              → SystemConfigFileCommitEventLogger.onStartWrite()
+              → SystemConfigFileCommitEventLogger.setStartTime()
+              → File.mkdirs()
+              → File.getParentFile()
+              → File.getPath()
+              → <java.io.FileOutputStream: void <init>(java.io.File)>
+              → <java.io.IOException: void <init>(java.lang.String)>
+              → <java.io.IOException: void <init>(java.lang.String,java.lang
+              → <java.io.File: void <init>(java.lang.String)>
+              → File.isDirectory()
+              → File.renameTo()
+              → SystemClock.uptimeMillis()
+              → EventLogTags.writeCommitSysConfigFile()
+              → ByteBuffer.allocate()
+
+────────────────────────────────────────────────────────────
+Occurrence #17
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.security.PasswordPolicy$1
+  Method:   <com.android.server.enterprise.security.PasswordPolicy$1: void <init>(com.android.server.enterprise.security.PasswordPolicy)>
+  Line:     38
+  Register: p1 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.enterprise.security.PasswordPolicy: void
+        ← <com.android.server.enterprise.security.PasswordPolicy: void
+          ← EnterpriseDeviceManagerServiceImpl$Injector.getPasswordPolicy()
+            ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+              ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #18
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.adapterlayer.PersonaManagerAdapter
+  Method:   <com.android.server.enterprise.adapterlayer.PersonaManagerAdapter: boolean isContainerAgent(java.lang.String)>
+  Line:     338
+  Register: p0 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [other] return p0
+
+────────────────────────────────────────────────────────────
+Occurrence #19
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.container.KnoxMUMContainerPolicy
+  Method:   <com.android.server.enterprise.container.KnoxMUMContainerPolicy: android.content.ComponentName findMatchingComponent(int,int)>
+  Line:     7986
+  Register: v6 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v6 → [branch] if-eqz v6, :cond_8b → [other] sget-object v6, Lco
+
+  CALLERS (who invokes this method):
+      ← KnoxMUMContainerPolicy.getAdminComponentName()
+
+  CALLEES (what this method invokes):
+      → DeviceAdminInfo.getComponent()
+      → <android.app.admin.DeviceAdminInfo: void <init>(android.cont
+      → Context.getPackageManager()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → PackageManager.getPackagesForUid()
+      → PackageManager.queryBroadcastReceivers()
+      → KnoxMUMContainerPolicy.matchPackages()
+      → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+      → SemPersonaManager.isSecureFolderId()
+      → List.isEmpty()
+      → List.size()
+      → List.get()
+        → Process.myUid()
+        → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+        → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+        → SemPersonaManager.checkContainerType()
+          → UserHandle.getUserId()
+          → SemPersonaManager.isKnoxId()
+          → Context.getSystemService()
+          → Binder.getCallingUid() [UID_CHECK]
+          → Process.myPid()
+          → Process.myTid()
+          → ContextInfo$$ExternalSyntheticOutline0.m()
+          → <com.samsung.android.knox.ContextInfo: void <init>(int,int,b
+          → KnoxsdkFileLog.d()
+          → <java.lang.Exception: void <init>(java.lang.String)>
+          → <java.util.HashMap: void <init>()>
+          → SystemProperties.get()
+            → SemPersonaManager.isDualAppId()
+            → KnoxsdkFileLog.fileLog()
+            → SemLog.d()
+              → SemDualAppManager.isDualAppId()
+              → Logger.log()
+
+────────────────────────────────────────────────────────────
+Occurrence #20
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.container.KnoxMUMContainerPolicy
+  Method:   <com.android.server.enterprise.container.KnoxMUMContainerPolicy: int setCustomResource(int,com.samsung.android.knox.ContextInfo,android.os.Bundle)>
+  Line:     22798
+  Register: v1 := "com.samsung.android.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->notif
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.enterprise.container.KnoxMUMContainerPoli → [other] new-instance v1, Ljava/lang/StringBuilde
+
+  CALLEES (what this method invokes):
+      → Context.getResources()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Resources.getDimension()
+      → Bitmap.createScaledBitmap()
+      → Bitmap.getHeight()
+      → Bitmap.getWidth()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → Bundle.getParcelable()
+      → Bundle.getString()
+      → KnoxMUMContainerPolicy.getLauncherRefreshIntent()
+      → KnoxMUMContainerPolicy.writeFile()
+      → KnoxMUMContainerPolicy.enforceContainerOwnershipPermission()
+      → KnoxMUMContainerPolicy.getService()
+      → KnoxMUMContainerPolicy.notifyProfileNameChanged()
+      → KnoxMUMContainerPolicy.refreshLauncherUI()
+      → SemPersonaManager.setCustomName()
+      → SemPersonaManager.setPersonalModeName()
+      → SemPersonaManager.getPersonaName()
+      → File.delete()
+      → File.exists()
+      → File.mkdirs()
+      → File.setExecutable()
+      → File.setReadable()
+      → File.setWritable()
+      → <java.io.File: void <init>(java.lang.String)>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → Intent.putExtra()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → Bitmap.compress()
+        → KnoxMUMContainerPolicy.setFilePermission()
+        → <java.io.FileOutputStream: void <init>(java.lang.String)>
+        → FileOutputStream.close()
+        → IOException.printStackTrace()
+        → Exception.printStackTrace()
+        → KnoxMUMContainerPolicy.getEDM()
+        → EnterpriseDeviceManager.enforceContainerOwnerShipPermissionByContext()
+        → Context.sendBroadcast()
+        → Intent.putExtra()
+        → <android.content.Intent: void <init>(java.lang.String,androi
+        → Uri.fromParts()
+        → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+        → PackageManagerAdapter.getInstance()
+        → Utils.createContextAsUser()
+        → Context.sendBroadcastAsUser()
+        → ISemPersonaManager.setProfileName()
+        → SemPersonaManager.getPersonaService()
+        → ISemPersonaManager.setPersonalModeName()
+        → DevicePolicyManager.getResources()
+        → DevicePolicyResourcesManager.getString()
+        → Context.getSystemService()
+        → Context.getPackageName()
+        → <com.samsung.android.knox.SemPersonaManager$$ExternalSynthet
+        → SemPersonaManager.getWorkName()
+          → EnterpriseDeviceManager.getInstance()
+          → EnterpriseDeviceManager.getService()
+          → IEnterpriseDeviceManager.enforceContainerOwnerShipPermissionByContext()
+          → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+          → Uri$Part.fromDecoded()
+          → <java.lang.NullPointerException: void <init>(java.lang.Strin
+          → IPackageManager.getApplicationInfo() [PKG_QUERY]
+          → IPackageManager$Stub.asInterface()
+          → ServiceManager.getService()
+          → <com.android.server.enterprise.adapterlayer.PackageManagerAd
+          → Context.createPackageContextAsUser()
+          → PackageManager$NameNotFoundException.getMessage()
+          → <android.os.UserHandle: void <init>(int)>
+          → ISemPersonaManager$Stub.asInterface()
+          → IDevicePolicyManager.getString()
+          → ParcelableResource.getString()
+          → ParcelableResource.loadDefaultString()
+          → DeviceConfig.getBoolean()
+          → Objects.requireNonNull()
+          → <com.samsung.android.knox.SemPersonaManager$$ExternalSynthet
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.d()
+            → KnoxsdkFileLog.w()
+            → IEnterpriseDeviceManager$Stub.asInterface()
+            → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+            → Uri$Part.from()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.ISemPersonaManager$Stub$Proxy: voi
+            → ParcelableResource.getAppResourcesWithCallersConfiguration()
+            → ParcelableResource.verifyResourceName()
+            → Resources.getString()
+            → Supplier.get()
+            → DeviceConfig.getProperty()
+              → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+              → SemLog.w()
+              → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+              → <android.net.Uri: void <init>(android.net.Uri-IA)>
+              → <android.net.Uri$Part: void <init>(java.lang.String,java.lan
+              → Context.getPackageManager()
+              → PackageManager.getApplicationInfo() [PKG_QUERY]
+              → PackageManager.getResourcesForApplication()
+              → Resources.getConfiguration()
+              → Resources.getResourceName()
+              → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+              → DeviceConfig$Properties.getString()
+              → DeviceConfig.getProperties()
+
+────────────────────────────────────────────────────────────
+Occurrence #21
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+  Line:     977
+  Register: v6 := "com.samsung.android.knox.containeragent"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Process.myPid()
+      → ArrayMap.size()
+      → ArrayMap.get()
+      → ArrayMap.keyAt()
+      → ArrayMap.put()
+      → ArrayMap.valueAt()
+      → <android.util.ArrayMap: void <init>()>
+      → <com.android.server.enterprise.application.ApplicationPolicy
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Collections.unmodifiableList()
+      → <java.util.HashMap: void <init>()>
+        → ArrayMap.indexOfKey()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → ArrayMap.indexOf()
+        → ArrayMap.indexOfNull()
+        → ArrayMap.allocArrays()
+        → ArrayMap.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.binarySearchHashes()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #22
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl
+  Method:   <com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl: void <init>(com.android.server.knox.dar.DarManagerService$Injector)>
+  Line:     67
+  Register: v4 := "com.samsung.android.knox.containeragent"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.knox.dar.DarManagerService: void <init>(
+        ← <com.android.server.knox.dar.DarManagerService: void <init>(
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+

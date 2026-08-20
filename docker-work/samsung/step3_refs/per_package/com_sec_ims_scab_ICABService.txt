@@ -1,0 +1,18 @@
+# com.sec.ims.scab.ICABService [NEW]
+# Refs: 14
+# JARs: imsmanager
+
+<com.sec.ims.scab.ICABService$Stub$Proxy: boolean isPendingUploadContactsExists()>
+<com.sec.ims.scab.ICABService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.scab.ICABService$Stub$Proxy: void addBatchOfContacts(java.util.List)>
+<com.sec.ims.scab.ICABService$Stub$Proxy: void businessLineReadyForSync(java.lang.String,boolean)>
+<com.sec.ims.scab.ICABService$Stub$Proxy: void deleteBatchOfContacts(java.util.List)>
+<com.sec.ims.scab.ICABService$Stub$Proxy: void disableService()>
+<com.sec.ims.scab.ICABService$Stub$Proxy: void enableService()>
+<com.sec.ims.scab.ICABService$Stub$Proxy: void onBufferDBReadResult(long,boolean)>
+<com.sec.ims.scab.ICABService$Stub$Proxy: void processUndownloadedBusinessContacts(java.lang.String)>
+<com.sec.ims.scab.ICABService$Stub$Proxy: void updateBatchOfContacts(java.util.List)>
+<com.sec.ims.scab.ICABService$Stub$Proxy: void uploadAddressBook(java.util.List)>
+<com.sec.ims.scab.ICABService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.scab.ICABService$Stub: com.sec.ims.scab.ICABService asInterface(android.os.IBinder)>
+<com.sec.ims.scab.ICABService$Stub: void <init>()>

@@ -1,0 +1,18 @@
+# android.hardware.biometrics.ITestSession [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.hardware.biometrics.ITestSession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.ITestSession$Stub$Proxy: void acceptAuthentication(int)>
+<android.hardware.biometrics.ITestSession$Stub$Proxy: void cleanupInternalState(int)>
+<android.hardware.biometrics.ITestSession$Stub$Proxy: void finishEnroll(int)>
+<android.hardware.biometrics.ITestSession$Stub$Proxy: void notifyAcquired(int,int)>
+<android.hardware.biometrics.ITestSession$Stub$Proxy: void notifyError(int,int)>
+<android.hardware.biometrics.ITestSession$Stub$Proxy: void notifyVendorAcquired(int,int)>
+<android.hardware.biometrics.ITestSession$Stub$Proxy: void notifyVendorError(int,int)>
+<android.hardware.biometrics.ITestSession$Stub$Proxy: void rejectAuthentication(int)>
+<android.hardware.biometrics.ITestSession$Stub$Proxy: void setTestHalEnabled(boolean)>
+<android.hardware.biometrics.ITestSession$Stub$Proxy: void startEnroll(int)>
+<android.hardware.biometrics.ITestSession$Stub: android.hardware.biometrics.ITestSession asInterface(android.os.IBinder)>
+<android.hardware.biometrics.ITestSession$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.ITestSession$Stub: void <init>()>

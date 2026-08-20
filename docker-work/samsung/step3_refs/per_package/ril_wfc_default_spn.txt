@@ -1,0 +1,7 @@
+# ril.wfc.default_spn [NEW]
+# Refs: 3
+# JARs: framework, telephony-common
+
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: java.util.List wfc_default_spn()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.List wfc_default_spn()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void wfc_default_spn(java.util.List)>

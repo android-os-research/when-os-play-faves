@@ -1,0 +1,12 @@
+# android.print.IWriteResultCallback [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.print.IWriteResultCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.print.IWriteResultCallback$Stub$Proxy: void onWriteCanceled(int)>
+<android.print.IWriteResultCallback$Stub$Proxy: void onWriteFailed(java.lang.CharSequence,int)>
+<android.print.IWriteResultCallback$Stub$Proxy: void onWriteFinished(android.print.PageRange[],int)>
+<android.print.IWriteResultCallback$Stub$Proxy: void onWriteStarted(android.os.ICancellationSignal,int)>
+<android.print.IWriteResultCallback$Stub: android.print.IWriteResultCallback asInterface(android.os.IBinder)>
+<android.print.IWriteResultCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.print.IWriteResultCallback$Stub: void <init>()>

@@ -1,0 +1,11 @@
+# android.telephony.ims.aidl.ISipDelegateMessageCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.telephony.ims.aidl.ISipDelegateMessageCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.ISipDelegateMessageCallback$Stub$Proxy: void onMessageReceived(android.telephony.ims.SipMessage)>
+<android.telephony.ims.aidl.ISipDelegateMessageCallback$Stub$Proxy: void onMessageSendFailure(java.lang.String,int)>
+<android.telephony.ims.aidl.ISipDelegateMessageCallback$Stub$Proxy: void onMessageSent(java.lang.String)>
+<android.telephony.ims.aidl.ISipDelegateMessageCallback$Stub: android.telephony.ims.aidl.ISipDelegateMessageCallback asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.ISipDelegateMessageCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.ISipDelegateMessageCallback$Stub: void <init>()>

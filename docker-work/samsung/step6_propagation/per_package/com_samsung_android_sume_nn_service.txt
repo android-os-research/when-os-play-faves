@@ -1,0 +1,236 @@
+######################################################################
+# Propagation: com.samsung.android.sume.nn.service
+######################################################################
+
+JARs:                 framework
+Classes:              5
+Occurrences:          5
+Usage types:          field_store, invoke
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.sume.nn.SumeNNClient$Builder
+  Method:   <com.samsung.android.sume.nn.SumeNNClient$Builder: com.samsung.android.sume.nn.SumeNNClient build()>
+  Line:     133
+  Register: v1 := "com.samsung.android.sume.nn.service"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: (none)
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [other] iget-object v1, p0, Lcom/samsung/android/sume/nn/S
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageInfo.getLongVersionCode()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → SumeLog.d()
+      → Utils.require()
+      → <com.samsung.android.sume.nn.SumeNNClient$Builder$$ExternalS
+      → <com.samsung.android.sume.nn.SumeNNClient: boolean access$80
+      → <com.samsung.android.sume.nn.SumeNNClient: com.samsung.andro
+      → <com.samsung.android.sume.nn.SumeNNClient: com.samsung.andro
+      → <com.samsung.android.sume.nn.SumeNNClient: com.samsung.andro
+      → <com.samsung.android.sume.nn.SumeNNClient: int access$1802(c
+      → <com.samsung.android.sume.nn.SumeNNClient: java.lang.String 
+      → <com.samsung.android.sume.nn.SumeNNClient: java.util.HashMap
+      → <com.samsung.android.sume.nn.SumeNNClient: void <init>(andro
+      → <com.samsung.android.sume.nn.SumeNNClient: void access$2000(
+      → <java.lang.UnsupportedOperationException: void <init>(java.l
+      → Stream.noneMatch()
+        → PackageInfo.composeLongVersionCode()
+        → Utils.fmtStr()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <com.samsung.android.sume.nn.SumeNNClient: void <init>(andro
+        → SumeNNClient.init()
+          → Objects.requireNonNull()
+          → HandlerThread.getLooper()
+          → <android.os.HandlerThread: void <init>(java.lang.String)>
+          → HandlerThread.start()
+          → <android.os.Messenger: void <init>(android.os.Handler)>
+          → SumeLog.i()
+          → <com.samsung.android.sume.nn.SumeNNClient$$ExternalSynthetic
+          → <com.samsung.android.sume.nn.SumeNNClient$1: void <init>(com
+          → <com.samsung.android.sume.nn.SumeNNClient$2: void <init>(com
+          → <com.samsung.android.sume.nn.SumeNNClient$IncomingHandler: v
+          → <com.samsung.android.sume.nn.SumeNNClient$InputMap: void <in
+          → SumeNNClient.getVersion()
+          → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+          → <java.util.HashMap: void <init>()>
+          → <java.util.concurrent.PriorityBlockingQueue: void <init>(int
+          → <java.util.concurrent.ThreadPoolExecutor: void <init>(int,in
+          → <java.util.concurrent.atomic.AtomicReference: void <init>(ja
+          → ReentrantLock.newCondition()
+          → <java.util.concurrent.locks.ReentrantLock: void <init>()>
+          → Context.startService()
+          → Context.bindService()
+          → Intent.setClassName()
+          → <android.content.Intent: void <init>()>
+          → SumeLog.beg()
+          → SumeLog.end()
+            → HandlerThread.isAlive()
+            → Thread.currentThread()
+            → Thread.interrupt()
+            → <java.lang.Thread: void <init>(java.lang.String)>
+            → Handler.getIMessenger()
+            → Utils$Labelable.label()
+            → AtomicReference.get()
+            → SumeNNClient$1.put()
+            → <java.util.concurrent.ConcurrentHashMap: void <init>()>
+            → <android.os.Handler: void <init>(android.os.Looper)>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.sume.nn.SumeNNClient
+  Method:   <com.samsung.android.sume.nn.SumeNNClient: void init()>
+  Line:     673
+  Register: v2 := "com.samsung.android.sume.nn.service"
+  Usage:    [invoke] invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v2, p0, Lcom/samsung/android/sume/nn/SumeNNClien → 
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.sume.nn.SumeNNClient: void access$2000(
+        ← SumeNNClient$Builder.build()
+
+  CALLEES (what this method invokes):
+      → Context.startService()
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → SumeLog.beg()
+      → SumeLog.end()
+        → Utils$Labelable.label()
+        → AtomicReference.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.sume.nn.SumeNN$Builder
+  Method:   <com.samsung.android.sume.nn.SumeNN$Builder: com.samsung.android.sume.nn.SumeNN build()>
+  Line:     311
+  Register: v1 := "com.samsung.android.sume.nn.service"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: (none)
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [other] iget-object v1, p0, Lcom/samsung/android/sume/nn/S
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageInfo.getLongVersionCode()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → SumeLog.d()
+      → Utils.require()
+      → <com.samsung.android.sume.nn.SumeNN$Builder$$ExternalSynthet
+      → <com.samsung.android.sume.nn.SumeNN$Builder$$ExternalSynthet
+      → <com.samsung.android.sume.nn.SumeNN: boolean access$1102(com
+      → <com.samsung.android.sume.nn.SumeNN: boolean access$602(com.
+      → <com.samsung.android.sume.nn.SumeNN: com.samsung.android.sum
+      → <com.samsung.android.sume.nn.SumeNN: com.samsung.android.sum
+      → <com.samsung.android.sume.nn.SumeNN: com.samsung.android.sum
+      → <com.samsung.android.sume.nn.SumeNN: int access$2302(com.sam
+      → <com.samsung.android.sume.nn.SumeNN: java.lang.String access
+      → <com.samsung.android.sume.nn.SumeNN: void <init>(android.con
+      → <com.samsung.android.sume.nn.SumeNN: void access$2100(com.sa
+      → <java.lang.UnsupportedOperationException: void <init>(java.l
+      → ArrayList.stream()
+      → Stream.noneMatch()
+      → Stream.toArray()
+      → Stream.distinct()
+        → PackageInfo.composeLongVersionCode()
+        → Utils.fmtStr()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <com.samsung.android.sume.nn.SumeNN: void <init>(android.con
+        → SumeNN.init()
+          → Objects.requireNonNull()
+          → HandlerThread.getLooper()
+          → <android.os.HandlerThread: void <init>(java.lang.String)>
+          → HandlerThread.start()
+          → <android.os.Messenger: void <init>(android.os.Handler)>
+          → SumeLog.i()
+          → <com.samsung.android.sume.nn.SumeNN$$ExternalSyntheticLambda
+          → <com.samsung.android.sume.nn.SumeNN$1: void <init>(com.samsu
+          → <com.samsung.android.sume.nn.SumeNN$2: void <init>(com.samsu
+          → <com.samsung.android.sume.nn.SumeNN$DataMap: void <init>(com
+          → <com.samsung.android.sume.nn.SumeNN$IncomingHandler: void <i
+          → SumeNN.getVersion()
+          → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+          → <java.util.HashMap: void <init>()>
+          → ConcurrentHashMap.put()
+          → <java.util.concurrent.ConcurrentHashMap: void <init>()>
+          → Executors.newFixedThreadPool()
+          → <java.util.concurrent.LinkedBlockingQueue: void <init>()>
+          → <java.util.concurrent.atomic.AtomicReference: void <init>(ja
+          → ReentrantLock.newCondition()
+          → <java.util.concurrent.locks.ReentrantLock: void <init>()>
+          → Context.startService()
+          → Context.bindService()
+          → Intent.setClassName()
+          → <android.content.Intent: void <init>()>
+          → SumeLog.beg()
+          → SumeLog.end()
+            → HandlerThread.isAlive()
+            → Thread.currentThread()
+            → Thread.interrupt()
+            → <java.lang.Thread: void <init>(java.lang.String)>
+            → Handler.getIMessenger()
+            → Utils$Labelable.label()
+            → AtomicReference.get()
+            → SumeNN$1.put()
+            → <com.samsung.android.sume.nn.SumeNN$DataMap: void <init>()>
+            → <android.os.Handler: void <init>(android.os.Looper)>
+              → <java.util.concurrent.locks.ReentrantReadWriteLock: void <in
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.sume.nn.SumeNN
+  Method:   <com.samsung.android.sume.nn.SumeNN: void init()>
+  Line:     947
+  Register: v2 := "com.samsung.android.sume.nn.service"
+  Usage:    [invoke] invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v2, p0, Lcom/samsung/android/sume/nn/SumeNN;->co → 
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.sume.nn.SumeNN: void access$2100(com.sa
+        ← SumeNN$2.onServiceDisconnected()
+        ← SumeNN$Builder.build()
+
+  CALLEES (what this method invokes):
+      → Context.startService()
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → SumeLog.beg()
+      → SumeLog.end()
+        → Utils$Labelable.label()
+        → AtomicReference.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.sume.solution.service.NNDirector
+  Method:   <com.samsung.android.sume.solution.service.NNDirector: void <init>(com.samsung.android.sume.core.service.ServiceProxySupplier)>
+  Line:     48
+  Register: v0 := "com.samsung.android.sume.nn.service"
+  Usage:    [field_store] iput-object v0, p0, Lcom/samsung/android/sume/solution/service/NNDirector;->defaultServicePackage:Lj
+  Patterns: early_return
+  Flow:     [field_store] com.samsung.android.sume.solution.service.NNDirector.default → [field_store] aput-object v0, v3, v4 → [rea
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.sume.ext.director.NNDirector: void <ini
+
+  CALLEES (what this method invokes):
+      → PlaceHolder.setParameters()
+      → PlaceHolder.reset()
+      → <com.samsung.android.sume.core.graph.MFDescriptorGraph$Build
+        → <java.lang.UnsupportedOperationException: void <init>()>
+        → <java.util.HashMap: void <init>()>
+        → <java.util.concurrent.atomic.AtomicInteger: void <init>(int)
+

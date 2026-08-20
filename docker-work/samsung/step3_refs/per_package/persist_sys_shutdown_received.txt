@@ -1,0 +1,6 @@
+# persist.sys.shutdown_received [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.BatteryService$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.BatteryService: void onBootPhase(int)>

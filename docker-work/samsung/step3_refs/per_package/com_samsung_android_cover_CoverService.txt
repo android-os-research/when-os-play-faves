@@ -1,0 +1,7 @@
+# com.samsung.android.cover.CoverService [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.sepunion.cover.CoverServiceManager: android.util.SparseArray queryInstalledCoverServices()>
+<com.android.server.sepunion.cover.CoverServiceManager: boolean addCoverService(java.lang.String)>
+<com.android.server.sepunion.cover.CoverServiceManager: boolean updateCoverService(java.lang.String)>

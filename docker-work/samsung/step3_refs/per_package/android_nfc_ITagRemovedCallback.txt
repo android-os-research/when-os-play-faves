@@ -1,0 +1,9 @@
+# android.nfc.ITagRemovedCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.nfc.ITagRemovedCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.nfc.ITagRemovedCallback$Stub$Proxy: void onTagRemoved()>
+<android.nfc.ITagRemovedCallback$Stub: android.nfc.ITagRemovedCallback asInterface(android.os.IBinder)>
+<android.nfc.ITagRemovedCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.nfc.ITagRemovedCallback$Stub: void <init>()>

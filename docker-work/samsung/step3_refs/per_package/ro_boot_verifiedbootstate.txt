@@ -1,0 +1,6 @@
+# ro.boot.verifiedbootstate [NEW]
+# Refs: 2
+# JARs: services, telephony-common
+
+<com.android.server.devicepolicy.DevicePolicyManagerService: void maybeLogStart()>
+<com.sec.tmodiagnostics.DeviceReportingSecurityChecker: boolean getICDStatus()>

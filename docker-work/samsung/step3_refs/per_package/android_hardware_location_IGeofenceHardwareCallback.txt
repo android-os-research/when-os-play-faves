@@ -1,0 +1,13 @@
+# android.hardware.location.IGeofenceHardwareCallback [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.hardware.location.IGeofenceHardwareCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.location.IGeofenceHardwareCallback$Stub$Proxy: void onGeofenceAdd(int,int)>
+<android.hardware.location.IGeofenceHardwareCallback$Stub$Proxy: void onGeofencePause(int,int)>
+<android.hardware.location.IGeofenceHardwareCallback$Stub$Proxy: void onGeofenceRemove(int,int)>
+<android.hardware.location.IGeofenceHardwareCallback$Stub$Proxy: void onGeofenceResume(int,int)>
+<android.hardware.location.IGeofenceHardwareCallback$Stub$Proxy: void onGeofenceTransition(int,int,android.location.Location,long,int)>
+<android.hardware.location.IGeofenceHardwareCallback$Stub: android.hardware.location.IGeofenceHardwareCallback asInterface(android.os.IBinder)>
+<android.hardware.location.IGeofenceHardwareCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.location.IGeofenceHardwareCallback$Stub: void <init>()>

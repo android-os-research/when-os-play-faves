@@ -1,0 +1,207 @@
+######################################################################
+# Propagation: com.samsung.android.sm.policy
+######################################################################
+
+JARs:                 services, vendor.samsung.frameworks.codecsolution-service
+Classes:              5
+Occurrences:          5
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        DEVICE_ID, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.KillPolicyManager
+  Method:   <com.android.server.am.KillPolicyManager: boolean isSCPMAvailable()>
+  Line:     5476
+  Register: v0 := "com.samsung.android.sm.policy"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/pm/PackageManager;->resolveContentProvider(Ljava/lang/
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.resolveContentProvider()
+
+  CALLERS (who invokes this method):
+      ← KillPolicyManager.updateSCPMParametersFromDB()
+        ← KillPolicyManager$SCPMReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.resolveContentProvider()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.GmsAlarmManager
+  Method:   <com.android.server.alarm.GmsAlarmManager: boolean isSCPMAvailable()>
+  Line:     4712
+  Register: v0 := "com.samsung.android.sm.policy"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/pm/PackageManager;->resolveContentProvider(Ljava/lang/
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.resolveContentProvider()
+
+  CALLERS (who invokes this method):
+      ← GmsAlarmManager.updateSCPMParametersFromDB()
+        ← <com.android.server.alarm.GmsAlarmManager: void -$$Nest$mupd
+          ← GmsAlarmManager$GmsHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.resolveContentProvider()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo$SCPMHelper
+  Method:   <com.android.server.alarm.AppSyncInfo$SCPMHelper: boolean isSCPMAvailable()>
+  Line:     733
+  Register: v0 := "com.samsung.android.sm.policy"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/pm/PackageManager;->resolveContentProvider(Ljava/lang/
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.resolveContentProvider()
+
+  CALLERS (who invokes this method):
+      ← AppSyncInfo.updateSuspiciousPolicy()
+        ← <com.android.server.alarm.AppSyncInfo: void -$$Nest$mupdateS
+          ← AppSyncInfo$1.onReceive()
+          ← AppSyncInfo$SCPMBroadcastReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.resolveContentProvider()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.HmtManager
+  Method:   <com.android.server.vr.HmtManager: void updateSupportDevicePolicy()>
+  Line:     2316
+  Register: v3 := "com.samsung.android.sm.policy"
+  Usage:    [invoke] invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuild
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.StringBuilder.append() → [other] const-string/jumbo v3, "policy_item" → [invoke] android.net.Uri.with
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.vr.XrManagerService$2: void lambda$onRec
+      ← XrManagerService$2.onReceive()
+        ← <com.android.server.vr.XrManagerService$2: void $r8$lambda$g
+          ← XrManagerService$2$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → ContentResolver.query()
+      → ContentResolver.call()
+      → ContentResolver.openFileDescriptor()
+      → Context.getContentResolver()
+      → Cursor.moveToNext()
+      → Cursor.getString()
+      → Cursor.close()
+      → Uri.parse()
+      → Uri.withAppendedPath()
+      → Bundle.getString()
+      → <android.os.Bundle: void <init>()>
+      → ParcelFileDescriptor.getFileDescriptor()
+      → ParcelFileDescriptor.close()
+      → HmtManager.getResultCode()
+      → HmtManager.isScpmV2Available()
+      → HmtDevice$Builder.build()
+      → HmtDevice$Builder.setName()
+      → HmtDevice$Builder.setProductId()
+      → HmtDevice$Builder.setVendorId()
+      → <com.samsung.android.vr.HmtDevice$Builder: void <init>()>
+      → <com.samsung.android.vr.HmtDevice$HmtDeviceComarator: void <
+      → HmtDevice.parseIntValue()
+      → BufferedReader.readLine()
+      → <java.io.BufferedReader: void <init>(java.io.Reader)>
+      → BufferedReader.close()
+      → <java.io.FileInputStream: void <init>(java.io.FileDescriptor
+      → <java.io.InputStreamReader: void <init>(java.io.InputStream,
+      → Exception.getMessage()
+      → ArrayList.add()
+      → ArrayList.size()
+      → ArrayList.clear()
+      → Collections.sort()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → Uri$Builder.build()
+        → Uri$Builder.appendEncodedPath()
+        → Uri.buildUpon()
+        → ParcelFileDescriptor.closeWithStatus()
+        → ParcelFileDescriptor.releaseResources()
+        → Bundle.getInt()
+        → Bundle.getString()
+        → Pair.create()
+        → Context.getPackageManager()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → <com.samsung.android.vr.HmtDevice: void <init>(com.samsung.a
+        → NumberFormatException.getMessage()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+          → Uri$Builder.hasSchemeOrAuthority()
+          → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+          → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+          → Uri$PathPart.makeAbsolute()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+          → Uri$Builder.path()
+          → Uri$PathPart.appendEncodedSegment()
+          → ParcelFileDescriptor.writeCommStatusAndClose()
+          → CloseGuard.close()
+          → IoUtils.closeQuietly()
+          → <android.util.Pair: void <init>(java.lang.Object,java.lang.O
+          → <com.samsung.android.vr.HmtDevice$Builder: boolean -$$Nest$f
+          → <com.samsung.android.vr.HmtDevice$Builder: float -$$Nest$fge
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetc
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd [DEVICE_ID]
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgete
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgete
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetp
+          → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetv
+          → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+          → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+          → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+          → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+          → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+          → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+          → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+            → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+            → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+            → <android.net.Uri$PathPart: void <init>(java.lang.String,java
+            → Uri$PathPart.fromEncoded()
+            → Uri$PathPart.getEncoded()
+            → ParcelFileDescriptor.readCommStatus()
+            → ParcelFileDescriptor.getOrCreateStatusBuffer()
+            → Os.write()
+            → Memory.pokeInt()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+              → Uri$Part.nonNull()
+              → <android.net.Uri: void <init>(android.net.Uri-IA)>
+              → <android.net.Uri$AbstractPart: void <init>(java.lang.String,
+              → Uri$PathPart.from()
+              → Uri.encode()
+              → <android.os.ParcelFileDescriptor$Status: void <init>(int)>
+              → <android.os.ParcelFileDescriptor$Status: void <init>(int,jav
+              → Os.read()
+              → Memory.peekInt()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      vendor.samsung.frameworks.codecsolution-service
+  Class:    com.samsung.android.scloud.lib.platform.api.Configuration
+  Method:   <com.samsung.android.scloud.lib.platform.api.Configuration: void <clinit>()>
+  Line:     25
+  Register: v1 := "com.samsung.android.sm.policy"
+  Usage:    [array_init] filled-new-array {v0, v1}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1}, [Ljava/lang/String;
+

@@ -1,0 +1,12 @@
+# com.samsung.android.sepunion.IOneHandService [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.samsung.android.sepunion.IOneHandService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.sepunion.IOneHandService$Stub$Proxy: void clickTile(java.lang.String)>
+<com.samsung.android.sepunion.IOneHandService$Stub$Proxy: void registerListener(java.lang.String,android.os.IBinder)>
+<com.samsung.android.sepunion.IOneHandService$Stub$Proxy: void unRegisterListener(java.lang.String,android.os.IBinder)>
+<com.samsung.android.sepunion.IOneHandService$Stub$Proxy: void writeSetting(java.lang.String,java.lang.String,int)>
+<com.samsung.android.sepunion.IOneHandService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.sepunion.IOneHandService$Stub: com.samsung.android.sepunion.IOneHandService asInterface(android.os.IBinder)>
+<com.samsung.android.sepunion.IOneHandService$Stub: void <init>()>

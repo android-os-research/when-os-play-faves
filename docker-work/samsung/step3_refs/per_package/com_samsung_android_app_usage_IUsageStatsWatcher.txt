@@ -1,0 +1,11 @@
+# com.samsung.android.app.usage.IUsageStatsWatcher [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.app.usage.IUsageStatsWatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.app.usage.IUsageStatsWatcher$Stub$Proxy: void notePauseComponent(android.content.ComponentName,android.content.Intent,int,int)>
+<com.samsung.android.app.usage.IUsageStatsWatcher$Stub$Proxy: void noteResumeComponent(android.content.ComponentName,android.content.Intent,int,int)>
+<com.samsung.android.app.usage.IUsageStatsWatcher$Stub$Proxy: void noteStopComponent(android.content.ComponentName,android.content.Intent,int,int)>
+<com.samsung.android.app.usage.IUsageStatsWatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.app.usage.IUsageStatsWatcher$Stub: com.samsung.android.app.usage.IUsageStatsWatcher asInterface(android.os.IBinder)>
+<com.samsung.android.app.usage.IUsageStatsWatcher$Stub: void <init>()>

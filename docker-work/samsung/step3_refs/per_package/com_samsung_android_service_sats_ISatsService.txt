@@ -1,0 +1,9 @@
+# com.samsung.android.service.sats.ISatsService [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.service.sats.ISatsService$Stub$Proxy: java.lang.String executePseudoDrkAtCommnd(java.lang.String)>
+<com.samsung.android.service.sats.ISatsService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.service.sats.ISatsService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.service.sats.ISatsService$Stub: com.samsung.android.service.sats.ISatsService asInterface(android.os.IBinder)>
+<com.samsung.android.service.sats.ISatsService$Stub: void <init>()>

@@ -1,0 +1,253 @@
+######################################################################
+# Propagation: com.google.android.providers.media.module
+######################################################################
+
+JARs:                 framework, services, ssrm
+Classes:              9
+Occurrences:          9
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.util.DumpUtils
+  Method:   <com.android.internal.util.DumpUtils: boolean isSecMediaPackage(java.lang.String)>
+  Line:     1025
+  Register: v0 := "com.google.android.providers.media.module"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_24 → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isSecMediaPackage()
+        ← DumpUtils.isNonPlatformPackage()
+        ← DumpUtils.isSecMediaPackage()
+          ← DumpUtils$$ExternalSyntheticLambda3.test()
+          ← <com.android.internal.util.DumpUtils: boolean $r8$lambda$DiT
+            ← DumpUtils$$ExternalSyntheticLambda6.test()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.internal.util.jobs.DumpUtils
+  Method:   <com.android.internal.util.jobs.DumpUtils: boolean isSecMediaPackage(java.lang.String)>
+  Line:     946
+  Register: v0 := "com.google.android.providers.media.module"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isSecMediaPackage()
+        ← DumpUtils.isNonPlatformPackage()
+        ← DumpUtils.isSecMediaPackage()
+          ← DumpUtils$$ExternalSyntheticLambda3.test()
+          ← <com.android.internal.util.jobs.DumpUtils: boolean $r8$lambd
+            ← DumpUtils$$ExternalSyntheticLambda6.test()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.StorageManagerService
+  Method:   <com.android.server.StorageManagerService: void mount(android.os.storage.VolumeInfo)>
+  Line:     12718
+  Register: v1 := "com.google.android.providers.media.module"
+  Usage:    [invoke] invoke-virtual {p1, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.StorageManagerService: void -$$Nest$mmou
+      ← StorageManagerService.mount()
+        ← StorageManagerService$StorageManagerServiceHandler.handleMessage()
+        ← StorageManagerService.mountVolume()
+        ← StorageManagerService.mountBySecApp()
+
+  CALLEES (what this method invokes):
+      → DevicePolicyManager.semGetRequireStorageCardEncryption()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → IVold.mount()
+      → IVold.setMpUidForFileSystem()
+      → Slog.i()
+      → Slog.w()
+      → Slog.wtf()
+      → <com.android.server.StorageManagerService$7: void <init>(com
+      → StorageManagerService.hasDeviceRestriction()
+      → Objects.equals()
+        → Slog.getInstance()
+        → Slog.addMsgToList()
+        → <android.os.IVoldMountCallback$Stub: void <init>()>
+        → Slog.d()
+        → StorageManagerService.hasSecRestriction()
+          → <android.util.sysfwutil.Slog: void <init>()>
+          → Process.myTid()
+          → Slog.dumpLogsToTheFile()
+          → Slog.localLogV()
+          → ZonedDateTime.format()
+          → ZonedDateTime.now()
+          → DateTimeFormatter.ofPattern()
+          → List.add()
+          → List.size()
+          → Locale.getDefault()
+          → <android.os.Binder: void <init>()>
+          → Binder.attachInterface()
+          → IVoldMountCallback$Stub.attachInterface()
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getColumnIndex()
+          → Cursor.getString()
+          → Cursor.close()
+          → Uri.parse()
+          → Slog.e()
+          → Slog.e()
+            → Slog.initParam()
+            → <java.util.ArrayList: void <init>()>
+            → CountingOutputStream.getCount()
+            → <android.util.sysfwutil.CountingOutputStream: void <init>(ja
+            → Slog.localLogE()
+            → Slog.updatePermissions()
+            → File.delete()
+            → File.getAbsolutePath()
+            → <java.io.File: void <init>(java.lang.String)>
+            → <java.io.FileOutputStream: void <init>(java.io.File,boolean)
+            → FileOutputStream.close()
+            → IOException.printStackTrace()
+            → Iterator.hasNext()
+            → Iterator.next()
+            → List.iterator()
+            → List.clear()
+            → <java.util.zip.GZIPOutputStream: void <init>(java.io.OutputS
+            → GZIPOutputStream.close()
+            → GZIPOutputStream.write()
+            → <android.os.Binder: void <init>(java.lang.String)>
+            → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+              → SystemProperties.getInt()
+              → File.exists()
+              → File.getParentFile()
+              → File.length()
+              → <java.io.OutputStream: void <init>()>
+              → FileUtils.setPermissions()
+              → File.createNewFile()
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+              → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     82
+  Register: v0 := "com.google.android.providers.media.module"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$2
+  Method:   <com.android.server.pm.PersonaServiceHelper$2: void <init>()>
+  Line:     36
+  Register: v1 := "com.google.android.providers.media.module"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$1
+  Method:   <com.android.server.pm.PersonaServiceHelper$1: void <init>()>
+  Line:     36
+  Register: v1 := "com.google.android.providers.media.module"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$3
+  Method:   <com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+  Line:     40
+  Register: v1 := "com.google.android.providers.media.module"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl
+  Method:   <com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl: void <init>(com.android.server.knox.dar.DarManagerService$Injector)>
+  Line:     69
+  Register: v5 := "com.google.android.providers.media.module"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.knox.dar.DarManagerService: void <init>(
+        ← <com.android.server.knox.dar.DarManagerService: void <init>(
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      ssrm
+  Class:    com.android.server.ssrm.CPUSetController
+  Method:   <com.android.server.ssrm.CPUSetController: ???>
+  Line:     122
+  Register: v1 := "com.google.android.providers.media.module"
+  Usage:    [invoke] invoke-static {v0, v1}, Lcom/android/server/ssrm/SSRMUtil;->getPidFromProcessName(Landroid/content/C
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.ssrm.SSRMUtil.getPidFromProcessName() → [reassigned] v1 overwritten
+

@@ -1,0 +1,6 @@
+# ro.slmk.kpm_boot_enable [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.am.DynamicHiddenApp: boolean setKpmParams(java.lang.String,java.lang.String)>
+<com.android.server.am.KillPolicyManager: void <clinit>()>

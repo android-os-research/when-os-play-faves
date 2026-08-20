@@ -1,0 +1,21 @@
+# com.gsma.services.rcs.sharing.image.IImageSharingService [NEW]
+# Refs: 17
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: boolean isServiceRegistered()>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: com.gsma.services.rcs.sharing.image.IImageSharing getImageSharing(java.lang.String)>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: com.gsma.services.rcs.sharing.image.IImageSharing shareImage(com.gsma.services.rcs.contact.ContactId,java.lang.String)>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: com.gsma.services.rcs.sharing.image.ImageSharingServiceConfiguration getConfiguration()>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: int getServiceVersion()>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: java.util.List getImageSharings()>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: void addEventListener(com.gsma.services.rcs.sharing.image.IImageSharingListener)>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: void addServiceRegistrationListener(com.gsma.services.rcs.IRcsServiceRegistrationListener)>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: void deleteAllImageSharings()>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: void deleteImageSharing(java.lang.String)>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: void deleteImageSharings(com.gsma.services.rcs.contact.ContactId)>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: void removeEventListener(com.gsma.services.rcs.sharing.image.IImageSharingListener)>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub$Proxy: void removeServiceRegistrationListener(com.gsma.services.rcs.IRcsServiceRegistrationListener)>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub: com.gsma.services.rcs.sharing.image.IImageSharingService asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.sharing.image.IImageSharingService$Stub: void <init>()>

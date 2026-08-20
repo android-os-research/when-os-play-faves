@@ -1,0 +1,13 @@
+# com.samsung.android.service.aircommand [NEW]
+# Refs: 10
+# JARs: services
+
+<com.android.server.am.ActiveServices: com.android.server.am.ActiveServices$ServiceLookupResult retrieveServiceLocked(android.content.Intent,java.lang.String,boolean,int,java.lang.String,java.lang.String,java.lang.String,int,int,int,boolean,boolean,boolean,boolean)>
+<com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.android.server.smartclip.BleSpenManager: void startBlindChargeService(android.content.Context,android.os.Bundle)>
+<com.android.server.smartclip.BleSpenManager: void startRemoteSpenService(android.content.Context,android.os.Bundle)>
+<com.android.server.smartclip.SpenThemeManager: void launchCustomDoubleTapAction(android.os.UserHandle,android.graphics.Point)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.Integer lambda$setAirGestureOptionState$30(int,int,boolean)>
+<com.samsung.android.server.battery.SpenBatteryManager: void lambda$bindSpenService$2()>
+<com.samsung.android.server.battery.SpenBatteryManager: void onUserUnlocked()>

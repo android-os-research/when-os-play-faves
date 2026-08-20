@@ -1,0 +1,9 @@
+# com.android.modules.utils.ISynchronousResultReceiver [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.android.modules.utils.ISynchronousResultReceiver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.modules.utils.ISynchronousResultReceiver$Stub$Proxy: void send(com.android.modules.utils.SynchronousResultReceiver$Result)>
+<com.android.modules.utils.ISynchronousResultReceiver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.modules.utils.ISynchronousResultReceiver$Stub: com.android.modules.utils.ISynchronousResultReceiver asInterface(android.os.IBinder)>
+<com.android.modules.utils.ISynchronousResultReceiver$Stub: void <init>()>

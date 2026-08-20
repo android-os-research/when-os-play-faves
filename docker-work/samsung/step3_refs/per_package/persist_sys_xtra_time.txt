@@ -1,0 +1,6 @@
+# persist.sys.xtra_time [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.location.gnss.GnssLocationProvider: void handleDownloadPsdsData(int)>
+<com.android.server.location.gnss.GnssLocationProviderSec: void setXtraDownloadedTime()>

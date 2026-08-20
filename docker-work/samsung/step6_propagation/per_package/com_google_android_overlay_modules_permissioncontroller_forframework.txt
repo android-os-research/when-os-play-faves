@@ -1,0 +1,45 @@
+######################################################################
+# Propagation: com.google.android.overlay.modules.permissioncontroller.forframework
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: void <clinit>()>
+  Line:     255
+  Register: v10 := "com.google.android.overlay.modules.permissioncontroller.forframework"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$3
+  Method:   <com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+  Line:     112
+  Register: v0 := "com.google.android.overlay.modules.permissioncontroller.forframework"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+

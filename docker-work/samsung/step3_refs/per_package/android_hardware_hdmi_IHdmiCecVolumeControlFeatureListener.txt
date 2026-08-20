@@ -1,0 +1,9 @@
+# android.hardware.hdmi.IHdmiCecVolumeControlFeatureListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.hdmi.IHdmiCecVolumeControlFeatureListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.hdmi.IHdmiCecVolumeControlFeatureListener$Stub$Proxy: void onHdmiCecVolumeControlFeature(int)>
+<android.hardware.hdmi.IHdmiCecVolumeControlFeatureListener$Stub: android.hardware.hdmi.IHdmiCecVolumeControlFeatureListener asInterface(android.os.IBinder)>
+<android.hardware.hdmi.IHdmiCecVolumeControlFeatureListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.hdmi.IHdmiCecVolumeControlFeatureListener$Stub: void <init>()>

@@ -1,0 +1,147 @@
+######################################################################
+# Propagation: com.sec.android.app.shealth
+######################################################################
+
+JARs:                 framework, services
+Classes:              5
+Occurrences:          6
+Usage types:          array_init, field_store, invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     629
+  Register: v3 := "com.sec.android.app.shealth"
+  Usage:    [field_store] aput-object v3, v2, v1
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsVersionManager
+  Method:   <com.android.server.am.mars.database.MARsVersionManager: void <clinit>()>
+  Line:     410
+  Register: v12 := "com.sec.android.app.shealth"
+  Usage:    [array_init] filled-new-array {v1, v10, v13, v12}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v12, v11, v13, v14}, [Ljava/lang/String; → [reassigned] v14 overwritten
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     107
+  Register: v0 := "com.sec.android.app.shealth"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.analytics.activation.ActivationMonitor
+  Method:   <com.samsung.android.knox.analytics.activation.ActivationMonitor: void <clinit>()>
+  Line:     178
+  Register: v0 := "com.sec.android.app.shealth"
+  Usage:    [array_init] filled-new-array {v0}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0}, [Ljava/lang/String; → [reassigned] v0 overwritten
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.shealth.SamsungHealthService
+  Method:   <com.android.server.shealth.SamsungHealthService: void <init>(android.content.Context)>
+  Line:     45
+  Register: v0 := "com.sec.android.app.shealth"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.SystemServer: void lambda$startOtherServ
+        ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+          ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → IntentFilter.setPriority()
+      → <android.os.Binder: void <init>()>
+      → <com.android.server.shealth.SamsungHealthService$UpdateRecei
+      → SamsungHealthService.backgroundAllowlist()
+        → <android.os.Binder: void <init>(java.lang.String)>
+        → <com.android.server.shealth.SamsungHealthService$UpdateRecei
+        → ActivityManager.getService()
+        → IActivityManager.backgroundAllowlistUid()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → Binder.getNativeBBinderHolder()
+          → NativeAllocationRegistry.registerNativeAllocation()
+          → <android.content.BroadcastReceiver: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.shealth.SamsungHealthService
+  Method:   <com.android.server.shealth.SamsungHealthService: void backgroundAllowlist(android.content.Context)>
+  Line:     94
+  Register: v1 := "com.sec.android.app.shealth"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.shealth.SamsungHealthService: void -$$Ne
+      ← <com.android.server.shealth.SamsungHealthService: void <init
+        ← SamsungHealthService$UpdateReceiver.onReceive()
+        ← <com.android.server.SystemServer: void lambda$startOtherServ
+          ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+            ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → IActivityManager.backgroundAllowlistUid()
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+

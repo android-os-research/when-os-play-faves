@@ -1,0 +1,63 @@
+######################################################################
+# Propagation: com.samsung.android.knox.pushmanager
+######################################################################
+
+JARs:                 knoxsdk, services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.kpm.KnoxPushService
+  Method:   <com.samsung.android.knox.kpm.KnoxPushService: boolean bindService()>
+  Line:     2864
+  Register: v2 := "com.samsung.android.knox.pushmanager"
+  Usage:    [invoke] invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← KnoxPushService.isRegistered()
+      ← KnoxPushService.registerDevice()
+      ← KnoxPushService.unRegisterDevice()
+        ← KnoxPushService.handlePendingRequest()
+          ← KnoxPushService$1.onServiceConnected()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setAction()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → IBinder.isBinderAlive()
+      → IInterface.asBinder()
+      → Exception.toString()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.license.EnterpriseLicenseService
+  Method:   <com.android.server.enterprise.license.EnterpriseLicenseService: void sendDeviceRegistrationIntentToKpmAgent(java.lang.String,java.lang.String)>
+  Line:     8118
+  Register: p2 := "com.samsung.android.knox.pushmanager"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] p2 overwritten
+
+  CALLERS (who invokes this method):
+      ← EnterpriseLicenseService.processKnoxLicenseResponse()
+      ← EnterpriseLicenseService.processLicenseActivationResponse()
+      ← EnterpriseLicenseService.processLicenseValidationResult()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+

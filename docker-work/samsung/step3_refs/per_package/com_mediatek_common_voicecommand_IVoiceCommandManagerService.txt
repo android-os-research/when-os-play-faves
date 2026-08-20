@@ -1,0 +1,11 @@
+# com.mediatek.common.voicecommand.IVoiceCommandManagerService [NEW]
+# Refs: 7
+# JARs: mediatek-common
+
+<com.mediatek.common.voicecommand.IVoiceCommandManagerService$Stub$Proxy: int registerListener(java.lang.String,com.mediatek.common.voicecommand.IVoiceCommandListener)>
+<com.mediatek.common.voicecommand.IVoiceCommandManagerService$Stub$Proxy: int sendCommand(java.lang.String,int,int,android.os.Bundle)>
+<com.mediatek.common.voicecommand.IVoiceCommandManagerService$Stub$Proxy: int unregisterListener(java.lang.String,com.mediatek.common.voicecommand.IVoiceCommandListener)>
+<com.mediatek.common.voicecommand.IVoiceCommandManagerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.common.voicecommand.IVoiceCommandManagerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.common.voicecommand.IVoiceCommandManagerService$Stub: com.mediatek.common.voicecommand.IVoiceCommandManagerService asInterface(android.os.IBinder)>
+<com.mediatek.common.voicecommand.IVoiceCommandManagerService$Stub: void <init>()>

@@ -1,0 +1,7 @@
+# ro.adb.secure [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.sysprop.AdbProperties: java.util.Optional secure()>
+<android.sysprop.AdbProperties: void secure(java.lang.Boolean)>
+<com.android.server.enterprise.restriction.DeveloperModeSettings: boolean resetUsbAuth()>

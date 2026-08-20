@@ -1,0 +1,53 @@
+######################################################################
+# Propagation: com.sec.android.AutoPreconfig
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        PKG_MGMT
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.install.SilentUninstallerList
+  Method:   <com.samsung.android.server.pm.install.SilentUninstallerList: void <init>()>
+  Line:     43
+  Register: v9 := "com.sec.android.AutoPreconfig"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v0 .. v15}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+      ← <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+        ← <com.android.server.pm.AsecInstallHelper: void <init>(com.an
+        ← InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+        ← InstallPackageHelper.commitPackagesLocked() [PKG_MGMT]
+        ← PackageInstallerSession.onSystemDataLoaderUnrecoverable()
+        ← <com.android.server.pm.PackageManagerService: void <init>(co
+          ← InstallPackageHelper.handlePackagePostInstall() [PKG_MGMT]
+          ← PackageHandler.doHandleMessage()
+          ← <com.android.server.pm.PackageManagerService: void <init>(co
+          ← InstallPackageHelper.addForInitLI() [PKG_MGMT]
+          ← InstallPackageHelper.installPackagesLI() [PKG_MGMT]
+          ← <com.android.server.pm.PackageInstallerSession: void -$$Nest
+          ← PackageManagerService.main()
+            ← PackageHandler.handleMessage()
+            ← InstallPackageHelper.addSamsungOverlayForInitLI() [PKG_MGMT]
+            ← InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesFromAppRootDir() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesFromDir() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesTracedLI() [PKG_MGMT]
+            ← PackageInstallerSession$6.onStatusChanged()
+            ← SystemServer.startBootstrapServices()
+              ← PackageManagerService$PackageManagerInternalImpl.parseSamsungThemeOverlayPackages()
+              ← InstallPackageHelper.scanSystemPackageTracedLI() [PKG_MGMT]
+              ← <com.android.server.pm.InstallPackageHelper: void lambda$upd [PKG_MGMT]
+              ← InitAppsHelper.scanDirTracedLI()
+              ← InstallPackageHelper.processInstallRequests() [PKG_MGMT]
+              ← SystemServer.run()
+

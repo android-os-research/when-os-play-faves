@@ -1,0 +1,8 @@
+# android.hardware.uwb [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: boolean isUwbSupported()>
+<com.android.server.enterprise.adapterlayer.UwbManagerAdapter: boolean isUwbSupported(android.content.Context)>
+<com.android.server.enterprise.restriction.RestrictionPolicy: boolean allowUWB(com.samsung.android.knox.ContextInfo,boolean)>

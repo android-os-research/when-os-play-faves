@@ -1,0 +1,9 @@
+# android.os.incremental.IStorageHealthListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.incremental.IStorageHealthListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.incremental.IStorageHealthListener$Stub$Proxy: void onHealthStatus(int,int)>
+<android.os.incremental.IStorageHealthListener$Stub: android.os.incremental.IStorageHealthListener asInterface(android.os.IBinder)>
+<android.os.incremental.IStorageHealthListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.incremental.IStorageHealthListener$Stub: void <init>()>

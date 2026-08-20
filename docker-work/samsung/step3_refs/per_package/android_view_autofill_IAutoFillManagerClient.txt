@@ -1,0 +1,26 @@
+# android.view.autofill.IAutoFillManagerClient [NEW]
+# Refs: 22
+# JARs: framework
+
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void authenticate(int,int,android.content.IntentSender,android.content.Intent,boolean)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void autofill(int,java.util.List,java.util.List,boolean)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void autofillContent(int,android.view.autofill.AutofillId,android.content.ClipData)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void dispatchUnhandledKey(int,android.view.autofill.AutofillId,android.view.KeyEvent)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void getAugmentedAutofillClient(com.android.internal.os.IResultReceiver)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void notifyDisableAutofill(long,android.content.ComponentName)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void notifyFillDialogTriggerIds(java.util.List)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void notifyFillUiHidden(int,android.view.autofill.AutofillId)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void notifyFillUiShown(int,android.view.autofill.AutofillId)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void notifyNoFillUi(int,android.view.autofill.AutofillId,int)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void requestHideFillUi(int,android.view.autofill.AutofillId)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void requestShowFillUi(int,android.view.autofill.AutofillId,int,int,android.graphics.Rect,android.view.autofill.IAutofillWindowPresenter)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void requestShowSoftInput(android.view.autofill.AutofillId)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void setSaveUiState(int,boolean)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void setSessionFinished(int,java.util.List)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void setState(int)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void setTrackedViews(int,android.view.autofill.AutofillId[],boolean,boolean,android.view.autofill.AutofillId[],android.view.autofill.AutofillId)>
+<android.view.autofill.IAutoFillManagerClient$Stub$Proxy: void startIntentSender(android.content.IntentSender,android.content.Intent)>
+<android.view.autofill.IAutoFillManagerClient$Stub: android.view.autofill.IAutoFillManagerClient asInterface(android.os.IBinder)>
+<android.view.autofill.IAutoFillManagerClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.autofill.IAutoFillManagerClient$Stub: void <init>()>

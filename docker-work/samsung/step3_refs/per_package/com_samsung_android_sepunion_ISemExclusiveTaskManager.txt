@@ -1,0 +1,9 @@
+# com.samsung.android.sepunion.ISemExclusiveTaskManager [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.sepunion.ISemExclusiveTaskManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.sepunion.ISemExclusiveTaskManager$Stub$Proxy: java.util.List getExclusiveTaskList(java.lang.String)>
+<com.samsung.android.sepunion.ISemExclusiveTaskManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.sepunion.ISemExclusiveTaskManager$Stub: com.samsung.android.sepunion.ISemExclusiveTaskManager asInterface(android.os.IBinder)>
+<com.samsung.android.sepunion.ISemExclusiveTaskManager$Stub: void <init>()>

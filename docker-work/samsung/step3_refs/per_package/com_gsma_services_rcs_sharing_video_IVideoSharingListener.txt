@@ -1,0 +1,10 @@
+# com.gsma.services.rcs.sharing.video.IVideoSharingListener [NEW]
+# Refs: 6
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.sharing.video.IVideoSharingListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.sharing.video.IVideoSharingListener$Stub$Proxy: void onDeleted(com.gsma.services.rcs.contact.ContactId,java.util.List)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingListener$Stub$Proxy: void onStateChanged(com.gsma.services.rcs.contact.ContactId,java.lang.String,com.gsma.services.rcs.sharing.video.VideoSharing$State,com.gsma.services.rcs.sharing.video.VideoSharing$ReasonCode)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingListener$Stub: com.gsma.services.rcs.sharing.video.IVideoSharingListener asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingListener$Stub: void <init>()>

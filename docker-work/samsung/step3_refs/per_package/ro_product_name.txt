@@ -1,0 +1,15 @@
+# ro.product.name [NEW]
+# Refs: 11
+# JARs: framework, services
+
+<android.os.Build: java.lang.String deriveFingerprint()>
+<android.os.Build: void <clinit>()>
+<com.android.server.FMRadioService: java.lang.String getPropertyProductName()>
+<com.android.server.SystemConfig: void readAerSupportedFromXml(int)>
+<com.android.server.cocktailbar.utils.CocktailBarConfig: void parseEdgeConfig()>
+<com.android.server.enterprise.application.ApplicationPolicy: java.util.List getHomeShortcuts(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: boolean isNoteVzwProject()>
+<com.android.server.enterprise.device.DeviceInfo: java.lang.String getModelName(com.samsung.android.knox.ContextInfo)>
+<com.android.server.location.gnss.GnssLocationProviderSec: void setSktSuplVer()>
+<com.android.server.pm.PackageSessionVerifier: java.util.List submitSessionToApexService(com.android.server.pm.StagingManager$StagedSession,int)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: boolean isSprintOreoMRUpgradeModel()>

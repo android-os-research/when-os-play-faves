@@ -1,0 +1,9 @@
+# com.att.iqi.IMetricSourcingCallback [NEW]
+# Refs: 5
+# JARs: services
+
+<com.att.iqi.IMetricSourcingCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.att.iqi.IMetricSourcingCallback$Stub$Proxy: void onMetricSourced(com.att.iqi.lib.Metric$ID,byte[])>
+<com.att.iqi.IMetricSourcingCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.att.iqi.IMetricSourcingCallback$Stub: com.att.iqi.IMetricSourcingCallback asInterface(android.os.IBinder)>
+<com.att.iqi.IMetricSourcingCallback$Stub: void <init>()>

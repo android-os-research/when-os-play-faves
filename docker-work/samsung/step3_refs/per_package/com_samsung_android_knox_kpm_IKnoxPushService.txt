@@ -1,0 +1,11 @@
+# com.samsung.android.knox.kpm.IKnoxPushService [NEW]
+# Refs: 7
+# JARs: knoxsdk
+
+<com.samsung.android.knox.kpm.IKnoxPushService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.kpm.IKnoxPushService$Stub$Proxy: void isRegistered(com.samsung.android.knox.kpm.IKnoxPushServiceCallback)>
+<com.samsung.android.knox.kpm.IKnoxPushService$Stub$Proxy: void registerDevice(boolean,com.samsung.android.knox.kpm.IKnoxPushServiceCallback)>
+<com.samsung.android.knox.kpm.IKnoxPushService$Stub$Proxy: void unRegisterDevice(com.samsung.android.knox.kpm.IKnoxPushServiceCallback)>
+<com.samsung.android.knox.kpm.IKnoxPushService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.kpm.IKnoxPushService$Stub: com.samsung.android.knox.kpm.IKnoxPushService asInterface(android.os.IBinder)>
+<com.samsung.android.knox.kpm.IKnoxPushService$Stub: void <init>()>

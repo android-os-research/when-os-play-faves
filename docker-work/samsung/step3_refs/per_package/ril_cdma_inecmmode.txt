@@ -1,0 +1,8 @@
+# ril.cdma.inecmmode [NEW]
+# Refs: 4
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional in_ecm_mode()>
+<android.internal.telephony.sysprop.TelephonyProperties: void in_ecm_mode(java.lang.Boolean)>
+<android.sysprop.TelephonyProperties: java.util.Optional in_ecm_mode()>
+<android.sysprop.TelephonyProperties: void in_ecm_mode(java.lang.Boolean)>

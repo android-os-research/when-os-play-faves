@@ -1,0 +1,22 @@
+# com.samsung.android.desktopmode.IDesktopMode [NEW]
+# Refs: 18
+# JARs: framework
+
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: android.os.Bundle getDesktopModeKillPolicy()>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: android.os.Bundle sendMessage(android.os.Bundle)>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: boolean isAllowed()>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: boolean isDesktopDockConnected()>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: boolean isDesktopMode()>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: boolean isDeviceConnected()>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: boolean registerBlocker(com.samsung.android.desktopmode.IDesktopModeBlocker,java.lang.String)>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: boolean registerDesktopModeListener(com.samsung.android.desktopmode.IDesktopModeListener,java.lang.String)>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: boolean unregisterBlocker(com.samsung.android.desktopmode.IDesktopModeBlocker)>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: boolean unregisterDesktopModeListener(com.samsung.android.desktopmode.IDesktopModeListener)>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: com.samsung.android.desktopmode.SemDesktopModeState getDesktopModeState()>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: void onSecuredAppLaunched(android.os.IBinder,java.lang.String)>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: void registerDesktopLauncher(com.samsung.android.desktopmode.IDesktopModeLauncher)>
+<com.samsung.android.desktopmode.IDesktopMode$Stub$Proxy: void scheduleUpdateDesktopMode(boolean)>
+<com.samsung.android.desktopmode.IDesktopMode$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.desktopmode.IDesktopMode$Stub: com.samsung.android.desktopmode.IDesktopMode asInterface(android.os.IBinder)>
+<com.samsung.android.desktopmode.IDesktopMode$Stub: void <init>()>

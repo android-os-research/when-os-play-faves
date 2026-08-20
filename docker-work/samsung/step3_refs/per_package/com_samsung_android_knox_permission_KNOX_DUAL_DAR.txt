@@ -1,0 +1,6 @@
+# com.samsung.android.knox.permission.KNOX_DUAL_DAR [NEW]
+# Refs: 2
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.dualdar.DualDARPolicy: com.samsung.android.knox.ContextInfo enforceDualDARPermission(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

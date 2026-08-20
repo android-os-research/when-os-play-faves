@@ -1,0 +1,12 @@
+# com.samsung.android.knox.hdm.IHdmManager [NEW]
+# Refs: 8
+# JARs: knoxsdk
+
+<com.samsung.android.knox.hdm.IHdmManager$Stub$Proxy: int setHdmTaCmd(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.hdm.IHdmManager$Stub$Proxy: java.lang.String getHdmId(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.hdm.IHdmManager$Stub$Proxy: java.lang.String getHdmPolicy(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.hdm.IHdmManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.hdm.IHdmManager$Stub$Proxy: java.lang.String setHdmPolicy(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.hdm.IHdmManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.hdm.IHdmManager$Stub: com.samsung.android.knox.hdm.IHdmManager asInterface(android.os.IBinder)>
+<com.samsung.android.knox.hdm.IHdmManager$Stub: void <init>()>

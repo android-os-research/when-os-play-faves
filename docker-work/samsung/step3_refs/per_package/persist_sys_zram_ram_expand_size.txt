@@ -1,0 +1,6 @@
+# persist.sys.zram.ram_expand_size [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.NandswapManager: int getRamExpandSizePersistProp()>
+<com.android.server.NandswapManager: void setRamExpandSizePersistProp(int)>

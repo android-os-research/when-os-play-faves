@@ -1,0 +1,6 @@
+# persist.radio.override_pse911 [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional override_ps_e911()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void override_ps_e911(java.lang.Boolean)>

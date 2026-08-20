@@ -1,0 +1,7 @@
+# com.samsung.android.knox.containeragent.switcher.GlobalSettingsIcon [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxIcon(java.lang.String,java.lang.String,int)>
+<com.samsung.android.knox.KnoxHelper: java.util.List convertToActivityList(android.content.Context,android.content.pm.ParceledListSlice,android.os.UserHandle,boolean)>
+<com.samsung.android.knox.KnoxHelper: java.util.List convertToActivityList(android.content.Context,android.content.pm.ParceledListSlice,android.os.UserHandle,boolean,java.util.List)>

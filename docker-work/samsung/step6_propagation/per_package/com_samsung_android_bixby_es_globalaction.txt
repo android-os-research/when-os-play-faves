@@ -1,0 +1,31 @@
+######################################################################
+# Propagation: com.samsung.android.bixby.es.globalaction
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: void <clinit>()>
+  Line:     2123
+  Register: v7 := "com.samsung.android.bixby.es.globalaction"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v11}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Uri.parse()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+

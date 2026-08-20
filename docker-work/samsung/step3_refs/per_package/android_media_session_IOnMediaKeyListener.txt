@@ -1,0 +1,9 @@
+# android.media.session.IOnMediaKeyListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.session.IOnMediaKeyListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.session.IOnMediaKeyListener$Stub$Proxy: void onMediaKey(android.view.KeyEvent,android.os.ResultReceiver)>
+<android.media.session.IOnMediaKeyListener$Stub: android.media.session.IOnMediaKeyListener asInterface(android.os.IBinder)>
+<android.media.session.IOnMediaKeyListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.session.IOnMediaKeyListener$Stub: void <init>()>

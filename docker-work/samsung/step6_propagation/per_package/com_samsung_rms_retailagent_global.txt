@@ -1,0 +1,32 @@
+######################################################################
+# Propagation: com.samsung.rms.retailagent.global
+######################################################################
+
+JARs:                 hqm
+Classes:              1
+Occurrences:          1
+Usage types:          field_store
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      hqm
+  Class:    c.k
+  Method:   <c.k: void <clinit>()>
+  Line:     206
+  Register: v0 := "com.samsung.rms.retailagent.global"
+  Usage:    [field_store] sput-object v0, Lc/k;->d0:Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [field_store] c.k.e0 → [other] new-instance v0, Ljava/util/ArrayList; → [invoke] java.util.ArrayList.<init>() → [field_s
+
+  CALLEES (what this method invokes):
+      → <android.os.HqmStatsImpl: void <init>()>
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.LinkedHashMap: void <init>()>
+        → <android.util.ArrayMap: void <init>()>
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.allocArrays()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+

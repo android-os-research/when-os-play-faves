@@ -1,0 +1,5 @@
+# pm.boot.disable_package_cache [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.pm.PackageManagerServiceUtils: java.io.File preparePackageParserCache(boolean,boolean,java.lang.String)>

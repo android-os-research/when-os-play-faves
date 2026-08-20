@@ -1,0 +1,6 @@
+# ro.surface_flinger.supports_background_blur [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<android.sysprop.SurfaceFlingerProperties: java.util.Optional supports_background_blur()>
+<android.view.CrossWindowBlurListeners: void <clinit>()>

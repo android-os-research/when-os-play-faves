@@ -1,0 +1,6 @@
+# com.sec.android.inputmethod.Subtype [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.inputmethod.InputMethodManagerService$KeyboardSubTypeReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.inputmethod.InputMethodManagerService: void registerSamsungAdditionalReceivers()>

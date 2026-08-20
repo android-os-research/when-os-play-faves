@@ -1,0 +1,6 @@
+# telephony.active_modems.max_count [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional max_active_modems()>
+<android.sysprop.TelephonyProperties: java.util.Optional max_active_modems()>

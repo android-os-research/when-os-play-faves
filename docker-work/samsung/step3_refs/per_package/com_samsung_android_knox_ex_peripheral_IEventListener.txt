@@ -1,0 +1,11 @@
+# com.samsung.android.knox.ex.peripheral.IEventListener [NEW]
+# Refs: 7
+# JARs: knoxsdk
+
+<com.samsung.android.knox.ex.peripheral.IEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.ex.peripheral.IEventListener$Stub$Proxy: void onEvent(int,android.os.Bundle)>
+<com.samsung.android.knox.ex.peripheral.IEventListener$Stub$Proxy: void onFail(java.lang.String)>
+<com.samsung.android.knox.ex.peripheral.IEventListener$Stub$Proxy: void onSuccess()>
+<com.samsung.android.knox.ex.peripheral.IEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.ex.peripheral.IEventListener$Stub: com.samsung.android.knox.ex.peripheral.IEventListener asInterface(android.os.IBinder)>
+<com.samsung.android.knox.ex.peripheral.IEventListener$Stub: void <init>()>

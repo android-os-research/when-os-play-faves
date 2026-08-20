@@ -1,0 +1,7 @@
+# sys.userspace_reboot.log.last_started [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.UserspaceRebootLogger: int computeOutcome()>
+<com.android.server.UserspaceRebootLogger: void logEventAsync(boolean,java.util.concurrent.Executor)>
+<com.android.server.UserspaceRebootLogger: void noteUserspaceRebootWasRequested()>

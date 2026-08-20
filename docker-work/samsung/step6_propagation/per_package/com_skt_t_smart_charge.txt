@@ -1,0 +1,33 @@
+######################################################################
+# Propagation: com.skt.t_smart_charge
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.globalactions.util.TSafeLockUtil
+  Method:   <com.samsung.android.globalactions.util.TSafeLockUtil: boolean isTSafeLock()>
+  Line:     56
+  Register: v4 := "com.skt.t_smart_charge"
+  Usage:    [invoke] invoke-virtual {v2, v4, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v4 overwritten
+
+  CALLERS (who invokes this method):
+      ← SystemConditionChecker.isEnabled()
+        ← SystemConditionChecker.isEnabled()
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → Settings$System.getInt()
+

@@ -1,0 +1,7 @@
+# com.sec.android.diagmonagent.intent.REPORT_ERROR_V2 [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.BootReceiver: void sendToDiagmon(android.content.Context,java.lang.String,java.lang.String)>
+<com.android.server.HermesService: void reportToDiagmon()>
+<com.android.server.locksettings.LockSettingsServiceLog: void sendToDiagmon(int)>

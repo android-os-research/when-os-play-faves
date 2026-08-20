@@ -1,0 +1,21 @@
+# com.gsma.services.rcs.capability.ICapabilityService [NEW]
+# Refs: 17
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: boolean isServiceRegistered()>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: com.gsma.services.rcs.capability.Capabilities getContactCapabilities(com.gsma.services.rcs.contact.ContactId)>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: com.gsma.services.rcs.capability.Capabilities getMyCapabilities()>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: int getServiceVersion()>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: void addCapabilitiesListener(com.gsma.services.rcs.capability.ICapabilitiesListener)>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: void addContactCapabilitiesListener(com.gsma.services.rcs.contact.ContactId,com.gsma.services.rcs.capability.ICapabilitiesListener)>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: void addEventListener(com.gsma.services.rcs.IRcsServiceRegistrationListener)>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: void removeCapabilitiesListener(com.gsma.services.rcs.capability.ICapabilitiesListener)>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: void removeContactCapabilitiesListener(com.gsma.services.rcs.contact.ContactId,com.gsma.services.rcs.capability.ICapabilitiesListener)>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: void removeEventListener(com.gsma.services.rcs.IRcsServiceRegistrationListener)>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: void requestAllContactsCapabilities()>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: void requestContactCapabilities(com.gsma.services.rcs.contact.ContactId)>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub$Proxy: void setUserActive(boolean)>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub: com.gsma.services.rcs.capability.ICapabilityService asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.capability.ICapabilityService$Stub: void <init>()>

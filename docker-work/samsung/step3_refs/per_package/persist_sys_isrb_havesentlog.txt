@@ -1,0 +1,7 @@
+# persist.sys.isrb_havesentlog [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.BootReceiver: void logBootEvents(android.content.Context)>
+<com.android.server.BootReceiver: void sendResetLog(android.content.Context,java.lang.String)>
+<com.android.server.BootReceiver: void setISRBmode()>

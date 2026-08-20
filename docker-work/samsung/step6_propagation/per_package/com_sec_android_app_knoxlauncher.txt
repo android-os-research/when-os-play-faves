@@ -1,0 +1,36 @@
+######################################################################
+# Propagation: com.sec.android.app.knoxlauncher
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.sec.clipboard.util.ClipboardPolicyObserver
+  Method:   <android.sec.clipboard.util.ClipboardPolicyObserver: boolean isKnoxVersion1(java.lang.String)>
+  Line:     771
+  Register: v0 := "com.sec.android.app.knoxlauncher"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v0 → [branch] if-nez v0, :cond_23
+
+  CALLERS (who invokes this method):
+      ← ClipboardPolicyObserver.isPackageAllowed()
+        ← ClipboardService$ClipboardImpl.isClipboardAllowed()
+          ← ClipboardService$ClipboardImpl.getPrimaryClip()
+          ← ClipboardService$ClipboardImpl.hasPrimaryClip()
+          ← ClipboardService$ClipboardImpl.checkAndSetPrimaryClip()
+            ← ClipboardService$ClipboardImpl.setPrimaryClip()
+            ← ClipboardService$ClipboardImpl.setPrimaryClipAsPackage()
+
+  CALLEES (what this method invokes):
+      → TextUtils.isEmpty()
+        → CharSequence.length()
+

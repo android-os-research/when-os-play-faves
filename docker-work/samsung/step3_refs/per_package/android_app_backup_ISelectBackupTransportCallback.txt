@@ -1,0 +1,10 @@
+# android.app.backup.ISelectBackupTransportCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.backup.ISelectBackupTransportCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.backup.ISelectBackupTransportCallback$Stub$Proxy: void onFailure(int)>
+<android.app.backup.ISelectBackupTransportCallback$Stub$Proxy: void onSuccess(java.lang.String)>
+<android.app.backup.ISelectBackupTransportCallback$Stub: android.app.backup.ISelectBackupTransportCallback asInterface(android.os.IBinder)>
+<android.app.backup.ISelectBackupTransportCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.backup.ISelectBackupTransportCallback$Stub: void <init>()>

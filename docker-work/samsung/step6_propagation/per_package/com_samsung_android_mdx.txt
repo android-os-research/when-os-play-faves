@@ -1,0 +1,74 @@
+######################################################################
+# Propagation: com.samsung.android.mdx
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.remoteappmode.RFCommServiceLauncher
+  Method:   <com.android.server.remoteappmode.RFCommServiceLauncher: void bindService(android.content.Context)>
+  Line:     130
+  Register: v3 := "com.samsung.android.mdx"
+  Usage:    [invoke] invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← RemoteAppModeService.startRFCommService()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.bindService()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → Log.e()
+      → Log.i()
+        → Log.save()
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+            → ArrayList.add()
+            → ArrayList.size()
+            → ArrayList.set()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.remoteappmode.RFCommServiceLauncher
+  Method:   <com.android.server.remoteappmode.RFCommServiceLauncher: void sendBroadcast(android.content.Context,android.content.Intent)>
+  Line:     213
+  Register: v2 := "com.samsung.android.mdx"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] iget-object v2, v0, Landroid/content/pm/ActivityInfo;->packa → [invoke] and
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.remoteappmode.RFCommServiceLauncher: voi
+        ← <com.android.server.remoteappmode.RFCommServiceLauncher$1: v
+          ← <com.android.server.remoteappmode.RFCommServiceLauncher$1: v
+            ← RFCommServiceLauncher$1$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getPackageManager()
+      → Context.sendBroadcast()
+      → Intent.setComponent()
+      → PackageManager.queryBroadcastReceivers()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+

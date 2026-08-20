@@ -1,0 +1,11 @@
+# com.gsma.services.rcs.sharing.geoloc.IGeolocSharingListener [NEW]
+# Refs: 7
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingListener$Stub$Proxy: void onDeleted(com.gsma.services.rcs.contact.ContactId,java.util.List)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingListener$Stub$Proxy: void onProgressUpdate(com.gsma.services.rcs.contact.ContactId,java.lang.String,long,long)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingListener$Stub$Proxy: void onStateChanged(com.gsma.services.rcs.contact.ContactId,java.lang.String,com.gsma.services.rcs.sharing.geoloc.GeolocSharing$State,com.gsma.services.rcs.sharing.geoloc.GeolocSharing$ReasonCode)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingListener$Stub: com.gsma.services.rcs.sharing.geoloc.IGeolocSharingListener asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingListener$Stub: void <init>()>

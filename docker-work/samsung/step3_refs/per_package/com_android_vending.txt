@@ -1,0 +1,21 @@
+# com.android.vending [NEW]
+# Refs: 17
+# JARs: duraspeed, framework, semwifi-service, services
+
+<android.app.ApplicationErrorReport: android.content.ComponentName getErrorReportReceiver(android.content.Context,java.lang.String,int)>
+<com.android.server.alarm.GmsAlarmManager: java.util.ArrayList updateMultiUserGmsUid(int)>
+<com.android.server.alarm.GmsAlarmManager: void <init>(android.content.Context)>
+<com.android.server.am.OomAdjuster: void <init>(com.android.server.am.ActivityManagerService,com.android.server.am.ProcessList,com.android.server.am.ActiveUids,com.android.server.ServiceThread)>
+<com.android.server.biometrics.Utils: boolean isRuneStoneApp(android.content.Context,java.lang.String)>
+<com.android.server.enterprise.application.ApplicationPolicy: java.lang.String[] getConcentrationModeSuspendPackages(java.util.List,java.util.List,java.lang.String)>
+<com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+<com.android.server.enterprise.application.ApplicationPolicy: void setAndroidMarketState(com.samsung.android.knox.ContextInfo,boolean)>
+<com.android.server.ibs.IntelligentBatterySaverGoogleAppPolicy: void init()>
+<com.android.server.knox.ContainerDependencyWrapper: void setApplicationBlackList(android.content.Context,java.util.List,int)>
+<com.android.server.pm.InstallPackageHelper: com.android.server.pm.PrepareResult preparePackageLI(com.android.server.pm.InstallArgs,com.android.server.pm.PackageInstalledInfo)>
+<com.android.server.pm.InstallPackageHelper: void handlePackagePostInstall(com.android.server.pm.PackageInstalledInfo,com.android.server.pm.InstallArgs,boolean)>
+<com.android.server.pm.PackageInstallerService: int createSessionInternal(android.content.pm.PackageInstaller$SessionParams,java.lang.String,java.lang.String,int)>
+<com.android.server.pm.PackageInstallerSession: void verifyNonStaged()>
+<com.mediatek.duraspeed.collector.q: void <clinit>()>
+<com.mediatek.duraspeed.suppress.b: void <clinit>()>
+<com.samsung.android.server.wifi.SemApeController: void initBlockedPackages()>

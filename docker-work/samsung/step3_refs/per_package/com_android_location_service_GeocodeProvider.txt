@@ -1,0 +1,6 @@
+# com.android.location.service.GeocodeProvider [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.location.GeocoderProxy: void <init>(android.content.Context,com.android.server.location.injector.Injector)>
+<com.android.server.location.GeocoderProxy: void <init>(android.content.Context,int,int,com.android.server.location.injector.Injector)>

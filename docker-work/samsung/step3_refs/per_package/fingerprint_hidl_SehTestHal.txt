@@ -1,0 +1,10 @@
+# fingerprint.hidl.SehTestHal [NEW]
+# Refs: 6
+# JARs: services
+
+<com.android.server.biometrics.sensors.fingerprint.hidl.SehTestHal: int authenticateTPA(long,int)>
+<com.android.server.biometrics.sensors.fingerprint.hidl.SehTestHal: int enrollTPA(byte[],int,int)>
+<com.android.server.biometrics.sensors.fingerprint.hidl.SehTestHal: void <init>(android.content.Context,int,boolean)>
+<com.android.server.biometrics.sensors.fingerprint.hidl.SehTestHal: void lambda$authenticateTPA$2(int)>
+<com.android.server.biometrics.sensors.fingerprint.hidl.SehTestHal: void lambda$enrollTPA$0()>
+<com.android.server.biometrics.sensors.fingerprint.hidl.SehTestHal: void sehRequest(int,int,java.util.ArrayList,vendor.samsung.hardware.biometrics.fingerprint.V3_0.ISehBiometricsFingerprint$sehRequestCallback)>

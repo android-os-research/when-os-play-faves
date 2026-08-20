@@ -1,0 +1,37 @@
+# com.android.shell [NEW]
+# Refs: 34
+# JARs: content, semwifi-service, services, telephony-common, uiautomator
+
+<com.android.commands.content.Content$Command: java.lang.String resolveCallingPackage()>
+<com.android.internal.telephony.Am: void runStartService(boolean)>
+<com.android.server.am.ActivityManagerService$ShellDelegate: android.app.SyncNotedAppOp noteOperation(int,int,java.lang.String,java.lang.String,boolean,java.lang.String,boolean,com.android.internal.util.function.HeptFunction)>
+<com.android.server.am.ActivityManagerService$ShellDelegate: android.app.SyncNotedAppOp noteProxyOperation(int,android.content.AttributionSource,boolean,java.lang.String,boolean,boolean,com.android.internal.util.function.HexFunction)>
+<com.android.server.am.ActivityManagerService$ShellDelegate: android.app.SyncNotedAppOp startOperation(android.os.IBinder,int,int,java.lang.String,java.lang.String,boolean,boolean,java.lang.String,boolean,int,int,com.android.internal.util.function.UndecFunction)>
+<com.android.server.am.ActivityManagerService$ShellDelegate: android.app.SyncNotedAppOp startProxyOperation(android.os.IBinder,int,android.content.AttributionSource,boolean,boolean,java.lang.String,boolean,boolean,int,int,int,com.android.internal.util.function.UndecFunction)>
+<com.android.server.am.ActivityManagerService$ShellDelegate: int checkAudioOperation(int,int,int,java.lang.String,com.android.internal.util.function.QuadFunction)>
+<com.android.server.am.ActivityManagerService$ShellDelegate: int checkOperation(int,int,java.lang.String,java.lang.String,boolean,com.android.internal.util.function.QuintFunction)>
+<com.android.server.am.ActivityManagerService$ShellDelegate: void finishProxyOperation(android.os.IBinder,int,android.content.AttributionSource,boolean,com.android.internal.util.function.QuadFunction)>
+<com.android.server.am.ActivityManagerService: void requestBugReportWithDescription(java.lang.String,java.lang.String,int,long,boolean)>
+<com.android.server.am.ActivityManagerShellCommand: int runGetInactive(java.io.PrintWriter)>
+<com.android.server.am.ActivityManagerShellCommand: int runGetStandbyBucket(java.io.PrintWriter)>
+<com.android.server.am.ActivityManagerShellCommand: int runPackageImportance(java.io.PrintWriter)>
+<com.android.server.am.ActivityManagerShellCommand: int runStartActivity(java.io.PrintWriter)>
+<com.android.server.am.ActivityManagerShellCommand: int runStartService(java.io.PrintWriter,boolean)>
+<com.android.server.am.ActivityManagerShellCommand: java.util.List getRecentConfigurations(int)>
+<com.android.server.am.AppProfiler: void handlePostDumpHeapNotification()>
+<com.android.server.am.BugReportHandlerUtil: boolean isShellApp(java.lang.String)>
+<com.android.server.am.ContentProviderHelper$DevelopmentSettingsObserver: void <init>(com.android.server.am.ContentProviderHelper)>
+<com.android.server.appop.AppOpsService: com.android.server.appop.AppOpsService$PackageVerificationResult verifyAndGetBypass(int,java.lang.String,java.lang.String,java.lang.String)>
+<com.android.server.location.gnss.sec.GnssConstants: void <clinit>()>
+<com.android.server.media.MediaSessionService$SessionManagerImpl: void onShellCommand(java.io.FileDescriptor,java.io.FileDescriptor,java.io.FileDescriptor,java.lang.String[],android.os.ShellCallback,android.os.ResultReceiver)>
+<com.android.server.om.OverlayManagerShellCommand: int runFabricate()>
+<com.android.server.pm.PackageManagerShellCommand: com.android.server.pm.PackageManagerShellCommand$InstallParams makeInstallParams(java.util.Set)>
+<com.android.server.pm.PackageManagerShellCommand: int runCreateUser()>
+<com.android.server.pm.PackageManagerShellCommand: int runRollbackApp()>
+<com.android.server.pm.PackageManagerShellCommand: int runSnapshotProfile()>
+<com.android.server.pm.PackageManagerShellCommand: int runSuspend(boolean)>
+<com.android.server.pm.permission.PermissionManagerService$ShellDelegate: int checkPermission(java.lang.String,java.lang.String,int,com.android.internal.util.function.TriFunction)>
+<com.android.server.profcollect.ProfcollectForwardingService: void lambda$packProfileReport$3(android.content.Context)>
+<com.android.server.vibrator.VibratorManagerService$VibratorManagerShellCommand$CommonOptions: void <init>(com.android.server.vibrator.VibratorManagerService$VibratorManagerShellCommand)>
+<com.android.uiautomator.core.ShellUiAutomatorBridge: java.lang.String resolveCallingPackage()>
+<com.samsung.android.server.wifi.diagnostics.WifiIssuePattern: boolean isApiCalledByNonSystemApk(java.lang.String)>

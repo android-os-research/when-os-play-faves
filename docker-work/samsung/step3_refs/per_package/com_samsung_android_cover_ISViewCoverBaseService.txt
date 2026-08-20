@@ -1,0 +1,14 @@
+# com.samsung.android.cover.ISViewCoverBaseService [NEW]
+# Refs: 10
+# JARs: framework
+
+<com.samsung.android.cover.ISViewCoverBaseService$Stub$Proxy: boolean isCoverViewShowing()>
+<com.samsung.android.cover.ISViewCoverBaseService$Stub$Proxy: int onCoverAppCovered(boolean)>
+<com.samsung.android.cover.ISViewCoverBaseService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.cover.ISViewCoverBaseService$Stub$Proxy: void onSViewCoverHide()>
+<com.samsung.android.cover.ISViewCoverBaseService$Stub$Proxy: void onSViewCoverShow()>
+<com.samsung.android.cover.ISViewCoverBaseService$Stub$Proxy: void onSystemReady()>
+<com.samsung.android.cover.ISViewCoverBaseService$Stub$Proxy: void updateCoverState(com.samsung.android.cover.CoverState)>
+<com.samsung.android.cover.ISViewCoverBaseService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.cover.ISViewCoverBaseService$Stub: com.samsung.android.cover.ISViewCoverBaseService asInterface(android.os.IBinder)>
+<com.samsung.android.cover.ISViewCoverBaseService$Stub: void <init>()>

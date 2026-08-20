@@ -1,0 +1,6 @@
+# sec.vold.ext_encrypted_type [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.DirEncryptServiceHelper: void doWorkForUSBState(java.lang.String)>
+<com.android.server.StorageManagerService$3: void onEncryptionStateChanged(java.lang.String,java.lang.String,java.lang.String)>

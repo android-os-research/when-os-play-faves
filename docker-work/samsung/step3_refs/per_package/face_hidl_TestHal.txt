@@ -1,0 +1,10 @@
+# face.hidl.TestHal [NEW]
+# Refs: 6
+# JARs: services
+
+<com.android.server.biometrics.sensors.face.hidl.TestHal: android.hardware.biometrics.face.V1_0.OptionalUint64 generateChallenge(int)>
+<com.android.server.biometrics.sensors.face.hidl.TestHal: int authenticate(long)>
+<com.android.server.biometrics.sensors.face.hidl.TestHal: int enroll(java.util.ArrayList,int,java.util.ArrayList)>
+<com.android.server.biometrics.sensors.face.hidl.TestHal: int enumerate()>
+<com.android.server.biometrics.sensors.face.hidl.TestHal: int remove(int)>
+<com.android.server.biometrics.sensors.face.hidl.TestHal: int resetLockout(java.util.ArrayList)>

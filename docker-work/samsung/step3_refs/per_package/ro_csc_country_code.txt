@@ -1,0 +1,25 @@
+# ro.csc.country_code [NEW]
+# Refs: 28
+# JARs: framework, motionrecognitionservice, semwifi-service, services
+
+<android.os.SemSystemProperties: java.lang.String getCountryCode()>
+<com.android.internal.app.LocaleStore: boolean isChina()>
+<com.android.server.alarm.AppSyncInfo: com.android.server.alarm.AppSyncWrapper createAppSync(android.content.Context)>
+<com.android.server.alarm.GmsAlarmManager: boolean isChn()>
+<com.android.server.alarm.GmsAlarmManager: boolean isHongkong()>
+<com.android.server.backup.UserBackupManagerService: java.util.Map semBackupPackagePath(android.os.ParcelFileDescriptor,java.lang.String[],java.lang.String,int,java.lang.String[])>
+<com.android.server.bgslotmanager.BGSlotManager: void <clinit>()>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void adjustKnoxGuardAdmin()>
+<com.android.server.location.gnss.sec.CarrierConfig: boolean isCanadaMarket()>
+<com.android.server.location.gnss.sec.CarrierConfig: boolean isUSAMarket()>
+<com.android.server.media.projection.MediaProjectionManagerService$BinderService: android.media.projection.IMediaProjection createProjection(int,java.lang.String,int,boolean)>
+<com.android.server.net.NetworkPolicyManagerService: boolean getRestrictBackgroundInLowerPowerMode()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.android.server.sepunion.cover.Feature: boolean isChinaModel()>
+<com.android.server.wm.ActivityManagerPerformance: void <clinit>()>
+<com.samsung.android.emergencymode.SemEmergencySettings: java.lang.String getEmergencyNumber(android.content.Context,android.content.ContentResolver,java.lang.String)>
+<com.samsung.android.gesture.MotionRecognitionSAR: boolean isKoreaPhoneType()>
+<com.samsung.android.knox.analytics.activation.ActivationMonitor: void checkChina()>
+<com.samsung.android.knoxguard.service.utils.Utils: boolean isChinaDevice()>
+<com.samsung.android.server.wifi.ap.SemSoftApManager: void disableSoftap()>

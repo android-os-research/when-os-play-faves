@@ -1,0 +1,19 @@
+# com.gsma.services.rcs.upload.IFileUploadService [NEW]
+# Refs: 15
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: boolean canUploadFile()>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: boolean isServiceRegistered()>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: com.gsma.services.rcs.upload.FileUploadServiceConfiguration getConfiguration()>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: com.gsma.services.rcs.upload.IFileUpload getFileUpload(java.lang.String)>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: com.gsma.services.rcs.upload.IFileUpload uploadFile(android.net.Uri,boolean)>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: int getServiceVersion()>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: java.util.List getFileUploads()>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: void addEventListener(com.gsma.services.rcs.IRcsServiceRegistrationListener)>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: void addFileUploadEventListener(com.gsma.services.rcs.upload.IFileUploadListener)>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: void removeEventListener(com.gsma.services.rcs.IRcsServiceRegistrationListener)>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub$Proxy: void removeFileUploadEventListener(com.gsma.services.rcs.upload.IFileUploadListener)>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub: com.gsma.services.rcs.upload.IFileUploadService asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.upload.IFileUploadService$Stub: void <init>()>

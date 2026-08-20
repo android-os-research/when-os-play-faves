@@ -1,0 +1,11 @@
+# android.hardware.radio.IRadioService [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.hardware.radio.IRadioService$Stub$Proxy: android.hardware.radio.ICloseHandle addAnnouncementListener(int[],android.hardware.radio.IAnnouncementListener)>
+<android.hardware.radio.IRadioService$Stub$Proxy: android.hardware.radio.ITuner openTuner(int,android.hardware.radio.RadioManager$BandConfig,boolean,android.hardware.radio.ITunerCallback)>
+<android.hardware.radio.IRadioService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.radio.IRadioService$Stub$Proxy: java.util.List listModules()>
+<android.hardware.radio.IRadioService$Stub: android.hardware.radio.IRadioService asInterface(android.os.IBinder)>
+<android.hardware.radio.IRadioService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.radio.IRadioService$Stub: void <init>()>

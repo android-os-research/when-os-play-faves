@@ -1,0 +1,1550 @@
+######################################################################
+# Propagation: com.google.android.gms
+######################################################################
+
+JARs:                 duraspeed, framework, knoxsdk, semwifi-service, services
+Classes:              17
+Occurrences:          25
+Usage types:          array_init, invoke
+Enforcement patterns: allowlist_check, early_return, package_enable_disable, permission_grant, string_compare, system_property_read
+Security tags:        APPOPS, DEVICE_ID, PERM_CHECK, PERM_FLAGS, PERM_GRANT, PKG_MGMT, PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.collector.q
+  Method:   <com.mediatek.duraspeed.collector.q: void <clinit>()>
+  Line:     79
+  Register: v12 := "com.google.android.gms"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.suppress.SuppressAction
+  Method:   <com.mediatek.duraspeed.suppress.SuppressAction: java.lang.String onReadyToStartComponent(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String)>
+  Line:     2730
+  Register: v0 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_2e → [other] sget-object v0, Lco
+
+  CALLEES (what this method invokes):
+      → SuppressAction.a()
+      → b.f()
+      → b.d()
+      → b.h()
+      → c.t()
+      → c.f()
+        → b.a()
+        → List.contains()
+        → List.remove()
+        → SystemProperties.get()
+        → Context.getContentResolver()
+        → Settings$Secure.getString()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.ChooserActivity
+  Method:   <com.android.internal.app.ChooserActivity: android.content.ComponentName getNearbyShareInternalComponent()>
+  Line:     11951
+  Register: v1 := "com.google.android.gms"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: (none)
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← ChooserActivity.convertSliceToChooserTarget()
+        ← ChooserActivity.callSliceDataFromProvider()
+          ← <com.android.internal.app.ChooserActivity: void -$$Nest$mcal
+            ← ChooserActivity$21.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.kpm.KnoxPushService
+  Method:   <com.samsung.android.knox.kpm.KnoxPushService: boolean isGMSCoreEnabled()>
+  Line:     6802
+  Register: v0 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/samsung/android/knox/kpm/KnoxPushService;->hasPackage(Ljava/lang/Strin
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.kpm.KnoxPushService.hasPackage() → [other] new-instance v0, Ljava/lang/StringBuilder; 
+
+  CALLERS (who invokes this method):
+      ← KnoxPushService.isSupported()
+        ← KnoxPushService.isRegistered()
+        ← KnoxPushService.registerDevice()
+        ← KnoxPushService.unRegisterDevice()
+          ← KnoxPushService.handlePendingRequest()
+            ← KnoxPushService$1.onServiceConnected()
+
+  CALLEES (what this method invokes):
+      → KnoxPushService.hasPackage()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemApeController
+  Method:   <com.samsung.android.server.wifi.SemApeController: void initBlockedPackages()>
+  Line:     563
+  Register: v1 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashSet.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.SemApeController: void <ini
+
+  CALLEES (what this method invokes):
+      → HashSet.add()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemWifiConnectivityMonitor
+  Method:   <com.samsung.android.server.wifi.SemWifiConnectivityMonitor: void <init>(android.content.Context,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.ISemInterfaceNameProvider,com.samsung.android.server.wifi.tcp.SemWifiSwitchForIndividualAppsService)>
+  Line:     2808
+  Register: v12 := "com.google.android.gms"
+  Usage:    [array_init] filled-new-array {v10, v11, v12, v13}, [Ljava/lang/String;
+  Patterns: string_compare, early_return
+  Flow:     [other] filled-new-array/range {v11 .. v21}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← SemWifiConnectivityMonitor.makeWifiConnectivityMonitor()
+        ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void <i
+          ← <com.samsung.android.server.wifi.SemWifiService: void <init>
+
+  CALLEES (what this method invokes):
+      → IUsageStatsManager$Stub.asInterface()
+      → IUsageStatsManager.registerUsageStatsWatcher()
+      → Context.getContentResolver()
+      → Context.getSystemService()
+      → IOverlayManager$Stub.asInterface()
+      → <android.net.wifi.WifiInfo: void <init>()>
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → ServiceManager.getService()
+      → <android.util.LruCache: void <init>(int)>
+      → <com.android.internal.util.StateMachine: void <init>(java.la
+      → SemFrameworkFacade.isComcastVendor()
+      → SemFrameworkFacade.isFactoryBinary()
+      → SemFrameworkFacade.isSetupwizardFinished()
+      → SemFrameworkFacade.isShowDataSelectPopupOnBootup()
+      → SemFrameworkFacade.isSnsDefaultOn()
+      → SemFrameworkFacade.setIntegerSetting()
+      → SemFrameworkFacade.getOpBranding()
+      → SemFrameworkFacade.getIntegerSetting()
+      → SemFrameworkFacade.getStringCscFeature()
+      → SemFrameworkFacade.getSystemProperties()
+      → SemWifiConfigManager.registerNetworkRemovedListener()
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → SemWifiConnectivityMonitor.isIndividualAppSupported()
+      → SemWifiConnectivityMonitor.getNetworkRemovedListener()
+      → SemWifiConnectivityMonitor.addState()
+      → SemWifiConnectivityMonitor.addState()
+      → SemWifiConnectivityMonitor.setInitialState()
+      → SemWifiConnectivityMonitor.setLogRecSize()
+      → SemWifiConnectivityMonitor.setResourceOverlayForChina()
+      → SemWifiConnectivityMonitor.updateCountryIsoCode()
+      → SemWifiInjector.getFrameworkFacade()
+      → SemWifiInjector.getWifiConfigManager()
+      → SemWifiInjector.getWifiLinkInfoCollector()
+      → SemWifiInjector.getWifiManagerProxy()
+      → SemWifiInjector.getWifiTrafficPoller()
+      → SemWifiInjector.getWifiBackOffController()
+      → SemWifiInjector.getWifiIssueDetector()
+      → SemWifiInjector.getWifiNative()
+      → SemWifiInjector.getMobileWipsFrameworkService()
+      → SemWifiInjector.getScanPoll()
+      → SemWifiManagerProxy.setWifiConnectedNetworkScorer()
+      → SemWifiManagerProxy.registerListener()
+      → <com.samsung.android.server.wifi.util.LogUtils: void <init>(
+      → ScanPool.registerScanResultUpdatedListener()
+      → <com.samsung.android.server.wifi.wcm.BssidStatistics: void <
+      → <com.samsung.android.server.wifi.wcm.NetworkStatsAnalyzer: v
+      → NetworkStatsAnalyzer.setCurrentWCMMode()
+      → NetworkStatsAnalyzer.setNetworkStatsAnalyzerCallBack()
+      → <com.samsung.android.server.wifi.wcm.QcFailHistory: void <in
+      → <com.samsung.android.server.wifi.wcm.ScoreQC: void <init>()>
+      → <com.samsung.android.server.wifi.wcm.SemWifiRssiBasePoller: 
+      → SemWifiRssiBasePoller.setSemWifiRssiBasePollerCallBack()
+      → WcmBigDataManager.getBigDataFeature()
+      → <com.samsung.android.server.wifi.wcm.WcmBigDataManager: void
+      → <com.samsung.android.server.wifi.wcm.WifiScoreMediator: void
+      → Exception.printStackTrace()
+      → Executors.newSingleThreadExecutor()
+      → <java.util.concurrent.atomic.AtomicBoolean: void <init>(bool
+        → <android.app.usage.IUsageStatsManager$Stub$Proxy: void <init
+        → IBinder.queryLocalInterface()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <java.util.LinkedHashMap: void <init>(int,float,boolean)>
+        → SemCscFeature.getBoolean()
+        → SemCscFeature.getInstance()
+        → SystemProperties.get()
+        → SemCscFeature.getString()
+        → Settings$Global.putInt()
+        → SemOpBrandingLoader.getInstance()
+        → SemOpBrandingLoader.getOpBranding()
+        → Settings$Global.getInt()
+        → Set.add()
+        → <com.samsung.android.app.usage.IUsageStatsWatcher$Stub: void
+        → <com.android.internal.util.State: void <init>()>
+        → SemWifiConnectivityMonitor$NetworkCallbackController.init()
+        → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+        → IOverlayManager.setEnabled()
+        → TelephonyManager.getNetworkCountryIso()
+        → SemWifiConnectivityMonitor.isChineseIso()
+        → SemWifiConnectivityMonitor.getCurrentTimeSimpleDateFormat()
+        → SemFrameworkFacade.isHotspotDongleProduct()
+        → SemWifiInjector.getBigDataLogManager()
+        → <com.samsung.android.server.wifi.diagnostics.WifiIssueDetect
+        → ScanPool.getInstance()
+        → WifiManager.setWifiConnectedNetworkScorer()
+        → <com.samsung.android.server.wifi.SemWifiManagerProxy$$Extern
+        → SemWifiThreadRunner.post()
+        → Debug.semIsProductDev()
+        → Pattern.compile()
+        → <com.samsung.android.server.wifi.wcm.BssidStatistics: void <
+        → <com.samsung.android.server.wifi.wcm.OpenNetworkQos: void <i
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → <java.util.ArrayList: void <init>()>
+        → HashMap.containsKey()
+        → HashMap.get()
+        → SemWifiInjector.getInstance()
+        → SemWifiInjector.getWifiVersionProvider()
+        → WcmBigDataManager.initialize()
+        → <java.util.HashMap: void <init>()>
+          → Hashtable.get()
+          → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → <com.samsung.android.wifi.SemOpBrandingLoader: void <init>()
+          → SemOpBrandingLoader.updateFromFile()
+          → <android.os.Binder: void <init>()>
+          → IUsageStatsWatcher$Stub.attachInterface()
+          → SemWifiConnectivityMonitor$NetworkCallbackController.registerConnectionNetworkCallback()
+          → SemWifiConnectivityMonitor$NetworkCallbackController.registerDefaultNetworkCallback()
+          → SimpleDateFormat.format()
+          → <android.icu.text.SimpleDateFormat: void <init>(java.lang.St
+          → <java.util.Date: void <init>()>
+          → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternApProble
+          → <com.samsung.android.server.wifi.diagnostics.PatternDhcpFail
+          → <com.samsung.android.server.wifi.diagnostics.PatternScanProb
+          → <com.samsung.android.server.wifi.diagnostics.PatternSystemPr
+          → <com.samsung.android.server.wifi.diagnostics.PatternWifiAppP
+          → <com.samsung.android.server.wifi.diagnostics.PatternWipsDisc
+          → WifiIssueDetector.loadHistory()
+          → WifiIssueDetector.registerIssuePattern()
+          → <java.util.HashSet: void <init>()>
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.add()
+          → List.addAll()
+          → List.iterator()
+          → <com.samsung.android.server.wifi.util.ScanPool: void <init>(
+          → Handler.post()
+          → <com.samsung.android.server.wifi.wcm.BssidStatistics$VolumeW
+          → <com.samsung.android.server.wifi.wcm.Constant: void <init>()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSCNT: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSSIV: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSSVI: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataTCPE: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataWFSN: void <i
+          → HashMap.put()
+          → HashMap.clear()
+            → SemCscFeature.loadFeatureFile()
+            → Exception.toString()
+            → <java.util.Hashtable: void <init>()>
+            → Environment.getLegacyExternalStorageDirectory()
+            → SemOpBrandingLoader.getVendorFromCsc()
+            → File.getPath()
+            → SemOpBrandingLoader$SemVendor.ordinal()
+            → SemOpBrandingLoader$SemVendor.name()
+            → SemOpBrandingLoader.getVendorFromFile()
+            → <android.os.Binder: void <init>(java.lang.String)>
+            → ConnectivityManager.registerNetworkCallback()
+            → NetworkRequest$Builder.build()
+            → NetworkRequest$Builder.addTransportType()
+            → NetworkRequest$Builder.removeCapability()
+            → <android.net.NetworkRequest$Builder: void <init>()>
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor:
+            → ConnectivityManager.registerDefaultNetworkCallback()
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+            → SemFrameworkFacade.isSupportedBigdataHqmService()
+            → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+            → WifiBigDataLogManager.isSupported()
+            → WifiBigDataLogManager.initialize()
+            → <com.samsung.android.server.wifi.diagnostics.WifiIssuePatter
+            → WifiIssueDetector.readFromFile()
+            → File.delete()
+            → File.exists()
+            → File.length()
+            → <java.io.File: void <init>(java.lang.String)>
+            → Collections.emptyList()
+            → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+            → <com.samsung.android.server.wifi.wcm.WcmBigDataFeature: void
+            → WcmBigDataSCNT.initialize()
+            → WcmBigDataSSVI.initialize()
+            → WcmBigDataTCPE.initialize()
+              → SemCscFeature.loadFeatureFile()
+              → SemOpBrandingLoader.getVendor()
+              → BufferedReader.readLine()
+              → <java.io.BufferedReader: void <init>(java.io.Reader)>
+              → BufferedReader.close()
+              → File.lastModified()
+              → <java.io.FileReader: void <init>(java.io.File)>
+              → IOException.printStackTrace()
+              → Throwable.addSuppressed()
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+              → <android.net.ConnectivityManager$NetworkCallback: void <init
+              → SemWifiConnectivityMonitor.getCm()
+              → SemFrameworkFacade.isSupportedBigdataSurveyMode()
+              → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+              → WifiBigDataLogManager.getSupportedBigDataFeatures()
+              → List.forEach()
+              → RandomAccessFile.readLine()
+              → <java.io.RandomAccessFile: void <init>(java.lang.String,java
+              → RandomAccessFile.close()
+              → List.size()
+              → List.remove()
+              → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemApeService
+  Method:   <com.samsung.android.server.wifi.SemApeService: void <init>(android.content.Context,android.os.HandlerThread,com.samsung.android.server.wifi.SemClientModeManager)>
+  Line:     618
+  Register: p0 := "com.google.android.gms"
+  Usage:    [invoke] invoke-interface {v1, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.List.add() → [reassigned] p0 overwritten
+
+  CALLEES (what this method invokes):
+      → HandlerThread.getLooper()
+      → <com.samsung.android.server.wifi.SemApeService$1: void <init
+      → <com.samsung.android.server.wifi.SemApeService$2: void <init
+      → <com.samsung.android.server.wifi.SemApeService$ApeHandler: v
+      → <com.samsung.android.server.wifi.SemApeService$Stats: void <
+      → SemApeService.logi()
+      → SemApeService.registerBroadcastReceivers()
+      → SemApeService.registerNetworkCallbacks()
+      → SemApeService.registerPrimaryInterfaceListener()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.LinkedList: void <init>()>
+      → List.add()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <android.net.ConnectivityManager$NetworkCallback: void <init
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → Context.registerReceiver()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → Context.getSystemService()
+        → ConnectivityManager.registerNetworkCallback()
+        → NetworkRequest$Builder.build()
+        → NetworkRequest$Builder.addTransportType()
+        → NetworkRequest$Builder.removeCapability()
+        → NetworkRequest$Builder.setUids()
+        → <android.net.NetworkRequest$Builder: void <init>()>
+        → <com.samsung.android.server.wifi.SemApeService$NetworkCallba
+        → <com.samsung.android.server.wifi.SemApeService$$ExternalSynt
+        → SemApeService.logd()
+        → SemClientModeManager.registerPrimaryInterfaceListener()
+          → <com.samsung.android.server.wifi.SemApeService$NetworkCallba
+          → <com.samsung.android.server.wifi.SemClientModeManager$$Exter
+          → SemWifiThreadRunner.post()
+            → Handler.post()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.silentroaming.SilentRoamingManager
+  Method:   <com.samsung.android.server.wifi.silentroaming.SilentRoamingManager: void <init>(android.content.Context,com.samsung.android.server.wifi.util.SemClock,android.os.Looper,com.samsung.android.server.wifi.halclient.SemWifiNative,com.samsung.android.server.wifi.SemWifiManagerProxy,com.samsung.android.server.wifi.SemWifiConfigManager,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.SemFrameworkFacade,android.util.LocalLog,com.samsung.android.server.wifi.silentroaming.SilentRoamingWifiInfo,com.samsung.android.server.wifi.silentroaming.SilentRoamingPnoScanner,com.samsung.android.server.wifi.silentroaming.SemThroughputPredictor,com.samsung.android.server.wifi.silentroaming.SemThroughputScorer)>
+  Line:     1402
+  Register: v8 := "com.google.android.gms"
+  Usage:    [array_init] filled-new-array {v3, v7, v8, v9}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v7 .. v17}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+        ← <com.samsung.android.server.wifi.SemWifiInjector: void <init
+          ← <com.samsung.android.server.wifi.SemWifiService: void <init>
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → <android.util.ArraySet: void <init>()>
+      → MessageUtils.findMessageNames()
+      → <com.android.internal.util.StateMachine: void <init>(java.la
+      → SemWifiInjector.getInterfaceNameProvider()
+      → SemWifiInjector.getWifiFeatureController()
+      → SemWifiInjector.getWifiIssueDetector()
+      → SemWifiInjector.getScanPoll()
+      → SemWifiInjector.getWifiNl80211Util()
+      → <com.samsung.android.server.wifi.silentroaming.SemScoringPar
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → SilentRoamingManager.addState()
+      → SilentRoamingManager.addState()
+      → SilentRoamingManager.registerForSettingsChanges()
+      → SilentRoamingManager.setInitialState()
+      → SilentRoamingManager.setLogRecSize()
+      → SilentRoamingManager.start()
+      → <com.samsung.android.server.wifi.util.LogUtils: void <init>(
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.HashSet: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → MessageUtils.findMessageNames()
+        → HandlerThread.getLooper()
+        → <android.os.HandlerThread: void <init>(java.lang.String)>
+        → HandlerThread.start()
+        → SemFrameworkFacade.isHotspotDongleProduct()
+        → SemWifiInjector.getBigDataLogManager()
+        → <com.samsung.android.server.wifi.diagnostics.WifiIssueDetect
+        → ScanPool.getInstance()
+        → <com.samsung.android.server.wifi.util.WifiNl80211Util: void 
+        → <com.android.internal.util.State: void <init>()>
+        → ContentResolver.registerContentObserver()
+        → Context.getContentResolver()
+        → SemFrameworkFacade.getUriFor()
+        → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+        → SilentRoamingManager.getHandler()
+        → Debug.semIsProductDev()
+        → Pattern.compile()
+          → ArraySet.allocArrays()
+          → SparseArray.get()
+          → <android.util.SparseArray: void <init>()>
+          → SparseArray.put()
+          → <com.android.internal.util.MessageUtils$DuplicateConstantErr
+          → Field.getInt()
+          → Field.getModifiers()
+          → Field.getName()
+          → Field.setAccessible()
+          → Modifier.isFinal()
+          → Modifier.isStatic()
+          → HandlerThread.isAlive()
+          → Thread.currentThread()
+          → Thread.interrupt()
+          → <java.lang.Thread: void <init>(java.lang.String)>
+          → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+          → <android.os.Handler: void <init>(android.os.Looper)>
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternApProble
+          → <com.samsung.android.server.wifi.diagnostics.PatternDhcpFail
+          → <com.samsung.android.server.wifi.diagnostics.PatternScanProb
+          → <com.samsung.android.server.wifi.diagnostics.PatternSystemPr
+          → <com.samsung.android.server.wifi.diagnostics.PatternWifiAppP
+          → <com.samsung.android.server.wifi.diagnostics.PatternWipsDisc
+          → WifiIssueDetector.loadHistory()
+          → WifiIssueDetector.registerIssuePattern()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.add()
+          → List.addAll()
+          → List.iterator()
+          → Set.add()
+          → <com.samsung.android.server.wifi.util.ScanPool: void <init>(
+          → Settings$Global.getUriFor()
+          → <android.database.ContentObserver: void <init>(android.os.Ha
+            → SparseArray.get()
+            → <android.util.SparseArray: void <init>(int)>
+            → ContainerHelpers.binarySearch()
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → <java.lang.Error: void <init>(java.lang.String)>
+            → SemFrameworkFacade.isSupportedBigdataHqmService()
+            → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+            → WifiBigDataLogManager.isSupported()
+            → WifiBigDataLogManager.initialize()
+            → <com.samsung.android.server.wifi.diagnostics.WifiIssuePatter
+            → WifiIssueDetector.readFromFile()
+            → File.delete()
+            → File.exists()
+            → File.length()
+            → <java.io.File: void <init>(java.lang.String)>
+            → Collections.emptyList()
+            → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+              → ArrayUtils.newUnpaddedObjectArray()
+              → SemFrameworkFacade.isSupportedBigdataSurveyMode()
+              → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+              → WifiBigDataLogManager.getSupportedBigDataFeatures()
+              → HashMap.clear()
+              → List.forEach()
+              → RandomAccessFile.readLine()
+              → <java.io.RandomAccessFile: void <init>(java.lang.String,java
+              → RandomAccessFile.close()
+              → Exception.printStackTrace()
+              → Throwable.addSuppressed()
+              → List.size()
+              → List.remove()
+              → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: void <clinit>()>
+  Line:     235
+  Register: v0 := "com.google.android.gms"
+  Usage:    [array_init] filled-new-array/range {v0 .. v11}, [Ljava/lang/String;
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.devicepolicy.DevicePolicyManagerService
+  Method:   <com.android.server.devicepolicy.DevicePolicyManagerService: void <clinit>()>
+  Line:     2834
+  Register: v2 := "com.google.android.gms"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.util.ArraySet: void <init>()>
+      → Set.add()
+      → Set.addAll()
+      → TimeUnit.toMillis()
+        → <android.util.ArraySet: void <init>(int,boolean)>
+          → ArraySet.allocArrays()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.GmsAlarmManager
+  Method:   <com.android.server.alarm.GmsAlarmManager: void <init>(android.content.Context)>
+  Line:     853
+  Register: v0 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {p1, v0, v1}, Landroid/content/pm/PackageManager;->getPackageUid(Ljava/lang/String;I)
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageUid() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← AlarmManagerService.onStart()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageUid()
+      → Uri.parse()
+      → UserHandle.getAppId()
+      → <com.android.server.alarm.GmsAlarmManager$1: void <init>(com
+      → GmsAlarmManager.isChn()
+      → GmsAlarmManager.isHongkong()
+      → SemFloatingFeature.getBoolean()
+      → SemFloatingFeature.getInstance()
+      → <java.util.ArrayList: void <init>()>
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → <android.content.BroadcastReceiver: void <init>()>
+        → SystemProperties.get()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.GmsAlarmManager
+  Method:   <com.android.server.alarm.GmsAlarmManager: boolean isGmsDelay12HourAlarm(android.app.PendingIntent)>
+  Line:     4347
+  Register: v1 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← GmsAlarmManager.schedulingGmsAlarms()
+        ← AlarmManagerService.setImplLocked()
+          ← AlarmManagerService.triggerAlarmsLocked()
+          ← AlarmManagerService.deliverPendingBackgroundAlarmsLocked()
+          ← AlarmManagerService.setImpl()
+            ← AlarmManagerService$AlarmHandler.handleMessage()
+            ← AlarmManagerService$AlarmThread.run()
+            ← AlarmManagerService.sendAllUnrestrictedPendingBackgroundAlarmsLocked()
+            ← AlarmManagerService.sendPendingBackgroundAlarmsLocked()
+            ← AlarmManagerService.sendPendingMARsRestrictedAlarmsLocked()
+            ← AlarmManagerService$5.set()
+            ← AlarmManagerService$ClockReceiver.scheduleDateChangedEvent()
+            ← AlarmManagerService$ClockReceiver.scheduleTimeTickEvent()
+              ← AlarmManagerService$9.unblockAllUnrestrictedAlarms()
+              ← AlarmManagerService$9.unblockAlarmsForUid()
+              ← AlarmManagerService$9.unblockAlarmsForUidPackage()
+              ← AlarmManagerService$LocalService.onFreezeStateChanged()
+              ← AlarmManagerService$ClockReceiver.onReceive()
+              ← AlarmManagerService.onBootPhase()
+              ← AlarmManagerService.setTimeZoneImpl()
+              ← AlarmManagerService$3.doAlarm()
+
+  CALLEES (what this method invokes):
+      → PendingIntent.getCreatorPackage()
+      → Intent.getAction()
+      → GmsAlarmManager.getInfoFromPendingIntent()
+        → ActivityManagerNative.getDefault()
+        → IActivityManager.getIntentForIntentSender()
+        → PendingIntent.getTarget()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → Exception.printStackTrace()
+          → ActivityManager.getService()
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.GmsAlarmManager
+  Method:   <com.android.server.alarm.GmsAlarmManager: boolean isGmsDelay6HourAlarm(android.app.PendingIntent)>
+  Line:     4414
+  Register: v1 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← GmsAlarmManager.schedulingGmsAlarms()
+        ← AlarmManagerService.setImplLocked()
+          ← AlarmManagerService.triggerAlarmsLocked()
+          ← AlarmManagerService.deliverPendingBackgroundAlarmsLocked()
+          ← AlarmManagerService.setImpl()
+            ← AlarmManagerService$AlarmHandler.handleMessage()
+            ← AlarmManagerService$AlarmThread.run()
+            ← AlarmManagerService.sendAllUnrestrictedPendingBackgroundAlarmsLocked()
+            ← AlarmManagerService.sendPendingBackgroundAlarmsLocked()
+            ← AlarmManagerService.sendPendingMARsRestrictedAlarmsLocked()
+            ← AlarmManagerService$5.set()
+            ← AlarmManagerService$ClockReceiver.scheduleDateChangedEvent()
+            ← AlarmManagerService$ClockReceiver.scheduleTimeTickEvent()
+              ← AlarmManagerService$9.unblockAllUnrestrictedAlarms()
+              ← AlarmManagerService$9.unblockAlarmsForUid()
+              ← AlarmManagerService$9.unblockAlarmsForUidPackage()
+              ← AlarmManagerService$LocalService.onFreezeStateChanged()
+              ← AlarmManagerService$ClockReceiver.onReceive()
+              ← AlarmManagerService.onBootPhase()
+              ← AlarmManagerService.setTimeZoneImpl()
+              ← AlarmManagerService$3.doAlarm()
+
+  CALLEES (what this method invokes):
+      → PendingIntent.getCreatorPackage()
+      → ComponentName.toString()
+      → Intent.getComponent()
+      → Intent.getAction()
+      → GmsAlarmManager.getInfoFromPendingIntent()
+        → ActivityManagerNative.getDefault()
+        → IActivityManager.getIntentForIntentSender()
+        → PendingIntent.getTarget()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → Exception.printStackTrace()
+          → ActivityManager.getService()
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.GmsAlarmManager
+  Method:   <com.android.server.alarm.GmsAlarmManager: void restoreGcmAlarm()>
+  Line:     4973
+  Register: v1 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/android/server/alarm/AlarmManagerService;->getAlarm(Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.alarm.AlarmManagerService.getAlarm() → [other] move-result-wide v1 → [other] add-long/2addr 
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.alarm.GmsAlarmManager: void -$$Nest$mres
+        ← GmsAlarmManager$GmsHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → SystemClock.elapsedRealtime()
+      → Alarm.setPolicyElapsed()
+      → AlarmManagerService.getAlarm()
+      → AlarmManagerService.addAlarm()
+        → Alarm.updateWhenElapsed()
+        → PendingIntent.getIntent()
+        → PendingIntent.getCreatorPackage()
+        → Intent.getAction()
+        → <com.android.server.alarm.AlarmManagerService$$ExternalSynth
+        → AlarmStore.asList()
+        → AlarmStore.remove()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → AlarmManagerService.setImplLocked()
+          → AlarmManagerService.clampPositive()
+          → Alarm.getWhenElapsed()
+          → <com.android.server.alarm.AlarmManagerService$$ExternalSynth
+          → <com.android.server.alarm.AlarmManagerService$$ExternalSynth
+          → <com.android.server.alarm.AlarmManagerService$$ExternalSynth
+          → <com.android.server.alarm.AlarmManagerService$$ExternalSynth
+          → AlarmManagerService.adjustDeliveryTimeBasedOnBatterySaver()
+          → AlarmManagerService.adjustDeliveryTimeBasedOnBucketLocked()
+          → AlarmManagerService.adjustDeliveryTimeBasedOnDeviceIdle()
+          → AlarmManagerService.adjustDeliveryTimeBasedOnTareLocked()
+          → AlarmManagerService.adjustIdleUntilTime()
+          → AlarmManagerService.addHistory()
+          → AlarmManagerService.registerTareListener()
+          → AlarmManagerService.rescheduleKernelAlarmsLocked()
+          → AlarmManagerService.updateNextAlarmClockLocked()
+          → AlarmStore.updateAlarmDeliveries()
+          → AlarmStore.add()
+          → SamsungAlarmManagerService.notifyAlarmClockChanged()
+          → Objects.requireNonNull()
+            → UserHandle.getUserId()
+            → SparseLongArray.get()
+            → AppStateTrackerImpl.areAlarmsRestrictedByBatterySaver()
+            → AlarmManagerService$AppWakeupHistory.getTotalWakeupsInWindow()
+            → AlarmManagerService$AppWakeupHistory.getNthLastWakeupForPackage()
+            → AlarmManagerService$Injector.getElapsedRealtime()
+            → AlarmManagerService.isAllowedWhileIdleRestricted()
+            → AlarmManagerService.isExemptFromBatterySaver()
+            → UsageStatsManagerInternal.getAppStandbyBucket()
+            → AlarmManagerService$TemporaryQuotaReserve.hasQuota()
+            → AlarmManagerService.isExemptFromAppStandby()
+            → AlarmManagerService.getQuotaForBucketLocked()
+            → AlarmManagerService.hasEnoughWealthLocked()
+            → AlarmManagerService.isExemptFromTare()
+            → AlarmManagerService.restoreRequestedTime()
+            → ThreadLocalRandom.current()
+            → ThreadLocalRandom.nextLong()
+            → SparseArray.get()
+            → SparseArray.put()
+            → <com.android.internal.util.RingBuffer: void <init>(java.lang
+            → RingBuffer.append()
+            → <com.android.server.alarm.AlarmManagerService$AddedAlarm: vo
+            → AlarmManagerService$Injector.getCurrentTimeMillis()
+            → TareBill.getAppropriateBill()
+            → EconomyManagerInternal.registerAffordabilityChangeListener()
+            → AlarmManagerService.setLocked()
+            → AlarmStore.size()
+            → AlarmStore.getNextDeliveryTime()
+            → AlarmStore.getNextWakeupDeliveryTime()
+            → ArrayList.size()
+            → AlarmManager$AlarmClockInfo.getTriggerTime()
+            → SparseArray.keyAt()
+            → SparseArray.size()
+            → SparseArray.valueAt()
+            → SparseArray.clear()
+            → AlarmManagerService.updateNextAlarmInfoForUserLocked()
+            → Handler.sendEmptyMessage()
+            → Handler.removeMessages()
+              → ContainerHelpers.binarySearch()
+              → UserHandle.getAppId()
+              → SparseSetArray.contains()
+              → ArrayUtils.contains()
+              → AppStateTrackerImpl.isUidActive()
+              → AppStandbyInternal.isAppIdleEnabled()
+              → AppStandbyInternal.isInParole()
+              → ArrayMap.get()
+              → LongArrayQueue.size()
+              → Pair.create()
+              → LongArrayQueue.get()
+              → PendingIntent.isActivity()
+              → PendingIntent.isForegroundService()
+              → UserHandle.isCore()
+              → AlarmManagerService.canAffordBillLocked()
+              → AlarmManagerService.convertToElapsed()
+              → SparseArray.get()
+              → SparseArray.gc()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+              → Preconditions.checkArgumentPositive()
+              → Array.newInstance()
+              → RingBuffer.indexOf()
+              → IAlarmListener.asBinder()
+              → PendingIntent.hashCode()
+              → Handler.sendMessageAtTime()
+              → Message.obtain()
+              → AlarmManagerService$Injector.isAlarmDriverPresent()
+              → AlarmManagerService$Injector.setAlarm()
+              → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+              → SparseArray.remove()
+              → SparseBooleanArray.put()
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.GmsAlarmManager
+  Method:   <com.android.server.alarm.GmsAlarmManager: void setGMSLocationProviderChangeReceiverState(int)>
+  Line:     5262
+  Register: v1 := "com.google.android.gms"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return, package_enable_disable
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.alarm.GmsAlarmManager: void -$$Nest$mset
+      ← GmsAlarmManager.initGmsState()
+        ← GmsAlarmManager$GmsHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getPackageManager()
+      → PackageManager.setComponentEnabledSetting() [PKG_MGMT]
+      → Exception.printStackTrace()
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.GmsAlarmManager
+  Method:   <com.android.server.alarm.GmsAlarmManager: boolean skipGmsAlarms(android.app.PendingIntent)>
+  Line:     5784
+  Register: v1 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← GmsAlarmManager.skipGmsAlarms()
+
+  CALLEES (what this method invokes):
+      → PendingIntent.getCreatorPackage()
+      → ComponentName.toString()
+      → Intent.getComponent()
+      → GmsAlarmManager.getInfoFromPendingIntent()
+        → ActivityManagerNative.getDefault()
+        → IActivityManager.getIntentForIntentSender()
+        → PendingIntent.getTarget()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → Exception.printStackTrace()
+          → ActivityManager.getService()
+
+────────────────────────────────────────────────────────────
+Occurrence #17
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.GmsAlarmManager
+  Method:   <com.android.server.alarm.GmsAlarmManager: java.util.ArrayList updateMultiUserGmsUid(int)>
+  Line:     5926
+  Register: v1 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {p0, v1, v3, p1}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang
+  Patterns: (none)
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageUidAsUser()
+
+  CALLERS (who invokes this method):
+      ← GmsAlarmManager.disableMultiUserGmsRestriction()
+      ← GmsAlarmManager.enableMultiUserGmsRestriction()
+        ← <com.android.server.alarm.GmsAlarmManager: void -$$Nest$mdis
+        ← <com.android.server.alarm.GmsAlarmManager: void -$$Nest$mena
+          ← GmsAlarmManager$GmsHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageUidAsUser()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → ArrayList.clear()
+
+────────────────────────────────────────────────────────────
+Occurrence #18
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.google.ChinaGmsToggleUtils
+  Method:   <com.samsung.android.server.pm.google.ChinaGmsToggleUtils: void <clinit>()>
+  Line:     28
+  Register: v0 := "com.google.android.gms"
+  Usage:    [array_init] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+
+────────────────────────────────────────────────────────────
+Occurrence #19
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$3
+  Method:   <com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+  Line:     62
+  Register: v2 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {p0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #20
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.ComputerEngine
+  Method:   <com.android.server.pm.ComputerEngine: java.util.List getTopPriorityPackages(long)>
+  Line:     17074
+  Register: p1 := "com.google.android.gms"
+  Usage:    [array_init] filled-new-array {p1}, [Ljava/lang/String;
+  Patterns: allowlist_check
+  Flow:     [other] filled-new-array {p1}, [Ljava/lang/String; → [reassigned] p1 overwritten
+
+  CALLEES (what this method invokes):
+      → ComputerEngine.getRecentlyUsedPackages()
+      → <java.util.AbstractMap$SimpleEntry: void <init>(java.lang.Ob
+      → ArrayList.contains()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Comparator.reverseOrder()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.add()
+      → Map$Entry.getKey()
+      → Map$Entry.comparingByValue()
+      → Map.get()
+      → Map.keySet()
+      → PriorityQueue.isEmpty()
+      → PriorityQueue.offer()
+      → PriorityQueue.poll()
+      → <java.util.PriorityQueue: void <init>(java.util.Comparator)>
+      → Set.iterator()
+        → ArrayMap.size()
+        → ArrayMap.valueAt()
+        → <android.util.ArrayMap: void <init>()>
+        → ComputerEngine$Settings.getPackages()
+        → PackageManagerServiceUtils.isActiveInForegroundWithinThresholdTime()
+        → PackageState.getPackageName()
+        → PackageStateInternal.getPkg()
+        → PackageStateInternal.getTransientState()
+        → PackageStateUnserialized.getLatestForegroundPackageUseTimeInMills()
+        → Map.put()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → Settings.getPackagesLocked()
+          → WatchedArrayMap.untrackedStorage()
+          → PackageStateUnserialized.getLastPackageUsageTimeInMills() [DEVICE_ID]
+            → ArrayMap.allocArrays()
+            → PackageStateUnserialized.lazyInitLastPackageUsageTimeInMills() [DEVICE_ID]
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+
+────────────────────────────────────────────────────────────
+Occurrence #21
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.permission.DefaultPermissionGrantPolicy
+  Method:   <com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+  Line:     7712
+  Register: v1 := "com.google.android.gms"
+  Usage:    [] 
+  Patterns: string_compare, early_return, permission_grant, system_property_read
+
+  CALLERS (who invokes this method):
+      ← DefaultPermissionGrantPolicy.grantDefaultPermissions() [PERM_GRANT]
+        ← LegacyPermissionManagerService$Internal.grantDefaultPermissions() [PERM_GRANT]
+
+  CALLEES (what this method invokes):
+      → ActivityManager.isLowRamDeviceStatic()
+      → AppOpsManager.setUidMode()
+      → Context.getContentResolver()
+      → Context.getPackageManager()
+      → Context.getResources()
+      → Context.getSystemService()
+      → Intent.addCategory()
+      → Intent.setDataAndType()
+      → Intent.setType()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → IPackageManager$Stub.asInterface()
+      → IPackageManager.isFirstBoot()
+      → PackageManager.hasSystemFeature()
+      → PackageManager.checkSignatures() [SIG_CHECK]
+      → PackageManager.getPermissionControllerPackageName()
+      → Resources.getBoolean()
+      → Uri.fromFile()
+      → SemSystemProperties.get()
+      → ServiceManager.getService()
+      → SystemProperties.get()
+      → UserHandle.of()
+      → Settings$Global.putString()
+      → TextUtils.isEmpty()
+      → <android.util.ArraySet: void <init>()>
+      → ArrayUtils.firstOrNull()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPackageInfo() [PKG_QUERY]
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.getSystemPackageInfo()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSystemPackage()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.updatePermissionFlags() [PERM_FLAGS]
+      → DefaultPermissionGrantPolicy.doesPackageSupportRuntimePermissions()
+      → DefaultPermissionGrantPolicy.isDuoStubModel()
+      → DefaultPermissionGrantPolicy.getDefaultCaptivePortalLoginPackage()
+      → DefaultPermissionGrantPolicy.getDefaultProviderAuthorityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSearchSelectorPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackageForCategory()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerServicePackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerServicePackage()
+      → DefaultPermissionGrantPolicy.getKnownPackages()
+      → DefaultPermissionGrantPolicy.getHeadlessSyncAdapterPackages()
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToAsrApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToAttApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToCharterApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToCricketApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemDialerApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemSimCallManager() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemSmsApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemUseOpenWifiApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToMetroApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToSprintApps() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToTmoApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToUSCApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToVerizonApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToVerizonAppForVPP() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionToEachSystemPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionsToPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionsToSystemPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantSystemFixedPermissionsToSystemPackage()
+      → DefaultPermissionGrantPolicy.setAppOpToSystemPackage()
+      → LegacyPermissionManagerInternal$PackagesProvider.getPackages()
+      → LegacyPermissionManagerInternal$SyncAdapterPackagesProvider.getPackages()
+      → SemCscFeature.getBoolean()
+      → SemCscFeature.getInstance()
+      → <java.io.File: void <init>(java.lang.String)>
+      → Set.add()
+      → Set.addAll()
+        → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+        → Uri$PathPart.fromDecoded()
+        → File.getAbsolutePath()
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+        → CharSequence.length()
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → ApplicationInfo.isSystemApp()
+        → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSystemPackage()
+        → Context.getString()
+        → PackageManager.resolveContentProviderAsUser()
+        → PackageManager.resolveActivityAsUser()
+        → PackageManagerInternal.isResolveActivityComponent()
+        → PackageManager.queryIntentServicesAsUser()
+        → List.size()
+        → List.get()
+        → PackageManagerInternal.getKnownPackageNames()
+        → Intent.setPackage()
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+        → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSimCallManager() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.isSprintOreoMRUpgradeModel()
+        → ArrayList.size()
+        → ArrayList.get()
+        → DefaultPermissionGrantPolicy.grantPermissionsToPackage() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.grantPermissionsToSystemPackage() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+        → AppOpsManager.setMode() [APPOPS]
+        → Hashtable.get()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+          → Uri$PathPart.from()
+          → ArraySet.allocArrays()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSysComponentOrPersistentPlatformSignedPrivApp()
+          → ApplicationInfo.isUpdatedSystemApp()
+          → PackageManagerInternal.getDisabledSystemPackageName()
+          → Bundle.getBoolean()
+          → PermissionManager$SplitPermissionInfo.getTargetSdk()
+          → PermissionManager$SplitPermissionInfo.getSplitPermission()
+          → PermissionManager$SplitPermissionInfo.getNewPermissions()
+          → PermissionManager.getSplitPermissions()
+          → ArraySet.addAll()
+          → ArraySet.contains()
+          → <android.util.ArraySet: void <init>(java.util.Collection)>
+          → ArrayUtils.contains()
+          → ArrayUtils.isEmpty()
+          → ArrayUtils.filterNotNull()
+          → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isGranted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isPermissionRestricted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionFlags()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getBackgroundPermission()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.grantPermission() [PERM_GRANT]
+          → DefaultPermissionGrantPolicy.isFixedOrUserSet()
+          → Map.get()
+          → Map.put()
+          → Set.contains()
+          → SystemProperties.get()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → Uri$Part.nonNull()
+            → <android.net.Uri$PathPart: void <init>(java.lang.String,java
+            → ApplicationInfo.isPrivilegedApp()
+            → PackageManagerInternal.isPlatformSigned()
+            → UserHandle.getAppId()
+            → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+            → SplitPermissionInfoParcelable.getTargetSdk()
+            → SplitPermissionInfoParcelable.getSplitPermission()
+            → SplitPermissionInfoParcelable.getNewPermissions()
+            → ActivityThread.getPermissionManager()
+            → IPermissionManager.getSplitPermissions()
+            → PermissionManager.splitPermissionInfoListToNonParcelableList()
+            → Collections.emptyList()
+            → ArraySet.add()
+            → ArraySet.ensureCapacity()
+            → Collection.size()
+            → Collection.iterator()
+            → Iterator.hasNext()
+            → Iterator.next()
+            → ArraySet.indexOf()
+            → PermissionInfo.isRestricted()
+            → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionInfo()
+            → SemCscFeature.loadFeatureFile()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+              → <android.net.Uri$AbstractPart: void <init>(java.lang.String,
+              → <android.permission.PermissionManager$SplitPermissionInfo: v
+              → <java.util.ArrayList: void <init>(int)>
+              → List.add()
+              → ArraySet.indexOf()
+              → ArraySet.indexOfNull()
+              → ArraySet.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+
+────────────────────────────────────────────────────────────
+Occurrence #22
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.permission.DefaultPermissionGrantPolicy
+  Method:   <com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+  Line:     7759
+  Register: v1 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {v8, v9, v1, v10, v4}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy
+  Patterns: string_compare, early_return, permission_grant, system_property_read
+
+  CALLERS (who invokes this method):
+      ← DefaultPermissionGrantPolicy.grantDefaultPermissions() [PERM_GRANT]
+        ← LegacyPermissionManagerService$Internal.grantDefaultPermissions() [PERM_GRANT]
+
+  CALLEES (what this method invokes):
+      → ActivityManager.isLowRamDeviceStatic()
+      → AppOpsManager.setUidMode()
+      → Context.getContentResolver()
+      → Context.getPackageManager()
+      → Context.getResources()
+      → Context.getSystemService()
+      → Intent.addCategory()
+      → Intent.setDataAndType()
+      → Intent.setType()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → IPackageManager$Stub.asInterface()
+      → IPackageManager.isFirstBoot()
+      → PackageManager.hasSystemFeature()
+      → PackageManager.checkSignatures() [SIG_CHECK]
+      → PackageManager.getPermissionControllerPackageName()
+      → Resources.getBoolean()
+      → Uri.fromFile()
+      → SemSystemProperties.get()
+      → ServiceManager.getService()
+      → SystemProperties.get()
+      → UserHandle.of()
+      → Settings$Global.putString()
+      → TextUtils.isEmpty()
+      → <android.util.ArraySet: void <init>()>
+      → ArrayUtils.firstOrNull()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPackageInfo() [PKG_QUERY]
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.getSystemPackageInfo()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSystemPackage()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.updatePermissionFlags() [PERM_FLAGS]
+      → DefaultPermissionGrantPolicy.doesPackageSupportRuntimePermissions()
+      → DefaultPermissionGrantPolicy.isDuoStubModel()
+      → DefaultPermissionGrantPolicy.getDefaultCaptivePortalLoginPackage()
+      → DefaultPermissionGrantPolicy.getDefaultProviderAuthorityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSearchSelectorPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackageForCategory()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerServicePackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerServicePackage()
+      → DefaultPermissionGrantPolicy.getKnownPackages()
+      → DefaultPermissionGrantPolicy.getHeadlessSyncAdapterPackages()
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToAsrApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToAttApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToCharterApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToCricketApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemDialerApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemSimCallManager() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemSmsApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemUseOpenWifiApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToMetroApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToSprintApps() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToTmoApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToUSCApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToVerizonApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToVerizonAppForVPP() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionToEachSystemPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionsToPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionsToSystemPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantSystemFixedPermissionsToSystemPackage()
+      → DefaultPermissionGrantPolicy.setAppOpToSystemPackage()
+      → LegacyPermissionManagerInternal$PackagesProvider.getPackages()
+      → LegacyPermissionManagerInternal$SyncAdapterPackagesProvider.getPackages()
+      → SemCscFeature.getBoolean()
+      → SemCscFeature.getInstance()
+      → <java.io.File: void <init>(java.lang.String)>
+      → Set.add()
+      → Set.addAll()
+        → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+        → Uri$PathPart.fromDecoded()
+        → File.getAbsolutePath()
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+        → CharSequence.length()
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → ApplicationInfo.isSystemApp()
+        → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSystemPackage()
+        → Context.getString()
+        → PackageManager.resolveContentProviderAsUser()
+        → PackageManager.resolveActivityAsUser()
+        → PackageManagerInternal.isResolveActivityComponent()
+        → PackageManager.queryIntentServicesAsUser()
+        → List.size()
+        → List.get()
+        → PackageManagerInternal.getKnownPackageNames()
+        → Intent.setPackage()
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+        → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSimCallManager() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.isSprintOreoMRUpgradeModel()
+        → ArrayList.size()
+        → ArrayList.get()
+        → DefaultPermissionGrantPolicy.grantPermissionsToPackage() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.grantPermissionsToSystemPackage() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+        → AppOpsManager.setMode() [APPOPS]
+        → Hashtable.get()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+          → Uri$PathPart.from()
+          → ArraySet.allocArrays()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSysComponentOrPersistentPlatformSignedPrivApp()
+          → ApplicationInfo.isUpdatedSystemApp()
+          → PackageManagerInternal.getDisabledSystemPackageName()
+          → Bundle.getBoolean()
+          → PermissionManager$SplitPermissionInfo.getTargetSdk()
+          → PermissionManager$SplitPermissionInfo.getSplitPermission()
+          → PermissionManager$SplitPermissionInfo.getNewPermissions()
+          → PermissionManager.getSplitPermissions()
+          → ArraySet.addAll()
+          → ArraySet.contains()
+          → <android.util.ArraySet: void <init>(java.util.Collection)>
+          → ArrayUtils.contains()
+          → ArrayUtils.isEmpty()
+          → ArrayUtils.filterNotNull()
+          → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isGranted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isPermissionRestricted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionFlags()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getBackgroundPermission()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.grantPermission() [PERM_GRANT]
+          → DefaultPermissionGrantPolicy.isFixedOrUserSet()
+          → Map.get()
+          → Map.put()
+          → Set.contains()
+          → SystemProperties.get()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → Uri$Part.nonNull()
+            → <android.net.Uri$PathPart: void <init>(java.lang.String,java
+            → ApplicationInfo.isPrivilegedApp()
+            → PackageManagerInternal.isPlatformSigned()
+            → UserHandle.getAppId()
+            → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+            → SplitPermissionInfoParcelable.getTargetSdk()
+            → SplitPermissionInfoParcelable.getSplitPermission()
+            → SplitPermissionInfoParcelable.getNewPermissions()
+            → ActivityThread.getPermissionManager()
+            → IPermissionManager.getSplitPermissions()
+            → PermissionManager.splitPermissionInfoListToNonParcelableList()
+            → Collections.emptyList()
+            → ArraySet.add()
+            → ArraySet.ensureCapacity()
+            → Collection.size()
+            → Collection.iterator()
+            → Iterator.hasNext()
+            → Iterator.next()
+            → ArraySet.indexOf()
+            → PermissionInfo.isRestricted()
+            → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionInfo()
+            → SemCscFeature.loadFeatureFile()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+              → <android.net.Uri$AbstractPart: void <init>(java.lang.String,
+              → <android.permission.PermissionManager$SplitPermissionInfo: v
+              → <java.util.ArrayList: void <init>(int)>
+              → List.add()
+              → ArraySet.indexOf()
+              → ArraySet.indexOfNull()
+              → ArraySet.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+
+────────────────────────────────────────────────────────────
+Occurrence #23
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+  Line:     688
+  Register: v3 := "com.google.android.gms"
+  Usage:    [array_init] filled-new-array {v1, v2, v3, v4}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Process.myPid()
+      → ArrayMap.size()
+      → ArrayMap.get()
+      → ArrayMap.keyAt()
+      → ArrayMap.put()
+      → ArrayMap.valueAt()
+      → <android.util.ArrayMap: void <init>()>
+      → <com.android.server.enterprise.application.ApplicationPolicy
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Collections.unmodifiableList()
+      → <java.util.HashMap: void <init>()>
+        → ArrayMap.indexOfKey()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → ArrayMap.indexOf()
+        → ArrayMap.indexOfNull()
+        → ArrayMap.allocArrays()
+        → ArrayMap.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.binarySearchHashes()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #24
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void setAndroidMarketState(com.samsung.android.knox.ContextInfo,boolean)>
+  Line:     39282
+  Register: v0 := "com.google.android.gms"
+  Usage:    [invoke] invoke-virtual {p0, p1, v0, p2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setA
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.enterprise.application.ApplicationPolicy.
+
+  CALLEES (what this method invokes):
+      → UserHandle.getUserId()
+      → IPersonaManagerAdapter.isValidKnoxId()
+      → ApplicationPolicy.setApplicationState()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → AuditLog.logAsUser()
+        → PackageManagerAdapter.setApplicationEnabledSetting() [PKG_MGMT]
+        → PackageManagerAdapter.getApplicationEnabledSetting()
+        → ApplicationPolicy.getApplicationStateEnabledAsUser()
+        → ApplicationPolicy.hasKnoxInternalExceptionPermission()
+        → ApplicationPolicy.isActiveAdmin()
+        → ApplicationPolicy.isApplicationInstalled()
+        → ApplicationPolicy.setApplicationPkgNameControlState()
+        → ApplicationPolicy.enforceAppPermission()
+        → ApplicationPolicy.getValidStr()
+        → Exception.printStackTrace()
+          → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+          → IEDMProxy.RedactedAuditLoggerAsUser()
+          → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+          → IPackageManager.getApplicationEnabledSetting()
+          → ContentValues.size()
+          → ContentValues.getAsInteger()
+          → <android.content.ContentValues: void <init>()>
+          → ApplicationPolicy.getContentValues()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.isEmpty()
+          → List.iterator()
+          → Context.getPackageManager()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → EnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+          → PackageManagerAdapter.isApplicationInstalled()
+          → ApplicationPolicy.enforceAppPermissionByContext()
+          → Utils.getCallingOrCurrentUserId()
+          → ApplicationPolicy.setApplicationPkgNameControlState()
+          → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+            → ServiceManager.getService()
+            → IEDMProxy$Stub.asInterface()
+            → ArrayMap.size()
+            → ArrayMap.get()
+            → Number.intValue()
+            → <android.util.ArrayMap: void <init>()>
+            → ContentValues.put()
+            → ContentValues.put()
+            → EdmStorageProvider.getValuesList()
+            → EnterpriseDeviceManager.getService()
+            → IEnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+            → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+            → PackageManagerAdapter.getValidStr()
+            → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+            → ActivityManager.getCurrentUser()
+            → Binder.getCallingPid() [UID_CHECK]
+            → Binder.getCallingUid() [UID_CHECK]
+            → Utils.getPersonaManagerAdapter()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+            → ContentValues.putNull()
+            → TextUtils.isEmpty()
+            → ApplicationPolicy.getControlState()
+            → ApplicationPolicy.removeAppSignature()
+            → ApplicationPolicy.updateAppControlState()
+            → EdmStorageProvider.putValuesForAdminAndField()
+            → AccessController.enforceActiveAdminPermissionByContext()
+              → IBinder.queryLocalInterface()
+              → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → ArrayMap.indexOfKey()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.put()
+              → EdmStorageProviderBase.getValuesList()
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → IPackageManager.getApplicationInfo() [PKG_QUERY]
+              → Exception.getMessage()
+              → IEnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+              → AdapterRegistry.getAdapter()
+              → SemPersonaManager.isKnoxId()
+              → CharSequence.length()
+              → EdmStorageProvider.getIntByAdminAndField()
+              → Map.containsKey()
+              → Map.remove()
+              → AuditLog.logAsUser()
+              → ApplicationPolicy.createAdminMap()
+              → Map.get()
+              → Set.add()
+              → Set.remove()
+              → EdmStorageProviderBase.putValuesForAdminAndField()
+              → AccessController.getService()
+              → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+
+────────────────────────────────────────────────────────────
+Occurrence #25
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl
+  Method:   <com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl: void <init>(com.android.server.knox.dar.DarManagerService$Injector)>
+  Line:     63
+  Register: v2 := "com.google.android.gms"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.knox.dar.DarManagerService: void <init>(
+        ← <com.android.server.knox.dar.DarManagerService: void <init>(
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+

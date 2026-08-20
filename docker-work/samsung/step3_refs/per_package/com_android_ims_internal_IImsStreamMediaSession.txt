@@ -1,0 +1,9 @@
+# com.android.ims.internal.IImsStreamMediaSession [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.android.ims.internal.IImsStreamMediaSession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsStreamMediaSession$Stub$Proxy: void close()>
+<com.android.ims.internal.IImsStreamMediaSession$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.IImsStreamMediaSession$Stub: com.android.ims.internal.IImsStreamMediaSession asInterface(android.os.IBinder)>
+<com.android.ims.internal.IImsStreamMediaSession$Stub: void <init>()>

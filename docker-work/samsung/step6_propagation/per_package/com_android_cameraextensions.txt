@@ -1,0 +1,53 @@
+######################################################################
+# Propagation: com.android.cameraextensions
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.hardware.camera2.CameraExtensionCharacteristics$CameraExtensionManagerGlobal
+  Method:   <android.hardware.camera2.CameraExtensionCharacteristics$CameraExtensionManagerGlobal: void connectToProxyLocked(android.content.Context)>
+  Line:     155
+  Register: v1 := "com.android.cameraextensions"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return, system_property_read
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] const-string/jumbo v1, "ro.vendor.camera.extensions.package" → 
+
+  CALLERS (who invokes this method):
+      ← CameraExtensionCharacteristics$CameraExtensionManagerGlobal.registerClient()
+        ← CameraExtensionCharacteristics.registerClient()
+          ← CameraExtensionCharacteristics.getEstimatedCaptureLatencyRangeMillis()
+          ← CameraExtensionCharacteristics.getExtensionSupportedSizes()
+          ← CameraExtensionCharacteristics.getExtensionSupportedSizes()
+          ← CameraExtensionCharacteristics.getSupportedExtensions()
+          ← CameraExtensionCharacteristics.getAvailableCaptureRequestKeys()
+          ← CameraExtensionCharacteristics.getAvailableCaptureResultKeys()
+          ← CameraAdvancedExtensionSessionImpl.createCameraAdvancedExtensionSession()
+          ← CameraExtensionSessionImpl.createCameraExtensionSession()
+            ← CameraDeviceImpl.createExtensionSession()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → <android.hardware.camera2.CameraExtensionCharacteristics$Cam
+      → CameraExtensionCharacteristics$CameraExtensionManagerGlobal$InitializerFuture.get()
+      → <android.hardware.camera2.CameraExtensionCharacteristics$Cam
+      → SystemProperties.get()
+        → ConditionVariable.block()
+        → <java.lang.AssertionError: void <init>()>
+        → TimeUnit.convert()
+        → <java.util.concurrent.TimeoutException: void <init>(java.lan
+        → <android.hardware.camera2.CameraExtensionCharacteristics$Cam
+          → ConditionVariable.block()
+          → SystemClock.elapsedRealtime()
+          → <android.os.ConditionVariable: void <init>(boolean)>
+

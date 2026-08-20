@@ -1,0 +1,10 @@
+# android.os.IUpdateEngineCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.IUpdateEngineCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IUpdateEngineCallback$Stub$Proxy: void onPayloadApplicationComplete(int)>
+<android.os.IUpdateEngineCallback$Stub$Proxy: void onStatusUpdate(int,float)>
+<android.os.IUpdateEngineCallback$Stub: android.os.IUpdateEngineCallback asInterface(android.os.IBinder)>
+<android.os.IUpdateEngineCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IUpdateEngineCallback$Stub: void <init>()>

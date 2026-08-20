@@ -1,0 +1,45 @@
+######################################################################
+# Propagation: com.sec.smartcard.manager
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          array_init
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.ucm.ucmservice.PolicyManager
+  Method:   <com.samsung.ucm.ucmservice.PolicyManager: void <init>(android.content.Context)>
+  Line:     71
+  Register: v1 := "com.sec.smartcard.manager"
+  Usage:    [array_init] filled-new-array {v1, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.ucm.ucmservice.CredentialManagerService$Injecto
+        ← <com.samsung.ucm.ucmservice.CredentialManagerService: void <
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.ucm.UniversalCredentialManagerService
+  Method:   <com.android.server.enterprise.ucm.UniversalCredentialManagerService: void <clinit>()>
+  Line:     438
+  Register: v3 := "com.sec.smartcard.manager"
+  Usage:    [array_init] filled-new-array {v1, v2, v3}, [Ljava/lang/String;
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [other] filled-new-array {v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → SystemProperties.get()
+

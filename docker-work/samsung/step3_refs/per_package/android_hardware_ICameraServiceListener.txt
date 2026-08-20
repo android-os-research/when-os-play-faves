@@ -1,0 +1,16 @@
+# android.hardware.ICameraServiceListener [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.hardware.ICameraServiceListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.ICameraServiceListener$Stub$Proxy: void onCameraAccessPrioritiesChanged()>
+<android.hardware.ICameraServiceListener$Stub$Proxy: void onCameraClosed(java.lang.String)>
+<android.hardware.ICameraServiceListener$Stub$Proxy: void onCameraDeviceStateChanged(java.lang.String,int,int,java.lang.String,int,int)>
+<android.hardware.ICameraServiceListener$Stub$Proxy: void onCameraOpened(java.lang.String,java.lang.String)>
+<android.hardware.ICameraServiceListener$Stub$Proxy: void onPhysicalCameraStatusChanged(int,java.lang.String,java.lang.String)>
+<android.hardware.ICameraServiceListener$Stub$Proxy: void onStatusChanged(int,java.lang.String)>
+<android.hardware.ICameraServiceListener$Stub$Proxy: void onTorchStatusChanged(int,java.lang.String)>
+<android.hardware.ICameraServiceListener$Stub$Proxy: void onTorchStrengthLevelChanged(java.lang.String,int)>
+<android.hardware.ICameraServiceListener$Stub: android.hardware.ICameraServiceListener asInterface(android.os.IBinder)>
+<android.hardware.ICameraServiceListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.ICameraServiceListener$Stub: void <init>()>

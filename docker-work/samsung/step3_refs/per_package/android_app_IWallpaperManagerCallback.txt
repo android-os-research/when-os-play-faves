@@ -1,0 +1,15 @@
+# android.app.IWallpaperManagerCallback [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.app.IWallpaperManagerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IWallpaperManagerCallback$Stub$Proxy: void onSemBackupStatusChanged(int,int,int)>
+<android.app.IWallpaperManagerCallback$Stub$Proxy: void onSemMultipackApplied(int)>
+<android.app.IWallpaperManagerCallback$Stub$Proxy: void onSemWallpaperChanged(int,int)>
+<android.app.IWallpaperManagerCallback$Stub$Proxy: void onSemWallpaperColorsAnalysisRequested(int,int)>
+<android.app.IWallpaperManagerCallback$Stub$Proxy: void onSemWallpaperColorsChanged(android.app.SemWallpaperColors,int,int)>
+<android.app.IWallpaperManagerCallback$Stub$Proxy: void onWallpaperChanged()>
+<android.app.IWallpaperManagerCallback$Stub$Proxy: void onWallpaperColorsChanged(android.app.WallpaperColors,int,int)>
+<android.app.IWallpaperManagerCallback$Stub: android.app.IWallpaperManagerCallback asInterface(android.os.IBinder)>
+<android.app.IWallpaperManagerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IWallpaperManagerCallback$Stub: void <init>()>

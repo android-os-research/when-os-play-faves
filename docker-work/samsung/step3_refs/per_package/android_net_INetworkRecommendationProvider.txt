@@ -1,0 +1,9 @@
+# android.net.INetworkRecommendationProvider [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.net.INetworkRecommendationProvider$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.INetworkRecommendationProvider$Stub$Proxy: void requestScores(android.net.NetworkKey[])>
+<android.net.INetworkRecommendationProvider$Stub: android.net.INetworkRecommendationProvider asInterface(android.os.IBinder)>
+<android.net.INetworkRecommendationProvider$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.INetworkRecommendationProvider$Stub: void <init>()>

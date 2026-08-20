@@ -1,0 +1,7 @@
+# android.server.wm.app [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.wm.ActivityStarter: boolean isBlockedFreeformLaunchSALogging(com.android.server.wm.ActivityRecord)>
+<com.android.server.wm.MultiTaskingTaskLaunchParamsModifier: android.content.pm.ActivityInfo$WindowLayout recalculateLayout(com.android.server.wm.TaskDisplayArea,android.content.pm.ActivityInfo$WindowLayout,com.android.server.wm.ActivityRecord)>
+<com.android.server.wm.Task: void updateMinMaxSizeIfNeeded()>

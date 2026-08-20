@@ -1,0 +1,15 @@
+# com.att.iqi [NEW]
+# Refs: 11
+# JARs: framework, gamesdk, services
+
+<com.android.server.am.Pageboost: void gatherLaunchTime(java.lang.String,int,int)>
+<com.android.server.am.ProcessList: void addProcessNameLocked(com.android.server.am.ProcessRecord)>
+<com.android.server.am.ProcessRecord: void toShortString(java.lang.StringBuilder)>
+<com.android.server.wm.ActivityRecord: java.lang.String toString()>
+<com.android.server.wm.WindowState: java.lang.String toString()>
+<com.android.server.wm.WindowSurfaceController: void <init>(java.lang.String,int,int,com.android.server.wm.WindowStateAnimator,int)>
+<com.att.iqi.libs.IQIServiceBroker: void <clinit>()>
+<com.att.iqi.libs.IQIServiceBroker: void disablePackage()>
+<com.samsung.android.displaysolution.MdnieScenarioControlService$1: void onForegroundActivitiesChanged(int,int,boolean)>
+<com.samsung.android.game.GmsLog: java.lang.String replaceForbiddenString(java.lang.String)>
+<com.samsung.android.gamesdk.subsystem.Logger: java.lang.String replaceForbiddenString(java.lang.String)>

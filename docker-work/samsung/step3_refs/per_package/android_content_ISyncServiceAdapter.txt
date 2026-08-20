@@ -1,0 +1,10 @@
+# android.content.ISyncServiceAdapter [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.content.ISyncServiceAdapter$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.ISyncServiceAdapter$Stub$Proxy: void cancelSync(android.content.ISyncContext)>
+<android.content.ISyncServiceAdapter$Stub$Proxy: void startSync(android.content.ISyncContext,android.os.Bundle)>
+<android.content.ISyncServiceAdapter$Stub: android.content.ISyncServiceAdapter asInterface(android.os.IBinder)>
+<android.content.ISyncServiceAdapter$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.ISyncServiceAdapter$Stub: void <init>()>

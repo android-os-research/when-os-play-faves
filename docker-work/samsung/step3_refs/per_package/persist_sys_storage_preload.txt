@@ -1,0 +1,9 @@
+# persist.sys.storage_preload [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.wm.ImmersiveModeConfirmation: boolean isPreloadInstallComplete()>
+<com.samsung.android.server.pm.install.ChnPrePackageInstaller: void prepareInstall()>
+<com.samsung.android.server.pm.install.PrePackageInstaller: void prepareInstall()>
+<com.samsung.android.server.pm.install.PrePackageInstallerBase: void prepareSettings()>
+<com.samsung.android.server.pm.install.PrePackageInstallerBase: void setDisabled()>

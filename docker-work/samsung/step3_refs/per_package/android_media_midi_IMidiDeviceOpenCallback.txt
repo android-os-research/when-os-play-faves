@@ -1,0 +1,9 @@
+# android.media.midi.IMidiDeviceOpenCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.midi.IMidiDeviceOpenCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.midi.IMidiDeviceOpenCallback$Stub$Proxy: void onDeviceOpened(android.media.midi.IMidiDeviceServer,android.os.IBinder)>
+<android.media.midi.IMidiDeviceOpenCallback$Stub: android.media.midi.IMidiDeviceOpenCallback asInterface(android.os.IBinder)>
+<android.media.midi.IMidiDeviceOpenCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.midi.IMidiDeviceOpenCallback$Stub: void <init>()>

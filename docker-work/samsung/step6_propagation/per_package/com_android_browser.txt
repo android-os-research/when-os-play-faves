@@ -1,0 +1,69 @@
+######################################################################
+# Propagation: com.android.browser
+######################################################################
+
+JARs:                 knoxsdk
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.application.ApplicationPolicy
+  Method:   <com.samsung.android.knox.application.ApplicationPolicy: void disableAndroidBrowser()>
+  Line:     26140
+  Register: v0 := "com.android.browser"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/samsung/android/knox/application/ApplicationPolicy;->setApplicatio
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.application.ApplicationPolicy.setAp → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → ApplicationPolicy.setApplicationState()
+      → ApplicationPolicy.logUsage()
+        → AccessController.throwIfParentInstance()
+        → ApplicationPolicy.getService()
+        → IApplicationPolicy.setApplicationState()
+        → EnterpriseLicenseManager.log()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → ServiceManager.getService()
+          → IApplicationPolicy$Stub.asInterface()
+          → EnterpriseLicenseManager.getService()
+          → IEnterpriseLicense.log()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.application.IApplicationPolicy$Stu
+            → IEnterpriseLicense$Stub.asInterface()
+              → <com.samsung.android.knox.license.IEnterpriseLicense$Stub$Pr
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.application.ApplicationPolicy
+  Method:   <com.samsung.android.knox.application.ApplicationPolicy: void enableAndroidBrowser()>
+  Line:     28430
+  Register: v0 := "com.android.browser"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/samsung/android/knox/application/ApplicationPolicy;->setApplicatio
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.application.ApplicationPolicy.setAp → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → ApplicationPolicy.setApplicationState()
+      → ApplicationPolicy.logUsage()
+        → AccessController.throwIfParentInstance()
+        → ApplicationPolicy.getService()
+        → IApplicationPolicy.setApplicationState()
+        → EnterpriseLicenseManager.log()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → ServiceManager.getService()
+          → IApplicationPolicy$Stub.asInterface()
+          → EnterpriseLicenseManager.getService()
+          → IEnterpriseLicense.log()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.application.IApplicationPolicy$Stu
+            → IEnterpriseLicense$Stub.asInterface()
+              → <com.samsung.android.knox.license.IEnterpriseLicense$Stub$Pr
+

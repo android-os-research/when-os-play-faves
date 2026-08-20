@@ -1,0 +1,6 @@
+# persist.radio.ipclog [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional ipc_log()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void ipc_log(java.lang.String)>

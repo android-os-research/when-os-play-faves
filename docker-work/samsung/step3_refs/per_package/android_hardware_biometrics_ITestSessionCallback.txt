@@ -1,0 +1,10 @@
+# android.hardware.biometrics.ITestSessionCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.hardware.biometrics.ITestSessionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.ITestSessionCallback$Stub$Proxy: void onCleanupFinished(int)>
+<android.hardware.biometrics.ITestSessionCallback$Stub$Proxy: void onCleanupStarted(int)>
+<android.hardware.biometrics.ITestSessionCallback$Stub: android.hardware.biometrics.ITestSessionCallback asInterface(android.os.IBinder)>
+<android.hardware.biometrics.ITestSessionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.ITestSessionCallback$Stub: void <init>()>

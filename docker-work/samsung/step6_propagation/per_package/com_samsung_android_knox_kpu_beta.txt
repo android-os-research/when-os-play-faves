@@ -1,0 +1,31 @@
+######################################################################
+# Propagation: com.samsung.android.knox.kpu.beta
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: (none)
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.String isChameleon()>
+  Line:     40145
+  Register: v0 := "com.samsung.android.knox.kpu.beta"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->isPackageInstal
+  Patterns: (none)
+  Flow:     [invoke] com.samsung.android.knox.custom.KnoxCustomManagerService.isP → [other] return-object v0 → [reassigned] v0 overw
+
+  CALLERS (who invokes this method):
+      ← KnoxCustomManagerService.setHardKeyReportState()
+
+  CALLEES (what this method invokes):
+      → KnoxCustomManagerService.isPackageInstalled()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+

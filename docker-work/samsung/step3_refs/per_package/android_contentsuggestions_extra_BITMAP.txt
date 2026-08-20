@@ -1,0 +1,7 @@
+# android.contentsuggestions.extra.BITMAP [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.service.contentsuggestions.ContentSuggestionsService$1: void provideContextImage(int,android.hardware.HardwareBuffer,int,android.os.Bundle)>
+<com.android.server.contentsuggestions.ContentSuggestionsManagerService$ContentSuggestionsManagerStub: void provideContextBitmap(int,android.graphics.Bitmap,android.os.Bundle)>
+<com.android.server.contentsuggestions.ContentSuggestionsManagerService$ContentSuggestionsManagerStub: void provideContextImage(int,int,android.os.Bundle)>

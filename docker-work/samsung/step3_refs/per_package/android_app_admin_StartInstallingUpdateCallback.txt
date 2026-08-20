@@ -1,0 +1,9 @@
+# android.app.admin.StartInstallingUpdateCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.admin.StartInstallingUpdateCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.admin.StartInstallingUpdateCallback$Stub$Proxy: void onStartInstallingUpdateError(int,java.lang.String)>
+<android.app.admin.StartInstallingUpdateCallback$Stub: android.app.admin.StartInstallingUpdateCallback asInterface(android.os.IBinder)>
+<android.app.admin.StartInstallingUpdateCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.admin.StartInstallingUpdateCallback$Stub: void <init>()>

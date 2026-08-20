@@ -1,0 +1,7 @@
+# com.samsung.android.capture.ScreenshotExecutor [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.accessibility.autoaction.actiontype.ScreenShot: void performCornerAction(int)>
+<com.android.server.wm.ScreenshotExecutor$4: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.wm.ScreenshotExecutor: void <init>(android.content.Context,com.android.server.wm.WindowManagerService)>

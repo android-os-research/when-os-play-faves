@@ -1,0 +1,10 @@
+# com.samsung.android.remoteappmode.ISecureAppChangedListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.remoteappmode.ISecureAppChangedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.remoteappmode.ISecureAppChangedListener$Stub$Proxy: void onSecuredAppLaunched(int,java.lang.String)>
+<com.samsung.android.remoteappmode.ISecureAppChangedListener$Stub$Proxy: void onSecuredAppRemoved(int,java.lang.String)>
+<com.samsung.android.remoteappmode.ISecureAppChangedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.remoteappmode.ISecureAppChangedListener$Stub: com.samsung.android.remoteappmode.ISecureAppChangedListener asInterface(android.os.IBinder)>
+<com.samsung.android.remoteappmode.ISecureAppChangedListener$Stub: void <init>()>

@@ -1,0 +1,8 @@
+# android.title.big [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<android.app.Notification$Style: void addExtras(android.os.Bundle)>
+<android.app.Notification$Style: void restoreFromExtras(android.os.Bundle)>
+<com.android.server.enterprise.application.ApplicationPolicy: boolean handleStatusBarNotificationNotAllowedAsUser(java.lang.String,int,android.app.Notification)>
+<com.android.server.notification.NotificationManagerService: java.lang.String getHistoryTitle(android.app.Notification)>

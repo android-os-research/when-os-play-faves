@@ -1,0 +1,130 @@
+######################################################################
+# Propagation: com.tmall.wireless
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: string_compare
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+  Line:     3660
+  Register: v2 := "com.tmall.wireless"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.DualAppManagerService.isInstalledWhitelis → [other] move-result v2 → [branch] if-eqz v2, :co
+
+  CALLERS (who invokes this method):
+      ← DualAppManagerService.startDAChooserActivity()
+      ← ActivityStartController.startActivityInPackage()
+        ← ActivityTaskManagerService.startActivityAsUser()
+        ← ActivityTaskManagerService$LocalService.startActivityInPackage()
+        ← ActivityTaskSupervisor.startActivityFromRecents()
+        ← DexCompatController.startActivityAsToggleFreeform()
+          ← <com.android.server.wm.ActivityTaskManagerService: int -$$Ne
+          ← ActivityTaskManagerService.startActivityAsUser()
+          ← ActivityTaskManagerService.startActivityFromRecents()
+          ← AppTaskImpl.moveToFront()
+          ← <com.android.server.wm.RestartAppPolicy: void lambda$restart
+          ← <com.android.server.wm.WindowOrganizerController: int lambda
+          ← <com.android.server.wm.DexCompatController: void -$$Nest$mst
+            ← ActivityTaskManagerService$LocalService.startActivityAsUser()
+            ← ActivityManagerService.startActivityAsUserWithFeature()
+            ← ActivityTaskManagerService.startActivity()
+            ← ActivityTaskManagerServiceExt.startAppLockActivity()
+            ← AppContinuityGuideConfirmDialog$ClingWindowView.startSettingActivity()
+            ← ActivityManagerService.startActivityFromRecents()
+            ← DexController.bringTaskToForeground()
+            ← DexMetaKeyPolicy$MetaKeyBoundsProvider.applyBounds()
+            ← <com.android.server.wm.StartActivityFromRecentsInfo: void la
+            ← <com.android.server.wm.RestartAppPolicy: void $r8$lambda$VPi
+            ← <com.android.server.wm.WindowOrganizerController: int $r8$la
+            ← DexCompatController$H.handleMessage()
+              ← ActivityManagerService.startActivityAsUser()
+              ← ActivityManagerShellCommand.runStartActivity()
+              ← ActivityManagerService.startActivity()
+              ← ActivityManagerService.startActivityWithFeature()
+              ← ActivityTaskManagerService.setResumedActivityUncheckLocked()
+              ← KeyguardController.keyguardGoingAway()
+              ← <com.android.server.wm.AppContinuityGuideConfirmDialog$Cling
+              ← AppErrors.crashApplicationInner()
+              ← ActivityTaskManagerService$LocalService.bringTaskToForeground()
+              ← DexMetaKeyPolicy.handleMetaKeyEvent()
+              ← <com.android.server.wm.StartActivityFromRecentsInfo: void $r
+              ← RestartAppPolicy$$ExternalSyntheticLambda0.run()
+              ← WindowOrganizerController$$ExternalSyntheticLambda10.getAsInt()
+
+  CALLEES (what this method invokes):
+      → ComponentName.equals()
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getString()
+      → Intent.getComponent()
+      → Intent.addFlags()
+      → Intent.createChooser()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → Intent.getData()
+      → Intent.hasCategory()
+      → Intent.getAction()
+      → Intent.getDataString()
+      → Intent.getPackage()
+      → Intent.getType()
+      → <android.content.Intent: void <init>()>
+      → Uri.getScheme()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Log.d()
+      → DualAppManagerService.isInstalledWhitelistedPackageInternal()
+      → DualAppManagerService.mayForwardShare()
+      → DualAppManagerService.changeUriForDualApp()
+      → SemDualAppManager.isChinaDualApp()
+      → SemDualAppManager.isChooserRequired()
+      → SemDualAppManager.isDualAppId()
+      → Exception.printStackTrace()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+      → List.size()
+      → List.toArray()
+        → Log.println_native()
+        → Log.e()
+        → HashMap.containsKey()
+        → Intent.putExtra()
+        → Intent.setAction()
+        → Intent.getExtras()
+        → Intent.clone()
+        → Bundle.getParcelable()
+        → TextUtils.isEmpty()
+        → DualAppManagerService.hasExternalAppDirPath()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → ClipData.fixUris()
+        → ContentProvider.maybeAddUserId()
+        → Intent.getClipData()
+        → Intent.putExtra()
+        → Intent.setDataAndType()
+        → Intent.getExtra()
+        → Intent.getParcelableArrayListExtra()
+        → SemDualAppManager.shouldAddUserId()
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+          → CharSequence.length()
+          → ClipData.collectUris()
+          → Uri.getPath()
+          → List.iterator()
+          → Intent.fixUris()
+          → ArrayList.get()
+          → Uri.getAuthority()
+            → ClipData$Item.getIntent()
+            → ClipData$Item.getUri()
+            → ClipData.getItemAt()
+

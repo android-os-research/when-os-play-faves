@@ -1,0 +1,9 @@
+# android.location.ICountryListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.location.ICountryListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.ICountryListener$Stub$Proxy: void onCountryDetected(android.location.Country)>
+<android.location.ICountryListener$Stub: android.location.ICountryListener asInterface(android.os.IBinder)>
+<android.location.ICountryListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.ICountryListener$Stub: void <init>()>

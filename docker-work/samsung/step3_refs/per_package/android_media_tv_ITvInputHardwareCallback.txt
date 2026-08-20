@@ -1,0 +1,10 @@
+# android.media.tv.ITvInputHardwareCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.tv.ITvInputHardwareCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.tv.ITvInputHardwareCallback$Stub$Proxy: void onReleased()>
+<android.media.tv.ITvInputHardwareCallback$Stub$Proxy: void onStreamConfigChanged(android.media.tv.TvStreamConfig[])>
+<android.media.tv.ITvInputHardwareCallback$Stub: android.media.tv.ITvInputHardwareCallback asInterface(android.os.IBinder)>
+<android.media.tv.ITvInputHardwareCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.tv.ITvInputHardwareCallback$Stub: void <init>()>

@@ -1,0 +1,12 @@
+# android.media.IVolumeController [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.media.IVolumeController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IVolumeController$Stub$Proxy: void dismiss()>
+<android.media.IVolumeController$Stub$Proxy: void displaySafeVolumeWarning(int)>
+<android.media.IVolumeController$Stub$Proxy: void displayVolumeLimiterToast()>
+<android.media.IVolumeController$Stub$Proxy: void masterMuteChanged(int)>
+<android.media.IVolumeController$Stub$Proxy: void setA11yMode(int)>
+<android.media.IVolumeController$Stub$Proxy: void setLayoutDirection(int)>
+<android.media.IVolumeController$Stub$Proxy: void volumeChanged(int,int)>

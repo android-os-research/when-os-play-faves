@@ -1,0 +1,6 @@
+# ro.telephony.iwlan_operation_mode [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.data.AccessNetworksManager: boolean isInLegacyMode()>
+<com.android.internal.telephony.data.AccessNetworksManager: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>

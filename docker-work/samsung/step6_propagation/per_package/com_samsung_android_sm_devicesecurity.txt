@@ -1,0 +1,138 @@
+######################################################################
+# Propagation: com.samsung.android.sm.devicesecurity
+######################################################################
+
+JARs:                 services
+Classes:              3
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PKG_MGMT, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.BatteryService
+  Method:   <com.android.server.BatteryService: java.lang.String getDeviceSecurityPackageName()>
+  Line:     5003
+  Register: v2 := "com.samsung.android.sm.devicesecurity"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: (none)
+  Flow:     [invoke] com.samsung.android.feature.SemFloatingFeature.getString()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.BatteryService: java.lang.String -$$Nest
+        ← BatteryService$17.run()
+        ← BatteryService$18.run()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.install.SilentUninstallerList
+  Method:   <com.samsung.android.server.pm.install.SilentUninstallerList: void <init>()>
+  Line:     25
+  Register: v0 := "com.samsung.android.sm.devicesecurity"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v0 .. v15}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+      ← <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+        ← <com.android.server.pm.AsecInstallHelper: void <init>(com.an
+        ← InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+        ← InstallPackageHelper.commitPackagesLocked() [PKG_MGMT]
+        ← PackageInstallerSession.onSystemDataLoaderUnrecoverable()
+        ← <com.android.server.pm.PackageManagerService: void <init>(co
+          ← InstallPackageHelper.handlePackagePostInstall() [PKG_MGMT]
+          ← PackageHandler.doHandleMessage()
+          ← <com.android.server.pm.PackageManagerService: void <init>(co
+          ← InstallPackageHelper.addForInitLI() [PKG_MGMT]
+          ← InstallPackageHelper.installPackagesLI() [PKG_MGMT]
+          ← <com.android.server.pm.PackageInstallerSession: void -$$Nest
+          ← PackageManagerService.main()
+            ← PackageHandler.handleMessage()
+            ← InstallPackageHelper.addSamsungOverlayForInitLI() [PKG_MGMT]
+            ← InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesFromAppRootDir() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesFromDir() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesTracedLI() [PKG_MGMT]
+            ← PackageInstallerSession$6.onStatusChanged()
+            ← SystemServer.startBootstrapServices()
+              ← PackageManagerService$PackageManagerInternalImpl.parseSamsungThemeOverlayPackages()
+              ← InstallPackageHelper.scanSystemPackageTracedLI() [PKG_MGMT]
+              ← <com.android.server.pm.InstallPackageHelper: void lambda$upd [PKG_MGMT]
+              ← InitAppsHelper.scanDirTracedLI()
+              ← InstallPackageHelper.processInstallRequests() [PKG_MGMT]
+              ← SystemServer.run()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.BroadcastHelper
+  Method:   <com.android.server.pm.BroadcastHelper: java.lang.String getDSPackageName()>
+  Line:     1130
+  Register: v2 := "com.samsung.android.sm.devicesecurity"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: (none)
+  Flow:     [invoke] com.samsung.android.feature.SemFloatingFeature.getString() → [invoke] android.content.pm.PackageManager$Package
+
+  CALLERS (who invokes this method):
+      ← BroadcastHelper.doSendBroadcast()
+        ← BroadcastHelper.sendPackageBroadcast()
+        ← <com.android.server.pm.SuspendPackageHelper: void lambda$sen
+          ← BroadcastHelper.sendFirstLaunchBroadcast()
+          ← BroadcastHelper.sendPackageAddedForNewUsers()
+          ← BroadcastHelper.sendPackageChangedBroadcast()
+          ← BroadcastHelper.sendResourcesChangedBroadcast()
+          ← <com.android.server.pm.DistractingPackageHelper: void lambda
+          ← <com.android.server.pm.PackageManagerService: void lambda$se
+          ← <com.android.server.pm.SuspendPackageHelper: void lambda$sen
+          ← <com.android.server.pm.SuspendPackageHelper: void $r8$lambda
+            ← InstallPackageHelper.handlePackagePostInstall() [PKG_MGMT]
+            ← <com.android.server.pm.PackageManagerService: void lambda$no
+            ← <com.android.server.pm.PackageManagerService: void lambda$se
+            ← <com.android.server.pm.PackageManagerService: void lambda$se
+            ← BroadcastHelper.sendResourcesChangedBroadcast()
+            ← StorageEventHelper.sendResourcesChangedBroadcast()
+            ← <com.android.server.pm.DistractingPackageHelper: void $r8$la
+            ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+            ← <com.android.server.pm.SuspendPackageHelper: void $r8$lambda
+            ← SuspendPackageHelper$$ExternalSyntheticLambda1.run()
+              ← PackageHandler.doHandleMessage()
+              ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+              ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+              ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+              ← AsecInstallHelper.loadMediaPackages()
+              ← AsecInstallHelper.unloadMediaPackages()
+              ← <com.android.server.pm.InstallPackageHelper: void lambda$com [PKG_MGMT]
+              ← StorageEventHelper.loadPrivatePackagesInner()
+              ← StorageEventHelper.unloadPrivatePackagesInner()
+              ← DistractingPackageHelper$$ExternalSyntheticLambda2.run()
+              ← PackageManagerService$$ExternalSyntheticLambda63.run()
+              ← SuspendPackageHelper$$ExternalSyntheticLambda2.run()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager$PackageInfoFlags.of()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → <android.content.pm.PackageManager$PackageInfoFlags: void <i
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+          → <android.content.pm.PackageManager$Flags: void <init>(long)>
+

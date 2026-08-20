@@ -1,0 +1,9 @@
+# android.app.IParcelFileDescriptorRetriever [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.IParcelFileDescriptorRetriever$Stub$Proxy: android.os.ParcelFileDescriptor getPfd()>
+<android.app.IParcelFileDescriptorRetriever$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IParcelFileDescriptorRetriever$Stub: android.app.IParcelFileDescriptorRetriever asInterface(android.os.IBinder)>
+<android.app.IParcelFileDescriptorRetriever$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IParcelFileDescriptorRetriever$Stub: void <init>()>

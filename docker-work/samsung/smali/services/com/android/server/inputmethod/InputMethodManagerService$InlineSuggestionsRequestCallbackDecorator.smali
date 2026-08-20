@@ -1,0 +1,250 @@
+.class public final Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;
+.super Lcom/android/internal/view/IInlineSuggestionsRequestCallback$Stub;
+.source "InputMethodManagerService.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/inputmethod/InputMethodManagerService;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "InlineSuggestionsRequestCallbackDecorator"
+.end annotation
+
+
+# instance fields
+.field public final mCallback:Lcom/android/internal/view/IInlineSuggestionsRequestCallback;
+
+.field public final mImeDisplayId:I
+
+.field public final mImePackageName:Ljava/lang/String;
+
+.field public final mImeToken:Landroid/os/IBinder;
+
+.field public final mImms:Lcom/android/server/inputmethod/InputMethodManagerService;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/internal/view/IInlineSuggestionsRequestCallback;Ljava/lang/String;ILandroid/os/IBinder;Lcom/android/server/inputmethod/InputMethodManagerService;)V
+    .registers 6
+
+    .line 2631
+    invoke-direct {p0}, Lcom/android/internal/view/IInlineSuggestionsRequestCallback$Stub;-><init>()V
+
+    .line 2632
+    iput-object p1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mCallback:Lcom/android/internal/view/IInlineSuggestionsRequestCallback;
+
+    .line 2633
+    iput-object p2, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mImePackageName:Ljava/lang/String;
+
+    .line 2634
+    iput p3, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mImeDisplayId:I
+
+    .line 2635
+    iput-object p4, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mImeToken:Landroid/os/IBinder;
+
+    .line 2636
+    iput-object p5, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mImms:Lcom/android/server/inputmethod/InputMethodManagerService;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onInlineSuggestionsRequest(Landroid/view/inputmethod/InlineSuggestionsRequest;Lcom/android/internal/view/IInlineSuggestionsResponseCallback;)V
+    .registers 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 2648
+    iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mImePackageName:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/view/inputmethod/InlineSuggestionsRequest;->getHostPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_22
+
+    .line 2654
+    iget v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mImeDisplayId:I
+
+    invoke-virtual {p1, v0}, Landroid/view/inputmethod/InlineSuggestionsRequest;->setHostDisplayId(I)V
+
+    .line 2655
+    iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mImms:Lcom/android/server/inputmethod/InputMethodManagerService;
+
+    iget-object v1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mImeToken:Landroid/os/IBinder;
+
+    invoke-virtual {p1}, Landroid/view/inputmethod/InlineSuggestionsRequest;->getHostInputToken()Landroid/os/IBinder;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/inputmethod/InputMethodManagerService;->setCurHostInputToken(Landroid/os/IBinder;Landroid/os/IBinder;)V
+
+    .line 2656
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mCallback:Lcom/android/internal/view/IInlineSuggestionsRequestCallback;
+
+    invoke-interface {p0, p1, p2}, Lcom/android/internal/view/IInlineSuggestionsRequestCallback;->onInlineSuggestionsRequest(Landroid/view/inputmethod/InlineSuggestionsRequest;Lcom/android/internal/view/IInlineSuggestionsResponseCallback;)V
+
+    return-void
+
+    .line 2649
+    :cond_22
+    new-instance p2, Ljava/lang/SecurityException;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Host package name in the provide request=["
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 2650
+    invoke-virtual {p1}, Landroid/view/inputmethod/InlineSuggestionsRequest;->getHostPackageName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p1, "] doesn\'t match the IME package name=["
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mImePackageName:Ljava/lang/String;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p0, "]."
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p2, p0}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw p2
+.end method
+
+.method public onInlineSuggestionsSessionInvalidated()V
+    .registers 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 2686
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mCallback:Lcom/android/internal/view/IInlineSuggestionsRequestCallback;
+
+    invoke-interface {p0}, Lcom/android/internal/view/IInlineSuggestionsRequestCallback;->onInlineSuggestionsSessionInvalidated()V
+
+    return-void
+.end method
+
+.method public onInlineSuggestionsUnsupported()V
+    .registers 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 2641
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mCallback:Lcom/android/internal/view/IInlineSuggestionsRequestCallback;
+
+    invoke-interface {p0}, Lcom/android/internal/view/IInlineSuggestionsRequestCallback;->onInlineSuggestionsUnsupported()V
+
+    return-void
+.end method
+
+.method public onInputMethodFinishInput()V
+    .registers 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 2681
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mCallback:Lcom/android/internal/view/IInlineSuggestionsRequestCallback;
+
+    invoke-interface {p0}, Lcom/android/internal/view/IInlineSuggestionsRequestCallback;->onInputMethodFinishInput()V
+
+    return-void
+.end method
+
+.method public onInputMethodFinishInputView()V
+    .registers 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 2676
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mCallback:Lcom/android/internal/view/IInlineSuggestionsRequestCallback;
+
+    invoke-interface {p0}, Lcom/android/internal/view/IInlineSuggestionsRequestCallback;->onInputMethodFinishInputView()V
+
+    return-void
+.end method
+
+.method public onInputMethodShowInputRequested(Z)V
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 2666
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mCallback:Lcom/android/internal/view/IInlineSuggestionsRequestCallback;
+
+    invoke-interface {p0, p1}, Lcom/android/internal/view/IInlineSuggestionsRequestCallback;->onInputMethodShowInputRequested(Z)V
+
+    return-void
+.end method
+
+.method public onInputMethodStartInput(Landroid/view/autofill/AutofillId;)V
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 2661
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mCallback:Lcom/android/internal/view/IInlineSuggestionsRequestCallback;
+
+    invoke-interface {p0, p1}, Lcom/android/internal/view/IInlineSuggestionsRequestCallback;->onInputMethodStartInput(Landroid/view/autofill/AutofillId;)V
+
+    return-void
+.end method
+
+.method public onInputMethodStartInputView()V
+    .registers 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 2671
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$InlineSuggestionsRequestCallbackDecorator;->mCallback:Lcom/android/internal/view/IInlineSuggestionsRequestCallback;
+
+    invoke-interface {p0}, Lcom/android/internal/view/IInlineSuggestionsRequestCallback;->onInputMethodStartInputView()V
+
+    return-void
+.end method

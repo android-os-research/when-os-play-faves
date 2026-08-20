@@ -1,0 +1,14 @@
+# android.view.IDisplayWindowListener [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.view.IDisplayWindowListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IDisplayWindowListener$Stub$Proxy: void onDisplayAdded(int)>
+<android.view.IDisplayWindowListener$Stub$Proxy: void onDisplayConfigurationChanged(int,android.content.res.Configuration)>
+<android.view.IDisplayWindowListener$Stub$Proxy: void onDisplayRemoved(int)>
+<android.view.IDisplayWindowListener$Stub$Proxy: void onFixedRotationFinished(int)>
+<android.view.IDisplayWindowListener$Stub$Proxy: void onFixedRotationStarted(int,int)>
+<android.view.IDisplayWindowListener$Stub$Proxy: void onKeepClearAreasChanged(int,java.util.List,java.util.List)>
+<android.view.IDisplayWindowListener$Stub: android.view.IDisplayWindowListener asInterface(android.os.IBinder)>
+<android.view.IDisplayWindowListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IDisplayWindowListener$Stub: void <init>()>

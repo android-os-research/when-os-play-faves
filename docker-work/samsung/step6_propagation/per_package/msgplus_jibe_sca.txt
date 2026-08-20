@@ -1,0 +1,36 @@
+######################################################################
+# Propagation: msgplus.jibe.sca
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo$PackageList
+  Method:   <com.android.server.alarm.AppSyncInfo$PackageList: void loadAppSync3PlusBlockList()>
+  Line:     574
+  Register: v0 := "msgplus.jibe.sca"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/android/server/alarm/AppSyncInfo$PackageList;->add(Ljava/lang/String;)
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.alarm.AppSyncInfo$PackageList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.alarm.AppSyncInfo: void <init>(android.c
+        ← AppSyncInfo.createAppSync()
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+            ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → AppSyncInfo$PackageList.add()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.contains()
+

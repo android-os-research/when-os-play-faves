@@ -1,0 +1,6 @@
+# com.samsung.android.app.ar.phoneservice [NEW]
+# Refs: 2
+# JARs: framework, semwifi-service
+
+<com.samsung.android.server.wifi.ap.SemWifiApServiceImpl: boolean setLocalOnlyHotspotEnabled(boolean,java.lang.String,java.lang.String,int)>
+<com.samsung.android.vr.GearVrManager: android.content.Intent createPendingActivityIntent(java.lang.String,android.content.IntentSender,int)>

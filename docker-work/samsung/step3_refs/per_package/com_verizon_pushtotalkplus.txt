@@ -1,0 +1,9 @@
+# com.verizon.pushtotalkplus [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.pm.PackageManagerService: void systemReady()>
+<com.android.server.policy.KeyCustomizationInfoManager: boolean isAvailablePtt(java.lang.String)>
+<com.android.server.policy.KeyCustomizationInfoManager: com.samsung.android.view.SemWindowManager$KeyCustomizationInfo getXCoverKeyB2BDeltaInfoFromSetting(int)>
+<com.android.server.policy.KeyCustomizationInfoManager: void <clinit>()>
+<com.android.server.policy.KeyCustomizationManager: boolean isKodiakDedicatedPttApp(java.lang.String)>

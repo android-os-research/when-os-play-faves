@@ -1,0 +1,9 @@
+# android.location.IGnssNmeaListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.location.IGnssNmeaListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.IGnssNmeaListener$Stub$Proxy: void onNmeaReceived(long,java.lang.String)>
+<android.location.IGnssNmeaListener$Stub: android.location.IGnssNmeaListener asInterface(android.os.IBinder)>
+<android.location.IGnssNmeaListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.IGnssNmeaListener$Stub: void <init>()>

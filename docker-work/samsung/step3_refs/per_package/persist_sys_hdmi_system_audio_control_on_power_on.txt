@@ -1,0 +1,5 @@
+# persist.sys.hdmi.system_audio_control_on_power_on [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.hdmi.HdmiCecLocalDeviceAudioSystem: void onAddressAllocated(int,int)>

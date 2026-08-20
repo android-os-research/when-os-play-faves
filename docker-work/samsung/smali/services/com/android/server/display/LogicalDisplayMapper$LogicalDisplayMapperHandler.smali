@@ -1,0 +1,82 @@
+.class public Lcom/android/server/display/LogicalDisplayMapper$LogicalDisplayMapperHandler;
+.super Landroid/os/Handler;
+.source "LogicalDisplayMapper.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/display/LogicalDisplayMapper;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = "LogicalDisplayMapperHandler"
+.end annotation
+
+
+# instance fields
+.field public final synthetic this$0:Lcom/android/server/display/LogicalDisplayMapper;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/display/LogicalDisplayMapper;Landroid/os/Looper;)V
+    .registers 4
+
+    .line 1274
+    iput-object p1, p0, Lcom/android/server/display/LogicalDisplayMapper$LogicalDisplayMapperHandler;->this$0:Lcom/android/server/display/LogicalDisplayMapper;
+
+    const/4 p1, 0x0
+
+    const/4 v0, 0x1
+
+    .line 1275
+    invoke-direct {p0, p2, p1, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public handleMessage(Landroid/os/Message;)V
+    .registers 3
+
+    .line 1280
+    iget p1, p1, Landroid/os/Message;->what:I
+
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_6
+
+    goto :goto_13
+
+    .line 1282
+    :cond_6
+    iget-object p1, p0, Lcom/android/server/display/LogicalDisplayMapper$LogicalDisplayMapperHandler;->this$0:Lcom/android/server/display/LogicalDisplayMapper;
+
+    invoke-static {p1}, Lcom/android/server/display/LogicalDisplayMapper;->-$$Nest$fgetmSyncRoot(Lcom/android/server/display/LogicalDisplayMapper;)Lcom/android/server/display/DisplayManagerService$SyncRoot;
+
+    move-result-object p1
+
+    monitor-enter p1
+
+    .line 1283
+    :try_start_d
+    iget-object p0, p0, Lcom/android/server/display/LogicalDisplayMapper$LogicalDisplayMapperHandler;->this$0:Lcom/android/server/display/LogicalDisplayMapper;
+
+    invoke-static {p0, v0}, Lcom/android/server/display/LogicalDisplayMapper;->-$$Nest$mfinishStateTransitionLocked(Lcom/android/server/display/LogicalDisplayMapper;Z)V
+
+    .line 1284
+    monitor-exit p1
+
+    :goto_13
+    return-void
+
+    :catchall_14
+    move-exception p0
+
+    monitor-exit p1
+    :try_end_16
+    .catchall {:try_start_d .. :try_end_16} :catchall_14
+
+    throw p0
+.end method

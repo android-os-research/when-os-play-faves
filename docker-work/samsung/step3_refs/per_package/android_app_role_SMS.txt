@@ -1,0 +1,10 @@
+# android.app.role.SMS [NEW]
+# Refs: 6
+# JARs: framework, services
+
+<com.android.internal.telephony.SmsApplication$SmsRoleListener: java.lang.String getSmsPackageName(android.os.UserHandle)>
+<com.android.internal.telephony.SmsApplication$SmsRoleListener: void onRoleHoldersChanged(java.lang.String,android.os.UserHandle)>
+<com.android.server.appbinding.finders.CarrierMessagingClientServiceFinder: java.lang.String getTargetPackage(int)>
+<com.android.server.appbinding.finders.CarrierMessagingClientServiceFinder: void lambda$new$0(java.lang.String,android.os.UserHandle)>
+<com.android.server.pm.ShortcutService$3: void onRoleHoldersChanged(java.lang.String,android.os.UserHandle)>
+<com.android.server.policy.role.RoleServicePlatformHelperImpl: java.util.Map readFromLegacySettings(int)>

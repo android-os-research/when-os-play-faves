@@ -1,0 +1,18 @@
+# com.samsung.android.core.IFoldStarManager [NEW]
+# Refs: 14
+# JARs: framework
+
+<com.samsung.android.core.IFoldStarManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.core.IFoldStarManager$Stub$Proxy: java.util.Map getDisplayCompatPackages(int,int,java.util.Map)>
+<com.samsung.android.core.IFoldStarManager$Stub$Proxy: java.util.Map getFixedAspectRatioPackages(int,int,java.util.Map)>
+<com.samsung.android.core.IFoldStarManager$Stub$Proxy: void initAppContinuityValueWhenReset(boolean,boolean)>
+<com.samsung.android.core.IFoldStarManager$Stub$Proxy: void registerFoldStarCallback(com.samsung.android.core.IFoldStarCallback)>
+<com.samsung.android.core.IFoldStarManager$Stub$Proxy: void setAllAppContinuityMode(int,boolean)>
+<com.samsung.android.core.IFoldStarManager$Stub$Proxy: void setAppContinuityMode(java.lang.String,int,boolean)>
+<com.samsung.android.core.IFoldStarManager$Stub$Proxy: void setDisplayCompatPackages(int,java.util.Map,boolean)>
+<com.samsung.android.core.IFoldStarManager$Stub$Proxy: void setFixedAspectRatioPackages(int,java.util.Map,boolean)>
+<com.samsung.android.core.IFoldStarManager$Stub$Proxy: void setFrontScreenOnWhenAppContinuityMode(boolean)>
+<com.samsung.android.core.IFoldStarManager$Stub$Proxy: void unregisterFoldStarCallback(com.samsung.android.core.IFoldStarCallback)>
+<com.samsung.android.core.IFoldStarManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.core.IFoldStarManager$Stub: com.samsung.android.core.IFoldStarManager asInterface(android.os.IBinder)>
+<com.samsung.android.core.IFoldStarManager$Stub: void <init>()>

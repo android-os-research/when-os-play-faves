@@ -1,0 +1,11 @@
+# android.app.IProcessObserver [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.app.IProcessObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IProcessObserver$Stub$Proxy: void onForegroundActivitiesChanged(int,int,boolean)>
+<android.app.IProcessObserver$Stub$Proxy: void onForegroundServicesChanged(int,int,int)>
+<android.app.IProcessObserver$Stub$Proxy: void onProcessDied(int,int)>
+<android.app.IProcessObserver$Stub: android.app.IProcessObserver asInterface(android.os.IBinder)>
+<android.app.IProcessObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IProcessObserver$Stub: void <init>()>

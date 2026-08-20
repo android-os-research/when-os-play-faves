@@ -1,0 +1,9 @@
+# android.os.storage.IStorageShutdownObserver [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.storage.IStorageShutdownObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.storage.IStorageShutdownObserver$Stub$Proxy: void onShutDownComplete(int)>
+<android.os.storage.IStorageShutdownObserver$Stub: android.os.storage.IStorageShutdownObserver asInterface(android.os.IBinder)>
+<android.os.storage.IStorageShutdownObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.storage.IStorageShutdownObserver$Stub: void <init>()>

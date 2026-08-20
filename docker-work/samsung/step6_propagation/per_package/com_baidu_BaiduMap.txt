@@ -1,0 +1,192 @@
+######################################################################
+# Propagation: com.baidu.BaiduMap
+######################################################################
+
+JARs:                 motionrecognitionservice, services
+Classes:              3
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY, SIG_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      motionrecognitionservice
+  Class:    com.samsung.android.gesture.AutoRotationHandler
+  Method:   <com.samsung.android.gesture.AutoRotationHandler: void <init>(android.content.Context)>
+  Line:     260
+  Register: v27 := "com.baidu.BaiduMap"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v4 .. v30}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← MotionRecognitionService.startMotions()
+        ← <com.samsung.android.gesture.MotionRecognitionService: void 
+          ← MotionRecognitionService$ServiceHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → Sensor.getVersion()
+      → SensorManager.getDefaultSensor()
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+      → AutoRotationHandler$CameraStateMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$ForegroundA
+      → AutoRotationHandler$ForegroundAppWatcher.init()
+      → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+      → AutoRotationHandler$MediaSessionMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+      → AutoRotationHandler$MultimediaMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$ServiceHand
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → Sensor.isWakeUpSensor()
+        → SensorManager.getSensorList()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.size()
+        → List.get()
+        → List.iterator()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+        → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+        → <java.util.HashMap: void <init>()>
+        → AutoRotationHandler$CameraStateMonitor$CameraStateHandler.sendEmptyMessage()
+        → <com.samsung.android.gesture.AutoRotationHandler$ForegroundA
+        → <android.util.ArraySet: void <init>()>
+        → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+        → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+        → AutoRotationHandler$MediaSessionMonitor$MediaSessionMonitorHandler.sendEmptyMessage()
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → SemMediaResourceHelper.createInstance()
+        → <java.util.HashSet: void <init>()>
+        → AutoRotationHandler$MultimediaMonitor$MultimediaHandler.sendEmptyMessage()
+        → <android.os.Handler: void <init>(android.os.Looper)>
+          → Sensor.getType()
+          → SensorManager.getFullSensorList()
+          → SparseArray.get()
+          → SparseArray.append()
+          → <java.util.ArrayList: void <init>()>
+          → Collections.unmodifiableList()
+          → List.add()
+          → <android.hardware.camera2.CameraManager$SemCameraDeviceState
+          → <com.samsung.android.app.usage.IUsageStatsWatcher$Stub: void
+          → <android.util.ArraySet: void <init>(int,boolean)>
+          → <android.media.AudioManager$AudioPlaybackCallback: void <ini
+          → <com.samsung.android.media.SemMediaResourceHelper: void <ini
+            → SparseArray.get()
+            → SparseArray.gc()
+            → SparseArray.put()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → <android.os.Binder: void <init>()>
+            → IUsageStatsWatcher$Stub.attachInterface()
+            → ArraySet.allocArrays()
+            → Looper.getMainLooper()
+            → Looper.myLooper()
+            → Process.myPid()
+            → <com.samsung.android.media.SemMediaResourceHelper$EventHandl
+            → SemMediaResourceHelper.native_setup()
+            → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+              → ContainerHelpers.binarySearch()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+              → <android.os.Binder: void <init>(java.lang.String)>
+              → ThreadLocal.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.BaseRestrictionMgr
+  Method:   <com.android.server.am.BaseRestrictionMgr: boolean isSamsungService(java.lang.String,int)>
+  Line:     3543
+  Register: v0 := "com.baidu.BaiduMap"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_35 → [other] const-string/jumbo 
+
+  CALLERS (who invokes this method):
+      ← BaseRestrictionMgr.isPolicyBlockedPackage()
+        ← BaseRestrictionMgr.isRestrictedPackage()
+          ← BaseRestrictionMgr.isRestrictedPackage()
+          ← BaseRestrictionMgr.isRestrictedPackage()
+          ← BaseRestrictionMgr.isRestrictedPackage()
+          ← BaseRestrictionMgr.isRestrictedPackage()
+            ← ActiveServices.startServiceLocked()
+            ← ActiveServices.bindServiceLocked()
+            ← ActivityManagerService$LocalService.isRestrictedPackage()
+            ← ContentProviderHelper.getContentProviderImpl()
+            ← ActivityStarter.execute()
+            ← ActivityStarter.executeRequest()
+            ← BroadcastQueue.deliverToRegisteredReceiverLocked()
+            ← BroadcastQueue.processNextBroadcastLocked()
+              ← ActiveServices.startServiceLocked()
+              ← ActivityManagerService$LocalService.startServiceInPackage()
+              ← ActivityManagerService.bindServiceInstance()
+              ← ContentProviderHelper.getContentProviderImpl()
+              ← ContentProviderHelper.getProviderMimeType()
+              ← ContentProviderHelper.getProviderMimeTypeAsync()
+              ← ActivityStartController.startActivities()
+              ← ActivityStartController.startActivityInPackage()
+              ← ActivityStartController.startActivityInTaskFragment()
+              ← ActivityStartController.startHomeActivity()
+              ← ActivityStartController.startSetupActivity()
+              ← ActivityTaskManagerService.startActivityAndWait()
+              ← ActivityTaskManagerService.startDreamActivity()
+              ← ActivityTaskManagerService.startNextMatchingActivity()
+              ← ActivityTaskManagerService.startActivityAsCaller()
+              ← ActivityTaskManagerService.startActivityAsUser()
+              ← ActivityTaskManagerService.startActivityFromGameSession()
+              ← ActivityTaskManagerService.startActivityWithConfig()
+              ← ActivityTaskManagerService.startAssistantActivity()
+              ← ActivityTaskManagerService.startVoiceActivity()
+              ← AppTaskImpl.startActivity()
+              ← RecentsAnimation.startRecentsActivityInBackground()
+              ← RemoteAppController.startActivityAsCaller()
+              ← Task.navigateUpTo()
+              ← ActivityManagerService.finishReceiver()
+              ← ActivityManagerService.unregisterReceiver()
+              ← BroadcastQueue.backgroundServicesFinishedLocked()
+              ← BroadcastQueue.broadcastTimeoutLocked()
+              ← BroadcastQueue.processNextBroadcast()
+
+  CALLEES (what this method invokes):
+      → BaseRestrictionMgr.isSystemPackage()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfoAsUser() [PKG_QUERY]
+        → PackageManager.checkSignatures() [SIG_CHECK]
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.filter.filter.RunningLocationFilter
+  Method:   <com.android.server.am.mars.filter.filter.RunningLocationFilter: int filter(java.lang.String,int,int,int)>
+  Line:     100
+  Register: p0 := "com.baidu.BaiduMap"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-eqz p0, :cond_69 → [reassigned] p0 overwritten
+
+  CALLEES (what this method invokes):
+      → FreecessController.isInGPSAllowList()
+      → FreecessController.getInstance()
+      → MARsPolicyManager.isChinaPolicyEnabled()
+      → MARsPolicyManager.isForegroundServicePkg()
+      → MARsPolicyManager.getInstance()
+        → List.contains()
+        → <com.android.server.am.FreecessController$FreecessController
+        → MARsPolicyManager.getForegroundServiceStartTime()
+        → <com.android.server.am.MARsPolicyManager$MARsPolicyManagerHo
+          → HashMap.getOrDefault()
+

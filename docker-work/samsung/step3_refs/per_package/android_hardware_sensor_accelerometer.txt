@@ -1,0 +1,6 @@
+# android.hardware.sensor.accelerometer [NEW]
+# Refs: 2
+# JARs: framework, motionrecognitionservice
+
+<com.android.internal.view.RotationPolicy: boolean isRotationSupported(android.content.Context)>
+<com.samsung.android.gesture.MotionRecognitionSensorChecker: void initializeSensorProbeStatus()>

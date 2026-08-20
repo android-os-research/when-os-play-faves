@@ -1,0 +1,10 @@
+# com.android.ims.internal.IImsEcbmListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.android.ims.internal.IImsEcbmListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsEcbmListener$Stub$Proxy: void enteredECBM()>
+<com.android.ims.internal.IImsEcbmListener$Stub$Proxy: void exitedECBM()>
+<com.android.ims.internal.IImsEcbmListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.IImsEcbmListener$Stub: com.android.ims.internal.IImsEcbmListener asInterface(android.os.IBinder)>
+<com.android.ims.internal.IImsEcbmListener$Stub: void <init>()>

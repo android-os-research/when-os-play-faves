@@ -1,0 +1,11 @@
+# android.hardware.IConsumerIrService [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.hardware.IConsumerIrService$Stub$Proxy: boolean hasIrEmitter()>
+<android.hardware.IConsumerIrService$Stub$Proxy: int[] getCarrierFrequencies()>
+<android.hardware.IConsumerIrService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.IConsumerIrService$Stub$Proxy: void transmit(java.lang.String,int,int[])>
+<android.hardware.IConsumerIrService$Stub: android.hardware.IConsumerIrService asInterface(android.os.IBinder)>
+<android.hardware.IConsumerIrService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.IConsumerIrService$Stub: void <init>()>

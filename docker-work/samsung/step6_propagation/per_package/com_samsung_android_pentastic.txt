@@ -1,0 +1,31 @@
+######################################################################
+# Propagation: com.samsung.android.pentastic
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.smartclip.SpenThemeManager
+  Method:   <com.android.server.smartclip.SpenThemeManager: void clearCustomDoubleTapAction(java.lang.String)>
+  Line:     297
+  Register: v0 := "com.samsung.android.pentastic"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← SpenThemeManager$2.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Settings$Global.putInt()
+      → Settings$Global.putString()
+

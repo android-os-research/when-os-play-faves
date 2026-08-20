@@ -1,0 +1,23 @@
+# com.samsung.android.edge.IEdgeManager [NEW]
+# Refs: 19
+# JARs: framework
+
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: boolean isEdgeLightingNotificationAllowed(java.lang.String)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: boolean isPackageEnabled(java.lang.String,int)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: int getEdgeLightingState()>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void bindEdgeLightingService(android.os.IBinder,int,android.content.ComponentName)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void cancelNotification(java.lang.String,java.lang.String,int,int,java.lang.String)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void cancelNotificationByGroupKey(java.lang.String,java.lang.String,int,int,java.lang.String,java.lang.String)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void disable(int,java.lang.String,android.os.IBinder)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void disableEdgeLightingNotification(java.lang.String,boolean)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void registerEdgeLightingListener(android.os.IBinder,android.content.ComponentName)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void startEdgeLighting(java.lang.String,com.samsung.android.edge.SemEdgeLightingInfo,android.os.IBinder)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void stopEdgeLighting(java.lang.String,android.os.IBinder)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void unbindEdgeLightingService(android.os.IBinder,java.lang.String)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void unregisterEdgeLightingListener(android.os.IBinder,java.lang.String)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void updateEdgeLightingPackageList(java.lang.String,java.util.List)>
+<com.samsung.android.edge.IEdgeManager$Stub$Proxy: void updateEdgeLightingPolicy(java.lang.String,com.samsung.android.edge.EdgeLightingPolicy)>
+<com.samsung.android.edge.IEdgeManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.edge.IEdgeManager$Stub: com.samsung.android.edge.IEdgeManager asInterface(android.os.IBinder)>
+<com.samsung.android.edge.IEdgeManager$Stub: void <init>()>

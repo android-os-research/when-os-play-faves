@@ -1,0 +1,241 @@
+######################################################################
+# Propagation: com.sec.knox.containeragent2
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PERM_CHECK, PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl$MyPackageMonitor
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl$MyPackageMonitor: void onSomePackagesChanged()>
+  Line:     473
+  Register: v6 := "com.sec.knox.containeragent2"
+  Usage:    [invoke] invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v6 overwritten
+
+  CALLEES (what this method invokes):
+      → ActivityInfo.toString()
+      → IPackageManager.getReceiverInfo()
+      → UserHandle.getUserId()
+      → PackageMonitor.isPackageModified()
+      → PackageMonitor.getChangingUserId()
+      → PackageMonitor.isPackageDisappearing()
+      → EnterpriseDeviceManagerServiceImpl.setAdminRemovable()
+      → EnterpriseDeviceManagerServiceImpl.getLockObject()
+      → <com.android.server.enterprise.EnterpriseDeviceManagerServic
+      → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+      → EnterpriseDeviceAdminInfo.getComponent()
+      → EnterpriseDeviceAdminInfo.getActivityInfo()
+      → EnterpriseDeviceAdminInfo.isPseudo()
+      → EnterpriseDeviceAdminInfo.getPackageName()
+      → Exception.getMessage()
+      → ArrayList.size()
+      → ArrayList.get()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → Process.myPid()
+        → AuditLog.logAsUser()
+        → EnterpriseDeviceManagerServiceImpl.hasKnoxInternalExceptionPermission()
+        → EnterpriseDeviceManagerServiceImpl.isCallerValidKPU()
+        → EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+        → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+        → EdmStorageProvider.putBoolean()
+        → Utils.getCallingOrCurrentUserId()
+        → <java.util.ArrayList: void <init>()>
+        → HashMap.get()
+        → List.add()
+        → LockGuard.guard()
+        → EnterpriseDeviceManagerServiceImpl.removeActiveAdminDelayed()
+        → SemPersonaManager.isKnoxId()
+        → DeviceAdminInfo.getComponent()
+        → DeviceAdminInfo.getActivityInfo()
+        → DeviceAdminInfo.getPackageName()
+          → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+          → IEDMProxy.AuditLoggerAsUser()
+          → Context.getPackageManager()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → KpuHelper.isCallerValidKpu()
+          → KpuHelper.getInstance()
+          → EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+          → IPackageManager.getApplicationInfo() [PKG_QUERY]
+          → Exception.printStackTrace()
+          → EdmStorageProviderBase.putBoolean()
+          → ActivityManager.getCurrentUser()
+          → Binder.getCallingPid() [UID_CHECK]
+          → Binder.getCallingUid() [UID_CHECK]
+          → IPersonaManagerAdapter.isValidKnoxId()
+          → Utils.getPersonaManagerAdapter()
+          → LockGuard.lockToString()
+          → LockGuard.doLog()
+          → Thread.holdsLock()
+          → Thread.getName()
+          → Thread.currentThread()
+          → EnterpriseDeviceManagerServiceImpl.removeActiveAdminDelayed()
+          → SemPersonaManager.checkContainerType()
+          → SemPersonaManager.isDualAppId()
+            → ServiceManager.getService()
+            → IEDMProxy$Stub.asInterface()
+            → PackageManager.getNameForUid()
+            → SystemProperties.getBoolean()
+            → IPersonaManagerAdapter.isLegacyContainer()
+            → KpuHelper.isDoPresent()
+            → KpuHelper.isKpuPackage()
+            → KpuHelper.isKpuPermissionGranted()
+            → KpuHelper.isKpuPlatformSigned()
+            → KpuHelper.getPersonaManagerAdapter()
+            → <java.lang.SecurityException: void <init>(java.lang.String)>
+            → <com.android.server.enterprise.utils.KpuHelper: void <init>(
+            → Context.checkCallingPermission()
+            → EnterpriseDeviceManagerServiceImpl.checkCallerIsKPECore()
+            → EnterpriseDeviceManagerServiceImpl.checkCallerIsUMC()
+            → EnterpriseDeviceManagerServiceImpl.checkProxyAdminPermission()
+            → EnterpriseDeviceManagerServiceImpl.isCallerDeviceOwner()
+            → EnterpriseDeviceManagerServiceImpl.isDelegationEnabledForDO()
+            → EnterpriseDeviceManagerServiceImpl.isProfileOwnerApp()
+            → EnterpriseDeviceManagerServiceImpl.getAuthorizedAdminUid()
+            → EnterpriseDeviceManagerServiceImpl.getDeviceOwnerUid()
+            → EnterpriseDeviceManagerServiceImpl.checkContainerOwnerShip()
+            → EnterpriseDeviceManagerServiceImpl.checkContainerOwnerShipForUMC()
+            → EnterpriseDeviceManagerServiceImpl.enforceUMCSignature()
+            → EnterpriseDeviceManagerServiceImpl.enforceWpcod()
+            → EnterpriseDeviceManagerServiceImpl.setDelegatorAdminUid()
+            → IPersonaManagerAdapter.isContainerService()
+            → EdmStorageProviderBase.getMUMContainerOwnerUid()
+            → Utils.getCallingOrUserUid()
+            → Utils.getProxyAdminOwnerUid()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int,boole
+            → Iterator.hasNext()
+            → Iterator.next()
+            → List.size()
+            → List.get()
+            → List.iterator()
+            → <android.content.ContentValues: void <init>()>
+            → ContentValues.put()
+            → ContentValues.put()
+            → EdmStorageProviderBase.put()
+            → EdmStorageProviderBase.translateToAdminLUID()
+            → AdapterRegistry.getAdapter()
+            → <com.android.server.LockGuard$$ExternalSyntheticLambda0: voi
+            → LockGuard.findOrCreateLockInfo()
+            → <java.lang.RuntimeException: void <init>(java.lang.String)>
+            → <java.lang.Thread: void <init>(java.lang.Runnable)>
+            → Thread.start()
+            → <java.lang.Throwable: void <init>()>
+            → IDevicePolicyManager.getActiveAdmins()
+            → ComponentName.getPackageName()
+            → ContentValues.getAsInteger()
+            → Context.enforceCallingOrSelfPermission()
+            → EnterpriseDeviceManagerServiceImpl$Injector.SecContentProviderNotifyPolicyChangesAsUser()
+            → EnterpriseDeviceManagerServiceImpl.getActiveAdminLocked()
+            → EnterpriseDeviceManagerServiceImpl.reconcileAdmin()
+            → EnterpriseService.getPolicyServices()
+            → EnterpriseServiceCallback.onAdminRemoved()
+            → EnterpriseServiceCallback.onPreAdminRemoval()
+            → KeyCodeMediatorImpl.onAdminRemoved()
+            → KeyCodeMediatorImpl.onPreAdminRemoval()
+            → EdmStorageProviderBase.addMUMContainer()
+            → EdmStorageProviderBase.canRemoveAdmin()
+            → EdmStorageProviderBase.checkPseudoAdminForUid()
+            → EdmStorageProviderBase.removeAdminFromDatabase()
+            → EdmStorageProviderBase.getValues()
+            → ConstrainedState.cleanUpConstrainedState()
+            → ArrayList.remove()
+            → HashMap.remove()
+            → Map$Entry.getValue()
+            → Map.entrySet()
+            → Set.iterator()
+            → SystemProperties.get()
+            → SemDualAppManager.isDualAppId()
+              → IBinder.queryLocalInterface()
+              → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → DevicePolicyManager.getDeviceOwnerComponentOnAnyUser()
+              → Context.getSystemService()
+              → PackageManager.hasSystemFeature()
+              → PackageManager.checkSignatures() [SIG_CHECK]
+              → KpuHelper.getSepSignature()
+              → Utils.comparePackageSignature()
+              → PackageManager.getPackageUidAsUser()
+              → EnterpriseDeviceManagerServiceImpl$Injector.userHandleGetCallingUserId()
+              → AppGlobals.getPackageManager()
+              → ContentValues.getAsString()
+              → IPackageManager.checkUidPermission()
+              → HashSet.contains()
+              → <java.util.HashSet: void <init>(java.util.Collection)>
+              → List.isEmpty()
+              → DevicePolicyManager.isDeviceOwnerApp()
+              → EnterpriseService.getPolicyService()
+              → RestrictionPolicy.isKnoxDelegationEnabled()
+              → EdmStorageProvider.getValue()
+              → PackageManager$NameNotFoundException.printStackTrace()
+              → PackageManager.getApplicationInfo() [PKG_QUERY]
+              → PackageManager.getPackageInfo() [PKG_QUERY]
+              → Utils.compareSystemSignature()
+              → IDevicePolicyManager.isOrganizationOwnedDeviceWithManagedProfile()
+              → RemoteException.printStackTrace()
+              → EnterpriseDeviceManagerServiceImpl.getOrganizationOwnedProfileUserId()
+              → Field.setAccessible()
+              → Field.setInt()
+              → EdmStorageProviderBase.getInt()
+              → UserHandle.getUid()
+              → EnterpriseDeviceManagerService.getInstance()
+              → EnterpriseDeviceManagerService.getPseudoAdminUid()
+              → <com.samsung.android.knox.ContextInfo: void <init>(int,boole
+              → <android.util.ArrayMap: void <init>()>
+              → ArrayMap.put()
+              → ContentValues.putAll()
+              → EdmStorageProviderBase.update()
+              → EdmStorageProviderBase.formatContentValues()
+              → EdmStorageProviderBase.insert()
+              → ArrayMap.get()
+              → <com.android.server.LockGuard$LockInfo: void <init>(com.andr
+              → StackTraceElement.toString()
+              → Throwable.getStackTrace()
+              → Number.intValue()
+              → SecContentProviderUtil.notifyPolicyChangesAsUser()
+              → ComponentName.equals()
+              → ArrayList.iterator()
+              → ComponentName.flattenToString()
+              → EnterpriseDeviceManagerServiceImpl.findAdmin()
+              → EnterpriseServiceCallback.onAdminAdded()
+              → EdmStorageProviderBase.addorUpdateAdmin()
+              → ArrayList.add()
+              → HashMap.containsKey()
+              → HashMap.put()
+              → <java.util.TreeMap: void <init>(java.util.Map)>
+              → EnterpriseServiceCallback.onAdminRemoved()
+              → KeyCodeMediatorImpl.update()
+              → Map.get()
+              → Map.remove()
+              → KeyCodeMediatorImpl.getAllRestrictedKeyCodes()
+              → Map.put()
+              → EdmStorageProviderBase.getBoolean()
+              → EdmStorageProviderBase.getBoolean()
+              → EdmStorageProviderBase.delete()
+              → ContentValues.size()
+              → ContentValues.put()
+              → ContentValues.put()
+              → ContentValues.put()
+              → Cursor.moveToFirst()
+              → Cursor.moveToNext()
+              → Cursor.getBlob()
+              → Cursor.getFloat()
+              → Cursor.getColumnCount()
+              → Cursor.getCount()
+              → Cursor.getType()
+              → Cursor.getColumnName()
+              → Cursor.getString()
+              → Cursor.getLong()
+              → Cursor.close()
+              → SQLException.getMessage()
+              → EdmStorageProviderBase.getCursor()
+              → EdmStorageProviderBase.getPackageNameForUid()
+              → ConstrainedState.disableConstrainedStateInternal()
+

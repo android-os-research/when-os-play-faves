@@ -1,0 +1,12 @@
+# com.samsung.android.wifi.ISemWifiDiagnosticsClient [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.samsung.android.wifi.ISemWifiDiagnosticsClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.wifi.ISemWifiDiagnosticsClient$Stub$Proxy: java.util.List getDiagnosisResults()>
+<com.samsung.android.wifi.ISemWifiDiagnosticsClient$Stub$Proxy: java.util.List setupDelegation(java.lang.String)>
+<com.samsung.android.wifi.ISemWifiDiagnosticsClient$Stub$Proxy: void clearHistory()>
+<com.samsung.android.wifi.ISemWifiDiagnosticsClient$Stub$Proxy: void runDiagnosis(java.lang.String,java.lang.String)>
+<com.samsung.android.wifi.ISemWifiDiagnosticsClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.wifi.ISemWifiDiagnosticsClient$Stub: com.samsung.android.wifi.ISemWifiDiagnosticsClient asInterface(android.os.IBinder)>
+<com.samsung.android.wifi.ISemWifiDiagnosticsClient$Stub: void <init>()>

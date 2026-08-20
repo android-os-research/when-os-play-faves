@@ -1,0 +1,551 @@
+######################################################################
+# Propagation: com.sec.enterprise.knox.cloudmdm.smdms
+######################################################################
+
+JARs:                 knoxsdk, services
+Classes:              11
+Occurrences:          13
+Usage types:          array_init, invoke, unknown
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PERM_CHECK, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$2
+  Method:   <com.samsung.android.knox.EdmConstants$2: void <init>()>
+  Line:     44
+  Register: v0 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.accessory.manager.authentication.usb.UsbAuthenticator
+  Method:   <com.samsung.accessory.manager.authentication.usb.UsbAuthenticator: boolean notifyFriendsStateChanged(boolean,byte[],byte[])>
+  Line:     1040
+  Register: v0 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [invoke] invoke-direct {p3, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] new-instance v0, Landroid/content/Intent; → [invoke] android.c
+
+  CALLERS (who invokes this method):
+      ← UsbAuthenticator.setUsbVerified()
+        ← <com.samsung.accessory.manager.authentication.usb.UsbAuthent
+        ← UsbAuthenticator.handleAuthResponse()
+          ← UsbAuthenticator$UsbAuthHandler.handleMessage()
+          ← <com.samsung.accessory.manager.authentication.usb.UsbAuthent
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → LocalServices.getService()
+      → SemUnionManagerLocal.accessoryStateChanged()
+        → ArrayMap.get()
+          → ArrayMap.indexOfKey()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+              → ArrayMap.binarySearchHashes()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.accessory.manager.authentication.cover.CoverAuthenticator
+  Method:   <com.samsung.accessory.manager.authentication.cover.CoverAuthenticator: boolean notifyFriendsStateChanged(boolean,byte[],byte[])>
+  Line:     3184
+  Register: v0 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [invoke] invoke-direct {p3, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] new-instance v0, Landroid/content/Intent; → [invoke] android.c
+
+  CALLERS (who invokes this method):
+      ← CoverAuthenticator.setCoverVerified()
+      ← CoverAuthenticator.setFriendsVerified()
+        ← <com.samsung.accessory.manager.authentication.cover.CoverAut
+        ← CoverAuthenticator.handleAuthResponse()
+        ← <com.samsung.accessory.manager.authentication.cover.CoverAut
+          ← CoverAuthenticator$10.run()
+          ← CoverAuthenticator$CoverAuthHandler.handleMessage()
+          ← <com.samsung.accessory.manager.authentication.cover.CoverAut
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → LocalServices.getService()
+      → CoverAuthenticator.sendFriendsCoverAttachInformation()
+      → SemUnionManagerLocal.accessoryStateChanged()
+        → ArrayMap.get()
+        → Intent.putExtra()
+        → Intent.setAction()
+          → ArrayMap.indexOfKey()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+              → ArrayMap.binarySearchHashes()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl$1
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl$1: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     180
+  Register: p1 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [invoke] invoke-virtual {p2, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object p1, Landroid/os/UserHandle;->OWNER:Landroid/os/U → [i
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Context.unregisterReceiver()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → Intent.getParcelableExtra()
+      → Intent.getBooleanExtra()
+      → Intent.getIntExtra()
+      → Intent.getAction()
+      → NetworkInfo.isConnected()
+      → <com.android.server.enterprise.EnterpriseDeviceManagerServic
+      → <com.android.server.enterprise.EnterpriseDeviceManagerServic
+      → <com.android.server.enterprise.EnterpriseDeviceManagerServic
+      → <com.android.server.enterprise.EnterpriseDeviceManagerServic
+      → EnterpriseDeviceManagerServiceImpl.startDeferredServicesIfNeeded()
+      → IPersonaManagerAdapter.isLegacyContainer()
+      → IPersonaManagerAdapter.isValidKnoxId()
+        → EnterpriseDeviceManagerServiceImpl.cleanGenericTableOnUserRemoved()
+        → EnterpriseDeviceManagerServiceImpl.registerBroadcastReceiver()
+        → EnterpriseDeviceManagerServiceImpl.removePseudoAdmin()
+        → ConditionVariable.block()
+        → Handler.postAtFrontOfQueue()
+        → <com.android.server.enterprise.EnterpriseDeviceManagerServic
+          → EdmStorageProvider.deleteDataByFields()
+          → Context.registerReceiver()
+          → <android.content.IntentFilter: void <init>()>
+          → IntentFilter.addAction()
+          → EnterpriseDeviceManagerServiceImpl.deviceOwnerExists()
+          → EnterpriseDeviceManagerServiceImpl.setAdminRemovable()
+          → EdmStorageProviderBase.removeAdminFromDatabase()
+          → EdmStorageProviderBase.getPseudoAdminUid()
+          → Exception.getMessage()
+          → HashMap.remove()
+            → EdmStorageProviderBase.deleteDataByFields()
+            → DevicePolicyManager.getDeviceOwner()
+            → Context.getSystemService()
+            → EdmStorageProvider.putBoolean()
+            → Exception.printStackTrace()
+            → <android.content.ContentValues: void <init>()>
+            → ContentValues.put()
+            → EdmStorageProviderBase.delete()
+            → ContentValues.put()
+            → EdmStorageProviderBase.getInt()
+              → ContentValues.put()
+              → EdmStorageProviderBase.putBoolean()
+              → <android.util.ArrayMap: void <init>()>
+              → ArrayMap.put()
+              → EdmStorageProviderBase.delete()
+              → EdmStorageProviderBase.formatContentValues()
+              → EdmStorageProviderBase.getIntList()
+              → List.size()
+              → List.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+  Line:     409
+  Register: v0 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [invoke] invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] java.util.List.add() → [other] new-instance v0, Landroid/os/ConditionVariable; → [invoke] android.os.ConditionV
+
+  CALLEES (what this method invokes):
+      → <android.os.ConditionVariable: void <init>()>
+      → Process.myPid()
+      → SystemProperties.get()
+      → EnterpriseDeviceManagerServiceImpl.isPackageInstalled()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → ActivityThread.getPackageManager()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: boolean checkCallerIsUMC()>
+  Line:     2942
+  Register: v2 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [invoke] invoke-virtual {v1, v2, p0}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageUidAsUser()
+
+  CALLERS (who invokes this method):
+      ← EnterpriseDeviceManagerServiceImpl.addAuthorizedUid()
+      ← EnterpriseDeviceManagerServiceImpl.removeAuthorizedUid()
+      ← EnterpriseDeviceManagerServiceImpl.writeUmcEnrollmentData()
+      ← EnterpriseDeviceManagerServiceImpl.captureUmcLogs()
+      ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+      ← EnterpriseDeviceManagerServiceImpl.getAdminUidForAuthorizedUid()
+      ← EnterpriseDeviceManagerServiceImpl.getAuthorizedUidForAdminUid()
+      ← EnterpriseDeviceManagerServiceImpl.readUmcEnrollmentData()
+        ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforceContainerOwnerShipPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforceDoPoOnlyPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyAndActiveAdminPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforcePermissionByContext() [PERM_CHECK]
+        ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermission()
+          ← EnterpriseDeviceManagerServiceImpl.activateDevicePermissions()
+          ← EnterpriseDeviceManagerServiceImpl.setAdminRemovable()
+          ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyAndActiveAdminPermission()
+          ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyPermissionByContext()
+            ← EnterpriseDeviceManagerServiceImpl$MyPackageMonitor.onPackageUpdateFinished()
+            ← EnterpriseDeviceManagerServiceImpl$MyPackageMonitor.onSomePackagesChanged()
+            ← EnterpriseDeviceManagerServiceImpl.activateAdmin()
+            ← EnterpriseDeviceManagerServiceImpl.loadActiveAdmins()
+              ← EnterpriseDeviceManagerServiceImpl.setActiveAdmin()
+              ← EnterpriseDeviceManagerServiceImpl.setActiveAdminSilent()
+              ← EnterpriseDeviceManagerServiceImpl.systemReady()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageUidAsUser()
+      → Binder.getCallingUid() [UID_CHECK]
+      → EnterpriseDeviceManagerServiceImpl$Injector.userHandleGetCallingUserId()
+        → UserHandle.getCallingUserId()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void enforceUMCSignature()>
+  Line:     5767
+  Register: v1 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo()
+
+  CALLERS (who invokes this method):
+      ← EnterpriseDeviceManagerServiceImpl.addAuthorizedUid()
+      ← EnterpriseDeviceManagerServiceImpl.removeAuthorizedUid()
+      ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+      ← EnterpriseDeviceManagerServiceImpl.getAdminUidForAuthorizedUid()
+      ← EnterpriseDeviceManagerServiceImpl.getAuthorizedUidForAdminUid()
+        ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforceContainerOwnerShipPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforceDoPoOnlyPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyAndActiveAdminPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforcePermissionByContext() [PERM_CHECK]
+        ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermission()
+          ← EnterpriseDeviceManagerServiceImpl.activateDevicePermissions()
+          ← EnterpriseDeviceManagerServiceImpl.setAdminRemovable()
+          ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyAndActiveAdminPermission()
+          ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyPermissionByContext()
+          ← EnterpriseDeviceManagerServiceImpl.writeUmcEnrollmentData()
+          ← EnterpriseDeviceManagerServiceImpl.captureUmcLogs()
+          ← EnterpriseDeviceManagerServiceImpl.readUmcEnrollmentData()
+            ← EnterpriseDeviceManagerServiceImpl$MyPackageMonitor.onPackageUpdateFinished()
+            ← EnterpriseDeviceManagerServiceImpl$MyPackageMonitor.onSomePackagesChanged()
+            ← EnterpriseDeviceManagerServiceImpl.activateAdmin()
+            ← EnterpriseDeviceManagerServiceImpl.loadActiveAdmins()
+              ← EnterpriseDeviceManagerServiceImpl.setActiveAdmin()
+              ← EnterpriseDeviceManagerServiceImpl.setActiveAdminSilent()
+              ← EnterpriseDeviceManagerServiceImpl.systemReady()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → Utils.compareSystemSignature()
+      → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → PackageManager$NameNotFoundException.printStackTrace()
+        → HashSet.add()
+        → HashSet.equals()
+        → <java.util.HashSet: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.license.EnterpriseLicenseService
+  Method:   <com.android.server.enterprise.license.EnterpriseLicenseService: void <init>(com.android.server.enterprise.license.EnterpriseLicenseService$Injector,android.content.pm.IPackageManager)>
+  Line:     208
+  Register: v0 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [array_init] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2}, [Ljava/lang/String; → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.enterprise.license.EnterpriseLicenseServ
+        ← EnterpriseDeviceManagerServiceImpl$Injector.getEnterpriseLicenseService()
+          ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+            ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+              ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiverAsUser()
+      → <android.content.IntentFilter: void <init>(java.lang.String)
+      → IntentFilter.addDataScheme()
+      → <com.android.server.enterprise.license.DeviceProfileListener
+      → DeviceProfileListener.registerObserver()
+      → <com.android.server.enterprise.license.EnterpriseLicenseServ
+      → <com.android.server.enterprise.storage.EdmStorageProvider: v
+      → <com.samsung.android.knox.license.IEnterpriseLicense$Stub: v
+      → <java.util.ArrayList: void <init>()>
+      → Objects.requireNonNull()
+      → <java.util.concurrent.ConcurrentHashMap: void <init>()>
+        → <android.content.BroadcastReceiver: void <init>()>
+        → Context.registerReceiver()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → List.add()
+        → <com.android.server.enterprise.storage.EdmStorageProviderBas
+        → <android.os.Binder: void <init>()>
+        → Binder.attachInterface()
+          → SQLiteDatabase.enableWriteAheadLogging()
+          → SQLiteOpenHelper.getWritableDatabase()
+          → EdmStorageHelper.getInstance()
+          → <android.os.Binder: void <init>(java.lang.String)>
+            → SQLiteOpenHelper.getDatabaseLocked()
+            → <com.android.server.enterprise.storage.EdmStorageHelper: voi
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+              → Context.getDatabasePath()
+              → SQLiteDatabase$OpenParams$Builder.build()
+              → SQLiteDatabase$OpenParams$Builder.addOpenFlags()
+              → SQLiteDatabase$OpenParams.toBuilder()
+              → SQLiteDatabase.createInMemory()
+              → SQLiteDatabase.openDatabase()
+              → SQLiteDatabase.deleteDatabase()
+              → SQLiteDatabase.isOpen()
+              → SQLiteDatabase.isReadOnly()
+              → SQLiteDatabase.getVersion()
+              → SQLiteDatabase.getPath()
+              → SQLiteDatabase.beginTransaction()
+              → SQLiteDatabase.close()
+              → SQLiteDatabase.endTransaction()
+              → SQLiteDatabase.reopenReadWrite()
+              → SQLiteDatabase.setReserveSpace()
+              → SQLiteDatabase.setTransactionSuccessful()
+              → SQLiteDatabase.setVersion()
+              → <android.database.sqlite.SQLiteException: void <init>(java.l
+              → SQLiteOpenHelper.onBeforeDelete()
+              → SQLiteOpenHelper.onConfigure()
+              → SQLiteOpenHelper.onCreate()
+              → SQLiteOpenHelper.onDowngrade()
+              → SQLiteOpenHelper.onOpen()
+              → SQLiteOpenHelper.onUpgrade()
+              → SQLiteOpenHelper.setFilePermissionsForDb()
+              → File.getPath()
+              → <java.io.File: void <init>(java.lang.String)>
+              → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+              → <android.database.sqlite.SQLiteOpenHelper: void <init>(andro
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.geofencing.GeofenceService
+  Method:   <com.android.server.enterprise.geofencing.GeofenceService: java.lang.String getPackageNameForUid(int)>
+  Line:     4889
+  Register: p0 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [unknown] return-object p0
+  Patterns: (none)
+  Flow:     [other] return-object p0 → [other] iget-object p0, p0, Lcom/android/server/enterprise/geofencin → [invoke] com.android.s
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.enterprise.geofencing.GeofenceService: j
+      ← GeofenceService.deviceLocationUnavailableMessage()
+      ← GeofenceService.sendIntenttoAdmins()
+        ← GeofenceService$GeofencingHandler.handleMessage()
+        ← GeofenceService.isDeviceInsideGeofence()
+        ← GeofenceService.checkMonitoring()
+        ← GeofenceService.checkDeviceInsideOrOutsideGeo()
+          ← <com.android.server.enterprise.geofencing.GeofenceService: j
+          ← GeofenceService.isDeviceInsideGeofence()
+          ← <com.android.server.enterprise.geofencing.GeofenceService: v
+          ← <com.android.server.enterprise.geofencing.GeofenceService: j
+            ← GeofenceService$GeoLocationListener.onLocationChanged()
+
+  CALLEES (what this method invokes):
+      → ComponentName.unflattenFromString()
+      → ComponentName.getPackageName()
+      → EdmStorageProvider.getString()
+        → EdmStorageProviderBase.getString()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → EdmStorageProviderBase.getString()
+          → EdmStorageProviderBase.translateToAdminLUID()
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.put()
+            → EdmStorageProviderBase.getStringList()
+            → List.size()
+            → List.get()
+            → SemPersonaManager.isKnoxId()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → Cursor.isNull()
+              → Cursor.moveToNext()
+              → Cursor.getString()
+              → Cursor.close()
+              → SQLException.getMessage()
+              → EdmStorageProviderBase.getCursor()
+              → <java.util.ArrayList: void <init>()>
+              → List.add()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.kioskmode.KioskModeService
+  Method:   <com.android.server.enterprise.kioskmode.KioskModeService: java.lang.String getPackageNameForUid(int)>
+  Line:     4482
+  Register: p0 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [unknown] return-object p0
+  Patterns: (none)
+  Flow:     [other] return-object p0 → [other] iget-object p0, p0, Lcom/android/server/enterprise/kioskmode → [invoke] android.conte
+
+  CALLERS (who invokes this method):
+      ← KioskModeService.broadcastKioskResult()
+        ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+        ← KioskModeService._disableKioskMode()
+        ← KioskModeService._enableKioskMode()
+        ← KioskModeService.disableKioskMode()
+        ← KioskModeService.enableKioskMode()
+          ← KioskModeService$4.run()
+          ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+          ← KioskModeService.forceTerminateKiosk()
+          ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+            ← KioskModeService$KioskHandler.handleMessage()
+            ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+            ← KioskModeService.onPreAdminRemoval()
+              ← KioskModeService$5.onReceive()
+              ← KioskModeService$6.onReceive()
+
+  CALLEES (what this method invokes):
+      → PackageManager.getNameForUid()
+      → UserHandle.getAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.restriction.RestrictionPolicy
+  Method:   <com.android.server.enterprise.restriction.RestrictionPolicy: void <clinit>()>
+  Line:     330
+  Register: v0 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+  Line:     981
+  Register: v8 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [array_init] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Process.myPid()
+      → ArrayMap.size()
+      → ArrayMap.get()
+      → ArrayMap.keyAt()
+      → ArrayMap.put()
+      → ArrayMap.valueAt()
+      → <android.util.ArrayMap: void <init>()>
+      → <com.android.server.enterprise.application.ApplicationPolicy
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Collections.unmodifiableList()
+      → <java.util.HashMap: void <init>()>
+        → ArrayMap.indexOfKey()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → ArrayMap.indexOf()
+        → ArrayMap.indexOfNull()
+        → ArrayMap.allocArrays()
+        → ArrayMap.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.binarySearchHashes()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.auditlog.AuditLogService
+  Method:   <com.android.server.enterprise.auditlog.AuditLogService: java.lang.String getAdminPackageNameForUid(int)>
+  Line:     2734
+  Register: p0 := "com.sec.enterprise.knox.cloudmdm.smdms"
+  Usage:    [unknown] return-object p0
+  Patterns: (none)
+  Flow:     [other] return-object p0 → [other] iget-object v0, p0, Lcom/android/server/enterprise/auditlog/ → [other] iget-object p0
+
+  CALLERS (who invokes this method):
+      ← AuditLogService.enableAuditLog()
+      ← AuditLogService.createAdmins()
+        ← <com.android.server.enterprise.auditlog.AuditLogService: voi
+          ← <com.android.server.enterprise.auditlog.AuditLogService: voi
+            ← EnterpriseDeviceManagerServiceImpl.createDeferredServices()
+              ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+              ← EnterpriseDeviceManagerServiceImpl.systemReady()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getNameForUid()
+      → UserHandle.getAppId()
+      → EdmStorageProviderBase.getPackageNameForUid()
+        → ComponentName.getPackageName()
+        → EdmStorageProviderBase.getComponentNameForUid()
+          → ComponentName.unflattenFromString()
+          → EdmStorageProviderBase.getString()
+            → <android.content.ContentValues: void <init>()>
+            → ContentValues.put()
+            → EdmStorageProviderBase.getString()
+            → EdmStorageProviderBase.translateToAdminLUID()
+              → <android.util.ArrayMap: void <init>()>
+              → ArrayMap.put()
+              → EdmStorageProviderBase.getStringList()
+              → List.size()
+              → List.get()
+              → SemPersonaManager.isKnoxId()
+

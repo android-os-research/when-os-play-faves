@@ -1,0 +1,11 @@
+# com.gsma.services.rcs.history.IHistoryService [NEW]
+# Refs: 7
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.history.IHistoryService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.history.IHistoryService$Stub$Proxy: long createUniqueId(int)>
+<com.gsma.services.rcs.history.IHistoryService$Stub$Proxy: void registerExtraHistoryLogMember(int,android.net.Uri,android.net.Uri,java.lang.String,java.util.Map)>
+<com.gsma.services.rcs.history.IHistoryService$Stub$Proxy: void unRegisterExtraHistoryLogMember(int)>
+<com.gsma.services.rcs.history.IHistoryService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.history.IHistoryService$Stub: com.gsma.services.rcs.history.IHistoryService asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.history.IHistoryService$Stub: void <init>()>

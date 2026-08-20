@@ -1,0 +1,5 @@
+# persist.lock.non_strong_biometric_timeout [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.locksettings.LockSettingsStrongAuth: long getRequiredNonStrongBiometricTimeout()>

@@ -1,0 +1,57 @@
+######################################################################
+# Propagation: com.monotype.android.font.cooljazz
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.fontutil.TypefaceFinder
+  Method:   <com.samsung.android.fontutil.TypefaceFinder: void getSansEntries(android.content.Context,android.content.pm.PackageManager,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList)>
+  Line:     1046
+  Register: v12 := "com.monotype.android.font.cooljazz"
+  Usage:    [invoke] invoke-virtual {v15, v12}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v12 → [branch] if-eqz v12, :cond_116 → [other] move-object/from
+
+  CALLERS (who invokes this method):
+      ← FlipFontOptimizer.getFontsVector()
+        ← FlipFontOptimizer.getFontString()
+          ← FlipFontOptimizer.setFlipfont()
+            ← FlipFontOptimizer.setFlipfont()
+              ← ActivityManagerService.finishBooting()
+
+  CALLEES (what this method invokes):
+      → Context.getResources()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → Resources.getText()
+      → SemTypeface.getFontPackageName()
+      → SemTypeface.getSansName()
+      → SemTypeface.getTypefaceFilename()
+      → <com.samsung.android.fontutil.TypefaceFinder$TypefaceSortByN
+      → TypefaceFinder.isDomesticModel()
+      → Exception.printStackTrace()
+      → ArrayList.add()
+      → ArrayList.add()
+      → Collections.sort()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → List.isEmpty()
+        → TypefaceFinder.readCountryCode()
+          → SemCscFeature.getInstance()
+          → SemCscFeature.getString()
+            → <com.samsung.android.feature.SemCscFeature: void <init>()>
+            → Hashtable.get()
+              → SystemProperties.get()
+              → SemCscFeature.loadFeatureFile()
+              → Exception.toString()
+              → <java.util.Hashtable: void <init>()>
+

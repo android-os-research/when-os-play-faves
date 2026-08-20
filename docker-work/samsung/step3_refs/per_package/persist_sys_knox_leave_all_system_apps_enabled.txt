@@ -1,0 +1,6 @@
+# persist.sys.knox.leave_all_system_apps_enabled [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.devicepolicy.DevicePolicyManagerService: void provisionFullyManagedDevice(android.app.admin.FullyManagedDeviceProvisioningParams,java.lang.String)>
+<com.android.server.pm.PersonaServiceHelper: boolean isDisallowedAppForKnox(android.os.Bundle,int,java.lang.String)>

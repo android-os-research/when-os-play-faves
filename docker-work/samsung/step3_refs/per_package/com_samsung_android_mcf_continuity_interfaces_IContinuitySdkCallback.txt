@@ -1,0 +1,9 @@
+# com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCallback [NEW]
+# Refs: 5
+# JARs: services
+
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCallback$Stub$a: java.lang.String a()>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCallback$Stub$a: void onCallback(android.os.Message)>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCallback$Stub: com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySdkCallback$Stub: void <init>()>

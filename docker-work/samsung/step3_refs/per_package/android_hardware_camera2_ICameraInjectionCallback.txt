@@ -1,0 +1,9 @@
+# android.hardware.camera2.ICameraInjectionCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.camera2.ICameraInjectionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.ICameraInjectionCallback$Stub$Proxy: void onInjectionError(int)>
+<android.hardware.camera2.ICameraInjectionCallback$Stub: android.hardware.camera2.ICameraInjectionCallback asInterface(android.os.IBinder)>
+<android.hardware.camera2.ICameraInjectionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.ICameraInjectionCallback$Stub: void <init>()>

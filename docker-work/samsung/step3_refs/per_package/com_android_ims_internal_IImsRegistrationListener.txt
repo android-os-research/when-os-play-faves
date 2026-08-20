@@ -1,0 +1,20 @@
+# com.android.ims.internal.IImsRegistrationListener [NEW]
+# Refs: 16
+# JARs: framework
+
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void registrationAssociatedUriChanged(android.net.Uri[])>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void registrationChangeFailed(int,android.telephony.ims.ImsReasonInfo)>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void registrationConnected()>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void registrationConnectedWithRadioTech(int)>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void registrationDisconnected(android.telephony.ims.ImsReasonInfo)>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void registrationFeatureCapabilityChanged(int,int[],int[])>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void registrationProgressing()>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void registrationProgressingWithRadioTech(int)>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void registrationResumed()>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void registrationServiceCapabilityChanged(int,int)>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void registrationSuspended()>
+<com.android.ims.internal.IImsRegistrationListener$Stub$Proxy: void voiceMessageCountUpdate(int)>
+<com.android.ims.internal.IImsRegistrationListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.IImsRegistrationListener$Stub: com.android.ims.internal.IImsRegistrationListener asInterface(android.os.IBinder)>
+<com.android.ims.internal.IImsRegistrationListener$Stub: void <init>()>

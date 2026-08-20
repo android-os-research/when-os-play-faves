@@ -1,0 +1,34 @@
+.class public final synthetic Lorg/apache/commons/lang3/function/Failable$$ExternalSyntheticLambda14;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/util/function/BiConsumer;
+
+
+# instance fields
+.field public final synthetic f$0:Lorg/apache/commons/lang3/function/FailableBiConsumer;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lorg/apache/commons/lang3/function/FailableBiConsumer;)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lorg/apache/commons/lang3/function/Failable$$ExternalSyntheticLambda14;->f$0:Lorg/apache/commons/lang3/function/FailableBiConsumer;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .registers 3
+
+    iget-object p0, p0, Lorg/apache/commons/lang3/function/Failable$$ExternalSyntheticLambda14;->f$0:Lorg/apache/commons/lang3/function/FailableBiConsumer;
+
+    invoke-static {p0, p1, p2}, Lorg/apache/commons/lang3/function/Failable;->$r8$lambda$Ln7FLK01lkrtQgPdQ9RZ11hipfg(Lorg/apache/commons/lang3/function/FailableBiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-void
+.end method

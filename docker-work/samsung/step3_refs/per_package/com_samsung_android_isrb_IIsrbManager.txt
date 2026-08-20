@@ -1,0 +1,11 @@
+# com.samsung.android.isrb.IIsrbManager [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.isrb.IIsrbManager$Stub$Proxy: boolean isBootCompleteState()>
+<com.samsung.android.isrb.IIsrbManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.isrb.IIsrbManager$Stub$Proxy: void setFakeTime()>
+<com.samsung.android.isrb.IIsrbManager$Stub$Proxy: void setIsrbEnable(boolean)>
+<com.samsung.android.isrb.IIsrbManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.isrb.IIsrbManager$Stub: com.samsung.android.isrb.IIsrbManager asInterface(android.os.IBinder)>
+<com.samsung.android.isrb.IIsrbManager$Stub: void <init>()>

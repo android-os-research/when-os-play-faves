@@ -1,0 +1,2180 @@
+######################################################################
+# Propagation: com.samsung.android.knox.containercore
+######################################################################
+
+JARs:                 framework, services
+Classes:              18
+Occurrences:          25
+Usage types:          array_init, field_store, invoke, unknown
+Enforcement patterns: early_return, package_enable_disable, string_compare, system_property_read
+Security tags:        HIDDEN_API, PERM_CHECK, PKG_MGMT, PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     605
+  Register: v3 := "com.samsung.android.knox.containercore"
+  Usage:    [field_store] aput-object v3, v2, v1
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: android.content.Intent createLockdownIntent(int)>
+  Line:     1853
+  Register: v1 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: (none)
+  Flow:     [invoke] android.content.Intent.setPackage()
+
+  CALLERS (who invokes this method):
+      ← AppWidgetServiceImpl.maskWidgetsViewsLocked()
+      ← ActivityStartInterceptor.interceptSuperLockIfNeeded()
+        ← AppWidgetServiceImpl.onWidgetProviderAddedOrChangedLocked()
+        ← AppWidgetServiceImpl.reloadWidgetsMaskedState()
+        ← AppWidgetServiceImpl.updateWidgetPackageSuspensionMaskedState()
+          ← AppWidgetServiceImpl.bindAppWidgetId()
+          ← AppWidgetServiceImpl.addWidgetLocked()
+          ← <com.android.server.appwidget.AppWidgetServiceImpl: void -$$
+          ← AppWidgetServiceImpl.reloadWidgetsMaskedStateForGroup()
+          ← <com.android.server.appwidget.AppWidgetServiceImpl: void -$$
+            ← AppWidgetServiceImpl$BackupRestoreController.restoreWidgetState()
+            ← AppWidgetServiceImpl.allocateAppWidgetIdWhileBindingLocked()
+            ← AppWidgetServiceImpl.allocateAppWidgetId()
+            ← AppWidgetServiceImpl.bindLoadedWidgetsLocked()
+            ← AppWidgetServiceImpl$1.onReceive()
+            ← AppWidgetServiceImpl$2.onContainerAdminLocked()
+            ← AppWidgetServiceImpl$2.onContainerAdminUnlocked()
+            ← AppWidgetService.onUserSwitching()
+            ← AppWidgetServiceImpl.handleUserUnlocked()
+              ← AppWidgetServiceImpl.restoreWidgetState()
+              ← AppWidgetServiceImpl.loadGroupStateLocked()
+              ← AppWidgetServiceImpl$AppWidgetManagerLocal.unlockUser()
+
+  CALLEES (what this method invokes):
+      → Intent.putExtra()
+      → Intent.setFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: android.content.ComponentName getKnoxAdminReceiver()>
+  Line:     2955
+  Register: v1 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: (none)
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← KnoxMUMContainerPolicy.deactivateCoreAppAsAdmin()
+      ← PersonaManagerService.isContainerService()
+      ← SemPersonaManager.isContainerService()
+      ← SemPersonaManagerWrapper.getKnoxAdminReceiver()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: java.lang.String getKnoxCorePackageName()>
+  Line:     2977
+  Register: v0 := "com.samsung.android.knox.containercore"
+  Usage:    [unknown] return-object v0
+  Patterns: (none)
+  Flow:     [other] return-object v0
+
+  CALLERS (who invokes this method):
+      ← PersonaManagerService.bindCoreServiceAsUser()
+      ← SemPersonaManager.createChangeCredentialIntent()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService
+  Method:   <com.android.server.am.ActivityManagerService: void finishBooting()>
+  Line:     44395
+  Register: v9 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v9 → [branch] if-eqz v9, :cond_137 → [reassigned] v9 overwritte
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerService$LocalService.finishBooting()
+      ← ActivityManagerService.bootAnimationComplete()
+      ← ActivityManagerService.ensureBootCompleted()
+        ← ActivityManagerService$LocalService.ensureBootCompleted()
+        ← ActivityManagerService$UiHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Context.registerReceiver()
+      → Context.registerReceiverForAllUsers()
+      → Context.getSystemService()
+      → <android.content.IntentFilter: void <init>()>
+      → <android.content.IntentFilter: void <init>(java.lang.String)
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → Configuration.getLocales()
+      → CountDownTimer.start()
+      → Handler.obtainMessage()
+      → Handler.post()
+      → Handler.sendMessageDelayed()
+      → LocaleList.isEmpty()
+      → Looper.getMainLooper()
+      → Looper.setPerfLogEnable()
+      → PowerManager.reboot()
+      → SystemProperties.set()
+      → ZygoteProcess.bootCompleted()
+      → IStorageManager.commitChanges()
+      → Settings$Secure.putInt()
+      → Settings$Secure.getInt()
+      → InitProperties.userspace_reboot_in_progress()
+      → VoldProperties.decrypt()
+      → VoldProperties.encrypt_progress()
+      → TimingsTraceLog.traceEnd()
+      → InstallLocationUtils.getStorageManager()
+      → SystemServiceManager.startBootPhase()
+      → UserspaceRebootLogger.noteUserspaceRebootSuccess()
+      → <com.android.server.am.ActivityManagerService$$ExternalSynth
+      → <com.android.server.am.ActivityManagerService$$ExternalSynth
+      → <com.android.server.am.ActivityManagerService$10: void <init
+      → <com.android.server.am.ActivityManagerService$11: void <init
+      → <com.android.server.am.ActivityManagerService$12: void <init
+      → <com.android.server.am.ActivityManagerService$13: void <init
+      → <com.android.server.am.ActivityManagerService$9: void <init>
+      → ActivityManagerService$Injector.getContext()
+      → ActivityManagerService.boostPriorityForLockedSection()
+      → ActivityManagerService.ensureAgentBinding()
+      → ActivityManagerService.maybeLogUserspaceRebootEvent()
+      → ActivityManagerService.resetPriorityAfterLockedSection()
+      → ActivityManagerService.showConsoleNotificationIfActive()
+      → ActivityManagerService.showMteOverrideNotificationIfActive()
+      → AppStateBroadcaster.enableIntentBroadcast()
+      → AppcoreLoggingTool.getInstance()
+      → DynamicHiddenApp.bootBGSlotSettingTimer()
+      → DynamicHiddenApp.initDHAPostBoot()
+      → EventLogTags.writeBootProgressAmsState()
+      → FreecessController.getInstance()
+      → FreecessController.init()
+      → Heimdall.init()
+      → <com.android.server.am.HostingRecord: void <init>(java.lang.
+      → MARsPolicyManager.getInstance()
+      → MARsPolicyManager.postInit()
+      → Pageboost.initPageboost()
+      → Pageboost.updatePackages()
+      → ProcessCpusetController.getController()
+      → ProcessList.getProcessNamesLOSP()
+      → ProcessList.startProcessLocked()
+      → ProcessRecord.getWindowProcessController()
+      → UserController.scheduleStartProfiles()
+      → UserController.sendBootCompleted()
+      → <com.android.server.utils.TimingsTraceAndSlog: void <init>(j
+      → TimingsTraceAndSlog.traceBegin()
+      → ActivityTaskManagerService.initActivityManagerPerformance()
+      → ConfigurationContainer.getConfiguration()
+      → WindowProcessController.updateGlobalConfiguration()
+      → <com.samsung.android.fontutil.FlipFontOptimizer: void <init>
+      → FlipFontOptimizer.setFlipfont()
+      → DualDarManager.isOnDeviceOwnerEnabled()
+      → DualDarManager.getInstance()
+      → DualDarManager.ensureDataUnlockedIfRequired()
+      → UnifiedMemoryReclaimer.init()
+      → DeviceReportingSecurityChecker.enable()
+      → VMRuntime.bootCompleted()
+      → ArrayList.size()
+      → ArrayList.get()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Optional.orElse()
+        → CountDownTimer.onFinish()
+        → Handler.sendMessage()
+        → SystemClock.elapsedRealtime()
+        → ZygoteProcess.bootCompleted()
+        → SystemProperties.get()
+        → InitProperties.tryParseBoolean()
+        → Optional.ofNullable()
+        → VoldProperties.tryParseString()
+        → Trace.traceEnd()
+        → TimingsTraceLog.assertSameThread()
+        → TimingsTraceLog.logDuration()
+        → <android.os.RemoteException: void <init>(java.lang.String)>
+        → ServiceManager.getService()
+        → IStorageManager$Stub.asInterface()
+        → SystemClock.uptimeMillis()
+        → SystemProperties.getBoolean()
+        → SystemProperties.getInt()
+        → SystemServerInitThreadPool.shutdown()
+        → SystemService.onBootPhase()
+        → SystemServiceManager.warnIfTooLong()
+        → TimingsTraceAndSlog.logDuration()
+        → IsrbHooks.saveCrashServiceName()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <java.lang.RuntimeException: void <init>(java.lang.String,ja
+        → List.size()
+        → List.get()
+        → PowerManager.isRebootingUserspaceSupportedImpl()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <android.content.IIntentReceiver$Stub: void <init>()>
+        → <android.os.CountDownTimer: void <init>(long,long)>
+        → ThreadPriorityBooster.boost()
+        → StorageManager.isUserKeyUnlocked()
+        → BackgroundThread.getExecutor()
+        → UserspaceRebootLogger.shouldLogUserspaceRebootEvent()
+        → UserspaceRebootLogger.logEventAsync()
+        → UserController.getCurrentUserId()
+        → ThreadPriorityBooster.reset()
+        → Notification$Builder.build()
+        → Notification$Builder.setColor()
+        → Notification$Builder.setContentText()
+        → Notification$Builder.setContentTitle()
+        → Notification$Builder.setDefaults()
+        → Notification$Builder.setOngoing()
+        → Notification$Builder.setSmallIcon()
+        → Notification$Builder.setTicker()
+        → Notification$Builder.setVisibility()
+        → Notification$Builder.setWhen()
+        → <android.app.Notification$Builder: void <init>(android.conte
+        → NotificationManager.notifyAsUser()
+        → Context.getColor()
+        → Context.getSystemService()
+        → Context.getString()
+        → Zygote.nativeSupportsMemoryTagging()
+        → <android.os.Handler: void <init>()>
+        → AppStateBroadcaster.populateRunningProcesses()
+        → DynamicHiddenApp.updateParamsFile()
+        → BGSlotManager.runSetBonusMaxCachedAppsPerSwapTimer()
+        → BgAppPropManager.getSystemPropertyString()
+        → CustomEFKManager.runBootEFKBoost()
+        → BGProtectManager.initBGProtectManagerPostBoot()
+        → DynamicHiddenApp.addDHAIntentFilter()
+        → DynamicHiddenApp.setCameraManagerCallback()
+        → ProcessList.setLmkdParameter()
+        → BGSlotManager.initBGSlotManagerPostBoot()
+        → Enum.ordinal()
+        → EventLog.writeEvent()
+        → <com.android.server.am.FreecessController$FreecessController
+        → FreecessController.setScreenOnFreecessEnabled()
+        → FreecessHandler.getInstance()
+        → FreecessHandler.init()
+        → <com.android.server.am.Heimdall$HeimdalldManager: void -$$Ne
+        → Exception.printStackTrace()
+        → <com.android.server.am.HostingRecord: void <init>(java.lang.
+        → <com.android.server.am.MARsPolicyManager$MARsPolicyManagerHo
+        → PowerManager.isInteractive()
+        → SemSystemProperties.getCountryCode()
+        → SystemProperties.get()
+        → Settings$Global.getInt()
+        → MARsHandler.getInstance()
+        → MARsHandler.sendGetBatteryStatMsgToMainHandler()
+        → MARsHandler.sendInitDisabledMsgToMainHandler()
+        → MARsHandler.sendUpdateDisableMsgToMainHandler()
+        → MARsHandler.sendUpdatePkgMsgToMainHandler()
+        → MARsPolicyManager.getScreenOnState()
+        → MARsPolicyManager.isChinaPolicyEnabled()
+        → MARsPolicyManager.initHistoryBuffer()
+        → MARsPolicyManager.initNetHistoryBuffer()
+        → MARsPolicyManager.registerAppIdleStateReceiver()
+        → MARsPolicyManager.setRestrictedBucketEnabled()
+        → MARsPolicyManager.setScreenOnState()
+        → MARsPolicyManager.setSubUserIds()
+        → MARsTrigger.getInstance()
+        → MARsTrigger.registerEmStateReceiver()
+        → MARsTrigger.registerReceiver()
+        → MARsTrigger.registerSMDBChangedReceiver()
+        → MARsDBManager.isSMProviderExist()
+        → MARsDBManager.getInstance()
+        → MARsDBManager.registerContentObservers()
+        → MARsDBManager.sendGetMARsPolicyConditionMsgToDBHandler()
+        → MARsDBManager.sendInitSettingMsgToDBHandler()
+        → FilterManager.getInstance()
+        → FilterManager.init()
+        → UidStateMgr.getInstance()
+        → UidStateMgr.init()
+        → Pageboost.isPageboostMinimized()
+        → Pageboost.sendMessage()
+        → ProcessCpusetController.getController()
+        → ProcessCpusetController.prepareController()
+        → ProcessList.startProcessLocked()
+        → FgThread.getHandler()
+        → <com.android.server.am.UserController$$ExternalSyntheticLamb
+        → UserHandle.isSystem()
+        → UserHandle.getIdentifier()
+        → UserManager.isHeadlessSystemUserMode()
+        → SparseArray.clone()
+        → SparseArray.size()
+        → SparseArray.valueAt()
+        → UserController.finishUserBoot()
+        → UserController.sendLockedBootCompletedBroadcast()
+        → UserController.showEventLogAndAddToDropBox()
+        → <android.util.TimingsTraceLog: void <init>(java.lang.String,
+        → TimingsTraceLog.traceBegin()
+        → ActivityManagerPerformance.getBooster()
+        → ActivityTaskManagerService.getGlobalConfiguration()
+        → WindowProcessController.onConfigurationChanged()
+        → Typeface.getFontNameFlipFont()
+        → SemCscFeature.getInstance()
+        → SemCscFeature.getString()
+        → FlipFontOptimizer.setFlipfont()
+        → <com.samsung.android.knox.dar.ddar.DualDarManager: void <ini
+        → Bundle.getBoolean()
+        → DualDarManager.processCommand()
+        → KernelMemoryProxy$ReclaimerLog.write()
+        → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+        → UnifiedMemoryReclaimer$ReclaimPolicyManager.start()
+        → UnifiedMemoryReclaimer$ReclaimerManager.init()
+        → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+        → UnifiedMemoryReclaimer$SystemStatusMonitor.start()
+        → UnifiedMemoryReclaimer.sendMessage()
+        → DeviceReportingSecurityChecker.getICDStatus()
+        → DeviceReportingSecurityChecker.getSignatureUsingSalesCode()
+          → ZygoteProcess.openZygoteSocketIfNeeded()
+          → BufferedWriter.flush()
+          → BufferedWriter.write()
+          → DataInputStream.readInt()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → Thread.getName()
+          → Thread.currentThread()
+          → Thread.getId()
+          → <android.util.AndroidException: void <init>(java.lang.String
+          → IBinder.queryLocalInterface()
+          → <android.os.storage.IStorageManager$Stub$Proxy: void <init>(
+          → SystemServerInitThreadPool.dumpStackTraces()
+          → <com.android.server.utils.TimingsTraceAndSlog: void <init>()
+          → <java.lang.Exception: void <init>()>
+          → Thread.interrupt()
+          → <java.util.ArrayList: void <init>()>
+          → List.addAll()
+          → ExecutorService.awaitTermination()
+          → ExecutorService.shutdownNow()
+          → ExecutorService.shutdown()
+          → IIntentReceiver$Stub.attachInterface()
+          → <android.os.Binder: void <init>()>
+          → <android.os.CountDownTimer$1: void <init>(android.os.CountDo
+          → Process.getThreadPriority()
+          → Process.setThreadPriority()
+          → ThreadLocal.get()
+          → BackgroundThread.ensureThreadLocked()
+          → SystemProperties.getLong()
+          → <com.android.server.UserspaceRebootLogger$$ExternalSynthetic
+          → UserspaceRebootLogger.computeOutcome()
+          → Executor.execute()
+          → ArrayMap.values()
+          → ProcessMap.getMap()
+          → AppStateBroadcaster.sendApplicationStart()
+          → Collection.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → BgAppPropManager.updateParamsFile()
+          → <com.android.server.bgslotmanager.BGSlotManager$1: void <ini
+          → <com.android.server.bgslotmanager.CustomEFKManager$1: void <
+          → CustomEFKManager.setEFKBoost()
+          → BGProtectManager.addAllowlistList()
+          → BGProtectManager.addBEKSList()
+          → BGProtectManager.removeAllowlistByBUB()
+          → <com.android.server.am.DynamicHiddenApp$1: void <init>(com.a
+          → CameraKillModeManager.getInstance()
+          → CameraKillModeManager.initCameraKillModeManager()
+          → ProcessList.writeLmkd()
+          → ByteBuffer.allocate()
+          → ByteBuffer.putInt()
+          → BGSlotManager.setBonusMaxCachedAppsPerSwap()
+          → <com.android.server.am.FreecessHandler$FreecessHandlerHolder
+          → BluetoothAdapter.getDefaultAdapter()
+          → <com.android.server.am.FreecessHandler$BlueToothThread: void
+          → <com.android.server.am.FreecessHandler$NetLinkReceiverThread
+          → Thread.start()
+          → Heimdall$HeimdalldManager.init()
+          → <com.android.server.am.MARsHandler$MARsHandlerHolder: com.an
+          → Handler.removeMessages()
+          → <android.os.Bundle: void <init>()>
+          → Bundle.putInt()
+          → Message.setData()
+          → Bundle.putBoolean()
+          → <com.android.server.am.MARsPolicyManager$HistoryBuffer: void
+          → <com.android.server.am.MARsPolicyManager$NetHistoryBuffer: v
+          → LocalServices.getService()
+          → <com.android.server.am.MARsPolicyManager$MARsAppIdleStateCha
+          → AppStandbyInternal.addListener()
+          → MARsPolicyManager.addDebugInfoToHistory()
+          → UserManager.getEnabledProfiles()
+          → ArrayUtils.appendInt()
+          → List.iterator()
+          → <com.android.server.am.MARsTrigger$MARsTriggerHolder: com.an
+          → Context.registerReceiver()
+          → IntentFilter.setPriority()
+          → ContentResolver.query()
+          → Cursor.close()
+          → Exception.getMessage()
+          → <com.android.server.am.mars.database.MARsDBManager$MARsDBMan
+          → ContentResolver.registerContentObserver()
+          → Context.getUserId()
+          → <com.android.server.am.mars.database.MARsDBManager$SmartMana
+          → <com.android.server.am.mars.database.MARsDBManager$SmartMana
+          → <com.android.server.am.mars.database.MARsDBManager$SmartMana
+          → <com.android.server.am.mars.database.MARsDBManager$SmartMana
+          → MARsDBManager.getSCPMList()
+          → <com.android.server.am.mars.filter.FilterManager$FilterManag
+          → FilterChainFactory.getInstance()
+          → FilterChainFactory.init()
+          → FilterFactory.getInstance()
+          → FilterFactory.init()
+          → FilterManager.setContext()
+          → <com.android.server.am.mars.util.UidStateMgr$UidStateMgrHold
+          → ActivityManagerService.getActiveUids()
+          → ActivityManagerService.registerUidObserver()
+          → UidStateMgr.addToRunningList()
+          → UidStateMgr.addToUidIdleList()
+          → UidStateMgr.setContext()
+          → Map.get()
+          → Map.keySet()
+          → Set.iterator()
+          → Bundle.putString()
+          → <com.android.server.am.ProcessCpusetController: void <init>(
+          → ProcessList.startProcessLocked()
+          → FgThread.ensureThreadLocked()
+          → SparseArray.gc()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → Handler.obtainMessage()
+          → EventLog.writeEvent()
+          → SparseArray.get()
+          → FrameworkStatsLog.write()
+          → UserController$Injector.isFirstBootOrUpgrade()
+          → UserController$Injector.isRuntimeRestarted()
+          → UserController$Injector.getUserManagerInternal()
+          → UserController$Injector.getUserManager()
+          → UserController.isUserRunning()
+          → UserController.maybeUnlockUser()
+          → UserController.logUserLifecycleEvent()
+          → UserState.setState()
+          → UserManagerInternal.setUserState()
+          → UserManagerService.getProfileParent()
+          → UserManagerService.isPreCreated()
+          → UserManagerService.isProfile()
+          → Slogf.d()
+          → Slogf.wtf()
+          → BroadcastOptions.toBundle()
+          → Intent.addFlags()
+          → Intent.putExtra()
+          → <android.content.Intent: void <init>(java.lang.String,androi
+          → Binder.getCallingPid() [UID_CHECK]
+          → Binder.getCallingUid() [UID_CHECK]
+          → UserController$Injector.broadcastIntent()
+          → UserController.getTemporaryAppAllowlistBroadcastOptions()
+          → UserState.getBootProgressBuilder()
+          → StringBuffer.append()
+          → StringBuffer.append()
+          → SimpleDateFormat.format()
+          → <java.util.Date: void <init>(long)>
+          → <android.util.TimingsTraceLog: void <init>(java.lang.String,
+          → Trace.traceBegin()
+          → ActivityManagerPerformance.getBooster()
+          → <com.android.server.wm.ActivityManagerPerformance: void <ini
+          → <android.content.res.Configuration: void <init>()>
+          → ConfigurationContainer.onConfigurationChanged()
+          → WindowProcessController.updateConfiguration()
+          → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → Hashtable.get()
+          → ActivityManager.getService()
+          → ActivityManager.getRunningTasks()
+          → ActivityManager.forceStopPackage()
+          → ActivityManager.restartPackage()
+          → IActivityManager.getGlobalConfiguration()
+          → IActivityManager.updateConfiguration()
+          → ComponentName.getPackageName()
+          → Context.getPackageManager()
+          → PackageManager.getResourcesForApplication()
+          → AssetManager.open()
+          → Resources.getAssets()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → RemoteException.getMessage()
+          → FlipFontOptimizer.getFontString()
+          → FlipFontOptimizer.savePreferences()
+          → FontWriter.copyFontFile()
+          → FontWriter.createFontDirectory()
+          → <com.samsung.android.fontutil.FontWriter: void <init>()>
+          → FontWriter.writeLoc()
+          → SemTypeface.getFontPackageName()
+          → SemTypeface.getTypefaceFilename()
+          → TypefaceFile.getDroidName()
+          → TypefaceFile.getFileName()
+          → TypefaceFinder.findMatchingTypefaceByName()
+          → File.getAbsolutePath()
+          → InputStream.close()
+          → KnoxProxyManager.relayMessage()
+          → KnoxProxyManager.getInstance()
+          → KernelMemoryProxy$ReclaimerLog.write()
+          → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+          → UnifiedMemoryReclaimer$ReclaimerManager.registerKernelReclaimers()
+          → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+          → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+          → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+          → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+          → <com.android.internal.util.MemInfoReader: void <init>()>
+          → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+          → UnifiedMemoryReclaimer$SystemStatusMonitor.getPsiCpuThresholdMS()
+          → UnifiedMemoryReclaimer$SystemStatusMonitor.getPsiCpuWindowMS()
+          → UnifiedMemoryReclaimer$SystemStatusMonitor.getPsiMemThresholdMS()
+          → UnifiedMemoryReclaimer$SystemStatusMonitor.getPsiMemWindowMS()
+          → UnifiedMemoryReclaimer$SystemStatusMonitor.setMemAvailLowThresholdKB()
+          → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+          → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+          → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+          → SemSystemProperties.get()
+          → DeviceReportingSecurityChecker.getEchoAppSignature()
+          → DeviceReportingSecurityChecker.getMyaccountSignature()
+          → DeviceReportingSecurityChecker.getSprintHubSignature()
+            → ZygoteProcess$ZygoteState.matches()
+            → ZygoteProcess.attemptConnectionToPrimaryZygote()
+            → ZygoteProcess.attemptConnectionToSecondaryZygote()
+            → <android.os.ZygoteStartFailedEx: void <init>(java.lang.Strin
+            → <android.os.ZygoteStartFailedEx: void <init>(java.lang.Strin
+            → <java.lang.Exception: void <init>(java.lang.String)>
+            → Process.myPid()
+            → Watchdog.getInterestingNativePids()
+            → ActivityManagerService.dumpStackTraces()
+            → ArrayList.add()
+            → <com.android.server.utils.TimingsTraceAndSlog: void <init>(j
+            → <android.os.Binder: void <init>(java.lang.String)>
+            → <android.os.Handler: void <init>(android.os.Looper)>
+            → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+            → Looper.setSlowLogThresholdMs()
+            → Looper.setTraceTag()
+            → BackgroundThread.getLooper()
+            → <com.android.internal.os.BackgroundThread: void <init>()>
+            → BackgroundThread.start()
+            → TextUtils.emptyIfNull()
+            → ArrayMap.getCollection()
+            → MapCollections.getValues()
+            → TextUtils.isEmpty()
+            → AppStateBroadcaster.packageRunning()
+            → BgAppPropManager.updateTuningParameter()
+            → BufferedReader.readLine()
+            → <java.io.BufferedReader: void <init>(java.io.Reader)>
+            → BufferedReader.close()
+            → <java.io.FileReader: void <init>(java.lang.String)>
+            → IOException.printStackTrace()
+            → ArrayIndexOutOfBoundsException.printStackTrace()
+            → NullPointerException.printStackTrace()
+            → BgAppPropManager.setSystemPropertyString()
+            → BGProtectManager.dhaAddPackageName()
+            → HashMap.clear()
+            → ArrayList.clear()
+            → BGProtectManager.dhaDeletePackageName() [PKG_MGMT]
+            → BGProtectManager.removeProviderLifeguardProcs()
+            → DynamicHiddenApp.decodeToStr()
+            → CameraManager.registerSemCameraDeviceStateCallback()
+            → CameraManager.unregisterSemCameraDeviceStateCallback()
+            → DynamicHiddenApp.getBGSlotManagerInstance()
+            → DynamicHiddenApp.getMemInfoGetterInstance()
+            → DynamicHiddenApp.getMemLevel()
+            → DynamicHiddenApp.setLmkdCameraKillBoost()
+            → HashMap.put()
+            → LinkedHashMap.put()
+            → LmkdConnection.exchange()
+            → LmkdConnection.isConnected()
+            → LmkdConnection.waitForConnection()
+            → BGSlotManager.changeBGSlot()
+            → MemInfoGetter.getSwapsizeGB()
+            → <java.lang.Thread: void <init>(java.lang.String)>
+            → <com.android.server.am.Heimdall$HeimdalldBigdataManager: voi
+            → <com.android.server.am.Heimdall$HeimdalldBroadcastManager: v
+            → <com.android.server.am.Heimdall$HeimdalldPkgManager: void -$
+            → <com.android.server.am.Heimdall$HeimdalldProxy: void -$$Nest
+            → ArrayMap.get()
+            → <com.android.server.am.MARsPolicyManager$MARsAppIdleStateCha
+            → MARsPolicyManager$HistoryBuffer.put()
+            → MARsPolicyManager.formatDateTimeWithoutYear()
+            → <android.database.ContentObserver: void <init>(android.os.Ha
+            → ContentResolver.call()
+            → Bundle.getBoolean()
+            → Bundle.getInt()
+            → Bundle.getStringArrayList()
+            → IDeviceIdleController$Stub.asInterface()
+            → IDeviceIdleController.isPowerSaveWhitelistApp()
+            → IDeviceIdleController.removePowerSaveWhitelistApp()
+            → MARsPolicyManager.setSCPMList()
+            → MARsDBManager.sendGetSCPMListMsgToMainHandler()
+            → Exception.toString()
+            → ArrayList.isEmpty()
+            → <com.android.server.am.mars.filter.FilterChainFactory$Filter
+            → FilterChainFactory.getAngryBirdFilterChain()
+            → FilterChainFactory.getAppLockerFilterChain()
+            → FilterChainFactory.getAutoRunFilterChain()
+            → FilterChainFactory.getBlockListFilterChain()
+            → FilterChainFactory.getCalmModeFilterChain()
+            → FilterChainFactory.getDBUpdateFilterChain()
+            → FilterChainFactory.getDisablerFilterChain()
+            → FilterChainFactory.getEmergencyKillFilterChain()
+            → FilterChainFactory.getForceFilterChain()
+            → FilterChainFactory.getFreecessFilterChain()
+            → FilterChainFactory.getGameFilterChain()
+            → FilterChainFactory.getLevelFilterChain()
+            → FilterChainFactory.getMPSMFilterChain()
+            → FilterChainFactory.getManualDisablerFilterChain()
+            → FilterChainFactory.getOLAFFilterChain()
+            → FilterChainFactory.getRageBirdFilterChain()
+            → FilterChainFactory.getRecentKillFilterChain()
+            → FilterChainFactory.getSBIKERunFilterChain()
+            → FilterChainFactory.getUDSFilterChain()
+            → FilterChainFactory.setContext()
+            → <com.android.server.am.mars.filter.FilterFactory$FilterFacto
+            → FilterFactory.setContext()
+            → IFilter.init()
+            → AODClockFilter.getInstance()
+            → AccessibilityAppFilter.getInstance()
+            → ActiveMusicRecordFilter.getInstance()
+            → ActiveSensorFilter.getInstance()
+            → ActiveTrafficFilter.getInstance()
+            → AllowListFilter.getInstance()
+            → AppCastFilter.getInstance()
+            → BackupServiceFilter.getInstance()
+            → BlueToothConnectedFilter.getInstance()
+            → DefaultAppFilter.getInstance()
+            → DeviceAdminPackageFilter.getInstance()
+            → DisableForceStopFilter.getInstance()
+            → EdgeAppFilter.getInstance()
+            → HomeFilter.getInstance()
+            → ImportantRoleFilter.getInstance()
+            → JobSchedulerPackageFilter.getInstance()
+            → LatestProtectedPackageFilter.getInstance()
+            → LockScreenFilter.getInstance()
+            → NoAppIconFilter.getInstance()
+            → OngoingNotiPackageFilter.getInstance()
+            → QuickTilePackageFilter.getInstance()
+            → RecentUsedPackageFilter.getInstance()
+            → RunningLocationFilter.getInstance()
+            → SystemFilter.getInstance()
+            → TopPackageFilter.getInstance()
+            → VPNPackageFilter.getInstance()
+            → WallPaperFilter.getInstance()
+            → WidgetPkgFilter.getInstance()
+            → HashMap.get()
+            → ActiveUids.getAllUidRecords()
+            → ActivityManagerService.boostPriorityForProcLockedSection()
+            → ActivityManagerService.resetPriorityAfterProcLockedSection()
+            → ActivityManagerService.hasUsageStatsPermission()
+            → ActivityManagerService.enforceCallingPermission()
+            → UidObserverController.register()
+            → ConcurrentList.add()
+            → ConcurrentList.contains()
+            → Context.getPackageName()
+            → AppGlobals.getPackageManager()
+            → ApplicationInfo.isEmbeddedDexUsed()
+            → ApplicationInfo.isPrivilegedApp()
+            → ApplicationInfo.isProfileable()
+            → ApplicationInfo.isProfileableByShell()
+            → ApplicationInfo.getHiddenApiEnforcementPolicy() [HIDDEN_API]
+            → <android.content.pm.ApplicationInfo: void <init>(android.con
+            → ApplicationInfo.maybeUpdateHiddenApiEnforcementPolicy() [HIDDEN_API]
+            → IPackageManager.checkPermission() [PERM_CHECK]
+            → IPackageManager.getPackageGids()
+            → IPackageManager.checkPackageStartable()
+            → PackageManagerInternal.getPermissionGids()
+            → Handler.removeMessages()
+            → Process.getGidForName()
+            → RemoteException.rethrowAsRuntimeException()
+            → StrictMode.allowThreadDiskReads()
+            → StrictMode.setThreadPolicy()
+            → UserHandle.getAppId()
+            → UserHandle.getUserGid()
+            → UserHandle.getUserId()
+            → StorageManagerInternal.hasExternalStorageAccess()
+            → StorageManagerInternal.getExternalStorageMountMode()
+            → ArrayMap.keySet()
+            → ArraySet.size()
+            → ArraySet.valueAt()
+            → Zygote.getMemorySafetyRuntimeFlags()
+            → ArrayUtils.removeInt()
+            → ActivityManagerService$HiddenApiSettings.isDisabled() [HIDDEN_API]
+            → ActivityManagerService$HiddenApiSettings.getPolicy() [HIDDEN_API]
+            → ActivityManagerService.forceStopPackageLocked()
+            → ActivityManagerService.needToBlockImsRequest()
+            → ActivityManagerService.removePidLocked()
+            → ActivityManagerService.updateCpuStats()
+            → HostingRecord.getDefiningPackageName()
+            → PackageList.getPackageListLocked()
+            → ProcessCachedOptimizerRecord.setFreezeExempt()
+            → ProcessList.checkFreezerExempt()
+            → ProcessList.isMobileDoctorInMaintenanceMode()
+            → ProcessList.startProcessLocked()
+            → ProcessList.computeGidsForProcess()
+            → ProcessList.checkSlow()
+            → ProcessRecord.getClientInfoForSdkSandbox()
+            → ProcessRecord.isPendingStart()
+            → ProcessRecord.getPkgList()
+            → ProcessRecord.getPid()
+            → ProcessRecord.setBindMountPending()
+            → ProcessRecord.setDyingPid()
+            → ProcessRecord.setGids()
+            → ProcessRecord.setInstructionSet()
+            → ProcessRecord.setMountMode()
+            → ProcessRecord.setPid()
+            → ProcessRecord.setRequiredAbi()
+            → ProcessRecord.setStartSeq()
+            → ProcessRecord.unlinkDeathRecipient()
+            → DexManager.isPackageSelectedToRunOob()
+            → ActivityTaskManagerInternal.isFactoryTestProcess()
+            → SemDualAppManager.isDualAppId()
+            → VMRuntime.getInstructionSet()
+            → File.exists()
+            → <java.io.File: void <init>(java.lang.String)>
+            → ArrayList.contains()
+            → ArrayList.remove()
+            → HandlerThread.getLooper()
+            → HandlerThread.start()
+            → <com.android.server.FgThread: void <init>()>
+            → SparseArray.get()
+            → StatsEvent$Builder.build()
+            → StatsEvent$Builder.setAtomId()
+            → StatsEvent$Builder.usePooledBuffer()
+            → StatsEvent$Builder.writeInt()
+            → StatsEvent$Builder.writeLong()
+            → StatsEvent.newBuilder()
+            → StatsLog.write()
+            → IPackageManager.isDeviceUpgrading()
+            → IPackageManager.isFirstBoot()
+            → RemoteException.rethrowFromSystemServer()
+            → SystemServiceManager.isRuntimeRestarted()
+            → UserController$Injector.getSystemServiceManager()
+            → IUserManager$Stub.asInterface()
+            → UserController.getStartedUserState()
+            → UserController.unlockUserCleared()
+            → FrameworkStatsLog.write()
+            → Slogf.w()
+            → UserState.stateToString()
+            → UserState.setState()
+            → UserManagerService.getProfileParentLU()
+            → UserManagerService.hasManageUsersOrPermission()
+            → <java.lang.SecurityException: void <init>(java.lang.String)>
+            → UserManagerService.getUserInfoLU()
+            → UserManagerService.checkManageOrInteractPermissionIfCallerInOtherProfileGroup()
+            → UserInfo.isProfile()
+            → UserManagerService.checkQueryOrInteractPermissionIfCallerInOtherProfileGroup()
+            → BroadcastOptions.isTemporaryAppAllowlistSet()
+            → ComponentOptions.toBundle()
+            → Bundle.isEmpty()
+            → Bundle.putLong()
+            → Bundle.putStringArray()
+            → Intent.getIntExtra()
+            → Intent.getAction()
+            → ActivityManagerService.broadcastIntentLocked()
+            → ActivityManagerInternal.getBootTimeTempAllowListDuration()
+            → BroadcastOptions.makeBasic()
+            → BroadcastOptions.setTemporaryAppAllowlist()
+            → TimingsTraceLog.createAndGetStartNamesArray()
+            → TimingsTraceLog.createAndGetStartTimesArray()
+            → <com.android.server.ServiceThread: void <init>(java.lang.Str
+            → <com.android.server.wm.ActivityManagerPerformance$1: void <i
+            → <com.android.server.wm.ActivityManagerPerformance$MainHandle
+            → ActivityManagerPerformance.registerReceiver()
+            → SemDvfsManager.checkSysfsIdExist()
+            → SemDvfsManager.createInstance()
+            → HashSet.add()
+            → <java.util.HashSet: void <init>()>
+            → WindowConfiguration.unsetAlwaysOnTop()
+            → Configuration.equals()
+            → Configuration.updateFrom()
+            → Configuration.setTo()
+            → ConfigurationContainer.getChildAt()
+            → ConfigurationContainer.getChildCount()
+            → ConfigurationContainer.dispatchConfigurationToChild()
+            → ConfigurationContainer.onMergedOverrideConfigurationChanged()
+            → ConfigurationContainer.resolveOverrideConfiguration()
+            → ConfigurationContainerListener.onMergedOverrideConfigurationChanged()
+            → ConfigurationContainerListener.onRequestedOverrideConfigurationChanged()
+            → Configuration.diff()
+            → <android.content.res.Configuration: void <init>(android.cont
+            → DssController.getService()
+            → DssController.scaleExistingConfiguration()
+            → WindowProcessController.dispatchConfiguration()
+            → SemCscFeature.loadFeatureFile()
+            → <java.util.Hashtable: void <init>()>
+            → FlipFontOptimizer.getFontsVector()
+            → Context.createPackageContext()
+            → Context.getSharedPreferences()
+            → SharedPreferences$Editor.putBoolean()
+            → SharedPreferences$Editor.putInt()
+            → SharedPreferences$Editor.putString()
+            → SharedPreferences$Editor.commit()
+            → SharedPreferences.edit()
+            → Settings$Global.putInt()
+            → FontWriter.setFileProperties()
+            → <java.io.BufferedOutputStream: void <init>(java.io.OutputStr
+            → BufferedOutputStream.close()
+            → BufferedOutputStream.write()
+            → File.delete()
+            → File.getCanonicalPath()
+            → File.length()
+            → <java.io.File: void <init>(java.io.File,java.lang.String)>
+            → <java.io.FileOutputStream: void <init>(java.io.File)>
+            → FileOutputStream.close()
+            → InputStream.read()
+            → Throwable.addSuppressed()
+            → UserHandle.myUserId()
+            → <java.io.File: void <init>(java.lang.String,java.lang.String
+            → <java.io.OutputStreamWriter: void <init>(java.io.OutputStrea
+            → OutputStreamWriter.close()
+            → OutputStreamWriter.write()
+            → SemTypeface.getName()
+            → IProxyService.relay()
+            → KnoxProxyManager.getService()
+            → <com.samsung.android.knox.dar.ddar.proxy.KnoxProxyManager: v
+            → StrictMode.allowThreadDiskWrites()
+            → KernelMemoryProxy$ReclaimerLog.reclaimerLogSupported()
+            → <java.io.FileOutputStream: void <init>(java.lang.String)>
+            → <java.io.OutputStreamWriter: void <init>(java.io.OutputStrea
+            → Writer.close()
+            → Writer.write()
+            → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+            → UnifiedMemoryReclaimer$ReclaimerManager.registerReclaimer()
+            → <java.util.Timer: void <init>()>
+            → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+            → UnifiedMemoryReclaimer$SystemResource.getPsiThresholdMS()
+            → UnifiedMemoryReclaimer$SystemResource.getPsiWindowMS()
+            → UnifiedMemoryReclaimer.createStatusMonitorNative()
+            → UnifiedMemoryReclaimer.openCpuStatusMonitorNative()
+            → UnifiedMemoryReclaimer.openMemStatusMonitorNative()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+            → Signature.equals()
+              → List.contains()
+              → ZygoteProcess$ZygoteState.connect()
+              → ZygoteProcess$ZygoteState.isClosed()
+              → ZygoteProcess.maybeSetApiDenylistExemptions()
+              → ZygoteProcess.maybeSetHiddenApiAccessLogSampleRate() [HIDDEN_API]
+              → <java.lang.Exception: void <init>(java.lang.String,java.lang
+              → Process.getPidsForCommands()
+              → Watchdog.addInterestingAidlPids()
+              → Watchdog.addInterestingHidlPids()
+              → ActivityManagerService.dumpStackTraces()
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+              → Preconditions.checkNotNull()
+              → <android.os.HandlerThread: void <init>(java.lang.String,int)
+              → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+              → <android.util.MapCollections$ValuesCollection: void <init>(a
+              → CharSequence.length()
+              → AppStateBroadcaster.stripPackageName()
+              → AppStateBroadcaster.broadcastAppState()
+              → <com.android.server.am.ApplicationState: void <init>()>
+              → ApplicationState.addProcess()
+              → DynamicHiddenApp.setKpmParams()
+              → DynamicHiddenApp.getBGProtectManagerInstance()
+              → DynamicHiddenApp.updateEmptyRate()
+              → DynamicHiddenApp.updateMaxCachedProcessesNumFHA()
+              → ProcessList.updateLMKThreshold()
+              → BGSlotManager.setOriginCachedMax()
+              → BGSlotManager.setOriginCachedMin()
+              → BGSlotManager.setOriginEmptyMax()
+              → BGSlotManager.setOriginEmptyMin()
+              → BGSlotManager.updateDefaultCachedMAX()
+              → NumberFormatException.printStackTrace()
+              → BGProtectManager.getContactsPackageName()
+              → BGProtectManager.getInCallUIPackageName()
+              → BGProtectManager.getMessagePackageName()
+              → BgAppPropManager.getSemSystemPropertyInt()
+              → HashMap.remove()
+              → Base64$Decoder.decode()
+              → CameraManager$CameraManagerGlobal.get()
+              → CameraManager$CameraManagerGlobal.registerSemCameraDeviceStateCallback()
+              → CameraDeviceImpl.checkAndWrapHandler()
+              → CameraManager$CameraManagerGlobal.unregisterSemCameraDeviceStateCallback()
+              → ProcessList.getMemLevel()
+              → ProcessList.setLmkdCameraKillBoost()
+              → LmkdConnection.write()
+              → MemInfoGetter.getSwapTotalSizeKb()
+              → Heimdall$HeimdalldBigdataManager.init()
+              → Heimdall$HeimdalldBroadcastManager.init()
+              → Heimdall$HeimdalldPkgManager.init()
+              → Heimdall$HeimdalldProxy.init()
+              → ArrayMap.indexOfKey()
+              → <com.android.server.usage.AppStandbyInternal$AppIdleStateCha
+              → <java.text.SimpleDateFormat: void <init>(java.lang.String)>
+              → <android.os.IDeviceIdleController$Stub$Proxy: void <init>(an
+              → IPackageManager$Stub.asInterface()
+              → IPackageManager.isPackageSuspendedForUser()
+              → IPackageManager.getApplicationEnabledSetting()
+              → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+              → FreecessController.getFreecessEnabled()
+              → FreecessController.isFreezedPackage()
+              → FreecessController.unFreezePackage()
+              → MARsHandler.sendNotifyDeviceCareMsgToMainHandler()
+              → MARsPackageInfo.getFASEnabled()
+              → MARsPackageInfo.getDisableReason()
+              → MARsPackageInfo.getFasType()
+              → MARsPackageInfo.getMaxLevel()
+              → MARsPackageInfo.getState()
+              → MARsPackageInfo.getUid()
+              → MARsPackageInfo.getUserId()
+              → MARsPackageInfo.getName()
+              → MARsPackageInfo.setAppliedPolicy()
+              → MARsPackageInfo.setIsSCPMTarget()
+              → MARsPkgMap.get()
+              → MARsPkgMap.put()
+              → <com.android.server.am.MARsPolicyManager$PkgStatusInfo: int 
+              → <com.android.server.am.MARsPolicyManager$PkgStatusInfo: int 
+              → <com.android.server.am.MARsPolicyManager$PkgStatusInfo: java
+              → <com.android.server.am.MARsPolicyManager$PkgStatusInfo: void
+              → <com.android.server.am.MARsPolicyManager$PkgStatusInfo: void
+              → <com.android.server.am.MARsPolicyManager$PkgStatusInfo: void
+              → MARsPolicyManager.levelChange()
+              → MARsPolicyManager.getMARsPackageInfo()
+              → MARsPolicyManager.convertLevelChangeInfoToString()
+              → MARsPolicyManager.updateInfoToMARsPkgStatus()
+              → MARsPolicyManager.updateInfoToPkgStatus()
+              → FASEntityBuilder.build()
+              → FASEntityBuilder.setStrDisableReason()
+              → FASEntityBuilder.setStrExtras()
+              → FASEntityBuilder.setStrFasReason()
+              → FASEntityBuilder.setStrLevel()
+              → FASEntityBuilder.setStrMode()
+              → FASEntityBuilder.setStrNew()
+              → FASEntityBuilder.setStrPkgName()
+              → FASEntityBuilder.setStrUid()
+              → <com.android.server.am.mars.database.FASEntityBuilder: void 
+              → FASTableContract.convertDisableReasonToDBValue()
+              → FASTableContract.convertFASTypeToReason()
+              → FASTableContract.convertStateToDBExtrasValue()
+              → MARsDBManager.sendUpdateResetTimeMsgToDBHandler()
+              → ArrayList.iterator()
+              → FilterChainBuilder.build()
+              → FilterChainBuilder.add()
+              → <com.android.server.am.mars.filter.FilterChainBuilder: void 
+              → FilterFactory.getFilter()
+              → <com.android.server.am.mars.filter.filter.AODClockFilter$AOD
+              → <com.android.server.am.mars.filter.filter.AccessibilityAppFi
+              → <com.android.server.am.mars.filter.filter.ActiveMusicRecordF
+              → <com.android.server.am.mars.filter.filter.ActiveSensorFilter
+              → <com.android.server.am.mars.filter.filter.ActiveTrafficFilte
+              → <com.android.server.am.mars.filter.filter.AllowListFilter$Al
+              → <com.android.server.am.mars.filter.filter.AppCastFilter$AppC
+              → <com.android.server.am.mars.filter.filter.BackupServiceFilte
+              → <com.android.server.am.mars.filter.filter.BlueToothConnected
+              → <com.android.server.am.mars.filter.filter.DefaultAppFilter$D
+              → <com.android.server.am.mars.filter.filter.DeviceAdminPackage
+              → <com.android.server.am.mars.filter.filter.DisableForceStopFi
+              → <com.android.server.am.mars.filter.filter.EdgeAppFilter$Edge
+              → <com.android.server.am.mars.filter.filter.HomeFilter$HomeFil
+              → <com.android.server.am.mars.filter.filter.ImportantRoleFilte
+              → <com.android.server.am.mars.filter.filter.JobSchedulerPackag
+              → <com.android.server.am.mars.filter.filter.LatestProtectedPac
+              → <com.android.server.am.mars.filter.filter.LockScreenFilter$L
+              → <com.android.server.am.mars.filter.filter.NoAppIconFilter$No
+              → <com.android.server.am.mars.filter.filter.OngoingNotiPackage
+              → <com.android.server.am.mars.filter.filter.QuickTilePackageFi
+              → <com.android.server.am.mars.filter.filter.RecentUsedPackageF
+              → <com.android.server.am.mars.filter.filter.RunningLocationFil
+              → <com.android.server.am.mars.filter.filter.SystemFilter$Syste
+              → <com.android.server.am.mars.filter.filter.TopPackageFilter$T
+              → <com.android.server.am.mars.filter.filter.VPNPackageFilter$V
+              → <com.android.server.am.mars.filter.filter.WallPaperFilter$Wa
+              → <com.android.server.am.mars.filter.filter.WidgetPkgFilter$Wi
+              → UidRecord.isIdle()
+              → UidRecord.getUid()
+              → <java.util.HashMap: void <init>()>
+              → Map.put()
+              → ActivityManagerService.hasUsageStatsPermission()
+              → ActivityManagerService.checkCallingPermission()
+              → RemoteCallbackList.register()
+              → <com.android.server.am.UidObserverController$UidObserverRegi
+              → List.add()
+              → Lock.lock()
+              → Lock.unlock()
+              → ReadWriteLock.writeLock()
+              → ReadWriteLock.readLock()
+              → ActivityThread.getPackageManager()
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+              → MapCollections.getKeySet()
+              → ArraySet.valueAtUnchecked()
+              → Zygote.enableNativeHeapZeroInit()
+              → Zygote.decideGwpAsanLevel()
+              → Zygote.decideTaggingLevel()
+              → PackageManagerInternal.getPackageUid()
+              → SparseArray.remove()
+              → AttributeCache.instance()
+              → AttributeCache.removePackage()
+              → ActiveServices.bringDownDisabledPackageServicesLocked()
+              → ActivityManagerService.getPackageManagerInternal()
+              → AppErrors.resetProcessCrashTime()
+              → BroadcastQueue.cleanupDisabledPackageReceiversLocked()
+              → ContentProviderHelper.removeDyingProviderLocked()
+              → ContentProviderHelper.getProviderMap()
+              → PendingIntentController.removePendingIntentsForPackage()
+              → ProcessList.killPackageProcessesLSP()
+              → ProviderMap.collectPackageProvidersLocked()
+              → UriGrantsManagerInternal.removeUriPermissionsForPackage()
+              → ActivityTaskManagerInternal.onForceStopPackage()
+              → ActivityTaskManagerInternal.resumeTopActivities()
+              → ActivityManager.getCurrentUser()
+              → ActivityManagerService.isImsProcess()
+              → ActivityManagerService$PidMap.doRemoveInternal()
+              → ActivityTaskManagerInternal.onProcessUnMapped()
+              → AppProfiler.updateCpuStats()
+              → ProcessCachedOptimizerRecord.isFreezeExempt()
+              → MARsExemptionManager.getInstance()
+              → MARsExemptionManager.getExemptionList()
+              → PackageManagerInternal.isPlatformSigned()
+              → LongSparseArray.put()
+              → Zygote.getWrapProperty()
+              → <com.android.server.am.ProcessList$$ExternalSyntheticLambda5
+              → ProcessList$MyProcessMap.remove()
+              → ProcessList.startProcess()
+              → ProcessList.handleProcessStartedLocked()
+              → ProcessList.removeLruProcessLocked()
+              → ProcessRecord.isPersistent()
+              → ProcessRecord.toShortString()
+              → ProcessRecord.getStartSeq()
+              → ProcessRecord.setDisabledCompatChanges()
+              → ProcessRecord.setKilled()
+              → ProcessRecord.setKilledByAm()
+              → ProcessRecord.setPendingStart()
+              → ProcessRecord.setRemoved()
+              → ProcessRecord.setStartParams()
+              → ProcessRecord.setUsingWrapper()
+              → PlatformCompat.getDisabledChanges()
+              → Elog.d()
+              → SemEmergencyManager.checkInvalidProcess()
+              → SemEmergencyManager.isScreenOn()
+              → SemEmergencyManager.getInstance()
+              → UserHandle.getCacheAppGid()
+              → UserHandle.getSharedAppGid()
+              → UserHandle.getUid()
+              → <java.util.ArrayList: void <init>(int)>
+              → PackageManagerInternal.getApplicationInfo() [PKG_QUERY]
+              → ProcessProfileRecord.setPid()
+              → WindowProcessController.setPid()
+              → WindowProcessController.setRequiredAbi()
+              → IApplicationThread.asBinder()
+              → IBinder.unlinkToDeath()
+              → DexManager.isPackageSelectedToRunOobInternal()
+              → HandlerThread.isAlive()
+              → ContainerHelpers.binarySearch()
+              → <android.os.DeadSystemRuntimeException: void <init>()>
+              → <android.os.IUserManager$Stub$Proxy: void <init>(android.os.
+              → IStorageManager.unlockUserKey()
+              → SparseArray.keyAt()
+              → ProgressReporter.addListener()
+              → UserController$Injector.getStorageManager()
+              → UserController.getUserInfo()
+              → UserController.finishUserUnlocking()
+              → UserController.notifyFinished()
+              → Trace.asyncTraceBegin()
+              → Trace.asyncTraceEnd()
+              → EventLogTags.writeAmUserStateChanged()
+              → UserManagerService.hasManageUsersPermission()
+              → UserManagerService.hasPermissionGranted()
+              → SparseBooleanArray.get()
+              → UserHandle.getCallingUserId()
+              → UserManagerService.hasManageUsersPermission()
+              → UserManagerService.isSameProfileGroupNoChecks()
+              → UserManagerService.hasQueryUsersPermission()
+              → ActivityManagerService.broadcastIntentLocked()
+              → <android.app.BroadcastOptions: void <init>()>
+              → BroadcastOptions.resetTemporaryAppAllowlist()
+              → <android.os.Handler: void <init>(android.os.Looper,android.o
+              → SemDvfsManager$DvfsRequester.checkSysfsIdExist()
+              → <com.samsung.android.os.SemDvfsHyPerManager: void <init>(and
+              → ConfigurationContainer.getMergedOverrideConfiguration()
+              → ConfigurationContainer.getParent()
+              → <com.android.server.DssController: void <init>()>
+              → DssController$Tools.applyDssToConfiguration()
+              → DssController.isScaledApp()
+              → DssController.getScalingFactor()
+              → ConfigurationChangeItem.obtain()
+              → ProtoLogImpl.v()
+              → ActivityTaskManagerService.getLifecycleManager()
+              → ActivityTaskManagerService.increaseConfigurationSeqLocked()
+              → ClientLifecycleManager.scheduleTransaction()
+              → WindowProcessController.setLastReportedConfiguration()
+              → SemCscFeature.loadFeatureFile()
+              → PackageManager.getApplicationInfo() [PKG_QUERY]
+              → PackageManager.getResourcesForApplication()
+              → PackageManager.getInstalledApplications()
+              → <com.samsung.android.fontutil.TypefaceFinder: void <init>()>
+              → TypefaceFinder.findTypefaces()
+              → TypefaceFinder.getSansEntries()
+              → File.createNewFile()
+              → File.mkdir()
+              → File.setExecutable()
+              → File.setReadable()
+              → File.setWritable()
+              → IProxyService$Stub.asInterface()
+              → <com.samsung.android.server.kernelmemory.UnifiedMemoryReclai
+              → UnifiedMemoryReclaimer$Reclaimer.getName()
+              → <java.lang.Thread: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.bridge.BridgeProxy
+  Method:   <com.android.server.bridge.BridgeProxy: void <init>(int)>
+  Line:     201
+  Register: v0 := "com.samsung.android.knox.containercore"
+  Usage:    [field_store] iput-object v0, p0, Lcom/android/server/bridge/BridgeProxy;->mContainerCorePkg:Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [field_store] com.android.server.bridge.BridgeProxy.mSecureFolderPkg → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← RCPManagerService.scanAndStartBridgeProxy()
+        ← RCPManagerService.getRCPInterface()
+        ← <com.android.server.RCPManagerService: void -$$Nest$mscanAnd
+          ← RCPManagerService.copyFile()
+          ← RCPManagerService.moveFilesForAppEx()
+          ← RCPManagerService.moveUnlimitedFiles()
+          ← RCPManagerService$2.onReceive()
+          ← RCPManagerService$3.onContainerCreated()
+          ← RCPManagerService$4.run()
+
+  CALLEES (what this method invokes):
+      → <android.os.UserHandle: void <init>(int)>
+      → <com.android.server.bridge.BridgeProxy$IRCPInterfaceCallBack
+        → <com.android.server.bridge.BridgeProxy$IRCPInterfaceCallBack
+          → <android.content.IRCPInterface$Stub: void <init>()>
+            → IRCPInterface$Stub.attachInterface()
+            → <android.os.Binder: void <init>()>
+              → <android.os.Binder: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.devicepolicy.DevicePolicyManagerService
+  Method:   <com.android.server.devicepolicy.DevicePolicyManagerService: void onProvisionFullyManagedDeviceStartedForDualDar(android.app.admin.FullyManagedDeviceProvisioningParams)>
+  Line:     54878
+  Register: v7 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-direct {v6, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] move-result v7 → [invoke] android.content.Intent.putExtra() → 
+
+  CALLERS (who invokes this method):
+      ← DevicePolicyManagerService.onProvisionFullyManagedDeviceStarted()
+        ← DevicePolicyManagerService.provisionFullyManagedDevice()
+
+  CALLEES (what this method invokes):
+      → FullyManagedDeviceProvisioningParams.getDeviceAdminComponentName()
+      → FullyManagedDeviceProvisioningParams.getAdminExtras()
+      → ComponentName.getPackageName()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.registerReceiver()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → Intent.getIntExtra()
+      → <android.content.Intent: void <init>()>
+      → <android.content.IntentFilter: void <init>()>
+      → <android.os.ServiceSpecificException: void <init>(int,java.l
+      → UserHandle.myUserId()
+      → <com.android.server.devicepolicy.DevicePolicyManagerService$
+      → DevicePolicyManagerService.getDualDARConfigParams()
+      → DevicePolicyManagerService.isDualDARConfigured()
+      → DevicePolicyManagerService.isDualDARIntentProvisioned()
+      → DevicePolicyManagerService.isDualDARNativeCrypto()
+      → DevicePolicyManagerService.setFilterForDualDarStarted()
+      → DevicePolicyManagerService.startProvisionService()
+      → UserManagerInternal.setDualDarInfo()
+        → <android.os.PersistableBundle: void <init>(android.os.Persis
+        → <java.lang.RuntimeException: void <init>(java.lang.String)>
+        → <android.content.BroadcastReceiver: void <init>()>
+        → Bundle.deepCopy()
+        → Bundle.getString()
+        → <android.os.Bundle: void <init>()>
+        → <android.os.Bundle: void <init>(android.os.PersistableBundle
+        → Bundle.putBoolean()
+        → Bundle.putString()
+        → DevicePolicyManagerService.getDualDARProfile()
+        → PersistableBundle.getBoolean()
+        → Slogf.d()
+        → PersistableBundle.getString()
+        → TextUtils.isEmpty()
+        → IntentFilter.addAction()
+        → Context.startForegroundService()
+        → Context.startService()
+          → <android.os.BaseBundle: void <init>(android.os.BaseBundle)>
+          → Context.getSystemService()
+          → SemPersonaManager.getDualDARProfile()
+          → CharSequence.length()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.devicepolicy.DevicePolicyManagerService
+  Method:   <com.android.server.devicepolicy.DevicePolicyManagerService: void startKnoxCoreService(int)>
+  Line:     87783
+  Register: v2 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← DevicePolicyManagerService.createAndProvisionManagedProfile()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startService()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → Exception.printStackTrace()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService$5
+  Method:   <com.android.server.pm.PersonaManagerService$5: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     123
+  Register: v5 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return, package_enable_disable
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v5 → [branch] if-eqz v5, :cond_70 → [other] iget-object v5, p0,
+
+  CALLEES (what this method invokes):
+      → BroadcastReceiver.onReceive()
+      → Context.getPackageManager()
+      → Intent.getData()
+      → Intent.getIntExtra()
+      → Intent.getAction()
+      → PackageManager.getApplicationEnabledSetting()
+      → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+      → Uri.getSchemeSpecificPart()
+      → ContainerDependencyWrapper.isDisallowedAppForKnox()
+      → ContainerDependencyWrapper.isRequiredAppForKnox()
+      → <com.android.server.pm.PersonaManagerService: android.conten
+      → <com.android.server.pm.PersonaManagerService: android.conten
+      → <com.android.server.pm.PersonaManagerService: boolean -$$Nes
+      → <com.android.server.pm.PersonaManagerService: boolean -$$Nes
+      → <com.android.server.pm.PersonaManagerService: boolean -$$Nes
+      → <com.android.server.pm.PersonaManagerService: com.samsung.an
+      → <com.android.server.pm.PersonaManagerService: int -$$Nest$mi
+      → SemPersonaManager.isKnoxId()
+      → SemPersonaManager.getKnoxIds()
+      → Exception.printStackTrace()
+      → List.size()
+      → List.get()
+        → PersonaServiceHelper.isDisallowedAppForKnox()
+        → PersonaServiceHelper.isRequiredAppForKnox()
+        → PersonaManagerService.deletePkg()
+        → PersonaManagerService.isPackageInstalledAsUser()
+        → PersonaManagerService.isStubApp()
+        → PersonaManagerService.getPersonaManager()
+        → PersonaManagerService.installExistingPackageForPersona()
+        → SemPersonaManager.checkContainerType()
+        → SemPersonaManager.isDualAppId()
+        → UserInfo.isDualAppProfile()
+        → UserInfo.isEnabled()
+        → ISemPersonaManager.getProfiles()
+        → <java.util.ArrayList: void <init>()>
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.add()
+        → List.iterator()
+          → IPackageManager.getApplicationInfo() [PKG_QUERY]
+          → PersonaServiceHelper.getIPackageManager()
+          → PersonaServiceHelper.isDisallowedAppForKnox()
+          → PersonaServiceHelper.isRequiredAppForKnox()
+          → ContainerDependencyWrapper.deletePackageAsUserAndPersona() [PKG_MGMT]
+          → <com.android.server.pm.PersonaManagerService$PackageDeleteOb
+          → IPackageManager.getPackageInfo() [PKG_QUERY]
+          → PersonaManagerService.getIPackageManager()
+          → PersonaManagerService.getLaunchableApps()
+          → List.contains()
+          → Set.contains()
+          → Context.getSystemService()
+          → ContainerDependencyWrapper.isPackageInstalled()
+          → ContainerDependencyWrapper.installExistingPackageForPersona()
+          → SystemProperties.get()
+          → SemDualAppManager.isDualAppId()
+            → ActivityThread.getPackageManager()
+            → IPackageManager.getInstallerPackageName()
+            → SystemProperties.getBoolean()
+            → PackageManagerSamsungUtils.isMetaDataInBundle()
+            → SemPersonaManager.isDoEnabled()
+            → ArrayList.contains()
+            → PackageManagerService.deletePackageAsUserAndPersona() [PKG_MGMT]
+            → <android.content.pm.IPackageDeleteObserver$Stub: void <init>
+            → Intent.addCategory()
+            → <android.content.Intent: void <init>(java.lang.String)>
+            → PackageManager.queryIntentActivitiesAsUser()
+            → <android.util.ArraySet: void <init>()>
+            → Set.add()
+            → PackageManagerService.isPackageInstalled()
+            → PackageManagerService.installExistingPackageForPersona()
+              → Bundle.getBoolean()
+              → PersonaServiceHelper.deletePackageAsUserAndPersona() [PKG_MGMT]
+              → IPackageDeleteObserver$Stub.attachInterface()
+              → <android.os.Binder: void <init>()>
+              → <android.util.ArraySet: void <init>(int,boolean)>
+              → WatchedArrayMap.containsKey()
+              → Context.enforceCallingOrSelfPermission()
+              → SigningDetails.getSignatures()
+              → Binder.clearCallingIdentity()
+              → Binder.restoreCallingIdentity()
+              → <android.os.Bundle: void <init>(int)>
+              → Bundle.putInt()
+              → ServiceManager.getService()
+              → UserHandle.getUid()
+              → PackageManagerService.sendPackageBroadcast()
+              → PackageSetting.getInstalled()
+              → PackageSetting.getPkg()
+              → PackageSetting.getAppId()
+              → PackageSetting.setInstalled()
+              → PersonaManagerService.getSeparationConfigfromCache()
+              → PersonaManagerService.processAppSeparationInstallation()
+              → PersonaServiceHelper.isSpfKnoxSupported()
+              → Settings.writePackageRestrictionsLPr()
+              → ParsingPackageRead.getSigningDetails() [SIG_CHECK]
+              → PkgWithoutStatePackageInfo.getRequestedPermissions()
+              → WatchedArrayMap.get()
+              → IApplicationPolicy$Stub.asInterface()
+              → IApplicationPolicy.isApplicationInstallationEnabled()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: void <clinit>()>
+  Line:     856
+  Register: v3 := "com.samsung.android.knox.containercore"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+
+  CALLEES (what this method invokes):
+      → SystemProperties.get()
+      → PersonaManagerService.isKnoxSupported()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → Bundle.getString()
+        → SemPersonaManager.getKnoxInfo()
+          → KnoxInfoImpl.getKnoxInfo()
+            → <android.os.Bundle: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: void systemReady()>
+  Line:     17934
+  Register: v4 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {v3, v4, v0}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageUidAsUser()
+
+  CALLERS (who invokes this method):
+      ← SystemServer.startOtherServices()
+        ← SystemServer.run()
+          ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → ActivityManagerNative.getDefault()
+      → IActivityManager.registerUserSwitchObserver()
+      → DevicePolicyManager.getDeviceOwnerComponentOnAnyUser()
+      → Context.registerReceiver()
+      → Context.registerReceiverAsUser()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → <android.content.IntentFilter: void <init>()>
+      → <android.content.IntentFilter: void <init>(java.lang.String)
+      → IntentFilter.addAction()
+      → PackageManager.getPackageUidAsUser()
+      → UserInfo.isSuperLocked()
+      → Handler.obtainMessage()
+      → Handler.sendMessage()
+      → PowerManager.isInteractive()
+      → RemoteException.printStackTrace()
+      → UserManager.getUserInfo()
+      → <com.android.internal.widget.LockPatternUtils: void <init>(a
+      → <com.android.server.knox.SeamLessSwitchHandler: void <init>(
+      → <com.android.server.pm.PersonaManagerService$BootReceiver: v
+      → PersonaManagerService$LocalService.isKnoxId()
+      → PersonaManagerService.getAppSeparationConfig()
+      → PersonaManagerService.getUserManager()
+      → PersonaManagerService.clearHomeCrossProfileFilter()
+      → PersonaManagerService.isQuickSwitchToSecureFolderSupported()
+      → PersonaManagerService.checkCallerPermissionFor()
+      → PersonaManagerService.getProfiles()
+      → PersonaManagerService.migrateNewPo()
+      → PersonaManagerService.registerContentObserver()
+      → PersonaManagerService.registerPackageReceiver()
+      → <com.android.server.pm.PersonaServiceProxy: void <init>(andr
+      → SemPersonaManager.isDoEnabled()
+      → SemPersonaManager.isSecureFolderId()
+      → List.add()
+      → List.size()
+      → List.get()
+        → ActivityManager.getService()
+        → Context.getSystemService()
+        → LocalServices.getService()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → <android.content.BroadcastReceiver: void <init>()>
+        → SemPersonaManager.isKnoxId()
+        → ContainerDependencyWrapper.getAppSeparationConfig()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.clearCrossProfileIntentFilters()
+        → PersonaManagerService$Injector.binderClearCallingIdentity()
+        → PersonaManagerService$Injector.binderRestoreCallingIdentity()
+        → ContainerDependencyWrapper.isSupportPrivateMode()
+        → ContainerDependencyWrapper.checkCallerPermissionFor()
+        → IPackageManager.checkUidSignatures()
+        → UserInfo.isDualAppProfile()
+        → <android.content.pm.UserInfo: void <init>(android.content.pm
+        → Binder.getCallingUid() [UID_CHECK]
+        → UserManager.getProfiles()
+        → PersonaManagerService.getIPackageManager()
+        → <java.util.ArrayList: void <init>()>
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+        → ContentResolver.registerContentObserver()
+        → Context.getContentResolver()
+        → Settings$Secure.getUriFor()
+        → IntentFilter.addDataScheme()
+        → IntentFilter.addDataSchemeSpecificPart()
+        → <com.android.server.pm.PersonaServiceProxy$2: void <init>(co
+        → <com.android.server.pm.PersonaServiceProxy$3: void <init>(co
+        → PersonaServiceProxy.registerContainerReceiver()
+        → <java.util.HashMap: void <init>()>
+        → SystemProperties.getBoolean()
+        → SemPersonaManager.checkContainerType()
+          → ArrayMap.get()
+          → SemPersonaManager.isDualAppId()
+          → KnoxContainerManager.getAppSeparationConfig()
+          → ActivityThread.getPackageManager()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → SemCscFeature.getBoolean()
+          → SemCscFeature.getInstance()
+          → Binder.getCallingPid() [UID_CHECK]
+          → ServiceKeeper.isAuthorized()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → SecurityException.printStackTrace()
+          → ContainerStateReceiver.register()
+          → <com.android.server.pm.PersonaServiceProxy$1: void <init>(co
+          → SystemProperties.get()
+            → ArrayMap.indexOfKey()
+            → SemDualAppManager.isDualAppId()
+            → ContextInfo$$ExternalSyntheticOutline0.m()
+            → ContextInfo$$ExternalSyntheticOutline0.m()
+            → IKnoxContainerManager.getAppSeparationConfig()
+            → KnoxContainerManager.getContainerService()
+            → Hashtable.get()
+            → <com.samsung.android.feature.SemCscFeature: void <init>()>
+            → Process.myPid()
+            → SKLogger.logAll()
+            → SKLogger.logAll()
+            → ServiceKeeper.checkForMethodAuthorization()
+            → ServiceKeeper.checkForServiceAuthorization()
+            → ServiceKeeper.isFilterAPI()
+            → ServiceKeeper.getPackageName()
+            → ServiceKeeper.getSeinfo()
+            → Exception.getMessage()
+            → HashSet.contains()
+            → HashSet.isEmpty()
+            → <android.os.ContainerStateReceiver: void <init>()>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ServiceManager.getService()
+              → IKnoxContainerManager$Stub.asInterface()
+              → SystemProperties.get()
+              → SemCscFeature.loadFeatureFile()
+              → Exception.toString()
+              → <java.util.Hashtable: void <init>()>
+              → Time.format()
+              → <android.text.format.Time: void <init>()>
+              → Time.set()
+              → Logger.log()
+              → SKLogger.getStackTraceString()
+              → HashSet.iterator()
+              → ArrayList.size()
+              → ArrayList.get()
+              → ActivityManager.getPackageFromAppProcesses()
+              → IPackageManager.getApplicationInfo() [PKG_QUERY]
+              → UserHandle.getUserId()
+              → ASKSManagerService.getSEInfo()
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceProxy
+  Method:   <com.android.server.pm.PersonaServiceProxy: void <init>(android.content.Context)>
+  Line:     276
+  Register: p1 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {v10, p1, v0}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/S
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart()
+
+  CALLERS (who invokes this method):
+      ← PersonaManagerService.systemReady()
+        ← SystemServer.startOtherServices()
+          ← SystemServer.run()
+            ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiverAsUser()
+      → Context.getSystemService()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → <com.android.internal.widget.LockPatternUtils: void <init>(a
+      → <com.android.server.pm.PersonaServiceProxy$2: void <init>(co
+      → <com.android.server.pm.PersonaServiceProxy$3: void <init>(co
+      → PersonaServiceProxy.registerContainerReceiver()
+      → SemPersonaManager.isDoEnabled()
+      → <java.util.HashMap: void <init>()>
+        → <android.content.BroadcastReceiver: void <init>()>
+        → ContainerStateReceiver.register()
+        → <com.android.server.pm.PersonaServiceProxy$1: void <init>(co
+        → SystemProperties.getBoolean()
+          → Context.registerReceiver()
+          → <android.os.ContainerStateReceiver: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceProxy
+  Method:   <com.android.server.pm.PersonaServiceProxy: void findAndConnectToContainerService(int)>
+  Line:     429
+  Register: v0 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {p0, p1, v0}, Lcom/android/server/pm/PersonaServiceProxy;->findContainerService(ILjav
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.pm.PersonaServiceProxy.findContainerServi
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceProxy: void -$$Nest$mfi
+        ← PersonaServiceProxy$1.onDeviceOwnerActivated()
+        ← PersonaServiceProxy$2.onReceive()
+        ← PersonaServiceProxy$3.onReceive()
+
+  CALLEES (what this method invokes):
+      → UserManager.isUserRunning()
+      → PersonaServiceProxy.maybeConnectContainerService()
+      → PersonaServiceProxy.findContainerService()
+        → ContainerServiceInfo.toString()
+        → ContainerServiceWrapper.connect()
+        → ContainerServiceWrapper.isBound()
+        → <com.android.server.ContainerServiceWrapper: void <init>(and
+        → PersonaServiceProxy.isKnoxProfileExist()
+        → HashMap.containsKey()
+        → HashMap.get()
+        → HashMap.put()
+        → HashMap.remove()
+        → ComponentName.flattenToShortString()
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → IPackageManager$Stub.asInterface()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → IPackageManager.isPackageAvailable()
+        → Bundle.getString()
+        → RemoteException.printStackTrace()
+        → ServiceManager.getService()
+        → <com.android.server.ContainerServiceInfo: void <init>(int,an
+          → Context.bindServiceAsUser()
+          → Intent.setComponent()
+          → <android.content.Intent: void <init>()>
+          → <android.os.UserHandle: void <init>(int)>
+          → <com.android.server.ContainerServiceWrapper$1: void <init>(c
+          → <com.android.server.ContainerServiceWrapper$2: void <init>(c
+          → UserManager.getUsers()
+          → SemPersonaManager.isKnoxId()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.iterator()
+            → <android.os.Handler: void <init>()>
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+              → SystemProperties.get()
+              → SemDualAppManager.isDualAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceProxy$3
+  Method:   <com.android.server.pm.PersonaServiceProxy$3: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     99
+  Register: p2 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLEES (what this method invokes):
+      → Intent.getData()
+      → Intent.getIntExtra()
+      → Intent.getAction()
+      → Uri.getSchemeSpecificPart()
+      → <com.android.server.pm.PersonaServiceProxy: void -$$Nest$mfi
+        → PersonaServiceProxy.findAndConnectToContainerService()
+          → UserManager.isUserRunning()
+          → PersonaServiceProxy.maybeConnectContainerService()
+          → PersonaServiceProxy.findContainerService()
+            → ContainerServiceInfo.toString()
+            → ContainerServiceWrapper.connect()
+            → ContainerServiceWrapper.isBound()
+            → <com.android.server.ContainerServiceWrapper: void <init>(and
+            → PersonaServiceProxy.isKnoxProfileExist()
+            → HashMap.containsKey()
+            → HashMap.get()
+            → HashMap.put()
+            → HashMap.remove()
+            → ComponentName.flattenToShortString()
+            → <android.content.ComponentName: void <init>(java.lang.String
+            → IPackageManager$Stub.asInterface()
+            → IPackageManager.getApplicationInfo() [PKG_QUERY]
+            → IPackageManager.isPackageAvailable()
+            → Bundle.getString()
+            → RemoteException.printStackTrace()
+            → ServiceManager.getService()
+            → <com.android.server.ContainerServiceInfo: void <init>(int,an
+              → Context.bindServiceAsUser()
+              → Intent.setComponent()
+              → <android.content.Intent: void <init>()>
+              → <android.os.UserHandle: void <init>(int)>
+              → <com.android.server.ContainerServiceWrapper$1: void <init>(c
+              → <com.android.server.ContainerServiceWrapper$2: void <init>(c
+              → UserManager.getUsers()
+              → SemPersonaManager.isKnoxId()
+              → Iterator.hasNext()
+              → Iterator.next()
+              → List.iterator()
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.security.PasswordPolicy$1
+  Method:   <com.android.server.enterprise.security.PasswordPolicy$1: void <init>(com.android.server.enterprise.security.PasswordPolicy)>
+  Line:     43
+  Register: p1 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.enterprise.security.PasswordPolicy: void
+        ← <com.android.server.enterprise.security.PasswordPolicy: void
+          ← EnterpriseDeviceManagerServiceImpl$Injector.getPasswordPolicy()
+            ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+              ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.adapterlayer.PersonaManagerAdapter
+  Method:   <com.android.server.enterprise.adapterlayer.PersonaManagerAdapter: boolean isContainerCore(java.lang.String)>
+  Line:     351
+  Register: p0 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [other] return p0
+
+────────────────────────────────────────────────────────────
+Occurrence #17
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.container.KnoxMUMContainerPolicy
+  Method:   <com.android.server.enterprise.container.KnoxMUMContainerPolicy: int createContainer(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.container.CreationParams,int)>
+  Line:     4974
+  Register: v1 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v1, Lcom/android/server/enterprise/container/Kno → [i
+
+  CALLERS (who invokes this method):
+      ← KnoxMUMContainerPolicy.createContainerWithCallback()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getPackageFromAppProcesses()
+      → Context.startServiceAsUser()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → Intent.resolveActivity()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → PackageManager$NameNotFoundException.printStackTrace()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → PackageManager.getPackageUidAsUser()
+      → Color.parseColor()
+      → Uri.parse()
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putBoolean()
+      → Bundle.putInt()
+      → Bundle.putString()
+      → Handler.obtainMessage()
+      → Handler.sendMessage()
+      → Process.myPid()
+      → UserHandle.of()
+      → UserHandle.getUserId()
+      → UserHandle.myUserId()
+      → <android.os.UserHandle: void <init>(int)>
+      → UserManager.hasUserRestriction()
+      → AuditLog.logAsUser()
+      → TextUtils.isEmpty()
+      → KnoxMUMContainerPolicy$ProvisioningState.start()
+      → <com.android.server.enterprise.container.KnoxMUMContainerPol
+      → KnoxMUMContainerPolicy$RequestIdGenerator.getNextContainerRequestId()
+      → KnoxMUMContainerPolicy.findAdminComponentName()
+      → KnoxMUMContainerPolicy.getUserManagerService()
+      → KnoxMUMContainerPolicy.isContainerOnlyModeAllowed()
+      → KnoxMUMContainerPolicy.checkProvisioningPreCondition()
+      → KnoxMUMContainerPolicy.getConfigurationTypeByName()
+      → KnoxMUMContainerPolicy.clearIdentityAndStartActivityAsUser()
+      → KnoxMUMContainerPolicy.enforceCallingCheckPermission() [PERM_CHECK]
+      → SemPersonaManager.isDoEnabled()
+      → CreationParams.getAdminPackageName()
+      → CreationParams.getConfigurationName()
+      → CreationParams.getPasswordResetToken()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → List.isEmpty()
+      → List.get()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → HashMap.get()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+        → IEDMProxy.AuditLoggerAsUser()
+        → CharSequence.length()
+        → Bundle.getBoolean()
+        → Bundle.getInt()
+        → Bundle.getString()
+        → KnoxMUMContainerPolicy$ProvisioningState.toString()
+        → <com.android.server.enterprise.container.KnoxMUMContainerPol
+        → <com.android.server.enterprise.container.KnoxMUMContainerPol
+        → Random.nextInt()
+        → DevicePolicyManager.getActiveAdmins()
+        → ComponentName.getPackageName()
+        → KnoxMUMContainerPolicy.getDevicePolicyService()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+        → DevicePolicyManager.isDeviceManaged()
+        → UserInfo.isManagedProfile()
+        → KnoxMUMContainerPolicy.getPersonaManagerLocked()
+        → PersonaManagerService.getProfiles()
+        → UserManager.getProfiles()
+        → KnoxMUMContainerPolicy.checkCallerPermissionFor()
+        → PersonaServiceHelper.canAddMoreManagedProfiles()
+        → SemDesktopModeManager.isDesktopMode()
+        → SemDesktopModeManager.getDesktopModeState()
+        → KnoxContainerManager.getConfigurationTypeByName()
+        → Exception.printStackTrace()
+        → KnoxMUMContainerPolicy.enforceSecurityPermission()
+        → KnoxConfigurationType.getAdminUid()
+        → KnoxConfigurationType.getName()
+        → Context.startActivityAsUser()
+        → Context.checkCallingOrSelfPermission()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → List.size()
+        → SystemProperties.getBoolean()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+          → ServiceManager.getService()
+          → IEDMProxy$Stub.asInterface()
+          → Bundle.get()
+          → Bundle.keySet()
+          → Set.iterator()
+          → UserManager.isUserTypeManagedProfile()
+          → IPackageManager.checkUidSignatures()
+          → UserInfo.isDualAppProfile()
+          → <android.content.pm.UserInfo: void <init>(android.content.pm
+          → RemoteException.printStackTrace()
+          → PersonaManagerService$Injector.binderClearCallingIdentity()
+          → PersonaManagerService$Injector.binderRestoreCallingIdentity()
+          → PersonaManagerService.getIPackageManager()
+          → <java.util.ArrayList: void <init>()>
+          → List.add()
+          → ServiceKeeper.isAuthorized()
+          → SecurityException.printStackTrace()
+          → UserInfo.isSecureFolder()
+          → RemoteException.rethrowFromSystemServer()
+          → IDesktopMode.getDesktopModeState()
+          → KnoxContainerManager.getConfigurationTypeByName()
+          → KnoxMUMContainerPolicy.getEDM()
+          → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+            → IBinder.queryLocalInterface()
+            → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+            → ActivityThread.getPackageManager()
+            → SKLogger.logAll()
+            → SKLogger.logAll()
+            → ServiceKeeper.checkForMethodAuthorization()
+            → ServiceKeeper.checkForServiceAuthorization()
+            → ServiceKeeper.isFilterAPI()
+            → ServiceKeeper.getPackageName()
+            → ServiceKeeper.getSeinfo()
+            → Exception.getMessage()
+            → HashSet.contains()
+            → HashSet.isEmpty()
+            → <android.os.DeadSystemRuntimeException: void <init>()>
+            → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+            → ContextInfo$$ExternalSyntheticOutline0.m()
+            → IKnoxContainerManager.getConfigurationTypeByName()
+            → KnoxContainerManager.getContainerService()
+            → EnterpriseDeviceManager.getInstance()
+            → AccessController.enforceActiveAdminPermissionByContext()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+              → Time.format()
+              → <android.text.format.Time: void <init>()>
+              → Time.set()
+              → Logger.log()
+              → SKLogger.getStackTraceString()
+              → HashSet.iterator()
+              → Hashtable.get()
+              → ArrayList.size()
+              → ArrayList.get()
+              → IPackageManager.getApplicationInfo() [PKG_QUERY]
+              → ASKSManagerService.getSEInfo()
+              → <android.os.DeadSystemException: void <init>()>
+              → IKnoxContainerManager$Stub.asInterface()
+              → Process.myTid()
+              → Process.myUid()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.d()
+              → KnoxsdkFileLog.w()
+              → AccessController.getService()
+              → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+
+────────────────────────────────────────────────────────────
+Occurrence #18
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.container.KnoxMUMContainerPolicy
+  Method:   <com.android.server.enterprise.container.KnoxMUMContainerPolicy: java.util.List getConfigurationTypeByName(com.samsung.android.knox.ContextInfo,java.lang.String)>
+  Line:     9372
+  Register: p0 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-nez p0, :cond_b7 → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← KnoxMUMContainerPolicy.addConfigurationType()
+      ← KnoxMUMContainerPolicy.createContainer()
+        ← KnoxMUMContainerPolicy.createContainerWithCallback()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getPackageFromAppProcesses()
+      → Context.getSystemService()
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → KnoxMUMContainerPolicy.enforceSecurityPermission()
+      → KnoxConfigurationType.getAdminUid()
+      → KnoxConfigurationType.getName()
+      → Exception.printStackTrace()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → KnoxMUMContainerPolicy.getEDM()
+        → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+          → EnterpriseDeviceManager.getInstance()
+          → AccessController.enforceActiveAdminPermissionByContext()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.d()
+            → KnoxsdkFileLog.w()
+            → AccessController.getService()
+            → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+              → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+              → SemLog.w()
+              → ServiceManager.getService()
+              → IEnterpriseDeviceManager$Stub.asInterface()
+
+────────────────────────────────────────────────────────────
+Occurrence #19
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.container.KnoxMUMContainerPolicy$ProvisioningState
+  Method:   <com.android.server.enterprise.container.KnoxMUMContainerPolicy$ProvisioningState: int getProcessId(java.lang.String)>
+  Line:     121
+  Register: v0 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← KnoxMUMContainerPolicy$ProvisioningProcessObserver.onProcessDied()
+
+────────────────────────────────────────────────────────────
+Occurrence #20
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.container.KnoxMUMContainerPolicy$ProvisioningProcessObserver
+  Method:   <com.android.server.enterprise.container.KnoxMUMContainerPolicy$ProvisioningProcessObserver: void onProcessDied(int,int)>
+  Line:     259
+  Register: v1 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$Provisionin
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.enterprise.container.KnoxMUMContainerPoli
+
+  CALLEES (what this method invokes):
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putInt()
+      → UserHandle.getUserId()
+      → KnoxMUMContainerPolicy$ProvisioningProcessObserver.maybeUnregister()
+      → KnoxMUMContainerPolicy$ProvisioningState.update()
+      → KnoxMUMContainerPolicy$ProvisioningState.getProcessId()
+      → KnoxMUMContainerPolicy$ProvisioningState.getState()
+      → <com.android.server.enterprise.container.KnoxMUMContainerPol
+      → <com.android.server.enterprise.container.KnoxMUMContainerPol
+      → <com.android.server.enterprise.container.KnoxMUMContainerPol
+        → ActivityManagerNative.getDefault()
+        → IActivityManager.unregisterProcessObserver()
+        → RemoteException.printStackTrace()
+        → <com.android.server.enterprise.container.KnoxMUMContainerPol
+        → <com.android.server.enterprise.container.KnoxMUMContainerPol
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → Bundle.containsKey()
+        → Bundle.getInt()
+        → Bundle.getInt()
+        → Bundle.getString()
+        → Bundle.toString()
+        → KnoxMUMContainerPolicy$ProvisioningState.toBundle()
+        → KnoxMUMContainerPolicy$ProvisioningState.startProvisioningObserver()
+        → KnoxMUMContainerPolicy$ProvisioningState.toString()
+        → <com.android.server.enterprise.container.KnoxMUMContainerPol
+          → ActivityManager.getService()
+          → Bundle.putBoolean()
+          → Bundle.putString()
+          → IActivityManager.registerProcessObserver()
+          → <com.android.server.enterprise.container.KnoxMUMContainerPol
+          → Bundle.get()
+          → Bundle.keySet()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → Set.iterator()
+          → KnoxMUMContainerPolicy.provisioningFinished()
+            → <com.android.server.enterprise.container.KnoxMUMContainerPol
+            → DevicePolicyManager.getProfileOwnerAsUser()
+            → ComponentName.getPackageName()
+            → Context.getPackageManager()
+            → Context.getSystemService()
+            → PackageManager.getPackageUidAsUser()
+            → Bundle.putParcelable()
+            → <android.os.UserHandle: void <init>(int)>
+            → KnoxMUMContainerPolicy$ProvisioningState.isBasicContainerProvisioning()
+            → KnoxMUMContainerPolicy$ProvisioningState.isDeviceOwnerProvisioning()
+            → KnoxMUMContainerPolicy$ProvisioningState.toString()
+            → KnoxMUMContainerPolicy$ProvisioningState.notifyAdminCreationStatus()
+            → KnoxMUMContainerPolicy.filterTypeByContainerId()
+            → KnoxMUMContainerPolicy.createContainerInternal()
+            → KnoxMUMContainerPolicy.setProfileEnabled()
+            → SemPersonaManager.sendContainerEvent()
+            → SemPersonaManager.sendContainerEvent()
+            → <com.samsung.android.knox.container.ContainerCreationParams:
+            → ContainerCreationParams.setAdminParam()
+            → ContainerCreationParams.setAdminUid()
+            → ContainerCreationParams.setContainerId()
+              → <android.app.IProcessObserver$Stub: void <init>()>
+              → PackageManager.getPackagesForUid()
+              → KnoxMUMContainerPolicy$ProvisioningState.notifyAdminCreationStatus()
+              → <com.android.server.enterprise.container.KnoxMUMContainerPol
+              → KnoxConfigurationType.getPersonaList()
+              → List.iterator()
+              → IDevicePolicyManager$Stub.asInterface()
+              → IDevicePolicyManager.isOrganizationOwnedDeviceWithManagedProfile()
+              → ServiceManager.getService()
+              → KnoxMUMContainerPolicy.addContainerOwnerRelationship()
+              → KnoxMUMContainerPolicy.addPseudoAdminForWpcod()
+              → KnoxMUMContainerPolicy.checkCallerPermissionFor()
+              → ContainerCreationParams.getAdminUid()
+              → ContainerCreationParams.getContainerId()
+              → Context.sendBroadcastAsUser()
+              → Intent.addFlags()
+              → Intent.putExtra()
+              → <android.content.Intent: void <init>(java.lang.String)>
+              → UserManager.getProfileParent()
+              → UserManager.setUserEnabled()
+              → KnoxMUMContainerPolicy.getUserManagerService()
+              → Intent.putExtra()
+              → Intent.putExtras()
+              → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #21
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.restriction.RestrictionPolicy
+  Method:   <com.android.server.enterprise.restriction.RestrictionPolicy: void <clinit>()>
+  Line:     336
+  Register: v3 := "com.samsung.android.knox.containercore"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+
+────────────────────────────────────────────────────────────
+Occurrence #22
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+  Line:     979
+  Register: v7 := "com.samsung.android.knox.containercore"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Process.myPid()
+      → ArrayMap.size()
+      → ArrayMap.get()
+      → ArrayMap.keyAt()
+      → ArrayMap.put()
+      → ArrayMap.valueAt()
+      → <android.util.ArrayMap: void <init>()>
+      → <com.android.server.enterprise.application.ApplicationPolicy
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Collections.unmodifiableList()
+      → <java.util.HashMap: void <init>()>
+        → ArrayMap.indexOfKey()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → ArrayMap.indexOf()
+        → ArrayMap.indexOfNull()
+        → ArrayMap.allocArrays()
+        → ArrayMap.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.binarySearchHashes()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #23
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.ContainerDependencyWrapper
+  Method:   <com.android.server.knox.ContainerDependencyWrapper: boolean deactivateKnoxCore(android.content.Context,int)>
+  Line:     567
+  Register: v0 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-direct {v1, v0, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [invoke] com.samsung.android.knox.IEnterpriseDeviceManager.setAdminRe
+
+  CALLERS (who invokes this method):
+      ← PersonaManagerService$PersonaHandler.handleMessage()
+      ← PersonaManagerService.deactivateKnoxCore()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → ContainerDependencyWrapper.getContextInfo()
+      → ContainerDependencyWrapper.getEdmService()
+      → IEnterpriseDeviceManager.setAdminRemovable()
+      → IEnterpriseDeviceManager.removeActiveAdminFromDpm()
+      → Exception.printStackTrace()
+        → <com.samsung.android.knox.ContextInfo: void <init>()>
+        → ServiceManager.getService()
+        → IEnterpriseDeviceManager$Stub.asInterface()
+          → Process.myUid()
+          → UserHandle.getUserId()
+          → SemPersonaManager.isKnoxId()
+          → IBinder.queryLocalInterface()
+          → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+              → SystemProperties.get()
+              → SemDualAppManager.isDualAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #24
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl
+  Method:   <com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl: void <init>(com.android.server.knox.dar.DarManagerService$Injector)>
+  Line:     65
+  Register: v3 := "com.samsung.android.knox.containercore"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.knox.dar.DarManagerService: void <init>(
+        ← <com.android.server.knox.dar.DarManagerService: void <init>(
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #25
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.dar.ddar.proxy.DualDARComnService
+  Method:   <com.android.server.knox.dar.ddar.proxy.DualDARComnService: void initDualDARAgentsIfRequired()>
+  Line:     2291
+  Register: v2 := "com.samsung.android.knox.containercore"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0, v2, v3}, Lcom/samsung/android/knox/dar/ddar/proxy/KnoxProxyManager;->reg
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.dar.ddar.proxy.KnoxProxyManager.reg
+
+  CALLERS (who invokes this method):
+      ← DualDARComnService.initKnownProxyAgents()
+        ← DualDARComnService.init()
+
+  CALLEES (what this method invokes):
+      → PersonaServiceHelper.isDualDAREnabled()
+      → KnoxProxyManager.registerAgentByMetadata()
+      → KnoxProxyManager.getInstance()
+        → IProxyService.registerAgentByMetadata()
+        → KnoxProxyManager.getService()
+        → Exception.printStackTrace()
+        → <com.samsung.android.knox.dar.ddar.proxy.KnoxProxyManager: v
+          → ServiceManager.getService()
+          → IProxyService$Stub.asInterface()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.dar.ddar.proxy.IProxyService$Stub$
+

@@ -1,0 +1,59 @@
+######################################################################
+# Propagation: com.samsung.android.app.simplesharing
+######################################################################
+
+JARs:                 framework
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1421
+  Register: v2 := "com.samsung.android.app.simplesharing"
+  Usage:    [invoke] invoke-direct {v0, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.ChooserActivity
+  Method:   <com.android.internal.app.ChooserActivity: com.android.internal.app.chooser.DisplayResolveInfo semCreateTempLinkShareButtonResolveInfo()>
+  Line:     49516
+  Register: v3 := "com.samsung.android.app.simplesharing"
+  Usage:    [invoke] invoke-virtual {v0, v3, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: (none)
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → ApplicationInfo.loadLabel()
+      → PackageManager$NameNotFoundException.printStackTrace()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → ChooserActivity.getPackageManager()
+      → <com.android.internal.app.chooser.DisplayResolveInfo: void <
+      → CharSequence.toString()
+        → <java.util.ArrayList: void <init>()>
+

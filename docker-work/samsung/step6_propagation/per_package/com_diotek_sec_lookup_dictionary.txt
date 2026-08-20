@@ -1,0 +1,93 @@
+######################################################################
+# Propagation: com.diotek.sec.lookup.dictionary
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.widget.Editor$ProcessTextIntentActionsHandler
+  Method:   <android.widget.Editor$ProcessTextIntentActionsHandler: int getOrder(android.content.pm.ResolveInfo)>
+  Line:     457
+  Register: v2 := "com.diotek.sec.lookup.dictionary"
+  Usage:    [invoke] invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v2 → [branch] if-eqz v2, :cond_30
+
+  CALLERS (who invokes this method):
+      ← Editor$ProcessTextIntentActionsHandler.onInitializeMenu()
+        ← Editor$TextActionModeCallback.onCreateActionMode()
+
+  CALLEES (what this method invokes):
+      → ResolveInfo.toString()
+      → TextView.isThemeDeviceDefault()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.widget.Editor$ProcessTextIntentActionsHandler
+  Method:   <android.widget.Editor$ProcessTextIntentActionsHandler: android.graphics.drawable.Drawable loadIcon(android.content.pm.ResolveInfo)>
+  Line:     603
+  Register: v3 := "com.diotek.sec.lookup.dictionary"
+  Usage:    [invoke] invoke-virtual {v0, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: (none)
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v3 → [branch] if-eqz v3, :cond_34 → [other] iget-object v3, p
+
+  CALLERS (who invokes this method):
+      ← Editor$ProcessTextIntentActionsHandler.onInitializeMenu()
+        ← Editor$TextActionModeCallback.onCreateActionMode()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Context.getResources()
+      → ResolveInfo.loadIcon()
+      → ResolveInfo.toString()
+      → Resources.getDrawable()
+      → Drawable.getIntrinsicWidth()
+      → Drawable.setBounds()
+      → TextView.getContext()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.widget.Editor$ProcessTextIntentActionsHandler
+  Method:   <android.widget.Editor$ProcessTextIntentActionsHandler: void loadSupportedActivities()>
+  Line:     784
+  Register: v5 := "com.diotek.sec.lookup.dictionary"
+  Usage:    [invoke] invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains()
+
+  CALLERS (who invokes this method):
+      ← Editor$ProcessTextIntentActionsHandler.initializeAccessibilityActions()
+      ← Editor$ProcessTextIntentActionsHandler.onInitializeMenu()
+        ← Editor$TextActionModeCallback.onCreateActionMode()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Context.canStartActivityForResult()
+      → PackageManager.queryIntentActivities()
+      → ResolveInfo.getComponentInfo()
+      → Editor$ProcessTextIntentActionsHandler.createProcessTextIntent()
+      → Editor$ProcessTextIntentActionsHandler.isSupportedActivity()
+      → TextView.getContext()
+      → TextView.canDictionary()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.add()
+      → List.iterator()
+      → List.clear()
+        → Intent.setAction()
+        → Intent.setType()
+        → <android.content.Intent: void <init>()>
+        → Context.checkSelfPermission()
+

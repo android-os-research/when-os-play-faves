@@ -1,0 +1,6 @@
+# android.hardware.biometrics.iris [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.enterprise.security.PasswordPolicy: java.lang.Boolean lambda$irisAvailable$16(android.content.Context)>

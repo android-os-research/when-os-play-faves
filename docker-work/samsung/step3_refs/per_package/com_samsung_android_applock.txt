@@ -1,0 +1,8 @@
+# com.samsung.android.applock [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.pm.BroadcastHelper: void doSendBroadcast(java.lang.String,java.lang.String,android.os.Bundle,int,java.lang.String,android.content.IIntentReceiver,int[],boolean,android.util.SparseArray,android.os.Bundle)>
+<com.android.server.wm.ActivityStarter: int executeRequest(com.android.server.wm.ActivityStarter$Request)>
+<com.android.server.wm.ActivityTaskManagerServiceExt: void lambda$checkAppLockState$0(java.lang.String,int,boolean,android.content.Intent)>
+<com.android.server.wm.ActivityTaskManagerServiceExt: void startAppLockActivity(com.android.server.wm.ActivityRecord)>

@@ -1,0 +1,145 @@
+######################################################################
+# Propagation: com.nttdocomo.android.msg
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig
+  Method:   <com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: void setSMorOperatorMessageApp()>
+  Line:     2578
+  Register: v3 := "com.nttdocomo.android.msg"
+  Usage:    [invoke] invoke-direct {p0, v2, v3}, Lcom/android/internal/telephony/SmsApplication$DefaultMessageAppConfig;-
+  Patterns: string_compare, early_return
+  Flow:     [other] const-string/jumbo v6, "jp.softbank.mb.mail" → [invoke] com.android.internal.telephony.SmsApplication$DefaultMes
+
+  CALLERS (who invokes this method):
+      ← SmsApplication$DefaultMessageAppConfig.setDefaultMsgApp()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → TelephonyManager.isSmsCapable()
+      → SmsApplication$DefaultMessageAppConfig.isPackageEnabled()
+      → SmsApplication$DefaultMessageAppConfig.getMessagePackageName()
+      → SmsApplication$DefaultMessageAppConfig.getSalesCode()
+      → SmsApplication.setDefaultApplication()
+      → SemCscFeature.getInstance()
+      → SemCscFeature.getString()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationEnabledSetting()
+        → SmsApplication$DefaultMessageAppConfig.hasPackage()
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+        → SystemProperties.get()
+        → TextUtils.isEmpty()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+        → Hashtable.get()
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → CharSequence.length()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → SemCscFeature.loadFeatureFile()
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.File: void <init>(java.lang.String)>
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.put()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig
+  Method:   <com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: void setSMorOperatorMessageApp()>
+  Line:     2596
+  Register: v6 := "com.nttdocomo.android.msg"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+  Flow:     [other] const-string/jumbo v6, "jp.softbank.mb.mail" → [invoke] com.android.internal.telephony.SmsApplication$DefaultMes
+
+  CALLERS (who invokes this method):
+      ← SmsApplication$DefaultMessageAppConfig.setDefaultMsgApp()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → TelephonyManager.isSmsCapable()
+      → SmsApplication$DefaultMessageAppConfig.isPackageEnabled()
+      → SmsApplication$DefaultMessageAppConfig.getMessagePackageName()
+      → SmsApplication$DefaultMessageAppConfig.getSalesCode()
+      → SmsApplication.setDefaultApplication()
+      → SemCscFeature.getInstance()
+      → SemCscFeature.getString()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationEnabledSetting()
+        → SmsApplication$DefaultMessageAppConfig.hasPackage()
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+        → SystemProperties.get()
+        → TextUtils.isEmpty()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+        → Hashtable.get()
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → CharSequence.length()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → SemCscFeature.loadFeatureFile()
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.File: void <init>(java.lang.String)>
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.put()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+

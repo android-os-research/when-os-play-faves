@@ -1,0 +1,9 @@
+# android.os.IClientCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.IClientCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IClientCallback$Stub$Proxy: void onClients(android.os.IBinder,boolean)>
+<android.os.IClientCallback$Stub: android.os.IClientCallback asInterface(android.os.IBinder)>
+<android.os.IClientCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IClientCallback$Stub: void <init>()>

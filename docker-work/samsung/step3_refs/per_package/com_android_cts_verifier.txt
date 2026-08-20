@@ -1,0 +1,6 @@
+# com.android.cts.verifier [NEW]
+# Refs: 2
+# JARs: semwifi-service, services
+
+<com.android.server.location.gnss.sec.GnssConstants: void <clinit>()>
+<com.samsung.android.server.wifi.SemWifiConnectivityMonitor: boolean isCtsVerifierRunning()>

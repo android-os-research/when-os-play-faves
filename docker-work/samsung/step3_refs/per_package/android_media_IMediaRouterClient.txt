@@ -1,0 +1,11 @@
+# android.media.IMediaRouterClient [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.media.IMediaRouterClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IMediaRouterClient$Stub$Proxy: void onGroupRouteSelected(java.lang.String)>
+<android.media.IMediaRouterClient$Stub$Proxy: void onRestoreRoute()>
+<android.media.IMediaRouterClient$Stub$Proxy: void onStateChanged()>
+<android.media.IMediaRouterClient$Stub: android.media.IMediaRouterClient asInterface(android.os.IBinder)>
+<android.media.IMediaRouterClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IMediaRouterClient$Stub: void <init>()>

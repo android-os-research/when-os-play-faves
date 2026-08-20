@@ -1,0 +1,6 @@
+# ro.vendor.radio.default_network [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.samsung.telephony.sysprop.SemTelephonyVendorProps: java.util.Optional radio_default_network()>
+<com.samsung.telephony.sysprop.SemTelephonyVendorProps: void radio_default_network(java.lang.Integer)>

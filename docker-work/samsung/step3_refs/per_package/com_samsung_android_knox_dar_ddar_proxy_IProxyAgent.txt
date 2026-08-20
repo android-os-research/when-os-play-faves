@@ -1,0 +1,12 @@
+# com.samsung.android.knox.dar.ddar.proxy.IProxyAgent [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.samsung.android.knox.dar.ddar.proxy.IProxyAgent$Stub$Proxy: android.os.Bundle onMessage(int,java.lang.String,java.lang.String,android.os.Bundle)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyAgent$Stub$Proxy: boolean terminateSecureSession(int,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyAgent$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyAgent$Stub$Proxy: java.lang.String initializeSecureSession(int,java.lang.String,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyAgent$Stub$Proxy: void onAgentReconnected()>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyAgent$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyAgent$Stub: com.samsung.android.knox.dar.ddar.proxy.IProxyAgent asInterface(android.os.IBinder)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyAgent$Stub: void <init>()>

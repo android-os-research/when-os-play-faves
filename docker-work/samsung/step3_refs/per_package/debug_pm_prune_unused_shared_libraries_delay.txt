@@ -1,0 +1,5 @@
+# debug.pm.prune_unused_shared_libraries_delay [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.pm.PackageManagerService: long getPruneUnusedSharedLibrariesDelay()>

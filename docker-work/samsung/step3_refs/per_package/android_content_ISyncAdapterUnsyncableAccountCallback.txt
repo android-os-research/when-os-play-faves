@@ -1,0 +1,9 @@
+# android.content.ISyncAdapterUnsyncableAccountCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.ISyncAdapterUnsyncableAccountCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.ISyncAdapterUnsyncableAccountCallback$Stub$Proxy: void onUnsyncableAccountDone(boolean)>
+<android.content.ISyncAdapterUnsyncableAccountCallback$Stub: android.content.ISyncAdapterUnsyncableAccountCallback asInterface(android.os.IBinder)>
+<android.content.ISyncAdapterUnsyncableAccountCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.ISyncAdapterUnsyncableAccountCallback$Stub: void <init>()>

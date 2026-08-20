@@ -1,0 +1,9 @@
+# com.gsma.services.rcs.capability.ICapabilitiesListener [NEW]
+# Refs: 5
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.capability.ICapabilitiesListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.capability.ICapabilitiesListener$Stub$Proxy: void onCapabilitiesReceived(com.gsma.services.rcs.contact.ContactId,com.gsma.services.rcs.capability.Capabilities)>
+<com.gsma.services.rcs.capability.ICapabilitiesListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.capability.ICapabilitiesListener$Stub: com.gsma.services.rcs.capability.ICapabilitiesListener asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.capability.ICapabilitiesListener$Stub: void <init>()>

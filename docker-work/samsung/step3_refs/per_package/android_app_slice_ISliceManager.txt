@@ -1,0 +1,19 @@
+# android.app.slice.ISliceManager [NEW]
+# Refs: 15
+# JARs: framework
+
+<android.app.slice.ISliceManager$Stub$Proxy: android.app.slice.SliceSpec[] getPinnedSpecs(android.net.Uri,java.lang.String)>
+<android.app.slice.ISliceManager$Stub$Proxy: android.net.Uri[] getPinnedSlices(java.lang.String)>
+<android.app.slice.ISliceManager$Stub$Proxy: boolean hasSliceAccess(java.lang.String)>
+<android.app.slice.ISliceManager$Stub$Proxy: byte[] getBackupPayload(int)>
+<android.app.slice.ISliceManager$Stub$Proxy: int checkSlicePermission(android.net.Uri,java.lang.String,java.lang.String,int,int,java.lang.String[])>
+<android.app.slice.ISliceManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.slice.ISliceManager$Stub$Proxy: void applyRestore(byte[],int)>
+<android.app.slice.ISliceManager$Stub$Proxy: void grantPermissionFromUser(android.net.Uri,java.lang.String,java.lang.String,boolean)>
+<android.app.slice.ISliceManager$Stub$Proxy: void grantSlicePermission(java.lang.String,java.lang.String,android.net.Uri)>
+<android.app.slice.ISliceManager$Stub$Proxy: void pinSlice(java.lang.String,android.net.Uri,android.app.slice.SliceSpec[],android.os.IBinder)>
+<android.app.slice.ISliceManager$Stub$Proxy: void revokeSlicePermission(java.lang.String,java.lang.String,android.net.Uri)>
+<android.app.slice.ISliceManager$Stub$Proxy: void unpinSlice(java.lang.String,android.net.Uri,android.os.IBinder)>
+<android.app.slice.ISliceManager$Stub: android.app.slice.ISliceManager asInterface(android.os.IBinder)>
+<android.app.slice.ISliceManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.slice.ISliceManager$Stub: void <init>()>

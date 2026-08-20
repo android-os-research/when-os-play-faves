@@ -1,0 +1,11 @@
+# com.sec.ims.presence.IPresenceService [NEW]
+# Refs: 7
+# JARs: imsmanager
+
+<com.sec.ims.presence.IPresenceService$Stub$Proxy: com.sec.ims.presence.PresenceInfo getOwnPresenceInfo()>
+<com.sec.ims.presence.IPresenceService$Stub$Proxy: com.sec.ims.presence.PresenceInfo getPresenceInfo(com.sec.ims.util.ImsUri)>
+<com.sec.ims.presence.IPresenceService$Stub$Proxy: com.sec.ims.presence.PresenceInfo getPresenceInfoByContactId(java.lang.String)>
+<com.sec.ims.presence.IPresenceService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.presence.IPresenceService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.presence.IPresenceService$Stub: com.sec.ims.presence.IPresenceService asInterface(android.os.IBinder)>
+<com.sec.ims.presence.IPresenceService$Stub: void <init>()>

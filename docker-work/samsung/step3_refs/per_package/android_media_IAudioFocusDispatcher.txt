@@ -1,0 +1,10 @@
+# android.media.IAudioFocusDispatcher [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.IAudioFocusDispatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IAudioFocusDispatcher$Stub$Proxy: void dispatchAudioFocusChange(int,java.lang.String)>
+<android.media.IAudioFocusDispatcher$Stub$Proxy: void dispatchFocusResultFromExtPolicy(int,java.lang.String)>
+<android.media.IAudioFocusDispatcher$Stub: android.media.IAudioFocusDispatcher asInterface(android.os.IBinder)>
+<android.media.IAudioFocusDispatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IAudioFocusDispatcher$Stub: void <init>()>

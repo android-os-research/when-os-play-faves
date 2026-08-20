@@ -1,0 +1,12 @@
+# com.sec.ims.IRttEventListener [NEW]
+# Refs: 8
+# JARs: imsmanager
+
+<com.sec.ims.IRttEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.IRttEventListener$Stub$Proxy: void onRttEvent(java.lang.String)>
+<com.sec.ims.IRttEventListener$Stub$Proxy: void onRttEventBySession(int,java.lang.String)>
+<com.sec.ims.IRttEventListener$Stub$Proxy: void onSendRttSessionModifyRequest(int,boolean)>
+<com.sec.ims.IRttEventListener$Stub$Proxy: void onSendRttSessionModifyResponse(int,boolean,boolean)>
+<com.sec.ims.IRttEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.IRttEventListener$Stub: com.sec.ims.IRttEventListener asInterface(android.os.IBinder)>
+<com.sec.ims.IRttEventListener$Stub: void <init>()>

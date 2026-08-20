@@ -1,0 +1,8 @@
+# com.sec.android.inputmethod.previous_inputmethod_dex [NEW]
+# Refs: 6
+# JARs: services
+
+<com.android.server.inputmethod.InputMethodManagerService$DexDualViewModeChangeObserver: void onChange(boolean)>
+<com.android.server.inputmethod.InputMethodManagerService$DexDualViewModeChangeObserver: void restorePreviousUsedInputMethod()>
+<com.android.server.inputmethod.InputMethodManagerService$KnoxDesktopModeReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.inputmethod.InputMethodManagerService$KnoxDesktopModeReceiver: void restorePreviousUsedInputMethod()>

@@ -1,0 +1,20 @@
+# android.media.tv.ITvInputService [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.media.tv.ITvInputService$Stub$Proxy: android.os.IBinder getExtensionInterface(java.lang.String)>
+<android.media.tv.ITvInputService$Stub$Proxy: java.lang.String getExtensionInterfacePermission(java.lang.String)>
+<android.media.tv.ITvInputService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.tv.ITvInputService$Stub$Proxy: java.util.List getAvailableExtensionInterfaceNames()>
+<android.media.tv.ITvInputService$Stub$Proxy: void createRecordingSession(android.media.tv.ITvInputSessionCallback,java.lang.String,java.lang.String)>
+<android.media.tv.ITvInputService$Stub$Proxy: void createSession(android.view.InputChannel,android.media.tv.ITvInputSessionCallback,java.lang.String,java.lang.String)>
+<android.media.tv.ITvInputService$Stub$Proxy: void notifyHardwareAdded(android.media.tv.TvInputHardwareInfo)>
+<android.media.tv.ITvInputService$Stub$Proxy: void notifyHardwareRemoved(android.media.tv.TvInputHardwareInfo)>
+<android.media.tv.ITvInputService$Stub$Proxy: void notifyHdmiDeviceAdded(android.hardware.hdmi.HdmiDeviceInfo)>
+<android.media.tv.ITvInputService$Stub$Proxy: void notifyHdmiDeviceRemoved(android.hardware.hdmi.HdmiDeviceInfo)>
+<android.media.tv.ITvInputService$Stub$Proxy: void notifyHdmiDeviceUpdated(android.hardware.hdmi.HdmiDeviceInfo)>
+<android.media.tv.ITvInputService$Stub$Proxy: void registerCallback(android.media.tv.ITvInputServiceCallback)>
+<android.media.tv.ITvInputService$Stub$Proxy: void unregisterCallback(android.media.tv.ITvInputServiceCallback)>
+<android.media.tv.ITvInputService$Stub: android.media.tv.ITvInputService asInterface(android.os.IBinder)>
+<android.media.tv.ITvInputService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.tv.ITvInputService$Stub: void <init>()>

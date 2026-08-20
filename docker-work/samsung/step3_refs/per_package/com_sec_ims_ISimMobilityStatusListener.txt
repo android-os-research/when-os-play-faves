@@ -1,0 +1,9 @@
+# com.sec.ims.ISimMobilityStatusListener [NEW]
+# Refs: 5
+# JARs: imsmanager
+
+<com.sec.ims.ISimMobilityStatusListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.ISimMobilityStatusListener$Stub$Proxy: void onSimMobilityStateChanged(boolean)>
+<com.sec.ims.ISimMobilityStatusListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.ISimMobilityStatusListener$Stub: com.sec.ims.ISimMobilityStatusListener asInterface(android.os.IBinder)>
+<com.sec.ims.ISimMobilityStatusListener$Stub: void <init>()>

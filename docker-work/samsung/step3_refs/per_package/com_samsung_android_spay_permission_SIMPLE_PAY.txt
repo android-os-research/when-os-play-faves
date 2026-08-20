@@ -1,0 +1,6 @@
+# com.samsung.android.spay.permission.SIMPLE_PAY [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.biometrics.sensors.fingerprint.SemFpGestureManager: void handleSwipeUpEvent()>
+<com.android.server.policy.PhoneWindowManagerExt: boolean interceptKeyBeforeQuickAccess(int,float,float)>

@@ -1,0 +1,21 @@
+# android.os.IUpdateEngine [NEW]
+# Refs: 17
+# JARs: framework
+
+<android.os.IUpdateEngine$Stub$Proxy: boolean bind(android.os.IUpdateEngineCallback)>
+<android.os.IUpdateEngine$Stub$Proxy: boolean unbind(android.os.IUpdateEngineCallback)>
+<android.os.IUpdateEngine$Stub$Proxy: boolean verifyPayloadApplicable(java.lang.String)>
+<android.os.IUpdateEngine$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IUpdateEngine$Stub$Proxy: long allocateSpaceForPayload(java.lang.String,java.lang.String[])>
+<android.os.IUpdateEngine$Stub$Proxy: void applyPayload(java.lang.String,long,long,java.lang.String[])>
+<android.os.IUpdateEngine$Stub$Proxy: void applyPayloadFd(android.os.ParcelFileDescriptor,long,long,java.lang.String[])>
+<android.os.IUpdateEngine$Stub$Proxy: void cancel()>
+<android.os.IUpdateEngine$Stub$Proxy: void cleanupSuccessfulUpdate(android.os.IUpdateEngineCallback)>
+<android.os.IUpdateEngine$Stub$Proxy: void resetShouldSwitchSlotOnReboot()>
+<android.os.IUpdateEngine$Stub$Proxy: void resetStatus()>
+<android.os.IUpdateEngine$Stub$Proxy: void resume()>
+<android.os.IUpdateEngine$Stub$Proxy: void setShouldSwitchSlotOnReboot(java.lang.String)>
+<android.os.IUpdateEngine$Stub$Proxy: void suspend()>
+<android.os.IUpdateEngine$Stub: android.os.IUpdateEngine asInterface(android.os.IBinder)>
+<android.os.IUpdateEngine$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IUpdateEngine$Stub: void <init>()>

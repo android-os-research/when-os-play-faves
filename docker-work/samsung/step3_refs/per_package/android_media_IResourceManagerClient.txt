@@ -1,0 +1,13 @@
+# android.media.IResourceManagerClient [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.media.IResourceManagerClient$Stub$Proxy: boolean reclaimResource()>
+<android.media.IResourceManagerClient$Stub$Proxy: int getCodecState()>
+<android.media.IResourceManagerClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IResourceManagerClient$Stub$Proxy: java.lang.String getName()>
+<android.media.IResourceManagerClient$Stub$Proxy: void startWatchingMode()>
+<android.media.IResourceManagerClient$Stub$Proxy: void stopWatchingMode()>
+<android.media.IResourceManagerClient$Stub: android.media.IResourceManagerClient asInterface(android.os.IBinder)>
+<android.media.IResourceManagerClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IResourceManagerClient$Stub: void <init>()>

@@ -1,0 +1,5 @@
+# com.samsung.android.multiuser.disable_sub_user [NEW]
+# Refs: 1
+# JARs: services
+
+<com.samsung.android.server.pm.install.MultiUserInstallPolicy: void applyInstallPolicyPackageInternalLPw(com.android.server.pm.PackageSetting,java.util.List,int)>

@@ -1,0 +1,13 @@
+# com.samsung.android.edge.IEdgeLightingCallback [NEW]
+# Refs: 9
+# JARs: framework
+
+<com.samsung.android.edge.IEdgeLightingCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.edge.IEdgeLightingCallback$Stub$Proxy: void onEdgeLightingStarted()>
+<com.samsung.android.edge.IEdgeLightingCallback$Stub$Proxy: void onEdgeLightingStopped()>
+<com.samsung.android.edge.IEdgeLightingCallback$Stub$Proxy: void onScreenChanged(boolean)>
+<com.samsung.android.edge.IEdgeLightingCallback$Stub$Proxy: void onStartEdgeLighting(java.lang.String,com.samsung.android.edge.SemEdgeLightingInfo,int)>
+<com.samsung.android.edge.IEdgeLightingCallback$Stub$Proxy: void onStopEdgeLighting(java.lang.String,int)>
+<com.samsung.android.edge.IEdgeLightingCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.edge.IEdgeLightingCallback$Stub: com.samsung.android.edge.IEdgeLightingCallback asInterface(android.os.IBinder)>
+<com.samsung.android.edge.IEdgeLightingCallback$Stub: void <init>()>

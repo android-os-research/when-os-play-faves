@@ -1,0 +1,10 @@
+# security.ASKS.policy_version [NEW]
+# Refs: 6
+# JARs: services
+
+<com.android.server.asks.ASKSManagerService: boolean applyScpmPolicy(java.lang.String)>
+<com.android.server.asks.ASKSManagerService: void <init>(android.content.Context)>
+<com.android.server.asks.ASKSManagerService: void postASKSsetup(java.lang.String,java.lang.String,int)>
+<com.android.server.asks.ASKSManagerService: void readStateInner()>
+<com.android.server.asks.ASKSManagerService: void writeStateInner()>
+<com.samsung.android.knox.analytics.service.KnoxAnalyticsVersionCollector: java.lang.String getSecurityASKSVersion()>

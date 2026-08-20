@@ -1,0 +1,17 @@
+# org.simalliance.openmobileapi.service.ITerminalService [NEW]
+# Refs: 13
+# JARs: org.simalliance.openmobileapi
+
+<org.simalliance.openmobileapi.service.ITerminalService$Stub$Proxy: boolean isCardPresent()>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub$Proxy: byte[] getAtr()>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub$Proxy: byte[] internalTransmit(byte[],org.simalliance.openmobileapi.service.SmartcardError,java.lang.String)>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub$Proxy: byte[] simIOExchange(int,java.lang.String,byte[],org.simalliance.openmobileapi.service.SmartcardError)>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub$Proxy: java.lang.String getSeEventOccurredAction()>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub$Proxy: java.lang.String getSeStateChangedAction()>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub$Proxy: org.simalliance.openmobileapi.service.OpenLogicalChannelResponse internalOpenLogicalChannel(byte[],byte,org.simalliance.openmobileapi.service.SmartcardError,java.lang.String)>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub$Proxy: void internalCloseBasicChannel(java.lang.String)>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub$Proxy: void internalCloseLogicalChannel(int,org.simalliance.openmobileapi.service.SmartcardError,java.lang.String)>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub: org.simalliance.openmobileapi.service.ITerminalService asInterface(android.os.IBinder)>
+<org.simalliance.openmobileapi.service.ITerminalService$Stub: void <init>()>

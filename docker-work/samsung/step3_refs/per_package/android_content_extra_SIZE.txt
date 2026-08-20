@@ -1,0 +1,6 @@
+# android.content.extra.SIZE [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.provider.DocumentsProvider: android.content.res.AssetFileDescriptor openTypedAssetFileImpl(android.net.Uri,java.lang.String,android.os.Bundle,android.os.CancellationSignal)>
+<com.android.internal.util.ImageUtils: android.graphics.Bitmap loadThumbnail(android.content.ContentResolver,android.net.Uri,android.util.Size)>

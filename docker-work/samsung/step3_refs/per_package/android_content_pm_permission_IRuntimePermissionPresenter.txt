@@ -1,0 +1,9 @@
+# android.content.pm.permission.IRuntimePermissionPresenter [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.pm.permission.IRuntimePermissionPresenter$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.permission.IRuntimePermissionPresenter$Stub$Proxy: void getAppPermissions(java.lang.String,android.os.RemoteCallback)>
+<android.content.pm.permission.IRuntimePermissionPresenter$Stub: android.content.pm.permission.IRuntimePermissionPresenter asInterface(android.os.IBinder)>
+<android.content.pm.permission.IRuntimePermissionPresenter$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.permission.IRuntimePermissionPresenter$Stub: void <init>()>

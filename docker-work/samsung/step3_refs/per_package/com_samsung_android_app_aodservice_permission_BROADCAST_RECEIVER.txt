@@ -1,0 +1,6 @@
+# com.samsung.android.app.aodservice.permission.BROADCAST_RECEIVER [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.aod.AODManagerShellCommand: void runTspEvent()>
+<com.android.server.policy.PhoneWindowManagerExt: boolean interceptKeyBeforeQuickAccess(int,float,float)>

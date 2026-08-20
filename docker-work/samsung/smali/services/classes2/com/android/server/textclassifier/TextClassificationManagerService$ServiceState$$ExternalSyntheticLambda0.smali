@@ -1,0 +1,28 @@
+.class public final synthetic Lcom/android/server/textclassifier/TextClassificationManagerService$ServiceState$$ExternalSyntheticLambda0;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Lcom/android/server/textclassifier/FixedSizeQueue$OnEntryEvictedListener;
+
+
+# direct methods
+.method public synthetic constructor <init>()V
+    .registers 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onEntryEvicted(Ljava/lang/Object;)V
+    .registers 2
+
+    check-cast p1, Lcom/android/server/textclassifier/TextClassificationManagerService$PendingRequest;
+
+    invoke-static {p1}, Lcom/android/server/textclassifier/TextClassificationManagerService$ServiceState;->$r8$lambda$vhu5Pvhu-nPUjgux-NCZ08eC8-I(Lcom/android/server/textclassifier/TextClassificationManagerService$PendingRequest;)V
+
+    return-void
+.end method

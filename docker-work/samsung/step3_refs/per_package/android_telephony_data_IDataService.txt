@@ -1,0 +1,21 @@
+# android.telephony.data.IDataService [NEW]
+# Refs: 17
+# JARs: framework
+
+<android.telephony.data.IDataService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.data.IDataService$Stub$Proxy: void cancelHandover(int,int,android.telephony.data.IDataServiceCallback)>
+<android.telephony.data.IDataService$Stub$Proxy: void createDataServiceProvider(int)>
+<android.telephony.data.IDataService$Stub$Proxy: void deactivateDataCall(int,int,int,android.telephony.data.IDataServiceCallback)>
+<android.telephony.data.IDataService$Stub$Proxy: void registerForDataCallListChanged(int,android.telephony.data.IDataServiceCallback)>
+<android.telephony.data.IDataService$Stub$Proxy: void registerForUnthrottleApn(int,android.telephony.data.IDataServiceCallback)>
+<android.telephony.data.IDataService$Stub$Proxy: void removeDataServiceProvider(int)>
+<android.telephony.data.IDataService$Stub$Proxy: void requestDataCallList(int,android.telephony.data.IDataServiceCallback)>
+<android.telephony.data.IDataService$Stub$Proxy: void setDataProfile(int,java.util.List,boolean,android.telephony.data.IDataServiceCallback)>
+<android.telephony.data.IDataService$Stub$Proxy: void setInitialAttachApn(int,android.telephony.data.DataProfile,boolean,android.telephony.data.IDataServiceCallback)>
+<android.telephony.data.IDataService$Stub$Proxy: void setupDataCall(int,int,android.telephony.data.DataProfile,boolean,boolean,int,android.net.LinkProperties,int,android.telephony.data.NetworkSliceInfo,android.telephony.data.TrafficDescriptor,boolean,android.telephony.data.IDataServiceCallback)>
+<android.telephony.data.IDataService$Stub$Proxy: void startHandover(int,int,android.telephony.data.IDataServiceCallback)>
+<android.telephony.data.IDataService$Stub$Proxy: void unregisterForDataCallListChanged(int,android.telephony.data.IDataServiceCallback)>
+<android.telephony.data.IDataService$Stub$Proxy: void unregisterForUnthrottleApn(int,android.telephony.data.IDataServiceCallback)>
+<android.telephony.data.IDataService$Stub: android.telephony.data.IDataService asInterface(android.os.IBinder)>
+<android.telephony.data.IDataService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.data.IDataService$Stub: void <init>()>

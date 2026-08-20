@@ -1,0 +1,9 @@
+# com.sec.vsim.attsoftphone.ISupplementaryServiceListener [NEW]
+# Refs: 5
+# JARs: vsimmanager
+
+<com.sec.vsim.attsoftphone.ISupplementaryServiceListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.vsim.attsoftphone.ISupplementaryServiceListener$Stub$Proxy: void onNotify(com.sec.vsim.attsoftphone.data.SupplementaryServiceNotify)>
+<com.sec.vsim.attsoftphone.ISupplementaryServiceListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.vsim.attsoftphone.ISupplementaryServiceListener$Stub: com.sec.vsim.attsoftphone.ISupplementaryServiceListener asInterface(android.os.IBinder)>
+<com.sec.vsim.attsoftphone.ISupplementaryServiceListener$Stub: void <init>()>

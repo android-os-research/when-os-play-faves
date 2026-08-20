@@ -1,0 +1,11 @@
+# com.android.sharedstoragebackup [NEW]
+# Refs: 8
+# JARs: services
+
+<com.android.server.backup.fullbackup.FullBackupEngine$FullBackupRunner: void run()>
+<com.android.server.backup.fullbackup.FullBackupObbConnection: void establish()>
+<com.android.server.backup.fullbackup.PerformAdbBackupTask: void run()>
+<com.android.server.backup.restore.FullRestoreEngine: boolean restoreOneFile(java.io.InputStream,boolean,byte[],android.content.pm.PackageInfo,boolean,int,android.app.backup.IBackupManagerMonitor)>
+<com.android.server.backup.utils.BackupEligibilityRules: boolean appIsEligibleForBackup(android.content.pm.ApplicationInfo)>
+<com.android.server.backup.utils.TarBackupReader: com.android.server.backup.FileMetadata readTarHeaders()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>

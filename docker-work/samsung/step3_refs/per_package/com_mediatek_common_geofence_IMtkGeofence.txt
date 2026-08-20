@@ -1,0 +1,14 @@
+# com.mediatek.common.geofence.IMtkGeofence [NEW]
+# Refs: 10
+# JARs: mediatek-common
+
+<com.mediatek.common.geofence.IMtkGeofence$Stub$Proxy: boolean addCircularFence(int,double,double,double,int,int,int,int,com.mediatek.common.geofence.IMtkGeofenceCallback)>
+<com.mediatek.common.geofence.IMtkGeofence$Stub$Proxy: boolean pauseGeofence(int)>
+<com.mediatek.common.geofence.IMtkGeofence$Stub$Proxy: boolean registerForMonitorStateChangeCallback(com.mediatek.common.geofence.IMtkGeofenceMonitorCallback)>
+<com.mediatek.common.geofence.IMtkGeofence$Stub$Proxy: boolean removeGeofence(int)>
+<com.mediatek.common.geofence.IMtkGeofence$Stub$Proxy: boolean resumeGeofence(int,int)>
+<com.mediatek.common.geofence.IMtkGeofence$Stub$Proxy: boolean unregisterForMonitorStateChangeCallback(com.mediatek.common.geofence.IMtkGeofenceMonitorCallback)>
+<com.mediatek.common.geofence.IMtkGeofence$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.common.geofence.IMtkGeofence$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.common.geofence.IMtkGeofence$Stub: com.mediatek.common.geofence.IMtkGeofence asInterface(android.os.IBinder)>
+<com.mediatek.common.geofence.IMtkGeofence$Stub: void <init>()>

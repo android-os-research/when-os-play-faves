@@ -1,0 +1,11 @@
+# ro.crypto.type [NEW]
+# Refs: 7
+# JARs: framework, hqm, services, telephony-common
+
+<android.sysprop.CryptoProperties: java.util.Optional type()>
+<android.sysprop.CryptoProperties: void type(android.sysprop.CryptoProperties$type_values)>
+<com.android.internal.telephony.SmsBroadcastUndelivered: void <clinit>()>
+<com.android.server.BootReceiver: void sendHWParamInfo(java.lang.String,java.lang.String)>
+<com.android.server.knox.dar.DarUtil: boolean isFileBasedEncryption()>
+<com.samsung.android.hqm.HqmManagerService: void l(android.content.Intent)>
+<com.samsung.ucm.ucmservice.CredentialManagerService: void <init>(com.samsung.ucm.ucmservice.CredentialManagerService$Injector)>

@@ -1,0 +1,21 @@
+# android.app.blob.IBlobStoreManager [NEW]
+# Refs: 17
+# JARs: framework
+
+<android.app.blob.IBlobStoreManager$Stub$Proxy: android.app.blob.IBlobStoreSession openSession(long,java.lang.String)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: android.app.blob.LeaseInfo getLeaseInfo(android.app.blob.BlobHandle,java.lang.String)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: android.os.ParcelFileDescriptor openBlob(android.app.blob.BlobHandle,java.lang.String)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: java.util.List getLeasedBlobs(java.lang.String)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: java.util.List queryBlobsForUser(int)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: long createSession(android.app.blob.BlobHandle,java.lang.String)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: long getRemainingLeaseQuotaBytes(java.lang.String)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: void abandonSession(long,java.lang.String)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: void acquireLease(android.app.blob.BlobHandle,int,java.lang.CharSequence,long,java.lang.String)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: void deleteBlob(long)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: void releaseAllLeases(java.lang.String)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: void releaseLease(android.app.blob.BlobHandle,java.lang.String)>
+<android.app.blob.IBlobStoreManager$Stub$Proxy: void waitForIdle(android.os.RemoteCallback)>
+<android.app.blob.IBlobStoreManager$Stub: android.app.blob.IBlobStoreManager asInterface(android.os.IBinder)>
+<android.app.blob.IBlobStoreManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.blob.IBlobStoreManager$Stub: void <init>()>

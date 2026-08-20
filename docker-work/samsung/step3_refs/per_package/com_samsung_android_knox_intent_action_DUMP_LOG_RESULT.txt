@@ -1,0 +1,5 @@
+# com.samsung.android.knox.intent.action.DUMP_LOG_RESULT [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.enterprise.auditlog.Admin: void notifyDumpFinished(boolean,boolean)>

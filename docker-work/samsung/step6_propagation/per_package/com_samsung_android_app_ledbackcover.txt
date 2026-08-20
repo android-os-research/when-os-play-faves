@@ -1,0 +1,74 @@
+######################################################################
+# Propagation: com.samsung.android.app.ledbackcover
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.ledcover.LedBackCoverService
+  Method:   <com.android.server.ledcover.LedBackCoverService: void <init>(android.content.Context)>
+  Line:     45
+  Register: v0 := "com.samsung.android.app.ledbackcover"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← SystemServer.startOtherServices()
+        ← SystemServer.run()
+          ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → IntentFilter.setPriority()
+      → <android.os.Binder: void <init>()>
+      → <com.android.server.ledcover.LedBackCoverService$UpdateRecei
+      → LedBackCoverService.backgroundWhitelist()
+        → <android.os.Binder: void <init>(java.lang.String)>
+        → <com.android.server.ledcover.LedBackCoverService$UpdateRecei
+        → ActivityManager.getService()
+        → IActivityManager.backgroundAllowlistUid()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → Binder.getNativeBBinderHolder()
+          → NativeAllocationRegistry.registerNativeAllocation()
+          → <android.content.BroadcastReceiver: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.ledcover.LedBackCoverService
+  Method:   <com.android.server.ledcover.LedBackCoverService: void backgroundWhitelist(android.content.Context)>
+  Line:     94
+  Register: v1 := "com.samsung.android.app.ledbackcover"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.ledcover.LedBackCoverService: void -$$Ne
+      ← <com.android.server.ledcover.LedBackCoverService: void <init
+        ← LedBackCoverService$UpdateReceiver.onReceive()
+        ← SystemServer.startOtherServices()
+          ← SystemServer.run()
+            ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → IActivityManager.backgroundAllowlistUid()
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+

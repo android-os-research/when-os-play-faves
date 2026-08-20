@@ -1,0 +1,12 @@
+# com.samsung.android.mcf.IMcfService [NEW]
+# Refs: 16
+# JARs: mcfsdk, services
+
+<com.samsung.android.mcf.IMcfService$Stub$a: boolean registerInsyncEventListenerDelegator(com.samsung.android.net.a)>
+<com.samsung.android.mcf.IMcfService$Stub$a: boolean unregisterInsyncEventListenerDelegator(com.samsung.android.net.a)>
+<com.samsung.android.mcf.IMcfService$Stub$a: int internalCommand(android.os.Message)>
+<com.samsung.android.mcf.IMcfService$Stub$a: java.lang.String b()>
+<com.samsung.android.mcf.IMcfService$Stub$a: java.lang.String internalStringCommand(android.os.Message)>
+<com.samsung.android.mcf.IMcfService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.IMcfService$Stub: com.samsung.android.mcf.IMcfService asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.IMcfService$Stub: void <init>()>

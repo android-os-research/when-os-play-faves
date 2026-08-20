@@ -1,0 +1,131 @@
+######################################################################
+# Propagation: com.sec.mhs.smarttethering
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              6
+Occurrences:          6
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PERM_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartUtil
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartUtil: int startLocalGroupSmartTetheringApk(int,java.lang.String)>
+  Line:     7946
+  Register: v3 := "com.sec.mhs.smarttethering"
+  Usage:    [invoke] invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemWifiApSmartUtil.updateAESKeyUsingLocalGroupSmartTetheringApk()
+      ← SemWifiApSmartUtil.updateFamilyDetailsUsingLocalGroupSmartTetheringApk()
+        ← SemWifiApSmartBleScanner$BleWorkHandler.handleMessage()
+        ← SemWifiApSmartGattClient$BleWorkHandler.handleMessage()
+        ← SemWifiApSmartGattServer$BleWorkHandler.handleMessage()
+        ← SemWifiApSmartBleScanner$2.onChange()
+        ← SemWifiApSmartBleScanner$SemWifiApSmartBleScannerSamsungAccountSiginReceiver$1.run()
+
+  CALLEES (what this method invokes):
+      → Context.startService()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → TextUtils.isEmpty()
+      → LocalLog.log()
+      → SemWifiApSmartUtil.checkIfActiveNetworkHasInternet()
+      → SemWifiApContentProviderHelper.get()
+      → SemWifiApContentProviderHelper.insert()
+        → CharSequence.length()
+        → ContentResolver.query()
+        → Context.getContentResolver()
+        → Context.checkPermission() [PERM_CHECK]
+        → Context.getPackageName()
+        → Cursor.moveToFirst()
+        → Cursor.getColumnIndex()
+        → Cursor.getString()
+        → Cursor.close()
+        → Binder.getCallingUid() [UID_CHECK]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → ContentResolver.insert()
+        → ContentResolver.update()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → SemWifiApContentProviderHelper.isKeypresent()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartD2DMHS
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartD2DMHS: ???>
+  Line:     780
+  Register: v1 := "com.sec.mhs.smarttethering"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Lcom/samsung/android/server/wifi/ap/smarttethering/SemWifiApSmartUtil;->isP
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.wifi.ap.smarttethering.SemWifiApS → [reassigned] v1 overwritten
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartMHS
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartMHS: ???>
+  Line:     2433
+  Register: v3 := "com.sec.mhs.smarttethering"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Lcom/samsung/android/server/wifi/ap/smarttethering/SemWifiApSmartUtil;->isP
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.wifi.ap.smarttethering.SemWifiApS → [reassigned] v3 overwritten
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartBleScanner
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartBleScanner: ???>
+  Line:     3074
+  Register: v1 := "com.sec.mhs.smarttethering"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Lcom/samsung/android/server/wifi/ap/smarttethering/SemWifiApSmartUtil;->isP
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.wifi.ap.smarttethering.SemWifiApS → [reassigned] v1 overwritten
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartD2DClient
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartD2DClient: ???>
+  Line:     758
+  Register: v1 := "com.sec.mhs.smarttethering"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Lcom/samsung/android/server/wifi/ap/smarttethering/SemWifiApSmartUtil;->isP
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.wifi.ap.smarttethering.SemWifiApS → [reassigned] v1 overwritten
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartClient
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartClient: ???>
+  Line:     1521
+  Register: v1 := "com.sec.mhs.smarttethering"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Lcom/samsung/android/server/wifi/ap/smarttethering/SemWifiApSmartUtil;->isP
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.wifi.ap.smarttethering.SemWifiApS → [reassigned] v1 overwritten
+

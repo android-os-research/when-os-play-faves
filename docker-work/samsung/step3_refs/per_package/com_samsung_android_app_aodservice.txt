@@ -1,0 +1,9 @@
+# com.samsung.android.app.aodservice [NEW]
+# Refs: 6
+# JARs: framework, semwifi-service, services
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<com.android.server.aod.AODManagerService: void updateAODTspState(java.lang.String,boolean)>
+<com.samsung.android.aod.AODManager: void updateAODTspRect(int,int,int,int)>
+<com.samsung.android.server.wifi.SemWifiConnectivityMonitor: void <init>(android.content.Context,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.ISemInterfaceNameProvider,com.samsung.android.server.wifi.tcp.SemWifiSwitchForIndividualAppsService)>
+<com.samsung.android.server.wifi.silentroaming.SilentRoamingManager: void <init>(android.content.Context,com.samsung.android.server.wifi.util.SemClock,android.os.Looper,com.samsung.android.server.wifi.halclient.SemWifiNative,com.samsung.android.server.wifi.SemWifiManagerProxy,com.samsung.android.server.wifi.SemWifiConfigManager,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.SemFrameworkFacade,android.util.LocalLog,com.samsung.android.server.wifi.silentroaming.SilentRoamingWifiInfo,com.samsung.android.server.wifi.silentroaming.SilentRoamingPnoScanner,com.samsung.android.server.wifi.silentroaming.SemThroughputPredictor,com.samsung.android.server.wifi.silentroaming.SemThroughputScorer)>

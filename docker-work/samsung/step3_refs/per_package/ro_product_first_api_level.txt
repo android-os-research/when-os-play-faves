@@ -1,0 +1,37 @@
+# ro.product.first_api_level [NEW]
+# Refs: 33
+# JARs: framework, knoxsdk, semwifi-service, services, telephony-common
+
+<android.os.Build$VERSION: void <clinit>()>
+<android.security.keystore2.KeymasterUtils: boolean hasKeymintFeatureForRSAOAEPMGFDigest(int)>
+<com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: boolean setDefaultMsgApp_File(java.lang.String)>
+<com.android.internal.telephony.SmsDispatchersController: boolean isCdmaMo()>
+<com.android.internal.telephony.SmsDomainSelector: int getCommonSmsDomain(int,java.lang.String)>
+<com.android.server.DevRootKeyATCmd: int checkKeyValidity(int)>
+<com.android.server.HdcptestATCmd: java.lang.String processCmd(java.lang.String)>
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void activateAdmin(android.content.ComponentName,boolean)>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void adjustKnoxGuardAdmin()>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void systemReady()>
+<com.android.server.knox.dar.AttestedCertParser: com.android.internal.org.bouncycastle.asn1.ASN1Sequence getKnoxExtensionSequence(java.security.cert.X509Certificate)>
+<com.android.server.location.gnss.GnssLocationProviderSec: boolean shouldSupportNfwLocPolicy()>
+<com.android.server.locksettings.LockSettingsService$SdpLockSettings: void migratePasswordHashForEnterpriseUser(com.android.internal.widget.LockscreenCredential,int)>
+<com.android.server.locksettings.LockSettingsService$SdpLockSettings: void shouldMigratePasswordHash()>
+<com.android.server.locksettings.LockSettingsService: void <init>(com.android.server.locksettings.LockSettingsService$Injector)>
+<com.android.server.notification.PreferencesHelper: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.notification.RankingHandler,com.android.server.notification.ZenModeHelper,com.android.server.notification.PermissionHelper,com.android.server.notification.NotificationChannelLogger,android.app.AppOpsManager,com.android.server.notification.SysUiStatsEvent$BuilderFactory,boolean)>
+<com.android.server.pm.ReconcilePackageUtils: java.util.Map reconcilePackages(com.android.server.pm.ReconcileRequest,com.android.server.pm.SharedLibrariesImpl,com.android.server.pm.KeySetManagerService,com.android.server.pm.Settings)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantPermissionsToSysComponentsAndPrivApps(com.android.server.pm.permission.DefaultPermissionGrantPolicy$DelayingPackageManagerCache,int)>
+<com.android.server.power.PowerManagerUtil: void <clinit>()>
+<com.samsung.android.knox.kpm.KnoxPushService: boolean isOSVersionSupported()>
+<com.samsung.android.knoxguard.service.utils.Constants: void <clinit>()>
+<com.samsung.android.server.wifi.SemWifiDelayedWakeup: void checkChipsetCapabilities(com.samsung.android.server.wifi.driver.WifiDriverFeatureProvider)>
+<com.samsung.android.server.wifi.SemWifiOptimizer: void checkChipsetCapabilities(com.samsung.android.server.wifi.driver.WifiDriverFeatureProvider)>
+<com.samsung.android.server.wifi.SemWifiTwtMonitor: void updateScheduledPmCapabilities(com.samsung.android.server.wifi.driver.WifiDriverFeatureProvider)>
+<com.samsung.android.server.wifi.ap.SemHostapdHal: void <init>(android.content.Context,android.os.Handler,com.samsung.android.server.wifi.SemWifiManagerProxy)>
+<com.samsung.android.server.wifi.ap.SemSoftApConfiguration: android.net.wifi.SoftApConfiguration setSoftApConfiguration(android.net.wifi.SoftApConfiguration)>
+<com.samsung.android.server.wifi.ap.SemWifiApChipInfo: void checkWifiSharing()>
+<com.samsung.android.server.wifi.ap.SemWifiApConfigStore: java.lang.String parseSecProductFeaturePassword(boolean)>
+<com.samsung.android.server.wifi.ap.SemWifiApServiceImpl: boolean isRegionFor5GCountry()>
+<com.samsung.android.server.wifi.ap.SemWifiApServiceImpl: boolean isRegionFor6GCountry()>
+<com.samsung.android.server.wifi.ap.SemWifiApTimeOutImpl: void scheduleTimeoutMessage()>
+<com.samsung.android.service.RemoteLockControl.KnoxGuard.KnoxGuardVaultManager: void <clinit>()>

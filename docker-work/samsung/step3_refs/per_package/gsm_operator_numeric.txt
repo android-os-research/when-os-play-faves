@@ -1,0 +1,12 @@
+# gsm.operator.numeric [NEW]
+# Refs: 8
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.List operator_numeric()>
+<android.internal.telephony.sysprop.TelephonyProperties: void operator_numeric(java.util.List)>
+<android.sysprop.TelephonyProperties: java.util.List operator_numeric()>
+<android.sysprop.TelephonyProperties: void operator_numeric(java.util.List)>
+<com.android.internal.telephony.SmsDomainSelector: int getKorSmsDomain(int)>
+<com.android.internal.telephony.SmsHQMAgent: java.lang.String getPLMN(int)>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.List operator_numeric()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void operator_numeric(java.util.List)>

@@ -1,0 +1,8 @@
+# com.samsung.android.app.cocktailbarservice.CocktailBarService [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.cocktailbar.CocktailBarManagerServiceContainer: void startCocktailBarServiceWithCurrentUser()>
+<com.android.server.cocktailbar.CocktailBarManagerServiceImpl: void notifyCocktailBarWakeUp(boolean,int,int)>
+<com.android.server.cocktailbar.mode.PrivateEmergencyMode: int onBroadcastReceived(android.content.Intent)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void lambda$stopProKioskModeInternal$137()>

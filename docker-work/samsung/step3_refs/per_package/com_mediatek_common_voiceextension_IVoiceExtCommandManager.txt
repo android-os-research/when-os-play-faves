@@ -1,0 +1,22 @@
+# com.mediatek.common.voiceextension.IVoiceExtCommandManager [NEW]
+# Refs: 18
+# JARs: mediatek-common
+
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: int createCommandSet(java.lang.String)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: int deleteCommandSet(java.lang.String)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: int isCommandSetCreated(java.lang.String)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: int registerListener(com.mediatek.common.voiceextension.IVoiceExtCommandListener)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: int selectCurrentCommandSet(java.lang.String)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: java.lang.String getCommandSetSelected()>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: java.lang.String[] getCommandSets()>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: java.lang.String[] getCommands()>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: void pauseRecognition()>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: void resumeRecognition()>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: void setCommandsFile(android.os.ParcelFileDescriptor,int,int)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: void setCommandsStrArray(java.lang.String[])>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: void startRecognition()>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub$Proxy: void stopRecognition()>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub: com.mediatek.common.voiceextension.IVoiceExtCommandManager asInterface(android.os.IBinder)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandManager$Stub: void <init>()>

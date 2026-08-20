@@ -1,0 +1,15 @@
+# com.sec.ims.ss.IImsUtEventListener [NEW]
+# Refs: 11
+# JARs: imsmanager
+
+<com.sec.ims.ss.IImsUtEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.ss.IImsUtEventListener$Stub$Proxy: void onUtConfigurationCallBarringQueried(int,android.os.Bundle[])>
+<com.sec.ims.ss.IImsUtEventListener$Stub$Proxy: void onUtConfigurationCallForwardQueried(int,android.os.Bundle[])>
+<com.sec.ims.ss.IImsUtEventListener$Stub$Proxy: void onUtConfigurationCallWaitingQueried(int,boolean)>
+<com.sec.ims.ss.IImsUtEventListener$Stub$Proxy: void onUtConfigurationQueried(int,android.os.Bundle)>
+<com.sec.ims.ss.IImsUtEventListener$Stub$Proxy: void onUtConfigurationQueryFailed(int,android.os.Bundle)>
+<com.sec.ims.ss.IImsUtEventListener$Stub$Proxy: void onUtConfigurationUpdateFailed(int,android.os.Bundle)>
+<com.sec.ims.ss.IImsUtEventListener$Stub$Proxy: void onUtConfigurationUpdated(int)>
+<com.sec.ims.ss.IImsUtEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.ss.IImsUtEventListener$Stub: com.sec.ims.ss.IImsUtEventListener asInterface(android.os.IBinder)>
+<com.sec.ims.ss.IImsUtEventListener$Stub: void <init>()>

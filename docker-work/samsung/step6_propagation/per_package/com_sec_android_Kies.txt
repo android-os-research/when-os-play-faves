@@ -1,0 +1,239 @@
+######################################################################
+# Propagation: com.sec.android.Kies
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          2
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.backup.UserBackupManagerService
+  Method:   <com.android.server.backup.UserBackupManagerService: void <init>(int,android.content.Context,com.android.server.backup.BackupManagerService,android.os.HandlerThread,java.io.File,java.io.File,com.android.server.backup.TransportManager)>
+  Line:     698
+  Register: v15 := "com.sec.android.Kies"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← UserBackupManagerService.createAndInitializeService()
+        ← UserBackupManagerService.createAndInitializeService()
+          ← BackupManagerService.startServiceForUser()
+            ← <com.android.server.backup.BackupManagerService: void lambda
+            ← BackupManagerService.setBackupServiceActive()
+              ← <com.android.server.backup.BackupManagerService: void $r8$la
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → AppGlobals.getPackageManager()
+      → PendingIntent.getBroadcastAsUser()
+      → IBackupManager$Stub.asInterface()
+      → IBackupManager$Stub.asBinder()
+      → ContentResolver.registerContentObserver()
+      → Context.getContentResolver()
+      → Context.registerReceiverAsUser()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → Intent.addFlags()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → Handler.getMain()
+      → Handler.postDelayed()
+      → HandlerThread.getThreadId()
+      → PowerManager.newWakeLock()
+      → SELinux.restorecon()
+      → SystemClock.elapsedRealtime()
+      → UserHandle.of()
+      → Settings$Secure.getUriFor()
+      → Settings$Secure.getIntForUser()
+      → <android.util.ArraySet: void <init>()>
+      → KeyValueSettingObserver.start()
+      → <android.util.SparseArray: void <init>()>
+      → LocalServices.getService()
+      → <com.android.server.backup.BackupAgentTimeoutParameters: voi
+      → <com.android.server.backup.BackupManagerConstants: void <ini
+      → BackupManagerYuva.getInstanceBackupYuva()
+      → <com.android.server.backup.BackupPasswordManager: void <init
+      → TransportManager.setOnTransportRegisteredListener()
+      → <com.android.server.backup.UserBackupManagerService$$Externa
+      → <com.android.server.backup.UserBackupManagerService$$Externa
+      → <com.android.server.backup.UserBackupManagerService$$Externa
+      → <com.android.server.backup.UserBackupManagerService$1: void 
+      → <com.android.server.backup.UserBackupManagerService$2: void 
+      → <com.android.server.backup.UserBackupManagerService$BackupWa
+      → UserBackupManagerService.getSetupCompleteSettingForUser()
+      → UserBackupManagerService.isYuvaSupported()
+      → UserBackupManagerService.getEligibilityRules()
+      → UserBackupManagerService.addUserIdToLogMessage()
+      → UserBackupManagerService.addPackageParticipantsLocked()
+      → UserBackupManagerService.initPackageTracking()
+      → <com.android.server.backup.UserBackupPreferences: void <init
+      → <com.android.server.backup.internal.BackupHandler: void <ini
+      → <com.android.server.backup.internal.LifecycleOperationStorag
+      → <com.android.server.backup.internal.RunInitializeReceiver: v
+      → <com.android.server.backup.internal.SetupObserver: void <ini
+      → File.mkdirs()
+      → <java.io.File: void <init>(java.io.File,java.lang.String)>
+      → <java.security.SecureRandom: void <init>()>
+      → <java.util.ArrayDeque: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → Objects.requireNonNull()
+      → Objects.requireNonNull()
+      → <java.util.Random: void <init>()>
+      → <java.util.concurrent.atomic.AtomicInteger: void <init>()>
+        → ActivityThread.getPackageManager()
+        → <android.app.backup.IBackupManager$Stub$Proxy: void <init>(a
+        → IBinder.queryLocalInterface()
+        → SELinux.native_restorecon()
+        → File.getCanonicalPath()
+        → File.getPath()
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → ContentResolver.registerContentObserver()
+        → KeyValueSettingObserver.setParserValue()
+        → KeyValueSettingObserver.update()
+        → <android.util.SparseArray: void <init>(int)>
+        → ArrayMap.get()
+        → Settings$Global.getUriFor()
+        → <android.util.KeyValueSettingObserver: void <init>(android.o
+        → <com.android.server.backup.BackupManagerYuva: void <init>()>
+        → BackupPasswordManager.loadStateFromFilesystem()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <com.android.server.backup.utils.BackupEligibilityRules: voi
+        → UserBackupManagerService.allAgentPackages()
+        → UserBackupManagerService.addPackageParticipantsLockedInner()
+        → IntentFilter.addDataScheme()
+        → <com.android.server.backup.ProcessedPackagesJournal: void <i
+        → ProcessedPackagesJournal.init()
+        → UserBackupManagerService.readFullBackupSchedule()
+        → <java.io.BufferedInputStream: void <init>(java.io.InputStrea
+        → DataInputStream.readInt()
+        → DataInputStream.readUTF()
+        → DataInputStream.readLong()
+        → <java.io.DataInputStream: void <init>(java.io.InputStream)>
+        → DataInputStream.close()
+        → <java.io.FileInputStream: void <init>(java.io.File)>
+        → Throwable.addSuppressed()
+        → <java.util.HashSet: void <init>()>
+        → Set.add()
+        → Context.getSharedPreferences()
+        → SharedPreferences.edit()
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → HandlerThread.getLooper()
+        → UserBackupManagerService.getAgentTimeoutParameters()
+        → <android.database.ContentObserver: void <init>(android.os.Ha
+        → UserBackupManagerService.getContext()
+        → UserBackupManagerService.getUserId()
+          → ArraySet.allocArrays()
+          → KeyValueListParser.setString()
+          → KeyValueSettingObserver.getSettingValue()
+          → ArrayUtils.newUnpaddedObjectArray()
+          → ArrayMap.indexOfKey()
+          → <android.util.KeyValueListParser: void <init>(char)>
+          → <android.util.KeyValueSettingObserver$SettingObserver: void 
+          → BackupPasswordManager.getPasswordHashFileCodec()
+          → BackupPasswordManager.getPasswordVersionFileCodec()
+          → DataStreamFileCodec.deserialize()
+          → PackageManager.getApplicationInfoAsUser() [PKG_QUERY]
+          → PackageManager.getInstalledPackagesAsUser()
+          → List.size()
+          → List.get()
+          → List.remove()
+          → Handler.obtainMessage()
+          → Handler.sendMessage()
+          → SparseArray.get()
+          → SparseArray.put()
+          → HashSet.add()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.iterator()
+          → ProcessedPackagesJournal.loadFromDisk()
+          → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+          → PackageManagerBackupAgent.getStorableApplications()
+          → UserBackupManagerService.writeFullBackupScheduleAsync()
+          → <com.android.server.backup.fullbackup.FullBackupEntry: void 
+          → BackupEligibilityRules.appGetsFullBackup()
+          → BackupEligibilityRules.appIsEligibleForBackup()
+          → BufferedInputStream.close()
+          → File.delete()
+          → File.exists()
+          → FileInputStream.close()
+          → ArrayList.add()
+          → <java.util.ArrayList: void <init>(int)>
+          → Collections.sort()
+          → HashSet.contains()
+          → <java.util.HashSet: void <init>(int)>
+          → HandlerThread.isAlive()
+          → Thread.currentThread()
+          → Thread.interrupt()
+            → TextUtils$StringSplitter.iterator()
+            → TextUtils$StringSplitter.setString()
+            → ArrayMap.put()
+            → ArrayMap.clear()
+            → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → <android.text.TextUtils$SimpleStringSplitter: void <init>(ch
+            → <android.util.ArrayMap: void <init>()>
+            → <android.util.KeyValueSettingObserver$SettingObserver: void 
+            → <com.android.server.backup.BackupPasswordManager$PasswordHas
+            → BackupPasswordManager.getPasswordHashFile()
+            → <com.android.server.backup.utils.DataStreamFileCodec: void <
+            → <com.android.server.backup.BackupPasswordManager$PasswordVer
+            → DataStreamCodec.deserialize()
+            → SparseArray.get()
+            → ContainerHelpers.binarySearch()
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → Handler.post()
+            → Handler.removeCallbacks()
+            → ApplicationInfo.isInstantApp()
+            → UserHandle.isCore()
+            → BackupEligibilityRules.appIsDisabled()
+            → BackupEligibilityRules.isAppBackupAllowed()
+            → Set.contains()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → ArrayMap.binarySearchHashes()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → <com.android.server.backup.BackupPasswordManager$PasswordHas
+              → <com.android.server.backup.BackupPasswordManager$PasswordVer
+              → PackageManagerInternal.getApplicationEnabledState()
+              → CompatChanges.isChangeEnabled()
+              → PackageManager$Property.getBoolean()
+              → PackageManager.getProperty()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.backup.UserBackupManagerService
+  Method:   <com.android.server.backup.UserBackupManagerService: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.backup.internal.LifecycleOperationStorage)>
+  Line:     1351
+  Register: v3 := "com.sec.android.Kies"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → <android.util.ArraySet: void <init>()>
+      → <android.util.SparseArray: void <init>()>
+      → <com.android.server.backup.UserBackupManagerService$1: void 
+      → <com.android.server.backup.UserBackupManagerService$2: void 
+      → <java.security.SecureRandom: void <init>()>
+      → <java.util.ArrayDeque: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.Random: void <init>()>
+      → <java.util.concurrent.atomic.AtomicInteger: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → <android.util.SparseArray: void <init>(int)>
+        → <android.content.BroadcastReceiver: void <init>()>
+          → ArraySet.allocArrays()
+          → ArrayUtils.newUnpaddedObjectArray()
+

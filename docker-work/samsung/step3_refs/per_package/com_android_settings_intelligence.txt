@@ -1,0 +1,8 @@
+# com.android.settings.intelligence [NEW]
+# Refs: 4
+# JARs: knoxsdk, semwifi-service, services
+
+<com.android.server.enterprise.appconfig.ApplicationRestrictionsService: void sendBroadcastAsUserInternal(java.lang.String,int)>
+<com.samsung.android.knox.EdmConstants$1: void <init>()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void lambda$closeSettingsApp$139()>
+<com.samsung.android.server.wifi.ap.SemWifiApUtils$2: void run()>

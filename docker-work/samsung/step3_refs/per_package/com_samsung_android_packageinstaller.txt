@@ -1,0 +1,6 @@
+# com.samsung.android.packageinstaller [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.application.ApplicationPolicy: boolean isFromApprovedInstaller(int,int)>
+<com.android.server.pm.PackageInstallerService: int createSessionInternal(android.content.pm.PackageInstaller$SessionParams,java.lang.String,java.lang.String,int)>

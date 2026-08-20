@@ -1,0 +1,14 @@
+# com.samsung.android.service.HermesService.IHermesService [NEW]
+# Refs: 10
+# JARs: framework
+
+<com.samsung.android.service.HermesService.IHermesService$Stub$Proxy: byte[] hermesGetSecureHWInfo()>
+<com.samsung.android.service.HermesService.IHermesService$Stub$Proxy: byte[] hermesSelftest()>
+<com.samsung.android.service.HermesService.IHermesService$Stub$Proxy: byte[] hermesUpdateCryptoFW()>
+<com.samsung.android.service.HermesService.IHermesService$Stub$Proxy: int hermesProvisioning()>
+<com.samsung.android.service.HermesService.IHermesService$Stub$Proxy: int hermesTerminateService()>
+<com.samsung.android.service.HermesService.IHermesService$Stub$Proxy: int hermesVerifyProvisioning()>
+<com.samsung.android.service.HermesService.IHermesService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.service.HermesService.IHermesService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.service.HermesService.IHermesService$Stub: com.samsung.android.service.HermesService.IHermesService asInterface(android.os.IBinder)>
+<com.samsung.android.service.HermesService.IHermesService$Stub: void <init>()>

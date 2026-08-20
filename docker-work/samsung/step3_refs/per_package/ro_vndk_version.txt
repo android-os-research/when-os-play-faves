@@ -1,0 +1,7 @@
+# ro.vndk.version [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.sysprop.VndkProperties: java.util.Optional vendor_vndk_version()>
+<com.android.server.om.IdmapManager: void <clinit>()>
+<com.android.server.pm.ScanPackageUtils: int getVendorPartitionVersion()>

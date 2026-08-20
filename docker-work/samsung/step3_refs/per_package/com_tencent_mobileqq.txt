@@ -1,0 +1,10 @@
+# com.tencent.mobileqq [NEW]
+# Refs: 6
+# JARs: duraspeed, services
+
+<com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+<com.android.server.alarm.AppSyncInfo$PackageList: void loadChnAllowlist()>
+<com.android.server.audio.MediaFocusControl: void <clinit>()>
+<com.android.server.wm.ActivityStartController: int startActivityInPackage(int,int,int,java.lang.String,java.lang.String,android.content.Intent,java.lang.String,android.os.IBinder,java.lang.String,int,int,com.android.server.wm.SafeActivityOptions,int,com.android.server.wm.Task,java.lang.String,boolean,com.android.server.am.PendingIntentRecord,boolean)>
+<com.mediatek.duraspeed.collector.q: void <clinit>()>
+<com.samsung.android.server.audio.SoundAppPolicyManager: void setDefaultAllowList()>

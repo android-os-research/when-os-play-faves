@@ -1,0 +1,12 @@
+# android.hardware.camera2.extension.ICaptureProcessorImpl [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.hardware.camera2.extension.ICaptureProcessorImpl$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.ICaptureProcessorImpl$Stub$Proxy: void onImageFormatUpdate(int)>
+<android.hardware.camera2.extension.ICaptureProcessorImpl$Stub$Proxy: void onOutputSurface(android.view.Surface,int)>
+<android.hardware.camera2.extension.ICaptureProcessorImpl$Stub$Proxy: void onResolutionUpdate(android.hardware.camera2.extension.Size)>
+<android.hardware.camera2.extension.ICaptureProcessorImpl$Stub$Proxy: void process(java.util.List,android.hardware.camera2.extension.IProcessResultImpl)>
+<android.hardware.camera2.extension.ICaptureProcessorImpl$Stub: android.hardware.camera2.extension.ICaptureProcessorImpl asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.ICaptureProcessorImpl$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.ICaptureProcessorImpl$Stub: void <init>()>

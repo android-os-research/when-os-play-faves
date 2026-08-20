@@ -1,0 +1,85 @@
+######################################################################
+# Propagation: com.sec.android.iaft
+######################################################################
+
+JARs:                 framework
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO
+  Method:   <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: boolean isInWhiteList(java.lang.String)>
+  Line:     527
+  Register: v0 := "com.sec.android.iaft"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_a → [other] iget-boolean v0, p0,
+
+  CALLERS (who invokes this method):
+      ← IAFDDiagnosis.parseExpTypeInternal()
+        ← IAFDDiagnosis.parseExpType()
+          ← AppErrors.handleShowAppErrorUi()
+          ← IAFDService$IAFDBinder.IAFDParse()
+            ← ActivityManagerService$UiHandler.handleMessage()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDDiagnosis
+  Method:   <com.sec.android.iaft.IAFDDiagnosis: boolean showIAFDCrashDialogs(int,int,java.lang.String)>
+  Line:     3101
+  Register: v6 := "com.sec.android.iaft"
+  Usage:    [invoke] invoke-virtual {v1, v6, v0}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v6 overwritten
+
+  CALLERS (who invokes this method):
+      ← AppErrors.handleShowAppErrorUi()
+      ← IAFDService$IAFDBinder.IAFDShow()
+        ← ActivityManagerService$UiHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.startService()
+      → Context.getPackageManager()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → ApplicationInfo.loadLabel()
+      → PackageInfo.getLongVersionCode()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: java.l
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: java.l
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: java.l
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: java.l
+      → IAFDDiagnosis$IAFD_CONTROLINFO.gethashMapOfRepairDBInfo()
+      → IAFDDiagnosis.getExpType()
+      → IAFDDiagnosis.getRepairType()
+      → IAFDDiagnosis.getCallstack()
+      → IAFDDiagnosis.getComponent()
+      → CharSequence.toString()
+      → Exception.printStackTrace()
+      → Locale.getLanguage()
+      → Locale.getDefault()
+        → PackageInfo.composeLongVersionCode()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+        → HashMap.containsKey()
+        → HashMap.get()
+        → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: boolea
+        → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: long -
+        → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: long -
+

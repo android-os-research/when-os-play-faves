@@ -1,0 +1,72 @@
+######################################################################
+# Propagation: com.mxtech.videoplayer.ad
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.audio.SoundAppPolicyManager
+  Method:   <com.samsung.android.server.audio.SoundAppPolicyManager: void setDefaultAllowList()>
+  Line:     1291
+  Register: v1 := "com.mxtech.videoplayer.ad"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/samsung/android/server/audio/AudioSettingsHelper;->putAppList(Ljav
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.audio.AudioSettingsHelper.putAppL → [other] const v1, 0x788659ac → [invoke] com.sams
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.audio.AudioService: void lambda$onCustom
+        ← <com.android.server.audio.AudioService: void $r8$lambda$zqmb
+          ← AudioService$$ExternalSyntheticLambda11.run()
+
+  CALLEES (what this method invokes):
+      → AudioSettingsHelper.putAppList()
+      → AudioSettingsHelper.resetAllowedListTable()
+      → AudioSettingsHelper.setIntValue()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → AudioCipher.encrypt()
+        → AudioSettingsHelper.add()
+        → SQLiteDatabase.execSQL()
+        → <java.util.concurrent.CopyOnWriteArrayList: void <init>()>
+        → ContentValues.put()
+        → AudioSettingsHelper.set()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → Base64.encodeToString()
+          → <com.samsung.android.server.audio.AudioCipher$KeyStoreHolder
+          → AudioCipher.getCipher()
+          → Optional.isPresent()
+          → Optional.get()
+          → Cipher.doFinal()
+          → Cipher.getIV()
+          → Cipher.init()
+          → SQLiteDatabase.insert()
+          → SQLiteDatabase.update()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → Base64.encode()
+            → <java.lang.AssertionError: void <init>(java.lang.Object)>
+            → AudioCipher$KeyStoreHolder.getKey()
+            → Optional.empty()
+            → Optional.of()
+            → Cipher.getInstance()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → Base64.encode()
+              → AudioCipher$KeyStoreHolder.generateKey()
+              → KeyStore.getKey()
+              → KeyStore.getInstance()
+              → KeyStore.load()
+

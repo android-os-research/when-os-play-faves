@@ -1,0 +1,359 @@
+######################################################################
+# Propagation: com.osp.app.signin
+######################################################################
+
+JARs:                 semwifi-service, services
+Classes:              11
+Occurrences:          16
+Usage types:          field_store, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.SemWifiApUtils
+  Method:   <com.samsung.android.server.wifi.ap.SemWifiApUtils: java.lang.String getSamsungAccount(android.content.Context)>
+  Line:     135
+  Register: v0 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[La
+  Patterns: (none)
+  Flow:     [invoke] android.accounts.AccountManager.getAccountsByType() → [other] array-length v0, p0 → [other] if-lez v0, :cond_17
+
+  CALLERS (who invokes this method):
+      ← SemWifiApUtils.getFamilyGroupId()
+        ← SemWifiApSmartMHS.canFamilySharingBeEnabled()
+          ← SemWifiApSmartBleScanner$SemWifiApSmartBleScannerReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → AccountManager.getAccountsByType()
+      → Context.getSystemService()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.SemWifiApUtils
+  Method:   <com.samsung.android.server.wifi.ap.SemWifiApUtils: int getSamsungAccountCount(android.content.Context)>
+  Line:     174
+  Register: v0 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[La
+  Patterns: early_return
+  Flow:     [invoke] android.accounts.AccountManager.getAccountsByType()
+
+  CALLERS (who invokes this method):
+      ← SemWifiApUtils.isSamsungAccountLoggedOut()
+        ← SemWifiApSmartMHS.canAutoHotspotBeEnabled()
+        ← SemWifiApSmartMHS.canFamilySharingBeEnabled()
+          ← SemWifiApServiceImpl.canAutoHotspotBeEnabled()
+          ← SemWifiApSmartBleScanner$SemWifiApSmartBleScannerReceiver.onReceive()
+            ← SemWifiServiceImpl.canAutoHotspotBeEnabled()
+
+  CALLEES (what this method invokes):
+      → AccountManager.getAccountsByType()
+      → Context.getSystemService()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.SemWifiApConfigStore
+  Method:   <com.samsung.android.server.wifi.ap.SemWifiApConfigStore: boolean isSALoggedIn()>
+  Line:     5252
+  Register: v0 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[La
+  Patterns: early_return
+  Flow:     [invoke] android.accounts.AccountManager.getAccountsByType()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.ap.SemWifiApConfigStore: bo
+      ← SemWifiApConfigStore.getSASSID()
+        ← SemWifiApConfigStore$WifiApHandler.handleMessage()
+        ← SemWifiApConfigStore.getDefaultApConfiguration()
+          ← <com.samsung.android.server.wifi.ap.SemWifiApConfigStore: vo
+          ← SemWifiApConfigStore.setApConfiguration()
+          ← SemWifiApConfigStore.setWifiApConfigurationToDefault()
+            ← SemWifiInjector.getWifiApConfigStore()
+            ← SemWifiApBroadcastReceiver.setChameleonConfig()
+            ← SemWifiApServiceImpl.setSoftApConfiguration()
+            ← <com.samsung.android.server.wifi.ap.SemWifiApServiceImpl: vo
+              ← SemWifiApServiceImpl.getSoftApConfiguration()
+              ← <com.samsung.android.server.wifi.ap.SemWifiApBroadcastReceiv
+              ← SemWifiServiceImpl.setSoftApConfiguration()
+              ← <com.samsung.android.server.wifi.ap.SemWifiApServiceImpl: vo
+
+  CALLEES (what this method invokes):
+      → AccountManager.get()
+      → AccountManager.getAccountsByType()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartUtil
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartUtil: ???>
+  Line:     1703
+  Register: v2 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {p0, v2}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[La
+  Patterns: early_return
+  Flow:     [invoke] android.accounts.AccountManager.getAccountsByType()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartUtil
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartUtil: ???>
+  Line:     4764
+  Register: v1 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[La
+  Patterns: early_return
+  Flow:     [invoke] android.accounts.AccountManager.getAccountsByType()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartUtil
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartUtil: ???>
+  Line:     4837
+  Register: v2 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {p0, v2}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[La
+  Patterns: early_return
+  Flow:     [invoke] android.accounts.AccountManager.getAccountsByType()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartNetworkCallback
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartNetworkCallback: boolean isSamsungAccountLoggedOut()>
+  Line:     1270
+  Register: v0 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[La
+  Patterns: early_return
+  Flow:     [invoke] android.accounts.AccountManager.getAccountsByType()
+
+  CALLERS (who invokes this method):
+      ← SemWifiApSmartNetworkCallback.updateSwitchState()
+        ← <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+          ← SemWifiApSmartNetworkCallback$1.onAvailable()
+          ← SemWifiApSmartNetworkCallback$1.onLost()
+          ← SemWifiApSmartNetworkCallback$2.onAvailable()
+          ← SemWifiApSmartNetworkCallback$2.onLost()
+          ← SemWifiApSmartNetworkCallback$3.onReceive()
+
+  CALLEES (what this method invokes):
+      → AccountManager.getAccountsByType()
+      → Context.getSystemService()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.mcf.SemWifiApContinuityUtil
+  Method:   <com.samsung.android.server.wifi.ap.mcf.SemWifiApContinuityUtil: boolean hasAccount()>
+  Line:     165
+  Register: v0 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[La
+  Patterns: early_return
+  Flow:     [invoke] android.accounts.AccountManager.getAccountsByType()
+
+  CALLERS (who invokes this method):
+      ← SemWifiApContinuityUtil.hasSamsungAccount()
+        ← SemWifiApContinuityAdapter$2.onReceive()
+        ← SemWifiApContinuityAdapter$3.onServiceDisconnected()
+
+  CALLEES (what this method invokes):
+      → AccountManager.get()
+      → AccountManager.getAccountsByType()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.mcf.SemWifiApContinuityUtil
+  Method:   <com.samsung.android.server.wifi.ap.mcf.SemWifiApContinuityUtil: boolean hasSamsungAccountPackage()>
+  Line:     198
+  Register: v0 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo()
+
+  CALLERS (who invokes this method):
+      ← SemWifiApContinuityUtil.hasSamsungAccount()
+        ← SemWifiApContinuityAdapter$2.onReceive()
+        ← SemWifiApContinuityAdapter$3.onServiceDisconnected()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.share.WifiContinuityService$DefaultState
+  Method:   <com.samsung.android.server.wifi.share.WifiContinuityService$DefaultState: boolean hasAccount()>
+  Line:     64
+  Register: v0 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[La
+  Patterns: early_return
+  Flow:     [invoke] android.accounts.AccountManager.getAccountsByType()
+
+  CALLERS (who invokes this method):
+      ← WifiContinuityService$DefaultState.hasSamsungAccount()
+        ← WifiContinuityService$DefaultState.processMessage()
+
+  CALLEES (what this method invokes):
+      → AccountManager.getAccountsByType()
+      → <com.samsung.android.server.wifi.share.WifiContinuityService
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.share.WifiContinuityService$DefaultState
+  Method:   <com.samsung.android.server.wifi.share.WifiContinuityService$DefaultState: boolean hasSamsungAccountPackage()>
+  Line:     123
+  Register: v0 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo()
+
+  CALLERS (who invokes this method):
+      ← WifiContinuityService$DefaultState.hasSamsungAccount()
+        ← WifiContinuityService$DefaultState.processMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → <com.samsung.android.server.wifi.share.WifiContinuityService
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.ReactiveService
+  Method:   <com.android.server.ReactiveService: boolean hasPermission(int,java.lang.String)>
+  Line:     855
+  Register: v1 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-eqz v1, :cond_bb → [other] iget-object v1, v4,
+
+  CALLERS (who invokes this method):
+      ← ReactiveService.getRandom()
+      ← ReactiveService.removeString()
+      ← ReactiveService.setFlag()
+      ← ReactiveService.setString()
+      ← ReactiveService.verify()
+      ← ReactiveService.getString()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getRunningAppProcesses()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → PackageManager.checkSignatures() [SIG_CHECK]
+      → Signature.equals()
+      → <android.content.pm.Signature: void <init>(java.lang.String)
+      → Binder.getCallingUid() [UID_CHECK]
+      → ReactiveService.nativeHasPermission()
+      → Exception.printStackTrace()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → Signature.parseHexDigit()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.Utils
+  Method:   <com.android.server.desktopmode.Utils: java.lang.String getSamsungAccountId(android.content.Context)>
+  Line:     730
+  Register: v4 := "com.osp.app.signin"
+  Usage:    [invoke] invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← Utils.getPostDataForMuse()
+        ← Utils.getMuseUrl()
+
+  CALLEES (what this method invokes):
+      → AccountManager.get()
+      → AccountManager.getAccounts()
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.continuity.AbstractPreconditionObserver
+  Method:   <com.samsung.android.server.continuity.AbstractPreconditionObserver: void <clinit>()>
+  Line:     219
+  Register: v0 := "com.osp.app.signin"
+  Usage:    [field_store] sput-object v0, Lcom/samsung/android/server/continuity/AbstractPreconditionObserver;->SAMSUNG_ACCOUN
+  Patterns: early_return
+  Flow:     [field_store] com.samsung.android.server.continuity.AbstractPreconditionOb
+
+  CALLEES (what this method invokes):
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getInt()
+      → Utils.isWatch()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+        → SystemProperties.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.security.DeviceAccountPolicy
+  Method:   <com.android.server.enterprise.security.DeviceAccountPolicy: void <clinit>()>
+  Line:     72
+  Register: v3 := "com.osp.app.signin"
+  Usage:    [] 
+  Patterns: early_return
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+  Line:     971
+  Register: v3 := "com.osp.app.signin"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Process.myPid()
+      → ArrayMap.size()
+      → ArrayMap.get()
+      → ArrayMap.keyAt()
+      → ArrayMap.put()
+      → ArrayMap.valueAt()
+      → <android.util.ArrayMap: void <init>()>
+      → <com.android.server.enterprise.application.ApplicationPolicy
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Collections.unmodifiableList()
+      → <java.util.HashMap: void <init>()>
+        → ArrayMap.indexOfKey()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → ArrayMap.indexOf()
+        → ArrayMap.indexOfNull()
+        → ArrayMap.allocArrays()
+        → ArrayMap.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.binarySearchHashes()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ContainerHelpers.binarySearch()
+

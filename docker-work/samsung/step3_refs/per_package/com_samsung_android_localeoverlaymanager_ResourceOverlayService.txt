@@ -1,0 +1,9 @@
+# com.samsung.android.localeoverlaymanager.ResourceOverlayService [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.SystemServer: void startResourceOverlayService(boolean)>
+<com.android.server.am.ActivityManagerService: void updateLocaleOverlays(android.os.LocaleList)>
+<com.android.server.pm.PackageManagerService: void bindLocaleServiceAndCallOnPackageInstalled(int,int,java.lang.String,boolean)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setSystemLocale(java.lang.String,java.lang.String)>
+<com.samsung.android.server.pm.install.PrePackageInstallerBase: void installPreloadPackage(java.io.File)>

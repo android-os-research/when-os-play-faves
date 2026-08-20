@@ -1,0 +1,9 @@
+# com.samsung.cmfa.AuthTouch.IAuthTouchEnableListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.cmfa.AuthTouch.IAuthTouchEnableListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.cmfa.AuthTouch.IAuthTouchEnableListener$Stub$Proxy: void notifyTouchEventEnabled(boolean,boolean)>
+<com.samsung.cmfa.AuthTouch.IAuthTouchEnableListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.cmfa.AuthTouch.IAuthTouchEnableListener$Stub: com.samsung.cmfa.AuthTouch.IAuthTouchEnableListener asInterface(android.os.IBinder)>
+<com.samsung.cmfa.AuthTouch.IAuthTouchEnableListener$Stub: void <init>()>

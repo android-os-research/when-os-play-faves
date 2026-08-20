@@ -1,0 +1,9 @@
+# android.content.pm.IPackageInstallerSessionFileSystemConnector [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.pm.IPackageInstallerSessionFileSystemConnector$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IPackageInstallerSessionFileSystemConnector$Stub$Proxy: void writeData(java.lang.String,long,long,android.os.ParcelFileDescriptor)>
+<android.content.pm.IPackageInstallerSessionFileSystemConnector$Stub: android.content.pm.IPackageInstallerSessionFileSystemConnector asInterface(android.os.IBinder)>
+<android.content.pm.IPackageInstallerSessionFileSystemConnector$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IPackageInstallerSessionFileSystemConnector$Stub: void <init>()>

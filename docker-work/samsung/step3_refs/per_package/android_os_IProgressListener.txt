@@ -1,0 +1,11 @@
+# android.os.IProgressListener [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.os.IProgressListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IProgressListener$Stub$Proxy: void onFinished(int,android.os.Bundle)>
+<android.os.IProgressListener$Stub$Proxy: void onProgress(int,int,android.os.Bundle)>
+<android.os.IProgressListener$Stub$Proxy: void onStarted(int,android.os.Bundle)>
+<android.os.IProgressListener$Stub: android.os.IProgressListener asInterface(android.os.IBinder)>
+<android.os.IProgressListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IProgressListener$Stub: void <init>()>

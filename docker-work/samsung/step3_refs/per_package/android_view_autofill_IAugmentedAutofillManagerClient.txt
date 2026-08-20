@@ -1,0 +1,14 @@
+# android.view.autofill.IAugmentedAutofillManagerClient [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.view.autofill.IAugmentedAutofillManagerClient$Stub$Proxy: android.app.assist.AssistStructure$ViewNodeParcelable getViewNodeParcelable(android.view.autofill.AutofillId)>
+<android.view.autofill.IAugmentedAutofillManagerClient$Stub$Proxy: android.graphics.Rect getViewCoordinates(android.view.autofill.AutofillId)>
+<android.view.autofill.IAugmentedAutofillManagerClient$Stub$Proxy: boolean requestAutofill(int,android.view.autofill.AutofillId)>
+<android.view.autofill.IAugmentedAutofillManagerClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.autofill.IAugmentedAutofillManagerClient$Stub$Proxy: void autofill(int,java.util.List,java.util.List,boolean)>
+<android.view.autofill.IAugmentedAutofillManagerClient$Stub$Proxy: void requestHideFillUi(int,android.view.autofill.AutofillId)>
+<android.view.autofill.IAugmentedAutofillManagerClient$Stub$Proxy: void requestShowFillUi(int,android.view.autofill.AutofillId,int,int,android.graphics.Rect,android.view.autofill.IAutofillWindowPresenter)>
+<android.view.autofill.IAugmentedAutofillManagerClient$Stub: android.view.autofill.IAugmentedAutofillManagerClient asInterface(android.os.IBinder)>
+<android.view.autofill.IAugmentedAutofillManagerClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.autofill.IAugmentedAutofillManagerClient$Stub: void <init>()>

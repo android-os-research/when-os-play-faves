@@ -1,0 +1,170 @@
+######################################################################
+# Propagation: com.samsung.android.mtp
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.Pageboost
+  Method:   <com.android.server.am.Pageboost: void gatherLaunchTime(java.lang.String,int,int)>
+  Line:     1420
+  Register: v1 := "com.samsung.android.mtp"
+  Usage:    [invoke] invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v1 → [branch] if-nez v1, :cond_7b → [other] sget-object v1, L
+
+  CALLERS (who invokes this method):
+      ← ActivityMetricsLogger.logAppDisplayed()
+        ← <com.android.server.wm.ActivityMetricsLogger: void lambda$lo
+          ← <com.android.server.wm.ActivityMetricsLogger: void $r8$lambd
+            ← ActivityMetricsLogger$$ExternalSyntheticLambda5.run()
+
+  CALLEES (what this method invokes):
+      → Pageboost$VramdiskMlockManager.hasPinnedFile()
+      → Pageboost.isPageboostMinimized()
+      → Pageboost.sendMessage()
+        → ArrayList.isEmpty()
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putInt()
+        → Bundle.putString()
+        → Handler.obtainMessage()
+        → Handler.sendMessage()
+        → Handler.sendMessageDelayed()
+        → Message.setData()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.restriction.RestrictionPolicy
+  Method:   <com.android.server.enterprise.restriction.RestrictionPolicy: boolean setUsbMediaPlayerAvailability(com.samsung.android.knox.ContextInfo,boolean)>
+  Line:     22765
+  Register: v6 := "com.samsung.android.mtp"
+  Usage:    [invoke] invoke-virtual {v4, v6}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v6, p0, Lcom/android/server/enterprise/restricti → [i
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Context.sendStickyBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → Process.myPid()
+      → UserHandle.getUserId()
+      → AuditLog.logAsUser()
+      → RestrictionPolicy.enforceOwnerOnlyAndRestrictionPermission()
+      → RestrictionPolicyCache.update()
+      → EdmStorageProvider.putBoolean()
+        → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+        → IEDMProxy.AuditLoggerAsUser()
+        → RestrictionPolicy.getEDM()
+        → EnterpriseDeviceManager.enforceOwnerOnlyAndActiveAdminPermission()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → UserManager.getUserInfo()
+        → RestrictionPolicyCache$ApplyingAdmins.update()
+        → RestrictionPolicyCache.getUserManager()
+        → RestrictionPolicyCache.getCachedPolicies()
+        → RestrictionPolicyCache.init()
+        → EdmStorageProviderBase.getBooleanListAsUser()
+        → ArrayList.iterator()
+        → HashMap.put()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → ReentrantReadWriteLock$WriteLock.lock()
+        → ReentrantReadWriteLock$WriteLock.unlock()
+        → ReentrantReadWriteLock.writeLock()
+        → EdmStorageProviderBase.putBoolean()
+          → ServiceManager.getService()
+          → IEDMProxy$Stub.asInterface()
+          → EnterpriseDeviceManager.getInstance()
+          → AccessController.enforceOwnerOnlyAndActiveAdminPermission()
+          → RestrictionPolicyCache$ApplyingAdmins.put()
+          → RestrictionPolicyCache$ApplyingAdmins.remove()
+          → Context.getSystemService()
+          → HashMap.get()
+          → ReentrantReadWriteLock$ReadLock.lock()
+          → ReentrantReadWriteLock$ReadLock.unlock()
+          → ReentrantReadWriteLock.readLock()
+          → RestrictionPolicyCache$ApplyingAdmins.init()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → EdmStorageProviderBase.getAdminLUIDWhereIn()
+          → EdmStorageProviderBase.getBooleanList()
+          → ContentValues.put()
+          → ContentValues.put()
+          → EdmStorageProviderBase.put()
+          → EdmStorageProviderBase.translateToAdminLUID()
+            → IBinder.queryLocalInterface()
+            → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+            → Process.myTid()
+            → Process.myUid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.d()
+            → KnoxsdkFileLog.w()
+            → AccessController.getService()
+            → IEnterpriseDeviceManager.enforceOwnerOnlyAndActiveAdminPermission()
+            → <java.util.HashSet: void <init>()>
+            → Map.containsKey()
+            → Map.get()
+            → Map.put()
+            → Set.add()
+            → Map.remove()
+            → Set.isEmpty()
+            → Set.remove()
+            → <java.util.HashMap: void <init>()>
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.put()
+            → EdmStorageProviderBase.getAdminLUIDWhereInArgs()
+            → Cursor.isNull()
+            → Cursor.moveToNext()
+            → Cursor.getInt()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → EdmStorageProviderBase.getCursor()
+            → <java.util.ArrayList: void <init>()>
+            → List.add()
+            → ContentValues.putAll()
+            → EdmStorageProviderBase.update()
+            → EdmStorageProviderBase.formatContentValues()
+            → EdmStorageProviderBase.insert()
+            → SemPersonaManager.isKnoxId()
+              → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+              → SemLog.w()
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+              → EdmStorageProviderBase.getCursor()
+              → ArrayMap.putAll()
+              → SQLiteDatabase.update()
+              → SQLiteOpenHelper.getWritableDatabase()
+              → ContentValues.size()
+              → ContentValues.valueSet()
+              → List.size()
+              → List.toArray()
+              → Map$Entry.getKey()
+              → Map$Entry.getValue()
+              → Set.iterator()
+              → SQLiteDatabase.insert()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+

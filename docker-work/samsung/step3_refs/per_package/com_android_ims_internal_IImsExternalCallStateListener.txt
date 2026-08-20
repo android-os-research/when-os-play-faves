@@ -1,0 +1,9 @@
+# com.android.ims.internal.IImsExternalCallStateListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.android.ims.internal.IImsExternalCallStateListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsExternalCallStateListener$Stub$Proxy: void onImsExternalCallStateUpdate(java.util.List)>
+<com.android.ims.internal.IImsExternalCallStateListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.IImsExternalCallStateListener$Stub: com.android.ims.internal.IImsExternalCallStateListener asInterface(android.os.IBinder)>
+<com.android.ims.internal.IImsExternalCallStateListener$Stub: void <init>()>

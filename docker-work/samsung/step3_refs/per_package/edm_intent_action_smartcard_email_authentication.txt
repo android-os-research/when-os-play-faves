@@ -1,0 +1,5 @@
+# edm.intent.action.smartcard.email.authentication [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.enterprise.smartcard.SmartCardEmailPolicy: void broadcastIntentAsUser(boolean,int,int)>

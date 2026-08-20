@@ -1,0 +1,14 @@
+# android.spay.ITAController [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.spay.ITAController$Stub$Proxy: android.spay.CertInfo checkCertInfo(java.util.List)>
+<android.spay.ITAController$Stub$Proxy: android.spay.TACommandResponse processTACommand(android.spay.TACommandRequest)>
+<android.spay.ITAController$Stub$Proxy: boolean clearDeviceCertificates(java.lang.String)>
+<android.spay.ITAController$Stub$Proxy: boolean loadTA(android.os.ParcelFileDescriptor,long,long)>
+<android.spay.ITAController$Stub$Proxy: boolean makeSystemCall(int)>
+<android.spay.ITAController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.spay.ITAController$Stub$Proxy: void unloadTA()>
+<android.spay.ITAController$Stub: android.spay.ITAController asInterface(android.os.IBinder)>
+<android.spay.ITAController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.spay.ITAController$Stub: void <init>()>

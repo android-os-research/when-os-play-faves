@@ -1,0 +1,5 @@
+# ro.config.density_override [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.wm.WindowManagerService: int getForcedDisplayDensityForUserLocked(int)>

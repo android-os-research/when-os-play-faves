@@ -1,0 +1,6 @@
+# sys.isrb.wificrash [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<com.android.server.SystemServiceManager: void startBootPhase(com.android.server.utils.TimingsTraceAndSlog,int)>
+<com.samsung.isrb.IsrbHooks$ISRBExceptionHandler: void uncaughtException(java.lang.Thread,java.lang.Throwable)>

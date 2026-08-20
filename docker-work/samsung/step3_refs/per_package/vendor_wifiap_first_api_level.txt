@@ -1,0 +1,7 @@
+# vendor.wifiap.first_api_level [NEW]
+# Refs: 3
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.ap.SemWifiApChipInfo: boolean supportWifiSharing()>
+<com.samsung.android.server.wifi.ap.SemWifiApChipInfo: boolean supportWifiSharingLite()>
+<com.samsung.android.server.wifi.ap.SemWifiApChipInfo: void checkWifiSharing()>

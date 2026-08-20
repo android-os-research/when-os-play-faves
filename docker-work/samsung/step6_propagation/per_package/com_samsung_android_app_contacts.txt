@@ -1,0 +1,29 @@
+######################################################################
+# Propagation: com.samsung.android.app.contacts
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     100
+  Register: v30 := "com.samsung.android.app.contacts"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+

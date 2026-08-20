@@ -1,0 +1,16 @@
+# com.samsung.android.knox.intent.extra.ADMIN_UID [NEW]
+# Refs: 13
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.auditlog.Admin: void notifyDumpFinished(boolean,boolean)>
+<com.android.server.enterprise.auditlog.CircularBuffer: void checkCriticalSizes()>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy$ProvisioningState: void notifyAdminCreationStatus(java.lang.String,int)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: void sendContainerCreationIntent(java.lang.String,int,int,int,int,int)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: void sendContainerCreationIntentBC(java.lang.String,int,int,int,int)>
+<com.android.server.enterprise.geofencing.GeofenceService$GeofencingHandler: void handleMessage(android.os.Message)>
+<com.android.server.enterprise.geofencing.GeofenceService: void deviceLocationUnavailableMessage(int)>
+<com.android.server.enterprise.geofencing.GeofenceService: void sendIntenttoAdmins(java.util.List)>
+<com.android.server.enterprise.kioskmode.KioskModeService: void broadcastKioskResult(int,int,int)>
+<com.samsung.android.knox.kiosk.KioskMode: void disableKioskMode()>
+<com.samsung.android.knox.kiosk.KioskMode: void enableKioskMode()>
+<com.samsung.android.knox.kiosk.KioskMode: void enableKioskMode(java.lang.String)>

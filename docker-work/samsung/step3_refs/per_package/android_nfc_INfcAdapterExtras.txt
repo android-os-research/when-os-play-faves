@@ -1,0 +1,20 @@
+# android.nfc.INfcAdapterExtras [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.nfc.INfcAdapterExtras$Stub$Proxy: android.os.Bundle close(java.lang.String,android.os.IBinder)>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: android.os.Bundle closeWithPackageName(java.lang.String,android.os.IBinder,java.lang.String)>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: android.os.Bundle getAtr(java.lang.String)>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: android.os.Bundle getAtrWithPackageName(java.lang.String,java.lang.String)>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: android.os.Bundle open(java.lang.String,android.os.IBinder)>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: android.os.Bundle openWithPackageName(java.lang.String,android.os.IBinder,java.lang.String)>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: android.os.Bundle transceive(java.lang.String,byte[])>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: android.os.Bundle transceiveWithPackageName(java.lang.String,byte[],java.lang.String)>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: int getCardEmulationRoute(java.lang.String)>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: java.lang.String getDriverName(java.lang.String)>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: void authenticate(java.lang.String,byte[])>
+<android.nfc.INfcAdapterExtras$Stub$Proxy: void setCardEmulationRoute(java.lang.String,int)>
+<android.nfc.INfcAdapterExtras$Stub: android.nfc.INfcAdapterExtras asInterface(android.os.IBinder)>
+<android.nfc.INfcAdapterExtras$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.nfc.INfcAdapterExtras$Stub: void <init>()>

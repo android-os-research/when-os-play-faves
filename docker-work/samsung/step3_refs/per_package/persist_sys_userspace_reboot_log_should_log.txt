@@ -1,0 +1,7 @@
+# persist.sys.userspace_reboot.log.should_log [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.UserspaceRebootLogger: boolean shouldLogUserspaceRebootEvent()>
+<com.android.server.UserspaceRebootLogger: void lambda$logEventAsync$0(int,long,int)>
+<com.android.server.UserspaceRebootLogger: void noteUserspaceRebootWasRequested()>

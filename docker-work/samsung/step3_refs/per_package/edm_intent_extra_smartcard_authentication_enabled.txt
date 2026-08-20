@@ -1,0 +1,6 @@
+# edm.intent.extra.smartcard.authentication.enabled [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.smartcard.SmartCardBrowserPolicy: void broadcastIntentAsUser(boolean,int,int)>
+<com.android.server.enterprise.smartcard.SmartCardEmailPolicy: void broadcastIntentAsUser(boolean,int,int)>

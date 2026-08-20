@@ -1,0 +1,14 @@
+# android.hardware.camera2.extension.IRequestProcessorImpl [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.hardware.camera2.extension.IRequestProcessorImpl$Stub$Proxy: int setRepeating(android.hardware.camera2.extension.Request,android.hardware.camera2.extension.IRequestCallback)>
+<android.hardware.camera2.extension.IRequestProcessorImpl$Stub$Proxy: int submit(android.hardware.camera2.extension.Request,android.hardware.camera2.extension.IRequestCallback)>
+<android.hardware.camera2.extension.IRequestProcessorImpl$Stub$Proxy: int submitBurst(java.util.List,android.hardware.camera2.extension.IRequestCallback)>
+<android.hardware.camera2.extension.IRequestProcessorImpl$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.IRequestProcessorImpl$Stub$Proxy: void abortCaptures()>
+<android.hardware.camera2.extension.IRequestProcessorImpl$Stub$Proxy: void setImageProcessor(android.hardware.camera2.extension.OutputConfigId,android.hardware.camera2.extension.IImageProcessorImpl)>
+<android.hardware.camera2.extension.IRequestProcessorImpl$Stub$Proxy: void stopRepeating()>
+<android.hardware.camera2.extension.IRequestProcessorImpl$Stub: android.hardware.camera2.extension.IRequestProcessorImpl asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.IRequestProcessorImpl$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.IRequestProcessorImpl$Stub: void <init>()>

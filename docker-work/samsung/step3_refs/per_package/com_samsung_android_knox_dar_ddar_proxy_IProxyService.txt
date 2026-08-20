@@ -1,0 +1,13 @@
+# com.samsung.android.knox.dar.ddar.proxy.IProxyService [NEW]
+# Refs: 9
+# JARs: framework
+
+<com.samsung.android.knox.dar.ddar.proxy.IProxyService$Stub$Proxy: android.os.Bundle relay(java.lang.String,java.lang.String,java.lang.String,android.os.Bundle)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyService$Stub$Proxy: android.os.Bundle relayAsync(java.lang.String,java.lang.String,java.lang.String,android.os.Bundle)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyService$Stub$Proxy: boolean registerAgentByAction(java.lang.String,int,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyService$Stub$Proxy: boolean registerAgentByMetadata(java.lang.String,int,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyService$Stub$Proxy: void deregisterAgent(java.lang.String)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyService$Stub: com.samsung.android.knox.dar.ddar.proxy.IProxyService asInterface(android.os.IBinder)>
+<com.samsung.android.knox.dar.ddar.proxy.IProxyService$Stub: void <init>()>

@@ -1,0 +1,15 @@
+# com.samsung.android.lool [NEW]
+# Refs: 11
+# JARs: framework, hcm, services
+
+<a.a: void <clinit>()>
+<com.android.internal.app.MaintenanceModeUtils: void sendLoggingDataToSA(android.content.Context,java.lang.String,java.lang.String)>
+<com.android.server.am.KillPolicyManager: void reportMemCriticalLow(int)>
+<com.android.server.am.KillPolicyManager: void reportResetState(java.lang.String)>
+<com.android.server.am.MARsPolicyManager: void <clinit>()>
+<com.android.server.storage.DeviceStorageMonitorService: void updateBroadcasts(android.os.storage.VolumeInfo,int,int,int)>
+<com.samsung.android.hardware.display.AfterimageCompensationService$AfcThread: void run()>
+<com.samsung.android.server.pm.install.SilentUninstallerList: void <init>()>
+<com.sec.android.iaft.IAFDDiagnosis: boolean showIAFDCrashDialogs(int,int,java.lang.String)>
+<com.sec.android.iaft.IAFDDiagnosis: void init(android.content.Context)>
+<com.sec.android.iaft.IAFDServiceImpl: boolean IAFDstartApp(android.os.Bundle,boolean)>

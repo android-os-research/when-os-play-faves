@@ -1,0 +1,15 @@
+# com.sec.ims.sms.ISmsService [NEW]
+# Refs: 11
+# JARs: imsmanager
+
+<com.sec.ims.sms.ISmsService$Stub$Proxy: boolean getSmsFallback(int)>
+<com.sec.ims.sms.ISmsService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.sms.ISmsService$Stub$Proxy: void deRegisterForSMSStateChange(int,com.sec.ims.sms.ISmsServiceEventListener)>
+<com.sec.ims.sms.ISmsService$Stub$Proxy: void registerForSMSStateChange(int,com.sec.ims.sms.ISmsServiceEventListener)>
+<com.sec.ims.sms.ISmsService$Stub$Proxy: void sendDeliverReport(int,byte[])>
+<com.sec.ims.sms.ISmsService$Stub$Proxy: void sendRPSMMA(int,java.lang.String)>
+<com.sec.ims.sms.ISmsService$Stub$Proxy: void sendSMSOverIMS(int,byte[],java.lang.String,java.lang.String,int)>
+<com.sec.ims.sms.ISmsService$Stub$Proxy: void sendSMSResponse(boolean,int)>
+<com.sec.ims.sms.ISmsService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.sms.ISmsService$Stub: com.sec.ims.sms.ISmsService asInterface(android.os.IBinder)>
+<com.sec.ims.sms.ISmsService$Stub: void <init>()>

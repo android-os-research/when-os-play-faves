@@ -1,0 +1,12 @@
+# com.samsung.android.knox.accounts.ILDAPAccountPolicy [NEW]
+# Refs: 8
+# JARs: knoxsdk
+
+<com.samsung.android.knox.accounts.ILDAPAccountPolicy$Stub$Proxy: boolean deleteLDAPAccount(com.samsung.android.knox.ContextInfo,long)>
+<com.samsung.android.knox.accounts.ILDAPAccountPolicy$Stub$Proxy: com.samsung.android.knox.accounts.LDAPAccount getLDAPAccount(com.samsung.android.knox.ContextInfo,long)>
+<com.samsung.android.knox.accounts.ILDAPAccountPolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.accounts.ILDAPAccountPolicy$Stub$Proxy: java.util.List getAllLDAPAccounts(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.accounts.ILDAPAccountPolicy$Stub$Proxy: void createLDAPAccount(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.accounts.LDAPAccount)>
+<com.samsung.android.knox.accounts.ILDAPAccountPolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.accounts.ILDAPAccountPolicy$Stub: com.samsung.android.knox.accounts.ILDAPAccountPolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.accounts.ILDAPAccountPolicy$Stub: void <init>()>

@@ -1,0 +1,10 @@
+# android.hardware.fingerprint.ISidefpsController [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.hardware.fingerprint.ISidefpsController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.fingerprint.ISidefpsController$Stub$Proxy: void hide(int)>
+<android.hardware.fingerprint.ISidefpsController$Stub$Proxy: void show(int,int)>
+<android.hardware.fingerprint.ISidefpsController$Stub: android.hardware.fingerprint.ISidefpsController asInterface(android.os.IBinder)>
+<android.hardware.fingerprint.ISidefpsController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.fingerprint.ISidefpsController$Stub: void <init>()>

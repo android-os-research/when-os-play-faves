@@ -1,0 +1,10 @@
+# com.mediatek.ims.internal.IMtkImsUtListener [NEW]
+# Refs: 6
+# JARs: mediatek-ims-base
+
+<com.mediatek.ims.internal.IMtkImsUtListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.ims.internal.IMtkImsUtListener$Stub$Proxy: void utConfigurationCallForwardInTimeSlotQueried(com.mediatek.ims.internal.IMtkImsUt,int,com.mediatek.ims.MtkImsCallForwardInfo[])>
+<com.mediatek.ims.internal.IMtkImsUtListener$Stub$Proxy: void utConfigurationCallForwardQueried(com.mediatek.ims.internal.IMtkImsUt,int,android.telephony.ims.ImsCallForwardInfo[])>
+<com.mediatek.ims.internal.IMtkImsUtListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.ims.internal.IMtkImsUtListener$Stub: com.mediatek.ims.internal.IMtkImsUtListener asInterface(android.os.IBinder)>
+<com.mediatek.ims.internal.IMtkImsUtListener$Stub: void <init>()>

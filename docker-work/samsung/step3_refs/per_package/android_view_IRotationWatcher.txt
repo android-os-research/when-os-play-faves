@@ -1,0 +1,9 @@
+# android.view.IRotationWatcher [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.IRotationWatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IRotationWatcher$Stub$Proxy: void onRotationChanged(int)>
+<android.view.IRotationWatcher$Stub: android.view.IRotationWatcher asInterface(android.os.IBinder)>
+<android.view.IRotationWatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IRotationWatcher$Stub: void <init>()>

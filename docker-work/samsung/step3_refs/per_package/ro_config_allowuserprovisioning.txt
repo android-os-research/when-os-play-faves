@@ -1,0 +1,5 @@
+# ro.config.allowuserprovisioning [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.devicepolicy.DevicePolicyManagerService: boolean isProvisioningAllowed()>

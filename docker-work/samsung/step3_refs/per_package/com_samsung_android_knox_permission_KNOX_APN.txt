@@ -1,0 +1,8 @@
+# com.samsung.android.knox.permission.KNOX_APN [NEW]
+# Refs: 4
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.apn.ApnSettingsPolicy: com.samsung.android.knox.ContextInfo enforceApnPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.apn.ApnSettingsPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndApnPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

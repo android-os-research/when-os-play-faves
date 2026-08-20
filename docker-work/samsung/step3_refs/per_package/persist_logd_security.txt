@@ -1,0 +1,6 @@
+# persist.logd.security [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.app.admin.SecurityLog: boolean getLoggingEnabledProperty()>
+<android.app.admin.SecurityLog: void setLoggingEnabledProperty(boolean)>

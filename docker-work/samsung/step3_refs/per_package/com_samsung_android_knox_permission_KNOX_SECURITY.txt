@@ -1,0 +1,23 @@
+# com.samsung.android.knox.permission.KNOX_SECURITY [NEW]
+# Refs: 19
+# JARs: knoxsdk, services
+
+<com.android.server.devicepolicy.DevicePolicyManagerService: boolean isCalledFromMDMAdmin(int)>
+<com.android.server.devicepolicy.DevicePolicyManagerService: boolean rebootMDM(java.lang.String)>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: boolean activateDevicePermissions(java.util.List)>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+<com.android.server.enterprise.general.MiscPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndSecurityPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.general.MiscPolicy: com.samsung.android.knox.ContextInfo enforceSecurityPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.security.DeviceAccountPolicy: com.samsung.android.knox.ContextInfo enforceSecurityPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.security.PasswordPolicy: com.samsung.android.knox.ContextInfo enforceOnlySecurityPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.security.PasswordPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndSecurityPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.security.PasswordPolicy: com.samsung.android.knox.ContextInfo enforceSecurityPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.security.SecurityPolicy: com.samsung.android.knox.ContextInfo enforceAdminPermissionIfCallerInCertWhiteList(com.samsung.android.knox.ContextInfo,int)>
+<com.android.server.enterprise.security.SecurityPolicy: com.samsung.android.knox.ContextInfo enforceCertificateProvisioningPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.security.SecurityPolicy: com.samsung.android.knox.ContextInfo enforceOnlySecurityPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.security.SecurityPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndSecurityPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.security.SecurityPolicy: com.samsung.android.knox.ContextInfo enforceSecurityPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.security.SecurityPolicy: int getCredentialStorageStatus(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>
+<com.samsung.android.knox.cmfa.CmfaManager: void <clinit>()>

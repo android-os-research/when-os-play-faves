@@ -1,0 +1,13 @@
+# com.samsung.android.knox.kpcc.IKPCCManager [NEW]
+# Refs: 9
+# JARs: knoxsdk
+
+<com.samsung.android.knox.kpcc.IKPCCManager$Stub$Proxy: int getDrxValue(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.kpcc.IKPCCManager$Stub$Proxy: int getTelephonyDrxValue()>
+<com.samsung.android.knox.kpcc.IKPCCManager$Stub$Proxy: int setDrxValue(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.kpcc.IKPCCManager$Stub$Proxy: int setPackageOnRestrictedNetworks(com.samsung.android.knox.ContextInfo,int,java.lang.String)>
+<com.samsung.android.knox.kpcc.IKPCCManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.kpcc.IKPCCManager$Stub$Proxy: java.util.List getPackagesAllowedOnRestrictedNetworks(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.kpcc.IKPCCManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.kpcc.IKPCCManager$Stub: com.samsung.android.knox.kpcc.IKPCCManager asInterface(android.os.IBinder)>
+<com.samsung.android.knox.kpcc.IKPCCManager$Stub: void <init>()>

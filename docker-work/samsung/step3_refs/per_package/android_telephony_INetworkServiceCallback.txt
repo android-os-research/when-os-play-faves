@@ -1,0 +1,10 @@
+# android.telephony.INetworkServiceCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.telephony.INetworkServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.INetworkServiceCallback$Stub$Proxy: void onNetworkStateChanged()>
+<android.telephony.INetworkServiceCallback$Stub$Proxy: void onRequestNetworkRegistrationInfoComplete(int,android.telephony.NetworkRegistrationInfo)>
+<android.telephony.INetworkServiceCallback$Stub: android.telephony.INetworkServiceCallback asInterface(android.os.IBinder)>
+<android.telephony.INetworkServiceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.INetworkServiceCallback$Stub: void <init>()>

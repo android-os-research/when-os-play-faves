@@ -1,0 +1,10 @@
+# android.net.lowpan.ILowpanEnergyScanCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.net.lowpan.ILowpanEnergyScanCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.lowpan.ILowpanEnergyScanCallback$Stub$Proxy: void onEnergyScanFinished()>
+<android.net.lowpan.ILowpanEnergyScanCallback$Stub$Proxy: void onEnergyScanResult(int,int)>
+<android.net.lowpan.ILowpanEnergyScanCallback$Stub: android.net.lowpan.ILowpanEnergyScanCallback asInterface(android.os.IBinder)>
+<android.net.lowpan.ILowpanEnergyScanCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.lowpan.ILowpanEnergyScanCallback$Stub: void <init>()>

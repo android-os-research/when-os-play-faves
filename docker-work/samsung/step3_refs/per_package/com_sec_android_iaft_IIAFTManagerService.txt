@@ -1,0 +1,12 @@
+# com.sec.android.iaft.IIAFTManagerService [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.sec.android.iaft.IIAFTManagerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.android.iaft.IIAFTManagerService$Stub$Proxy: void registerCallback(com.sec.android.iaft.callback.IIAFTCallback)>
+<com.sec.android.iaft.IIAFTManagerService$Stub$Proxy: void startAtrace()>
+<com.sec.android.iaft.IIAFTManagerService$Stub$Proxy: void startAtraceAndAnalyze(int,java.lang.String,int)>
+<com.sec.android.iaft.IIAFTManagerService$Stub$Proxy: void stopTrace()>
+<com.sec.android.iaft.IIAFTManagerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.android.iaft.IIAFTManagerService$Stub: com.sec.android.iaft.IIAFTManagerService asInterface(android.os.IBinder)>
+<com.sec.android.iaft.IIAFTManagerService$Stub: void <init>()>

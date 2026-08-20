@@ -1,0 +1,10 @@
+# android.companion.virtual.IVirtualDeviceActivityListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.companion.virtual.IVirtualDeviceActivityListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.companion.virtual.IVirtualDeviceActivityListener$Stub$Proxy: void onDisplayEmpty(int)>
+<android.companion.virtual.IVirtualDeviceActivityListener$Stub$Proxy: void onTopActivityChanged(int,android.content.ComponentName)>
+<android.companion.virtual.IVirtualDeviceActivityListener$Stub: android.companion.virtual.IVirtualDeviceActivityListener asInterface(android.os.IBinder)>
+<android.companion.virtual.IVirtualDeviceActivityListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.companion.virtual.IVirtualDeviceActivityListener$Stub: void <init>()>

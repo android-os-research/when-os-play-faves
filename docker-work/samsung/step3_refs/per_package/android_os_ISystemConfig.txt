@@ -1,0 +1,13 @@
+# android.os.ISystemConfig [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.os.ISystemConfig$Stub$Proxy: int[] getSystemPermissionUids(java.lang.String)>
+<android.os.ISystemConfig$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.ISystemConfig$Stub$Proxy: java.util.List getDisabledUntilUsedPreinstalledCarrierApps()>
+<android.os.ISystemConfig$Stub$Proxy: java.util.List getEnabledComponentOverrides(java.lang.String)>
+<android.os.ISystemConfig$Stub$Proxy: java.util.Map getDisabledUntilUsedPreinstalledCarrierAssociatedAppEntries()>
+<android.os.ISystemConfig$Stub$Proxy: java.util.Map getDisabledUntilUsedPreinstalledCarrierAssociatedApps()>
+<android.os.ISystemConfig$Stub: android.os.ISystemConfig asInterface(android.os.IBinder)>
+<android.os.ISystemConfig$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.ISystemConfig$Stub: void <init>()>

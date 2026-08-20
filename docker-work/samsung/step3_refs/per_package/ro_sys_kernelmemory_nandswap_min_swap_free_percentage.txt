@@ -1,0 +1,5 @@
+# ro.sys.kernelmemory.nandswap.min_swap_free_percentage [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.am.PerProcessNandswap: int getMinSwapFreePercentage()>

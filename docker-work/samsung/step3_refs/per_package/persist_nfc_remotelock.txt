@@ -1,0 +1,6 @@
+# persist.nfc.remotelock [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.sec.rll.ExtControlDeviceService: int getNfcState()>
+<com.sec.rll.ExtControlDeviceService: void setNfcState(int)>

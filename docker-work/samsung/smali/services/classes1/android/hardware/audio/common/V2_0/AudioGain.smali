@@ -1,0 +1,826 @@
+.class public final Landroid/hardware/audio/common/V2_0/AudioGain;
+.super Ljava/lang/Object;
+.source "AudioGain.java"
+
+
+# instance fields
+.field public channelMask:I
+
+.field public defaultValue:I
+
+.field public maxRampMs:I
+
+.field public maxValue:I
+
+.field public minRampMs:I
+
+.field public minValue:I
+
+.field public mode:I
+
+.field public stepValue:I
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 2
+
+    .line 4
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    .line 5
+    iput v0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->mode:I
+
+    .line 6
+    iput v0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->channelMask:I
+
+    .line 7
+    iput v0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minValue:I
+
+    .line 8
+    iput v0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxValue:I
+
+    .line 9
+    iput v0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->defaultValue:I
+
+    .line 10
+    iput v0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->stepValue:I
+
+    .line 11
+    iput v0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minRampMs:I
+
+    .line 12
+    iput v0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxRampMs:I
+
+    return-void
+.end method
+
+.method public static final readVectorFromParcel(Landroid/os/HwParcel;)Ljava/util/ArrayList;
+    .registers 13
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/HwParcel;",
+            ")",
+            "Ljava/util/ArrayList<",
+            "Landroid/hardware/audio/common/V2_0/AudioGain;",
+            ">;"
+        }
+    .end annotation
+
+    .line 96
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    const-wide/16 v1, 0x10
+
+    .line 97
+    invoke-virtual {p0, v1, v2}, Landroid/os/HwParcel;->readBuffer(J)Landroid/os/HwBlob;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x8
+
+    .line 100
+    invoke-virtual {v1, v2, v3}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result v2
+
+    mul-int/lit8 v3, v2, 0x20
+
+    int-to-long v5, v3
+
+    .line 102
+    invoke-virtual {v1}, Landroid/os/HwBlob;->handle()J
+
+    move-result-wide v7
+
+    const-wide/16 v9, 0x0
+
+    const/4 v11, 0x1
+
+    move-object v4, p0
+
+    .line 101
+    invoke-virtual/range {v4 .. v11}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
+
+    move-result-object v1
+
+    .line 105
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    const/4 v3, 0x0
+
+    :goto_24
+    if-ge v3, v2, :cond_37
+
+    .line 107
+    new-instance v4, Landroid/hardware/audio/common/V2_0/AudioGain;
+
+    invoke-direct {v4}, Landroid/hardware/audio/common/V2_0/AudioGain;-><init>()V
+
+    mul-int/lit8 v5, v3, 0x20
+
+    int-to-long v5, v5
+
+    .line 108
+    invoke-virtual {v4, p0, v1, v5, v6}, Landroid/hardware/audio/common/V2_0/AudioGain;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
+
+    .line 109
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_24
+
+    :cond_37
+    return-object v0
+.end method
+
+.method public static final writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
+    .registers 9
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/HwParcel;",
+            "Ljava/util/ArrayList<",
+            "Landroid/hardware/audio/common/V2_0/AudioGain;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 136
+    new-instance v0, Landroid/os/HwBlob;
+
+    const/16 v1, 0x10
+
+    invoke-direct {v0, v1}, Landroid/os/HwBlob;-><init>(I)V
+
+    .line 138
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    const-wide/16 v2, 0x8
+
+    .line 139
+    invoke-virtual {v0, v2, v3, v1}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    const-wide/16 v2, 0xc
+
+    const/4 v4, 0x0
+
+    .line 140
+    invoke-virtual {v0, v2, v3, v4}, Landroid/os/HwBlob;->putBool(JZ)V
+
+    .line 141
+    new-instance v2, Landroid/os/HwBlob;
+
+    mul-int/lit8 v3, v1, 0x20
+
+    invoke-direct {v2, v3}, Landroid/os/HwBlob;-><init>(I)V
+
+    :goto_1d
+    if-ge v4, v1, :cond_2e
+
+    .line 143
+    invoke-virtual {p1, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/hardware/audio/common/V2_0/AudioGain;
+
+    mul-int/lit8 v5, v4, 0x20
+
+    int-to-long v5, v5
+
+    invoke-virtual {v3, v2, v5, v6}, Landroid/hardware/audio/common/V2_0/AudioGain;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_1d
+
+    :cond_2e
+    const-wide/16 v3, 0x0
+
+    .line 145
+    invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
+
+    .line 148
+    invoke-virtual {p0, v0}, Landroid/os/HwParcel;->writeBuffer(Landroid/os/HwBlob;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final equals(Ljava/lang/Object;)Z
+    .registers 6
+
+    const/4 v0, 0x1
+
+    if-ne p0, p1, :cond_4
+
+    return v0
+
+    :cond_4
+    const/4 v1, 0x0
+
+    if-nez p1, :cond_8
+
+    return v1
+
+    .line 22
+    :cond_8
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    const-class v3, Landroid/hardware/audio/common/V2_0/AudioGain;
+
+    if-eq v2, v3, :cond_11
+
+    return v1
+
+    .line 25
+    :cond_11
+    check-cast p1, Landroid/hardware/audio/common/V2_0/AudioGain;
+
+    .line 26
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->mode:I
+
+    iget v3, p1, Landroid/hardware/audio/common/V2_0/AudioGain;->mode:I
+
+    if-eq v2, v3, :cond_1a
+
+    return v1
+
+    .line 29
+    :cond_1a
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->channelMask:I
+
+    iget v3, p1, Landroid/hardware/audio/common/V2_0/AudioGain;->channelMask:I
+
+    if-eq v2, v3, :cond_21
+
+    return v1
+
+    .line 32
+    :cond_21
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minValue:I
+
+    iget v3, p1, Landroid/hardware/audio/common/V2_0/AudioGain;->minValue:I
+
+    if-eq v2, v3, :cond_28
+
+    return v1
+
+    .line 35
+    :cond_28
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxValue:I
+
+    iget v3, p1, Landroid/hardware/audio/common/V2_0/AudioGain;->maxValue:I
+
+    if-eq v2, v3, :cond_2f
+
+    return v1
+
+    .line 38
+    :cond_2f
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->defaultValue:I
+
+    iget v3, p1, Landroid/hardware/audio/common/V2_0/AudioGain;->defaultValue:I
+
+    if-eq v2, v3, :cond_36
+
+    return v1
+
+    .line 41
+    :cond_36
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->stepValue:I
+
+    iget v3, p1, Landroid/hardware/audio/common/V2_0/AudioGain;->stepValue:I
+
+    if-eq v2, v3, :cond_3d
+
+    return v1
+
+    .line 44
+    :cond_3d
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minRampMs:I
+
+    iget v3, p1, Landroid/hardware/audio/common/V2_0/AudioGain;->minRampMs:I
+
+    if-eq v2, v3, :cond_44
+
+    return v1
+
+    .line 47
+    :cond_44
+    iget p0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxRampMs:I
+
+    iget p1, p1, Landroid/hardware/audio/common/V2_0/AudioGain;->maxRampMs:I
+
+    if-eq p0, p1, :cond_4b
+
+    return v1
+
+    :cond_4b
+    return v0
+.end method
+
+.method public final hashCode()I
+    .registers 4
+
+    const/16 v0, 0x8
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    .line 55
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->mode:I
+
+    .line 56
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->channelMask:I
+
+    .line 57
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minValue:I
+
+    .line 58
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxValue:I
+
+    .line 59
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->defaultValue:I
+
+    .line 60
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->stepValue:I
+
+    .line 61
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minRampMs:I
+
+    .line 62
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    iget p0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxRampMs:I
+
+    .line 63
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    invoke-static {p0}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    const/4 v1, 0x7
+
+    aput-object p0, v0, v1
+
+    .line 55
+    invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
+    .registers 7
+
+    const-wide/16 v0, 0x0
+
+    add-long/2addr v0, p3
+
+    .line 118
+    invoke-virtual {p2, v0, v1}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result p1
+
+    iput p1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->mode:I
+
+    const-wide/16 v0, 0x4
+
+    add-long/2addr v0, p3
+
+    .line 119
+    invoke-virtual {p2, v0, v1}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result p1
+
+    iput p1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->channelMask:I
+
+    const-wide/16 v0, 0x8
+
+    add-long/2addr v0, p3
+
+    .line 120
+    invoke-virtual {p2, v0, v1}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result p1
+
+    iput p1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minValue:I
+
+    const-wide/16 v0, 0xc
+
+    add-long/2addr v0, p3
+
+    .line 121
+    invoke-virtual {p2, v0, v1}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result p1
+
+    iput p1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxValue:I
+
+    const-wide/16 v0, 0x10
+
+    add-long/2addr v0, p3
+
+    .line 122
+    invoke-virtual {p2, v0, v1}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result p1
+
+    iput p1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->defaultValue:I
+
+    const-wide/16 v0, 0x14
+
+    add-long/2addr v0, p3
+
+    .line 123
+    invoke-virtual {p2, v0, v1}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result p1
+
+    iput p1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->stepValue:I
+
+    const-wide/16 v0, 0x18
+
+    add-long/2addr v0, p3
+
+    .line 124
+    invoke-virtual {p2, v0, v1}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result p1
+
+    iput p1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minRampMs:I
+
+    const-wide/16 v0, 0x1c
+
+    add-long/2addr p3, v0
+
+    .line 125
+    invoke-virtual {p2, p3, p4}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result p1
+
+    iput p1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxRampMs:I
+
+    return-void
+.end method
+
+.method public final readFromParcel(Landroid/os/HwParcel;)V
+    .registers 5
+
+    const-wide/16 v0, 0x20
+
+    .line 91
+    invoke-virtual {p1, v0, v1}, Landroid/os/HwParcel;->readBuffer(J)Landroid/os/HwBlob;
+
+    move-result-object v0
+
+    const-wide/16 v1, 0x0
+
+    .line 92
+    invoke-virtual {p0, p1, v0, v1, v2}, Landroid/hardware/audio/common/V2_0/AudioGain;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
+
+    return-void
+.end method
+
+.method public final toString()Ljava/lang/String;
+    .registers 3
+
+    .line 68
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "{"
+
+    .line 69
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ".mode = "
+
+    .line 70
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 71
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->mode:I
+
+    invoke-static {v1}, Landroid/hardware/audio/common/V2_0/AudioGainMode;->toString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .channelMask = "
+
+    .line 72
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 73
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->channelMask:I
+
+    invoke-static {v1}, Landroid/hardware/audio/common/V2_0/AudioChannelMask;->toString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .minValue = "
+
+    .line 74
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 75
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minValue:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .maxValue = "
+
+    .line 76
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 77
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxValue:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .defaultValue = "
+
+    .line 78
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 79
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->defaultValue:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .stepValue = "
+
+    .line 80
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 81
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->stepValue:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .minRampMs = "
+
+    .line 82
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 83
+    iget v1, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minRampMs:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .maxRampMs = "
+
+    .line 84
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 85
+    iget p0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxRampMs:I
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string/jumbo p0, "}"
+
+    .line 86
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 87
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+    .registers 7
+
+    const-wide/16 v0, 0x0
+
+    add-long/2addr v0, p2
+
+    .line 153
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->mode:I
+
+    invoke-virtual {p1, v0, v1, v2}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    const-wide/16 v0, 0x4
+
+    add-long/2addr v0, p2
+
+    .line 154
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->channelMask:I
+
+    invoke-virtual {p1, v0, v1, v2}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    const-wide/16 v0, 0x8
+
+    add-long/2addr v0, p2
+
+    .line 155
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minValue:I
+
+    invoke-virtual {p1, v0, v1, v2}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    const-wide/16 v0, 0xc
+
+    add-long/2addr v0, p2
+
+    .line 156
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxValue:I
+
+    invoke-virtual {p1, v0, v1, v2}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    const-wide/16 v0, 0x10
+
+    add-long/2addr v0, p2
+
+    .line 157
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->defaultValue:I
+
+    invoke-virtual {p1, v0, v1, v2}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    const-wide/16 v0, 0x14
+
+    add-long/2addr v0, p2
+
+    .line 158
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->stepValue:I
+
+    invoke-virtual {p1, v0, v1, v2}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    const-wide/16 v0, 0x18
+
+    add-long/2addr v0, p2
+
+    .line 159
+    iget v2, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->minRampMs:I
+
+    invoke-virtual {p1, v0, v1, v2}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    const-wide/16 v0, 0x1c
+
+    add-long/2addr p2, v0
+
+    .line 160
+    iget p0, p0, Landroid/hardware/audio/common/V2_0/AudioGain;->maxRampMs:I
+
+    invoke-virtual {p1, p2, p3, p0}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    return-void
+.end method
+
+.method public final writeToParcel(Landroid/os/HwParcel;)V
+    .registers 5
+
+    .line 129
+    new-instance v0, Landroid/os/HwBlob;
+
+    const/16 v1, 0x20
+
+    invoke-direct {v0, v1}, Landroid/os/HwBlob;-><init>(I)V
+
+    const-wide/16 v1, 0x0
+
+    .line 130
+    invoke-virtual {p0, v0, v1, v2}, Landroid/hardware/audio/common/V2_0/AudioGain;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+
+    .line 131
+    invoke-virtual {p1, v0}, Landroid/os/HwParcel;->writeBuffer(Landroid/os/HwBlob;)V
+
+    return-void
+.end method

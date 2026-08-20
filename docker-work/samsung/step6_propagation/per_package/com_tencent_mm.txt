@@ -1,0 +1,1698 @@
+######################################################################
+# Propagation: com.tencent.mm
+######################################################################
+
+JARs:                 duraspeed, framework, semwifi-service, services
+Classes:              9
+Occurrences:          9
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        APPOPS, PERM_CHECK, PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.collector.q
+  Method:   <com.mediatek.duraspeed.collector.q: void <clinit>()>
+  Line:     155
+  Register: v31 := "com.tencent.mm"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1306
+  Register: v28 := "com.tencent.mm"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils
+  Method:   <com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils: void <clinit>()>
+  Line:     151
+  Register: v8 := "com.tencent.mm"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v9}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Debug.semIsProductDev()
+      → SemFloatingFeature.getBoolean()
+      → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+  Line:     3486
+  Register: v15 := "com.tencent.mm"
+  Usage:    [invoke] invoke-static {v15}, Lcom/android/server/DualAppManagerService;->isInstalledWhitelistedPackageIntern
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.DualAppManagerService.isInstalledWhitelis → [other] move-result v2 → [branch] if-eqz v2, :co
+
+  CALLERS (who invokes this method):
+      ← DualAppManagerService.startDAChooserActivity()
+      ← ActivityStartController.startActivityInPackage()
+        ← ActivityTaskManagerService.startActivityAsUser()
+        ← ActivityTaskManagerService$LocalService.startActivityInPackage()
+        ← ActivityTaskSupervisor.startActivityFromRecents()
+        ← DexCompatController.startActivityAsToggleFreeform()
+          ← <com.android.server.wm.ActivityTaskManagerService: int -$$Ne
+          ← ActivityTaskManagerService.startActivityAsUser()
+          ← ActivityTaskManagerService.startActivityFromRecents()
+          ← AppTaskImpl.moveToFront()
+          ← <com.android.server.wm.RestartAppPolicy: void lambda$restart
+          ← <com.android.server.wm.WindowOrganizerController: int lambda
+          ← <com.android.server.wm.DexCompatController: void -$$Nest$mst
+            ← ActivityTaskManagerService$LocalService.startActivityAsUser()
+            ← ActivityManagerService.startActivityAsUserWithFeature()
+            ← ActivityTaskManagerService.startActivity()
+            ← ActivityTaskManagerServiceExt.startAppLockActivity()
+            ← AppContinuityGuideConfirmDialog$ClingWindowView.startSettingActivity()
+            ← ActivityManagerService.startActivityFromRecents()
+            ← DexController.bringTaskToForeground()
+            ← DexMetaKeyPolicy$MetaKeyBoundsProvider.applyBounds()
+            ← <com.android.server.wm.StartActivityFromRecentsInfo: void la
+            ← <com.android.server.wm.RestartAppPolicy: void $r8$lambda$VPi
+            ← <com.android.server.wm.WindowOrganizerController: int $r8$la
+            ← DexCompatController$H.handleMessage()
+              ← ActivityManagerService.startActivityAsUser()
+              ← ActivityManagerShellCommand.runStartActivity()
+              ← ActivityManagerService.startActivity()
+              ← ActivityManagerService.startActivityWithFeature()
+              ← ActivityTaskManagerService.setResumedActivityUncheckLocked()
+              ← KeyguardController.keyguardGoingAway()
+              ← <com.android.server.wm.AppContinuityGuideConfirmDialog$Cling
+              ← AppErrors.crashApplicationInner()
+              ← ActivityTaskManagerService$LocalService.bringTaskToForeground()
+              ← DexMetaKeyPolicy.handleMetaKeyEvent()
+              ← <com.android.server.wm.StartActivityFromRecentsInfo: void $r
+              ← RestartAppPolicy$$ExternalSyntheticLambda0.run()
+              ← WindowOrganizerController$$ExternalSyntheticLambda10.getAsInt()
+
+  CALLEES (what this method invokes):
+      → ComponentName.equals()
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getString()
+      → Intent.getComponent()
+      → Intent.addFlags()
+      → Intent.createChooser()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → Intent.getData()
+      → Intent.hasCategory()
+      → Intent.getAction()
+      → Intent.getDataString()
+      → Intent.getPackage()
+      → Intent.getType()
+      → <android.content.Intent: void <init>()>
+      → Uri.getScheme()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Log.d()
+      → DualAppManagerService.isInstalledWhitelistedPackageInternal()
+      → DualAppManagerService.mayForwardShare()
+      → DualAppManagerService.changeUriForDualApp()
+      → SemDualAppManager.isChinaDualApp()
+      → SemDualAppManager.isChooserRequired()
+      → SemDualAppManager.isDualAppId()
+      → Exception.printStackTrace()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+      → List.size()
+      → List.toArray()
+        → Log.println_native()
+        → Log.e()
+        → HashMap.containsKey()
+        → Intent.putExtra()
+        → Intent.setAction()
+        → Intent.getExtras()
+        → Intent.clone()
+        → Bundle.getParcelable()
+        → TextUtils.isEmpty()
+        → DualAppManagerService.hasExternalAppDirPath()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → ClipData.fixUris()
+        → ContentProvider.maybeAddUserId()
+        → Intent.getClipData()
+        → Intent.putExtra()
+        → Intent.setDataAndType()
+        → Intent.getExtra()
+        → Intent.getParcelableArrayListExtra()
+        → SemDualAppManager.shouldAddUserId()
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+          → CharSequence.length()
+          → ClipData.collectUris()
+          → Uri.getPath()
+          → List.iterator()
+          → Intent.fixUris()
+          → ArrayList.get()
+          → Uri.getAuthority()
+            → ClipData$Item.getIntent()
+            → ClipData$Item.getUri()
+            → ClipData.getItemAt()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerServiceExt
+  Method:   <com.android.server.am.ActivityManagerServiceExt: void <init>(android.content.Context,com.android.server.am.ActivityManagerService)>
+  Line:     669
+  Register: p0 := "com.tencent.mm"
+  Usage:    [invoke] invoke-interface {v1, p0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.add() → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.ActivityManagerService: void <init>(a
+      ← <com.android.server.am.ActivityManagerService: void <init>(c
+        ← <com.android.server.am.ActivityManagerService$Lifecycle: voi
+
+  CALLEES (what this method invokes):
+      → <android.util.ArrayMap: void <init>()>
+      → BackgroundThread.getLooper()
+      → BackgroundThread.get()
+      → <com.android.server.am.ActivityManagerServiceExt$1: void <in
+      → <com.android.server.am.ActivityManagerServiceExt$2: void <in
+      → <com.android.server.am.ActivityManagerServiceExt$BgHandler: 
+      → <com.android.server.am.ActivityManagerServiceExt$LocaleChang
+      → <com.android.server.am.ActivityManagerServiceExt$MetaDataCol
+      → <com.android.server.am.ActivityManagerServiceExt$MetaDataCol
+      → ActivityManagerServiceExt.initRelaxedBroadcastActions()
+      → Lists.newArrayList()
+      → BroadcastReceiverListParser.parseAllowList()
+      → <com.samsung.android.core.pm.BroadcastReceiverListParserWith
+      → PackageFeature.registerCallback()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>()>
+      → List.of()
+      → Optional.empty()
+      → Set.add()
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+        → BackgroundThread.ensureThreadLocked()
+        → <android.os.Handler: void <init>(android.os.Looper,android.o
+        → <com.android.server.am.ActivityManagerServiceExt$LocaleChang
+        → ActivityManagerServiceExt$MetaDataCollector.scheduleLoad()
+        → <com.android.server.am.ActivityManagerServiceExt$MetaDataCol
+        → Context.getResources()
+        → Resources.getStringArray()
+        → <java.util.HashSet: void <init>(java.util.Collection)>
+        → <java.util.ArrayList: void <init>(int)>
+        → Collections.addAll()
+        → BroadcastReceiverListParser.parseAllowList()
+        → <com.samsung.android.core.pm.BroadcastReceiverListParser: vo
+        → PackageFeatureController.registerCallback()
+        → List.add()
+          → ArrayMap.allocArrays()
+          → <android.os.Handler: void <init>(android.os.Looper)>
+          → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+          → Looper.setSlowLogThresholdMs()
+          → Looper.setTraceTag()
+          → <com.android.internal.os.BackgroundThread: void <init>()>
+          → BackgroundThread.start()
+          → <java.lang.ThreadLocal: void <init>()>
+          → <java.text.SimpleDateFormat: void <init>(java.lang.String)>
+          → <java.util.Date: void <init>()>
+          → Handler.postDelayed()
+          → Handler.removeCallbacks()
+          → <com.android.server.am.ActivityManagerServiceExt$MetaDataCol
+          → <com.android.server.am.ActivityManagerServiceExt$MetaDataCol
+          → <java.util.HashMap: void <init>()>
+          → BroadcastReceiverListParser.parseAllowListInternal()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → Preconditions.checkNotNull()
+            → <android.os.HandlerThread: void <init>(java.lang.String,int)
+            → <android.content.BroadcastReceiver: void <init>()>
+            → Environment.getRootDirectory()
+            → TextUtils.isEmpty()
+            → Xml.newPullParser()
+            → BroadcastReceiverListParser.parseAllowListElement()
+            → File.exists()
+            → <java.io.File: void <init>(java.lang.String)>
+            → <java.io.FileInputStream: void <init>(java.io.File)>
+            → FileInputStream.close()
+            → Throwable.addSuppressed()
+            → XmlPullParser.setInput()
+              → <java.lang.Thread: void <init>(java.lang.String)>
+              → CharSequence.length()
+              → <java.lang.AssertionError: void <init>()>
+              → XmlObjectFactory.newXmlPullParser()
+              → XmlPullParser.setFeature()
+              → BroadcastReceiverListParser.parseMetadataElement()
+              → BroadcastReceiverListParser.parseIntents()
+              → BroadcastReceiverListParser.parsePackages()
+              → Iterator.hasNext()
+              → Iterator.next()
+              → List.addAll()
+              → List.iterator()
+              → Map.put()
+              → XmlPullParser.getDepth()
+              → XmlPullParser.next()
+              → XmlPullParser.getAttributeValue()
+              → XmlPullParser.getName()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.AudioService
+  Method:   <com.android.server.audio.AudioService: void startBluetoothScoInt(android.os.IBinder,int,int,java.lang.String)>
+  Line:     48646
+  Register: v2 := "com.tencent.mm"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [invoke] android.os.Binder.restoreCallingIdentity()
+
+  CALLERS (who invokes this method):
+      ← AudioService.startBluetoothSco()
+      ← AudioService.startBluetoothScoVirtualCall()
+
+  CALLEES (what this method invokes):
+      → MediaMetrics$Item.set()
+      → MediaMetrics$Item.record()
+      → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → AudioDeviceBroker.isOnlyWatchConnected()
+      → AudioDeviceBroker.startBluetoothScoForClient()
+      → AudioService.checkAudioSettingsPermission()
+      → AudioService.getPackageName()
+      → BtHelper.scoAudioModeToString()
+        → MediaMetrics$Item.putDouble()
+        → MediaMetrics$Item.putInt()
+        → MediaMetrics$Item.putLong()
+        → MediaMetrics$Item.putString()
+        → MediaMetrics$Key.getName()
+        → MediaMetrics$Item.updateHeader()
+        → <android.media.MediaMetrics: int -$$Nest$smnative_submit_byt
+        → ByteBuffer.limit()
+        → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+        → BtHelper.isOnlyWatchConnected()
+        → <android.media.AudioDeviceAttributes: void <init>(int,java.l
+        → <com.android.server.audio.AudioDeviceBroker$CommunicationCli
+        → AudioDeviceBroker.postSetCommunicationRouteForClient()
+        → Binder.getCallingPid() [UID_CHECK]
+        → AudioService.callingOrSelfHasAudioSettingsPermission()
+        → PackageManager.getPackagesForUid()
+          → MediaMetrics$Item.reserveProperty()
+          → <android.media.MediaMetrics: java.nio.charset.Charset -$$Nes
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → ByteBuffer.position()
+          → ByteBuffer.put()
+          → ByteBuffer.put()
+          → ByteBuffer.putChar()
+          → ByteBuffer.putDouble()
+          → ByteBuffer.putInt()
+          → ByteBuffer.putLong()
+          → ByteBuffer.putInt()
+          → MediaMetrics.native_submit_bytebuffer()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → ByteBuffer.allocateDirect()
+          → ByteBuffer.order()
+          → ByteOrder.nativeOrder()
+          → BluetoothHeadset.getConnectedDevices()
+          → BtHelper.isSamsungWatch()
+          → List.size()
+          → List.get()
+          → <android.media.AudioDeviceAttributes: void <init>(int,java.l
+          → AudioDeviceBroker.sendLMsgNoDelay()
+          → Context.checkCallingOrSelfPermission()
+            → ByteBuffer.remaining()
+            → ByteBuffer.flip()
+            → ByteBuffer.put()
+            → BtHelper.isSamsungWatchType()
+            → BtHelper.isSamsungWatchUuid()
+            → AudioDeviceInfo.convertInternalDeviceToDeviceType()
+            → <java.util.ArrayList: void <init>()>
+            → AudioDeviceBroker.sendIILMsg()
+              → BluetoothHeadset.getSamsungHandsfreeDeviceType()
+              → BluetoothDevice.getUuids()
+              → ArrayUtils.contains()
+              → SparseIntArray.get()
+              → Handler.obtainMessage()
+              → Handler.hasMessages()
+              → Handler.sendMessageAtTime()
+              → Handler.removeMessages()
+              → PowerManager$WakeLock.acquire()
+              → SystemClock.uptimeMillis()
+              → AudioDeviceBroker.isMessageHandledUnderWakelock()
+              → AudioDeviceBroker.checkMessagesMuteMusic()
+              → Set.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.MediaFocusControl
+  Method:   <com.android.server.audio.MediaFocusControl: void <clinit>()>
+  Line:     322
+  Register: v0 := "com.tencent.mm"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <com.android.server.audio.AudioEventLogger: void <init>(int,
+        → <java.util.LinkedList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.ActivityStartController
+  Method:   <com.android.server.wm.ActivityStartController: int startActivityInPackage(int,int,int,java.lang.String,java.lang.String,android.content.Intent,java.lang.String,android.os.IBinder,java.lang.String,int,int,com.android.server.wm.SafeActivityOptions,int,com.android.server.wm.Task,java.lang.String,boolean,com.android.server.am.PendingIntentRecord,boolean)>
+  Line:     1914
+  Register: v3 := "com.tencent.mm"
+  Usage:    [invoke] invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← ActivityTaskManagerService$LocalService.startActivityInPackage()
+      ← ActivityTaskSupervisor.startActivityFromRecents()
+      ← DexCompatController.startActivityAsToggleFreeform()
+        ← ActivityTaskManagerService.startActivityFromRecents()
+        ← AppTaskImpl.moveToFront()
+        ← <com.android.server.wm.RestartAppPolicy: void lambda$restart
+        ← <com.android.server.wm.WindowOrganizerController: int lambda
+        ← <com.android.server.wm.DexCompatController: void -$$Nest$mst
+          ← ActivityManagerService.startActivityFromRecents()
+          ← DexController.bringTaskToForeground()
+          ← DexMetaKeyPolicy$MetaKeyBoundsProvider.applyBounds()
+          ← <com.android.server.wm.StartActivityFromRecentsInfo: void la
+          ← <com.android.server.wm.RestartAppPolicy: void $r8$lambda$VPi
+          ← <com.android.server.wm.WindowOrganizerController: int $r8$la
+          ← DexCompatController$H.handleMessage()
+            ← AppErrors.crashApplicationInner()
+            ← ActivityTaskManagerService$LocalService.bringTaskToForeground()
+            ← DexMetaKeyPolicy.handleMetaKeyEvent()
+            ← <com.android.server.wm.StartActivityFromRecentsInfo: void $r
+            ← RestartAppPolicy$$ExternalSyntheticLambda0.run()
+            ← WindowOrganizerController$$ExternalSyntheticLambda10.getAsInt()
+              ← AppErrors.crashApplication()
+              ← StartActivityFromRecentsInfo$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → ActivityOptions.makeBasic()
+      → ActivityOptions.setLaunchDisplayId()
+      → ComponentName.getPackageName()
+      → Context.getSystemService()
+      → Intent.getComponent()
+      → Intent.getPackage()
+      → DisplayManager.getHiddenDisplayId()
+      → DisplayManager.getHiddenDisplayId()
+      → Handler.obtainMessage()
+      → Handler.sendMessage()
+      → UserHandle.getUserId()
+      → DualAppManagerService.startDAChooserActivity()
+      → DualAppManagerService.shouldForwardToOwner()
+      → ActivityStartController.obtainStarter()
+      → ActivityStartController.checkTargetUser()
+      → ActivityStarter.setActivityOptions()
+      → ActivityStarter.setAllowBackgroundActivityStart()
+      → ActivityStarter.setCallingFeatureId()
+      → ActivityStarter.setCallingPackage()
+      → ActivityStarter.setCallingUid()
+      → ActivityStarter.setInTask()
+      → ActivityStarter.setOriginatingPendingIntent()
+      → ActivityStarter.setRealCallingPid()
+      → ActivityStarter.setRealCallingUid()
+      → ActivityStarter.setRequestCode()
+      → ActivityStarter.setResolvedType()
+      → ActivityStarter.setResultTo()
+      → ActivityStarter.setResultWho()
+      → ActivityStarter.setStartFlags()
+      → ActivityStarter.setUserId()
+      → ActivityStarter.execute()
+      → ActivityTaskManagerService.isPossibleToStart()
+      → SafeActivityOptions.getOptions()
+      → <com.android.server.wm.SafeActivityOptions: void <init>(andr
+      → SemDualAppManager.isDualAppId()
+      → SemDualAppManager.getDualAppProfileId()
+        → <android.app.ActivityOptions: void <init>()>
+        → ComponentName.equals()
+        → ComponentName.getClassName()
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → Context.getString()
+        → Intent.addFlags()
+        → Intent.createChooser()
+        → Intent.putExtra()
+        → Intent.setClassName()
+        → Intent.getData()
+        → Intent.hasCategory()
+        → Intent.getAction()
+        → Intent.getDataString()
+        → Intent.getType()
+        → <android.content.Intent: void <init>()>
+        → Uri.getScheme()
+        → Binder.getCallingUid() [UID_CHECK]
+        → Log.d()
+        → DualAppManagerService.isInstalledWhitelistedPackageInternal()
+        → DualAppManagerService.mayForwardShare()
+        → DualAppManagerService.changeUriForDualApp()
+        → SemDualAppManager.isChinaDualApp()
+        → SemDualAppManager.isChooserRequired()
+        → Exception.printStackTrace()
+        → <java.util.ArrayList: void <init>()>
+        → List.add()
+        → List.size()
+        → List.toArray()
+        → Context.getPackageManager()
+        → PackageManager.getNameForUid()
+        → SemDualAppManager.isInstalledWhitelistedPackage()
+        → SemDualAppManager.isWhitelistedPackage()
+        → SemDualAppManager.getInstance()
+        → ActivityStarter$Factory.obtain()
+        → ActivityStarter.setIntent()
+        → ActivityStarter.setReason()
+        → ActivityManagerInternal.ensureNotSpecialUser()
+        → ActivityTaskManagerService.handleIncomingUser()
+        → ActivityManagerInternal.cancelDisablePolicy()
+        → ActivityManagerInternal.enforceCallingPermission()
+        → ActivityOptions.isActiveApplaunch()
+        → ActivityOptions.isMlLaunch()
+        → ActivityOptions.setActiveApplaunch()
+        → ActivityOptions.setMlLaunch()
+        → Intent.hasFileDescriptors()
+        → Configuration.diff()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → AppLockPolicy.isSupportSSecure()
+        → ProtoLogImpl.v()
+        → DualAppManagerService.changeInfoIfDeletingDualApp()
+        → DualAppManagerService.recordDaUsageCount()
+        → BaseRestrictionMgr.isRestrictedPackage()
+        → BaseRestrictionMgr.getInstance()
+        → Pageboost.onAppLaunch()
+        → Pageboost.stopActiveLaunch()
+        → AppPrelaunchManagerService.handleActivityExecution()
+        → AppPrelaunchManagerService.isAppPrelaunched()
+        → AppPrelaunchManagerService.isAppPrelaunched()
+        → ShutdownCheckPoints.recordCheckPoint()
+        → ActivityMetricsLogger.notifyActivityLaunching()
+        → ActivityMetricsLogger.notifyActivityLaunched()
+        → ActivityRecord.forTokenLocked()
+        → ActivityStarter$Request.resolveActivity()
+        → ActivityStarter.executeRequest()
+        → ActivityStarter.getExternalResult()
+        → ActivityStarter.resolveToHeavyWeightSwitcherIfNeeded()
+        → ActivityStarter.waitResultIfNeeded()
+        → ActivityStarter.onExecutionComplete()
+        → ActivityTaskManagerService.getGlobalConfiguration()
+        → ActivityTaskManagerService.isAppLockedPackage()
+        → ActivityTaskManagerService.updateConfigurationLocked()
+        → ActivityTaskManagerService.startProcessAsyncForActiveLaunch()
+        → ActivityTaskSupervisor.getActivityMetricsLogger()
+        → ConfigurationContainer.inSplitScreenWindowingMode()
+        → RootWindowContainer.getTopDisplayFocusedRootTask()
+        → SafeActivityOptions.getOriginalOptions()
+        → Task.reparent()
+        → TaskFragment.topRunningActivity()
+        → TaskOrganizerController.preloadSplashScreenAppIcon()
+        → WindowContainer.getTaskDisplayArea()
+        → WindowManagerService.boostPriorityForLockedSection()
+        → WindowManagerService.resetPriorityAfterLockedSection()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → HashMap.containsKey()
+        → HashMap.get()
+        → HashMap.entrySet()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Map$Entry.getKey()
+        → Map$Entry.getValue()
+        → Set.iterator()
+        → SafeActivityOptions.getOptions()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Debug.getCallers()
+        → SystemProperties.get()
+          → <android.app.ComponentOptions: void <init>()>
+          → Log.println_native()
+          → Log.e()
+          → Intent.putExtra()
+          → Intent.setAction()
+          → Intent.getExtras()
+          → Intent.clone()
+          → Bundle.getParcelable()
+          → TextUtils.isEmpty()
+          → DualAppManagerService.hasExternalAppDirPath()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → ClipData.fixUris()
+          → ContentProvider.maybeAddUserId()
+          → Intent.getClipData()
+          → Intent.putExtra()
+          → Intent.setDataAndType()
+          → Intent.getExtra()
+          → Intent.getParcelableArrayListExtra()
+          → SemDualAppManager.shouldAddUserId()
+          → ArrayList.add()
+          → ArrayList.size()
+          → ArrayList.iterator()
+          → UserHandle.myUserId()
+          → ISemDualAppManager.isInstalledWhitelistedPackage()
+          → SemDualAppManager.isDualAppIdInternal()
+          → SemDualAppManager.getDualAppService()
+          → SemDualAppManager.getAllWhitelistedPackages()
+          → <com.samsung.android.app.SemDualAppManager: void <init>()>
+          → ActivityManagerInternal.handleIncomingUser()
+          → ProtoLogImpl.getSingleInstance()
+          → ProtoLogImpl.log()
+          → Intent.putExtra()
+          → Intent.putExtra()
+          → Intent.getParcelableExtra()
+          → <android.content.Intent: void <init>(android.content.Intent)
+          → PackageManager.resolveActivityAsUser()
+          → Uri.getSchemeSpecificPart()
+          → UserHandle.getIdentifier()
+          → SemDualAppManager.isSamsungLauncher()
+          → DualAppManagerService.sendInternalMsg()
+          → BaseRestrictionMgr.isRestrictedPackage()
+          → <com.android.server.am.BaseRestrictionMgr$BaseRestrictionMgr
+          → Pageboost$PageboostAppCapture.isRecordingCapture()
+          → Pageboost.isPageboostMinimized()
+          → Pageboost.sendMessageWithObject()
+          → Pageboost.sendMessage()
+          → AppPrelaunchService.handleActivityExecution()
+          → AppPrelaunchService.isAppPrelaunched()
+          → AppPrelaunchService.isAppPrelaunched()
+          → ShutdownCheckPoints.recordCheckPointInternal()
+          → SystemClock.elapsedRealtimeNanos()
+          → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+          → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+          → ActivityMetricsLogger$TransitionInfo.contains()
+          → ActivityMetricsLogger.launchObserverNotifyIntentStarted()
+          → ActivityRecord.getUid()
+          → ArrayList.get()
+          → ArrayMap.put()
+          → ArrayMap.remove()
+          → ActivityManagerPerformance.onAppLaunch()
+          → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+          → ActivityMetricsLogger$TransitionInfo.canCoalesce()
+          → ActivityMetricsLogger$TransitionInfo.isInterestingToLoggerAndObserver()
+          → ActivityMetricsLogger$TransitionInfo.create()
+          → ActivityMetricsLogger$TransitionInfo.setLatestLaunchedActivity()
+          → ActivityMetricsLogger.abort()
+          → ActivityMetricsLogger.launchObserverNotifyActivityLaunched()
+          → ActivityMetricsLogger.launchObserverNotifyIntentFailed()
+          → ActivityMetricsLogger.scheduleCheckActivityToBeDrawn()
+          → ActivityMetricsLogger.scheduleCheckActivityToBeDrawnIfSleeping()
+          → ActivityMetricsLogger.startLaunchTrace()
+          → ActivityMetricsLogger.stopLaunchTrace()
+          → ActivityRecord.isReportedDrawn()
+          → ActivityRecord.isVisible()
+          → ActivityTaskManagerService.getProcessController()
+          → WindowProcessController.hasStartedActivity()
+          → ActivityRecord.getRootTask()
+          → WeakReference.get()
+          → Intent.setComponent()
+          → PackageManagerInternal.isInstantAppInstallerComponent()
+          → UserInfo.isManagedProfile()
+          → UserManager.getProfileParent()
+          → UserManager.get()
+          → UserManager.isUserUnlockingOrUnlocked()
+          → UriGrantsManagerInternal.checkGrantUriPermissionFromIntent()
+          → ActivityStarter.computeResolveFilterUid()
+          → ActivityTaskManagerService.getPackageManagerInternalLocked()
+          → ActivityTaskManagerService.getProcessController()
+          → ActivityTaskSupervisor.resolveActivity()
+          → ActivityTaskSupervisor.resolveIntent()
+          → ActivityTaskSupervisor.getUserInfo()
+          → ActivityOptions.toBundle()
+          → ActivityOptions.getLaunchRootTask()
+          → ActivityOptions.abort()
+          → IActivityController.activityStarting()
+          → Context.getUserId()
+          → Intent.addCategory()
+          → Intent.cloneFilter()
+          → Intent.putExtra()
+          → Intent.putExtra()
+          → Intent.setFlags()
+          → Intent.setPackage()
+          → Intent.getFlags()
+          → Intent.getIntExtra()
+          → Intent.toShortString()
+          → Intent.toString()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → <android.content.IntentSender: void <init>(android.content.I
+          → IPackageManager.activitySupportsIntent()
+          → PackageManagerInternal.isPermissionsReviewRequired()
+          → Process.myPid()
+          → Trace.traceBegin()
+          → Trace.traceEnd()
+          → AuditLog.logAsUser()
+          → AppLockPolicy.isActivityInExceptionList()
+          → AppLockPolicy.skipLockWhenStart()
+          → IntentFirewall.checkStartActivity()
+          → PermissionPolicyInternal.checkStartActivity()
+          → ActivityRecord$Builder.build()
+          → ActivityRecord$Builder.setActivityInfo()
+          → ActivityRecord$Builder.setActivityOptions()
+          → ActivityRecord$Builder.setCaller()
+          → ActivityRecord$Builder.setComponentSpecified()
+          → ActivityRecord$Builder.setConfiguration()
+          → ActivityRecord$Builder.setIntent()
+          → ActivityRecord$Builder.setLaunchedFromFeature()
+          → ActivityRecord$Builder.setLaunchedFromPackage()
+          → ActivityRecord$Builder.setLaunchedFromPid()
+          → ActivityRecord$Builder.setLaunchedFromUid()
+          → ActivityRecord$Builder.setRequestCode()
+          → ActivityRecord$Builder.setResolvedType()
+          → ActivityRecord$Builder.setResultTo()
+          → ActivityRecord$Builder.setResultWho()
+          → ActivityRecord$Builder.setRootVoiceInteraction()
+          → ActivityRecord$Builder.setSourceRecord()
+          → <com.android.server.wm.ActivityRecord$Builder: void <init>(c
+          → ActivityRecord.canShowWhenLocked()
+          → ActivityRecord.isInRootTaskLocked()
+          → ActivityRecord.isInAnyTask()
+          → ActivityRecord.getTask()
+          → ActivityRecord.removeResultsLocked()
+          → ActivityRecord.sendResult()
+          → ActivityRecord.setLaunchingRequestFromNotification()
+          → ActivityStartController.getPendingRemoteAnimationRegistry()
+          → ActivityStartInterceptor.hasAliasActivity()
+          → ActivityStartInterceptor.intercept()
+          → ActivityStartInterceptor.setStates()
+          → ActivityStarter.createLaunchIntent()
+          → ActivityStarter.shouldAbortBackgroundActivityStart()
+          → ActivityStarter.checkStartActivityAllowedByEDM()
+          → ActivityStarter.startActivityUnchecked()
+          → ActivityTaskManagerService.getIntentSenderLocked()
+          → ActivityTaskManagerService.getPackageManager()
+          → ActivityTaskManagerService.isAppLockedVerifying()
+          → ActivityTaskManagerService.getPermissionPolicyInternal()
+          → ActivityTaskManagerService.getActivityStartController()
+          → ActivityTaskManagerService.getAppLockedCheckAction()
+          → ActivityTaskManagerService.resumeAppSwitches()
+          → ActivityTaskManagerServiceExt.isSmRccOpen()
+          → ActivityTaskManagerServiceExt.isSmRccPkg()
+          → ActivityTaskManagerServiceExt.getSmRccAction()
+          → ActivityTaskManagerServiceExt.resetSmRccOpen()
+          → ActivityTaskSupervisor.checkStartAnyActivityPermission()
+          → PendingRemoteAnimationRegistry.overrideOptionsIfNeeded()
+          → SafeActivityOptions.popAppVerificationBundle()
+          → SafeActivityOptions.abort()
+          → Task.fromWindowContainerToken()
+          → TaskFragment.isEmbedded()
+          → TaskFragment.getDisplayId()
+          → WindowProcessController.getPid()
+          → WindowProcessControllerMap.getProcess()
+          → SemPersonaManager.isKnoxId()
+          → ActivityManagerInternal.getActivityInfoForUser()
+          → WindowProcessController.updateIntentForHeavyWeightActivity()
+          → ActivityRecord.isState()
+          → ActivityTaskSupervisor.waitActivityVisibleOrLaunched()
+          → ActivityStartController.onExecutionComplete()
+          → <android.content.res.Configuration: void <init>()>
+          → ConfigurationContainer.getConfiguration()
+          → ActivityTaskManagerServiceExt.isAppLockedPackage()
+          → ActivityTaskManagerService.updateConfigurationLocked()
+          → PooledLambda.obtainMessage()
+          → <com.android.server.wm.ActivityTaskManagerService$$ExternalS
+          → WindowConfiguration.isSplitScreenWindowingMode()
+          → DisplayContent.getFocusedRootTask()
+          → WindowContainer.getChildAt()
+          → WindowContainer.getChildCount()
+          → Task.canBeLaunchedOnDisplay()
+          → Task.isLeafTask()
+          → TaskDisplayArea.getDisplayId()
+          → TaskDisplayArea.onLeafTaskMoved()
+          → WindowContainer.getParent()
+          → WindowContainer.reparent()
+          → TaskFragment.topRunningActivity()
+          → ITaskOrganizer.preloadSplashScreenAppIcon()
+          → LinkedList.peekLast()
+          → WindowManagerThreadPriorityBooster.boost()
+          → WindowManagerThreadPriorityBooster.reset()
+          → SafeActivityOptions.mergeActivityOptions()
+          → SafeActivityOptions.checkPermissions() [PERM_CHECK]
+          → SafeActivityOptions.setCallingPidUidForRemoteAnimationAdapter()
+            → CharSequence.length()
+            → ClipData.collectUris()
+            → Uri.getPath()
+            → List.iterator()
+            → Intent.fixUris()
+            → Uri.getAuthority()
+            → ServiceManager.getService()
+            → ISemDualAppManager$Stub.asInterface()
+            → ISemDualAppManager.getAllWhitelistedPackages()
+            → <java.util.HashMap: void <init>()>
+            → <com.android.internal.protolog.ProtoLogImpl: void <init>(jav
+            → <com.android.internal.protolog.ProtoLogViewerConfigReader: v
+            → <java.io.File: void <init>(java.lang.String)>
+            → DualAppManagerService.sendInternalMsg()
+            → ActivityInfo.toString()
+            → ArrayMap.get()
+            → SparseArray.size()
+            → SparseArray.valueAt()
+            → BaseRestrictionMgr.isBlockAssociatedActivity()
+            → BaseRestrictionMgr.isCurrentLauncherApp()
+            → BaseRestrictionMgr.isEssentialIntent()
+            → BaseRestrictionMgr.isSelfIntent()
+            → BaseRestrictionMgr.isSystemPackage()
+            → BaseRestrictionMgr.getRestrictionsByCurrentLevel()
+            → BaseRestrictionMgr.isPolicyBlockedPackage()
+            → FreecessController.getFreecessEnabled()
+            → FreecessController.isFreezedPackage()
+            → FreecessController.isPendingIntent()
+            → FreecessController.getInstance()
+            → FreecessController.unFreezePackage()
+            → FreecessPkgMap.getUserIdMap()
+            → MARsPackageInfo.getFASEnabled()
+            → MARsPackageInfo.getAppliedPolicy()
+            → MARsPackageInfo.getCurLevel()
+            → MARsPackageInfo.getUid()
+            → MARsPackageInfo.getUserId()
+            → MARsPackageInfo.getName()
+            → MARsPkgMap.getMap()
+            → MARsPkgMap.size()
+            → MARsPolicyManager.getCarModeOnState()
+            → MARsPolicyManager.getScreenOnState()
+            → MARsPolicyManager.isForegroundPackage()
+            → MARsPolicyManager.isIntentProhibited()
+            → MARsPolicyManager.levelChange()
+            → MARsPolicyManager.getMARsPackageInfo()
+            → MARsPolicyManager.getInstance()
+            → MARsPolicyManager.getAutorunForFreezedPackage()
+            → MARsPolicyManager.cancelPolicy()
+            → MARsPolicyManager.onAppUsed()
+            → MARsPolicyManager.onAppUsedForSpecificCase()
+            → MARsComponentTracker.getEnabled()
+            → MARsComponentTracker.getInstance()
+            → MARsComponentTracker.sendCTInfo()
+            → MARsComponentTracker.trackComponent()
+            → MARsVersionManager.isAdjustRestrictionMatch()
+            → MARsVersionManager.getInstance()
+            → Handler.obtainMessage()
+            → Handler.sendMessageDelayed()
+            → <android.os.Bundle: void <init>()>
+            → Bundle.putInt()
+            → Bundle.putString()
+            → Message.setData()
+            → AppPrelaunchService.handleActivityExecution()
+            → AppPrelaunchService.getPackageUid()
+            → AppPrelaunchService$PrelaunchedApp.getPrelaunched()
+            → <com.android.server.power.ShutdownCheckPoints$IntentCheckPoi
+            → <com.android.server.power.ShutdownCheckPoints$SystemServerCh
+            → ShutdownCheckPoints.recordCheckPointInternal()
+            → SystemClock.uptimeMillis()
+            → Trace.isTagEnabled()
+            → Trace.asyncTraceBegin()
+            → LaunchObserverRegistryImpl.onIntentStarted()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.indexOfKey()
+            → ArrayMap.removeAt()
+            → ActivityManagerPerformance.isBlockedApp()
+            → ActivityManagerPerformance.isSpeg()
+            → ActivityManagerPerformance.getAppLaunchHintIdByPkg()
+            → SemDvfsManager.createInstance()
+            → SemDvfsManager.acquire()
+            → SemDvfsManager.setHint()
+            → ConfigurationContainer.getWindowingMode()
+            → <com.android.server.wm.ActivityMetricsLogger$TransitionInfo:
+            → ActivityRecord.attachedToProcess()
+            → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+            → ActivityMetricsLogger$LaunchingState.stopTrace()
+            → ActivityMetricsLogger.abort()
+            → ActivityMetricsLogger.convertTransitionTypeToLaunchObserverTemperature()
+            → LaunchObserverRegistryImpl.onActivityLaunched()
+            → LaunchObserverRegistryImpl.onIntentFailed()
+            → PooledLambda.obtainMessage()
+            → <com.android.server.wm.ActivityMetricsLogger$$ExternalSynthe
+            → DisplayContent.isSleeping()
+            → UnifiedMemoryReclaimer.notifyAppLaunchStarted()
+            → Trace.asyncTraceEnd()
+            → UnifiedMemoryReclaimer.notifyAppLaunchFinished()
+            → UserHandle.isApp()
+            → UserHandle.isSameUser()
+            → SparseArray.keyAt()
+            → ProcessMap.getMap()
+            → ProcessMap.get()
+            → TaskFragment.getRootTask()
+            → UserManager.isUserTypeManagedProfile()
+            → LocalServices.getService()
+            → IApplicationThread.asBinder()
+            → ArrayMap.size()
+            → ArrayMap.valueAt()
+            → WindowProcessController.getThread()
+            → WindowProcessController.hasThread()
+            → Intent.getLaunchToken()
+            → ApplicationInfo.isProfileableByShell()
+            → Handler.post()
+            → <com.android.server.wm.ActivityTaskSupervisor$$ExternalSynth
+            → Intent.isWebIntent()
+            → PackageManagerInternal.resolveIntent()
+            → UserManager.getUserInfo()
+            → ComponentOptions.toBundle()
+            → Bitmap.copy()
+            → Bitmap.getHardwareBuffer()
+            → Bundle.putBinder()
+            → Bundle.putBoolean()
+            → Bundle.putBundle()
+            → Bundle.putFloatArray()
+            → Bundle.putIntArray()
+            → Bundle.putParcelable()
+            → Bundle.putParcelableArray()
+            → Bundle.putStringArrayList()
+            → Bundle.remove()
+            → IRemoteCallback.asBinder()
+            → IAppTransitionAnimationSpecsFuture.asBinder()
+            → ActivityOptions.abort()
+            → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+            → IEDMProxy.RedactedAuditLoggerAsUser()
+            → ActivityManager.getRunningTasks()
+            → ActivityOptions.getForceLaunchWindowingMode()
+            → ActivityOptions.getLaunchWindowingMode()
+            → WindowConfiguration.inMultiWindowMode()
+            → WindowConfiguration.getWindowingMode()
+            → Context.getSystemService()
+            → IntentFirewall.checkIntent()
+            → <com.android.server.wm.ActivityRecord: void <init>(com.andro
+            → ActivityTaskManagerService.getConfiguration()
+            → ActivityRecord.canShowWhenLocked()
+            → ActivityRecord.getTaskFragment()
+            → TaskFragment.getTopNonFinishingActivity()
+            → TaskFragment.getAdjacentTaskFragment()
+            → Task.isInTask()
+            → WindowContainer.isAttached()
+            → ArrayList.remove()
+            → <android.app.ResultInfo: void <init>(java.lang.String,int,in
+            → ActivityResultItem.obtain()
+            → UriGrantsManagerInternal.grantUriPermissionUncheckedFromIntent()
+            → ActivityRecord.getUriPermissionsLocked()
+            → ActivityRecord.addResultLocked()
+            → ActivityTaskManagerService.getLifecycleManager()
+            → ClientLifecycleManager.scheduleTransaction()
+            → ActivityInterceptorCallback.intercept()
+            → ActivityStartInterceptor.interceptCarlifeHomeIfNeeded()
+            → ActivityStartInterceptor.interceptHarmfulAppIfNeeded()
+            → ActivityStartInterceptor.interceptLockTaskModeViolationPackageIfNeeded()
+            → ActivityStartInterceptor.interceptLockedManagedProfileIfNeeded()
+            → ActivityStartInterceptor.interceptMultiWindowAliasActivityIfNeeded()
+            → ActivityStartInterceptor.interceptQuietProfileIfNeeded()
+            → ActivityStartInterceptor.interceptSuspendedPackageIfNeeded()
+            → ActivityStartInterceptor.getInterceptorInfo()
+            → ActivityTaskManagerService.getActivityInterceptorCallbacks()
+            → PackageManagerInternal.isInstantApp()
+            → PackageManagerInternal.requestInstantAppResolutionPhaseTwo()
+            → InstantAppResolver.buildEphemeralInstallerIntent()
+            → InstantAppResolver.sanitizeIntent()
+            → ActivityManager.checkComponentPermission()
+            → ActivityOptions.getIgnorePendingIntentCreatorForegroundState()
+            → Process.isSdkSandboxUid()
+            → Process.getAppUidForSdkSandboxUid()
+            → UserHandle.getAppId()
+            → ArraySet.size()
+            → ArraySet.valueAt()
+            → DebugUtils.valueToString()
+            → PendingIntentRecord.isPendingIntentBalAllowedByCaller()
+            → PendingIntentRecord.isPendingIntentBalAllowedByPermission()
+            → ActivityMetricsLogger.logAbortedBgActivityStart()
+            → ActivityStarter.isHomeApp()
+            → ActivityTaskManagerService.hasActiveVisibleWindow()
+            → ActivityTaskManagerService.hasSystemAlertWindowPermission()
+            → ActivityTaskManagerService.isActivityStartsLoggingEnabled()
+            → ActivityTaskManagerService.isAssociatedCompanionApp()
+            → ActivityTaskManagerService.isDeviceOwner()
+            → ActivityTaskManagerService.getProcessController()
+            → ActivityTaskManagerService.checkPermission() [PERM_CHECK]
+            → ActivityTaskManagerService.getBalAppSwitchesState()
+            → MirrorActiveUids.hasNonAppVisibleWindow()
+            → MirrorActiveUids.getUidState()
+            → RecentTasks.isCallerRecents()
+            → RootWindowContainer.getCurrentInputMethodWindow()
+            → WindowProcessController.areBackgroundActivityStartsAllowed()
+            → WindowProcessController.hasActivityInVisibleTask()
+            → WindowProcessControllerMap.getProcesses()
+            → ActivityManagerNative.getDefault()
+            → ActivityOptions.getStartedByMDMAdmin()
+            → IActivityManager.getTasks()
+            → Intent.getStringExtra()
+            → StrictMode$ThreadPolicy$Builder.build()
+            → StrictMode$ThreadPolicy$Builder.permitDiskReads()
+            → <android.os.StrictMode$ThreadPolicy$Builder: void <init>(and
+            → StrictMode.getThreadPolicy()
+            → StrictMode.setThreadPolicy()
+            → ActivityStarter.getApplicationPolicy()
+            → ActivityStarter.getPasswordPolicy()
+            → ActivityStarter.getSecurityPolicy()
+            → RootWindowContainer.findActivityLockedByPackage()
+            → IKioskMode$Stub.asInterface()
+            → IKioskMode.isTaskManagerAllowedAsUser()
+            → ApplicationPolicyInternal.getApplicationStateEnabledAsUser()
+            → ApplicationPolicyInternal.isApplicationStartDisabledAsUser()
+            → SecurityPolicyInternal.isDodBannerVisibleAsUser()
+            → IRestrictionPolicy$Stub.asInterface()
+            → IRestrictionPolicy.isMicrophoneEnabledAsUser()
+            → IRestrictionPolicy.isSVoiceAllowedAsUser()
+            → IRestrictionPolicy.isSettingsChangesAllowedAsUser()
+            → List.isEmpty()
+            → List.get()
+            → ActivityRecord.takeRemoteTransition()
+            → ActivityStarter.handleStartResult()
+            → ActivityStarter.startActivityInner()
+            → ActivityStarter.postStartActivityProcessing()
+            → ActivityTaskManagerService.continueWindowLayout()
+            → ActivityTaskManagerService.deferWindowLayout()
+            → Transition.setRemoteTransition()
+            → TransitionController.getTransitionPlayer()
+            → TransitionController.isCollecting()
+            → TransitionController.createTransition()
+            → TransitionController.collect()
+            → WindowOrganizerController.whileEnterSplitWithSingleStage()
+            → WindowOrganizerController.onEnterSplitWithSingleStageFinished()
+            → PendingIntentController.getIntentSender()
+            → ActivityRecord.isInRootTaskLocked()
+            → HashSet.add()
+            → <java.util.HashSet: void <init>()>
+            → AppGlobals.getPackageManager()
+            → ActivityTaskManagerServiceExt.isAppLockedVerifying()
+            → ActivityTaskManagerServiceExt.getAppLockedCheckAction()
+            → Handler.removeMessages()
+            → SmRccPolicy.isSmRccOpen()
+            → SmRccPolicy.isSmRccPkg()
+            → SmRccPolicy.getSmRccAction()
+            → SmRccPolicy.resetSmRccOpen()
+            → AppOpsManager.permissionToOp()
+            → ActivityTaskManagerService.getRecentTasks()
+            → ActivityTaskSupervisor.getActionRestrictionForCallingPackage()
+            → ActivityTaskSupervisor.getComponentRestrictionForCallingPackage()
+            → ActivityOptions.makeRemoteAnimation()
+            → ActivityOptions.setLaunchCookie()
+            → ActivityOptions.setRemoteAnimationAdapter()
+            → ActivityOptions.popAppVerificationBundle()
+            → SafeActivityOptions.abort()
+            → WindowContainerToken.asBinder()
+            → WindowContainer.asTask()
+            → WindowContainer.fromBinder()
+            → WindowContainer.asTaskFragment()
+            → WindowContainer.getDisplayContent()
+            → SparseArray.get()
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+            → ArrayList.isEmpty()
+            → <com.android.server.wm.ActivityTaskSupervisor$WaitInfo: void
+            → ArrayList.contains()
+            → ActivityStarter$Factory.recycle()
+            → ActivityStarter.set()
+            → AppLockPolicy.isAppLockedPackage()
+            → ActivityTaskManagerService.updateConfigurationLocked()
+            → Message.obtain()
+            → Message.setCallback()
+            → PooledLambdaImpl.acquire()
+            → PooledRunnable.recycleOnUse()
+            → <com.android.server.wm.DisplayContent$$ExternalSyntheticLamb
+            → WindowContainer.getItemFromTaskDisplayAreas()
+            → ActivityTaskSupervisor.canPlaceEntityOnDisplay()
+            → DisplayContent.getDisplayId()
+            → ActivityTaskManagerService.getTaskChangeNotificationController()
+            → EventLogTags.writeWmTaskToFront()
+            → Task.getTaskInfo()
+            → Task.topRunningActivityLocked()
+            → TaskChangeNotificationController.notifyTaskMovedToFront()
+            → WindowContainer.getTopMostActivity()
+            → ChangeTransitionController.handleDisplayChanged()
+            → DisplayContent.layoutAndAssignWindowLayersIfNeeded()
+            → DisplayContent.setLayoutNeeded()
+            → WindowContainer.addChild()
+            → WindowContainer.onDisplayChanged()
+            → WindowContainer.onParentChanged()
+            → WindowContainer.onSyncReparent()
+            → WindowContainer.removeChild()
+            → TaskFragment.topRunningActivity()
+            → Process.myTid()
+            → ThreadPriorityBooster.boost()
+            → ThreadPriorityBooster.reset()
+            → ActivityOptions.fromBundle()
+            → Bundle.putAll()
+            → ActivityOptions.getRemoteAnimationAdapter()
+            → ActivityOptions.getLaunchTaskDisplayArea()
+            → ActivityOptions.getLaunchedFromBubble()
+            → ActivityOptions.getLockTaskMode()
+            → ActivityOptions.getOverrideTaskTransition()
+            → ActivityOptions.getLaunchActivityType()
+            → ActivityOptions.getLaunchDisplayId()
+            → ActivityOptions.getLaunchTaskId()
+            → WindowConfiguration.activityTypeToString()
+            → ActivityTaskManagerService.getLockTaskController()
+            → ActivityTaskSupervisor.isCallerAllowedToLaunchOnDisplay()
+            → ActivityTaskSupervisor.isCallerAllowedToLaunchOnTaskDisplayArea()
+            → LockTaskController.isPackageAllowlisted()
+            → SafeActivityOptions.isAssistant()
+            → SafeActivityOptions.isSystemOrSystemUI()
+            → SafeActivityOptions.getIntentString()
+            → RemoteAnimationAdapter.setCallingPidUid()
+              → ClipData$Item.getIntent()
+              → ClipData$Item.getUri()
+              → ClipData.getItemAt()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.app.ISemDualAppManager$Stub$Proxy: void
+              → <com.android.internal.protolog.BaseProtoLogImpl: void <init>
+              → Handler.obtainMessage()
+              → SparseArray.gc()
+              → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+              → MARsPolicyManager.checkIsChinaModel()
+              → HomeFilter.getInstance()
+              → HomeFilter.getHomePackage()
+              → PackageManager.getApplicationInfoAsUser() [PKG_QUERY]
+              → PackageManager.checkSignatures() [SIG_CHECK]
+              → FreecessController.getAngryBirdEnabled()
+              → MARsPolicyManager.isChinaPolicyEnabled()
+              → BaseRestrictionMgr.isBindNotificationListenerPackage()
+              → BaseRestrictionMgr.isJobSchedulerPackage()
+              → BaseRestrictionMgr.isLauncherableApp()
+              → BaseRestrictionMgr.isSamsungService()
+              → BaseRestrictionMgr.isShouldBlockCase()
+              → BaseRestrictionMgr.isShouldSkipCaseForPolicy()
+              → BaseRestrictionMgr.isSyncManagerPackage()
+              → FreecessController.isCalmModeOnoff()
+              → UidStateMgr.isUidRunning()
+              → UidStateMgr.getInstance()
+              → FreecessController.getFrozenPackageStatus()
+              → FreecessController.getFreezedPackage()
+              → MARsPolicyManager.isAutoRunOn()
+              → <com.android.server.am.FreecessController$FreecessController
+              → FreecessController.unFreezeAction()
+              → MARsPolicyManager.reportStatusWithMARs()
+              → MARsPolicyManager.isMARsTarget()
+              → TopPackageFilter.isInTopPkgList()
+              → TopPackageFilter.getInstance()
+              → MARsHandler.getInstance()
+              → MARsHandler.sendCallSetAppStandbyBucketMsgToMainHandler()
+              → MARsHandler.sendCallSetModeMsgToMainHandler() [APPOPS]
+              → MARsHandler.sendNotifyDeviceCareMsgToMainHandler()
+              → MARsPackageInfo.getHasAppIcon()
+              → MARsPackageInfo.getDisableReason()
+              → MARsPackageInfo.getFasType()
+              → MARsPackageInfo.getState()
+              → MARsPackageInfo.getSharedUidName()
+              → MARsPackageInfo.setCurLevel()
+              → MARsPackageInfo.setDisableReason()
+              → MARsPackageInfo.setFASEnabled()
+              → MARsPackageInfo.setFasReason()
+              → MARsPackageInfo.setFasType()
+              → MARsPackageInfo.setIsInRestrictedBucket()
+              → MARsPackageInfo.setIsInUsageStats()
+              → MARsPackageInfo.setMaxLevel()
+              → MARsPackageInfo.setResetTime()
+              → MARsPackageInfo.setState()
+              → FASTableContract.convertFASTypeToReason()
+              → AllowListFilter.isInDefaultAllowList()
+              → AllowListFilter.getInstance()
+              → MARsPkgMap.totalSize()
+              → MARsPkgMap.get()
+              → <com.android.server.am.MARsPolicyManager$MARsPolicyManagerHo
+              → FreecessController.protectFreezePackage()
+              → MARsPackageInfo.getDisabled()
+              → MARsPackageInfo.setAppliedPolicy()
+              → MARsPackageInfo.setMpsm()
+              → MARsPackageInfo.setSBike()
+              → MARsPackageInfo.setUds()
+              → MARsPkgMap.remove()
+              → MARsPolicyManager.cancelDisablePolicy()
+              → SystemClock.elapsedRealtime()
+              → MARsPackageInfo.setDisableResetTime()
+              → MARsPackageInfo.setLastUsedTime()
+              → MARsPolicyManager.onAppUsed()
+              → LatestProtectedPackageFilter.getInstance()
+              → LatestProtectedPackageFilter.setLatestProtectedPkg()
+              → <com.android.server.am.mars.database.MARsComponentTracker$MA
+              → Bundle.putLong()
+              → ConcurrentHashMap.size()
+              → MARsDBManager.getInstance()
+              → MARsDBManager.sendUpdateAppStartUpInfoMsgToDBHandler()
+              → MARsVersionManager.isAdjustRestrictionMatchInternal()
+              → MARsVersionManager.isRestrictionTypeAllowed()
+              → MARsVersionManager.convertRestrictionTypeToName()
+              → <com.android.server.am.mars.database.MARsVersionManager$MARs
+              → AppPrelaunchService$PrelaunchedApp.isProcessAlive()
+              → AppPrelaunchService$PrelaunchedApp.getLock()
+              → AppPrelaunchService$PrelaunchedApp.getStage()
+              → AppPrelaunchService$PrelaunchedApp.getUid()
+              → AppPrelaunchService$PrelaunchedApp.incSelfStartCount()
+              → AppPrelaunchService$PrelaunchedApp.setDeathReason()
+              → AppPrelaunchService$PrelaunchedApp.setStage()
+              → AppPrelaunchService.waitForAppTillStageInternal()
+              → AppPrelaunchService.removePrelaunchedApp()
+              → ActivityTaskManagerService.getGlobalLock()
+              → Thread.holdsLock()
+              → UserHandle.getUid()
+              → <com.android.server.power.ShutdownCheckPoints$CheckPoint: vo
+              → Thread.getStackTrace()
+              → Thread.currentThread()
+              → ShutdownCheckPoints$Injector.maxCheckPoints()
+              → LinkedList.size()
+              → LinkedList.removeFirst()
+              → LinkedList.addLast()
+              → <com.android.server.wm.LaunchObserverRegistryImpl$$ExternalS
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → <com.samsung.android.os.SemDvfsHyPerManager: void <init>(and
+              → SemDvfsManager.checkHintSupported()
+              → SemDvfsManager.checkHyPerConnected()
+              → ActivityOptions.getSourceInfo()
+              → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+              → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+              → ActivityRecord.hasProcess()
+              → Trace.instant()
+              → ActivityMetricsLogger.done()
+              → PooledLambda.obtainMessage()
+              → <com.android.server.wm.LaunchObserverRegistryImpl$$ExternalS
+              → PooledLambda.obtainMessage()
+              → <com.android.server.wm.LaunchObserverRegistryImpl$$ExternalS
+              → KernelMemoryProxy$ReclaimerLog.write()
+              → UnifiedMemoryReclaimer$SystemStatusMonitor.setAppLaunch()
+              → UnifiedMemoryReclaimer$SystemStatusMonitor.setCameraLaunch()
+              → UnifiedMemoryReclaimer.getSystemStatusMonitor()
+              → TaskFragment.getRootTaskFragment()
+              → IRemoteCallback.sendResult()
+              → IEDMProxy$Stub.asInterface()
+              → PackageManagerInternal.snapshot()
+              → IntentResolver.queryIntent()
+              → AndFilter.matches()
+              → IntentFirewall$FirewallIntentResolver.queryByComponent()
+              → IntentFirewall$Rule.getBlock()
+              → IntentFirewall$Rule.getLog()
+              → IntentFirewall.getPackageManager()
+              → IntentFirewall.logIntent()
+              → ActivityOptions.getUsageTimeReport()
+              → ActivityOptions.getLaunchIntoPipParams()
+              → ActivityOptions.getLaunchCookie()
+              → ActivityOptions.getDismissKeyguardIfInsecure()
+              → ActivityOptions.getLaunchTaskBehind()
+              → ActivityOptions.getRotationAnimationHint()
+              → PictureInPictureParams$Builder.build()
+              → <android.app.PictureInPictureParams$Builder: void <init>()>
+              → ComponentName.unflattenFromString()
+              → ComponentName.flattenToShortString()
+              → Context.getResources()
+              → ActivityInfo.isTranslucentOrFloating()
+              → ActivityInfo.getIconResource()
+              → ActivityInfo.getThemeResource()
+              → <android.content.pm.ConstrainDisplayApisConfig: void <init>(
+              → Resources.getBoolean()
+              → TypedArray.getBoolean()
+              → <android.graphics.Rect: void <init>()>
+              → <android.os.Binder: void <init>()>
+              → Bundle.getBoolean()
+              → <android.util.MergedConfiguration: void <init>(android.conte
+              → AttributeCache.instance()
+              → AttributeCache.get()
+              → <com.android.server.am.AppTimeTracker: void <init>(android.a
+              → ColorDisplayService$ColorDisplayServiceInternal.attachColorTransformController()
+              → <com.android.server.wm.ActivityRecord$$ExternalSyntheticLamb
+              → <com.android.server.wm.ActivityRecord$1: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$2: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$3: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$4: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$5: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$6: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$AddStartingWindow: voi
+              → <com.android.server.wm.ActivityRecord$Token: void <init>()>
+              → ActivityRecord.determineLaunchSourceType()
+              → ActivityRecord.getLockTaskLaunchMode()
+              → ActivityRecord.computeTaskAffinity()
+              → ActivityRecord.setActivityType()
+              → ActivityRecord.setOptions()
+              → ActivityRecord.setState()
+              → ActivityRecord.updateEnterpriseThumbnailDrawable()
+              → <com.android.server.wm.ActivityRecordInputSink: void <init>(
+              → <com.android.server.wm.BoundsCompatRecord: void <init>(com.a
+              → <com.android.server.wm.LetterboxUiController: void <init>(co
+              → MultiWindowSupportPolicyController.updateSupportPolicyLocked()
+              → PackageConfigPersister.updateConfigIfNeeded()
+              → <com.android.server.wm.PopOverState: void <init>(com.android
+              → PopOverState.setLastOccludesParent()
+              → PopOverState.setupOptions()
+              → UdcCutoutPolicy.updateUseLayoutInUdcCutoutIfNeeded()
+              → WindowContainer.setOrientation()
+              → <com.android.server.wm.WindowState$UpdateReportedVisibilityR
+              → <com.android.server.wm.WindowToken: void <init>(com.android.
+              → WindowToken.setClientVisible()
+              → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+              → <android.content.res.Configuration: void <init>(android.cont
+              → ActivityTaskManagerService.getGlobalConfigurationForCallingPid()
+              → ActivityRecord.containsShowWhenLockedWindow()
+              → ConfigurationContainer.inPinnedWindowingMode()
+              → WindowContainer.getActivityBelow()
+              → TaskFragment.getTopNonFinishingActivity()
+              → WindowContainer.isDescendantOf()
+              → <com.android.server.uri.UriPermissionOwner: void <init>(com.
+              → <com.android.server.wm.ActivityResult: void <init>(com.andro
+              → ClientLifecycleManager.transactionWithCallback()
+              → ClientLifecycleManager.scheduleTransaction()
+              → ActivityStartInterceptor.createCarlifeHomeIntent()
+              → DisplayContent.isCarLifeDisplay()
+              → IPackageManager.getHarmfulAppWarning()
+              → HarmfulAppWarningActivity.createHarmfulAppWarningIntent()
+              → ActivityStartInterceptor.createIntentSenderForOriginalIntent()
+              → BlockedAppActivity.createIntent()
+              → LockTaskController.isActivityAllowed()
+              → ActivityStartInterceptor.interceptWithConfirmCredentialsIfNeeded()
+              → ActivityOptions.getLaunchTaskFragmentToken()
+              → ActivityOptions.isStartedFromWindowTypeLauncher()
+              → ActivityInfo.isResizeableMode()
+              → Bundle.getString()
+              → ActivityRecord.getDisplayId()
+              → <com.android.server.wm.ActivityStartInterceptor$$ExternalSyn
+              → ActivityStartInterceptor.resolveLaunchTaskIdForAliasManagedTarget()
+              → ConfigurationContainer.getWindowConfiguration()
+              → ConfigurationContainer.inFreeformWindowingMode()
+              → ConfigurationContainer.isActivityTypeHome()
+              → ConfigurationContainer.getStageType()
+              → DisplayContent.getRootTask()
+              → DisplayContent.getDefaultTaskDisplayArea()
+              → MultiTaskingController.findAliasManagedTaskInPackage()
+              → RootWindowContainer.getDisplayContent()
+              → Task.getBaseIntent()
+              → Task.isMinimized()
+              → TaskDisplayArea.isSplitScreenModeActivated()
+              → TaskDisplayArea.getTopRootTaskInStageType()
+              → WindowContainer.getTopMostTask()
+              → ArrayList.sort()
+              → UserHandle.of()
+              → UserManager.isQuietModeEnabled()
+              → UnlaunchableAppActivity.createInQuietModeDialogIntent()
+              → ActivityOptions.makeOpenCrossProfileAppsAnimation()
+              → PackageManagerInternal.getSuspendedDialogInfo()
+              → PackageManagerInternal.getSuspendingPackage()
+              → SuspendedAppActivity.createSuspendedAppInterceptIntent()
+              → ActivityStartInterceptor.hasCrossProfileAnimation()
+              → ActivityStartInterceptor.interceptSuspendedByAdminPackage()
+              → <com.android.server.wm.ActivityInterceptorCallback$ActivityI
+              → ActivityManager.getService()
+              → IActivityManager.getIntentSenderWithFeature()
+              → Intent.putExtras()
+              → Intent.setLaunchToken()
+              → InstantAppResolveInfo.shouldLetInstallerDecide()
+              → Uri.getHost()
+              → Intent.getScheme()
+              → Intent.getCategories()
+              → Uri.fromParts()
+              → ArraySet.valueAtUnchecked()
+              → DebugUtils.constNameWithoutPrefix()
+              → Field.getInt()
+              → Field.getModifiers()
+              → Field.getType()
+              → Field.getName()
+              → Modifier.isFinal()
+              → Modifier.isStatic()
+              → PendingIntentRecord.isPendingIntentBalAllowedByCaller()
+              → ActivityOptions.isPendingIntentBackgroundActivityLaunchAllowedByPermission()
+              → ActivityManager.processStateAmToProto()
+              → LogMaker.addTaggedData()
+              → LogMaker.setTimestamp()
+              → <android.metrics.LogMaker: void <init>(int)>
+              → MetricsLogger.write()
+              → WindowProcessController.hasClientActivities()
+              → WindowProcessController.hasForegroundActivities()
+              → WindowProcessController.hasForegroundServices()
+              → WindowProcessController.hasOverlayUi()
+              → WindowProcessController.hasPendingUiClean()
+              → WindowProcessController.hasTopUi()
+              → WindowProcessController.getCurrentProcState()
+              → WindowProcessController.getFgInteractionTime()
+              → WindowProcessController.getInteractionEventTime()
+              → WindowProcessController.getWhenUnimportant()
+              → PackageManagerInternal.getDefaultHomeActivity()
+              → VisibleActivityProcessTracker.hasVisibleActivity()
+              → AppOpsManager.noteOpNoThrow() [APPOPS]
+              → ActivityTaskManagerService.getAppOpsManager()
+              → ActivityManagerInternal.isActivityStartsLoggingEnabled()
+              → Map.get()
+              → Set.contains()
+              → ActivityTaskManagerService.checkComponentPermission()
+              → SparseIntArray.get()
+              → SparseIntArray.get()
+              → UserHandle.isSameApp()
+              → WindowProcessController.areBackgroundActivityStartsAllowed()
+              → StrictMode$ThreadPolicy$Builder.penaltyLog()
+              → <android.os.StrictMode$ThreadPolicy: void <init>(int,android
+              → StrictMode$ThreadPolicy$Builder.disable()
+              → <com.android.server.wm.RootWindowContainer$$ExternalSyntheti
+              → WindowContainer.forAllRootTasks()
+              → AtomicReference.get()
+              → <java.util.concurrent.atomic.AtomicReference: void <init>()>
+              → <com.samsung.android.knox.kiosk.IKioskMode$Stub$Proxy: void 
+              → <com.samsung.android.knox.restriction.IRestrictionPolicy$Stu
+              → ActivityManager.isStartResultSuccessful()
+              → ActivityOptions.getTaskAlwaysOnTop()
+              → ActivityOptions.getTransientLaunch()
+              → StatusBarManagerInternal.collapsePanels()
+              → ActivityRecord.shouldUpdateConfigForDisplayChanged()
+              → ActivityRecord.finishIfPossible()
+              → ActivityTaskManagerService.getStatusBarManagerInternal()
+              → RootWindowContainer.ensureVisibilityAndConfig()
+              → RootWindowContainer.hasVisibleWindowAboveButDoesNotOwnNotificationShade()
+              → Task.isFullscreenRootForStageTask()
+              → Task.removeIfPossible()
+              → Task.setAlwaysOnTop()
+              → TaskFragment.isAttached()
+              → Transition.abort()
+              → TransitionController.requestStartTransition()
+              → TransitionController.collectExistenceChange()
+              → TransitionController.setReady()
+              → TransitionController.setTransientLaunch()
+              → WindowContainer.hasActivity()
+              → ActivityOptions.freezeRecentTasksReordering()
+              → ActivityOptions.isDismissSplitBeforeLaunch()
+              → ActivityOptions.isLaunchIntoPip()
+              → ActivityOptions.setForceLaunchWindowingMode()
+              → ActivityOptions.setLaunchWindowingMode()
+              → Intent.getForceLaunchOverTargetTask()
+              → Intent.getLaunchOverTargetTaskId()
+              → Intent.semSetLaunchOverTargetTask()
+              → PackageManagerInternal.getPackageUid()
+              → PackageManagerInternal.grantImplicitAccess()
+              → DisplayManager.getDisplay()
+              → Display.getName()
+              → ActivityManagerPerformance.onActivityStartLocked()
+              → ActivityRecord.isAlwaysOnTop()
+              → ActivityRecord.isResizeable()
+              → ActivityRecord.isTaskOverlay()
+              → ActivityRecord.logStartActivity()
+              → ActivityStarter.shouldCleanLaunchWindowingMode()
+              → ActivityStarter.computeTargetTask()
+              → ActivityStarter.getOrCreateRootTask()
+              → ActivityStarter.getReusableTask()
+              → ActivityStarter.deliverToCurrentTopIfNeeded()
+              → ActivityStarter.isAllowedToStart()
+              → ActivityStarter.recycleTask()
+              → ActivityStarter.getStartInfo()
+              → ActivityStarter.addOrReparentStartingActivity()
+              → ActivityStarter.computeLaunchParams()
+              → ActivityStarter.computeLaunchingTaskFlags()
+              → ActivityStarter.computeSourceRootTask()
+              → ActivityStarter.reparentActivitiesToActivityGroupIfNeeded()
+              → ActivityStarter.setInitialState()
+              → ActivityStarter.setNewTask()
+              → ActivityTaskManagerService.isDreaming()
+              → ActivityTaskSupervisor.handleNonResizableTaskIfNeeded()
+              → AppTransition.isKeyguardGoingAwayTransitOld()
+              → AppTransition.getKeyguardTransition()
+              → AppTransition.freeze()
+              → ChangeTransitionController.startMultiSplitEnterTransitIfPossible()
+              → ChangeTransitionController.startSplitEnterTransitIfPossible()
+              → ConfigurationContainer.getActivityType()
+              → DisplayContent.executeAppTransition()
+              → EventLogTags.writeWmCreateTask()
+              → ForceLaunchWindowingModeUtils.shouldDismissSplitBeforeLaunch()
+              → FreeformController.showNotSupportMultiWindowToast()
+              → MultiTaskingController.interceptNewTaskIfNeededLocked()
+              → MultiTaskingController.interceptStartActivityLocked()
+              → RecentTasks.isFreezeTaskListReorderingSet()
+              → RecentTasks.isRecentsUid()
+              → RecentTasks.add()
+              → RecentTasks.setFreezeTaskListReordering()
+              → RootWindowContainer.isTopDisplayFocusedRootTask()
+              → RootWindowContainer.resumeFocusedTasksTopActivities()
+              → RootWindowContainer.getDefaultTaskDisplayArea()
+              → RootWindowContainer.moveActivityToPinnedRootTask()
+              → RootWindowContainer.startPowerModeLaunchIfNeeded()
+              → RootWindowContainer.updateUserRootTask()
+              → Task.isResizeable()
+              → Task.isTopRootTaskInDisplayArea()
+              → Task.getTopLeafTask()
+              → Task.ensureActivitiesVisible()
+              → Task.moveToFront()
+              → Task.moveToFront()
+              → Task.setAliasManagedTask()
+              → Task.startActivityLocked()
+              → TaskDisplayArea.isMultiSplitTwoUpModeActivated()
+              → TaskDisplayArea.getFocusedRootTask()
+              → TaskDisplayArea.getRootCellStageTask()
+              → TaskDisplayArea.getRootSideStageTask()
+              → TaskDisplayArea.getRootTaskAbove()
+              → TaskFragment.isTopActivityFocusable()
+              → TaskFragment.clearLastPausedActivity()
+              → WindowContainer.hasChild()
+              → WindowManagerService.isFolded()
+              → WindowManagerService.getDefaultDisplayContentLocked()
+              → WindowManagerService.startFreezingDisplay()
+              → WindowOrganizerController.onEnterSplitWithSingleStageStarted()
+              → CoreSaLogger.logForAdvanced()
+              → CoreSaLogger.logForBasic()
+              → ActivityManager.isStartResultFatalError()
+              → ActivityStartInterceptor.onActivityLaunched()
+              → ActivityStarter.sendMultiWindowSALogging()
+              → ActivityTaskSupervisor.reportWaitingActivityLaunchedIfNeeded()
+              → RecentTasks.resetFreezeTaskListReorderingOnTimeout()
+              → TaskChangeNotificationController.notifyActivityRestartAttempt()
+              → TaskDisplayArea.getRootHomeTask()
+              → TaskFragment.shouldBeVisible()
+              → TaskFragment.getDisplayArea()
+              → WindowSurfacePlacer.continueLayout()
+              → WindowSurfacePlacer.isLayoutDeferred()
+              → WindowSurfacePlacer.deferLayout()
+              → TransitionController.createTransition()
+              → Transition.collect()
+              → HashSet.isEmpty()
+              → HashSet.remove()
+              → Intent.replaceExtras()
+              → Intent.setDefusable()
+              → Bundle.setDefusable()
+              → PendingIntentController.decrementUidStatLocked()
+              → PendingIntentController.incrementUidStatLocked()
+              → PendingIntentController.makeIntentSenderCanceled()
+              → <com.android.server.am.PendingIntentRecord$Key: void <init>(
+              → <com.android.server.am.PendingIntentRecord: void <init>(com.
+              → SafeActivityOptions.fromBundle()
+              → HashMap.put()
+              → HashMap.remove()
+              → ActivityThread.getPackageManager()
+              → AppLockPolicy.isAppLockedVerifying()
+              → AppLockPolicy.getAppLockedCheckAction()
+              → SmRccPolicy$RccApp.getOpen()
+              → SmRccPolicy$RccApp.getRestrict()
+              → SmRccPolicy$RccApp.getShow()
+              → AppOpsManager.permissionToOpCode()
+              → AppOpsManagerInternal.getOpRestrictionCount()
+              → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+              → SensorPrivacyManagerInternal.isSensorPrivacyEnabled()
+              → UserHandle.getUserHandleForUid()
+              → ArrayUtils.contains()
+              → ActivityTaskSupervisor.getAppOpsManager()
+              → IWindowContainerToken.asBinder()
+              → WindowContainer$RemoteToken.getContainer()
+              → WindowContainer$RemoteToken.fromBinder()
+              → SparseArray.get()
+              → SystemProperties.get()
+              → ActivityStarter$Request.set()
+              → LaunchParamsController$LaunchParams.set()
+              → ActivityTaskManagerService.updateConfigurationLocked()
+              → <android.os.Message: void <init>()>
+              → ArrayUtils.size()
+              → PooledLambdaImpl$LambdaType.encode()
+              → PooledLambdaImpl.acquire()
+              → PooledLambdaImpl.setFlags()
+              → PooledLambdaImpl.setIfInBounds()
+              → Objects.requireNonNull()
+              → WindowContainer.getItemFromTaskDisplayAreas()
+              → ActivityTaskSupervisor.canPlaceEntityOnDisplay()
+              → EventLog.writeEvent()
+              → <android.app.ActivityManager$RunningTaskInfo: void <init>()>
+              → Task.fillTaskInfo()
+              → <com.android.server.wm.ActivityRecordGroup$$ExternalSyntheti
+              → WindowContainer.getActivity()
+              → Message.sendToTarget()
+              → TaskChangeNotificationController.forAllLocalListeners()
+              → <com.android.server.wm.WindowContainer$$ExternalSyntheticLam
+              → WindowContainer.getActivity()
+              → ChangeTransitionController.addToSyncApps()
+              → ChangeTransitionController.freezeDisplay()
+              → DisplayContent.isAppCastingDisplay()
+              → DisplayContent.assignWindowLayers()
+              → InputMonitor.setUpdateInputWindowsNeededLw()
+              → InputMonitor.updateInputWindowsLw()
+              → WindowManagerService.updateFocusedWindowLocked()
+              → WindowSurfacePlacer.performSurfacePlacement()
+              → Debug.getCallers()
+              → ConfigurationContainer.getName()
+              → WindowContainer.setParent()
+              → ArrayList.add()
+              → ArraySet.remove()
+              → SurfaceControl$Transaction.merge()
+              → DisplayArea.getPendingTransaction()
+              → SurfaceFreezer.unfreeze()
+              → WindowContainer.getSyncTransaction()
+              → WindowContainerListener.onDisplayChanged()
+              → WindowContainer.onParentChanged()
+              → BLASTSyncEngine$SyncGroup.getOrphanTransaction()
+              → TransitionController.isShellTransitionsEnabled()
+              → WindowContainer.getPendingTransaction()
+              → WindowContainer.prepareSync()
+              → WindowContainer.finishSync()
+              → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+              → WindowContainer.onChildRemoved()
+              → ArrayList.remove()
+              → <com.android.server.wm.TaskFragment$$ExternalSyntheticLambda
+              → <com.android.server.wm.TaskFragment$$ExternalSyntheticLambda
+              → <com.android.server.wm.TaskFragment$$ExternalSyntheticLambda
+              → TaskFragment.getTask()
+              → Process.getThreadPriority()
+              → Process.setThreadPriority()
+              → ThreadLocal.get()
+              → <android.app.ActivityOptions: void <init>(android.os.Bundle)
+              → PackageManager.isSpeg()
+              → Display.isTrusted()
+              → Display.getOwnerUid()
+              → ProtoLogImpl.d()
+              → DisplayContent.isPrivate()
+              → DisplayContent.isRemoved()
+              → DisplayContent.isUidPresent()
+              → RootWindowContainer.getDisplayContentOrCreate()
+              → IPackageManager.getPackageUid()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.notification.PreferencesHelper
+  Method:   <com.android.server.notification.PreferencesHelper: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.notification.RankingHandler,com.android.server.notification.ZenModeHelper,com.android.server.notification.PermissionHelper,com.android.server.notification.NotificationChannelLogger,android.app.AppOpsManager,com.android.server.notification.SysUiStatsEvent$BuilderFactory,boolean)>
+  Line:     364
+  Register: v16 := "com.tencent.mm"
+  Usage:    [] 
+  Patterns: early_return, system_property_read
+  Flow:     [other] filled-new-array/range {v3 .. v28}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← NotificationManagerService.init()
+        ← NotificationManagerService.onStart()
+
+  CALLEES (what this method invokes):
+      → SystemProperties.getInt()
+      → <android.util.ArrayMap: void <init>()>
+      → PreferencesHelper.setHideContentAllowList()
+      → PreferencesHelper.syncChannelsBypassingDnd()
+      → PreferencesHelper.updateBadgingEnabled()
+      → PreferencesHelper.updateBubblesEnabled()
+      → PreferencesHelper.updateMediaNotificationFilteringEnabled()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.HashSet: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+        → HashSet.add()
+        → PreferencesHelper.updateChannelsBypassingDnd()
+        → ZenModeHelper.getNotificationPolicy()
+        → Context.getContentResolver()
+        → Settings$Secure.getIntForUser()
+        → SparseBooleanArray.get()
+        → SparseBooleanArray.keyAt()
+        → SparseBooleanArray.size()
+        → <android.util.SparseBooleanArray: void <init>()>
+        → SparseBooleanArray.put()
+        → PreferencesHelper.updateConfig()
+        → Settings$Global.getInt()
+          → ArrayMap.allocArrays()
+          → NotificationChannel.canBypassDnd()
+          → UserHandle.getUserId()
+          → ArrayMap.size()
+          → ArrayMap.valueAt()
+          → ArrayMap.values()
+          → ArraySet.add()
+          → ArraySet.size()
+          → ArraySet.removeAt()
+          → ArraySet.valueAt()
+          → <android.util.ArraySet: void <init>()>
+          → <android.util.Pair: void <init>(java.lang.Object,java.lang.O
+          → PermissionHelper.hasPermission()
+          → PreferencesHelper.channelIsLiveLocked()
+          → PreferencesHelper.getCurrentUserWithManagedProfile()
+          → PreferencesHelper.updateZenPolicy()
+          → Collection.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.contains()
+          → ZenModeHelper.getNotificationPolicy()
+          → SparseBooleanArray.get()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → <android.util.SparseBooleanArray: void <init>(int)>
+          → ContainerHelpers.binarySearch()
+          → GrowingArrayUtils.insert()
+          → GrowingArrayUtils.insert()
+          → RankingHandler.requestSort()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ArrayMap.getCollection()
+            → MapCollections.getValues()
+            → ArraySet.indexOf()
+            → ArraySet.indexOfNull()
+            → ArraySet.allocArrays()
+            → ArraySet.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → ArraySet.shouldShrink()
+            → ArraySet.getNewShrunkenSize()
+            → ArraySet.clear()
+            → ArraySet.valueAtUnchecked()
+            → <android.util.ArraySet: void <init>(int,boolean)>
+            → Binder.clearCallingIdentity()
+            → Binder.restoreCallingIdentity()
+            → PermissionManagerServiceInternal.checkPostNotificationsPermissionGrantedOrLegacyAccess()
+            → NotificationChannel.isDeleted()
+            → NotificationChannel.getImportance()
+            → NotificationChannel.getGroup()
+            → PreferencesHelper.isGroupBlocked()
+            → Context.getSystemService()
+            → UserManager.getProfileIds()
+            → PreferencesHelper.getCurrentUser()
+            → List.add()
+            → NotificationManager$Policy.getExceptionContacts()
+            → <android.app.NotificationManager$Policy: void <init>(int,int
+            → ZenModeHelper.setNotificationPolicy()
+            → ZenModeConfig.toNotificationPolicy()
+            → ArrayUtils.newUnpaddedIntArray()
+              → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+              → <android.util.MapCollections$ValuesCollection: void <init>(a
+              → ArraySet.binarySearch()
+              → NotificationChannelGroup.isBlocked()
+              → PreferencesHelper.getOrCreatePackagePreferencesLocked()
+              → Map.get()
+              → ActivityManager.getCurrentUser()
+              → ZenModeConfig.copy()
+              → ZenModeConfig.applyNotificationPolicy()
+              → ZenModeHelper.setConfigLocked()
+              → ZenModeConfig.getConversationSendersWithDefault()
+              → ZenModeConfig.sourceToPrioritySenders()
+

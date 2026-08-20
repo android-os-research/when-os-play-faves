@@ -1,0 +1,7 @@
+# persist.sys.vold_app_data_isolation_enabled [NEW]
+# Refs: 3
+# JARs: services, sm
+
+<com.android.commands.sm.Sm: void runDisableAppDataIsolation()>
+<com.android.server.StorageManagerService: void <init>(android.content.Context)>
+<com.android.server.am.ProcessList: void init(com.android.server.am.ActivityManagerService,com.android.server.am.ActiveUids,com.android.server.compat.PlatformCompat)>

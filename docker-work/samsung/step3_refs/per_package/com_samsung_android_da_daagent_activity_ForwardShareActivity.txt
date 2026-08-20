@@ -1,0 +1,6 @@
+# com.samsung.android.da.daagent.activity.ForwardShareActivity [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+<com.android.server.DualAppManagerService: boolean mayForwardShare(android.content.Intent,java.lang.String,int,int)>

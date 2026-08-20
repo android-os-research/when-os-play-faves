@@ -1,0 +1,16 @@
+# com.samsung.android.knox.permission.KNOX_EXCHANGE [NEW]
+# Refs: 13
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.email.AccountsReceiver$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.enterprise.email.AccountsReceiver: void sendClientAuthResultIntent(long,int,int)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: com.samsung.android.knox.ContextInfo enforceExchangeAccountPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: java.lang.String getAccountCertificatePassword(com.samsung.android.knox.ContextInfo,long)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: java.lang.String getAccountEmailPassword(com.samsung.android.knox.ContextInfo,long)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: long setAccountCertificatePassword(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: long setAccountEmailPassword(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: void sendSMIMEAliasResultIntent(long,int,int)>
+<com.android.server.enterprise.email.LDAPAccountPolicy: long setAccountEmailPassword(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.android.server.enterprise.email.SettingsUtils: java.lang.String[] getPassword(int,long,android.content.Context,int)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

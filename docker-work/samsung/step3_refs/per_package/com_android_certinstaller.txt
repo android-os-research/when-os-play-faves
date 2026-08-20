@@ -1,0 +1,8 @@
+# com.android.certinstaller [NEW]
+# Refs: 5
+# JARs: framework, services
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<android.security.KeyChain: android.content.Intent createInstallIntent()>
+<com.android.server.enterprise.certificate.CertificatePolicy: boolean isOcspCheckEnabled(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.certificate.CertificatePolicy: boolean isRevocationCheckEnabled(com.samsung.android.knox.ContextInfo)>

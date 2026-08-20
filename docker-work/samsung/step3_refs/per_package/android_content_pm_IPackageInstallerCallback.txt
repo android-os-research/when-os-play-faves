@@ -1,0 +1,13 @@
+# android.content.pm.IPackageInstallerCallback [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.content.pm.IPackageInstallerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IPackageInstallerCallback$Stub$Proxy: void onSessionActiveChanged(int,boolean)>
+<android.content.pm.IPackageInstallerCallback$Stub$Proxy: void onSessionBadgingChanged(int)>
+<android.content.pm.IPackageInstallerCallback$Stub$Proxy: void onSessionCreated(int)>
+<android.content.pm.IPackageInstallerCallback$Stub$Proxy: void onSessionFinished(int,boolean)>
+<android.content.pm.IPackageInstallerCallback$Stub$Proxy: void onSessionProgressChanged(int,float)>
+<android.content.pm.IPackageInstallerCallback$Stub: android.content.pm.IPackageInstallerCallback asInterface(android.os.IBinder)>
+<android.content.pm.IPackageInstallerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IPackageInstallerCallback$Stub: void <init>()>

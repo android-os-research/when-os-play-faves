@@ -1,0 +1,8 @@
+# com.samsung.systemui.statusbar.COLLAPSED [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.wm.MultiWindowPointerEventListener$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.wm.MultiWindowPointerEventListener: void <init>(com.android.server.wm.WindowManagerService,com.android.server.wm.DisplayContent)>
+<com.samsung.android.displaysolution.MdnieScenarioControlService$ScreenWatchingReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.displaysolution.MdnieScenarioControlService: void <init>(android.content.Context)>

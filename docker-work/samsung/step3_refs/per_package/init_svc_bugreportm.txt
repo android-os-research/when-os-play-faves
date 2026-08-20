@@ -1,0 +1,6 @@
+# init.svc.bugreportm [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.RescueParty: void runDumpstateAndWait(android.content.Context,int)>
+<com.android.server.power.ShutdownThread: boolean waitForDumpstateEnd(int)>

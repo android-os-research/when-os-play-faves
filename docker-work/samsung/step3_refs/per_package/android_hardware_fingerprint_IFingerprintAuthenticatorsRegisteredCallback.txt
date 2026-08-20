@@ -1,0 +1,9 @@
+# android.hardware.fingerprint.IFingerprintAuthenticatorsRegisteredCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.fingerprint.IFingerprintAuthenticatorsRegisteredCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.fingerprint.IFingerprintAuthenticatorsRegisteredCallback$Stub$Proxy: void onAllAuthenticatorsRegistered(java.util.List)>
+<android.hardware.fingerprint.IFingerprintAuthenticatorsRegisteredCallback$Stub: android.hardware.fingerprint.IFingerprintAuthenticatorsRegisteredCallback asInterface(android.os.IBinder)>
+<android.hardware.fingerprint.IFingerprintAuthenticatorsRegisteredCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.fingerprint.IFingerprintAuthenticatorsRegisteredCallback$Stub: void <init>()>

@@ -1,0 +1,6 @@
+# ro.ril.ecclist [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.emergency.EmergencyNumberTracker: boolean isEmergencyNumberFromEccList(java.lang.String,boolean)>
+<com.android.internal.telephony.emergency.EmergencyNumberTracker: java.util.List getEmergencyNumberListFromEccList()>

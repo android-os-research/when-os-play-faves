@@ -1,0 +1,7 @@
+# com.samsung.android.knox.containeragent.switcher.PhoneIcon [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxIcon(java.lang.String,java.lang.String,int)>
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxPhoneOrMessageIcon(java.lang.String)>
+<com.samsung.android.knox.KnoxHelper: void <clinit>()>

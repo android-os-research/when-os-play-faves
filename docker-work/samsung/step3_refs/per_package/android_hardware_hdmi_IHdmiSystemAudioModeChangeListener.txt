@@ -1,0 +1,9 @@
+# android.hardware.hdmi.IHdmiSystemAudioModeChangeListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.hdmi.IHdmiSystemAudioModeChangeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.hdmi.IHdmiSystemAudioModeChangeListener$Stub$Proxy: void onStatusChanged(boolean)>
+<android.hardware.hdmi.IHdmiSystemAudioModeChangeListener$Stub: android.hardware.hdmi.IHdmiSystemAudioModeChangeListener asInterface(android.os.IBinder)>
+<android.hardware.hdmi.IHdmiSystemAudioModeChangeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.hdmi.IHdmiSystemAudioModeChangeListener$Stub: void <init>()>

@@ -1,0 +1,18 @@
+# android.os.IRecoverySystem [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.os.IRecoverySystem$Stub$Proxy: boolean allocateSpaceForUpdate(java.lang.String)>
+<android.os.IRecoverySystem$Stub$Proxy: boolean clearBcb()>
+<android.os.IRecoverySystem$Stub$Proxy: boolean clearLskf(java.lang.String)>
+<android.os.IRecoverySystem$Stub$Proxy: boolean isLskfCaptured(java.lang.String)>
+<android.os.IRecoverySystem$Stub$Proxy: boolean requestLskf(java.lang.String,android.content.IntentSender)>
+<android.os.IRecoverySystem$Stub$Proxy: boolean setupBcb(java.lang.String)>
+<android.os.IRecoverySystem$Stub$Proxy: boolean uncrypt(java.lang.String,android.os.IRecoverySystemProgressListener)>
+<android.os.IRecoverySystem$Stub$Proxy: int rebootWithLskf(java.lang.String,java.lang.String,boolean)>
+<android.os.IRecoverySystem$Stub$Proxy: int rebootWithLskfAssumeSlotSwitch(java.lang.String,java.lang.String)>
+<android.os.IRecoverySystem$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IRecoverySystem$Stub$Proxy: void rebootRecoveryWithCommand(java.lang.String)>
+<android.os.IRecoverySystem$Stub: android.os.IRecoverySystem asInterface(android.os.IBinder)>
+<android.os.IRecoverySystem$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IRecoverySystem$Stub: void <init>()>

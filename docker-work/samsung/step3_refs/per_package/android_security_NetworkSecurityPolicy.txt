@@ -1,0 +1,6 @@
+# android.security.NetworkSecurityPolicy [NEW]
+# Refs: 2
+# JARs: org.apache.http.legacy, services
+
+<okhttp3.internal.platform.AndroidPlatform: boolean isCleartextTrafficPermitted(java.lang.String)>
+<org.apache.http.impl.client.DefaultRequestDirector: boolean isCleartextTrafficPermitted(java.lang.String)>

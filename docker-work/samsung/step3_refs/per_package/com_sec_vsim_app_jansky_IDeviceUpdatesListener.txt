@@ -1,0 +1,9 @@
+# com.sec.vsim.app.jansky.IDeviceUpdatesListener [NEW]
+# Refs: 5
+# JARs: vsimmanager
+
+<com.sec.vsim.app.jansky.IDeviceUpdatesListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.vsim.app.jansky.IDeviceUpdatesListener$Stub$Proxy: void onDeviceUpdated(android.os.Bundle)>
+<com.sec.vsim.app.jansky.IDeviceUpdatesListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.vsim.app.jansky.IDeviceUpdatesListener$Stub: com.sec.vsim.app.jansky.IDeviceUpdatesListener asInterface(android.os.IBinder)>
+<com.sec.vsim.app.jansky.IDeviceUpdatesListener$Stub: void <init>()>

@@ -1,0 +1,30 @@
+######################################################################
+# Propagation: com.codoon.gps
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          array_init
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.filter.filter.RecentUsedPackageFilter
+  Method:   <com.android.server.am.mars.filter.filter.RecentUsedPackageFilter: void <init>()>
+  Line:     86
+  Register: v1 := "com.codoon.gps"
+  Usage:    [array_init] filled-new-array {v1, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String; → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.filter.filter.RecentUsedPackageF
+        ← <com.android.server.am.mars.filter.filter.RecentUsedPackageF
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+

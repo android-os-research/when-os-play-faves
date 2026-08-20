@@ -1,0 +1,6 @@
+# com.samsung.android.intent.action.SOUND_EVENT [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.audio.AudioService: void sendBroadcastToSoundEventReceiver(int,int,java.lang.String)>
+<com.android.server.media.MediaSessionService: void dispatchVolumeKeyLongPressLocked(android.view.KeyEvent)>

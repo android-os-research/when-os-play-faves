@@ -1,0 +1,1395 @@
+######################################################################
+# Propagation: com.samsung.android.app.telephonyui
+######################################################################
+
+JARs:                 framework, knoxsdk, services, telephony-common
+Classes:              12
+Occurrences:          13
+Usage types:          invoke
+Enforcement patterns: allowlist_check, early_return, string_compare, system_property_read
+Security tags:        APPOPS, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.telecom.TelecomManager
+  Method:   <android.telecom.TelecomManager: void <clinit>()>
+  Line:     317
+  Register: v0 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-static {v0, v1}, Landroid/content/ComponentName;->createRelative(Ljava/lang/String;Ljava/lang
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.createRelative() → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → ComponentName.createRelative()
+      → <android.telecom.TelecomManager$DeathRecipient: void <init>(
+        → <android.telecom.TelecomManager$DeathRecipient: void <init>(
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.service.SemService.SemServiceManager$1
+  Method:   <com.samsung.android.service.SemService.SemServiceManager$1: void run()>
+  Line:     5623
+  Register: v3 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, v1, Lcom/samsung/android/service/SemService/ → [i
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → SystemProperties.set()
+      → <com.samsung.android.service.SemService.SemServiceManager: a
+      → SemServiceManager.send()
+      → <com.samsung.android.service.SemService.SemServiceManager: i
+      → SemServiceManager.close()
+      → SemServiceManager.open()
+      → SemServiceManager.byteToHex()
+      → SemServiceManager.bytesToHex()
+      → <com.samsung.android.service.SemService.SemServiceManager: j
+      → <java.lang.Exception: void <init>(java.lang.String)>
+      → <java.lang.NullPointerException: void <init>(java.lang.Strin
+      → ArrayList.add()
+      → ArrayList.size()
+      → ArrayList.get()
+      → <java.util.ArrayList: void <init>()>
+        → SemServiceManager.AIDDeactivation()
+        → SemServiceManager.parseList()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$1
+  Method:   <com.samsung.android.knox.EdmConstants$1: void <init>()>
+  Line:     107
+  Register: v0 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1
+  Method:   <com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1: void <init>()>
+  Line:     80
+  Register: v0 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.appconfig.ApplicationRestrictionsM
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     82
+  Register: v21 := "com.samsung.android.app.telephonyui"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>
+  Line:     29088
+  Register: p3 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-virtual {p0, p3}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->copyBundle(Ljav
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.custom.KnoxCustomManagerService.cop → [reassigned] p3 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.checkCallingOrSelfPermission()
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → Bundle.toString()
+      → KnoxCustomManagerService.copyBundle()
+      → KnoxCustomManagerService.getAirGestureOptionState()
+      → KnoxCustomManagerService.getBackupRestoreState()
+      → KnoxCustomManagerService.getDeviceSpeakerEnabledState()
+      → KnoxCustomManagerService.getDisplayMirroringState()
+      → KnoxCustomManagerService.getEthernetStateInternal()
+      → KnoxCustomManagerService.getExtendedCallInfoState()
+      → KnoxCustomManagerService.getGearNotificationState()
+      → KnoxCustomManagerService.getHardKeyIntentState()
+      → KnoxCustomManagerService.getInfraredState()
+      → KnoxCustomManagerService.getInputMethodRestrictionState()
+      → KnoxCustomManagerService.getLTESettingState()
+      → KnoxCustomManagerService.getLcdBacklightState()
+      → KnoxCustomManagerService.getMultiWindowState()
+      → KnoxCustomManagerService.getPowerDialogCustomItemsState()
+      → KnoxCustomManagerService.getPowerMenuLockedState()
+      → KnoxCustomManagerService.getProKioskNotificationMessagesState()
+      → KnoxCustomManagerService.getProKioskPowerDialogCustomItemsState()
+      → KnoxCustomManagerService.getProKioskState()
+      → KnoxCustomManagerService.getProKioskStatusBarClockState()
+      → KnoxCustomManagerService.getProKioskStatusBarIconsState()
+      → KnoxCustomManagerService.getProKioskUsbMassStorageState()
+      → KnoxCustomManagerService.getProKioskUsbNetState()
+      → KnoxCustomManagerService.getProtectBatteryState()
+      → KnoxCustomManagerService.getScreenOffOnHomeLongPressState()
+      → KnoxCustomManagerService.getScreenOffOnStatusBarDoubleTapState()
+      → KnoxCustomManagerService.getScreenWakeupOnPowerState()
+      → KnoxCustomManagerService.getStatusBarClockState()
+      → KnoxCustomManagerService.getStatusBarIconsState()
+      → KnoxCustomManagerService.getStatusBarNotificationsState()
+      → KnoxCustomManagerService.getToastEnabledState()
+      → KnoxCustomManagerService.getToastGravityEnabledState()
+      → KnoxCustomManagerService.getToastShowPackageNameState()
+      → KnoxCustomManagerService.getUnlockSimOnBootState()
+      → KnoxCustomManagerService.getUsbMassStorageState()
+      → KnoxCustomManagerService.getUsbNetStateInternal()
+      → KnoxCustomManagerService.getVolumeButtonRotationState()
+      → KnoxCustomManagerService.getVolumeKeyAppState()
+      → KnoxCustomManagerService.getVolumePanelEnabledState()
+      → KnoxCustomManagerService.getWifiConnectionMonitorState()
+      → KnoxCustomManagerService.isDataAllowedFromKnox()
+      → KnoxCustomManagerService.getBatteryLevelColourItem()
+      → KnoxCustomManagerService.getAccessibilitySettingsItems()
+      → KnoxCustomManagerService.getAutoCallPickupState()
+      → KnoxCustomManagerService.getCallScreenDisabledItems()
+      → KnoxCustomManagerService.getDexHDMIAutoEnterState()
+      → KnoxCustomManagerService.getDexHomeAlignment()
+      → KnoxCustomManagerService.getDexScreenTimeout()
+      → KnoxCustomManagerService.getForceAutoStartUpState()
+      → KnoxCustomManagerService.getHardKeyIntentMode()
+      → KnoxCustomManagerService.getHideNotificationMessages()
+      → KnoxCustomManagerService.getHomeScreenMode()
+      → KnoxCustomManagerService.getKeyboardModeInternal()
+      → KnoxCustomManagerService.getLockScreenHiddenItems()
+      → KnoxCustomManagerService.getLockScreenOverrideMode()
+      → KnoxCustomManagerService.getMobileNetworkType()
+      → KnoxCustomManagerService.getPowerDialogItems()
+      → KnoxCustomManagerService.getPowerDialogOptionMode()
+      → KnoxCustomManagerService.getProKioskStatusBarMode()
+      → KnoxCustomManagerService.getQuickPanelButtons()
+      → KnoxCustomManagerService.getQuickPanelEditMode()
+      → KnoxCustomManagerService.getRecentLongPressMode()
+      → KnoxCustomManagerService.getSensorDisabled()
+      → KnoxCustomManagerService.getSettingsEnabledItems()
+      → KnoxCustomManagerService.getSettingsHiddenState()
+      → KnoxCustomManagerService.getShowIMEWithHardKeyboard()
+      → KnoxCustomManagerService.getStatusBarMode()
+      → KnoxCustomManagerService.getStatusBarTextScrollWidth()
+      → KnoxCustomManagerService.getStatusBarTextSize()
+      → KnoxCustomManagerService.getStatusBarTextStyle()
+      → KnoxCustomManagerService.getSystemSoundsEnabledState()
+      → KnoxCustomManagerService.getToastGravity()
+      → KnoxCustomManagerService.getToastGravityXOffset()
+      → KnoxCustomManagerService.getToastGravityYOffset()
+      → KnoxCustomManagerService.getUsbConnectionType()
+      → KnoxCustomManagerService.getUserInactivityTimeout()
+      → KnoxCustomManagerService.getVibrationIntensity()
+      → KnoxCustomManagerService.getVolumeControlStream()
+      → KnoxCustomManagerService.getWifiFrequencyBand()
+      → KnoxCustomManagerService.getWifiHotspotEnabledState()
+      → KnoxCustomManagerService.isDexAutoOpenLastAppAllowed()
+      → KnoxCustomManagerService.getExitUI()
+      → KnoxCustomManagerService.getHomeActivity()
+      → KnoxCustomManagerService.getLockScreenShortcut()
+      → KnoxCustomManagerService.getProKioskString()
+      → KnoxCustomManagerService.getProKioskUsbNetAddress()
+      → KnoxCustomManagerService.getQuickPanelItems()
+      → KnoxCustomManagerService.getQuickPanelItemsDisabled()
+      → KnoxCustomManagerService.getRecentLongPressActivity()
+      → KnoxCustomManagerService.getStatusBarText()
+      → KnoxCustomManagerService.getUsbNetAddress()
+      → KnoxCustomManagerService.getAutoCallNumberList()
+      → KnoxCustomManagerService.getDexForegroundModePackageList()
+      → KnoxCustomManagerService.getPowerDialogCustomItems()
+      → KnoxCustomManagerService.getProKioskPowerDialogCustomItems()
+      → KnoxCustomManagerService.getUltraPowerSavingPackages()
+      → KnoxCustomManagerService.getVolumeKeyAppsList()
+      → PrintWriter.println()
+      → Exception.getStackTrace()
+      → List.size()
+        → Bundle.getBundle()
+        → Bundle.keySet()
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putBundle()
+        → KnoxCustomManagerService.getApplicationRestrictionsInternal()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Set.iterator()
+        → Context.getContentResolver()
+        → Settings$System.getInt()
+        → EdmStorageProvider.getBoolean()
+        → Exception.printStackTrace()
+        → Settings$Secure.getInt()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → KnoxCustomManagerService$Injector.binderWithCleanCallingIdentity()
+        → Context.getSystemService()
+        → AudioManager.isForceSpeakerOn()
+        → ConsumerIrManager.hasIrEmitter()
+        → EdmStorageProvider.getInt()
+        → Settings$Global.getInt()
+        → TextUtils.isEmpty()
+        → SemFloatingFeature.getBoolean()
+        → SemFloatingFeature.getInstance()
+        → BufferedReader.readLine()
+        → <java.io.BufferedReader: void <init>(java.io.Reader)>
+        → BufferedReader.close()
+        → File.canWrite()
+        → File.exists()
+        → <java.io.File: void <init>(java.lang.String)>
+        → <java.io.FileReader: void <init>(java.lang.String)>
+        → Bundle.containsKey()
+        → Bundle.isEmpty()
+        → Bundle.getString()
+        → EnterpriseDeviceManager.getPhoneRestrictionPolicy()
+        → KnoxCustomManagerService.getEDM()
+        → PhoneRestrictionPolicy.isDataAllowedFromSimSlot()
+        → EdmStorageProvider.getBlob()
+        → KnoxCustomManagerService.deserializeStatusbarIconItem()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → LocalServices.getService()
+        → DesktopModeManagerInternal.getDexHDMIAutoEnterState()
+        → DeXLauncherConfigurationInternal.getOrder()
+        → KnoxCustomManagerService.getScreenTimeoutForDesktopMode()
+        → PrivateKnoxCustom.isKnoxCustomAutoStartUpEnabled()
+        → PrivateKnoxCustom.getInstance()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → Context.getPackageManager()
+        → PackageManager.hasSystemFeature()
+        → TelephonyManager.isDataCapable()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → SystemProperties.get()
+        → Settings$System.getInt()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → WifiManager.getWifiApState()
+        → EdmStorageProvider.getString()
+        → Settings$System.getString()
+        → KnoxCustomManagerService.getQuickPanelItemId()
+        → StringBuffer.toString()
+        → StringBuffer.append()
+        → <java.lang.StringBuffer: void <init>()>
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+        → KnoxCustomManagerService.deserializeObject()
+        → List.add()
+        → List.clear()
+        → <android.text.TextUtils$SimpleStringSplitter: void <init>(ch
+        → TextUtils$StringSplitter.iterator()
+        → TextUtils$StringSplitter.setString()
+          → ApplicationRestrictionsInternal.getApplicationRestrictionsInternal()
+          → EdmStorageProviderBase.getBoolean()
+          → Binder.withCleanCallingIdentity()
+          → IConsumerIrService.hasIrEmitter()
+          → RemoteException.rethrowFromSystemServer()
+          → EdmStorageProviderBase.getInt()
+          → CharSequence.length()
+          → SemFloatingFeature.loge()
+          → Hashtable.get()
+          → EnterpriseDeviceManager.getPhoneRestrictionPolicy()
+          → KnoxCustomManagerService$Injector.getEDM()
+          → RemoteException.printStackTrace()
+          → IPhoneRestrictionPolicy.isDataAllowedFromSimSlot()
+          → PhoneRestrictionPolicy.getService()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → EdmStorageProviderBase.getBlob()
+          → EdmStorageProviderBase.translateToAdminLUID()
+          → Parcel.obtain()
+          → Parcel.readValue()
+          → Parcel.recycle()
+          → Parcel.setDataPosition()
+          → Parcel.unmarshall()
+          → Exception.getMessage()
+          → ArrayMap.get()
+          → ContentResolver.call()
+          → Bundle.getInt()
+          → Bundle.putString()
+          → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+          → KnoxCustomManagerService.useSettingDbForScreenTimeout()
+          → KnoxCustomManagerService.screenTimeoutKey()
+          → PrivateKnoxCustom.readBooleanDataValue()
+          → <com.samsung.android.knox.custom.PrivateKnoxCustom: void <in
+          → EdmStorageProviderBase.getString()
+          → Parcel.createTypedArray()
+            → EdmStorageProviderBase.getBooleanList()
+            → <com.android.server.enterprise.storage.SettingNotFoundExcept
+            → List.get()
+            → ExceptionUtils.propagate()
+            → FunctionalUtils$ThrowingSupplier.getOrThrow()
+            → <android.os.DeadSystemRuntimeException: void <init>()>
+            → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+            → EdmStorageProviderBase.getIntList()
+            → <com.samsung.android.knox.restriction.PhoneRestrictionPolicy
+            → <java.util.HashMap: void <init>()>
+            → Map.containsKey()
+            → Map.get()
+            → Map.put()
+            → EnterpriseDeviceManager.getInstance()
+            → ServiceManager.getService()
+            → IPhoneRestrictionPolicy$Stub.asInterface()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.put()
+            → EdmStorageProviderBase.getBlobList()
+            → SemPersonaManager.isKnoxId()
+            → ArrayMap.indexOfKey()
+            → PrivateKnoxCustom.readParamData()
+            → EdmStorageProviderBase.getString()
+              → Cursor.isNull()
+              → Cursor.moveToNext()
+              → Cursor.getInt()
+              → Cursor.close()
+              → SQLException.getMessage()
+              → EdmStorageProviderBase.getCursor()
+              → <android.util.AndroidException: void <init>(java.lang.String
+              → ExceptionUtils.propagateIfInstanceOf()
+              → Preconditions.checkNotNull()
+              → <android.os.DeadSystemException: void <init>()>
+              → Process.myPid()
+              → Process.myTid()
+              → Process.myUid()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.d()
+              → KnoxsdkFileLog.w()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.restriction.IPhoneRestrictionPolic
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → Cursor.getBlob()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+              → EdmStorageProviderBase.getStringList()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: boolean isDataAllowedFromKnox(int)>
+  Line:     40210
+  Register: v1 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getApplicat
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.samsung.android.knox.custom.KnoxCustomManagerService.get → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← KnoxCustomManagerService.dump()
+
+  CALLEES (what this method invokes):
+      → Bundle.getBundle()
+      → Bundle.containsKey()
+      → Bundle.isEmpty()
+      → Bundle.getString()
+      → EnterpriseDeviceManager.getPhoneRestrictionPolicy()
+      → KnoxCustomManagerService.getApplicationRestrictionsInternal()
+      → KnoxCustomManagerService.getEDM()
+      → PhoneRestrictionPolicy.isDataAllowedFromSimSlot()
+        → EnterpriseDeviceManager.getPhoneRestrictionPolicy()
+        → <android.os.Bundle: void <init>()>
+        → LocalServices.getService()
+        → ApplicationRestrictionsInternal.getApplicationRestrictionsInternal()
+        → KnoxCustomManagerService$Injector.getEDM()
+        → RemoteException.printStackTrace()
+        → IPhoneRestrictionPolicy.isDataAllowedFromSimSlot()
+        → PhoneRestrictionPolicy.getService()
+          → <com.samsung.android.knox.restriction.PhoneRestrictionPolicy
+          → <java.util.HashMap: void <init>()>
+          → Map.containsKey()
+          → Map.get()
+          → Map.put()
+          → ArrayMap.get()
+          → EnterpriseDeviceManager.getInstance()
+          → ServiceManager.getService()
+          → TextUtils.isEmpty()
+          → IPhoneRestrictionPolicy$Stub.asInterface()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ArrayMap.indexOfKey()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.d()
+            → KnoxsdkFileLog.w()
+            → CharSequence.length()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.restriction.IPhoneRestrictionPolic
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+              → SemLog.w()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.appconfig.ApplicationRestrictionsService
+  Method:   <com.android.server.enterprise.appconfig.ApplicationRestrictionsService: void sendBroadcastAsUserInternal(java.lang.String,int)>
+  Line:     1255
+  Register: v1 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.util.ArrayList.add() → [other] iget-object v2, p0, Lcom/android/server/enterprise/appconfig → [invoke] and
+
+  CALLERS (who invokes this method):
+      ← ApplicationRestrictionsService$1.onReceive()
+      ← ApplicationRestrictionsService.setApplicationRestrictionsInternal()
+        ← ApplicationRestrictionsService.setKeyedAppStatesReport()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.clearApplicationUserData()
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UserHandle.of()
+      → ArrayList.add()
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Map.get()
+      → Map.keySet()
+      → Set.iterator()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.restriction.RoamingPolicy
+  Method:   <com.android.server.enterprise.restriction.RoamingPolicy: boolean setRoamingData(com.samsung.android.knox.ContextInfo,boolean)>
+  Line:     912
+  Register: v2 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → RoamingPolicy.isRoamingDataEnabled()
+      → RoamingPolicy.enforceOwnerOnlyAndRoamingPermission()
+      → RoamingPolicy.setRoamingDataAllowedSystemUI()
+      → RoamingPolicy.updatePolicyState()
+      → EdmStorageProvider.putBoolean()
+      → Utils.getCallingOrCurrentUserId()
+        → EdmStorageProvider.getBooleanList()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → RoamingPolicy.getEDM()
+        → EnterpriseDeviceManager.enforceOwnerOnlyAndActiveAdminPermission()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → SystemUIAdapter.getInstance()
+        → SystemUIAdapter.setRoamingDataAllowedAsUser()
+        → RoamingPolicy.getEnterpriseDumpHelper()
+        → EnterpriseDumpHelper.readTable()
+        → EdmStorageProviderBase.putBoolean()
+        → ActivityManager.getCurrentUser()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → UserHandle.getUserId()
+        → IPersonaManagerAdapter.isValidKnoxId()
+        → Utils.getPersonaManagerAdapter()
+        → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+          → EdmStorageProviderBase.getBooleanListAsUser()
+          → EnterpriseDeviceManager.getInstance()
+          → AccessController.enforceOwnerOnlyAndActiveAdminPermission()
+          → <com.android.server.enterprise.adapterlayer.SystemUIAdapter:
+          → <com.android.server.enterprise.storage.EdmStorageProvider: v
+          → ISystemUIAdapterCallback.setRoamingAllowed()
+          → SystemUIAdapter.isCalledFromSystem()
+          → SystemUIAdapter.getCurrentUserId()
+          → HashMap.entrySet()
+          → Map$Entry.getValue()
+          → Set.iterator()
+          → <com.android.server.enterprise.utils.EnterpriseDumpHelper: v
+          → EnterpriseDumpHelper.readColumns()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → ContentValues.put()
+          → EdmStorageProviderBase.put()
+          → EdmStorageProviderBase.translateToAdminLUID()
+          → AdapterRegistry.getAdapter()
+          → SemPersonaManager.isKnoxId()
+            → ContentValues.put()
+            → EdmStorageProviderBase.getAdminLUIDWhereIn()
+            → EdmStorageProviderBase.getBooleanList()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.d()
+            → KnoxsdkFileLog.w()
+            → AccessController.getService()
+            → IEnterpriseDeviceManager.enforceOwnerOnlyAndActiveAdminPermission()
+            → <android.os.Binder: void <init>()>
+            → ServiceManager.getService()
+            → IStatusBarService$Stub.asInterface()
+            → <java.util.HashMap: void <init>()>
+            → <com.android.server.enterprise.storage.EdmStorageProviderBas
+            → SystemUIAdapter.updateSystemUIMonitor()
+            → ContentValues.getAsString()
+            → EdmStorageProviderBase.getValues()
+            → EnterpriseDumpHelper.getBitNumbers()
+            → List.contains()
+            → List.isEmpty()
+            → List.iterator()
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.put()
+            → ContentValues.putAll()
+            → EdmStorageProviderBase.update()
+            → EdmStorageProviderBase.formatContentValues()
+            → EdmStorageProviderBase.insert()
+            → HashMap.get()
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+              → EdmStorageProviderBase.getAdminLUIDWhereInArgs()
+              → Cursor.isNull()
+              → Cursor.moveToNext()
+              → Cursor.getInt()
+              → Cursor.close()
+              → SQLException.getMessage()
+              → EdmStorageProviderBase.getCursor()
+              → <java.util.ArrayList: void <init>()>
+              → List.add()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+              → SemLog.w()
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → <android.os.Binder: void <init>(java.lang.String)>
+              → IBinder.queryLocalInterface()
+              → <com.android.internal.statusbar.IStatusBarService$Stub$Proxy
+              → SQLiteDatabase.enableWriteAheadLogging()
+              → SQLiteOpenHelper.getWritableDatabase()
+              → EdmStorageHelper.getInstance()
+              → Context.sendBroadcastAsUser()
+              → Intent.putExtra()
+              → <android.os.UserHandle: void <init>(int)>
+              → SystemUIAdapter.getIccIdListByAdmin()
+              → SystemUIAdapter.setLockedIccIdsAsUser()
+              → ArrayMap.get()
+              → ContentValues.size()
+              → ContentValues.put()
+              → ContentValues.put()
+              → Cursor.moveToFirst()
+              → Cursor.getBlob()
+              → Cursor.getFloat()
+              → Cursor.getColumnCount()
+              → Cursor.getCount()
+              → Cursor.getType()
+              → Cursor.getColumnName()
+              → Cursor.getString()
+              → Cursor.getLong()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → ArrayMap.putAll()
+              → SQLiteDatabase.update()
+              → ContentValues.valueSet()
+              → List.size()
+              → List.toArray()
+              → Map$Entry.getKey()
+              → SQLiteDatabase.insert()
+              → SystemProperties.get()
+              → SemDualAppManager.isDualAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.android.internal.telephony.SemTelephonyKnoxHelper
+  Method:   <com.android.internal.telephony.SemTelephonyKnoxHelper: boolean isApplicationRestrictedForCall(int)>
+  Line:     360
+  Register: v1 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Landroid/sec/enterprise/ApplicationRestrictionsManager;->getApplication
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.sec.enterprise.ApplicationRestrictionsManager.getApp → [other] move-result v1 → [branch] if-nez v1, :co
+
+  CALLERS (who invokes this method):
+      ← CallManager$CallManagerHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Bundle.getBundle()
+      → Bundle.containsKey()
+      → Bundle.isEmpty()
+      → Bundle.getString()
+      → ApplicationRestrictionsManager.getApplicationRestrictions()
+        → <android.os.Bundle: void <init>()>
+        → RemoteException.rethrowFromSystemServer()
+        → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+        → IEDMProxy.getApplicationRestrictions()
+          → <android.os.DeadSystemRuntimeException: void <init>()>
+          → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+          → ServiceManager.getService()
+          → IEDMProxy$Stub.asInterface()
+            → <android.os.DeadSystemException: void <init>()>
+            → IBinder.queryLocalInterface()
+            → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → <android.os.DeadObjectException: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.android.internal.telephony.nitz.SemNitzStateMachineImpl$1
+  Method:   <com.android.internal.telephony.nitz.SemNitzStateMachineImpl$1: void handleMessage(android.os.Message)>
+  Line:     151
+  Register: v0 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v0, p0, Lcom/android/internal/telephony/nitz/Sem → [i
+
+  CALLEES (what this method invokes):
+      → Context.sendStickyBroadcast()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Handler.obtainMessage()
+      → Handler.sendMessageDelayed()
+      → TextUtils.isEmpty()
+      → Phone.getContext()
+      → <com.android.internal.telephony.nitz.SemNitzStateMachineImpl
+      → <com.android.internal.telephony.nitz.SemNitzStateMachineImpl
+      → <com.android.internal.telephony.nitz.SemNitzStateMachineImpl
+      → <com.android.internal.telephony.nitz.SemNitzStateMachineImpl
+      → <com.android.internal.telephony.nitz.SemNitzStateMachineImpl
+      → <com.android.internal.telephony.nitz.SemNitzStateMachineImpl
+      → <com.android.internal.telephony.nitz.SemNitzStateMachineImpl
+      → <com.android.internal.telephony.nitz.SemNitzStateMachineImpl
+      → <com.android.internal.telephony.nitz.SemNitzStateMachineImpl
+        → CharSequence.length()
+        → SemNitzStateMachineImpl.log()
+        → SemNitzStateMachineImpl.showMultitimezonePopup()
+          → Phone.getPhoneId()
+          → Rlog.d()
+          → AlertDialog$Builder.create()
+          → AlertDialog$Builder.setCancelable()
+          → AlertDialog$Builder.setIcon()
+          → AlertDialog$Builder.setMessage()
+          → AlertDialog$Builder.setNegativeButton()
+          → AlertDialog$Builder.setPositiveButton()
+          → AlertDialog$Builder.setTitle()
+          → <android.app.AlertDialog$Builder: void <init>(android.conten
+          → AlertDialog.getWindow()
+          → AlertDialog.isShowing()
+          → AlertDialog.show()
+          → Resources.getConfiguration()
+          → Resources.getSystem()
+          → Resources.getString()
+          → Window.setType()
+          → TelephonyFeatures.getMainOperatorName()
+          → <com.android.internal.telephony.nitz.SemNitzStateMachineImpl
+          → List.size()
+          → List.get()
+          → List.set()
+            → Rlog.log()
+            → <android.app.AlertDialog: com.android.internal.app.AlertCont
+            → <android.app.AlertDialog: void <init>(android.content.Contex
+            → AlertDialog.setCancelable()
+            → AlertDialog.setCanceledOnTouchOutside()
+            → AlertDialog.setOnCancelListener()
+            → AlertDialog.setOnDismissListener()
+            → AlertDialog.setOnKeyListener()
+            → AlertController$AlertParams.apply()
+            → AlertDialog.resolveDialogTheme()
+            → Context.getTheme()
+            → Resources$Theme.resolveAttribute()
+            → <android.util.TypedValue: void <init>()>
+            → <android.view.ContextThemeWrapper: void <init>(android.conte
+            → <com.android.internal.app.AlertController$AlertParams: void 
+            → SemTelephonyUtils.getMainOperator()
+            → SemCarrierFeature.getInstance()
+            → SemCarrierFeature.getString()
+              → AlertDialog.getContext()
+              → <android.app.Dialog: void <init>(android.content.Context,int
+              → Window.alwaysReadCloseOnTouchAttr()
+              → AlertController.create()
+              → AlertController$AlertParams.createListView()
+              → AlertController.getIconAttributeResId()
+              → AlertController.setButton()
+              → AlertController.setCustomTitle()
+              → AlertController.setIcon()
+              → AlertController.setIcon()
+              → AlertController.setInverseBackgroundForced()
+              → AlertController.setMessage()
+              → AlertController.setTitle()
+              → AlertController.setView()
+              → AlertController.setView()
+              → AlertController.setView()
+              → ResourceId.isValid()
+              → ResourcesImpl$ThemeImpl.resolveAttribute()
+              → <android.content.ContextWrapper: void <init>(android.content
+              → Context.getSystemService()
+              → SemTelephonyUtils.getNetworkTypeCapability()
+              → <com.samsung.android.feature.SemCarrierFeature: void <init>(
+              → SemCarrierFeature.get()
+              → Exception.printStackTrace()
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.android.internal.telephony.dataconnection.DcTracker
+  Method:   <com.android.internal.telephony.dataconnection.DcTracker: void onDataSetupComplete(com.android.internal.telephony.dataconnection.ApnContext,boolean,int,int,int)>
+  Line:     41110
+  Register: v1 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-virtual {p2, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: allowlist_check, string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← DcTracker.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Notification$BigTextStyle.bigText()
+      → <android.app.Notification$BigTextStyle: void <init>()>
+      → Notification$Builder.build()
+      → Notification$Builder.setAutoCancel()
+      → Notification$Builder.setColor()
+      → Notification$Builder.setContentText()
+      → Notification$Builder.setContentTitle()
+      → Notification$Builder.setSmallIcon()
+      → Notification$Builder.setStyle()
+      → Notification$Builder.setTicker()
+      → Notification$Builder.setWhen()
+      → <android.app.Notification$Builder: void <init>(android.conte
+      → NotificationManager.notify()
+      → Context.registerReceiver()
+      → Context.getResources()
+      → Context.getText()
+      → Context.getSystemService()
+      → Context.sendStickyBroadcastAsUser()
+      → Context.unregisterReceiver()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.content.IntentFilter: void <init>(java.lang.String)
+      → Resources.getColor()
+      → LinkProperties.getInterfaceName()
+      → PersistableBundle.getBoolean()
+      → SystemProperties.getInt()
+      → DataFailCause.isEventLoggable()
+      → DataFailCause.isRadioRestartFailure()
+      → DataFailCause.toString()
+      → ServiceState.getRilMobileDataRadioTechnology()
+      → TelephonyManager.getNetworkType()
+      → TelephonyManager.getNetworkOperatorName()
+      → ApnSetting.getApnTypesBitmaskFromString()
+      → ApnSetting.getId()
+      → ApnSetting.getApnName()
+      → DataCallResponse.failureModeToString()
+      → TextUtils.equals()
+      → EventLog.writeEvent()
+      → CarrierSignalAgent.notifyCarrierSignalReceivers()
+      → LocalLog.log()
+      → Phone.getContext()
+      → Phone.getCarrierSignalAgent()
+      → Phone.getPhoneId()
+      → Phone.getSubId()
+      → Phone.getMobileProvisioningUrl()
+      → PhoneInternalInterface.getServiceState()
+      → TelephonyFeatures.supportDualLte()
+      → TelephonyFeatures.getMainOperatorName()
+      → AlwaysOnPdn.isAlwaysOnPdnRequiredByModem()
+      → AlwaysOnPdn.handleAlwaysOnPdn()
+      → ApnContext.getApnSetting()
+      → ApnContext.isProvisioningApn()
+      → ApnContext.restartOnError()
+      → ApnContext.getDataConnection()
+      → ApnContext.getApnTypeBitmask()
+      → ApnContext.getApnType()
+      → ApnContext.markApnPermanentFailed()
+      → ApnContext.setState()
+      → <com.android.internal.telephony.dataconnection.DcTracker$Pro
+      → DcTracker.getLinkProperties()
+      → DcTracker.getCarrierConfig()
+      → DcTracker.isPermanentFailure()
+      → DcTracker.isPreferredApnMatchedExceptId()
+      → DcTracker.shouldFallbackOnFailedHandover()
+      → DcTracker.calculateNewRetryRequestType()
+      → DcTracker.getCellLocationId()
+      → DcTracker.requestTypeToString()
+      → DcTracker.cancelReconnect()
+      → DcTracker.checkDataRoamingStatus()
+      → DcTracker.completeConnection()
+      → DcTracker.hideProvisioningNotification()
+      → DcTracker.log()
+      → DcTracker.notifyLteAttachPdnListToRIL()
+      → DcTracker.onDataSetupCompleteError()
+      → DcTracker.sendHandoverCompleteMessages()
+      → DcTracker.sendRestartRadio()
+      → DcTracker.setDataProfilesAsNeeded()
+      → DcTracker.setPreferredApn()
+      → DcTracker.setRadio()
+      → DcTracker.showProvisioningNotification()
+      → DcTracker.update5gStatus()
+      → ArrayList.iterator()
+      → HashMap.containsKey()
+      → HashMap.get()
+      → HashMap.put()
+      → Iterator.hasNext()
+      → Iterator.next()
+        → Notification.secSafeCharSequence()
+        → <android.app.Notification$Style: void <init>()>
+        → PersistableBundle.getIntArray()
+        → CarrierConfigManager.getConfigForSubId()
+        → <android.telephony.DataFailCause$$ExternalSyntheticLambda0: 
+        → IntStream.anyMatch()
+        → Map.getOrDefault()
+        → TextUtils.isEmpty()
+        → Map.get()
+        → CharSequence.charAt()
+        → CharSequence.length()
+        → Intent.getAction()
+        → CarrierSignalAgent.broadcast()
+        → ArrayUtils.isEmpty()
+        → SystemClock.elapsedRealtime()
+        → LocalLog.append()
+        → Duration.ofMillis()
+        → Instant.now()
+        → LocalDateTime.now()
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+        → SemTelephonyUtils.getMainOperator()
+        → SemCarrierFeature.getInstance()
+        → SemCarrierFeature.getString()
+        → SystemProperties.get()
+        → TelephonyFeatures.getSubOperatorName()
+        → AlwaysOnPdn.isSupportingVoWIFI()
+        → AlwaysOnPdn.isAlwaysOnPdnSupported()
+        → AlwaysOnPdn.log()
+        → AlwaysOnPdn.notifyAlwaysOnPdnToRIL()
+        → ApnContext.log()
+        → Resources.getString()
+        → SparseIntArray.get()
+        → SparseIntArray.put()
+        → ApnContext.requestLog()
+        → ApnContext.resetErrorCodeRetries()
+        → RetryManager.markApnPermanentFailed()
+        → RetryManager.getWaitingApns()
+        → ArrayList.clear()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <android.net.LinkProperties: void <init>()>
+        → DataConnection.getLinkProperties()
+        → ConcurrentHashMap.get()
+        → CarrierConfigManager.getDefaultConfig()
+        → DataFailCause.isPermanentFailure()
+        → DcTracker.skipCheckPermanentFailure()
+        → AtomicBoolean.get()
+        → ApnSetting.canHandleType()
+        → ApnSetting.equalsExceptID()
+        → CellIdentity.asCellLocation()
+        → CdmaCellLocation.getBaseStationId()
+        → GsmCellLocation.getCid()
+        → Phone.getCurrentCellIdentity()
+        → Handler.removeMessages()
+        → ServiceState.getDataRoaming()
+        → ApnContext.getState()
+        → DataConnection.getConnectionParams()
+        → DcTracker.getDataRoamingEnabledInternal()
+        → Collection.iterator()
+        → ConcurrentHashMap.values()
+        → NotificationManager.cancel()
+        → Context.startActivity()
+        → Intent.makeMainSelectorActivity()
+        → Intent.setData()
+        → Intent.setFlags()
+        → Uri.parse()
+        → Handler.obtainMessage()
+        → Handler.sendMessage()
+        → DcTracker.loge()
+        → DcTracker.startDataStallAlarm()
+        → DcTracker.startNetStatPoll()
+        → DcTracker.getNotificationManager()
+        → Rlog.d()
+        → Phone.invokeOemRilRequestRaw()
+        → ByteArrayOutputStream.toByteArray()
+        → <java.io.ByteArrayOutputStream: void <init>()>
+        → ByteArrayOutputStream.close()
+        → <java.io.DataOutputStream: void <init>(java.io.OutputStream)
+        → DataOutputStream.close()
+        → DataOutputStream.writeByte()
+        → DataOutputStream.writeShort()
+        → Phone.getAccessNetworksManager()
+        → AccessNetworksManager.isInLegacyMode()
+        → ApnContext.getDelayForNextApn()
+        → ApnContext.getDelayForNextApn()
+        → ApnContext.setDataConnection()
+        → DcTracker.startReconnect()
+        → DcTracker.sendHandoverCompleteMsg()
+        → List.iterator()
+        → List.clear()
+        → Handler.obtainMessage()
+        → ServiceState.getDataRoamingFromRegistration()
+        → ApnSetting.equals()
+        → ApnSetting.isEnabled()
+        → ApnSetting.getApnSetId()
+        → ApnSetting.getProfileId()
+        → DataServiceManager.setDataProfile()
+        → DcTracker.getPreferredApn()
+        → DcTracker.createDataProfile()
+        → DcTracker.createDataProfileEnabled()
+        → DcTracker.setApnNeeded()
+        → DcTracker.getPreferredApnSetId()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → ArrayList.containsAll()
+        → ArrayList.isEmpty()
+        → ArrayList.size()
+        → <java.util.ArrayList: void <init>()>
+        → DcTracker.ignoreForCDMA()
+        → DcTracker.setPreferredApn()
+        → TelephonyServiceManager$ServiceRegisterer.get()
+        → TelephonyServiceManager.getTelephonyServiceRegisterer()
+        → TelephonyFrameworkInitializer.getTelephonyServiceManager()
+        → ITelephony$Stub.asInterface()
+        → ITelephony.setRadio()
+        → Notification$Builder.setChannelId()
+        → Notification$Builder.setContentIntent()
+        → Notification$Builder.setLocalOnly()
+        → Notification$Builder.setOnlyAlertOnce()
+        → <android.app.Notification$Builder: void <init>(android.conte
+        → PendingIntent.getBroadcast()
+        → Context.getColor()
+        → Resources.getString()
+        → TelephonyManager.getNetworkOperator()
+        → ServiceState.getNrState()
+          → Notification.removeTextSizeSpans()
+          → CharSequence.subSequence()
+          → CharSequence.toString()
+          → ComponentName.getPackageName()
+          → Context.getPackageManager()
+          → Context.sendBroadcastAsUser()
+          → Intent.getComponent()
+          → Intent.addFlags()
+          → Intent.setComponent()
+          → <android.content.Intent: void <init>(android.content.Intent)
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → PackageManager.queryBroadcastReceivers()
+          → SubscriptionManager.putSubscriptionIdExtra()
+          → CarrierSignalAgent.createCompatIntent()
+          → CarrierSignalAgent.log()
+          → CarrierSignalAgent.loge()
+          → List.isEmpty()
+          → Set.iterator()
+          → Collection.isEmpty()
+          → Deque.add()
+          → Deque.size()
+          → Deque.remove()
+          → SemFloatingFeature.loge()
+          → Hashtable.get()
+          → SemTelephonyUtils.getNetworkTypeCapability()
+          → <com.samsung.android.feature.SemCarrierFeature: void <init>(
+          → SemCarrierFeature.get()
+          → Exception.printStackTrace()
+          → SemTelephonyUtils.getSubOperator()
+          → ImsManager.isWfcEnabledByPlatform()
+          → ImsManager.getInstance()
+          → AlwaysOnPdn.isAlwaysOnPdnRequiredByOperator()
+          → DcTracker.isTmoSim()
+          → DcTracker.isVzwSim()
+          → Rlog.d()
+          → Phone.getPhoneType()
+          → AlwaysOnPdn.isDataDisabled()
+          → SparseIntArray.get()
+          → ContainerHelpers.binarySearch()
+          → GrowingArrayUtils.insert()
+          → Resources.getStringArray()
+          → SparseIntArray.clear()
+          → <android.net.LinkProperties: void <init>(android.net.LinkPro
+          → PersistableBundle.getStringArray()
+          → <android.telephony.DataFailCause$1: void <init>()>
+          → ArrayUtils.contains()
+          → <java.util.HashSet: void <init>()>
+          → Map$Entry.getKey()
+          → Map$Entry.getValue()
+          → Map.entrySet()
+          → Set.add()
+          → Set.contains()
+          → ApnSetting.hasApnType()
+          → ApnSetting.defaultString()
+          → ApnSetting.toStringExceptID()
+          → ServiceState.getRoaming()
+          → ServiceState.getDataRoamingType()
+          → TelephonyFeatures.getSalesCode()
+          → DataEnabledSettings.getDataRoamingEnabled()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+          → Rlog.e()
+          → AlarmManager.set()
+          → Settings$Global.getInt()
+          → SubscriptionManager.putPhoneIdAndSubIdExtra()
+          → AlwaysOnPdn.isWifiConnected()
+          → DcTracker$DataStallRecoveryHandler.isAggressiveRecovery()
+          → DcTracker.isAnyDataConnected()
+          → DcTracker.isPackageInstalled()
+          → Phone.notifyDataActivity()
+          → DcTracker.resetPollStats()
+          → Runnable.run()
+          → Context.createContextAsUser()
+          → Rlog.log()
+          → HalVersion.less()
+          → Phone.getHalVersion()
+          → TelephonyFacade.getTelephonyProperty()
+          → RetryManager.getDelayForNextApn()
+          → ApnContext.isFastRetryReason()
+          → RetryManager.getDelayForNextApn()
+          → Handler.obtainMessage()
+          → Handler.sendMessageDelayed()
+          → ApnContext.getReason()
+          → Bundle.putBoolean()
+          → Bundle.putInt()
+          → Message.getData()
+          → Message.sendToTarget()
+          → Objects.equals()
+          → IDataService.setDataProfile()
+          → IDataServiceCallback$Stub.asBinder()
+          → <com.android.internal.telephony.dataconnection.DataServiceMa
+          → DataServiceManager.log()
+          → DataServiceManager.loge()
+          → DataServiceManager.sendCompleteMessage()
+          → Map.put()
+          → Map.remove()
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getColumnIndexOrThrow()
+          → Cursor.getCount()
+          → Cursor.getInt()
+          → Cursor.close()
+          → Uri.withAppendedPath()
+          → ApnSetting.getNetworkTypeBitmask()
+          → ApnSetting.getApnTypeString()
+          → DcTracker.isCdmaApn()
+          → DcTracker.fetchDunApns()
+          → ArrayList.get()
+          → ApnSetting.getApnTypeBitmask()
+          → ApnSetting.getApnTypesStringFromBitmask()
+          → DcTracker.createDataProfile()
+          → DcTracker.getApnProfileID()
+          → ServiceState.bearerBitmapHasCdma()
+          → ApnSetting.isPersistent()
+          → ApnSetting.getAuthType()
+          → ApnSetting.getMtuV4()
+          → ApnSetting.getMtuV6()
+          → ApnSetting.getProtocol()
+          → ApnSetting.getRoamingProtocol()
+          → ApnSetting.getPassword()
+          → ApnSetting.getUser()
+          → DataProfile$Builder.build()
+          → DataProfile$Builder.enable()
+          → DataProfile$Builder.setApn()
+          → DataProfile$Builder.setApnSetting()
+          → DataProfile$Builder.setAuthType()
+          → DataProfile$Builder.setBearerBitmask()
+          → DataProfile$Builder.setMtuV4()
+          → DataProfile$Builder.setMtuV6()
+          → DataProfile$Builder.setPassword()
+          → DataProfile$Builder.setPersistent()
+          → DataProfile$Builder.setPreferred()
+          → DataProfile$Builder.setProfileId()
+          → DataProfile$Builder.setProtocolType()
+          → DataProfile$Builder.setRoamingProtocolType()
+          → DataProfile$Builder.setSupportedApnTypesBitmask()
+          → DataProfile$Builder.setType()
+          → DataProfile$Builder.setUserName()
+          → <android.telephony.data.DataProfile$Builder: void <init>()>
+          → ApnSetting.apnTypeBitmaskSame()
+          → DcTracker.isApnSyncBlockedByLteTest()
+          → DcTracker.isCellcomSim()
+          → DcTracker.isNeedSetDataProfileForEUR()
+          → Cursor.isClosed()
+          → TelephonyFeatures.getCountryName()
+          → DcTracker.getCdmaRatOrigin()
+          → ContentResolver.insert()
+          → ContentResolver.delete()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → ServiceManager.getService()
+          → <android.os.TelephonyServiceManager$ServiceRegisterer: void 
+            → <android.text.SpannableStringBuilder: void <init>(java.lang.
+            → SpannableStringBuilder.setSpan()
+            → Spanned.getSpanEnd()
+            → Spanned.getSpanFlags()
+            → Spanned.getSpanStart()
+            → Spanned.length()
+            → Spanned.getSpans()
+            → CharacterStyle.getUnderlying()
+            → TextAppearanceSpan.getLinkTextColor()
+            → TextAppearanceSpan.getTextColor()
+            → TextAppearanceSpan.getTextStyle()
+            → TextAppearanceSpan.getFamily()
+            → <android.text.style.TextAppearanceSpan: void <init>(java.lan
+            → Intent.putExtra()
+            → Intent.putExtra()
+            → Intent.setAction()
+            → Intent.getExtras()
+            → Intent.getBooleanExtra()
+            → Intent.getByteArrayExtra()
+            → Intent.getIntExtra()
+            → Intent.getStringExtra()
+            → Bundle.keySet()
+            → ApnSetting.getProtocolStringFromInt()
+            → Rlog.i()
+            → FeatureUtil.getLastFeatureVersion()
+            → FeatureUtil.readSimCount()
+            → SemCarrierFeature.loadCarrierFeatures()
+            → SemCarrierFeature.loadDefaultFeatures()
+            → <java.util.LinkedHashMap: void <init>()>
+            → FeatureUtil.getCurrentCanonicalID()
+            → FeatureUtil.getDefaultCanonicalID()
+            → FeatureUtil.getLastCanonicalID()
+            → SemCarrierFeature.isCarrierIdChanged()
+            → SemCarrierFeature.isFeatureChanged()
+            → Phone.getOperatorNumeric()
+            → Phone.getDataEnabledSettings()
+            → DataEnabledSettings.isUserDataEnabled()
+            → DataFailCause$1.add()
+            → ArrayUtils.indexOf()
+            → TelephonyManager.convertNetworkTypeBitmaskToString()
+            → ApnSetting.UriToString()
+            → ApnSetting.portToString()
+            → TextUtils.join()
+            → Settings$Secure.getInt()
+            → GlobalSettingsHelper.getBoolean()
+            → DataEnabledSettings.getDefaultDataRoamingEnabled()
+            → DataEnabledSettings.log()
+            → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → AlarmManager.legacyExactLength()
+            → AlarmManager.setImpl()
+            → DcTracker$DataStallRecoveryHandler.getRecoveryAction()
+            → DataConnection.isActive()
+            → HashMap.values()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+            → HalVersion.compareTo()
+            → TelephonyManager.getTelephonyProperty()
+            → <android.os.Bundle: void <init>()>
+            → <android.telephony.data.IDataServiceCallback$Stub: void <ini
+            → Uri$Builder.build()
+            → Uri$Builder.appendEncodedPath()
+            → Uri.buildUpon()
+            → DcTracker.bitmaskHasTech1xEvdo()
+            → ServiceState.isCdma()
+            → ServiceState.rilRadioTechnologyToNetworkType()
+            → ApnSetting$Builder.build()
+            → ApnSetting$Builder.setApnName()
+            → ApnSetting$Builder.setApnTypeBitmask()
+            → ApnSetting$Builder.setCarrierEnabled()
+            → ApnSetting$Builder.setEntryName()
+            → ApnSetting$Builder.setOperatorNumeric()
+            → ApnSetting$Builder.setProtocol()
+            → <android.telephony.data.ApnSetting$Builder: void <init>()>
+            → ApnSetting.canSupportNetworkType()
+            → DcTracker.getPreferredApnFromDB()
+            → DcTracker.isKddiApn()
+            → DcTracker.isKddiDunApn()
+            → DcTracker.isPreferredApnUserEdited()
+            → DcTracker.getDataRat()
+            → DcTracker.getOperatorForCreateAllApnList()
+            → <java.util.ArrayList: void <init>(int)>
+            → ArrayList.add()
+            → <java.util.HashMap: void <init>()>
+            → TextUtils.join()
+            → List.add()
+            → Map.keySet()
+            → ApnSetting$Builder.setAuthType()
+            → ApnSetting$Builder.setModemCognitive() [APPOPS]
+            → ApnSetting$Builder.setMtuV4()
+            → ApnSetting$Builder.setMtuV6()
+            → ApnSetting$Builder.setNetworkTypeBitmask()
+            → ApnSetting$Builder.setPassword()
+            → ApnSetting$Builder.setProfileId()
+            → ApnSetting$Builder.setRoamingProtocol()
+            → ApnSetting$Builder.setUser()
+            → <android.telephony.data.DataProfile: void <init>(android.tel
+            → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+            → <java.io.File: void <init>(java.lang.String)>
+            → FileInputStream.read()
+            → <java.io.FileInputStream: void <init>(java.io.File)>
+            → FileInputStream.close()
+            → SemTelephonyUtils.getCountry()
+            → TelephonyFeatures.isMainOperatorSpecific()
+            → DcTracker.is1xEvdo()
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.put()
+              → <android.text.style.MetricAffectingSpan: void <init>()>
+              → SemSystemProperties.get()
+              → FeatureUtil.getReadablePhoneIDName()
+              → NumberFormatException.printStackTrace()
+              → SemSystemProperties.getInt()
+              → FeatureUtil.getCarrierFeature()
+              → SemCarrierFeature.setSlotTargetFeatureList()
+              → SemCarrierFeature.setSlotDefaultFeatureList()
+              → TelephonyProperties.mobile_data()
+              → DataEnabledSettings.IgnoreDataEnabledOnRoaming()
+              → DataEnabledSettings.isStandAloneOpportunistic()
+              → Optional.orElse()
+              → Uri.toString()
+              → GlobalSettingsHelper.getSettingName()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+              → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → AlarmManager.setImpl()
+              → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+              → Settings$System.getInt()
+              → <com.android.internal.telephony.dataconnection.DcTracker: an
+              → StateMachine.getCurrentState()
+              → <android.os.Binder: void <init>()>
+              → IDataServiceCallback$Stub.attachInterface()
+              → Uri$Builder.hasSchemeOrAuthority()
+              → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+              → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+              → Uri$PathPart.makeAbsolute()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → Uri$Builder.path()
+              → Uri$PathPart.appendEncodedSegment()
+              → ServiceState.convertNetworkTypeBitmaskToBearerBitmask()
+              → <android.telephony.data.ApnSetting: void <init>(android.tele
+              → ServiceState.bitmaskHasTech()
+              → ApnSetting.makeApnSetting()
+              → DcTracker.getPreferredApnCursor()
+              → NetworkRegistrationInfo.getAccessNetworkTechnology()
+              → ServiceState.getNetworkRegistrationInfo()
+              → ServiceState.networkTypeToRilRadioTechnology()
+              → TelephonyManager.getTelephonyProperty()
+              → TelephonyFeatures.getNtcFeature()
+              → TelephonyFeatures.getSimbasedChangeType()
+              → Iterable.iterator()
+              → <android.telephony.data.DataProfile: void <init>(android.tel
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.android.internal.telephony.dataconnection.DataKnoxUtils
+  Method:   <com.android.internal.telephony.dataconnection.DataKnoxUtils: boolean isDataAllowedFromKnox(com.android.internal.telephony.dataconnection.ApnContext,com.android.internal.telephony.Phone)>
+  Line:     121
+  Register: v3 := "com.samsung.android.app.telephonyui"
+  Usage:    [invoke] invoke-virtual {v1, v3, v4}, Landroid/sec/enterprise/ApplicationRestrictionsManager;->getApplication
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.sec.enterprise.ApplicationRestrictionsManager.getApp → [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← DcTracker.trySetupData()
+        ← DcTracker.handleMessage()
+        ← DcTracker.onEnableApn()
+        ← DcTracker.setupDataOnConnectableApn()
+          ← DcTracker$ThrottleStatusChangedCallback.onThrottleStatusChanged()
+          ← DcTracker.onDataEnabledOverrideRulesChanged()
+          ← DcTracker.onTrafficDescriptorsUpdated()
+          ← DcTracker.setupDataOnAllConnectableApns()
+            ← DcTracker$1.onReceive()
+            ← DcTracker.onApnChanged()
+            ← DcTracker.onCarrierConfigChanged()
+            ← DcTracker.onDataConnectionAttached()
+            ← DcTracker.onDataEnabledChanged()
+            ← DcTracker.onDataRoamingOff()
+            ← DcTracker.onDataRoamingOnOrSettingsChanged()
+            ← DcTracker.onDisableApn()
+            ← DcTracker.onDisconnectDone()
+            ← DcTracker.onNonDdsMmsEnded()
+            ← DcTracker.onRoutingAreaChanged()
+            ← DcTracker.onSimStateUpdated()
+            ← DcTracker.onVoiceCallEnded()
+            ← DcTracker.onVoiceCallendedForMultiSim()
+              ← <com.android.internal.telephony.dataconnection.DcTracker: vo
+
+  CALLEES (what this method invokes):
+      → Bundle.getBundle()
+      → Bundle.containsKey()
+      → Bundle.isEmpty()
+      → Bundle.getString()
+      → ApplicationRestrictionsManager.getApplicationRestrictions()
+      → PhoneRestrictionPolicy.isDataAllowedFromSimSlot()
+      → PhoneRestrictionPolicy.isMmsAllowedFromSimSlot()
+      → ApnSetting.getApnTypesBitmaskFromString()
+      → Phone.getContext()
+      → Phone.getPhoneId()
+      → ApnContext.getApnType()
+      → ApnSettingUtils.isMeteredApnType()
+      → DataKnoxUtils.getApplicationRestrictionsManager()
+      → DataKnoxUtils.getRestrictionPolicy()
+      → DataKnoxUtils.isTheSameWithSlotId()
+        → <android.os.Bundle: void <init>()>
+        → RemoteException.rethrowFromSystemServer()
+        → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+        → IEDMProxy.getApplicationRestrictions()
+        → IEDMProxy.isDataAllowedFromSimSlot()
+        → IEDMProxy.isMmsAllowedFromSimSlot()
+        → TextUtils.isEmpty()
+        → Map.get()
+        → Context.getSystemService()
+        → PersistableBundle.getStringArray()
+        → CarrierConfigManager.getConfigForSubId()
+        → ServiceState.getDataRoaming()
+        → ApnSetting.getApnTypeString()
+        → Phone.getSubId()
+        → PhoneInternalInterface.getServiceState()
+        → Rlog.e()
+        → HashSet.contains()
+        → HashSet.size()
+        → <java.util.HashSet: void <init>(java.util.Collection)>
+        → EnterpriseDeviceManager.getApplicationRestrictionsManager()
+        → EnterpriseDeviceManager.getInstance()
+        → EnterpriseDeviceManager.getPhoneRestrictionPolicy()
+          → <android.os.DeadSystemRuntimeException: void <init>()>
+          → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+          → ServiceManager.getService()
+          → IEDMProxy$Stub.asInterface()
+          → CharSequence.length()
+          → Rlog.log()
+          → <android.sec.enterprise.ApplicationRestrictionsManager: void
+          → <android.sec.enterprise.EnterpriseDeviceManager: void <init>
+          → <android.sec.enterprise.PhoneRestrictionPolicy: void <init>(
+            → <android.os.DeadSystemException: void <init>()>
+            → IBinder.queryLocalInterface()
+            → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → <android.os.DeadObjectException: void <init>()>
+

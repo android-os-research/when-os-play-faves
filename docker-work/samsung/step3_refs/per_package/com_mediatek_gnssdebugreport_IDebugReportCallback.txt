@@ -1,0 +1,9 @@
+# com.mediatek.gnssdebugreport.IDebugReportCallback [NEW]
+# Refs: 5
+# JARs: mediatek-framework
+
+<com.mediatek.gnssdebugreport.IDebugReportCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.gnssdebugreport.IDebugReportCallback$Stub$Proxy: void onDebugReportAvailable(android.os.Bundle)>
+<com.mediatek.gnssdebugreport.IDebugReportCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.gnssdebugreport.IDebugReportCallback$Stub: com.mediatek.gnssdebugreport.IDebugReportCallback asInterface(android.os.IBinder)>
+<com.mediatek.gnssdebugreport.IDebugReportCallback$Stub: void <init>()>

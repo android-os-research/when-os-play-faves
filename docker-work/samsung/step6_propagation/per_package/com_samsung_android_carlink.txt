@@ -1,0 +1,145 @@
+######################################################################
+# Propagation: com.samsung.android.carlink
+######################################################################
+
+JARs:                 services
+Classes:              3
+Occurrences:          5
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils
+  Method:   <com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils: boolean isCarLinkIntent(android.content.Intent)>
+  Line:     67
+  Register: v0 := "com.samsung.android.carlink"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerShellCommand.runStartActivity()
+        ← ActivityManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getPackageName()
+      → Intent.getComponent()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils
+  Method:   <com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils: boolean isSamsungCarlifePkg(java.lang.String)>
+  Line:     106
+  Register: v0 := "com.samsung.android.carlink"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← UsbProfileGroupSettingsManager.getDefaultActivityLocked()
+        ← UsbProfileGroupSettingsManager.accessoryAttached()
+        ← UsbProfileGroupSettingsManager.resolveActivity()
+          ← UsbDeviceManager$UsbHandler.finishBoot()
+          ← UsbDeviceManager$UsbHandler.updateCurrentAccessory()
+          ← UsbProfileGroupSettingsManager.deviceAttached()
+            ← UsbDeviceManager$UsbHandler.handleMessage()
+            ← UsbDeviceManager$UsbHandlerHal.handleMessage()
+            ← UsbHostManager.usbDeviceAdded()
+            ← UsbHostManager.onUnlockUser()
+              ← UsbService.onUnlockUser()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils
+  Method:   <com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils: android.content.Intent repackIntent(android.content.Intent)>
+  Line:     267
+  Register: v0 := "com.samsung.android.carlink"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare
+  Flow:     [invoke] android.content.Intent.setPackage() → [invoke] android.content.Intent.setClassName() → [invoke] android.content
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerShellCommand.runStartActivity()
+        ← ActivityManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Intent.getComponent()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setClassName()
+      → Intent.setComponent()
+      → Intent.setPackage()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     212
+  Register: v0 := "com.samsung.android.carlink"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.ActivityStartInterceptor
+  Method:   <com.android.server.wm.ActivityStartInterceptor: android.content.Intent createCarlifeHomeIntent(int,java.lang.String)>
+  Line:     131
+  Register: v0 := "com.samsung.android.carlink"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: (none)
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← ActivityStartInterceptor.interceptCarlifeHomeIfNeeded()
+        ← ActivityStartInterceptor.intercept()
+          ← ActivityStarter.executeRequest()
+            ← ActivityStarter.execute()
+              ← ActivityStartController.startActivities()
+              ← ActivityStartController.startActivityInPackage()
+              ← ActivityStartController.startActivityInTaskFragment()
+              ← ActivityStartController.startHomeActivity()
+              ← ActivityStartController.startSetupActivity()
+              ← ActivityTaskManagerService.startActivityAndWait()
+              ← ActivityTaskManagerService.startDreamActivity()
+              ← ActivityTaskManagerService.startNextMatchingActivity()
+              ← ActivityTaskManagerService.startActivityAsCaller()
+              ← ActivityTaskManagerService.startActivityAsUser()
+              ← ActivityTaskManagerService.startActivityFromGameSession()
+              ← ActivityTaskManagerService.startActivityWithConfig()
+              ← ActivityTaskManagerService.startAssistantActivity()
+              ← ActivityTaskManagerService.startVoiceActivity()
+              ← AppTaskImpl.startActivity()
+              ← RecentsAnimation.startRecentsActivityInBackground()
+              ← RemoteAppController.startActivityAsCaller()
+              ← Task.navigateUpTo()
+
+  CALLEES (what this method invokes):
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → Intent.setFlags()
+      → <android.content.Intent: void <init>(java.lang.String)>
+

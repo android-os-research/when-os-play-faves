@@ -1,0 +1,7 @@
+# com.samsung.android.gesture.MotionRecognitionService [NEW]
+# Refs: 3
+# JARs: semwifi-service, services
+
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.samsung.android.server.wifi.SemWifiConnectivityMonitor: void <init>(android.content.Context,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.ISemInterfaceNameProvider,com.samsung.android.server.wifi.tcp.SemWifiSwitchForIndividualAppsService)>
+<com.samsung.android.server.wifi.silentroaming.SilentRoamingManager: void <init>(android.content.Context,com.samsung.android.server.wifi.util.SemClock,android.os.Looper,com.samsung.android.server.wifi.halclient.SemWifiNative,com.samsung.android.server.wifi.SemWifiManagerProxy,com.samsung.android.server.wifi.SemWifiConfigManager,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.SemFrameworkFacade,android.util.LocalLog,com.samsung.android.server.wifi.silentroaming.SilentRoamingWifiInfo,com.samsung.android.server.wifi.silentroaming.SilentRoamingPnoScanner,com.samsung.android.server.wifi.silentroaming.SemThroughputPredictor,com.samsung.android.server.wifi.silentroaming.SemThroughputScorer)>

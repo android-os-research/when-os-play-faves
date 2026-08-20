@@ -1,0 +1,97 @@
+######################################################################
+# Propagation: com.sec.android.inputmethod
+######################################################################
+
+JARs:                 framework, knoxsdk, services
+Classes:              4
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.sec.clipboard.util.ClipboardPolicyObserver
+  Method:   <android.sec.clipboard.util.ClipboardPolicyObserver: java.lang.String getTopActivityPackageName()>
+  Line:     422
+  Register: v6 := "com.sec.android.inputmethod"
+  Usage:    [invoke] invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [invoke] android.os.Binder.restoreCallingIdentity()
+
+  CALLERS (who invokes this method):
+      ← ClipboardPolicyObserver.isPackageAllowed()
+        ← ClipboardService$ClipboardImpl.isClipboardAllowed()
+          ← ClipboardService$ClipboardImpl.getPrimaryClip()
+          ← ClipboardService$ClipboardImpl.hasPrimaryClip()
+          ← ClipboardService$ClipboardImpl.checkAndSetPrimaryClip()
+            ← ClipboardService$ClipboardImpl.setPrimaryClip()
+            ← ClipboardService$ClipboardImpl.setPrimaryClipAsPackage()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getRunningTasks()
+      → ComponentName.getPackageName()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → PackageManager.getPackagesForUid()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → List.size()
+      → List.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$1
+  Method:   <com.samsung.android.knox.EdmConstants$1: void <init>()>
+  Line:     98
+  Register: v0 := "com.sec.android.inputmethod"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1
+  Method:   <com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1: void <init>()>
+  Line:     71
+  Register: v0 := "com.sec.android.inputmethod"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.appconfig.ApplicationRestrictionsM
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DesktopModeKillPolicyManager
+  Method:   <com.android.server.desktopmode.DesktopModeKillPolicyManager: void <clinit>()>
+  Line:     92
+  Register: v2 := "com.sec.android.inputmethod"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.of()
+
+  CALLEES (what this method invokes):
+      → Set.of()
+

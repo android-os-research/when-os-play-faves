@@ -1,0 +1,395 @@
+######################################################################
+# Propagation: com.google.android.apps.messaging
+######################################################################
+
+JARs:                 duraspeed, framework, services, telephony-common
+Classes:              5
+Occurrences:          6
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PERM_CHECK, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.suppress.b
+  Method:   <com.mediatek.duraspeed.suppress.b: void <clinit>()>
+  Line:     133
+  Register: v1 := "com.google.android.apps.messaging"
+  Usage:    [invoke] invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.List.add()
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig
+  Method:   <com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: boolean isAMInstalled()>
+  Line:     842
+  Register: v2 := "com.google.android.apps.messaging"
+  Usage:    [invoke] invoke-virtual {v0, v2, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← SmsApplication$DefaultMessageAppConfig.setDefaultMsgApp()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig
+  Method:   <com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: void setDefaultMsgApp()>
+  Line:     2997
+  Register: v8 := "com.google.android.apps.messaging"
+  Usage:    [invoke] invoke-static {v8, v5}, Lcom/android/internal/telephony/SmsApplication;->setDefaultApplication(Ljava
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.android.internal.telephony.SmsApplication.setDefaultAppl → [reassigned] v8 overwritten
+
+  CALLEES (what this method invokes):
+      → SemSystemProperties.get()
+      → SemSystemProperties.get()
+      → SemSystemProperties.set()
+      → SemDMACdata.setPreInstalledMsgAppError()
+      → SmsApplication$DefaultMessageAppConfig.isAMInstalled()
+      → SmsApplication$DefaultMessageAppConfig.setDefaultMsgApp_File()
+      → SmsApplication$DefaultMessageAppConfig.getActiveOperatorId()
+      → SmsApplication$DefaultMessageAppConfig.setSMorOperatorMessageApp()
+      → <com.android.internal.telephony.SmsApplication: com.android.
+      → <com.android.internal.telephony.SmsApplication: int -$$Nest$
+      → <com.android.internal.telephony.SmsApplication: java.lang.St
+      → <com.android.internal.telephony.SmsApplication: java.lang.St
+      → SmsApplication.sendBroadcast_SMS_BIG_DATA_INFO()
+      → SmsApplication.setDefaultApplication()
+      → StringBuffer.append()
+      → StringBuffer.append()
+        → SystemProperties.get()
+        → SystemProperties.get()
+        → SystemProperties.set()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → Context.getSystemService()
+        → SemSystemProperties.getInt()
+        → TelephonyManager.getSimOperatorNumericForPhone()
+        → TextUtils.isEmpty()
+        → SmsApplication$DefaultMessageAppConfig.findLoadedSimSlot()
+        → SmsApplication$DefaultMessageAppConfig.updateChangeByOs()
+        → SmsApplication$DefaultMessageAppConfig.getParser()
+        → SmsApplication$DefaultMessageAppConfig.closeFileInputStream()
+        → SmsApplication$DefaultMessageAppConfig.setDMACdataConfigInfo()
+        → <java.io.File: void <init>(java.lang.String)>
+        → <java.io.FileInputStream: void <init>(java.io.File)>
+        → FileNotFoundException.getMessage()
+        → StringBuffer.append()
+        → XmlPullParser.getEventType()
+        → XmlPullParser.next()
+        → XmlPullParser.getName()
+        → XmlPullParser.getText()
+        → SemSystemProperties.getBoolean()
+        → SmsApplication$DefaultMessageAppConfig.isTssDevice()
+        → SmsApplication$DefaultMessageAppConfig.isWifiSkipCarrier()
+        → SmsApplication$DefaultMessageAppConfig.getActiveOperatorIdByCountryiso()
+        → SmsApplication$DefaultMessageAppConfig.setDMACdataTssInfo()
+        → TelephonyManager.isSmsCapable()
+        → SmsApplication$DefaultMessageAppConfig.isPackageEnabled()
+        → SmsApplication$DefaultMessageAppConfig.getMessagePackageName()
+        → SmsApplication$DefaultMessageAppConfig.getSalesCode()
+        → SemCscFeature.getInstance()
+        → SemCscFeature.getString()
+          → SystemProperties.getInt()
+          → CharSequence.length()
+          → SubscriptionManager.getSimStateForSlotIndex()
+          → TelephonyManager.getPhoneCount()
+          → XmlPullParser.setInput()
+          → XmlPullParserException.printStackTrace()
+          → XmlPullParserFactory.newPullParser()
+          → XmlPullParserFactory.newInstance()
+          → XmlPullParserFactory.setNamespaceAware()
+          → FileInputStream.close()
+          → IOException.printStackTrace()
+          → SemDMACdata.setIsUnLockedPhone()
+          → SemDMACdata.setMccmnc()
+          → SystemProperties.getBoolean()
+          → List.contains()
+          → SemDMACdata.setCarrierActivatedId()
+          → SemDMACdata.setTssActivated()
+          → PackageManager.getApplicationEnabledSetting()
+          → SmsApplication$DefaultMessageAppConfig.hasPackage()
+          → SemFloatingFeature.getInstance()
+          → SemFloatingFeature.getString()
+          → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → Hashtable.get()
+            → SemFloatingFeature.loge()
+            → SemFloatingFeature.logw()
+            → SemCscFeature.loadFeatureFile()
+            → Exception.toString()
+            → <java.util.Hashtable: void <init>()>
+              → SemCscFeature.loadFeatureFile()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo$PackageList
+  Method:   <com.android.server.alarm.AppSyncInfo$PackageList: void loadAppSync3PlusBlockList()>
+  Line:     257
+  Register: v0 := "com.google.android.apps.messaging"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/android/server/alarm/AppSyncInfo$PackageList;->add(Ljava/lang/String;)
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.alarm.AppSyncInfo$PackageList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.alarm.AppSyncInfo: void <init>(android.c
+        ← AppSyncInfo.createAppSync()
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+            ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → AppSyncInfo$PackageList.add()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.notification.PreferencesHelper
+  Method:   <com.android.server.notification.PreferencesHelper: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.notification.RankingHandler,com.android.server.notification.ZenModeHelper,com.android.server.notification.PermissionHelper,com.android.server.notification.NotificationChannelLogger,android.app.AppOpsManager,com.android.server.notification.SysUiStatsEvent$BuilderFactory,boolean)>
+  Line:     384
+  Register: v26 := "com.google.android.apps.messaging"
+  Usage:    [] 
+  Patterns: early_return, system_property_read
+  Flow:     [other] filled-new-array/range {v3 .. v28}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← NotificationManagerService.init()
+        ← NotificationManagerService.onStart()
+
+  CALLEES (what this method invokes):
+      → SystemProperties.getInt()
+      → <android.util.ArrayMap: void <init>()>
+      → PreferencesHelper.setHideContentAllowList()
+      → PreferencesHelper.syncChannelsBypassingDnd()
+      → PreferencesHelper.updateBadgingEnabled()
+      → PreferencesHelper.updateBubblesEnabled()
+      → PreferencesHelper.updateMediaNotificationFilteringEnabled()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.HashSet: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+        → HashSet.add()
+        → PreferencesHelper.updateChannelsBypassingDnd()
+        → ZenModeHelper.getNotificationPolicy()
+        → Context.getContentResolver()
+        → Settings$Secure.getIntForUser()
+        → SparseBooleanArray.get()
+        → SparseBooleanArray.keyAt()
+        → SparseBooleanArray.size()
+        → <android.util.SparseBooleanArray: void <init>()>
+        → SparseBooleanArray.put()
+        → PreferencesHelper.updateConfig()
+        → Settings$Global.getInt()
+          → ArrayMap.allocArrays()
+          → NotificationChannel.canBypassDnd()
+          → UserHandle.getUserId()
+          → ArrayMap.size()
+          → ArrayMap.valueAt()
+          → ArrayMap.values()
+          → ArraySet.add()
+          → ArraySet.size()
+          → ArraySet.removeAt()
+          → ArraySet.valueAt()
+          → <android.util.ArraySet: void <init>()>
+          → <android.util.Pair: void <init>(java.lang.Object,java.lang.O
+          → PermissionHelper.hasPermission()
+          → PreferencesHelper.channelIsLiveLocked()
+          → PreferencesHelper.getCurrentUserWithManagedProfile()
+          → PreferencesHelper.updateZenPolicy()
+          → Collection.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.contains()
+          → ZenModeHelper.getNotificationPolicy()
+          → SparseBooleanArray.get()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → <android.util.SparseBooleanArray: void <init>(int)>
+          → ContainerHelpers.binarySearch()
+          → GrowingArrayUtils.insert()
+          → GrowingArrayUtils.insert()
+          → RankingHandler.requestSort()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ArrayMap.getCollection()
+            → MapCollections.getValues()
+            → ArraySet.indexOf()
+            → ArraySet.indexOfNull()
+            → ArraySet.allocArrays()
+            → ArraySet.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → ArraySet.shouldShrink()
+            → ArraySet.getNewShrunkenSize()
+            → ArraySet.clear()
+            → ArraySet.valueAtUnchecked()
+            → <android.util.ArraySet: void <init>(int,boolean)>
+            → Binder.clearCallingIdentity()
+            → Binder.restoreCallingIdentity()
+            → PermissionManagerServiceInternal.checkPostNotificationsPermissionGrantedOrLegacyAccess()
+            → NotificationChannel.isDeleted()
+            → NotificationChannel.getImportance()
+            → NotificationChannel.getGroup()
+            → PreferencesHelper.isGroupBlocked()
+            → Context.getSystemService()
+            → UserManager.getProfileIds()
+            → PreferencesHelper.getCurrentUser()
+            → List.add()
+            → NotificationManager$Policy.getExceptionContacts()
+            → <android.app.NotificationManager$Policy: void <init>(int,int
+            → ZenModeHelper.setNotificationPolicy()
+            → ZenModeConfig.toNotificationPolicy()
+            → ArrayUtils.newUnpaddedIntArray()
+              → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+              → <android.util.MapCollections$ValuesCollection: void <init>(a
+              → ArraySet.binarySearch()
+              → NotificationChannelGroup.isBlocked()
+              → PreferencesHelper.getOrCreatePackagePreferencesLocked()
+              → Map.get()
+              → ActivityManager.getCurrentUser()
+              → ZenModeConfig.copy()
+              → ZenModeConfig.applyNotificationPolicy()
+              → ZenModeHelper.setConfigLocked()
+              → ZenModeConfig.getConversationSendersWithDefault()
+              → ZenModeConfig.sourceToPrioritySenders()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.android.internal.telephony.CarrierServicesSmsFilter
+  Method:   <com.android.internal.telephony.CarrierServicesSmsFilter: boolean filter()>
+  Line:     714
+  Register: v4 := "com.google.android.apps.messaging"
+  Usage:    [invoke] invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] const-wide/16 v4, 0x7530 → [invoke] android.os.Handler.sendMessageDelayed()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getPackageName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Handler.obtainMessage()
+      → Handler.sendMessageDelayed()
+      → <com.android.internal.telephony.CarrierServicesSmsFilter$Fil
+      → CarrierServicesSmsFilter.getCarrierAppPackageForFiltering()
+      → CarrierServicesSmsFilter.filterWithPackage()
+      → CarrierServicesSmsFilter.log()
+      → CarrierServicesSmsFilter.loge()
+      → CarrierSmsUtils.getImsRcsPackageForIntent()
+      → SmsApplication.getDefaultSmsApplication()
+      → <java.lang.RuntimeException: void <init>(java.lang.String)>
+      → <java.util.ArrayList: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.add()
+      → List.size()
+      → List.iterator()
+      → Optional.isPresent()
+      → Optional.get()
+        → <java.util.HashSet: void <init>()>
+        → CarrierPrivilegesTracker.getCarrierPackageNamesForIntent()
+        → CarrierServicesSmsFilter.getSystemAppForIntent()
+        → CarrierServicesSmsFilter.logv()
+        → Phone.getCarrierPrivilegesTracker()
+        → List.get()
+        → Optional.empty()
+        → Optional.of()
+        → <com.android.internal.telephony.CarrierServicesSmsFilter$Car
+        → CarrierServicesSmsFilter$CarrierSmsFilter.filterSms()
+        → <com.android.internal.telephony.CarrierServicesSmsFilter$Car
+        → <com.android.internal.telephony.CarrierServicesSmsFilter$Fil
+        → Rlog.d()
+        → Rlog.e()
+        → Context.getPackageManager()
+        → PackageManager.queryIntentServices()
+        → CarrierSmsUtils.getImsRcsPackage()
+          → PackageManager.queryBroadcastReceivers()
+          → PackageManager.queryIntentActivities()
+          → PackageManager.queryIntentContentProviders()
+          → <android.util.ArraySet: void <init>()>
+          → CarrierPrivilegesTracker.getCarrierPrivilegeStatusForPackage()
+          → CarrierPrivilegesTracker.getPackageName()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+          → Collections.emptyList()
+          → List.addAll()
+          → Set.add()
+          → Lock.lock()
+          → Lock.unlock()
+          → ReadWriteLock.readLock()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → Rlog.v()
+          → <android.service.carrier.CarrierMessagingServiceWrapper: voi
+          → CarrierMessagingServiceWrapper.bindToCarrierMessagingService()
+          → <com.android.internal.telephony.CarrierServicesSmsFilter$Car
+          → <com.android.internal.telephony.CarrierServicesSmsFilter$Car
+          → CarrierServicesSmsFilter$CarrierSmsFilterCallback.onReceiveSmsComplete()
+          → <com.android.internal.telephony.CarrierServicesSmsFilter: an
+          → <com.android.internal.telephony.CarrierServicesSmsFilter: vo
+          → <com.android.internal.telephony.CarrierServicesSmsFilter: vo
+          → CarrierServicesSmsFilter$FilterAggregator.addToCallbacks()
+          → Rlog.log()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → Phone.getPhoneId()
+          → ImsResolver.getInstance()
+          → ImsResolver.getConfiguredImsServicePackageName()
+          → Rlog.i()
+            → <android.util.ArraySet: void <init>(int,boolean)>
+            → Set.contains()
+            → Context.bindService()
+            → Intent.setPackage()
+            → <android.service.carrier.CarrierMessagingServiceWrapper$Carr
+            → Preconditions.checkState()
+            → Objects.requireNonNull()
+            → CarrierMessagingServiceWrapper.disconnect()
+            → CarrierServicesSmsFilter$FilterAggregator.onFilterComplete()
+            → <com.android.internal.telephony.CarrierServicesSmsFilter: vo
+            → Handler.getLooper()
+            → Handler.post()
+            → Looper.isCurrentThread()
+            → LocalLog.log()
+            → <com.android.internal.telephony.ims.ImsResolver$$ExternalSyn
+            → ImsResolver.getConfiguredImsServicePackageNameInternal()
+            → Map.get()
+            → CompletableFuture.complete()
+            → CompletableFuture.get()
+            → <java.util.concurrent.CompletableFuture: void <init>()>
+              → ArraySet.allocArrays()
+              → <android.service.carrier.CarrierMessagingServiceWrapper$Carr
+              → Context.unbindService()
+              → Preconditions.checkNotNull()
+              → Handler.removeMessages()
+              → CarrierServicesSmsFilter$CarrierServicesSmsFilterCallbackInterface.onFilterComplete()
+              → CarrierServicesSmsFilter$FilterAggregator.combine()
+              → <com.android.internal.telephony.CarrierServicesSmsFilter: co
+              → <com.android.internal.telephony.CarrierServicesSmsFilter: co
+              → Set.remove()
+              → Thread.currentThread()
+              → SystemClock.elapsedRealtime()
+              → LocalLog.append()
+              → Duration.ofMillis()
+              → Instant.now()
+              → LocalDateTime.now()
+              → TextUtils.isEmpty()
+              → ImsResolver.doesCachedImsServiceExist()
+              → ImsResolver.getCarrierConfiguredPackageName()
+              → ImsResolver.getDeviceConfiguration()
+

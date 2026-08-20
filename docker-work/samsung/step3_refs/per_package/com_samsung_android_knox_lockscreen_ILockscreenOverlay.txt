@@ -1,0 +1,17 @@
+# com.samsung.android.knox.lockscreen.ILockscreenOverlay [NEW]
+# Refs: 13
+# JARs: knoxsdk
+
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub$Proxy: boolean canConfigure(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub$Proxy: boolean isConfigured(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub$Proxy: com.samsung.android.knox.lockscreen.LSOAttributeSet getPreferences(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub$Proxy: com.samsung.android.knox.lockscreen.LSOItemData getData(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub$Proxy: int setData(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.lockscreen.LSOItemData,int)>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub$Proxy: int setPreferences(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.lockscreen.LSOAttributeSet)>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub$Proxy: int setWallpaper(com.samsung.android.knox.ContextInfo,java.lang.String,android.os.ParcelFileDescriptor)>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub$Proxy: void resetData(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub$Proxy: void resetWallpaper(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub: com.samsung.android.knox.lockscreen.ILockscreenOverlay asInterface(android.os.IBinder)>
+<com.samsung.android.knox.lockscreen.ILockscreenOverlay$Stub: void <init>()>

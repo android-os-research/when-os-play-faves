@@ -1,0 +1,257 @@
+######################################################################
+# Propagation: com.samsung.android.themedesigner
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.om.OverlayManagerServiceImpl
+  Method:   <com.android.server.om.OverlayManagerServiceImpl: boolean updateState(android.content.om.CriticalOverlayInfo,int,int,boolean,boolean)>
+  Line:     6620
+  Register: v2 := "com.samsung.android.themedesigner"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.startsWith() → [other] const-string/jumbo v2, "skip idmap creation for " → [invoke] java.lang.
+
+  CALLERS (who invokes this method):
+      ← OverlayManagerServiceImpl.updateOverlaysForUser()
+      ← OverlayManagerServiceImpl.updateState()
+      ← OverlayManagerServiceImpl.updateOverlaysForTarget()
+      ← OverlayManagerServiceImpl.updatePackageOverlays()
+      ← OverlayManagerServiceImpl.onSamsungOverlayPackageChanged()
+      ← OverlayManagerServiceImpl.onSamsungOverlayPackageRemoved()
+        ← OverlayManagerService.initIfNeeded()
+        ← OverlayManagerService.onSwitchUser()
+        ← OverlayManagerServiceImpl.updateOverlaysForUser()
+        ← OverlayManagerServiceImpl.setEnabledExclusive()
+        ← OverlayManagerServiceImpl.registerFabricatedOverlay()
+        ← OverlayManagerServiceImpl.setEnabled()
+        ← OverlayManagerServiceImpl.onSamsungOverlayPackageAdded()
+        ← OverlayManagerServiceImpl.onPackageRemoved()
+        ← OverlayManagerServiceImpl.updateOverlaysForTarget()
+        ← OverlayManagerServiceImpl.updateOverlaysForTarget()
+        ← OverlayManagerServiceImpl.updatePackageOverlays()
+        ← OverlayManagerServiceImpl$SamsungOverlayCallback.onSamsungOverlayPackageChanged()
+        ← OverlayManagerServiceImpl$SamsungOverlayCallback.onSamsungOverlayPackageRemoved()
+          ← <com.android.server.om.OverlayManagerService: void <init>(an
+          ← OverlayManagerService.onSwitchUser()
+          ← OverlayManagerService$UserReceiver.onReceive()
+          ← OverlayManagerService$1.setEnabledExclusive()
+          ← OverlayManagerService$1.setEnabledExclusiveInCategory()
+          ← OverlayManagerServiceImpl.registerFabricatedOverlay()
+          ← OverlayManagerService$1.setEnabled()
+          ← OverlayManagerService$1.executeRequest()
+          ← OverlayManagerServiceImpl$SamsungOverlayCallback.onSamsungOverlayPackageAdded()
+          ← OverlayManagerService$PackageReceiver.onPackageRemoved()
+          ← OverlayManagerServiceImpl.reconcileSettingsForPackage()
+            ← SystemServer.startBootstrapServices()
+            ← OverlayManagerService.onUserSwitching()
+            ← OverlayManagerService$1.executeRequest()
+            ← OverlayManagerService$1.executeAllRequests()
+            ← OverlayManagerService$PackageReceiver.onReceive()
+            ← OverlayManagerServiceImpl.onPackageChanged()
+            ← OverlayManagerServiceImpl.reconcileSettingsForPackage()
+              ← SystemServer.run()
+              ← OverlayManagerService$1.commit()
+              ← OverlayManagerService$PackageReceiver.onPackageChanged()
+              ← OverlayManagerServiceImpl.onPackageAdded()
+              ← OverlayManagerServiceImpl.onPackageReplaced()
+              ← OverlayManagerServiceImpl.onPackageReplacing()
+
+  CALLEES (what this method invokes):
+      → CriticalOverlayInfo.getOverlayIdentifier()
+      → CriticalOverlayInfo.isFabricated()
+      → CriticalOverlayInfo.getPackageName()
+      → CriticalOverlayInfo.getTargetPackageName()
+      → OverlayIdentifier.getOverlayName()
+      → OverlayInfo.getCategory()
+      → OverlayInfo.stateToString()
+      → IdmapManager.createIdmap()
+      → IdmapManager.idmapExists()
+      → OverlayManagerServiceImpl.isPackageConfiguredMutable()
+      → OverlayManagerServiceImpl.calculateNewState()
+      → OverlayManagerServiceImpl.removeIdmapIfPossible()
+      → OverlayManagerSettings.getOverlayInfo()
+      → OverlayManagerSettings.remove()
+      → OverlayManagerSettings.setBaseCodePath()
+      → OverlayManagerSettings.setCategory()
+      → OverlayManagerSettings.setState()
+      → OverlayManagerSettings.getState()
+      → PackageManagerHelper.getPackageInfo() [PKG_QUERY]
+      → PackageManagerHelper.getPackageForUser()
+      → SemSamsungThemeUtils.isZippedLocaleOverlay()
+      → SemSamsungThemeUtils.deleteResourceMapFile()
+      → ParsingPackageInternal.getOverlayCategory()
+      → ParsingPackageRead.isSamsungThemeOverlay()
+      → PkgWithoutStateAppInfo.getBaseApkPath()
+      → PkgWithoutStatePackageInfo.getPackageName()
+      → SemDualAppManager.isDualAppId()
+      → SemPersonaManager.isKnoxId()
+      → File.exists()
+      → <java.io.File: void <init>(java.lang.String)>
+        → IdmapDaemon.verifyIdmap()
+        → IdmapDaemon.createIdmap()
+        → IdmapManager.enforceOverlayable()
+        → IdmapManager.calculateFulfilledPolicies()
+        → IdmapManager.checkForResourceMapping()
+        → OverlayManagerServiceImpl.logCriticalInfo()
+        → Exception.getMessage()
+        → IdmapDaemon.idmapExists()
+        → OverlayConfig.isMutable()
+        → OverlayInfo.getOverlayIdentifier()
+        → OverlayManagerSettings.getEnabled()
+        → OverlayInfo.isEnabled()
+        → IdmapManager.removeIdmap()
+        → OverlayManagerSettings.getUsers()
+        → <com.android.server.om.OverlayManagerSettings$BadKeyExceptio
+        → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+        → OverlayManagerSettings.select()
+        → ArrayList.get()
+        → ArrayList.remove()
+        → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+        → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+        → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+        → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+        → Bundle.getBoolean()
+        → ParsingPackageRead.getMetaData()
+        → Bundle.containsKey()
+        → File.delete()
+        → SemPersonaManager.checkContainerType()
+        → SemPersonaManager.isDualAppId()
+          → IIdmap2.verifyIdmap()
+          → TextUtils.emptyIfNull()
+          → IdmapDaemon$Connection.getIdmap2()
+          → IdmapDaemon$Connection.close()
+          → IdmapDaemon.connect()
+          → Throwable.addSuppressed()
+          → IIdmap2.createIdmap()
+          → AndroidPackageApi.isSignedWithPlatformKey()
+          → AndroidPackageApi.isSystem()
+          → AndroidPackageApi.isVendor()
+          → PkgWithoutStateAppInfo.getTargetSdkVersion()
+          → TextUtils.isEmpty()
+          → IdmapManager.matchesActorSignature()
+          → PackageManagerHelper.signaturesMatching()
+          → AndroidPackageApi.isOdm()
+          → AndroidPackageApi.isOem()
+          → AndroidPackageApi.isProduct()
+          → AndroidPackageApi.isSystemExt()
+          → ResourceMapParser.parseResourceMap()
+          → OverlayManagerServiceImpl.logToFile()
+          → IIdmap2.getIdmapPath()
+          → File.isFile()
+          → ArrayMap.get()
+          → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+          → IdmapDaemon.removeIdmap()
+          → <com.android.server.om.OverlayManagerSettings$$ExternalSynth
+          → ArrayList.stream()
+          → IntStream.toArray()
+          → IntStream.distinct()
+          → Stream.mapToInt()
+          → <java.lang.Exception: void <init>(java.lang.String)>
+          → OverlayManagerSettings$SettingsItem.getOverlayInfo()
+          → OverlayIdentifier.equals()
+          → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+          → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+          → ArrayList.size()
+          → OverlayManagerSettings$SettingsItem.setBaseCodePath()
+          → OverlayManagerSettings$SettingsItem.setCategory()
+          → OverlayManagerSettings$SettingsItem.setState()
+          → OverlayManagerSettings$SettingsItem.getState()
+          → SystemProperties.get()
+            → Handler.postDelayed()
+            → FgThread.getHandler()
+            → <com.android.server.om.IdmapDaemon$Connection$$ExternalSynth
+            → <com.android.server.om.IdmapDaemon: java.lang.Object -$$Nest
+            → <com.android.server.om.IdmapDaemon: java.util.concurrent.ato
+            → AtomicInteger.decrementAndGet()
+            → Handler.removeCallbacksAndMessages()
+            → IIdmap2$Stub.asInterface()
+            → <com.android.server.om.IdmapDaemon$Connection: void <init>(c
+            → IdmapDaemon.getIdmapService()
+            → CharSequence.length()
+            → OverlayActorEnforcer.getPackageNameForActor()
+            → PackageManagerHelper.getOverlayableForTarget()
+            → PackageManagerHelper.getNamedActors()
+            → ParsingPackageInternal.getOverlayTargetOverlayableName()
+            → AssetManager.addAssetPath()
+            → <android.content.res.AssetManager: void <init>()>
+            → AssetManager.setConfiguration()
+            → Resources.getXml()
+            → Resources.getIdentifier()
+            → <android.content.res.Resources: void <init>(android.content.
+            → <android.util.DisplayMetrics: void <init>()>
+            → DisplayMetrics.setToDefaults()
+            → ResourceMapParser.parseResourceMapToFile()
+            → Exception.printStackTrace()
+            → IoUtils.closeQuietly()
+            → FileUtils.setPermissions()
+            → <com.android.internal.util.FastPrintWriter: void <init>(java
+            → OverlayManagerServiceImpl.getDumpFile()
+            → BufferedReader.readLine()
+            → BufferedReader.skip()
+            → <java.io.BufferedReader: void <init>(java.io.Reader)>
+            → BufferedReader.close()
+            → File.renameTo()
+            → File.getPath()
+            → File.toString()
+            → File.length()
+            → <java.io.FileOutputStream: void <init>(java.io.File,boolean)
+            → <java.io.FileReader: void <init>(java.io.File)>
+            → PrintWriter.close()
+            → PrintWriter.println()
+            → SimpleDateFormat.format()
+            → <java.text.SimpleDateFormat: void <init>(java.lang.String)>
+            → <java.util.Date: void <init>(long)>
+            → ArrayMap.indexOfKey()
+            → OverlayManagerSettings$SettingsItem.isEnabled()
+            → IIdmap2.removeIdmap()
+            → OverlayIdentifier.getPackageName()
+            → <android.content.om.OverlayInfo: void <init>(java.lang.Strin
+            → Objects.equals()
+            → OverlayManagerSettings$SettingsItem.invalidateCache()
+              → FgThread.ensureThreadLocked()
+              → IBinder.queryLocalInterface()
+              → <android.os.IIdmap2$Stub$Proxy: void <init>(android.os.IBind
+              → <com.android.server.om.IdmapDaemon$Connection: void <init>(c
+              → IBinder.linkToDeath()
+              → ServiceManager.getService()
+              → SystemService.start()
+              → <com.android.server.om.IdmapDaemon$$ExternalSyntheticLambda0
+              → IdmapDaemon.getUpTime()
+              → RuntimeException.getMessage()
+              → Thread.sleep()
+              → <java.util.concurrent.TimeoutException: void <init>(java.lan
+              → Uri.parse()
+              → Uri.getAuthority()
+              → Uri.getScheme()
+              → Uri.getPathSegments()
+              → Pair.create()
+              → ArrayUtils.isEmpty()
+              → CollectionUtils.size()
+              → List.get()
+              → Map.isEmpty()
+              → Map.get()
+              → XmlResourceParser.getDepth()
+              → XmlResourceParser.getEventType()
+              → XmlResourceParser.next()
+              → XmlResourceParser.getName()
+              → ArrayMap.put()
+              → <android.util.ArrayMap: void <init>()>
+              → ResourceMapParser.parseResourceEntries()
+              → ResourceMapParser.writeMapFile()
+              → <org.xmlpull.v1.XmlPullParserException: void <init>(java.lan
+              → <com.android.internal.util.FastPrintWriter: void <init>(java
+              → Environment.getDataDirectory()
+              → <java.io.File: void <init>(java.io.File,java.lang.String)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+

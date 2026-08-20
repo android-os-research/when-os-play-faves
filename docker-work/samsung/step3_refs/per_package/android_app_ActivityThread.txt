@@ -1,0 +1,6 @@
+# android.app.ActivityThread [NEW]
+# Refs: 2
+# JARs: knoxsdk, services
+
+<com.android.server.am.ProcessList: boolean startProcessLocked(com.android.server.am.ProcessRecord,com.android.server.am.HostingRecord,int,boolean,boolean,java.lang.String)>
+<com.samsung.android.knox.custom.CustomDeviceManager: android.content.ContentResolver getContentResolver()>

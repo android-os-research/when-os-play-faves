@@ -1,0 +1,7 @@
+# android.telephony.mbms.extra.SERVICE_ID [NEW]
+# Refs: 3
+# JARs: framework
+
+<android.telephony.mbms.MbmsDownloadReceiver: boolean verifyIntentContents(android.content.Context,android.content.Intent)>
+<android.telephony.mbms.MbmsDownloadReceiver: void cleanupTempFiles(android.content.Context,android.content.Intent)>
+<android.telephony.mbms.MbmsDownloadReceiver: void generateTempFiles(android.content.Context,android.content.Intent)>

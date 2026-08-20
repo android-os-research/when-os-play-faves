@@ -1,0 +1,216 @@
+######################################################################
+# Propagation: com.samsung.android.app.appsedge
+######################################################################
+
+JARs:                 framework, services
+Classes:              6
+Occurrences:          7
+Usage types:          array_init, invoke
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.multiwindow.MultiWindowUtils
+  Method:   <com.samsung.android.multiwindow.MultiWindowUtils: android.content.Intent getEdgeAllAppsActivityIntent(android.content.ComponentName,int,int)>
+  Line:     352
+  Register: v2 := "com.samsung.android.app.appsedge"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: (none)
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → Intent.setFlags()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.cocktailbar.CocktailBarManagerServiceImpl$CocktailHostInfo
+  Method:   <com.android.server.cocktailbar.CocktailBarManagerServiceImpl$CocktailHostInfo: void stopPinMode()>
+  Line:     296
+  Register: v1 := "com.samsung.android.app.appsedge"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName()
+
+  CALLERS (who invokes this method):
+      ← CocktailBarManagerServiceImpl$CocktailHostInfo.binderDied()
+
+  CALLEES (what this method invokes):
+      → Context.stopService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → <com.android.server.cocktailbar.CocktailBarManagerServiceImp
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.cocktailbar.CocktailBarManagerServiceContainer
+  Method:   <com.android.server.cocktailbar.CocktailBarManagerServiceContainer: void sendSystemBarAppearance(int)>
+  Line:     4461
+  Register: v1 := "com.samsung.android.app.appsedge"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← CocktailBarManagerServiceContainer.onSystemBarAppearanceChanged()
+        ← CocktailBarManagerService$CocktalBarLocalService.onSystemBarAppearanceChanged()
+
+  CALLEES (what this method invokes):
+      → Context.startService()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: void <clinit>()>
+  Line:     2113
+  Register: v2 := "com.samsung.android.app.appsedge"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v11}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Uri.parse()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.RecentTasks
+  Method:   <com.android.server.wm.RecentTasks: void loadRecentsComponent(android.content.res.Resources)>
+  Line:     6234
+  Register: v2 := "com.samsung.android.app.appsedge"
+  Usage:    [invoke] invoke-interface {v0, v2, v3, v4, v5}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljav
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.IPackageManager.getApplicationInfo() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← RecentTasks.onSystemReadyLocked()
+        ← ActivityTaskManagerService.onSystemReady()
+          ← ActivityManagerService.systemReady()
+            ← SystemServer.startOtherServices()
+              ← SystemServer.run()
+
+  CALLEES (what this method invokes):
+      → AppGlobals.getPackageManager()
+      → ComponentName.unflattenFromString()
+      → ComponentName.getPackageName()
+      → Context.getUserId()
+      → IPackageManager.getApplicationInfo() [PKG_QUERY]
+      → Resources.getString()
+      → TextUtils.isEmpty()
+        → ActivityThread.getPackageManager()
+        → CharSequence.length()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.MultiTaskingController
+  Method:   <com.android.server.wm.MultiTaskingController: void <init>(com.android.server.wm.ActivityTaskManagerService)>
+  Line:     503
+  Register: v0 := "com.samsung.android.app.appsedge"
+  Usage:    [array_init] filled-new-array {v0, v1}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1}, [Ljava/lang/String; → [other] new-instance v1, Landroid/os/RemoteCallbackList; → [inv
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.wm.ActivityTaskManagerService: void <ini
+        ← <com.android.server.wm.ActivityTaskManagerService$Lifecycle:
+
+  CALLEES (what this method invokes):
+      → <android.content.res.Configuration: void <init>()>
+      → <android.graphics.Rect: void <init>()>
+      → <android.os.RemoteCallbackList: void <init>()>
+      → <com.android.server.wm.ActivityEmbeddedPackageRepository: vo
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$1: void <init>
+      → <com.android.server.wm.MultiTaskingController$2: void <init>
+      → <com.android.server.wm.MultiTaskingController$FindTasksResul
+      → <com.android.server.wm.SplitActivityInfoRepository: void <in
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArrayMap: void <init>()>
+        → <com.android.server.wm.ActivityEmbeddedPackageRepository$1: 
+        → <android.content.BroadcastReceiver: void <init>()>
+        → PackageFeature.registerCallback()
+        → <java.util.HashMap: void <init>()>
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → PackageFeatureController.registerCallback()
+          → List.add()
+            → ArrayMap.allocArrays()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.MultiTaskingController
+  Method:   <com.android.server.wm.MultiTaskingController: void showOverlayAllApps(android.os.IBinder,int[])>
+  Line:     7756
+  Register: p2 := "com.samsung.android.app.appsedge"
+  Usage:    [invoke] invoke-virtual {p1, p2, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] sget-object p2, Lcom/android/server/wm/MultiTaskingControlle → 
+
+  CALLERS (who invokes this method):
+      ← MultiTaskingBinder.showOverlayAllApps()
+
+  CALLEES (what this method invokes):
+      → WindowConfiguration.getStageType()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → Handler.post()
+      → ActivityRecord.isInRootTaskLocked()
+      → ConfigurationContainer.getWindowConfiguration()
+      → ConfigurationContainer.inSplitScreenWindowingMode()
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → WindowManagerService.boostPriorityForLockedSection()
+      → WindowManagerService.resetPriorityAfterLockedSection()
+        → ActivityRecord.forTokenLocked()
+        → ActivityRecord.getRootTask()
+        → Task.isInTask()
+        → WindowConfiguration.isSplitScreenWindowingMode()
+        → WindowManagerThreadPriorityBooster.boost()
+        → WindowManagerThreadPriorityBooster.reset()
+          → WeakReference.get()
+          → TaskFragment.getRootTask()
+          → WindowContainer.isDescendantOf()
+          → Process.myTid()
+          → ThreadPriorityBooster.boost()
+          → ThreadPriorityBooster.reset()
+            → TaskFragment.getRootTaskFragment()
+            → WindowContainer.asTask()
+            → WindowContainer.getParent()
+            → Process.getThreadPriority()
+            → Process.setThreadPriority()
+            → ThreadLocal.get()
+              → WindowContainer.asTaskFragment()
+

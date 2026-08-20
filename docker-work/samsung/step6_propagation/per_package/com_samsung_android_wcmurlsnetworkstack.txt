@@ -1,0 +1,253 @@
+######################################################################
+# Propagation: com.samsung.android.wcmurlsnetworkstack
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              1
+Occurrences:          1
+Usage types:          field_store
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemWifiConnectivityMonitor
+  Method:   <com.samsung.android.server.wifi.SemWifiConnectivityMonitor: void <init>(android.content.Context,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.ISemInterfaceNameProvider,com.samsung.android.server.wifi.tcp.SemWifiSwitchForIndividualAppsService)>
+  Line:     2796
+  Register: v10 := "com.samsung.android.wcmurlsnetworkstack"
+  Usage:    [field_store] iput-object v10, v1, Lcom/samsung/android/server/wifi/SemWifiConnectivityMonitor;->SAMSUNG_WIFI_CHIN
+  Patterns: string_compare, early_return
+  Flow:     [other] filled-new-array/range {v11 .. v21}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← SemWifiConnectivityMonitor.makeWifiConnectivityMonitor()
+        ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void <i
+          ← <com.samsung.android.server.wifi.SemWifiService: void <init>
+
+  CALLEES (what this method invokes):
+      → IUsageStatsManager$Stub.asInterface()
+      → IUsageStatsManager.registerUsageStatsWatcher()
+      → Context.getContentResolver()
+      → Context.getSystemService()
+      → IOverlayManager$Stub.asInterface()
+      → <android.net.wifi.WifiInfo: void <init>()>
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → ServiceManager.getService()
+      → <android.util.LruCache: void <init>(int)>
+      → <com.android.internal.util.StateMachine: void <init>(java.la
+      → SemFrameworkFacade.isComcastVendor()
+      → SemFrameworkFacade.isFactoryBinary()
+      → SemFrameworkFacade.isSetupwizardFinished()
+      → SemFrameworkFacade.isShowDataSelectPopupOnBootup()
+      → SemFrameworkFacade.isSnsDefaultOn()
+      → SemFrameworkFacade.setIntegerSetting()
+      → SemFrameworkFacade.getOpBranding()
+      → SemFrameworkFacade.getIntegerSetting()
+      → SemFrameworkFacade.getStringCscFeature()
+      → SemFrameworkFacade.getSystemProperties()
+      → SemWifiConfigManager.registerNetworkRemovedListener()
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → SemWifiConnectivityMonitor.isIndividualAppSupported()
+      → SemWifiConnectivityMonitor.getNetworkRemovedListener()
+      → SemWifiConnectivityMonitor.addState()
+      → SemWifiConnectivityMonitor.addState()
+      → SemWifiConnectivityMonitor.setInitialState()
+      → SemWifiConnectivityMonitor.setLogRecSize()
+      → SemWifiConnectivityMonitor.setResourceOverlayForChina()
+      → SemWifiConnectivityMonitor.updateCountryIsoCode()
+      → SemWifiInjector.getFrameworkFacade()
+      → SemWifiInjector.getWifiConfigManager()
+      → SemWifiInjector.getWifiLinkInfoCollector()
+      → SemWifiInjector.getWifiManagerProxy()
+      → SemWifiInjector.getWifiTrafficPoller()
+      → SemWifiInjector.getWifiBackOffController()
+      → SemWifiInjector.getWifiIssueDetector()
+      → SemWifiInjector.getWifiNative()
+      → SemWifiInjector.getMobileWipsFrameworkService()
+      → SemWifiInjector.getScanPoll()
+      → SemWifiManagerProxy.setWifiConnectedNetworkScorer()
+      → SemWifiManagerProxy.registerListener()
+      → <com.samsung.android.server.wifi.util.LogUtils: void <init>(
+      → ScanPool.registerScanResultUpdatedListener()
+      → <com.samsung.android.server.wifi.wcm.BssidStatistics: void <
+      → <com.samsung.android.server.wifi.wcm.NetworkStatsAnalyzer: v
+      → NetworkStatsAnalyzer.setCurrentWCMMode()
+      → NetworkStatsAnalyzer.setNetworkStatsAnalyzerCallBack()
+      → <com.samsung.android.server.wifi.wcm.QcFailHistory: void <in
+      → <com.samsung.android.server.wifi.wcm.ScoreQC: void <init>()>
+      → <com.samsung.android.server.wifi.wcm.SemWifiRssiBasePoller: 
+      → SemWifiRssiBasePoller.setSemWifiRssiBasePollerCallBack()
+      → WcmBigDataManager.getBigDataFeature()
+      → <com.samsung.android.server.wifi.wcm.WcmBigDataManager: void
+      → <com.samsung.android.server.wifi.wcm.WifiScoreMediator: void
+      → Exception.printStackTrace()
+      → Executors.newSingleThreadExecutor()
+      → <java.util.concurrent.atomic.AtomicBoolean: void <init>(bool
+        → <android.app.usage.IUsageStatsManager$Stub$Proxy: void <init
+        → IBinder.queryLocalInterface()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <java.util.LinkedHashMap: void <init>(int,float,boolean)>
+        → SemCscFeature.getBoolean()
+        → SemCscFeature.getInstance()
+        → SystemProperties.get()
+        → SemCscFeature.getString()
+        → Settings$Global.putInt()
+        → SemOpBrandingLoader.getInstance()
+        → SemOpBrandingLoader.getOpBranding()
+        → Settings$Global.getInt()
+        → Set.add()
+        → <com.samsung.android.app.usage.IUsageStatsWatcher$Stub: void
+        → <com.android.internal.util.State: void <init>()>
+        → SemWifiConnectivityMonitor$NetworkCallbackController.init()
+        → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+        → IOverlayManager.setEnabled()
+        → TelephonyManager.getNetworkCountryIso()
+        → SemWifiConnectivityMonitor.isChineseIso()
+        → SemWifiConnectivityMonitor.getCurrentTimeSimpleDateFormat()
+        → SemFrameworkFacade.isHotspotDongleProduct()
+        → SemWifiInjector.getBigDataLogManager()
+        → <com.samsung.android.server.wifi.diagnostics.WifiIssueDetect
+        → ScanPool.getInstance()
+        → WifiManager.setWifiConnectedNetworkScorer()
+        → <com.samsung.android.server.wifi.SemWifiManagerProxy$$Extern
+        → SemWifiThreadRunner.post()
+        → Debug.semIsProductDev()
+        → Pattern.compile()
+        → <com.samsung.android.server.wifi.wcm.BssidStatistics: void <
+        → <com.samsung.android.server.wifi.wcm.OpenNetworkQos: void <i
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → <java.util.ArrayList: void <init>()>
+        → HashMap.containsKey()
+        → HashMap.get()
+        → SemWifiInjector.getInstance()
+        → SemWifiInjector.getWifiVersionProvider()
+        → WcmBigDataManager.initialize()
+        → <java.util.HashMap: void <init>()>
+          → Hashtable.get()
+          → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → <com.samsung.android.wifi.SemOpBrandingLoader: void <init>()
+          → SemOpBrandingLoader.updateFromFile()
+          → <android.os.Binder: void <init>()>
+          → IUsageStatsWatcher$Stub.attachInterface()
+          → SemWifiConnectivityMonitor$NetworkCallbackController.registerConnectionNetworkCallback()
+          → SemWifiConnectivityMonitor$NetworkCallbackController.registerDefaultNetworkCallback()
+          → SimpleDateFormat.format()
+          → <android.icu.text.SimpleDateFormat: void <init>(java.lang.St
+          → <java.util.Date: void <init>()>
+          → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternApProble
+          → <com.samsung.android.server.wifi.diagnostics.PatternDhcpFail
+          → <com.samsung.android.server.wifi.diagnostics.PatternScanProb
+          → <com.samsung.android.server.wifi.diagnostics.PatternSystemPr
+          → <com.samsung.android.server.wifi.diagnostics.PatternWifiAppP
+          → <com.samsung.android.server.wifi.diagnostics.PatternWipsDisc
+          → WifiIssueDetector.loadHistory()
+          → WifiIssueDetector.registerIssuePattern()
+          → <java.util.HashSet: void <init>()>
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.add()
+          → List.addAll()
+          → List.iterator()
+          → <com.samsung.android.server.wifi.util.ScanPool: void <init>(
+          → Handler.post()
+          → <com.samsung.android.server.wifi.wcm.BssidStatistics$VolumeW
+          → <com.samsung.android.server.wifi.wcm.Constant: void <init>()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSCNT: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSSIV: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSSVI: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataTCPE: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataWFSN: void <i
+          → HashMap.put()
+          → HashMap.clear()
+            → SemCscFeature.loadFeatureFile()
+            → Exception.toString()
+            → <java.util.Hashtable: void <init>()>
+            → Environment.getLegacyExternalStorageDirectory()
+            → SemOpBrandingLoader.getVendorFromCsc()
+            → File.getPath()
+            → SemOpBrandingLoader$SemVendor.ordinal()
+            → SemOpBrandingLoader$SemVendor.name()
+            → SemOpBrandingLoader.getVendorFromFile()
+            → <android.os.Binder: void <init>(java.lang.String)>
+            → ConnectivityManager.registerNetworkCallback()
+            → NetworkRequest$Builder.build()
+            → NetworkRequest$Builder.addTransportType()
+            → NetworkRequest$Builder.removeCapability()
+            → <android.net.NetworkRequest$Builder: void <init>()>
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor:
+            → ConnectivityManager.registerDefaultNetworkCallback()
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+            → SemFrameworkFacade.isSupportedBigdataHqmService()
+            → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+            → WifiBigDataLogManager.isSupported()
+            → WifiBigDataLogManager.initialize()
+            → <com.samsung.android.server.wifi.diagnostics.WifiIssuePatter
+            → WifiIssueDetector.readFromFile()
+            → File.delete()
+            → File.exists()
+            → File.length()
+            → <java.io.File: void <init>(java.lang.String)>
+            → Collections.emptyList()
+            → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+            → <com.samsung.android.server.wifi.wcm.WcmBigDataFeature: void
+            → WcmBigDataSCNT.initialize()
+            → WcmBigDataSSVI.initialize()
+            → WcmBigDataTCPE.initialize()
+              → SemCscFeature.loadFeatureFile()
+              → SemOpBrandingLoader.getVendor()
+              → BufferedReader.readLine()
+              → <java.io.BufferedReader: void <init>(java.io.Reader)>
+              → BufferedReader.close()
+              → File.lastModified()
+              → <java.io.FileReader: void <init>(java.io.File)>
+              → IOException.printStackTrace()
+              → Throwable.addSuppressed()
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+              → <android.net.ConnectivityManager$NetworkCallback: void <init
+              → SemWifiConnectivityMonitor.getCm()
+              → SemFrameworkFacade.isSupportedBigdataSurveyMode()
+              → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+              → WifiBigDataLogManager.getSupportedBigDataFeatures()
+              → List.forEach()
+              → RandomAccessFile.readLine()
+              → <java.io.RandomAccessFile: void <init>(java.lang.String,java
+              → RandomAccessFile.close()
+              → List.size()
+              → List.remove()
+              → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+

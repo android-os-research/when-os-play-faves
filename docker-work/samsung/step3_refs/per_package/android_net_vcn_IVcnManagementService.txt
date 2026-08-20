@@ -1,0 +1,16 @@
+# android.net.vcn.IVcnManagementService [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.net.vcn.IVcnManagementService$Stub$Proxy: android.net.vcn.VcnUnderlyingNetworkPolicy getUnderlyingNetworkPolicy(android.net.NetworkCapabilities,android.net.LinkProperties)>
+<android.net.vcn.IVcnManagementService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.vcn.IVcnManagementService$Stub$Proxy: java.util.List getConfiguredSubscriptionGroups(java.lang.String)>
+<android.net.vcn.IVcnManagementService$Stub$Proxy: void addVcnUnderlyingNetworkPolicyListener(android.net.vcn.IVcnUnderlyingNetworkPolicyListener)>
+<android.net.vcn.IVcnManagementService$Stub$Proxy: void clearVcnConfig(android.os.ParcelUuid,java.lang.String)>
+<android.net.vcn.IVcnManagementService$Stub$Proxy: void registerVcnStatusCallback(android.os.ParcelUuid,android.net.vcn.IVcnStatusCallback,java.lang.String)>
+<android.net.vcn.IVcnManagementService$Stub$Proxy: void removeVcnUnderlyingNetworkPolicyListener(android.net.vcn.IVcnUnderlyingNetworkPolicyListener)>
+<android.net.vcn.IVcnManagementService$Stub$Proxy: void setVcnConfig(android.os.ParcelUuid,android.net.vcn.VcnConfig,java.lang.String)>
+<android.net.vcn.IVcnManagementService$Stub$Proxy: void unregisterVcnStatusCallback(android.net.vcn.IVcnStatusCallback)>
+<android.net.vcn.IVcnManagementService$Stub: android.net.vcn.IVcnManagementService asInterface(android.os.IBinder)>
+<android.net.vcn.IVcnManagementService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.vcn.IVcnManagementService$Stub: void <init>()>

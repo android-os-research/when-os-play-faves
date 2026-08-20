@@ -1,0 +1,9 @@
+# android.app.smartspace.ISmartspaceCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.smartspace.ISmartspaceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.smartspace.ISmartspaceCallback$Stub$Proxy: void onResult(android.content.pm.ParceledListSlice)>
+<android.app.smartspace.ISmartspaceCallback$Stub: android.app.smartspace.ISmartspaceCallback asInterface(android.os.IBinder)>
+<android.app.smartspace.ISmartspaceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.smartspace.ISmartspaceCallback$Stub: void <init>()>

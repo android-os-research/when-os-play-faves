@@ -1,0 +1,12 @@
+# android.content.IRCPInterfaceCallback [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.content.IRCPInterfaceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.IRCPInterfaceCallback$Stub$Proxy: void onComplete(java.util.List,int,int)>
+<android.content.IRCPInterfaceCallback$Stub$Proxy: void onDone(java.lang.String,int)>
+<android.content.IRCPInterfaceCallback$Stub$Proxy: void onFail(java.lang.String,int,int)>
+<android.content.IRCPInterfaceCallback$Stub$Proxy: void onProgress(java.lang.String,int,int)>
+<android.content.IRCPInterfaceCallback$Stub: android.content.IRCPInterfaceCallback asInterface(android.os.IBinder)>
+<android.content.IRCPInterfaceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.IRCPInterfaceCallback$Stub: void <init>()>

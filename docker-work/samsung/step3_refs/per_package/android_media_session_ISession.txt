@@ -1,0 +1,26 @@
+# android.media.session.ISession [NEW]
+# Refs: 22
+# JARs: framework
+
+<android.media.session.ISession$Stub$Proxy: android.media.session.ISessionController getController()>
+<android.media.session.ISession$Stub$Proxy: android.os.IBinder getBinderForSetQueue()>
+<android.media.session.ISession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.session.ISession$Stub$Proxy: void destroySession()>
+<android.media.session.ISession$Stub$Proxy: void resetQueue()>
+<android.media.session.ISession$Stub$Proxy: void sendEvent(java.lang.String,android.os.Bundle)>
+<android.media.session.ISession$Stub$Proxy: void setActive(boolean)>
+<android.media.session.ISession$Stub$Proxy: void setCurrentVolume(int)>
+<android.media.session.ISession$Stub$Proxy: void setExtras(android.os.Bundle)>
+<android.media.session.ISession$Stub$Proxy: void setFlags(int)>
+<android.media.session.ISession$Stub$Proxy: void setLaunchPendingIntent(android.app.PendingIntent)>
+<android.media.session.ISession$Stub$Proxy: void setMediaButtonBroadcastReceiver(android.content.ComponentName)>
+<android.media.session.ISession$Stub$Proxy: void setMediaButtonReceiver(android.app.PendingIntent)>
+<android.media.session.ISession$Stub$Proxy: void setMetadata(android.media.MediaMetadata,long,java.lang.String)>
+<android.media.session.ISession$Stub$Proxy: void setPlaybackState(android.media.session.PlaybackState)>
+<android.media.session.ISession$Stub$Proxy: void setPlaybackToLocal(android.media.AudioAttributes)>
+<android.media.session.ISession$Stub$Proxy: void setPlaybackToRemote(int,int,java.lang.String)>
+<android.media.session.ISession$Stub$Proxy: void setQueueTitle(java.lang.CharSequence)>
+<android.media.session.ISession$Stub$Proxy: void setRatingType(int)>
+<android.media.session.ISession$Stub: android.media.session.ISession asInterface(android.os.IBinder)>
+<android.media.session.ISession$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.session.ISession$Stub: void <init>()>

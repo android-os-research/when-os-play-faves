@@ -1,0 +1,9 @@
+# android.media.IMediaHTTPService [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.IMediaHTTPService$Stub$Proxy: android.media.IMediaHTTPConnection makeHTTPConnection()>
+<android.media.IMediaHTTPService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IMediaHTTPService$Stub: android.media.IMediaHTTPService asInterface(android.os.IBinder)>
+<android.media.IMediaHTTPService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IMediaHTTPService$Stub: void <init>()>

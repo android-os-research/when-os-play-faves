@@ -1,0 +1,10 @@
+# android.app.ITransientNotificationCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.ITransientNotificationCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.ITransientNotificationCallback$Stub$Proxy: void onToastHidden()>
+<android.app.ITransientNotificationCallback$Stub$Proxy: void onToastShown()>
+<android.app.ITransientNotificationCallback$Stub: android.app.ITransientNotificationCallback asInterface(android.os.IBinder)>
+<android.app.ITransientNotificationCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.ITransientNotificationCallback$Stub: void <init>()>

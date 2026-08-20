@@ -1,0 +1,349 @@
+######################################################################
+# Propagation: com.kakao.talk
+######################################################################
+
+JARs:                 semwifi-service, services
+Classes:              4
+Occurrences:          5
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils
+  Method:   <com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils: void <clinit>()>
+  Line:     139
+  Register: v2 := "com.kakao.talk"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v9}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Debug.semIsProductDev()
+      → SemFloatingFeature.getBoolean()
+      → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: boolean mayForwardInstalledPackagesToOwner(long,int)>
+  Line:     2261
+  Register: p2 := "com.kakao.talk"
+  Usage:    [invoke] invoke-virtual {p2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← ComputerEngine.getInstalledPackagesBody()
+        ← ComputerEngine.getInstalledPackages()
+          ← PackageManagerService$IPackageManagerImpl.getUnknownSourcePackagesAsUser()
+          ← PackageManagerService.systemReady()
+            ← SystemServer.startOtherServices()
+              ← SystemServer.run()
+
+  CALLEES (what this method invokes):
+      → DualAppManagerService.isInstalledWhitelistedUid()
+      → DualAppManagerService.getFirstPkgNameByUid()
+      → HashMap.isEmpty()
+        → Log.d()
+        → Log.e()
+        → Exception.printStackTrace()
+        → HashMap.containsValue()
+        → HashMap.entrySet()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Map$Entry.getKey()
+        → Map$Entry.getValue()
+        → Set.iterator()
+          → Log.println_native()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+  Line:     3814
+  Register: v2 := "com.kakao.talk"
+  Usage:    [invoke] invoke-static {v2}, Lcom/android/server/DualAppManagerService;->isInstalledWhitelistedPackageInterna
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.DualAppManagerService.isInstalledWhitelis → [other] move-result v2 → [branch] if-eqz v2, :co
+
+  CALLERS (who invokes this method):
+      ← DualAppManagerService.startDAChooserActivity()
+      ← ActivityStartController.startActivityInPackage()
+        ← ActivityTaskManagerService.startActivityAsUser()
+        ← ActivityTaskManagerService$LocalService.startActivityInPackage()
+        ← ActivityTaskSupervisor.startActivityFromRecents()
+        ← DexCompatController.startActivityAsToggleFreeform()
+          ← <com.android.server.wm.ActivityTaskManagerService: int -$$Ne
+          ← ActivityTaskManagerService.startActivityAsUser()
+          ← ActivityTaskManagerService.startActivityFromRecents()
+          ← AppTaskImpl.moveToFront()
+          ← <com.android.server.wm.RestartAppPolicy: void lambda$restart
+          ← <com.android.server.wm.WindowOrganizerController: int lambda
+          ← <com.android.server.wm.DexCompatController: void -$$Nest$mst
+            ← ActivityTaskManagerService$LocalService.startActivityAsUser()
+            ← ActivityManagerService.startActivityAsUserWithFeature()
+            ← ActivityTaskManagerService.startActivity()
+            ← ActivityTaskManagerServiceExt.startAppLockActivity()
+            ← AppContinuityGuideConfirmDialog$ClingWindowView.startSettingActivity()
+            ← ActivityManagerService.startActivityFromRecents()
+            ← DexController.bringTaskToForeground()
+            ← DexMetaKeyPolicy$MetaKeyBoundsProvider.applyBounds()
+            ← <com.android.server.wm.StartActivityFromRecentsInfo: void la
+            ← <com.android.server.wm.RestartAppPolicy: void $r8$lambda$VPi
+            ← <com.android.server.wm.WindowOrganizerController: int $r8$la
+            ← DexCompatController$H.handleMessage()
+              ← ActivityManagerService.startActivityAsUser()
+              ← ActivityManagerShellCommand.runStartActivity()
+              ← ActivityManagerService.startActivity()
+              ← ActivityManagerService.startActivityWithFeature()
+              ← ActivityTaskManagerService.setResumedActivityUncheckLocked()
+              ← KeyguardController.keyguardGoingAway()
+              ← <com.android.server.wm.AppContinuityGuideConfirmDialog$Cling
+              ← AppErrors.crashApplicationInner()
+              ← ActivityTaskManagerService$LocalService.bringTaskToForeground()
+              ← DexMetaKeyPolicy.handleMetaKeyEvent()
+              ← <com.android.server.wm.StartActivityFromRecentsInfo: void $r
+              ← RestartAppPolicy$$ExternalSyntheticLambda0.run()
+              ← WindowOrganizerController$$ExternalSyntheticLambda10.getAsInt()
+
+  CALLEES (what this method invokes):
+      → ComponentName.equals()
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getString()
+      → Intent.getComponent()
+      → Intent.addFlags()
+      → Intent.createChooser()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → Intent.getData()
+      → Intent.hasCategory()
+      → Intent.getAction()
+      → Intent.getDataString()
+      → Intent.getPackage()
+      → Intent.getType()
+      → <android.content.Intent: void <init>()>
+      → Uri.getScheme()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Log.d()
+      → DualAppManagerService.isInstalledWhitelistedPackageInternal()
+      → DualAppManagerService.mayForwardShare()
+      → DualAppManagerService.changeUriForDualApp()
+      → SemDualAppManager.isChinaDualApp()
+      → SemDualAppManager.isChooserRequired()
+      → SemDualAppManager.isDualAppId()
+      → Exception.printStackTrace()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+      → List.size()
+      → List.toArray()
+        → Log.println_native()
+        → Log.e()
+        → HashMap.containsKey()
+        → Intent.putExtra()
+        → Intent.setAction()
+        → Intent.getExtras()
+        → Intent.clone()
+        → Bundle.getParcelable()
+        → TextUtils.isEmpty()
+        → DualAppManagerService.hasExternalAppDirPath()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → ClipData.fixUris()
+        → ContentProvider.maybeAddUserId()
+        → Intent.getClipData()
+        → Intent.putExtra()
+        → Intent.setDataAndType()
+        → Intent.getExtra()
+        → Intent.getParcelableArrayListExtra()
+        → SemDualAppManager.shouldAddUserId()
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+          → CharSequence.length()
+          → ClipData.collectUris()
+          → Uri.getPath()
+          → List.iterator()
+          → Intent.fixUris()
+          → ArrayList.get()
+          → Uri.getAuthority()
+            → ClipData$Item.getIntent()
+            → ClipData$Item.getUri()
+            → ClipData.getItemAt()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo
+  Method:   <com.android.server.alarm.AppSyncInfo: void <init>(android.content.Context)>
+  Line:     552
+  Register: p1 := "com.kakao.talk"
+  Usage:    [invoke] invoke-virtual {v2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.add()
+
+  CALLERS (who invokes this method):
+      ← AppSyncInfo.createAppSync()
+        ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → Context.getPackageManager()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → <com.android.server.alarm.AppSyncInfo$1: void <init>(com.and
+      → <com.android.server.alarm.AppSyncInfo$AccountListener: void 
+      → <com.android.server.alarm.AppSyncInfo$IntentReceiver: void <
+      → AppSyncInfo$PackageList.contains()
+      → <com.android.server.alarm.AppSyncInfo$PackageList: void <ini
+      → AppSyncInfo$PackageList.add()
+      → AppSyncInfo$PackageList.clear()
+      → AppSyncInfo$PackageList.loadAppSync3PlusBlockList()
+      → AppSyncInfo$PackageList.loadAppSyncBlockList()
+      → AppSyncInfo$PackageList.loadChnAllowlist()
+      → <com.android.server.alarm.AppSyncInfo$SCPMBroadcastReceiver:
+      → <com.android.server.alarm.AppSyncWrapper: void <init>()>
+      → ArrayList.add()
+      → ArrayList.size()
+      → ArrayList.get()
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>()>
+      → ArrayList.clear()
+      → <java.util.HashSet: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Set.add()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <com.android.server.alarm.AppSyncInfo$AccountListener: void 
+        → <com.android.server.alarm.AppSyncInfo: void -$$Nest$minitFil
+        → HashSet.contains()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.clear()
+        → <android.content.IntentFilter: void <init>(java.lang.String)
+          → AppSyncInfo.initFilter()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.notification.PreferencesHelper
+  Method:   <com.android.server.notification.PreferencesHelper: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.notification.RankingHandler,com.android.server.notification.ZenModeHelper,com.android.server.notification.PermissionHelper,com.android.server.notification.NotificationChannelLogger,android.app.AppOpsManager,com.android.server.notification.SysUiStatsEvent$BuilderFactory,boolean)>
+  Line:     342
+  Register: v5 := "com.kakao.talk"
+  Usage:    [] 
+  Patterns: early_return, system_property_read
+  Flow:     [other] filled-new-array/range {v3 .. v28}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← NotificationManagerService.init()
+        ← NotificationManagerService.onStart()
+
+  CALLEES (what this method invokes):
+      → SystemProperties.getInt()
+      → <android.util.ArrayMap: void <init>()>
+      → PreferencesHelper.setHideContentAllowList()
+      → PreferencesHelper.syncChannelsBypassingDnd()
+      → PreferencesHelper.updateBadgingEnabled()
+      → PreferencesHelper.updateBubblesEnabled()
+      → PreferencesHelper.updateMediaNotificationFilteringEnabled()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.HashSet: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+        → HashSet.add()
+        → PreferencesHelper.updateChannelsBypassingDnd()
+        → ZenModeHelper.getNotificationPolicy()
+        → Context.getContentResolver()
+        → Settings$Secure.getIntForUser()
+        → SparseBooleanArray.get()
+        → SparseBooleanArray.keyAt()
+        → SparseBooleanArray.size()
+        → <android.util.SparseBooleanArray: void <init>()>
+        → SparseBooleanArray.put()
+        → PreferencesHelper.updateConfig()
+        → Settings$Global.getInt()
+          → ArrayMap.allocArrays()
+          → NotificationChannel.canBypassDnd()
+          → UserHandle.getUserId()
+          → ArrayMap.size()
+          → ArrayMap.valueAt()
+          → ArrayMap.values()
+          → ArraySet.add()
+          → ArraySet.size()
+          → ArraySet.removeAt()
+          → ArraySet.valueAt()
+          → <android.util.ArraySet: void <init>()>
+          → <android.util.Pair: void <init>(java.lang.Object,java.lang.O
+          → PermissionHelper.hasPermission()
+          → PreferencesHelper.channelIsLiveLocked()
+          → PreferencesHelper.getCurrentUserWithManagedProfile()
+          → PreferencesHelper.updateZenPolicy()
+          → Collection.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.contains()
+          → ZenModeHelper.getNotificationPolicy()
+          → SparseBooleanArray.get()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → <android.util.SparseBooleanArray: void <init>(int)>
+          → ContainerHelpers.binarySearch()
+          → GrowingArrayUtils.insert()
+          → GrowingArrayUtils.insert()
+          → RankingHandler.requestSort()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ArrayMap.getCollection()
+            → MapCollections.getValues()
+            → ArraySet.indexOf()
+            → ArraySet.indexOfNull()
+            → ArraySet.allocArrays()
+            → ArraySet.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → ArraySet.shouldShrink()
+            → ArraySet.getNewShrunkenSize()
+            → ArraySet.clear()
+            → ArraySet.valueAtUnchecked()
+            → <android.util.ArraySet: void <init>(int,boolean)>
+            → Binder.clearCallingIdentity()
+            → Binder.restoreCallingIdentity()
+            → PermissionManagerServiceInternal.checkPostNotificationsPermissionGrantedOrLegacyAccess()
+            → NotificationChannel.isDeleted()
+            → NotificationChannel.getImportance()
+            → NotificationChannel.getGroup()
+            → PreferencesHelper.isGroupBlocked()
+            → Context.getSystemService()
+            → UserManager.getProfileIds()
+            → PreferencesHelper.getCurrentUser()
+            → List.add()
+            → NotificationManager$Policy.getExceptionContacts()
+            → <android.app.NotificationManager$Policy: void <init>(int,int
+            → ZenModeHelper.setNotificationPolicy()
+            → ZenModeConfig.toNotificationPolicy()
+            → ArrayUtils.newUnpaddedIntArray()
+              → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+              → <android.util.MapCollections$ValuesCollection: void <init>(a
+              → ArraySet.binarySearch()
+              → NotificationChannelGroup.isBlocked()
+              → PreferencesHelper.getOrCreatePackagePreferencesLocked()
+              → Map.get()
+              → ActivityManager.getCurrentUser()
+              → ZenModeConfig.copy()
+              → ZenModeConfig.applyNotificationPolicy()
+              → ZenModeHelper.setConfigLocked()
+              → ZenModeConfig.getConversationSendersWithDefault()
+              → ZenModeConfig.sourceToPrioritySenders()
+

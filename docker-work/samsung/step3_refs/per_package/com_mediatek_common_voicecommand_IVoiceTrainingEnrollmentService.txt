@@ -1,0 +1,10 @@
+# com.mediatek.common.voicecommand.IVoiceTrainingEnrollmentService [NEW]
+# Refs: 6
+# JARs: mediatek-common
+
+<com.mediatek.common.voicecommand.IVoiceTrainingEnrollmentService$Stub$Proxy: boolean enrollSoundModel(int,int,java.lang.String,int)>
+<com.mediatek.common.voicecommand.IVoiceTrainingEnrollmentService$Stub$Proxy: boolean unEnrollSoundModel()>
+<com.mediatek.common.voicecommand.IVoiceTrainingEnrollmentService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.common.voicecommand.IVoiceTrainingEnrollmentService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.common.voicecommand.IVoiceTrainingEnrollmentService$Stub: com.mediatek.common.voicecommand.IVoiceTrainingEnrollmentService asInterface(android.os.IBinder)>
+<com.mediatek.common.voicecommand.IVoiceTrainingEnrollmentService$Stub: void <init>()>

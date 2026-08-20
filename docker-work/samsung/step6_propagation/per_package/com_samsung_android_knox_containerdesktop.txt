@@ -1,0 +1,23 @@
+######################################################################
+# Propagation: com.samsung.android.knox.containerdesktop
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.adapterlayer.PersonaManagerAdapter
+  Method:   <com.android.server.enterprise.adapterlayer.PersonaManagerAdapter: boolean isContainerDesktop(java.lang.String)>
+  Line:     364
+  Register: p0 := "com.samsung.android.knox.containerdesktop"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [other] return p0
+

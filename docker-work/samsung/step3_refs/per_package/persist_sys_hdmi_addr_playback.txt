@@ -1,0 +1,6 @@
+# persist.sys.hdmi.addr.playback [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.hdmi.HdmiCecLocalDevicePlayback: int getPreferredAddress()>
+<com.android.server.hdmi.HdmiCecLocalDevicePlayback: void setPreferredAddress(int)>

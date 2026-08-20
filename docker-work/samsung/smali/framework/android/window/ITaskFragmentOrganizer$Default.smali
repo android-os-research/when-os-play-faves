@@ -1,0 +1,121 @@
+.class public Landroid/window/ITaskFragmentOrganizer$Default;
+.super Ljava/lang/Object;
+.source "ITaskFragmentOrganizer.java"
+
+# interfaces
+.implements Landroid/window/ITaskFragmentOrganizer;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/window/ITaskFragmentOrganizer;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "Default"
+.end annotation
+
+
+# direct methods
+.method public constructor blacklist <init>()V
+    .registers 1
+
+    .line 9
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public whitelist asBinder()Landroid/os/IBinder;
+    .registers 2
+
+    .line 64
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public blacklist onActivityReparentToTask(ILandroid/content/Intent;Landroid/os/IBinder;)V
+    .registers 4
+    .param p1, "taskId"    # I
+    .param p2, "activityIntent"    # Landroid/content/Intent;
+    .param p3, "activityToken"    # Landroid/os/IBinder;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 61
+    return-void
+.end method
+
+.method public blacklist onTaskFragmentAppeared(Landroid/window/TaskFragmentInfo;)V
+    .registers 2
+    .param p1, "taskFragmentInfo"    # Landroid/window/TaskFragmentInfo;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 13
+    return-void
+.end method
+
+.method public blacklist onTaskFragmentError(Landroid/os/IBinder;Landroid/os/Bundle;)V
+    .registers 3
+    .param p1, "errorCallbackToken"    # Landroid/os/IBinder;
+    .param p2, "errorBundle"    # Landroid/os/Bundle;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 44
+    return-void
+.end method
+
+.method public blacklist onTaskFragmentInfoChanged(Landroid/window/TaskFragmentInfo;)V
+    .registers 2
+    .param p1, "taskFragmentInfo"    # Landroid/window/TaskFragmentInfo;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 16
+    return-void
+.end method
+
+.method public blacklist onTaskFragmentParentInfoChanged(Landroid/os/IBinder;Landroid/content/res/Configuration;)V
+    .registers 3
+    .param p1, "fragmentToken"    # Landroid/os/IBinder;
+    .param p2, "parentConfig"    # Landroid/content/res/Configuration;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 31
+    return-void
+.end method
+
+.method public blacklist onTaskFragmentVanished(Landroid/window/TaskFragmentInfo;)V
+    .registers 2
+    .param p1, "taskFragmentInfo"    # Landroid/window/TaskFragmentInfo;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .line 19
+    return-void
+.end method

@@ -1,0 +1,11 @@
+# com.samsung.android.knox.net.nap.serviceprovider.INetworkAnalyticsService [NEW]
+# Refs: 7
+# JARs: knoxsdk
+
+<com.samsung.android.knox.net.nap.serviceprovider.INetworkAnalyticsService$Stub$Proxy: int onActivateProfile(java.lang.String,int,java.lang.String)>
+<com.samsung.android.knox.net.nap.serviceprovider.INetworkAnalyticsService$Stub$Proxy: int onDeactivateProfile(java.lang.String,int)>
+<com.samsung.android.knox.net.nap.serviceprovider.INetworkAnalyticsService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.net.nap.serviceprovider.INetworkAnalyticsService$Stub$Proxy: void onDataAvailable(java.lang.String,java.util.List)>
+<com.samsung.android.knox.net.nap.serviceprovider.INetworkAnalyticsService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.net.nap.serviceprovider.INetworkAnalyticsService$Stub: com.samsung.android.knox.net.nap.serviceprovider.INetworkAnalyticsService asInterface(android.os.IBinder)>
+<com.samsung.android.knox.net.nap.serviceprovider.INetworkAnalyticsService$Stub: void <init>()>

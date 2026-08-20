@@ -1,0 +1,26 @@
+# com.samsung.android.game.IGameManagerService [NEW]
+# Refs: 22
+# JARs: framework
+
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: boolean disableVrrControl(java.lang.String)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: boolean enableVrrControl(java.lang.String)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: boolean initGameManager(int,java.util.Map)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: boolean registerCallback(com.samsung.android.game.IGameManagerCallback)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: boolean setPackageConfigurations(java.util.List)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: boolean setPerformanceMode(int,java.lang.String)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: boolean setTargetFrameRate(android.os.IBinder,int)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: boolean unregisterCallback(com.samsung.android.game.IGameManagerCallback)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: com.samsung.android.game.PkgData getGamePkgDataIncServer(java.lang.String)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: int identifyForegroundApp()>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: int identifyGamePackage(java.lang.String)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: java.lang.String getForegroundApp()>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: java.lang.String getSosPolicy(java.lang.String)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: java.lang.String getTopActivityName()>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: java.lang.String getVersion()>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: java.lang.String requestWithJson(java.lang.String,java.lang.String)>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: java.util.List getGameList()>
+<com.samsung.android.game.IGameManagerService$Stub$Proxy: void syncGameList(java.util.Map)>
+<com.samsung.android.game.IGameManagerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.game.IGameManagerService$Stub: com.samsung.android.game.IGameManagerService asInterface(android.os.IBinder)>
+<com.samsung.android.game.IGameManagerService$Stub: void <init>()>

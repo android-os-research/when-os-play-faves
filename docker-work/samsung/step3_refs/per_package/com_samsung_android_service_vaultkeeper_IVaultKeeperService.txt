@@ -1,0 +1,19 @@
+# com.samsung.android.service.vaultkeeper.IVaultKeeperService [NEW]
+# Refs: 15
+# JARs: framework
+
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: boolean isInitialized(java.lang.String)>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: boolean migrationStorage(java.lang.String)>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: boolean verifyCertificate(java.lang.String,byte[])>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: byte[] encryptMessage(java.lang.String,byte[])>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: byte[] read(java.lang.String,int,int[])>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: byte[] sensitiveBox(java.lang.String,int,int[])>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: int checkDataWritable(java.lang.String)>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: int destroy(java.lang.String,byte[],byte[],byte[])>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: int generateHotpCode(java.lang.String)>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: int initialize(java.lang.String,byte[],byte[],byte[],byte[])>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: int write(java.lang.String,int,byte[],byte[],byte[])>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub: com.samsung.android.service.vaultkeeper.IVaultKeeperService asInterface(android.os.IBinder)>
+<com.samsung.android.service.vaultkeeper.IVaultKeeperService$Stub: void <init>()>

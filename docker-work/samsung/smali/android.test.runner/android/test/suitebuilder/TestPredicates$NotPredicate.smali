@@ -1,0 +1,95 @@
+.class Landroid/test/suitebuilder/TestPredicates$NotPredicate;
+.super Ljava/lang/Object;
+.source "TestPredicates.java"
+
+# interfaces
+.implements Lcom/android/internal/util/Predicate;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/test/suitebuilder/TestPredicates;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "NotPredicate"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;",
+        "Lcom/android/internal/util/Predicate<",
+        "TT;>;"
+    }
+.end annotation
+
+
+# instance fields
+.field private final predicate:Lcom/android/internal/util/Predicate;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/internal/util/Predicate<",
+            "-TT;>;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method private constructor <init>(Lcom/android/internal/util/Predicate;)V
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/internal/util/Predicate<",
+            "-TT;>;)V"
+        }
+    .end annotation
+
+    .line 71
+    .local p0, "this":Landroid/test/suitebuilder/TestPredicates$NotPredicate;, "Landroid/test/suitebuilder/TestPredicates$NotPredicate<TT;>;"
+    .local p1, "predicate":Lcom/android/internal/util/Predicate;, "Lcom/android/internal/util/Predicate<-TT;>;"
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 72
+    iput-object p1, p0, Landroid/test/suitebuilder/TestPredicates$NotPredicate;->predicate:Lcom/android/internal/util/Predicate;
+
+    .line 73
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/android/internal/util/Predicate;Landroid/test/suitebuilder/TestPredicates$NotPredicate-IA;)V
+    .registers 3
+
+    invoke-direct {p0, p1}, Landroid/test/suitebuilder/TestPredicates$NotPredicate;-><init>(Lcom/android/internal/util/Predicate;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public apply(Ljava/lang/Object;)Z
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)Z"
+        }
+    .end annotation
+
+    .line 76
+    .local p0, "this":Landroid/test/suitebuilder/TestPredicates$NotPredicate;, "Landroid/test/suitebuilder/TestPredicates$NotPredicate<TT;>;"
+    .local p1, "t":Ljava/lang/Object;, "TT;"
+    iget-object v0, p0, Landroid/test/suitebuilder/TestPredicates$NotPredicate;->predicate:Lcom/android/internal/util/Predicate;
+
+    invoke-interface {v0, p1}, Lcom/android/internal/util/Predicate;->apply(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    return v0
+.end method

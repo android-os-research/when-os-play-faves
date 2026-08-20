@@ -1,0 +1,32 @@
+######################################################################
+# Propagation: com.samsung.knox.appsupdateagent
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: void <clinit>()>
+  Line:     860
+  Register: v5 := "com.samsung.knox.appsupdateagent"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+
+  CALLEES (what this method invokes):
+      → SystemProperties.get()
+      → PersonaManagerService.isKnoxSupported()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → Bundle.getString()
+        → SemPersonaManager.getKnoxInfo()
+          → KnoxInfoImpl.getKnoxInfo()
+            → <android.os.Bundle: void <init>()>
+

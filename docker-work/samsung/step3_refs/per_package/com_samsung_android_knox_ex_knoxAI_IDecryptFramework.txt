@@ -1,0 +1,15 @@
+# com.samsung.android.knox.ex.knoxAI.IDecryptFramework [NEW]
+# Refs: 11
+# JARs: knoxsdk
+
+<com.samsung.android.knox.ex.knoxAI.IDecryptFramework$Stub$Proxy: int close(long)>
+<com.samsung.android.knox.ex.knoxAI.IDecryptFramework$Stub$Proxy: int destroyKnoxAiSession(long)>
+<com.samsung.android.knox.ex.knoxAI.IDecryptFramework$Stub$Proxy: int execute(long,com.samsung.android.knox.ex.knoxAI.DataBuffer[],com.samsung.android.knox.ex.knoxAI.DataBuffer[])>
+<com.samsung.android.knox.ex.knoxAI.IDecryptFramework$Stub$Proxy: int getModelInputShape(long,int,int[])>
+<com.samsung.android.knox.ex.knoxAI.IDecryptFramework$Stub$Proxy: int open(long,com.samsung.android.knox.ex.knoxAI.KfaOptions)>
+<com.samsung.android.knox.ex.knoxAI.IDecryptFramework$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.ex.knoxAI.IDecryptFramework$Stub$Proxy: long createKnoxAiSession(com.samsung.android.knox.ex.knoxAI.IDeathNotifier)>
+<com.samsung.android.knox.ex.knoxAI.IDecryptFramework$Stub$Proxy: void getKeyProvisioning(com.samsung.android.knox.ex.knoxAI.IKeyProvisioningCallback)>
+<com.samsung.android.knox.ex.knoxAI.IDecryptFramework$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.ex.knoxAI.IDecryptFramework$Stub: com.samsung.android.knox.ex.knoxAI.IDecryptFramework asInterface(android.os.IBinder)>
+<com.samsung.android.knox.ex.knoxAI.IDecryptFramework$Stub: void <init>()>

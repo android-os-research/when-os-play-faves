@@ -1,0 +1,51 @@
+######################################################################
+# Propagation: com.samsung.android.securitylogagent
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     172
+  Register: v12 := "com.samsung.android.securitylogagent"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.SEDenialService$AuditFileObserver
+  Method:   <com.android.server.SEDenialService$AuditFileObserver: void onEvent(int,java.lang.String)>
+  Line:     125
+  Register: v3 := "com.samsung.android.securitylogagent"
+  Usage:    [invoke] invoke-virtual {p2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → SystemProperties.get()
+      → SystemProperties.set()
+      → <com.android.server.SEDenialService: android.content.Context
+

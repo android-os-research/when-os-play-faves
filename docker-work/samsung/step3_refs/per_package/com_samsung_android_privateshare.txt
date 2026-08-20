@@ -1,0 +1,8 @@
+# com.samsung.android.privateshare [NEW]
+# Refs: 4
+# JARs: framework
+
+<com.android.internal.app.ChooserActivity: com.android.internal.app.chooser.DisplayResolveInfo getPrivateShareTargetInfo(android.content.Intent)>
+<com.android.internal.app.ChooserActivity: void semCheckToShowCreateTipPoup(com.android.internal.app.ChooserListAdapter,com.android.internal.app.ChooserActivity$ItemViewHolder,int)>
+<com.android.internal.app.ChooserActivity: void semShareEnhancedImage(com.android.internal.app.chooser.TargetInfo,com.android.internal.app.ChooserListAdapter,int)>
+<com.android.internal.app.ChooserListAdapter: void addServiceResults(com.android.internal.app.chooser.DisplayResolveInfo,java.util.List,int,java.util.Map)>

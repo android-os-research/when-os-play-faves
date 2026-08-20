@@ -1,0 +1,237 @@
+######################################################################
+# Propagation: com.sec.android.app.kidshome
+######################################################################
+
+JARs:                 framework, services
+Classes:              7
+Occurrences:          8
+Usage types:          field_store, invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_MGMT
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.globalactions.util.PackageManagerWrapper
+  Method:   <com.samsung.android.globalactions.util.PackageManagerWrapper: void <init>(android.content.Context)>
+  Line:     34
+  Register: v0 := "com.sec.android.app.kidshome"
+  Usage:    [field_store] iput-object v0, p0, Lcom/samsung/android/globalactions/util/PackageManagerWrapper;->KIDS_MODE_PACKAG
+  Patterns: early_return
+  Flow:     [field_store] com.samsung.android.globalactions.util.PackageManagerWrapper → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.globalactions.util.DefaultUtilFactory: 
+        ← SamsungGlobalActionsDialog.initDependencies()
+          ← <com.android.server.policy.globalactions.presentation.view.S
+            ← GlobalActions.ensureLegacyCreated()
+              ← <com.android.server.policy.GlobalActions: void -$$Nest$mensu
+              ← GlobalActions.onGlobalActionsAvailableChanged()
+              ← GlobalActions.showDialog()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.globalactions.util.PackageManagerWrapper
+  Method:   <com.samsung.android.globalactions.util.PackageManagerWrapper: boolean isKidsHomeMode()>
+  Line:     126
+  Register: v1 := "com.sec.android.app.kidshome"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] new-instance v1, Landroid/content/Intent; → [invoke] android.c
+
+  CALLERS (who invokes this method):
+      ← SystemConditionChecker.isEnabled()
+        ← SystemConditionChecker.isEnabled()
+
+  CALLEES (what this method invokes):
+      → ComponentName.equals()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Intent.addCategory()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → PackageManager.resolveActivity()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     641
+  Register: v3 := "com.sec.android.app.kidshome"
+  Usage:    [field_store] aput-object v3, v2, v1
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DefaultBlocker
+  Method:   <com.android.server.desktopmode.DefaultBlocker: boolean isKidsLauncherMode()>
+  Line:     303
+  Register: v0 := "com.sec.android.app.kidshome"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains()
+
+  CALLERS (who invokes this method):
+      ← DefaultBlocker.getBlocker()
+        ← BlockerManager.getDefaultBlockerInfo()
+          ← BlockerManager.getBlocker()
+          ← BlockerManager.dump()
+            ← DesktopModeService.isBlockerRegistered()
+            ← DesktopModeService.dump()
+              ← <com.android.server.desktopmode.DesktopModeService: boolean 
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Intent.addCategory()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → PackageManager.resolveActivity()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.appprelauncher.AppPrelaunchService
+  Method:   <com.android.server.appprelauncher.AppPrelaunchService: boolean isKidsHome()>
+  Line:     2231
+  Register: v0 := "com.sec.android.app.kidshome"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← AppPrelaunchService.shouldSkipPrelForPackage()
+        ← AppPrelaunchService.prelaunchAppTillStage()
+          ← AppPrelaunchService.prelaunchApp()
+          ← AppPrelaunchShellCommand.prelaunch()
+            ← <com.android.server.appprelauncher.AppPrelaunchService: java
+            ← AppPrelaunchShellCommand.onCommand()
+              ← <com.android.server.appprelauncher.AppPrelaunchService: java
+
+  CALLEES (what this method invokes):
+      → ComponentName.getPackageName()
+      → PackageManagerInternal.getDefaultHomeActivity()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.MultiWindowEnableController
+  Method:   <com.android.server.wm.MultiWindowEnableController: boolean isKidsHomeMode()>
+  Line:     1622
+  Register: v0 := "com.sec.android.app.kidshome"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains()
+
+  CALLERS (who invokes this method):
+      ← MultiWindowEnableController.dismissMultiWindowMode()
+        ← LockTaskController.setLockTaskMode()
+        ← MultiStarController.setCustomDensityEnabled()
+        ← MultiWindowEnableController.onCoreStateChanged()
+          ← LockTaskController.startLockTaskMode()
+          ← LockTaskController.updateLockTaskPackages()
+          ← MultiTaskingBinder.setCustomDensityEnabled()
+            ← ActivityTaskManagerService.startLockTaskMode()
+            ← ActivityTaskSupervisor.realStartActivityLocked()
+            ← ActivityTaskManagerService.updateLockTaskPackages()
+              ← ActivityClientController.startLockTaskModeByToken()
+              ← ActivityTaskManagerService.startSystemLockTaskMode()
+              ← ActivityTaskSupervisor.startSpecificActivity()
+              ← RootWindowContainer$AttachApplicationHelper.test()
+              ← ActivityManagerService.updateLockTaskPackages()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Intent.addCategory()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → PackageManager$ResolveInfoFlags.of()
+      → PackageManager.resolveActivity()
+        → <android.content.pm.PackageManager$ResolveInfoFlags: void <i
+          → <android.content.pm.PackageManager$Flags: void <init>(long)>
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageManagerService
+  Method:   <com.android.server.pm.PackageManagerService: boolean isKidsHome()>
+  Line:     16286
+  Register: v1 := "com.sec.android.app.kidshome"
+  Usage:    [invoke] invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← InstallPackageHelper.isSpegSkipped() [PKG_MGMT]
+        ← InstallPackageHelper.executePostCommitSteps() [PKG_MGMT]
+          ← InstallPackageHelper.installPackagesLI() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesTracedLI() [PKG_MGMT]
+              ← InstallPackageHelper.processInstallRequests() [PKG_MGMT]
+
+  CALLEES (what this method invokes):
+      → DefaultAppProvider.getDefaultHome()
+        → DefaultAppProvider.getRoleHolder()
+        → UserManagerInternal.getProfileParentId()
+        → Supplier.get()
+          → RoleManager.getRoleHoldersAsUser()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → UserHandle.of()
+          → CollectionUtils.firstOrNull()
+            → CollectionUtils.isEmpty()
+            → List.get()
+              → CollectionUtils.size()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter
+  Method:   <com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter: boolean isKidsModeRunning()>
+  Line:     672
+  Register: v1 := "com.sec.android.app.kidshome"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] new-instance v1, Landroid/content/Intent; → [invoke] android.c
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.inputmethod.InputMethodMenuController$Im
+        ← <com.android.server.inputmethod.InputMethodMenuController$Im
+          ← InputMethodMenuController.showInputMethodMenu()
+            ← InputMethodManagerService.handleMessage()
+              ← InputMethodManagerService.executeOrSendMessage()
+
+  CALLEES (what this method invokes):
+      → ComponentName.equals()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getPackageManager()
+      → Intent.addCategory()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → PackageManager.resolveActivity()
+      → ArrayAdapter.getContext()
+      → <com.android.server.inputmethod.InputMethodMenuController: j
+

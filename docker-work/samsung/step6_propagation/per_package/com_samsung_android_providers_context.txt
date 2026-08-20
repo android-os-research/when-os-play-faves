@@ -1,0 +1,941 @@
+######################################################################
+# Propagation: com.samsung.android.providers.context
+######################################################################
+
+JARs:                 framework, hqm, motionrecognitionservice, semwifi-service, services, vendor.samsung.frameworks.codecsolution-service
+Classes:              15
+Occurrences:          18
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.share.SemShareLogging
+  Method:   <com.samsung.android.share.SemShareLogging: void insertLog(java.lang.String,java.lang.String)>
+  Line:     307
+  Register: v2 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage()
+
+  CALLERS (who invokes this method):
+      ← ChooserActivity$19.onClick()
+      ← ChooserActivity$25.onClick()
+      ← ChooserActivity$ChooserGridAdapter$3.onClick()
+      ← ChooserActivity$SemTransTask.onPreExecute()
+      ← ChooserActivity.finish()
+      ← ChooserActivity.onBackPressed()
+      ← ChooserActivity.onCreate()
+      ← ChooserActivity.onDestroy()
+      ← ChooserActivity.semInsertLogForPrivacyDetection()
+      ← ChooserActivity.semInsertLogForPrivacyShare()
+      ← ChooserActivity.semInsertLoggingForConvertOption()
+      ← ChooserActivity.semInsertLoggingForIncludeOriginal()
+      ← ChooserActivity.semInsertLoggingForOnClick()
+      ← ChooserActivity.semInsertLoggingForPreloadServices()
+      ← ChooserActivity.semInsertLoggingForRemoveExif()
+      ← ChooserActivity.semInsertLoggingForStartSelect()
+      ← ChooserActivity.semInsertShareLogEditAction()
+      ← ChooserActivity.semPinComponent()
+      ← ChooserActivity.sendLogForCrossApp()
+      ← ResolverActivity.onTargetSelected()
+        ← ChooserActivity$16.run()
+        ← ChooserActivity$27.onClick()
+        ← <com.android.internal.app.ChooserActivity$SemChooserChipButt
+        ← ChooserActivity$SemTransTask.onPostExecute()
+        ← <com.android.internal.app.ChooserActivity: void lambda$creat
+        ← <com.android.internal.app.ChooserActivity: void lambda$creat
+        ← ChooserActivity.onCopyButtonClicked()
+        ← ChooserActivity.onRefinementCanceled()
+        ← ChooserActivity.onRefinementResult()
+        ← ChooserActivity.semLogForSmartShareOpen()
+        ← ChooserActivity.semShareEnhancedImage()
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← ChooserActivity.startSelected()
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← ChooserActivity.startSelectedPost()
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← ChooserActivity.onContextItemSelected()
+        ← ResolverActivity.onTargetSelected()
+          ← ChooserActivity$SemChooserChipButtonViewHolder$$ExternalSyntheticLambda0.onClick()
+          ← ChooserActivity$SemTransTask.onPostExecute()
+          ← ChooserActivity$$ExternalSyntheticLambda1.onClick()
+          ← ChooserActivity$$ExternalSyntheticLambda13.onClick()
+          ← <com.android.internal.app.ChooserActivity: void $r8$lambda$l
+          ← <com.android.internal.app.ChooserActivity: void -$$Nest$monC
+          ← ChooserActivity$RefinementResultReceiver.onReceiveResult()
+          ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+          ← ChooserActivity.showEnhanceIconAnimation()
+          ← ChooserActivity.startEnhancementDetection()
+          ← ChooserActivity.semReplaceTargetInfoWithNewIntent()
+          ← ChooserActivity$ChooserGridAdapter$2.onClick()
+          ← <com.android.internal.app.ChooserActivity$ChooserGridAdapter
+          ← <com.android.internal.app.ChooserActivity$ItemViewHolder: vo
+          ← <com.android.internal.app.ChooserActivity$SemDeviceItemViewH
+          ← ChooserStackedAppDialogFragment.onClick()
+          ← <com.samsung.android.share.SemShareMoreAppsFragment$SemChoos
+          ← <com.android.internal.app.ChooserActivity: void -$$Nest$msta
+          ← ChooserActivity$28.doInBackground()
+          ← ChooserActivity.onTargetSelected()
+          ← ResolverActivity$PickTargetOptionRequest.onPickOptionResult()
+          ← ResolverActivity.onProfileClick()
+          ← ResolverActivity.startSelected()
+            ← ChooserActivity$$ExternalSyntheticLambda14.onClick()
+            ← ChooserActivity$26.onClick()
+            ← ChooserActivity$ChooserHandler.handleMessage()
+            ← ChooserActivity$GalleryAdapter.initEnhancementLayout()
+            ← <com.android.internal.app.ChooserActivity: void -$$Nest$msho
+            ← <com.android.internal.app.ChooserActivity: boolean lambda$in
+            ← <com.android.internal.app.ChooserActivity: void -$$Nest$msta
+            ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+            ← ChooserActivity$ChooserGridAdapter$$ExternalSyntheticLambda2.onClick()
+            ← ChooserActivity$ItemViewHolder$$ExternalSyntheticLambda0.onClick()
+            ← ChooserActivity$SemDeviceItemViewHolder$$ExternalSyntheticLambda0.onClick()
+            ← SemShareMoreAppsFragment$SemChooserItemViewHolder$$ExternalSyntheticLambda0.onClick()
+            ← ChooserActivity$28.doInBackground()
+            ← ChooserActivity$ChooserGridAdapter$$ExternalSyntheticLambda1.onClick()
+            ← ResolverActivity$$ExternalSyntheticLambda2.onClick()
+            ← ResolverActivity$ItemClickListener.onItemClick()
+            ← ResolverActivity.onButtonClick()
+              ← ChooserActivity$GalleryAdapter.bindIntentItemViewHolder()
+              ← ChooserActivity$GalleryAdapter.bindSliceItemViewHolder()
+              ← ChooserActivity$34.onAnimationEnd()
+              ← ChooserActivity$$ExternalSyntheticLambda4.onPreDraw()
+              ← ChooserActivity$32.onScrollStateChanged()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.checkCallingOrSelfPermission()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+      → SemShareLogging.checkSurveyCondition()
+      → SemShareLogging.isSupportDMA()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → Intent.getAction()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      hqm
+  Class:    a.f
+  Method:   <a.f: boolean M(android.content.Intent)>
+  Line:     657
+  Register: v0 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v0, La/f;->v:Landroid/content/Context; → [invoke] and
+
+  CALLERS (who invokes this method):
+      ← f.P()
+        ← f.S()
+          ← f.L()
+          ← f.O()
+          ← f.R()
+          ← f.T()
+          ← f.g()
+            ← f.b()
+            ← i.d()
+            ← h.i()
+            ← a.p()
+            ← HqmManagerService.s()
+            ← HqmManagerService.sendHWParamServer()
+            ← d.onReceive()
+              ← f.G()
+              ← f.c()
+              ← f.d()
+              ← f.e()
+              ← c.d()
+              ← h.r()
+              ← k.h()
+              ← n.h()
+              ← h.d()
+              ← a.m()
+              ← a.o()
+              ← HqmManagerService.h()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.setAction()
+      → Intent.setPackage()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      motionrecognitionservice
+  Class:    com.samsung.android.gesture.MotionRecognitionPalmMotion
+  Method:   <com.samsung.android.gesture.MotionRecognitionPalmMotion: void insertLog(android.content.Context,java.lang.String)>
+  Line:     699
+  Register: v2 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage()
+
+  CALLERS (who invokes this method):
+      ← MotionRecognitionPalmMotion.enablePalmLogging()
+      ← MotionRecognitionPalmSweep.sendPalmSweepEvents()
+        ← MotionRecognitionService$ServiceHandler.handleMessage()
+        ← MotionRecognitionPalmSweep.onPalmEvents()
+          ← MotionRecognitionPalmSweep.detectSweepDownAction()
+            ← MotionRecognitionPalmSweep.processPalm()
+              ← MotionRecognitionPalmMotion.onRecognition()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      motionrecognitionservice
+  Class:    com.samsung.android.gesture.MotionRecognitionSensorChecker
+  Method:   <com.samsung.android.gesture.MotionRecognitionSensorChecker: void insertLog(java.lang.String)>
+  Line:     14243
+  Register: v4 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {v3, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v4, p0, Lcom/samsung/android/gesture/MotionRecog → [i
+
+  CALLERS (who invokes this method):
+      ← MotionRecognitionSensorChecker.enableTestSensor()
+        ← MotionRecognitionSensorChecker$3.handleMessage()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.wcm.WcmBigDataManager
+  Method:   <com.samsung.android.server.wifi.wcm.WcmBigDataManager: void sendBroadcastToContextFramework(java.lang.String,java.lang.String,long)>
+  Line:     389
+  Register: p2 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object p2, Landroid/os/UserHandle;->ALL:Landroid/os/Use → [i
+
+  CALLERS (who invokes this method):
+      ← WcmBigDataManager.insertLog()
+        ← SemWifiConnectivityMonitor.sendBigDataFeatureForSCNT()
+        ← SemWifiConnectivityMonitor.sendBigDataFeatureForSSVI()
+        ← WcmBigDataManager.insertLog()
+          ← SemWifiConnectivityMonitor.checkSCNTBigDataOnInitialQC()
+          ← SemWifiConnectivityMonitor.setBigDataForAlternativeNetwork()
+          ← SemWifiConnectivityMonitor.updateLinkInfoCollectorBigdata()
+          ← SemWifiConnectivityMonitor$DefaultState.processMessage()
+          ← SemWifiConnectivityMonitor$Level1State.processMessage()
+          ← SemWifiConnectivityMonitor$Level2State.processMessage()
+          ← SemWifiConnectivityMonitor$Level2State.enter()
+          ← SemWifiConnectivityMonitor.checkDisabledNetworks()
+          ← SemWifiTcpeBigDataManager.sendBigDataFeatureForTCPE()
+          ← WcmBigDataManager.insertLog()
+          ← WcmBigDataManager.insertLog()
+            ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor:
+            ← SemWifiConnectivityMonitor.checkAlternativeNetworks()
+            ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+            ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor:
+            ← SemWifiConnectivityMonitor.scanCompleted()
+            ← SemWifiSwitchForIndividualAppsService.sendBigDataFeatureForTCPE()
+            ← SemWifiTransportLayerMonitor.sendBigDataFeatureForTCPE()
+              ← SemWifiConnectivityMonitor$ConnectedState.processMessage()
+              ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+              ← SemWifiConnectivityMonitor$12.eleFinishedByStep()
+              ← SemWifiConnectivityMonitor$ConnectedState.exit()
+              ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor:
+              ← <com.samsung.android.server.wifi.tcp.SemWifiSwitchForIndivid
+              ← SemWifiSwitchForIndividualAppsService.handleMessage()
+              ← <com.samsung.android.server.wifi.tcp.SemWifiTransportLayerMo
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → ContentValues.put()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Exception.printStackTrace()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.wcm.WcmBigDataManager
+  Method:   <com.samsung.android.server.wifi.wcm.WcmBigDataManager: void sendBroadcastToContextFramework(java.lang.String[],java.lang.String[],long[])>
+  Line:     647
+  Register: p2 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] p2 overwritten
+
+  CALLERS (who invokes this method):
+      ← WcmBigDataManager.insertLog()
+      ← WcmBigDataManager.insertLog()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Exception.printStackTrace()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.bigdata.SemIwcBigDataManager
+  Method:   <com.samsung.android.server.wifi.bigdata.SemIwcBigDataManager: void sendBroadcastToContextFramework(java.lang.String,java.lang.String,long)>
+  Line:     328
+  Register: p2 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object p2, Landroid/os/UserHandle;->ALL:Landroid/os/Use → [i
+
+  CALLERS (who invokes this method):
+      ← SemIwcBigDataManager.insertLog()
+        ← SemIWCMonitor.setBigDataMIWC()
+        ← SemIwcBigDataManager.insertLog()
+          ← <com.samsung.android.server.wifi.SemIWCMonitor: void -$$Nest
+          ← SemIWCMonitor.updateHintCard()
+          ← SemIwcBigDataManager.insertLog()
+          ← SemIwcBigDataManager.insertLog()
+            ← SemIWCMonitor$DefaultState.processMessage()
+            ← SemWifiServiceImpl.updateIWCHintCard()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → ContentValues.put()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Exception.printStackTrace()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.bigdata.SemIwcBigDataManager
+  Method:   <com.samsung.android.server.wifi.bigdata.SemIwcBigDataManager: void sendBroadcastToContextFramework(java.lang.String[],java.lang.String[],long[])>
+  Line:     590
+  Register: p2 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] p2 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemIwcBigDataManager.insertLog()
+      ← SemIwcBigDataManager.insertLog()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Exception.printStackTrace()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.biometrics.SemBioAnalyticsManager
+  Method:   <com.android.server.biometrics.SemBioAnalyticsManager: void faceHandleData(com.android.server.biometrics.SemBioAnalyticsManager$EventData)>
+  Line:     722
+  Register: p1 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] new-instance p1, Ljava/lang/StringBuilder; → [invoke] java.lang.S
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+          ← SemBioAnalyticsManager$$ExternalSyntheticLambda2.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+      → SemBioAnalyticsManager$DQAManager.faceHandleDqaData()
+      → SemBioAnalyticsManager$EventData.toString()
+      → Exception.getMessage()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → SemBioAnalyticsManager$DQAManager.needToSaveBigFeatures()
+        → SemBioAnalyticsManager$DQAManager.faceGetDqaDataFormatToSave()
+        → SemBioAnalyticsManager$DQAManager.sendFaceBigData()
+        → SemBioAnalyticsManager$DQAManager.writeDqaDataToFile()
+        → Map.containsKey()
+        → Map.get()
+        → Map.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <com.android.server.biometrics.SemBioAnalyticsManager: boole
+          → Exception.toString()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → Map.keySet()
+          → Set.iterator()
+          → Context.getSystemService()
+          → SemHqmManager.sendHWParamToHQM()
+          → Handler.post()
+          → <com.android.server.biometrics.SemBioAnalyticsManager$DQAMan
+          → SemBioFgThread.getHandler()
+          → SemBioFgThread.get()
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ISemHqmManager.sendHWParamToHQM()
+            → SemHqmManager.printExceptionTrace()
+            → HandlerThread.getThreadHandler()
+            → HandlerThread.start()
+            → <com.android.server.biometrics.SemBioFgThread: void <init>()
+              → ContainerHelpers.binarySearch()
+              → Exception.printStackTrace()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → HandlerThread.getLooper()
+              → <com.android.server.ServiceThread: void <init>(java.lang.Str
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.biometrics.SemBioAnalyticsManager
+  Method:   <com.android.server.biometrics.SemBioAnalyticsManager: void fpHandleData(com.android.server.biometrics.SemBioAnalyticsManager$EventData)>
+  Line:     1649
+  Register: p1 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] new-instance p1, Ljava/lang/StringBuilder; → [invoke] java.lang.S
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+      ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+          ← SemBioAnalyticsManager$$ExternalSyntheticLambda1.run()
+          ← SemBioAnalyticsManager$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putSerializable()
+      → Bundle.putString()
+      → SemBioAnalyticsManager$DQAManager.fpHandleDqaData()
+      → SemBioAnalyticsManager$EventData.toString()
+      → Utils.isRuneStoneApp()
+      → Exception.getMessage()
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → SemBioAnalyticsManager$DQAManager.needToSaveBigFeatures()
+        → SemBioAnalyticsManager$DQAManager.fpGetDqaDataFormatToSave()
+        → SemBioAnalyticsManager$DQAManager.sendFingerprintBigData()
+        → SemBioAnalyticsManager$DQAManager.writeDqaDataToFile()
+        → Map.containsKey()
+        → Map.get()
+        → Map.put()
+        → Utils.hasInternalPermission()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <com.android.server.biometrics.SemBioAnalyticsManager: boole
+          → Exception.toString()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → Map.keySet()
+          → Set.iterator()
+          → Context.getSystemService()
+          → SemHqmManager.sendHWParamToHQM()
+          → Handler.post()
+          → <com.android.server.biometrics.SemBioAnalyticsManager$DQAMan
+          → SemBioFgThread.getHandler()
+          → SemBioFgThread.get()
+          → Context.checkCallingOrSelfPermission()
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ISemHqmManager.sendHWParamToHQM()
+            → SemHqmManager.printExceptionTrace()
+            → HandlerThread.getThreadHandler()
+            → HandlerThread.start()
+            → <com.android.server.biometrics.SemBioFgThread: void <init>()
+              → ContainerHelpers.binarySearch()
+              → Exception.printStackTrace()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → HandlerThread.getLooper()
+              → <com.android.server.ServiceThread: void <init>(java.lang.Str
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DesktopModeLogger
+  Method:   <com.android.server.desktopmode.DesktopModeLogger: void sendGsimLog(android.content.Context,java.lang.String,java.lang.String)>
+  Line:     287
+  Register: v1 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v1, Landroid/os/UserHandle;->CURRENT_OR_SELF:Lan → [i
+
+  CALLERS (who invokes this method):
+      ← DesktopModeLogger.log()
+        ← DesktopModeService.logDesktopModeChanged()
+        ← HardwareManager.logConnectedAccessoryInformationLocked()
+          ← <com.android.server.desktopmode.DesktopModeService: void -$$
+          ← HardwareManager$5.onDualModeStopLoadingScreen()
+            ← DesktopModeService$Receiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Log.d()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → Log.save()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ArrayDeque.size()
+            → ArrayDeque.removeFirst()
+            → ArrayDeque.addLast()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.GmsAlarmManager
+  Method:   <com.android.server.alarm.GmsAlarmManager: void insertLog(java.lang.String,java.lang.String,java.lang.String)>
+  Line:     4151
+  Register: v0 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.alarm.GmsAlarmManager: void -$$Nest$mins
+        ← GmsAlarmManager$GmsHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.accessibility.GestureWakeup
+  Method:   <com.android.server.accessibility.GestureWakeup: void insertLog(android.content.Context,java.lang.String,java.lang.String)>
+  Line:     165
+  Register: p2 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage()
+
+  CALLERS (who invokes this method):
+      ← GestureWakeup.launchGestureWakeup()
+        ← <com.android.server.accessibility.GestureWakeup: void -$$Nes
+          ← GestureWakeup$1.onSemContextChanged()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → SemFloatingFeature.getBoolean()
+      → SemFloatingFeature.getInstance()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.install.PackageInstallTimeLogger
+  Method:   <com.samsung.android.server.pm.install.PackageInstallTimeLogger: void insertLog(java.lang.String,java.lang.String,java.lang.String,long,android.os.UserHandle)>
+  Line:     1300
+  Register: p2 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] const/high16 p2, 0x4000000 → [invoke] android.content.Intent.addF
+
+  CALLERS (who invokes this method):
+      ← PackageInstallTimeLogger.finishInstallTimeInfo()
+        ← PackageInstallerSession$4.handleMessage()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → ContentValues.put()
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → PackageInstallTimeLogger.isCollectorInstalled()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.smartclip.SpenGestureManagerService
+  Method:   <com.android.server.smartclip.SpenGestureManagerService: void sendLogSpenInsertInfo(java.lang.String,java.lang.String)>
+  Line:     5510
+  Register: p0 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {p1, p0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object p0, Lcom/android/server/smartclip/SpenGestureMan → [i
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.smartclip.SpenGestureManagerService: voi
+      ← SpenGestureManagerService.calculateSpenUsingDuration()
+        ← SpenGestureManagerService$1.onReceive()
+        ← <com.android.server.smartclip.SpenGestureManagerService: voi
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.ibs.IntelligentBatterySaverSurvey
+  Method:   <com.android.server.ibs.IntelligentBatterySaverSurvey: void insertLog(java.lang.String,java.lang.String,java.lang.String)>
+  Line:     90
+  Register: v0 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v0, Landroid/os/UserHandle;->ALL:Landroid/os/Use → [i
+
+  CALLERS (who invokes this method):
+      ← IntelligentBatterySaverFastDrainPolicy.updateBigData()
+        ← IntelligentBatterySaverFastDrainPolicy.exitFastDrainRestriction()
+          ← <com.android.server.ibs.IntelligentBatterySaverFastDrainPoli
+          ← IntelligentBatterySaverFastDrainPolicy.updateFastDrainInternalState()
+            ← IntelligentBatterySaverFastDrainPolicy$IntelligentBatterySaverFastDrainHandler.handleMessage()
+            ← IntelligentBatterySaverFastDrainPolicy.setSysState()
+              ← <com.android.server.ibs.IntelligentBatterySaverFastDrainPoli
+              ← IntelligentBatterySaverFastDrainPolicy.dump()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #17
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.input.InputKeyCounter
+  Method:   <com.android.server.input.InputKeyCounter: void sendBroadcastKeyCountInternal(android.content.Context,android.util.ArrayMap)>
+  Line:     511
+  Register: v4 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {v3, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage()
+
+  CALLERS (who invokes this method):
+      ← InputKeyCounter.kickOldies()
+      ← InputKeyCounter.sendBroadcastKeyCount()
+        ← InputManagerService$19.onReceive()
+        ← InputManagerService$KeyCountRunnable.run()
+
+  CALLEES (what this method invokes):
+      → ContentValues.toString()
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → ArrayMap.size()
+      → ArrayMap.keyAt()
+      → ArrayMap.valueAt()
+        → ContentValues.getAsString()
+        → ArrayMap.keySet()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Set.iterator()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → ArrayMap.get()
+          → ArrayMap.getCollection()
+          → MapCollections.getKeySet()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.indexOfKey()
+            → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+            → <android.util.MapCollections$KeySet: void <init>(android.uti
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → <android.util.MapCollections: void <init>()>
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #18
+────────────────────────────────────────────────────────────
+  JAR:      vendor.samsung.frameworks.codecsolution-service
+  Class:    vendor.samsung.frameworks.codecsolution.Logging
+  Method:   <vendor.samsung.frameworks.codecsolution.Logging: void insertContextLog(java.lang.String,java.lang.String,long)>
+  Line:     230
+  Register: v2 := "com.samsung.android.providers.context"
+  Usage:    [invoke] invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← Logging.insertLog()
+        ← Logging.insertLog()
+          ← SehCodecSolutionService$1.handleMessage()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → ContentValues.put()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → IllegalStateException.printStackTrace()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+

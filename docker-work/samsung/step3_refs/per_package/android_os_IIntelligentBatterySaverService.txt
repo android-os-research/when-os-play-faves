@@ -1,0 +1,21 @@
+# android.os.IIntelligentBatterySaverService [NEW]
+# Refs: 17
+# JARs: framework
+
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: android.os.Bundle getOperationHistory()>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: android.os.Bundle getSleepTime()>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: boolean addSqdBlockList(int,java.lang.String)>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: boolean isEnableSerive()>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: boolean isSqdUiControlEnabled()>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: boolean removeSqdBlockList(int,java.lang.String)>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: java.util.Map getSqdBlockList()>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: long[] getGain()>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: void setRubinEvent(java.lang.String)>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: void setSarrUiControlEnable(boolean)>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: void setSleepModeEnabled(boolean)>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: void setSleepTime(long,long)>
+<android.os.IIntelligentBatterySaverService$Stub$Proxy: void setSqdUiControlEnabled(boolean)>
+<android.os.IIntelligentBatterySaverService$Stub: android.os.IIntelligentBatterySaverService asInterface(android.os.IBinder)>
+<android.os.IIntelligentBatterySaverService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IIntelligentBatterySaverService$Stub: void <init>()>

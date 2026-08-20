@@ -1,0 +1,9 @@
+# android.media.session.IOnVolumeKeyLongPressListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.session.IOnVolumeKeyLongPressListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.session.IOnVolumeKeyLongPressListener$Stub$Proxy: void onVolumeKeyLongPress(android.view.KeyEvent)>
+<android.media.session.IOnVolumeKeyLongPressListener$Stub: android.media.session.IOnVolumeKeyLongPressListener asInterface(android.os.IBinder)>
+<android.media.session.IOnVolumeKeyLongPressListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.session.IOnVolumeKeyLongPressListener$Stub: void <init>()>

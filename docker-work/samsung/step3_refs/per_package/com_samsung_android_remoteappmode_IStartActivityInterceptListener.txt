@@ -1,0 +1,9 @@
+# com.samsung.android.remoteappmode.IStartActivityInterceptListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.remoteappmode.IStartActivityInterceptListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.remoteappmode.IStartActivityInterceptListener$Stub$Proxy: void onStartActivityIntercepted(android.content.Intent,android.os.Bundle,android.content.pm.ActivityInfo,int,boolean,int,int,int)>
+<com.samsung.android.remoteappmode.IStartActivityInterceptListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.remoteappmode.IStartActivityInterceptListener$Stub: com.samsung.android.remoteappmode.IStartActivityInterceptListener asInterface(android.os.IBinder)>
+<com.samsung.android.remoteappmode.IStartActivityInterceptListener$Stub: void <init>()>

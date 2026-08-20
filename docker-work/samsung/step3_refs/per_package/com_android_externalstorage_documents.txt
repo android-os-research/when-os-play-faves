@@ -1,0 +1,8 @@
+# com.android.externalstorage.documents [NEW]
+# Refs: 4
+# JARs: framework, mediatek-framework, services
+
+<com.android.internal.app.ChooserActivity$FilePathUtil: boolean isExternalStorageDocument(android.net.Uri)>
+<com.android.server.StorageManagerService: void servicesReady()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.mediatek.internal.content.MtkFileSystemProviderHelper: void <clinit>()>

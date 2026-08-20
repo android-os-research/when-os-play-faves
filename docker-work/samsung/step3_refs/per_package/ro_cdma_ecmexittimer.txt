@@ -1,0 +1,6 @@
+# ro.cdma.ecmexittimer [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional ecm_exit_timer()>
+<android.sysprop.TelephonyProperties: java.util.Optional ecm_exit_timer()>

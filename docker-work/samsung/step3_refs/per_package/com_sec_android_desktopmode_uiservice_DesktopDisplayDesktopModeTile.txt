@@ -1,0 +1,6 @@
+# com.sec.android.desktopmode.uiservice.DesktopDisplayDesktopModeTile [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.desktopmode.DesktopModeService: void requestTileUpdate(com.samsung.android.desktopmode.SemDesktopModeState)>
+<com.android.server.desktopmode.PackageStateManager$StateListener: void onUserChanged(com.android.server.desktopmode.State)>

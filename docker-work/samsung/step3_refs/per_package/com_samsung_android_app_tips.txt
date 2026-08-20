@@ -1,0 +1,12 @@
+# com.samsung.android.app.tips [NEW]
+# Refs: 9
+# JARs: services
+
+<com.android.server.desktopmode.Utils: void showTipsNotification(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.android.server.sepunion.TipsManagerService$TipsHandler: void handleMessage(android.os.Message)>
+<com.android.server.sepunion.TipsManagerService$TipsPackageReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.sepunion.TipsManagerService$TipsReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.sepunion.TipsManagerService: void <init>(android.content.Context)>
+<com.android.server.sepunion.TipsManagerService: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>
+<com.android.server.wm.WindowManagerServiceExt: void showJustInTimeTips(java.lang.String,java.lang.String,java.lang.String,android.content.Intent,int)>

@@ -1,0 +1,26 @@
+######################################################################
+# Propagation: com.samsung.android.app.clockface
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.filter.filter.LockScreenFilter
+  Method:   <com.android.server.am.mars.filter.filter.LockScreenFilter: int filter(java.lang.String,int,int,int)>
+  Line:     205
+  Register: p2 := "com.samsung.android.app.clockface"
+  Usage:    [invoke] invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p2 → [branch] if-eqz p2, :cond_1a → [other] iget p2, p0, Lcom/a
+
+  CALLEES (what this method invokes):
+      → Map.get()
+

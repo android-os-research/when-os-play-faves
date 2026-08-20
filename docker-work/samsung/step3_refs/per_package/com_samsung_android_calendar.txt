@@ -1,0 +1,12 @@
+# com.samsung.android.calendar [NEW]
+# Refs: 10
+# JARs: framework, services
+
+<android.content.pm.PackageSamsungUtils: java.util.ArrayList getCachedLiveIconPackagesLocked(android.content.Context)>
+<com.android.server.am.ActiveServices: boolean bumpServiceExecutingLocked(com.android.server.am.ServiceRecord,boolean,java.lang.String,java.lang.String)>
+<com.android.server.am.ActiveServices: void scheduleServiceTimeoutLocked(com.android.server.am.ProcessRecord)>
+<com.android.server.am.ActiveServices: void serviceDoneExecutingLocked(com.android.server.am.ServiceRecord,boolean,boolean,boolean)>
+<com.android.server.am.ActiveServices: void serviceTimeout(com.android.server.am.ProcessRecord)>
+<com.android.server.am.mars.filter.filter.AODClockFilter: int filter(java.lang.String,int,int,int)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>

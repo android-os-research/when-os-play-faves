@@ -1,0 +1,22 @@
+######################################################################
+# Propagation: com.google.android.gm.exchange
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.security.DeviceAccountPolicy
+  Method:   <com.android.server.enterprise.security.DeviceAccountPolicy: void <clinit>()>
+  Line:     80
+  Register: v7 := "com.google.android.gm.exchange"
+  Usage:    [] 
+  Patterns: early_return
+

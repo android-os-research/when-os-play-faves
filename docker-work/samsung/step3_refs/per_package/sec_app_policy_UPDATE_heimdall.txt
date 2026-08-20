@@ -1,0 +1,6 @@
+# sec.app.policy.UPDATE.heimdall [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.am.Heimdall$HeimdalldBroadcastManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.am.Heimdall$HeimdalldBroadcastManager: void init()>

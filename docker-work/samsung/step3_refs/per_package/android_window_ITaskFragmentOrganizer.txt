@@ -1,0 +1,14 @@
+# android.window.ITaskFragmentOrganizer [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.window.ITaskFragmentOrganizer$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.ITaskFragmentOrganizer$Stub$Proxy: void onActivityReparentToTask(int,android.content.Intent,android.os.IBinder)>
+<android.window.ITaskFragmentOrganizer$Stub$Proxy: void onTaskFragmentAppeared(android.window.TaskFragmentInfo)>
+<android.window.ITaskFragmentOrganizer$Stub$Proxy: void onTaskFragmentError(android.os.IBinder,android.os.Bundle)>
+<android.window.ITaskFragmentOrganizer$Stub$Proxy: void onTaskFragmentInfoChanged(android.window.TaskFragmentInfo)>
+<android.window.ITaskFragmentOrganizer$Stub$Proxy: void onTaskFragmentParentInfoChanged(android.os.IBinder,android.content.res.Configuration)>
+<android.window.ITaskFragmentOrganizer$Stub$Proxy: void onTaskFragmentVanished(android.window.TaskFragmentInfo)>
+<android.window.ITaskFragmentOrganizer$Stub: android.window.ITaskFragmentOrganizer asInterface(android.os.IBinder)>
+<android.window.ITaskFragmentOrganizer$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.ITaskFragmentOrganizer$Stub: void <init>()>

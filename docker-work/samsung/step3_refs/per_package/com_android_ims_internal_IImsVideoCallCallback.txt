@@ -1,0 +1,15 @@
+# com.android.ims.internal.IImsVideoCallCallback [NEW]
+# Refs: 11
+# JARs: framework
+
+<com.android.ims.internal.IImsVideoCallCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsVideoCallCallback$Stub$Proxy: void changeCallDataUsage(long)>
+<com.android.ims.internal.IImsVideoCallCallback$Stub$Proxy: void changeCameraCapabilities(android.telecom.VideoProfile$CameraCapabilities)>
+<com.android.ims.internal.IImsVideoCallCallback$Stub$Proxy: void changePeerDimensions(int,int)>
+<com.android.ims.internal.IImsVideoCallCallback$Stub$Proxy: void changeVideoQuality(int)>
+<com.android.ims.internal.IImsVideoCallCallback$Stub$Proxy: void handleCallSessionEvent(int)>
+<com.android.ims.internal.IImsVideoCallCallback$Stub$Proxy: void receiveSessionModifyRequest(android.telecom.VideoProfile)>
+<com.android.ims.internal.IImsVideoCallCallback$Stub$Proxy: void receiveSessionModifyResponse(int,android.telecom.VideoProfile,android.telecom.VideoProfile)>
+<com.android.ims.internal.IImsVideoCallCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.IImsVideoCallCallback$Stub: com.android.ims.internal.IImsVideoCallCallback asInterface(android.os.IBinder)>
+<com.android.ims.internal.IImsVideoCallCallback$Stub: void <init>()>

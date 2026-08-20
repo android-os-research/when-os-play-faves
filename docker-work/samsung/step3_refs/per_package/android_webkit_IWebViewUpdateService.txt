@@ -1,0 +1,17 @@
+# android.webkit.IWebViewUpdateService [NEW]
+# Refs: 13
+# JARs: framework
+
+<android.webkit.IWebViewUpdateService$Stub$Proxy: android.content.pm.PackageInfo getCurrentWebViewPackage()>
+<android.webkit.IWebViewUpdateService$Stub$Proxy: android.webkit.WebViewProviderInfo[] getAllWebViewPackages()>
+<android.webkit.IWebViewUpdateService$Stub$Proxy: android.webkit.WebViewProviderInfo[] getValidWebViewPackages()>
+<android.webkit.IWebViewUpdateService$Stub$Proxy: android.webkit.WebViewProviderResponse waitForAndGetProvider()>
+<android.webkit.IWebViewUpdateService$Stub$Proxy: boolean isMultiProcessEnabled()>
+<android.webkit.IWebViewUpdateService$Stub$Proxy: java.lang.String changeProviderAndSetting(java.lang.String)>
+<android.webkit.IWebViewUpdateService$Stub$Proxy: java.lang.String getCurrentWebViewPackageName()>
+<android.webkit.IWebViewUpdateService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.webkit.IWebViewUpdateService$Stub$Proxy: void enableMultiProcess(boolean)>
+<android.webkit.IWebViewUpdateService$Stub$Proxy: void notifyRelroCreationCompleted()>
+<android.webkit.IWebViewUpdateService$Stub: android.webkit.IWebViewUpdateService asInterface(android.os.IBinder)>
+<android.webkit.IWebViewUpdateService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.webkit.IWebViewUpdateService$Stub: void <init>()>

@@ -1,0 +1,9 @@
+# android.gsi.IGsiServiceCallback [NEW]
+# Refs: 10
+# JARs: framework, services
+
+<android.gsi.IGsiServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.gsi.IGsiServiceCallback$Stub$Proxy: void onResult(int)>
+<android.gsi.IGsiServiceCallback$Stub: android.gsi.IGsiServiceCallback asInterface(android.os.IBinder)>
+<android.gsi.IGsiServiceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.gsi.IGsiServiceCallback$Stub: void <init>()>

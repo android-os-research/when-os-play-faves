@@ -1,0 +1,9 @@
+# android.companion.IOnAssociationsChangedListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.companion.IOnAssociationsChangedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.companion.IOnAssociationsChangedListener$Stub$Proxy: void onAssociationsChanged(java.util.List)>
+<android.companion.IOnAssociationsChangedListener$Stub: android.companion.IOnAssociationsChangedListener asInterface(android.os.IBinder)>
+<android.companion.IOnAssociationsChangedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.companion.IOnAssociationsChangedListener$Stub: void <init>()>

@@ -1,0 +1,10 @@
+# android.os.ISpegHelperService [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.ISpegHelperService$Stub$Proxy: boolean createOrDeleteMarkerFiles(java.lang.String,boolean,int)>
+<android.os.ISpegHelperService$Stub$Proxy: boolean packPrimaryProfToBaseDm(java.lang.String,java.lang.String,java.lang.String,int)>
+<android.os.ISpegHelperService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.ISpegHelperService$Stub: android.os.ISpegHelperService asInterface(android.os.IBinder)>
+<android.os.ISpegHelperService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.ISpegHelperService$Stub: void <init>()>

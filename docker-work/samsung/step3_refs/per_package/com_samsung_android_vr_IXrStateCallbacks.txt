@@ -1,0 +1,11 @@
+# com.samsung.android.vr.IXrStateCallbacks [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.vr.IXrStateCallbacks$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.vr.IXrStateCallbacks$Stub$Proxy: void onActivityIntercepted(int,int,android.os.Bundle)>
+<com.samsung.android.vr.IXrStateCallbacks$Stub$Proxy: void onActivityResumeChanged(int,android.os.Bundle)>
+<com.samsung.android.vr.IXrStateCallbacks$Stub$Proxy: void onFocusedDisplayChanged(int)>
+<com.samsung.android.vr.IXrStateCallbacks$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.vr.IXrStateCallbacks$Stub: com.samsung.android.vr.IXrStateCallbacks asInterface(android.os.IBinder)>
+<com.samsung.android.vr.IXrStateCallbacks$Stub: void <init>()>

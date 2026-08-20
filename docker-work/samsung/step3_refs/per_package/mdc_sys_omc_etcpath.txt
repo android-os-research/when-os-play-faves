@@ -1,0 +1,11 @@
+# mdc.sys.omc_etcpath [NEW]
+# Refs: 7
+# JARs: framework, services
+
+<com.android.server.SystemConfig: void readAllPermissions()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: java.io.File[] getDefaultPermissionFiles()>
+<com.samsung.android.server.pm.install.PrePackageInstaller: java.util.List readEnforceSkippingPackageList()>
+<com.samsung.android.server.pm.install.PrePackageInstallerBase: void setGrantPermissions()>
+<com.samsung.android.server.pm.install.PrePackageInstallerBase: void uninstallPackage()>
+<com.samsung.android.server.pm.install.SkippingApks: void initSkippingApkList(java.io.File)>
+<com.samsung.android.server.pm.permission.OmcPermissionPolicy: java.util.ArrayList getConfigDirs()>

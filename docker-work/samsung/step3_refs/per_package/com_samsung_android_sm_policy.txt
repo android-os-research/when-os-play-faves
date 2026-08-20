@@ -1,0 +1,9 @@
+# com.samsung.android.sm.policy [NEW]
+# Refs: 5
+# JARs: services, vendor.samsung.frameworks.codecsolution-service
+
+<com.android.server.alarm.AppSyncInfo$SCPMHelper: boolean isSCPMAvailable()>
+<com.android.server.alarm.GmsAlarmManager: boolean isSCPMAvailable()>
+<com.android.server.am.KillPolicyManager: boolean isSCPMAvailable()>
+<com.android.server.vr.HmtManager: void updateSupportDevicePolicy()>
+<com.samsung.android.scloud.lib.platform.api.Configuration: void <clinit>()>

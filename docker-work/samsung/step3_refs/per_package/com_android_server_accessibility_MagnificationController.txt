@@ -1,0 +1,20 @@
+# com.android.server.accessibility.MagnificationController [NEW]
+# Refs: 17
+# JARs: framework, services
+
+<android.view.accessibility.A11yLogger: void <clinit>()>
+<com.android.internal.accessibility.dialog.AccessibilityButtonChooserActivity: void lambda$onCreate$0$com-android-internal-accessibility-dialog-AccessibilityButtonChooserActivity(android.widget.AdapterView,android.view.View,int,long)>
+<com.android.internal.accessibility.dialog.AccessibilitySamsungShortcutChooserActivity: void onTargetSelected(android.widget.AdapterView,android.view.View,int,long)>
+<com.android.internal.accessibility.dialog.AccessibilityTargetHelper: java.util.List getAllowListingFeatureTargets(android.content.Context,int)>
+<com.android.internal.accessibility.dialog.AccessibilityTargetHelper: java.util.List getTargets(android.content.Context,int)>
+<com.android.internal.accessibility.util.AccessibilityUtils: boolean allowPerformInEmergencyMode(java.lang.String)>
+<com.android.internal.accessibility.util.AccessibilityUtils: boolean disAllowPerformInDexMode(java.lang.String)>
+<com.android.server.accessibility.AccessibilityManagerService: void performAccessibilityShortcutInternal(int,int,java.lang.String)>
+<com.android.server.accessibility.AccessibilityManagerService: void restoreLegacyDisplayMagnificationNavBarIfNeededLocked(java.lang.String,int)>
+<com.android.server.accessibility.AccessibilityManagerService: void semPerformAccessibilityButtonClick(int,int,java.lang.String)>
+<com.android.server.accessibility.AccessibilityUserState: boolean isShortcutMagnificationEnabledLocked()>
+<com.android.server.accessibility.AccessibilityUserState: boolean isShortcutTargetInstalledLocked(java.lang.String)>
+<com.android.server.accessibility.AccessibilityUserState: void disableShortcutMagnificationLocked()>
+<com.android.server.accessibility.magnification.FullScreenMagnificationController: void setForceShowMagnifiableBounds(int,boolean)>
+<com.android.server.accessibility.magnification.FullScreenMagnificationGestureHandler$DetectingState: void onTripleTap(android.view.MotionEvent)>
+<com.android.server.sepunion.SemExclusiveTaskManagerService: void executePostProccess(com.android.server.sepunion.SemExclusiveTaskManagerService$Task,boolean,com.android.server.sepunion.SemExclusiveTaskManagerService$UserStatus)>

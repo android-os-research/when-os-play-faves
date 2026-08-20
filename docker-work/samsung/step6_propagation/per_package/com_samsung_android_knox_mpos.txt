@@ -1,0 +1,37 @@
+######################################################################
+# Propagation: com.samsung.android.knox.mpos
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.mpos.MPOSService
+  Method:   <com.android.server.enterprise.mpos.MPOSService: boolean checkPermission()>
+  Line:     144
+  Register: v6 := "com.samsung.android.knox.mpos"
+  Usage:    [invoke] invoke-virtual {v6, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v6 → [branch] if-eqz v6, :cond_50
+
+  CALLERS (who invokes this method):
+      ← MPOSService.loadTa()
+      ← MPOSService.unloadTa()
+      ← MPOSService.processTACommand()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → ApplicationInfo.isSignedWithPlatformKey()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → PackageManager.getNameForUid()
+      → Binder.getCallingUid() [UID_CHECK]
+      → UserHandle.isSameApp()
+      → Exception.toString()
+

@@ -1,0 +1,10 @@
+# mdc.singlesku.activated [NEW]
+# Refs: 6
+# JARs: framework, semwifi-service, services
+
+<com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: boolean isOperatorFixed()>
+<com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: java.lang.String getActiveOperatorId()>
+<com.samsung.android.server.pm.install.OmcInstallHelper: boolean isTssActivated()>
+<com.samsung.android.server.pm.install.OmcInstallHelper: boolean isTssPropertyInitialized()>
+<com.samsung.android.server.wifi.ap.SemWifiApConfigStore: void <init>(android.content.Context,com.samsung.android.server.wifi.SemFrameworkFacade,com.samsung.android.server.wifi.SemWifiManagerProxy)>
+<com.samsung.server.wallpaper.OMCWallpaper: void checkTSSActivation(boolean)>

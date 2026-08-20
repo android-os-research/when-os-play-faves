@@ -1,0 +1,6 @@
+# com.samsung.android.knox.containercore.KnoxAdminCommandReceiver [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<com.android.server.knox.ContainerDependencyWrapper: boolean deactivateKnoxCore(android.content.Context,int)>
+<com.samsung.android.knox.SemPersonaManager: android.content.ComponentName getKnoxAdminReceiver()>

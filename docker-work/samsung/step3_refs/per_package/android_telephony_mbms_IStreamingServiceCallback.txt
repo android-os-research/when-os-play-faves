@@ -1,0 +1,10 @@
+# android.telephony.mbms.IStreamingServiceCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.telephony.mbms.IStreamingServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.mbms.IStreamingServiceCallback$Stub$Proxy: void onBroadcastSignalStrengthUpdated(int)>
+<android.telephony.mbms.IStreamingServiceCallback$Stub$Proxy: void onError(int,java.lang.String)>
+<android.telephony.mbms.IStreamingServiceCallback$Stub$Proxy: void onMediaDescriptionUpdated()>
+<android.telephony.mbms.IStreamingServiceCallback$Stub$Proxy: void onStreamMethodUpdated(int)>
+<android.telephony.mbms.IStreamingServiceCallback$Stub$Proxy: void onStreamStateUpdated(int,int)>

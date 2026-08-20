@@ -1,0 +1,10 @@
+# android.view.IWindowFocusObserver [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.view.IWindowFocusObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IWindowFocusObserver$Stub$Proxy: void focusGained(android.os.IBinder)>
+<android.view.IWindowFocusObserver$Stub$Proxy: void focusLost(android.os.IBinder)>
+<android.view.IWindowFocusObserver$Stub: android.view.IWindowFocusObserver asInterface(android.os.IBinder)>
+<android.view.IWindowFocusObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IWindowFocusObserver$Stub: void <init>()>

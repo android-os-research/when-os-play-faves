@@ -1,0 +1,30 @@
+.class public final synthetic Lcom/android/server/backup/TransportManager$$ExternalSyntheticLambda4;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/util/function/Predicate;
+
+
+# direct methods
+.method public synthetic constructor <init>()V
+    .registers 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final test(Ljava/lang/Object;)Z
+    .registers 2
+
+    check-cast p1, Landroid/content/ComponentName;
+
+    invoke-static {p1}, Lcom/android/server/backup/TransportManager;->$r8$lambda$VdLWXXS3KmyjvqMPKCdg0edE854(Landroid/content/ComponentName;)Z
+
+    move-result p0
+
+    return p0
+.end method

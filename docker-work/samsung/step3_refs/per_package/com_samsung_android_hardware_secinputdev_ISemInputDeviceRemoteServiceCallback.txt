@@ -1,0 +1,10 @@
+# com.samsung.android.hardware.secinputdev.ISemInputDeviceRemoteServiceCallback [NEW]
+# Refs: 12
+# JARs: framework, secinputdev-service
+
+<com.samsung.android.hardware.secinputdev.ISemInputDeviceRemoteServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.hardware.secinputdev.ISemInputDeviceRemoteServiceCallback$Stub$Proxy: void deliveryLastData(int[],float)>
+<com.samsung.android.hardware.secinputdev.ISemInputDeviceRemoteServiceCallback$Stub$Proxy: void deliveryRawdata(int[])>
+<com.samsung.android.hardware.secinputdev.ISemInputDeviceRemoteServiceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.hardware.secinputdev.ISemInputDeviceRemoteServiceCallback$Stub: com.samsung.android.hardware.secinputdev.ISemInputDeviceRemoteServiceCallback asInterface(android.os.IBinder)>
+<com.samsung.android.hardware.secinputdev.ISemInputDeviceRemoteServiceCallback$Stub: void <init>()>

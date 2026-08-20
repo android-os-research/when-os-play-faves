@@ -1,0 +1,7 @@
+# android.media.route.feature.LIVE_AUDIO [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.media.BluetoothRouteProvider: com.android.server.media.BluetoothRouteProvider$BluetoothRouteInfo createBluetoothRoute(android.bluetooth.BluetoothDevice)>
+<com.android.server.media.SystemMediaRoute2Provider: android.media.MediaRoute2Info buildDeviceRoute(java.lang.String,java.lang.String,boolean,int)>
+<com.android.server.media.SystemMediaRoute2Provider: void updateDeviceRoute(android.media.AudioRoutesInfo)>

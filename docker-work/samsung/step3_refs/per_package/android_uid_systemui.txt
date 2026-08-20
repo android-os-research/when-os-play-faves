@@ -1,0 +1,16 @@
+# android.uid.systemui [NEW]
+# Refs: 12
+# JARs: semwifi-service, services
+
+<com.android.server.enterprise.adapterlayer.SystemUIAdapter: boolean isCalledFromSystemUI()>
+<com.android.server.enterprise.kioskmode.KioskModeService: int getUserIdByPackageNameOrUid(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.restriction.PhoneRestrictionPolicy: java.lang.String getPinCode(java.lang.String)>
+<com.android.server.enterprise.restriction.RestrictionPolicy: int getUserIdByPackageNameOrUid(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.security.PasswordPolicy: int getUserIdByPackageNameOrUid(com.samsung.android.knox.ContextInfo)>
+<com.android.server.notification.NotificationManagerService: boolean checkCallerIsSystemUI()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantRuntimePermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,android.content.pm.PackageInfo,java.util.Set,boolean,boolean,boolean,int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: boolean isSystemUiApp()>
+<com.samsung.android.server.wifi.SemWifiConnectivityMonitor: void <init>(android.content.Context,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.ISemInterfaceNameProvider,com.samsung.android.server.wifi.tcp.SemWifiSwitchForIndividualAppsService)>
+<com.samsung.android.server.wifi.silentroaming.SilentRoamingManager: void <init>(android.content.Context,com.samsung.android.server.wifi.util.SemClock,android.os.Looper,com.samsung.android.server.wifi.halclient.SemWifiNative,com.samsung.android.server.wifi.SemWifiManagerProxy,com.samsung.android.server.wifi.SemWifiConfigManager,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.SemFrameworkFacade,android.util.LocalLog,com.samsung.android.server.wifi.silentroaming.SilentRoamingWifiInfo,com.samsung.android.server.wifi.silentroaming.SilentRoamingPnoScanner,com.samsung.android.server.wifi.silentroaming.SemThroughputPredictor,com.samsung.android.server.wifi.silentroaming.SemThroughputScorer)>
+<com.samsung.ucm.ucmservice.CredentialManagerService: boolean isCallerSystemUI()>
+<com.samsung.ucm.ucmservice.PolicyManager: boolean getPackageNameForUid(int)>

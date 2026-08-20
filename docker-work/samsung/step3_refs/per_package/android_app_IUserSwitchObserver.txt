@@ -1,0 +1,12 @@
+# android.app.IUserSwitchObserver [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.app.IUserSwitchObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IUserSwitchObserver$Stub$Proxy: void onForegroundProfileSwitch(int)>
+<android.app.IUserSwitchObserver$Stub$Proxy: void onLockedBootComplete(int)>
+<android.app.IUserSwitchObserver$Stub$Proxy: void onUserSwitchComplete(int)>
+<android.app.IUserSwitchObserver$Stub$Proxy: void onUserSwitching(int,android.os.IRemoteCallback)>
+<android.app.IUserSwitchObserver$Stub: android.app.IUserSwitchObserver asInterface(android.os.IBinder)>
+<android.app.IUserSwitchObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IUserSwitchObserver$Stub: void <init>()>

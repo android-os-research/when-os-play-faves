@@ -1,0 +1,11 @@
+# android.view.accessibility.IAccessibilityEmbeddedConnection [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.view.accessibility.IAccessibilityEmbeddedConnection$Stub$Proxy: android.os.IBinder associateEmbeddedHierarchy(android.os.IBinder,int)>
+<android.view.accessibility.IAccessibilityEmbeddedConnection$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.accessibility.IAccessibilityEmbeddedConnection$Stub$Proxy: void disassociateEmbeddedHierarchy()>
+<android.view.accessibility.IAccessibilityEmbeddedConnection$Stub$Proxy: void setWindowMatrix(float[])>
+<android.view.accessibility.IAccessibilityEmbeddedConnection$Stub: android.view.accessibility.IAccessibilityEmbeddedConnection asInterface(android.os.IBinder)>
+<android.view.accessibility.IAccessibilityEmbeddedConnection$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.accessibility.IAccessibilityEmbeddedConnection$Stub: void <init>()>

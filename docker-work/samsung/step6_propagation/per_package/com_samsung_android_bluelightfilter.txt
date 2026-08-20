@@ -1,0 +1,126 @@
+######################################################################
+# Propagation: com.samsung.android.bluelightfilter
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.sepunion.SemExclusiveTaskManagerService
+  Method:   <com.android.server.sepunion.SemExclusiveTaskManagerService: void executePostProccess(com.android.server.sepunion.SemExclusiveTaskManagerService$Task,boolean,com.android.server.sepunion.SemExclusiveTaskManagerService$UserStatus)>
+  Line:     1166
+  Register: v0 := "com.samsung.android.bluelightfilter"
+  Usage:    [invoke] invoke-direct {p3, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemExclusiveTaskManagerService.proccessTurningOffTask()
+      ← SemExclusiveTaskManagerService.proccessTurningOnTask()
+        ← SemExclusiveTaskManagerService.proccessExclusiveTask()
+          ← <com.android.server.sepunion.SemExclusiveTaskManagerService:
+            ← SemExclusiveTaskManagerService$2.onChange()
+
+  CALLEES (what this method invokes):
+      → ComponentName.unflattenFromString()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startServiceAsUser()
+      → Context.getContentResolver()
+      → Context.stopServiceAsUser()
+      → Context.sendBroadcast()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Settings$Secure.putIntForUser()
+      → Settings$Secure.getFloatForUser()
+      → Settings$Secure.getIntForUser()
+      → Settings$System.putIntForUser()
+      → Settings$System.getIntForUser()
+      → IWindowManager.putKeyCustomizationInfo()
+      → IWindowManager.removeKeyCustomizationInfo()
+      → IWindowManager.setAnimationScale()
+      → WindowManagerGlobal.getWindowManagerService()
+      → AccessibilityManager.getInstance()
+      → AccessibilityManager.semDisableMdnieColorFilter()
+      → AccessibilityManager.semEnableMdnieColorFilter()
+      → AccessibilityManager.semSetMdnieColorBlind()
+      → ShortcutUtils.isComponentIdExistingInSettings()
+      → ShortcutUtils.optInValueToSettings()
+      → ShortcutUtils.optOutValueFromSettings()
+      → <com.android.server.sepunion.SemExclusiveTaskManagerService$
+      → SemExclusiveTaskManagerService.setGrayScale()
+      → SemExclusiveTaskManagerService.updateA11yNotification()
+      → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+      → ArrayList.add()
+      → ArrayList.size()
+      → ArrayList.get()
+      → ArrayList.clear()
+        → Settings$Secure.getString()
+        → TextUtils$SimpleStringSplitter.hasNext()
+        → TextUtils$SimpleStringSplitter.next()
+        → TextUtils$SimpleStringSplitter.setString()
+        → TextUtils.isEmpty()
+        → ShortcutUtils.convertToKey()
+        → Settings$Secure.putString()
+        → StringJoiner.toString()
+        → StringJoiner.add()
+        → <java.util.StringJoiner: void <init>(java.lang.CharSequence)
+        → SemExclusiveTaskManagerService$Task.getName()
+        → Context.getSystemService()
+        → AccessibilityManager.semSetMdnieAccessibilityMode()
+        → Handler.postDelayed()
+        → <com.android.server.sepunion.SemExclusiveTaskManagerService$
+        → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+          → CharSequence.length()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.displaysolution.EyeComfortSolutionService
+  Method:   <com.samsung.android.displaysolution.EyeComfortSolutionService: void updateSleepWakeupTime(java.lang.String)>
+  Line:     4603
+  Register: v8 := "com.samsung.android.bluelightfilter"
+  Usage:    [invoke] invoke-virtual {v5, v6, v7, v8, v9}, Landroid/content/ContentResolver;->call(Landroid/net/Uri;Ljava/
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.ContentResolver.call() → [reassigned] v8 overwritten
+
+  CALLERS (who invokes this method):
+      ← EyeComfortSolutionService.blue_light_filter_setting_day()
+      ← EyeComfortSolutionService.setting_is_changed()
+        ← <com.samsung.android.displaysolution.EyeComfortSolutionServi
+        ← <com.samsung.android.displaysolution.EyeComfortSolutionServi
+          ← EyeComfortSolutionService$ECSControlHandler.handleMessage()
+          ← EyeComfortSolutionService$ScreenWatchingReceiver.onReceive()
+          ← EyeComfortSolutionService$SettingsObserver.onChange()
+
+  CALLEES (what this method invokes):
+      → ContentResolver.call()
+      → Context.getContentResolver()
+      → Uri.parse()
+      → Bundle.containsKey()
+      → Bundle.getBoolean()
+      → Bundle.getString()
+      → SimpleDateFormat.format()
+      → <java.text.SimpleDateFormat: void <init>(java.lang.String,ja
+      → <java.util.Date: void <init>()>
+      → Locale.getDefault()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+

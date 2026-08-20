@@ -1,0 +1,15 @@
+# com.android.contacts [NEW]
+# Refs: 12
+# JARs: framework, services
+
+<android.provider.ContactsInternal: void <clinit>()>
+<com.android.server.content.SyncStorageEngine: void <clinit>()>
+<com.android.server.devicepolicy.KnoxUtils: java.lang.String getContactsPackageName()>
+<com.android.server.devicepolicy.KnoxUtils: void disableDialerComponent(int)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: com.samsung.android.knox.accounts.Account fillInExchangeAccountData(int,com.android.server.enterprise.email.AccountMetaData,int)>
+<com.android.server.om.SemSamsungThemeUtils: java.lang.String getReplaceablePackageName(java.lang.String)>
+<com.android.server.om.SemSamsungThemeUtils: java.util.HashMap getChangedPackageNames()>
+<com.android.server.pm.ComputerEngine: android.content.pm.ProviderInfo getGrantImplicitAccessProviderInfo(int,java.lang.String)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.samsung.android.app.SemDualAppManager: boolean shouldAddUserId(android.net.Uri,int)>
+<com.samsung.android.share.SemShareCommon: boolean isIntentUriDataIValidCheck(android.content.Intent)>

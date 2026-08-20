@@ -1,0 +1,11 @@
+# android.telephony.ims.aidl.IRcsUceControllerCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.telephony.ims.aidl.IRcsUceControllerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IRcsUceControllerCallback$Stub$Proxy: void onCapabilitiesReceived(java.util.List)>
+<android.telephony.ims.aidl.IRcsUceControllerCallback$Stub$Proxy: void onComplete()>
+<android.telephony.ims.aidl.IRcsUceControllerCallback$Stub$Proxy: void onError(int,long)>
+<android.telephony.ims.aidl.IRcsUceControllerCallback$Stub: android.telephony.ims.aidl.IRcsUceControllerCallback asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IRcsUceControllerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IRcsUceControllerCallback$Stub: void <init>()>

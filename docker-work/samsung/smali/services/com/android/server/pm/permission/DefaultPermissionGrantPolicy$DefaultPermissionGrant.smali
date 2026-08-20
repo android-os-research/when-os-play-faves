@@ -1,0 +1,42 @@
+.class public final Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$DefaultPermissionGrant;
+.super Ljava/lang/Object;
+.source "DefaultPermissionGrantPolicy.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "DefaultPermissionGrant"
+.end annotation
+
+
+# instance fields
+.field public final fixed:Z
+
+.field public final name:Ljava/lang/String;
+
+.field public final whitelisted:Z
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;ZZ)V
+    .registers 4
+
+    .line 3443
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 3444
+    iput-object p1, p0, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$DefaultPermissionGrant;->name:Ljava/lang/String;
+
+    .line 3445
+    iput-boolean p2, p0, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$DefaultPermissionGrant;->fixed:Z
+
+    .line 3446
+    iput-boolean p3, p0, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$DefaultPermissionGrant;->whitelisted:Z
+
+    return-void
+.end method

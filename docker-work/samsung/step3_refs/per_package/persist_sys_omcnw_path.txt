@@ -1,0 +1,6 @@
+# persist.sys.omcnw_path [NEW]
+# Refs: 2
+# JARs: services, vsimmanager
+
+<com.samsung.android.server.pm.install.SkippingApks: void initSkippingApkList(java.io.File)>
+<com.sec.vsim.util.OmcCode: java.lang.String getNWPath()>

@@ -1,0 +1,15 @@
+# ro.hardware.chipname [NEW]
+# Refs: 13
+# JARs: framework, hqm, perfsdkservice, semmediatranscoder, semsdrvideoconverter, services, ssrm, vendor.samsung.frameworks.hdrsolution-service
+
+<c.k: void m()>
+<com.android.server.BootReceiver: void sendHWParamInfo(java.lang.String,java.lang.String)>
+<com.android.server.HermesService: int sendBigData(java.lang.String)>
+<com.android.server.location.gnss.sec.GnssVendorConfig: boolean isUnisocGnss()>
+<com.android.server.ssrm.Feature: void <clinit>()>
+<com.android.server.ssrm.PerformanceFeature: void <clinit>()>
+<com.samsung.android.media.convert.core.ConvertVideo: boolean prepareVideoCodec()>
+<com.samsung.android.perfsdkservice.PerfSDKService: void <init>(android.content.Context,android.app.IActivityManager)>
+<com.samsung.android.transcode.core.EncodeBase: void prepareVideoCodec()>
+<vendor.samsung.frameworks.hdrsolution.HdrDisplayController: void <init>(android.content.Context)>
+<vendor.samsung.frameworks.hdrsolution.HdrDisplayNitMapper: void <init>(android.content.Context)>

@@ -1,0 +1,12 @@
+# android.view.accessibility.IAccessibilityInteractionConnectionCallback [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.view.accessibility.IAccessibilityInteractionConnectionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.accessibility.IAccessibilityInteractionConnectionCallback$Stub$Proxy: void setFindAccessibilityNodeInfoResult(android.view.accessibility.AccessibilityNodeInfo,int)>
+<android.view.accessibility.IAccessibilityInteractionConnectionCallback$Stub$Proxy: void setFindAccessibilityNodeInfosResult(java.util.List,int)>
+<android.view.accessibility.IAccessibilityInteractionConnectionCallback$Stub$Proxy: void setPerformAccessibilityActionResult(boolean,int)>
+<android.view.accessibility.IAccessibilityInteractionConnectionCallback$Stub$Proxy: void setPrefetchAccessibilityNodeInfoResult(java.util.List,int)>
+<android.view.accessibility.IAccessibilityInteractionConnectionCallback$Stub: android.view.accessibility.IAccessibilityInteractionConnectionCallback asInterface(android.os.IBinder)>
+<android.view.accessibility.IAccessibilityInteractionConnectionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.accessibility.IAccessibilityInteractionConnectionCallback$Stub: void <init>()>

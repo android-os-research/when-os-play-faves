@@ -1,0 +1,14 @@
+# com.salab.issuetracker [NEW]
+# Refs: 10
+# JARs: framework, hqm, semwifi-service, services, telephony-common
+
+<android.database.sqlite.SQLiteUtils: boolean isIssueTrackerOn(android.database.sqlite.SQLiteDatabase)>
+<c.k: void <clinit>()>
+<com.android.internal.telephony.dataconnection.DcTracker$DataStallRecoveryHandler: boolean isRecoveryOnBadNetworkEnabled()>
+<com.android.internal.telephony.dataconnection.DcTracker: void sendDataStallInfo()>
+<com.android.internal.telephony.dataconnection.DcTracker: void startDataStallAlarm(boolean)>
+<com.android.server.am.ActivityManagerService: boolean isTestAppInstalled()>
+<com.android.server.pm.InstallPackageHelper: com.android.server.pm.PrepareResult preparePackageLI(com.android.server.pm.InstallArgs,com.android.server.pm.PackageInstalledInfo)>
+<com.samsung.android.server.wifi.SemWifiLeakyApDetector: boolean checkIfIssueTrackerIsRunning()>
+<com.samsung.android.server.wifi.diagnostics.WifiIssueReporter: boolean updateSettings(android.os.Bundle)>
+<com.samsung.android.server.wifi.diagnostics.WifiIssueReporter: void <init>(android.content.Context,com.samsung.android.server.wifi.diagnostics.WifiIssueDetector,com.samsung.android.server.wifi.util.SemClock)>

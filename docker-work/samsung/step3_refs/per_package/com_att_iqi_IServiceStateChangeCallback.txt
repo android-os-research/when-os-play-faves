@@ -1,0 +1,9 @@
+# com.att.iqi.IServiceStateChangeCallback [NEW]
+# Refs: 5
+# JARs: services
+
+<com.att.iqi.IServiceStateChangeCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.att.iqi.IServiceStateChangeCallback$Stub$Proxy: void onServiceChange(boolean)>
+<com.att.iqi.IServiceStateChangeCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.att.iqi.IServiceStateChangeCallback$Stub: com.att.iqi.IServiceStateChangeCallback asInterface(android.os.IBinder)>
+<com.att.iqi.IServiceStateChangeCallback$Stub: void <init>()>

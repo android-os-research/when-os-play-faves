@@ -1,0 +1,106 @@
+######################################################################
+# Propagation: com.samsung.android.photoremasterservice
+######################################################################
+
+JARs:                 framework
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.photoremasterservice.ProgressUpdateClient
+  Method:   <com.samsung.android.photoremasterservice.ProgressUpdateClient: void bind()>
+  Line:     199
+  Register: v1 := "com.samsung.android.photoremasterservice"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Lcom/samsung/android/photoremasterservic → 
+
+  CALLERS (who invokes this method):
+      ← ProgressUpdateClient.setProgressUpdateListener()
+        ← ServiceRemasterDirector.setProgressUpdateListener()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → LogUtil.d()
+      → LogUtil.e()
+      → LogUtil.i()
+      → ProgressUpdateClient.getServiceReturnValue()
+      → Executors.newSingleThreadExecutor()
+        → LogUtil.getLogTag()
+        → Bundle.getSerializable()
+        → ProgressUpdateClient.isExceptionContained()
+        → Exception.getStackTrace()
+        → Exception.toString()
+        → Exception.printStackTrace()
+        → <java.lang.RuntimeException: void <init>(java.lang.String)>
+        → RuntimeException.printStackTrace()
+        → RuntimeException.setStackTrace()
+        → CompletableFuture.get()
+        → <java.util.concurrent.CompletableFuture: void <init>()>
+        → TimeoutException.toString()
+        → TimeoutException.printStackTrace()
+          → Bundle.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.photoremasterservice.PhotoRemasterServiceClient
+  Method:   <com.samsung.android.photoremasterservice.PhotoRemasterServiceClient: void bind()>
+  Line:     488
+  Register: v1 := "com.samsung.android.photoremasterservice"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← PhotoRemasterServiceClient.callService()
+        ← ServiceRemasterDirector.processImage()
+        ← ServiceRemasterDirector.processImage()
+        ← ServiceRemasterDirector.processAestheticScoring()
+        ← ServiceRemasterDirector.getIntParam()
+        ← ServiceRemasterDirector.getStringParam()
+        ← ServiceRemasterDirector.getLongParam()
+        ← ServiceRemasterDirector.deinit()
+        ← ServiceRemasterDirector.init()
+        ← ServiceRemasterDirector.setLongParam()
+        ← ServiceRemasterDirector.setObjectParam()
+        ← ServiceRemasterDirector.setStringParam()
+        ← ServiceRemasterDirector.stop()
+          ← SemPhotoRemasterManager.processImage()
+          ← SemPhotoRemasterManager.getParameter()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → LogUtil.e()
+      → LogUtil.i()
+      → PhotoRemasterServiceClient.getServiceReturnValue()
+      → Executors.newSingleThreadExecutor()
+        → LogUtil.getLogTag()
+        → PhotoRemasterServiceClient.getServiceReturnValue()
+          → Bundle.getSerializable()
+          → PhotoRemasterServiceClient.doGetServiceReturnValue()
+          → PhotoRemasterServiceClient.isExceptionContained()
+          → Exception.getStackTrace()
+          → Exception.toString()
+          → Exception.printStackTrace()
+          → <java.lang.RuntimeException: void <init>(java.lang.String)>
+          → RuntimeException.printStackTrace()
+          → RuntimeException.setStackTrace()
+          → <java.util.concurrent.CompletableFuture: void <init>()>
+          → TimeoutException.toString()
+          → TimeoutException.printStackTrace()
+            → ProgressObserver.wasUpdateAndClear()
+            → CompletableFuture.get()
+            → Bundle.get()
+

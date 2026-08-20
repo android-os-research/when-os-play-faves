@@ -1,0 +1,249 @@
+######################################################################
+# Propagation: com.google.android.videos
+######################################################################
+
+JARs:                 framework, services
+Classes:              3
+Occurrences:          3
+Usage types:          array_init
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1282
+  Register: v16 := "com.google.android.videos"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DesktopModeKillPolicyManager
+  Method:   <com.android.server.desktopmode.DesktopModeKillPolicyManager: void <clinit>()>
+  Line:     71
+  Register: v3 := "com.google.android.videos"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.of()
+
+  CALLEES (what this method invokes):
+      → Set.of()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.hardware.display.AdaptiveDisplayColorService
+  Method:   <com.samsung.android.hardware.display.AdaptiveDisplayColorService: void <init>(android.content.Context)>
+  Line:     798
+  Register: v23 := "com.google.android.videos"
+  Usage:    [array_init] filled-new-array/range {v15 .. v23}, [Ljava/lang/String;
+  Patterns: string_compare, early_return
+  Flow:     [other] filled-new-array/range {v15 .. v23}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.hardware.display.SemMdnieManagerService
+
+  CALLEES (what this method invokes):
+      → ActivityManagerNative.getDefault()
+      → IActivityManager.registerProcessObserver()
+      → ContentResolver.registerContentObserver()
+      → Context.getContentResolver()
+      → Context.registerReceiver()
+      → Context.getPackageManager()
+      → Context.getResources()
+      → Context.getSystemService()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → PackageManager.hasSystemFeature()
+      → Resources.getBoolean()
+      → Resources.getInteger()
+      → Resources.getIntArray()
+      → Resources.getStringArray()
+      → SensorManager.getDefaultSensor()
+      → <android.hardware.SystemSensorManager: void <init>(android.c
+      → SContextManager.isAvailableService()
+      → Handler.getLooper()
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → Settings$System.getUriFor()
+      → <com.samsung.android.cover.CoverManager: void <init>(android
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → AdaptiveDisplayColorService.setting_is_changed()
+        → ActivityManager.getService()
+        → Sensor.isWakeUpSensor()
+        → SensorManager.getSensorList()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.size()
+        → List.get()
+        → List.iterator()
+        → Context.getApplicationInfo() [PKG_QUERY]
+        → Context.getOpPackageName()
+        → Sensor.getHandle()
+        → <android.hardware.Sensor: void <init>()>
+        → <android.hardware.SensorManager: void <init>()>
+        → SystemSensorManager.nativeGetSensorAtIndex()
+        → SystemSensorManager.nativeCreate()
+        → SystemSensorManager.nativeClassInit()
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+        → HashMap.put()
+        → <java.util.HashMap: void <init>()>
+        → Optional.empty()
+        → SemContextManager.isAvailableService()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <android.os.Binder: void <init>()>
+        → CoverManager.initSystemFeature()
+        → <java.util.concurrent.CopyOnWriteArrayList: void <init>()>
+        → <android.app.IProcessObserver$Stub: void <init>()>
+        → <com.samsung.android.cover.CoverManager$StateListener: void 
+        → <android.os.Handler: void <init>(android.os.Looper,android.o
+        → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+        → <android.database.ContentObserver: void <init>(android.os.Ha
+        → IProcessObserver.onForegroundActivitiesChanged()
+        → Settings$System.getInt()
+        → CoverManager.registerListener()
+        → CoverManager.unregisterListener()
+        → AdaptiveDisplayColorService.enableRgbSensor()
+          → Sensor.getType()
+          → SensorManager.getFullSensorList()
+          → SparseArray.get()
+          → SparseArray.append()
+          → Collections.unmodifiableList()
+          → List.add()
+          → <android.util.SparseArray: void <init>()>
+          → SystemProperties.get()
+          → SemContextManager.getAvailableServiceMap()
+          → Map.containsKey()
+          → <android.os.Binder: void <init>(java.lang.String)>
+          → IProcessObserver$Stub.attachInterface()
+          → <android.content.BroadcastReceiver: void <init>()>
+          → <android.content.ComponentName: void <init>(java.lang.String
+          → Context.getPackageName()
+          → Process.myUid()
+          → CoverListenerDelegate.getListener()
+          → <com.samsung.android.cover.CoverListenerDelegate: void <init
+          → CoverManager.isSupportCover()
+          → CoverManager.getService()
+          → ICoverManager.registerCallback()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → CopyOnWriteArrayList.add()
+          → CopyOnWriteArrayList.iterator()
+          → ICoverManager.unregisterCallback()
+          → CopyOnWriteArrayList.remove()
+          → SensorManager.registerListener()
+          → SensorManager.unregisterListener()
+          → <android.hardware.scontext.SContextEnvironmentAdaptiveDispla
+          → SContextManager.registerListener()
+          → SContextManager.unregisterListener()
+          → Handler.removeMessages()
+          → AdaptiveDisplayColorService.initRgbAverage()
+          → File.exists()
+          → <java.io.File: void <init>(java.lang.String)>
+            → SparseArray.get()
+            → SparseArray.gc()
+            → SparseArray.put()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → <android.util.SparseArray: void <init>(int)>
+            → ISemContextService.getAvailableServiceMap()
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+            → Context.getMainLooper()
+            → <com.samsung.android.cover.CoverListenerDelegate$ListenerDel
+            → <com.samsung.android.cover.ICoverManagerCallback$Stub: void 
+            → ServiceManager.getService()
+            → ICoverManager$Stub.asInterface()
+            → SensorManager.registerListenerImpl()
+            → SensorManager.getDelay()
+            → SensorManager.unregisterListenerImpl()
+            → <android.hardware.scontext.SContextAttribute: void <init>()>
+            → SContextEnvironmentAdaptiveDisplayAttribute.setAttribute()
+            → SContextManager.addListenerAttribute()
+            → SContextManager.registerListener()
+            → SContext.getServiceName()
+            → SContextManager.getListenerDelegate()
+            → SContextManager.checkListenerAndService()
+            → SemContextManager.unregisterListener()
+              → ContainerHelpers.binarySearch()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+              → ArrayUtils.newUnpaddedObjectArray()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → ICoverManagerCallback$Stub.attachInterface()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.cover.ICoverManager$Stub$Proxy: void <i
+              → <com.samsung.android.hardware.context.SemContextAttribute: v
+              → SContextAttribute.setAttribute()
+              → Bundle.getFloat()
+              → Bundle.getInt()
+              → <android.os.Bundle: void <init>()>
+              → Bundle.putFloat()
+              → Bundle.putInt()
+              → <android.hardware.scontext.SContextActivityCalibrationAttrib
+              → <android.hardware.scontext.SContextActivityLocationLoggingAt
+              → <android.hardware.scontext.SContextActivityNotificationAttri
+              → <android.hardware.scontext.SContextActivityNotificationExAtt
+              → <android.hardware.scontext.SContextApproachAttribute: void <
+              → <android.hardware.scontext.SContextAutoBrightnessAttribute: 
+              → <android.hardware.scontext.SContextAutoRotationAttribute: vo
+              → <android.hardware.scontext.SContextDevicePhysicalContextMoni
+              → <android.hardware.scontext.SContextEnvironmentAttribute: voi
+              → <android.hardware.scontext.SContextExerciseAttribute: void <
+              → <android.hardware.scontext.SContextFlatMotionForTableModeAtt
+              → <android.hardware.scontext.SContextInactiveTimerAttribute: v
+              → <android.hardware.scontext.SContextMovementForPositioningAtt
+              → <android.hardware.scontext.SContextPedometerAttribute: void 
+              → <android.hardware.scontext.SContextSLocationCoreAttribute: v
+              → <android.hardware.scontext.SContextShakeMotionAttribute: voi
+              → <android.hardware.scontext.SContextSleepMonitorAttribute: vo
+              → <android.hardware.scontext.SContextSpecificPoseAlertAttribut
+              → <android.hardware.scontext.SContextStepCountAlertAttribute: 
+              → <android.hardware.scontext.SContextStepLevelMonitorAttribute
+              → <android.hardware.scontext.SContextTemperatureAlertAttribute
+              → SContextAttribute.checkAttribute()
+              → <android.hardware.scontext.SContextManager$SContextListenerD
+              → SContextManager.setReferenceData()
+              → SemContextManager.registerListener()
+              → SemContextManager.setClientInfo()
+              → SContextManager$SContextListenerDelegate.getListener()
+              → CopyOnWriteArrayList.isEmpty()
+              → ISemContextService.unregisterCallback()
+              → SemContext.getServiceName()
+              → SemContextManager$ListenerDelegate.clear()
+              → SemContextManager.checkListenerAndService()
+              → SemContextManager.getListenerDelegate()
+

@@ -1,0 +1,10 @@
+# com.samsung.android.wallpaper.res [NEW]
+# Refs: 6
+# JARs: framework, services
+
+<android.app.SemWallpaperResourcesInfo: java.io.InputStream getDefaultImageWallpaper(int)>
+<android.app.SemWallpaperResourcesInfo: void <init>(android.content.Context)>
+<android.app.SemWallpaperResourcesInfo: void parsingJson()>
+<com.android.server.wallpaper.WallpaperManagerService: void initVideoWallpaper(boolean,boolean)>
+<com.android.server.wallpaper.WallpaperManagerService: void setVideoWallpaper(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,boolean,android.os.Bundle)>
+<com.samsung.server.wallpaper.DefaultWallpaper: android.graphics.Bitmap getDefaultWallpaperBitmap(int)>

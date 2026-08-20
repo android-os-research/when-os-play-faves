@@ -1,0 +1,59 @@
+######################################################################
+# Propagation: com.baidu.carlife
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils
+  Method:   <com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils: boolean isBaiduCarlifePkg(java.lang.String)>
+  Line:     31
+  Register: v0 := "com.baidu.carlife"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← PackageManagerService$IPackageManagerImpl.dump()
+      ← PackageManagerShellCommand.runListPackages()
+      ← PackageManagerShellCommand.runPath()
+        ← PackageManagerShellCommand.runListPackages()
+        ← PackageManagerShellCommand.runListSdks()
+        ← PackageManagerShellCommand.onCommand()
+          ← PackageManagerShellCommand.runList()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils
+  Method:   <com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils: android.content.Intent repackIntent(android.content.Intent)>
+  Line:     250
+  Register: v2 := "com.baidu.carlife"
+  Usage:    [invoke] invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] android.content.Intent.setPackage() → [invoke] android.content.Intent.setClassName() → [invoke] android.content
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerShellCommand.runStartActivity()
+        ← ActivityManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Intent.getComponent()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setClassName()
+      → Intent.setComponent()
+      → Intent.setPackage()
+

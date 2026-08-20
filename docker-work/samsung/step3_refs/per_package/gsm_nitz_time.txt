@@ -1,0 +1,7 @@
+# gsm.nitz.time [NEW]
+# Refs: 3
+# JARs: framework, telephony-common
+
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: void nitz_time(java.lang.Long)>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional nitz_time()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void nitz_time(java.lang.Long)>

@@ -1,0 +1,7 @@
+# sys.sysctl.extra_free_kbytes [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.bgslotmanager.CustomEFKManager: void restoreEFKAfterBoot()>
+<com.android.server.bgslotmanager.CustomEFKManager: void setEFKBoost()>
+<com.android.server.bgslotmanager.CustomEFKManager: void setEFKDecreaseBoost()>

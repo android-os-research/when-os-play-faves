@@ -1,0 +1,8 @@
+# persist.sys.displayinset.top [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.SystemServer: void startBootstrapServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.biometrics.sensors.fingerprint.SemUdfpsHelper: void setFodRect(android.content.Context)>
+<com.android.server.display.DisplayManagerService: void <init>(android.content.Context,com.android.server.display.DisplayManagerService$Injector)>
+<com.android.server.display.DisplayManagerService: void recordTopInsetLocked(com.android.server.display.LogicalDisplay)>

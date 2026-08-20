@@ -1,0 +1,12 @@
+# android.telephony.mbms.IMbmsGroupCallSessionCallback [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.telephony.mbms.IMbmsGroupCallSessionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.mbms.IMbmsGroupCallSessionCallback$Stub$Proxy: void onAvailableSaisUpdated(java.util.List,java.util.List)>
+<android.telephony.mbms.IMbmsGroupCallSessionCallback$Stub$Proxy: void onError(int,java.lang.String)>
+<android.telephony.mbms.IMbmsGroupCallSessionCallback$Stub$Proxy: void onMiddlewareReady()>
+<android.telephony.mbms.IMbmsGroupCallSessionCallback$Stub$Proxy: void onServiceInterfaceAvailable(java.lang.String,int)>
+<android.telephony.mbms.IMbmsGroupCallSessionCallback$Stub: android.telephony.mbms.IMbmsGroupCallSessionCallback asInterface(android.os.IBinder)>
+<android.telephony.mbms.IMbmsGroupCallSessionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.mbms.IMbmsGroupCallSessionCallback$Stub: void <init>()>

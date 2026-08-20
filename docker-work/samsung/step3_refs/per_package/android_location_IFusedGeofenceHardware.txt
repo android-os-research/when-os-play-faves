@@ -1,0 +1,14 @@
+# android.location.IFusedGeofenceHardware [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.location.IFusedGeofenceHardware$Stub$Proxy: boolean isSupported()>
+<android.location.IFusedGeofenceHardware$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.IFusedGeofenceHardware$Stub$Proxy: void addGeofences(android.hardware.location.GeofenceHardwareRequestParcelable[])>
+<android.location.IFusedGeofenceHardware$Stub$Proxy: void modifyGeofenceOptions(int,int,int,int,int,int)>
+<android.location.IFusedGeofenceHardware$Stub$Proxy: void pauseMonitoringGeofence(int)>
+<android.location.IFusedGeofenceHardware$Stub$Proxy: void removeGeofences(int[])>
+<android.location.IFusedGeofenceHardware$Stub$Proxy: void resumeMonitoringGeofence(int,int)>
+<android.location.IFusedGeofenceHardware$Stub: android.location.IFusedGeofenceHardware asInterface(android.os.IBinder)>
+<android.location.IFusedGeofenceHardware$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.IFusedGeofenceHardware$Stub: void <init>()>

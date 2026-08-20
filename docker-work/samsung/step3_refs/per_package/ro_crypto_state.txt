@@ -1,0 +1,9 @@
+# ro.crypto.state [NEW]
+# Refs: 5
+# JARs: framework, hqm, services, telephony-common
+
+<android.sysprop.CryptoProperties: java.util.Optional state()>
+<com.android.internal.telephony.PreferredNetworkUpdater: void updateNetworkMode()>
+<com.android.server.BootReceiver: void sendHWParamInfo(java.lang.String,java.lang.String)>
+<com.samsung.android.hqm.HqmManagerService: void l(android.content.Intent)>
+<com.samsung.ucm.ucmservice.CredentialManagerService: void <init>(com.samsung.ucm.ucmservice.CredentialManagerService$Injector)>

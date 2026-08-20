@@ -1,0 +1,9 @@
+# android.os.IStatsBootstrapAtomService [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.IStatsBootstrapAtomService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IStatsBootstrapAtomService$Stub$Proxy: void reportBootstrapAtom(android.os.StatsBootstrapAtom)>
+<android.os.IStatsBootstrapAtomService$Stub: android.os.IStatsBootstrapAtomService asInterface(android.os.IBinder)>
+<android.os.IStatsBootstrapAtomService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IStatsBootstrapAtomService$Stub: void <init>()>

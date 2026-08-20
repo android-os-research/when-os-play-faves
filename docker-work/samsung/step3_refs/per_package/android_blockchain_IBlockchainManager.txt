@@ -1,0 +1,14 @@
+# android.blockchain.IBlockchainManager [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.blockchain.IBlockchainManager$Stub$Proxy: android.blockchain.BlockchainTZServiceCommnInfo registerBlockchainFW(android.blockchain.BlockchainTZServiceConfig)>
+<android.blockchain.IBlockchainManager$Stub$Proxy: boolean putCredential(int,byte[])>
+<android.blockchain.IBlockchainManager$Stub$Proxy: byte[] getCredential(int)>
+<android.blockchain.IBlockchainManager$Stub$Proxy: byte[] getMeasurementFile()>
+<android.blockchain.IBlockchainManager$Stub$Proxy: int sspExit()>
+<android.blockchain.IBlockchainManager$Stub$Proxy: int sspInit()>
+<android.blockchain.IBlockchainManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.blockchain.IBlockchainManager$Stub: android.blockchain.IBlockchainManager asInterface(android.os.IBinder)>
+<android.blockchain.IBlockchainManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.blockchain.IBlockchainManager$Stub: void <init>()>

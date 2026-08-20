@@ -1,0 +1,10 @@
+# com.samsung.android.app.dressroom [NEW]
+# Refs: 6
+# JARs: framework, services
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<com.android.server.wallpaper.WallpaperManagerService: android.os.ParcelFileDescriptor setWallpaper(java.lang.String,java.lang.String,android.graphics.Rect,boolean,android.os.Bundle,int,android.app.IWallpaperManagerCallback,int,int,boolean,android.os.Bundle)>
+<com.android.server.wallpaper.WallpaperManagerService: void semRequestWallpaperColorsAnalysis(int,java.lang.String)>
+<com.android.server.wallpaper.WallpaperManagerService: void semSetUri(java.lang.String,boolean,int,int,java.lang.String,int,android.os.Bundle)>
+<com.samsung.server.wallpaper.DefaultWallpaper: void updateTransparencySettingIfNeed(java.lang.String,int,boolean)>
+<com.samsung.server.wallpaper.SemWallpaperManagerService: void removeOriginalSavedFile(java.lang.String,int)>

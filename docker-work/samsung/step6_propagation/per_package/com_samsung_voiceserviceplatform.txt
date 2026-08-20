@@ -1,0 +1,433 @@
+######################################################################
+# Propagation: com.samsung.voiceserviceplatform
+######################################################################
+
+JARs:                 knoxsdk, services
+Classes:              3
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PERM_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.application.ApplicationPolicy
+  Method:   <com.samsung.android.knox.application.ApplicationPolicy: void disableVoiceDialer()>
+  Line:     27339
+  Register: v0 := "com.samsung.voiceserviceplatform"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/samsung/android/knox/application/ApplicationPolicy;->setApplicatio
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.application.ApplicationPolicy.setAp
+
+  CALLEES (what this method invokes):
+      → ApplicationPolicy.setApplicationState()
+      → ApplicationPolicy.logUsage()
+        → AccessController.throwIfParentInstance()
+        → ApplicationPolicy.getService()
+        → IApplicationPolicy.setApplicationState()
+        → EnterpriseLicenseManager.log()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → ServiceManager.getService()
+          → IApplicationPolicy$Stub.asInterface()
+          → EnterpriseLicenseManager.getService()
+          → IEnterpriseLicense.log()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.application.IApplicationPolicy$Stu
+            → IEnterpriseLicense$Stub.asInterface()
+              → <com.samsung.android.knox.license.IEnterpriseLicense$Stub$Pr
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.application.ApplicationPolicy
+  Method:   <com.samsung.android.knox.application.ApplicationPolicy: void enableVoiceDialer()>
+  Line:     29629
+  Register: v0 := "com.samsung.voiceserviceplatform"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/samsung/android/knox/application/ApplicationPolicy;->setApplicatio
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.application.ApplicationPolicy.setAp
+
+  CALLEES (what this method invokes):
+      → ApplicationPolicy.setApplicationState()
+      → ApplicationPolicy.logUsage()
+        → AccessController.throwIfParentInstance()
+        → ApplicationPolicy.getService()
+        → IApplicationPolicy.setApplicationState()
+        → EnterpriseLicenseManager.log()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → ServiceManager.getService()
+          → IApplicationPolicy$Stub.asInterface()
+          → EnterpriseLicenseManager.getService()
+          → IEnterpriseLicense.log()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.application.IApplicationPolicy$Stu
+            → IEnterpriseLicense$Stub.asInterface()
+              → <com.samsung.android.knox.license.IEnterpriseLicense$Stub$Pr
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.ActivityStarter
+  Method:   <com.android.server.wm.ActivityStarter: int checkStartActivityAllowedByEDM(android.content.Intent,android.content.pm.ActivityInfo,int,com.android.server.wm.SafeActivityOptions,android.content.ComponentName,java.lang.String)>
+  Line:     1238
+  Register: v8 := "com.samsung.voiceserviceplatform"
+  Usage:    [invoke] invoke-virtual {v8, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v8 → [branch] if-eqz v8, :cond_1a9 → [reassigned] v8 overwritte
+
+  CALLERS (who invokes this method):
+      ← ActivityStarter.executeRequest()
+        ← ActivityStarter.execute()
+          ← ActivityStartController.startActivities()
+          ← ActivityStartController.startActivityInPackage()
+          ← ActivityStartController.startActivityInTaskFragment()
+          ← ActivityStartController.startHomeActivity()
+          ← ActivityStartController.startSetupActivity()
+          ← ActivityTaskManagerService.startActivityAndWait()
+          ← ActivityTaskManagerService.startDreamActivity()
+          ← ActivityTaskManagerService.startNextMatchingActivity()
+          ← ActivityTaskManagerService.startActivityAsCaller()
+          ← ActivityTaskManagerService.startActivityAsUser()
+          ← ActivityTaskManagerService.startActivityFromGameSession()
+          ← ActivityTaskManagerService.startActivityWithConfig()
+          ← ActivityTaskManagerService.startAssistantActivity()
+          ← ActivityTaskManagerService.startVoiceActivity()
+          ← AppTaskImpl.startActivity()
+          ← RecentsAnimation.startRecentsActivityInBackground()
+          ← RemoteAppController.startActivityAsCaller()
+          ← Task.navigateUpTo()
+            ← ActivityStartController.startActivitiesInPackage()
+            ← ActivityTaskManagerService.startActivities()
+            ← ActivityTaskManagerService$LocalService.startActivityInPackage()
+            ← ActivityTaskSupervisor.startActivityFromRecents()
+            ← DexCompatController.startActivityAsToggleFreeform()
+            ← WindowOrganizerController.applyHierarchyOp()
+            ← RootWindowContainer.startHomeOnTaskDisplayArea()
+            ← ActivityTaskSupervisor.realStartActivityLocked()
+            ← ActivityManagerService.startActivityAndWait()
+            ← AppPrelaunchService.prelaunchAppTillStage()
+            ← <com.android.server.wm.ActivityTaskManagerService: int -$$Ne
+            ← ActivityTaskManagerService.startActivityAsUser()
+            ← RecentsAnimation.preloadRecentsActivity()
+            ← RecentsAnimation.startRecentsActivity()
+            ← ActivityClientController.navigateUpTo()
+              ← ActivityStartController.startActivitiesInPackage()
+              ← ActivityTaskManagerService$LocalService.startActivitiesInPackage()
+              ← ActivityTaskManagerService.startActivityFromRecents()
+              ← AppTaskImpl.moveToFront()
+              ← <com.android.server.wm.RestartAppPolicy: void lambda$restart
+              ← <com.android.server.wm.WindowOrganizerController: int lambda
+              ← <com.android.server.wm.DexCompatController: void -$$Nest$mst
+              ← WindowOrganizerController.applyTransaction()
+              ← RootWindowContainer.startHomeOnTaskDisplayArea()
+              ← <com.android.server.wm.RootWindowContainer: java.lang.Boolea
+              ← ActivityTaskSupervisor.startSpecificActivity()
+              ← RootWindowContainer$AttachApplicationHelper.test()
+              ← ActivityManagerShellCommand.runStartActivity()
+              ← AppPrelaunchService.prelaunchApp()
+              ← AppPrelaunchShellCommand.prelaunch()
+              ← ActivityTaskManagerService$LocalService.startActivityAsUser()
+              ← ActivityManagerService.startActivityAsUserWithFeature()
+              ← ActivityTaskManagerService.startActivity()
+              ← ActivityTaskManagerServiceExt.startAppLockActivity()
+              ← AppContinuityGuideConfirmDialog$ClingWindowView.startSettingActivity()
+              ← ActivityTaskManagerService.startRecentsActivity()
+
+  CALLEES (what this method invokes):
+      → ActivityManagerNative.getDefault()
+      → ActivityOptions.getStartedByMDMAdmin()
+      → IActivityManager.getTasks()
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → Intent.setFlags()
+      → Intent.getStringExtra()
+      → Process.myPid()
+      → ServiceManager.getService()
+      → StrictMode$ThreadPolicy$Builder.build()
+      → StrictMode$ThreadPolicy$Builder.permitDiskReads()
+      → <android.os.StrictMode$ThreadPolicy$Builder: void <init>(and
+      → StrictMode.getThreadPolicy()
+      → StrictMode.setThreadPolicy()
+      → UserHandle.getUserId()
+      → AuditLog.logAsUser()
+      → ActivityStarter.getApplicationPolicy()
+      → ActivityStarter.getPasswordPolicy()
+      → ActivityStarter.getSecurityPolicy()
+      → RootWindowContainer.findActivityLockedByPackage()
+      → SafeActivityOptions.getOptions()
+      → IKioskMode$Stub.asInterface()
+      → IKioskMode.isTaskManagerAllowedAsUser()
+      → ApplicationPolicyInternal.getApplicationStateEnabledAsUser()
+      → ApplicationPolicyInternal.isApplicationStartDisabledAsUser()
+      → SecurityPolicyInternal.isDodBannerVisibleAsUser()
+      → IRestrictionPolicy$Stub.asInterface()
+      → IRestrictionPolicy.isMicrophoneEnabledAsUser()
+      → IRestrictionPolicy.isSVoiceAllowedAsUser()
+      → IRestrictionPolicy.isSettingsChangesAllowedAsUser()
+      → Exception.printStackTrace()
+      → List.isEmpty()
+      → List.get()
+        → ActivityManager.getService()
+        → StrictMode$ThreadPolicy$Builder.penaltyLog()
+        → <android.os.StrictMode$ThreadPolicy: void <init>(int,android
+        → StrictMode$ThreadPolicy$Builder.disable()
+        → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+        → IEDMProxy.RedactedAuditLoggerAsUser()
+        → LocalServices.getService()
+        → <com.android.server.wm.RootWindowContainer$$ExternalSyntheti
+        → WindowContainer.getChildAt()
+        → WindowContainer.getChildCount()
+        → WindowContainer.forAllRootTasks()
+        → AtomicReference.get()
+        → <java.util.concurrent.atomic.AtomicReference: void <init>()>
+        → SafeActivityOptions.getOptions()
+        → IBinder.queryLocalInterface()
+        → <com.samsung.android.knox.kiosk.IKioskMode$Stub$Proxy: void 
+        → <com.samsung.android.knox.restriction.IRestrictionPolicy$Stu
+          → StrictMode$ThreadPolicy$Builder.enable()
+          → <android.os.StrictMode$ThreadPolicy: void <init>(int,android
+          → IEDMProxy$Stub.asInterface()
+          → ArrayMap.get()
+          → ArrayList.get()
+          → ArrayList.size()
+          → WindowContainer.forAllRootTasks()
+          → SafeActivityOptions.mergeActivityOptions()
+          → SafeActivityOptions.checkPermissions() [PERM_CHECK]
+          → SafeActivityOptions.setCallingPidUidForRemoteAnimationAdapter()
+            → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+            → ArrayMap.indexOfKey()
+            → ActivityOptions.fromBundle()
+            → ActivityOptions.toBundle()
+            → Bundle.putAll()
+            → ActivityOptions.getRemoteAnimationAdapter()
+            → ActivityOptions.getLaunchTaskDisplayArea()
+            → ActivityOptions.getLaunchedFromBubble()
+            → ActivityOptions.getLockTaskMode()
+            → ActivityOptions.getOverrideTaskTransition()
+            → ActivityOptions.getLaunchActivityType()
+            → ActivityOptions.getLaunchDisplayId()
+            → ActivityOptions.getLaunchTaskId()
+            → WindowConfiguration.activityTypeToString()
+            → WindowContainerToken.asBinder()
+            → ActivityTaskManagerService.getLockTaskController()
+            → ActivityTaskManagerService.checkPermission() [PERM_CHECK]
+            → ActivityTaskSupervisor.isCallerAllowedToLaunchOnDisplay()
+            → ActivityTaskSupervisor.isCallerAllowedToLaunchOnTaskDisplayArea()
+            → LockTaskController.isPackageAllowlisted()
+            → RecentTasks.isCallerRecents()
+            → SafeActivityOptions.isAssistant()
+            → SafeActivityOptions.isSystemOrSystemUI()
+            → SafeActivityOptions.getIntentString()
+            → WindowContainer.fromBinder()
+            → <java.lang.SecurityException: void <init>(java.lang.String)>
+            → RemoteAnimationAdapter.setCallingPidUid()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → <android.app.ActivityOptions: void <init>(android.os.Bundle)
+              → ComponentOptions.toBundle()
+              → Bitmap.copy()
+              → Bitmap.getHardwareBuffer()
+              → Bundle.putBinder()
+              → Bundle.putBoolean()
+              → Bundle.putBundle()
+              → Bundle.putFloatArray()
+              → Bundle.putInt()
+              → Bundle.putIntArray()
+              → Bundle.putParcelable()
+              → Bundle.putParcelableArray()
+              → Bundle.putString()
+              → Bundle.putStringArrayList()
+              → Bundle.remove()
+              → IRemoteCallback.asBinder()
+              → IAppTransitionAnimationSpecsFuture.asBinder()
+              → IWindowContainerToken.asBinder()
+              → ActivityTaskManagerService.checkComponentPermission()
+              → Context.getPackageManager()
+              → PackageManager.isSpeg()
+              → Display.isTrusted()
+              → Display.getOwnerUid()
+              → ProtoLogImpl.d()
+              → DisplayContent.isPrivate()
+              → DisplayContent.isRemoved()
+              → DisplayContent.isUidPresent()
+              → RootWindowContainer.getDisplayContentOrCreate()
+              → TaskDisplayArea.getDisplayId()
+              → SparseArray.get()
+              → UserHandle.isSameApp()
+              → AppGlobals.getPackageManager()
+              → IPackageManager.getPackageUid()
+              → Intent.toString()
+              → WindowContainer$RemoteToken.getContainer()
+              → WindowContainer$RemoteToken.fromBinder()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.restriction.RestrictionPolicy
+  Method:   <com.android.server.enterprise.restriction.RestrictionPolicy: boolean allowSVoice(com.samsung.android.knox.ContextInfo,boolean)>
+  Line:     4503
+  Register: v6 := "com.samsung.voiceserviceplatform"
+  Usage:    [invoke] invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v6 → [branch] if-eqz v6, :cond_92 → [reassigned] v6 overwritten
+
+  CALLEES (what this method invokes):
+      → ActivityManager.semRemoveTask()
+      → ActivityManager.getRecentTasks()
+      → ActivityManagerNative.getDefault()
+      → IActivityManager.forceStopPackage()
+      → ComponentName.getPackageName()
+      → Context.getContentResolver()
+      → Context.getSystemService()
+      → Intent.getComponent()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → Process.myPid()
+      → RemoteException.getMessage()
+      → UserHandle.getUserId()
+      → Settings$System.putIntForUser()
+      → Settings$System.getIntForUser()
+      → AuditLog.logAsUser()
+      → RestrictionPolicy.isSVoiceAllowed()
+      → RestrictionPolicy.enforceRestrictionPermission()
+      → RestrictionPolicy.rollBackSVoice()
+      → RestrictionPolicyCache.update()
+      → EdmStorageProvider.putBoolean()
+      → EdmStorageProvider.putGenericValueAsUser()
+      → Utils.getCallingOrCurrentUserId()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.isEmpty()
+      → List.iterator()
+        → ActivityManager.getService()
+        → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+        → IEDMProxy.AuditLoggerAsUser()
+        → RestrictionPolicy.isSVoiceAllowedAsUser()
+        → RestrictionPolicy.getEDM()
+        → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → EdmStorageProvider.getGenericValueAsUser()
+        → UserManager.getUserInfo()
+        → RestrictionPolicyCache$ApplyingAdmins.update()
+        → RestrictionPolicyCache.getUserManager()
+        → RestrictionPolicyCache.getCachedPolicies()
+        → RestrictionPolicyCache.init()
+        → EdmStorageProviderBase.getBooleanListAsUser()
+        → ArrayList.iterator()
+        → HashMap.put()
+        → ReentrantReadWriteLock$WriteLock.lock()
+        → ReentrantReadWriteLock$WriteLock.unlock()
+        → ReentrantReadWriteLock.writeLock()
+        → EdmStorageProviderBase.putBoolean()
+        → EdmStorageProviderBase.putGenericValueAsUser()
+        → ActivityManager.getCurrentUser()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → IPersonaManagerAdapter.isValidKnoxId()
+        → Utils.getPersonaManagerAdapter()
+        → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+          → ServiceManager.getService()
+          → IEDMProxy$Stub.asInterface()
+          → RestrictionToastManager.show()
+          → RestrictionPolicyCache.extract()
+          → EnterpriseDeviceManager.getInstance()
+          → AccessController.enforceActiveAdminPermissionByContext()
+          → EdmStorageProviderBase.getGenericValueAsUser()
+          → RestrictionPolicyCache$ApplyingAdmins.put()
+          → RestrictionPolicyCache$ApplyingAdmins.remove()
+          → HashMap.get()
+          → ReentrantReadWriteLock$ReadLock.lock()
+          → ReentrantReadWriteLock$ReadLock.unlock()
+          → ReentrantReadWriteLock.readLock()
+          → RestrictionPolicyCache$ApplyingAdmins.init()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → EdmStorageProviderBase.getAdminLUIDWhereIn()
+          → EdmStorageProviderBase.getBooleanList()
+          → ContentValues.put()
+          → ContentValues.put()
+          → EdmStorageProviderBase.put()
+          → EdmStorageProviderBase.translateToAdminLUID()
+          → AdapterRegistry.getAdapter()
+          → SemPersonaManager.isKnoxId()
+            → IBinder.queryLocalInterface()
+            → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+            → Context.getString()
+            → RestrictionToastManager.show()
+            → Process.myTid()
+            → Process.myUid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.d()
+            → KnoxsdkFileLog.w()
+            → AccessController.getService()
+            → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+            → EdmStorageProviderBase.getString()
+            → <java.util.HashSet: void <init>()>
+            → Map.containsKey()
+            → Map.get()
+            → Map.put()
+            → Set.add()
+            → Map.remove()
+            → Set.isEmpty()
+            → Set.remove()
+            → <java.util.HashMap: void <init>()>
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.put()
+            → EdmStorageProviderBase.getAdminLUIDWhereInArgs()
+            → Cursor.isNull()
+            → Cursor.moveToNext()
+            → Cursor.getInt()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → EdmStorageProviderBase.getCursor()
+            → <java.util.ArrayList: void <init>()>
+            → List.add()
+            → ContentValues.putAll()
+            → EdmStorageProviderBase.update()
+            → EdmStorageProviderBase.formatContentValues()
+            → EdmStorageProviderBase.insert()
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+              → <android.os.Bundle: void <init>()>
+              → Bundle.putString()
+              → Handler.sendMessage()
+              → Handler.sendMessageDelayed()
+              → Message.obtain()
+              → <android.os.Message: void <init>()>
+              → Message.setData()
+              → ArrayList.add()
+              → ArrayList.contains()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+              → SemLog.w()
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → EdmStorageProviderBase.getStringList()
+              → List.size()
+              → List.get()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+              → EdmStorageProviderBase.getCursor()
+              → ArrayMap.putAll()
+              → SQLiteDatabase.update()
+              → SQLiteOpenHelper.getWritableDatabase()
+              → ContentValues.size()
+              → ContentValues.valueSet()
+              → List.toArray()
+              → Map$Entry.getKey()
+              → Map$Entry.getValue()
+              → Set.iterator()
+              → SQLiteDatabase.insert()
+              → SystemProperties.get()
+              → SemDualAppManager.isDualAppId()
+

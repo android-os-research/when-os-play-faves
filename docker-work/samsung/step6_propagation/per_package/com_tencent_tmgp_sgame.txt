@@ -1,0 +1,39 @@
+######################################################################
+# Propagation: com.tencent.tmgp.sgame
+######################################################################
+
+JARs:                 duraspeed
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: (none)
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.utils.c
+  Method:   <com.mediatek.duraspeed.utils.c: android.util.ArrayMap z()>
+  Line:     11071
+  Register: v2 := "com.tencent.tmgp.sgame"
+  Usage:    [invoke] invoke-virtual {v0, v2, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava
+  Patterns: (none)
+  Flow:     [invoke] android.util.ArrayMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.mediatek.duraspeed.utils.c: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → ArrayMap.put()
+      → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.indexOf()
+        → ArrayMap.indexOfNull()
+        → ArrayMap.allocArrays()
+        → ArrayMap.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.binarySearchHashes()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ContainerHelpers.binarySearch()
+

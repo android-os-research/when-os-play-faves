@@ -1,0 +1,9 @@
+# com.samsung.android.sepunion.IPluginManager [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.sepunion.IPluginManager$Stub$Proxy: com.samsung.android.cover.CoverState getCoverState()>
+<com.samsung.android.sepunion.IPluginManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.sepunion.IPluginManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.sepunion.IPluginManager$Stub: com.samsung.android.sepunion.IPluginManager asInterface(android.os.IBinder)>
+<com.samsung.android.sepunion.IPluginManager$Stub: void <init>()>

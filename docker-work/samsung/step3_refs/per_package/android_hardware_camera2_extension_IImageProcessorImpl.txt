@@ -1,0 +1,9 @@
+# android.hardware.camera2.extension.IImageProcessorImpl [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.camera2.extension.IImageProcessorImpl$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.IImageProcessorImpl$Stub$Proxy: void onNextImageAvailable(android.hardware.camera2.extension.OutputConfigId,android.hardware.camera2.extension.ParcelImage,java.lang.String)>
+<android.hardware.camera2.extension.IImageProcessorImpl$Stub: android.hardware.camera2.extension.IImageProcessorImpl asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.IImageProcessorImpl$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.IImageProcessorImpl$Stub: void <init>()>

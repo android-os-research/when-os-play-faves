@@ -1,0 +1,10 @@
+# android.os.ISystemUpdateManager [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.ISystemUpdateManager$Stub$Proxy: android.os.Bundle retrieveSystemUpdateInfo()>
+<android.os.ISystemUpdateManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.ISystemUpdateManager$Stub$Proxy: void updateSystemUpdateInfo(android.os.PersistableBundle)>
+<android.os.ISystemUpdateManager$Stub: android.os.ISystemUpdateManager asInterface(android.os.IBinder)>
+<android.os.ISystemUpdateManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.ISystemUpdateManager$Stub: void <init>()>

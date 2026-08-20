@@ -1,0 +1,15 @@
+# com.sec.feature.sensorhub [NEW]
+# Refs: 11
+# JARs: motionrecognitionservice, services
+
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.accessibility.GestureWakeup: boolean registerApproachListener()>
+<com.android.server.accessibility.GestureWakeup: void UnregisterApproachListener()>
+<com.android.server.power.PowerManagerService: void systemReady()>
+<com.android.server.wm.WindowOrientationListener: boolean hasSemContext()>
+<com.samsung.android.gesture.MotionRecognitionSensorChecker: int enableFreefreeFallDetection()>
+<com.samsung.android.gesture.MotionRecognitionSensorChecker: void <init>(android.content.Context,com.samsung.android.hardware.context.SemContextManager)>
+<com.samsung.android.gesture.MotionRecognitionService: void <init>(android.content.Context)>
+<com.samsung.android.gesture.PocketMotionManager: void initActivityTracker()>
+<com.samsung.android.hardware.display.AdaptiveDisplayColorService: void <init>(android.content.Context)>
+<com.samsung.android.server.audio.SensorHandleThread: void <init>(android.content.Context,com.android.server.audio.AudioService)>

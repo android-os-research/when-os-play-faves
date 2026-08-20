@@ -1,0 +1,7 @@
+# android.activity.splashScreenTheme [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.app.ActivityOptions: android.os.Bundle toBundle()>
+<android.app.ActivityOptions: void <init>(android.os.Bundle)>
+<com.android.server.pm.LauncherAppsService$LauncherAppsImpl: boolean startShortcutInner(int,int,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,android.graphics.Rect,android.os.Bundle,int)>

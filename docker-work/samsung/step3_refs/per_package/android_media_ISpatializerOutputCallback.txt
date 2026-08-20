@@ -1,0 +1,9 @@
+# android.media.ISpatializerOutputCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.ISpatializerOutputCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.ISpatializerOutputCallback$Stub$Proxy: void dispatchSpatializerOutputChanged(int)>
+<android.media.ISpatializerOutputCallback$Stub: android.media.ISpatializerOutputCallback asInterface(android.os.IBinder)>
+<android.media.ISpatializerOutputCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.ISpatializerOutputCallback$Stub: void <init>()>

@@ -1,0 +1,9 @@
+# com.samsung.android.dsms.aidl.IDsmsInfoService [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.dsms.aidl.IDsmsInfoService$Stub$Proxy: boolean isCommercializedDevice()>
+<com.samsung.android.dsms.aidl.IDsmsInfoService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.dsms.aidl.IDsmsInfoService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.dsms.aidl.IDsmsInfoService$Stub: com.samsung.android.dsms.aidl.IDsmsInfoService asInterface(android.os.IBinder)>
+<com.samsung.android.dsms.aidl.IDsmsInfoService$Stub: void <init>()>

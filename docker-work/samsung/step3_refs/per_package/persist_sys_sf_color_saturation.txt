@@ -1,0 +1,6 @@
+# persist.sys.sf.color_saturation [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.display.color.ColorDisplayService: int getCurrentColorModeFromSystemProperties()>
+<com.android.server.display.color.DisplayTransformManager: void applySaturation(float)>

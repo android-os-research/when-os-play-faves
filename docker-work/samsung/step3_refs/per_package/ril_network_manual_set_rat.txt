@@ -1,0 +1,6 @@
+# ril.network_manual_set.rat [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional network_manual_set_rat()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void network_manual_set_rat(java.lang.String)>

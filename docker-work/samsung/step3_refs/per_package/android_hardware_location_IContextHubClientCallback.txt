@@ -1,0 +1,16 @@
+# android.hardware.location.IContextHubClientCallback [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.hardware.location.IContextHubClientCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.location.IContextHubClientCallback$Stub$Proxy: void onClientAuthorizationChanged(long,int)>
+<android.hardware.location.IContextHubClientCallback$Stub$Proxy: void onHubReset()>
+<android.hardware.location.IContextHubClientCallback$Stub$Proxy: void onMessageFromNanoApp(android.hardware.location.NanoAppMessage)>
+<android.hardware.location.IContextHubClientCallback$Stub$Proxy: void onNanoAppAborted(long,int)>
+<android.hardware.location.IContextHubClientCallback$Stub$Proxy: void onNanoAppDisabled(long)>
+<android.hardware.location.IContextHubClientCallback$Stub$Proxy: void onNanoAppEnabled(long)>
+<android.hardware.location.IContextHubClientCallback$Stub$Proxy: void onNanoAppLoaded(long)>
+<android.hardware.location.IContextHubClientCallback$Stub$Proxy: void onNanoAppUnloaded(long)>
+<android.hardware.location.IContextHubClientCallback$Stub: android.hardware.location.IContextHubClientCallback asInterface(android.os.IBinder)>
+<android.hardware.location.IContextHubClientCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.location.IContextHubClientCallback$Stub: void <init>()>

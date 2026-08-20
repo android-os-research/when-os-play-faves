@@ -1,0 +1,195 @@
+######################################################################
+# Propagation: com.sec.android.fotaclient
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PERM_CHECK, PKG_MGMT, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.restriction.RestrictionPolicy
+  Method:   <com.android.server.enterprise.restriction.RestrictionPolicy: boolean allowOTAUpgrade(com.samsung.android.knox.ContextInfo,boolean)>
+  Line:     3597
+  Register: v4 := "com.sec.android.fotaclient"
+  Usage:    [invoke] invoke-virtual {v3, v2, v4, v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setA
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.enterprise.application.ApplicationPolicy.
+
+  CALLEES (what this method invokes):
+      → ApplicationPolicy.setApplicationState()
+      → RestrictionPolicy.isOTAUpgradeAllowed()
+      → RestrictionPolicy.getApplicationPolicy()
+      → RestrictionPolicy.enforceOwnerOnlyAndRestrictionPermission()
+      → RestrictionPolicyCache.update()
+      → EdmStorageProvider.putBoolean()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → UserHandle.getUserId()
+        → AuditLog.logAsUser()
+        → PackageManagerAdapter.setApplicationEnabledSetting() [PKG_MGMT]
+        → PackageManagerAdapter.getApplicationEnabledSetting()
+        → ApplicationPolicy.getApplicationStateEnabledAsUser()
+        → ApplicationPolicy.hasKnoxInternalExceptionPermission()
+        → ApplicationPolicy.isActiveAdmin()
+        → ApplicationPolicy.isApplicationInstalled()
+        → ApplicationPolicy.setApplicationPkgNameControlState()
+        → ApplicationPolicy.enforceAppPermission()
+        → ApplicationPolicy.getValidStr()
+        → Exception.printStackTrace()
+        → RestrictionPolicyCache.extract()
+        → EnterpriseService.getPolicyService()
+        → RestrictionPolicy.getEDM()
+        → EnterpriseDeviceManager.enforceOwnerOnlyAndActiveAdminPermission()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → UserManager.getUserInfo()
+        → RestrictionPolicyCache$ApplyingAdmins.update()
+        → RestrictionPolicyCache.getUserManager()
+        → RestrictionPolicyCache.getCachedPolicies()
+        → RestrictionPolicyCache.init()
+        → EdmStorageProviderBase.getBooleanListAsUser()
+        → ArrayList.iterator()
+        → HashMap.put()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → ReentrantReadWriteLock$WriteLock.lock()
+        → ReentrantReadWriteLock$WriteLock.unlock()
+        → ReentrantReadWriteLock.writeLock()
+        → EdmStorageProviderBase.putBoolean()
+          → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+          → IEDMProxy.RedactedAuditLoggerAsUser()
+          → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+          → IPackageManager.getApplicationEnabledSetting()
+          → ContentValues.size()
+          → ContentValues.getAsInteger()
+          → <android.content.ContentValues: void <init>()>
+          → ApplicationPolicy.getContentValues()
+          → List.isEmpty()
+          → List.iterator()
+          → Context.getPackageManager()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → EnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+          → PackageManagerAdapter.isApplicationInstalled()
+          → ApplicationPolicy.enforceAppPermissionByContext()
+          → Utils.getCallingOrCurrentUserId()
+          → ApplicationPolicy.setApplicationPkgNameControlState()
+          → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+          → Map.get()
+          → EnterpriseDeviceManager.getInstance()
+          → AccessController.enforceOwnerOnlyAndActiveAdminPermission()
+          → RestrictionPolicyCache$ApplyingAdmins.put()
+          → RestrictionPolicyCache$ApplyingAdmins.remove()
+          → Context.getSystemService()
+          → HashMap.get()
+          → ReentrantReadWriteLock$ReadLock.lock()
+          → ReentrantReadWriteLock$ReadLock.unlock()
+          → ReentrantReadWriteLock.readLock()
+          → RestrictionPolicyCache$ApplyingAdmins.init()
+          → ContentValues.put()
+          → EdmStorageProviderBase.getAdminLUIDWhereIn()
+          → EdmStorageProviderBase.getBooleanList()
+          → ContentValues.put()
+          → ContentValues.put()
+          → EdmStorageProviderBase.put()
+          → EdmStorageProviderBase.translateToAdminLUID()
+            → ServiceManager.getService()
+            → IEDMProxy$Stub.asInterface()
+            → ArrayMap.size()
+            → ArrayMap.get()
+            → Number.intValue()
+            → <android.util.ArrayMap: void <init>()>
+            → EdmStorageProvider.getValuesList()
+            → EnterpriseDeviceManager.getService()
+            → IEnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+            → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+            → PackageManagerAdapter.getValidStr()
+            → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+            → ActivityManager.getCurrentUser()
+            → Binder.getCallingPid() [UID_CHECK]
+            → Binder.getCallingUid() [UID_CHECK]
+            → IPersonaManagerAdapter.isValidKnoxId()
+            → Utils.getPersonaManagerAdapter()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+            → ContentValues.putNull()
+            → TextUtils.isEmpty()
+            → ApplicationPolicy.getControlState()
+            → ApplicationPolicy.removeAppSignature()
+            → ApplicationPolicy.updateAppControlState()
+            → EdmStorageProvider.putValuesForAdminAndField()
+            → AccessController.enforceActiveAdminPermissionByContext()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.d()
+            → KnoxsdkFileLog.w()
+            → AccessController.getService()
+            → IEnterpriseDeviceManager.enforceOwnerOnlyAndActiveAdminPermission()
+            → <java.util.HashSet: void <init>()>
+            → Map.containsKey()
+            → Map.put()
+            → Set.add()
+            → Map.remove()
+            → Set.isEmpty()
+            → Set.remove()
+            → <java.util.HashMap: void <init>()>
+            → ArrayMap.put()
+            → EdmStorageProviderBase.getAdminLUIDWhereInArgs()
+            → Cursor.isNull()
+            → Cursor.moveToNext()
+            → Cursor.getInt()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → EdmStorageProviderBase.getCursor()
+            → <java.util.ArrayList: void <init>()>
+            → List.add()
+            → ContentValues.putAll()
+            → EdmStorageProviderBase.update()
+            → EdmStorageProviderBase.formatContentValues()
+            → EdmStorageProviderBase.insert()
+            → SemPersonaManager.isKnoxId()
+              → IBinder.queryLocalInterface()
+              → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → ArrayMap.indexOfKey()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → EdmStorageProviderBase.getValuesList()
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → IPackageManager.getApplicationInfo() [PKG_QUERY]
+              → Exception.getMessage()
+              → IEnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+              → AdapterRegistry.getAdapter()
+              → CharSequence.length()
+              → EdmStorageProvider.getIntByAdminAndField()
+              → AuditLog.logAsUser()
+              → ApplicationPolicy.createAdminMap()
+              → EdmStorageProviderBase.putValuesForAdminAndField()
+              → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+              → SemLog.w()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+              → EdmStorageProviderBase.getCursor()
+              → ArrayMap.putAll()
+              → SQLiteDatabase.update()
+              → SQLiteOpenHelper.getWritableDatabase()
+              → ContentValues.valueSet()
+              → List.size()
+              → List.toArray()
+              → Map$Entry.getKey()
+              → Map$Entry.getValue()
+              → Set.iterator()
+              → SQLiteDatabase.insert()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+

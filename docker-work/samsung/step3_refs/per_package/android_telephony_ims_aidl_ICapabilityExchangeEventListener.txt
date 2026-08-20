@@ -1,0 +1,12 @@
+# android.telephony.ims.aidl.ICapabilityExchangeEventListener [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.telephony.ims.aidl.ICapabilityExchangeEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.ICapabilityExchangeEventListener$Stub$Proxy: void onPublishUpdated(int,java.lang.String,int,java.lang.String)>
+<android.telephony.ims.aidl.ICapabilityExchangeEventListener$Stub$Proxy: void onRemoteCapabilityRequest(android.net.Uri,java.util.List,android.telephony.ims.aidl.IOptionsRequestCallback)>
+<android.telephony.ims.aidl.ICapabilityExchangeEventListener$Stub$Proxy: void onRequestPublishCapabilities(int)>
+<android.telephony.ims.aidl.ICapabilityExchangeEventListener$Stub$Proxy: void onUnpublish()>
+<android.telephony.ims.aidl.ICapabilityExchangeEventListener$Stub: android.telephony.ims.aidl.ICapabilityExchangeEventListener asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.ICapabilityExchangeEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.ICapabilityExchangeEventListener$Stub: void <init>()>

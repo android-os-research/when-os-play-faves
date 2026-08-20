@@ -1,0 +1,176 @@
+######################################################################
+# Propagation: com.facebook.katana
+######################################################################
+
+JARs:                 duraspeed, framework, services
+Classes:              4
+Occurrences:          5
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.collector.q
+  Method:   <com.mediatek.duraspeed.collector.q: void <clinit>()>
+  Line:     159
+  Register: v32 := "com.facebook.katana"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1308
+  Register: v29 := "com.facebook.katana"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DesktopModeKillPolicyManager
+  Method:   <com.android.server.desktopmode.DesktopModeKillPolicyManager: void <clinit>()>
+  Line:     104
+  Register: v8 := "com.facebook.katana"
+  Usage:    [invoke] invoke-static/range {v1 .. v8}, Ljava/util/Set;->of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/O
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.of()
+
+  CALLEES (what this method invokes):
+      → Set.of()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo
+  Method:   <com.android.server.alarm.AppSyncInfo: void <init>(android.content.Context)>
+  Line:     537
+  Register: p1 := "com.facebook.katana"
+  Usage:    [invoke] invoke-virtual {v2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.add()
+
+  CALLERS (who invokes this method):
+      ← AppSyncInfo.createAppSync()
+        ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → Context.getPackageManager()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → <com.android.server.alarm.AppSyncInfo$1: void <init>(com.and
+      → <com.android.server.alarm.AppSyncInfo$AccountListener: void 
+      → <com.android.server.alarm.AppSyncInfo$IntentReceiver: void <
+      → AppSyncInfo$PackageList.contains()
+      → <com.android.server.alarm.AppSyncInfo$PackageList: void <ini
+      → AppSyncInfo$PackageList.add()
+      → AppSyncInfo$PackageList.clear()
+      → AppSyncInfo$PackageList.loadAppSync3PlusBlockList()
+      → AppSyncInfo$PackageList.loadAppSyncBlockList()
+      → AppSyncInfo$PackageList.loadChnAllowlist()
+      → <com.android.server.alarm.AppSyncInfo$SCPMBroadcastReceiver:
+      → <com.android.server.alarm.AppSyncWrapper: void <init>()>
+      → ArrayList.add()
+      → ArrayList.size()
+      → ArrayList.get()
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>()>
+      → ArrayList.clear()
+      → <java.util.HashSet: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Set.add()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <com.android.server.alarm.AppSyncInfo$AccountListener: void 
+        → <com.android.server.alarm.AppSyncInfo: void -$$Nest$minitFil
+        → HashSet.contains()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.clear()
+        → <android.content.IntentFilter: void <init>(java.lang.String)
+          → AppSyncInfo.initFilter()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo
+  Method:   <com.android.server.alarm.AppSyncInfo: void <init>(android.content.Context)>
+  Line:     802
+  Register: v0 := "com.facebook.katana"
+  Usage:    [invoke] invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.add()
+
+  CALLERS (who invokes this method):
+      ← AppSyncInfo.createAppSync()
+        ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → Context.getPackageManager()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → <com.android.server.alarm.AppSyncInfo$1: void <init>(com.and
+      → <com.android.server.alarm.AppSyncInfo$AccountListener: void 
+      → <com.android.server.alarm.AppSyncInfo$IntentReceiver: void <
+      → AppSyncInfo$PackageList.contains()
+      → <com.android.server.alarm.AppSyncInfo$PackageList: void <ini
+      → AppSyncInfo$PackageList.add()
+      → AppSyncInfo$PackageList.clear()
+      → AppSyncInfo$PackageList.loadAppSync3PlusBlockList()
+      → AppSyncInfo$PackageList.loadAppSyncBlockList()
+      → AppSyncInfo$PackageList.loadChnAllowlist()
+      → <com.android.server.alarm.AppSyncInfo$SCPMBroadcastReceiver:
+      → <com.android.server.alarm.AppSyncWrapper: void <init>()>
+      → ArrayList.add()
+      → ArrayList.size()
+      → ArrayList.get()
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>()>
+      → ArrayList.clear()
+      → <java.util.HashSet: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Set.add()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <com.android.server.alarm.AppSyncInfo$AccountListener: void 
+        → <com.android.server.alarm.AppSyncInfo: void -$$Nest$minitFil
+        → HashSet.contains()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.clear()
+        → <android.content.IntentFilter: void <init>(java.lang.String)
+          → AppSyncInfo.initFilter()
+

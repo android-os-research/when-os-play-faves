@@ -1,0 +1,5 @@
+# persist.dm.passive.sub_display_brightness [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.display.DisplayModeDirector$BrightnessObserver: com.android.server.display.DisplayModeDirector$BrightnessObserver$BrightnessThreshold getBrightnessThreshold()>

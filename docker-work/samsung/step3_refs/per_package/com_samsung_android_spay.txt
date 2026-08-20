@@ -1,0 +1,19 @@
+# com.samsung.android.spay [NEW]
+# Refs: 18
+# JARs: framework, service-samsung-payment, services
+
+<com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+<com.android.server.am.FreecessController: void freezeBgPackageLocked(java.lang.String,int)>
+<com.android.server.biometrics.Utils: boolean isRuneStoneApp(android.content.Context,java.lang.String)>
+<com.android.server.chimera.ChimeraAppClassifier$2: void <init>()>
+<com.android.server.input.InputManagerService: boolean isSpayFullAppInstalled()>
+<com.android.server.knox.dar.sdp.engine.SdpServiceKeeper: void initWhitelist()>
+<com.android.server.spay.PaymentManagerService: ???>
+<com.android.server.spay.PaymentManagerService: void <init>(android.content.Context)>
+<com.android.server.spay.PaymentManagerService: void disableSpay(android.content.Context)>
+<com.android.server.spay.UpdateReceiver$2: void handleMessage(android.os.Message)>
+<com.android.server.spay.UpdateReceiver: ???>
+<com.android.server.spay.UpdateReceiver: void triggerPFInstall(android.content.Context)>
+<com.android.server.spay.Utils: boolean backgroundWhitelist(android.content.Context,java.lang.String,boolean)>
+<com.android.server.wm.DisplayPolicyExt: void addWindowLw(com.android.server.wm.WindowState,android.view.WindowManager$LayoutParams)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>

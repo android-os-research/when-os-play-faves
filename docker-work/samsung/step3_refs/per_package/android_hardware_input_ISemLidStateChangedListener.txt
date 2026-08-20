@@ -1,0 +1,9 @@
+# android.hardware.input.ISemLidStateChangedListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.input.ISemLidStateChangedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.input.ISemLidStateChangedListener$Stub$Proxy: void onLidStateChanged(long,boolean)>
+<android.hardware.input.ISemLidStateChangedListener$Stub: android.hardware.input.ISemLidStateChangedListener asInterface(android.os.IBinder)>
+<android.hardware.input.ISemLidStateChangedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.input.ISemLidStateChangedListener$Stub: void <init>()>

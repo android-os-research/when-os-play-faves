@@ -1,0 +1,8 @@
+# android.location.ICountryDetector [NEW]
+# Refs: 4
+# JARs: framework
+
+<android.location.ICountryDetector$Stub$Proxy: android.location.Country detectCountry()>
+<android.location.ICountryDetector$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.ICountryDetector$Stub$Proxy: void addCountryListener(android.location.ICountryListener)>
+<android.location.ICountryDetector$Stub$Proxy: void removeCountryListener(android.location.ICountryListener)>

@@ -1,0 +1,12 @@
+# android.app.timezone.IRulesManager [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.app.timezone.IRulesManager$Stub$Proxy: android.app.timezone.RulesState getRulesState()>
+<android.app.timezone.IRulesManager$Stub$Proxy: int requestInstall(android.os.ParcelFileDescriptor,byte[],android.app.timezone.ICallback)>
+<android.app.timezone.IRulesManager$Stub$Proxy: int requestUninstall(byte[],android.app.timezone.ICallback)>
+<android.app.timezone.IRulesManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.timezone.IRulesManager$Stub$Proxy: void requestNothing(byte[],boolean)>
+<android.app.timezone.IRulesManager$Stub: android.app.timezone.IRulesManager asInterface(android.os.IBinder)>
+<android.app.timezone.IRulesManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.timezone.IRulesManager$Stub: void <init>()>

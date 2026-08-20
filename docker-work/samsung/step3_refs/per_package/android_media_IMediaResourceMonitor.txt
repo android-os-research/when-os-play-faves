@@ -1,0 +1,10 @@
+# android.media.IMediaResourceMonitor [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.IMediaResourceMonitor$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IMediaResourceMonitor$Stub$Proxy: void notifyMediaInfo(int,android.media.MediaMonitorEvent)>
+<android.media.IMediaResourceMonitor$Stub$Proxy: void notifyResourceGranted(int,int)>
+<android.media.IMediaResourceMonitor$Stub: android.media.IMediaResourceMonitor asInterface(android.os.IBinder)>
+<android.media.IMediaResourceMonitor$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IMediaResourceMonitor$Stub: void <init>()>

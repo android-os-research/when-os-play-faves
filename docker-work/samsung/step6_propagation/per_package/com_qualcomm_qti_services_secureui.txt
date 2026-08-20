@@ -1,0 +1,83 @@
+######################################################################
+# Propagation: com.qualcomm.qti.services.secureui
+######################################################################
+
+JARs:                 service-samsung-payment, services
+Classes:              2
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      service-samsung-payment
+  Class:    com.android.server.spay.Utils
+  Method:   <com.android.server.spay.Utils: boolean sendSecureUIAbortIntent(android.content.Context)>
+  Line:     844
+  Register: v1 := "com.qualcomm.qti.services.secureui"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v1, Landroid/os/UserHandle;->CURRENT:Landroid/os → [i
+
+  CALLERS (who invokes this method):
+      ← PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver.deleteClient()
+        ← <com.android.server.spay.PaymentManagerService$FrameworkClie
+        ← PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver.binderDied()
+          ← PaymentManagerService.registerSPayFW()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.blockchain.Utils
+  Method:   <com.android.server.blockchain.Utils: boolean sendSecureUIAbortIntent(android.content.Context)>
+  Line:     296
+  Register: v1 := "com.qualcomm.qti.services.secureui"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v1, Landroid/os/UserHandle;->CURRENT:Landroid/os → [i
+
+  CALLERS (who invokes this method):
+      ← BlockchainTZService$FrameworkClient$ClientBinderDeathReceiver.deleteClient()
+        ← <com.android.server.blockchain.BlockchainTZService$Framework
+        ← BlockchainTZService$FrameworkClient$ClientBinderDeathReceiver.binderDied()
+          ← BlockchainTZService.registerBlockchainFW()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.spay.Utils
+  Method:   <com.android.server.spay.Utils: boolean sendSecureUIAbortIntent(android.content.Context)>
+  Line:     738
+  Register: v1 := "com.qualcomm.qti.services.secureui"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v1, Landroid/os/UserHandle;->CURRENT:Landroid/os → [i
+
+  CALLERS (who invokes this method):
+      ← PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver.deleteClient()
+        ← <com.android.server.spay.PaymentManagerService$FrameworkClie
+        ← PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver.binderDied()
+          ← PaymentManagerService.registerSPayFW()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+

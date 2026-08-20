@@ -1,0 +1,9 @@
+# android.os.IVibratorStateListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.IVibratorStateListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IVibratorStateListener$Stub$Proxy: void onVibrating(boolean)>
+<android.os.IVibratorStateListener$Stub: android.os.IVibratorStateListener asInterface(android.os.IBinder)>
+<android.os.IVibratorStateListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IVibratorStateListener$Stub: void <init>()>

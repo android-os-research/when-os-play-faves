@@ -1,0 +1,5 @@
+# com.android.graphics.injectLayers.enable [NEW]
+# Refs: 1
+# JARs: framework
+
+<android.os.GraphicsEnvironment: boolean canInjectLayers(android.content.pm.ApplicationInfo)>

@@ -1,0 +1,9 @@
+# com.sec.ims.IImsDmConfigListener [NEW]
+# Refs: 5
+# JARs: imsmanager
+
+<com.sec.ims.IImsDmConfigListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.IImsDmConfigListener$Stub$Proxy: void onChangeDmValue(java.lang.String,boolean)>
+<com.sec.ims.IImsDmConfigListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.IImsDmConfigListener$Stub: com.sec.ims.IImsDmConfigListener asInterface(android.os.IBinder)>
+<com.sec.ims.IImsDmConfigListener$Stub: void <init>()>

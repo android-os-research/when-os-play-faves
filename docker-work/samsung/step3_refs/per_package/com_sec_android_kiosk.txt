@@ -1,0 +1,10 @@
+# com.sec.android.kiosk [NEW]
+# Refs: 6
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.application.ApplicationPolicy: java.util.List getHomeShortcuts(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+<com.android.server.enterprise.kioskmode.KioskModeService: boolean setDefaultHomeScreen(int,java.lang.String,java.lang.String)>
+<com.android.server.enterprise.kioskmode.KioskModeService: int initKioskMode(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.android.server.enterprise.kioskmode.KioskModeService: void cleanUpKioskMode(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.kiosk.KioskMode$1: void run()>
+<com.samsung.android.knox.kiosk.KioskMode: void enableKioskMode()>

@@ -1,0 +1,11 @@
+# android.os.IHardwarePropertiesManager [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.os.IHardwarePropertiesManager$Stub$Proxy: android.os.CpuUsageInfo[] getCpuUsages(java.lang.String)>
+<android.os.IHardwarePropertiesManager$Stub$Proxy: float[] getDeviceTemperatures(java.lang.String,int,int)>
+<android.os.IHardwarePropertiesManager$Stub$Proxy: float[] getFanSpeeds(java.lang.String)>
+<android.os.IHardwarePropertiesManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IHardwarePropertiesManager$Stub: android.os.IHardwarePropertiesManager asInterface(android.os.IBinder)>
+<android.os.IHardwarePropertiesManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IHardwarePropertiesManager$Stub: void <init>()>

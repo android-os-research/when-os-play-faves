@@ -1,0 +1,13 @@
+# com.samsung.android.desktopmode.IDesktopModeUiServiceCallback [NEW]
+# Refs: 9
+# JARs: framework
+
+<com.samsung.android.desktopmode.IDesktopModeUiServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.desktopmode.IDesktopModeUiServiceCallback$Stub$Proxy: void onAnimationComplete()>
+<com.samsung.android.desktopmode.IDesktopModeUiServiceCallback$Stub$Proxy: void onClickButtonNegative()>
+<com.samsung.android.desktopmode.IDesktopModeUiServiceCallback$Stub$Proxy: void onClickButtonPositive()>
+<com.samsung.android.desktopmode.IDesktopModeUiServiceCallback$Stub$Proxy: void onDismiss()>
+<com.samsung.android.desktopmode.IDesktopModeUiServiceCallback$Stub$Proxy: void onShow()>
+<com.samsung.android.desktopmode.IDesktopModeUiServiceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.desktopmode.IDesktopModeUiServiceCallback$Stub: com.samsung.android.desktopmode.IDesktopModeUiServiceCallback asInterface(android.os.IBinder)>
+<com.samsung.android.desktopmode.IDesktopModeUiServiceCallback$Stub: void <init>()>

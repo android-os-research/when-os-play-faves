@@ -1,0 +1,9 @@
+# com.samsung.android.server.wifi [NEW]
+# Refs: 5
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.SemEasySetupWifiManager: void startPartialScan()>
+<com.samsung.android.server.wifi.autowifi.Scanner$WifiScanHandler: void startScan(android.net.wifi.WifiScanner$ScanSettings)>
+<com.samsung.android.server.wifi.scpm.PolicyXmlParser$XmlHandler: void startElement(java.lang.String,java.lang.String,java.lang.String,org.xml.sax.Attributes)>
+<com.samsung.android.server.wifi.silentroaming.SilentRoamingPnoScanner$WifiScanHandler: void startPartialScan(android.net.wifi.WifiScanner$ScanSettings)>
+<com.samsung.android.server.wifi.strongrssiroaming.SemStrongRssiRoaming: void startPartialScan()>

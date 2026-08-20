@@ -1,0 +1,40 @@
+.class public final synthetic Lcom/android/server/wm/MultiTaskingController$$ExternalSyntheticLambda15;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/MultiTaskingController;
+
+.field public final synthetic f$1:Landroid/content/Intent;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/android/server/wm/MultiTaskingController;Landroid/content/Intent;)V
+    .registers 3
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/MultiTaskingController$$ExternalSyntheticLambda15;->f$0:Lcom/android/server/wm/MultiTaskingController;
+
+    iput-object p2, p0, Lcom/android/server/wm/MultiTaskingController$$ExternalSyntheticLambda15;->f$1:Landroid/content/Intent;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .registers 2
+
+    iget-object v0, p0, Lcom/android/server/wm/MultiTaskingController$$ExternalSyntheticLambda15;->f$0:Lcom/android/server/wm/MultiTaskingController;
+
+    iget-object p0, p0, Lcom/android/server/wm/MultiTaskingController$$ExternalSyntheticLambda15;->f$1:Landroid/content/Intent;
+
+    invoke-static {v0, p0}, Lcom/android/server/wm/MultiTaskingController;->$r8$lambda$EQuLQU4XQWc5qVk6NaMNv5sVTVk(Lcom/android/server/wm/MultiTaskingController;Landroid/content/Intent;)V
+
+    return-void
+.end method

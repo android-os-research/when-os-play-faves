@@ -1,0 +1,181 @@
+######################################################################
+# Propagation: com.android.certinstaller
+######################################################################
+
+JARs:                 framework, services
+Classes:              3
+Occurrences:          5
+Usage types:          invoke
+Enforcement patterns: allowlist_check, early_return
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.security.KeyChain
+  Method:   <android.security.KeyChain: android.content.Intent createInstallIntent()>
+  Line:     644
+  Register: v1 := "com.android.certinstaller"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: (none)
+  Flow:     [invoke] android.content.Intent.setClassName()
+
+  CALLEES (what this method invokes):
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     248
+  Register: v50 := "com.android.certinstaller"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     268
+  Register: v60 := "com.android.certinstaller"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.certificate.CertificatePolicy
+  Method:   <com.android.server.enterprise.certificate.CertificatePolicy: boolean isOcspCheckEnabled(com.samsung.android.knox.ContextInfo)>
+  Line:     4219
+  Register: v1 := "com.android.certinstaller"
+  Usage:    [invoke] invoke-interface {v0, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, early_return
+  Flow:     [invoke] java.util.List.contains() → [other] move-result v1 → [branch] if-eqz v1, :cond_25 → [other] move-result v1 → [b
+
+  CALLERS (who invokes this method):
+      ← EDMProxyService.isOcspCheckEnabled()
+      ← SecContentProvider.query()
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingPid() [UID_CHECK]
+      → ApplicationPolicy.isOcspCheckEnabled()
+      → CertificatePolicy.isCertificateValidationAtInstallEnabled()
+      → CertificatePolicy.getApplicationPolicy()
+      → CertificatePolicy.getPackagesForPid()
+      → ThreadLocal.get()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.contains()
+      → List.iterator()
+        → ApplicationPolicy.getApplicationControlState()
+        → CertificatePolicy.isCertificateValidationAtInstallEnabledAsUser()
+        → Utils.getCallingOrCurrentUserId()
+        → EnterpriseService.getPolicyService()
+        → ActivityManager.getRunningAppProcesses()
+        → Context.getSystemService()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → UserHandle.getUserId()
+          → Map$Entry.getKey()
+          → Map$Entry.getValue()
+          → Map.get()
+          → Map.entrySet()
+          → Map.keySet()
+          → Set.contains()
+          → Set.iterator()
+          → CertificatePolicy.getPolicyValueBackwardCompatibleAsUser()
+          → ActivityManager.getCurrentUser()
+          → Binder.getCallingUid() [UID_CHECK]
+          → IPersonaManagerAdapter.isValidKnoxId()
+          → Utils.getPersonaManagerAdapter()
+          → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+            → CertificatePolicy.getStrictestValueAsUser()
+            → CertificatePolicy.getPersonaManagerAdapter()
+            → AdapterRegistry.getAdapter()
+            → SemPersonaManager.isKnoxId()
+              → EdmStorageProvider.getBooleanListAsUser()
+              → HashMap.get()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.certificate.CertificatePolicy
+  Method:   <com.android.server.enterprise.certificate.CertificatePolicy: boolean isRevocationCheckEnabled(com.samsung.android.knox.ContextInfo)>
+  Line:     4568
+  Register: v1 := "com.android.certinstaller"
+  Usage:    [invoke] invoke-interface {v0, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, early_return
+  Flow:     [invoke] java.util.List.contains() → [other] move-result v1 → [branch] if-eqz v1, :cond_25 → [other] move-result v1 → [b
+
+  CALLERS (who invokes this method):
+      ← EDMProxyService.isRevocationCheckEnabled()
+      ← SecContentProvider.query()
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingPid() [UID_CHECK]
+      → ApplicationPolicy.isRevocationCheckEnabled()
+      → CertificatePolicy.isCertificateValidationAtInstallEnabled()
+      → CertificatePolicy.getApplicationPolicy()
+      → CertificatePolicy.getPackagesForPid()
+      → ThreadLocal.get()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.contains()
+      → List.iterator()
+        → ApplicationPolicy.getApplicationControlState()
+        → CertificatePolicy.isCertificateValidationAtInstallEnabledAsUser()
+        → Utils.getCallingOrCurrentUserId()
+        → EnterpriseService.getPolicyService()
+        → ActivityManager.getRunningAppProcesses()
+        → Context.getSystemService()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → UserHandle.getUserId()
+          → Map$Entry.getKey()
+          → Map$Entry.getValue()
+          → Map.get()
+          → Map.entrySet()
+          → Map.keySet()
+          → Set.contains()
+          → Set.iterator()
+          → CertificatePolicy.getPolicyValueBackwardCompatibleAsUser()
+          → ActivityManager.getCurrentUser()
+          → Binder.getCallingUid() [UID_CHECK]
+          → IPersonaManagerAdapter.isValidKnoxId()
+          → Utils.getPersonaManagerAdapter()
+          → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+            → CertificatePolicy.getStrictestValueAsUser()
+            → CertificatePolicy.getPersonaManagerAdapter()
+            → AdapterRegistry.getAdapter()
+            → SemPersonaManager.isKnoxId()
+              → EdmStorageProvider.getBooleanListAsUser()
+              → HashMap.get()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+

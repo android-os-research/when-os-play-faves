@@ -1,0 +1,6 @@
+# diagandroid.app.ApplicationState [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.am.AppStateBroadcaster: void broadcastAppExit(java.lang.String,java.lang.String)>
+<com.android.server.am.AppStateBroadcaster: void broadcastAppState(java.lang.String,java.lang.String)>

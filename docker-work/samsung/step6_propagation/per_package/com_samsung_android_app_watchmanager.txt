@@ -1,0 +1,61 @@
+######################################################################
+# Propagation: com.samsung.android.app.watchmanager
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          field_store
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1177
+  Register: v5 := "com.samsung.android.app.watchmanager"
+  Usage:    [field_store] aput-object v5, v2, v1
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: java.lang.String[] getConcentrationModeSuspendPackages(java.util.List,java.util.List,java.lang.String)>
+  Line:     16808
+  Register: v6 := "com.samsung.android.app.watchmanager"
+  Usage:    [] 
+  Patterns: (none)
+
+  CALLERS (who invokes this method):
+      ← ApplicationPolicy.setConcentrationMode()
+
+  CALLEES (what this method invokes):
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.remove()
+      → List.toArray()
+      → List.iterator()
+

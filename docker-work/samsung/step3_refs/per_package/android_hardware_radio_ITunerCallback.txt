@@ -1,0 +1,20 @@
+# android.hardware.radio.ITunerCallback [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.hardware.radio.ITunerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onAntennaState(boolean)>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onBackgroundScanAvailabilityChange(boolean)>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onBackgroundScanComplete()>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onConfigurationChanged(android.hardware.radio.RadioManager$BandConfig)>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onCurrentProgramInfoChanged(android.hardware.radio.RadioManager$ProgramInfo)>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onEmergencyAnnouncement(boolean)>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onError(int)>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onParametersUpdated(java.util.Map)>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onProgramListChanged()>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onProgramListUpdated(android.hardware.radio.ProgramList$Chunk)>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onTrafficAnnouncement(boolean)>
+<android.hardware.radio.ITunerCallback$Stub$Proxy: void onTuneFailed(int,android.hardware.radio.ProgramSelector)>
+<android.hardware.radio.ITunerCallback$Stub: android.hardware.radio.ITunerCallback asInterface(android.os.IBinder)>
+<android.hardware.radio.ITunerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.radio.ITunerCallback$Stub: void <init>()>

@@ -1,0 +1,6 @@
+# com.samsung.android.scpm.policy.UPDATE.Audio [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.audio.AudioService$SamsungBroadcastReceiver: void handleIntent(android.content.Context,android.content.Intent)>
+<com.android.server.audio.AudioService: void addSamsungIntentFilter(android.content.IntentFilter)>

@@ -1,0 +1,39 @@
+######################################################################
+# Propagation: com.google.android.captiveportallogin
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: (none)
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.firewall.DomainFilter
+  Method:   <com.android.server.enterprise.firewall.DomainFilter: java.lang.String getCaptivePortalUid()>
+  Line:     3545
+  Register: v0 := "com.google.android.captiveportallogin"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/android/server/enterprise/firewall/DomainFilter;->getApplicationUi
+  Patterns: (none)
+  Flow:     [invoke] com.android.server.enterprise.firewall.DomainFilter.getAppli
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.enterprise.firewall.DomainFilter: java.l
+        ← DomainFilter$4.run()
+
+  CALLEES (what this method invokes):
+      → DomainFilter.getApplicationUid()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → PackageManagerAdapter.getPackageInfo() [PKG_QUERY]
+        → PackageManagerAdapter.getInstance()
+          → IPackageManager.getPackageInfo() [PKG_QUERY]
+          → RemoteException.printStackTrace()
+          → IPackageManager$Stub.asInterface()
+          → ServiceManager.getService()
+          → <com.android.server.enterprise.adapterlayer.PackageManagerAd
+

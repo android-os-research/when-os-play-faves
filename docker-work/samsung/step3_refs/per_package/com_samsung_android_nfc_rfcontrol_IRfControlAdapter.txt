@@ -1,0 +1,10 @@
+# com.samsung.android.nfc.rfcontrol.IRfControlAdapter [NEW]
+# Refs: 6
+# JARs: com.samsung.android.nfc.rfcontrol
+
+<com.samsung.android.nfc.rfcontrol.IRfControlAdapter$Stub$Proxy: boolean getRfState()>
+<com.samsung.android.nfc.rfcontrol.IRfControlAdapter$Stub$Proxy: boolean setRfEnable(boolean)>
+<com.samsung.android.nfc.rfcontrol.IRfControlAdapter$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.nfc.rfcontrol.IRfControlAdapter$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.nfc.rfcontrol.IRfControlAdapter$Stub: com.samsung.android.nfc.rfcontrol.IRfControlAdapter asInterface(android.os.IBinder)>
+<com.samsung.android.nfc.rfcontrol.IRfControlAdapter$Stub: void <init>()>

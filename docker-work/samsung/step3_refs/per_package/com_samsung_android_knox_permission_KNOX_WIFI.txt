@@ -1,0 +1,10 @@
+# com.samsung.android.knox.permission.KNOX_WIFI [NEW]
+# Refs: 6
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: com.samsung.android.knox.ContextInfo enforceWifiPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.android.server.enterprise.wifi.WifiPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndWifiPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.wifi.WifiPolicy: com.samsung.android.knox.ContextInfo enforceWifiPermission(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

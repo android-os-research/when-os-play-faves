@@ -1,0 +1,7 @@
+# android.content.pm.extra.SESSION [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.pm.BroadcastHelper: void sendSessionCommitBroadcast(android.content.pm.PackageInstaller$SessionInfo,int,int,android.content.ComponentName,java.lang.String)>
+<com.android.server.pm.PackageInstallerService: void sendSessionUpdatedBroadcast(android.content.pm.PackageInstaller$SessionInfo,int)>
+<com.samsung.android.server.pm.desktopmode.DesktopModeUtils: void sendSessionCommitBroadcastToDesktopLauncherIfNeeded(android.content.Context,android.content.ComponentName,java.lang.String,android.content.pm.PackageInstaller$SessionInfo,int,java.util.function.Supplier)>

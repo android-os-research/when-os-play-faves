@@ -1,0 +1,9 @@
+# com.samsung.ucs.agent.boot [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: void <clinit>()>
+<com.samsung.ucm.ucmservice.PolicyManager: void <init>(android.content.Context)>
+<com.samsung.ucm.ucmservice.UcmAgentWrapper$2: void onServiceConnected(android.content.ComponentName,android.os.IBinder)>
+<com.samsung.ucm.ucmservice.UcmAgentWrapper: void initialize(android.content.pm.ResolveInfo,android.os.UserHandle)>
+<com.samsung.ucm.ucmservice.UcmServiceAgentManager: boolean isSystemStorage(java.lang.String)>

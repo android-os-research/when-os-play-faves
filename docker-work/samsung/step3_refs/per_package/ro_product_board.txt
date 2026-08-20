@@ -1,0 +1,8 @@
+# ro.product.board [NEW]
+# Refs: 7
+# JARs: framework, semmediatranscoder, semsdrvideoconverter
+
+<android.os.Build: void <clinit>()>
+<com.samsung.android.media.convert.core.ConvertVideo: boolean prepareVideoCodec()>
+<com.samsung.android.transcode.core.EncodeBase: void prepareVideoCodec()>
+<com.samsung.android.transcode.renderer.RenderTexture_GL_OES: boolean checkcallFinish()>

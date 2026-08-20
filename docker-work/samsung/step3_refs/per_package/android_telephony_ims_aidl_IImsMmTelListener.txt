@@ -1,0 +1,12 @@
+# android.telephony.ims.aidl.IImsMmTelListener [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.telephony.ims.aidl.IImsMmTelListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IImsMmTelListener$Stub$Proxy: void onCdpnReceived(java.lang.String,int)>
+<android.telephony.ims.aidl.IImsMmTelListener$Stub$Proxy: void onIncomingCall(com.android.ims.internal.IImsCallSession,android.os.Bundle)>
+<android.telephony.ims.aidl.IImsMmTelListener$Stub$Proxy: void onRejectedCall(android.telephony.ims.ImsCallProfile,android.telephony.ims.ImsReasonInfo)>
+<android.telephony.ims.aidl.IImsMmTelListener$Stub$Proxy: void onVoiceMessageCountUpdate(int)>
+<android.telephony.ims.aidl.IImsMmTelListener$Stub: android.telephony.ims.aidl.IImsMmTelListener asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IImsMmTelListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IImsMmTelListener$Stub: void <init>()>

@@ -1,0 +1,9 @@
+# ro.build.tags [NEW]
+# Refs: 5
+# JARs: framework, services
+
+<android.os.Build: java.lang.String deriveFingerprint()>
+<android.os.Build: void <clinit>()>
+<com.android.server.locksettings.LockSettingsStrongAuth: long getRequiredNonStrongBiometricIdleTimeout()>
+<com.android.server.locksettings.LockSettingsStrongAuth: long getRequiredNonStrongBiometricTimeout()>
+<com.android.server.locksettings.LockSettingsStrongAuth: long getRequiredStrongAuthTimeout(int)>

@@ -1,0 +1,14 @@
+# android.app.smartspace.ISmartspaceManager [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.app.smartspace.ISmartspaceManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.smartspace.ISmartspaceManager$Stub$Proxy: void createSmartspaceSession(android.app.smartspace.SmartspaceConfig,android.app.smartspace.SmartspaceSessionId,android.os.IBinder)>
+<android.app.smartspace.ISmartspaceManager$Stub$Proxy: void destroySmartspaceSession(android.app.smartspace.SmartspaceSessionId)>
+<android.app.smartspace.ISmartspaceManager$Stub$Proxy: void notifySmartspaceEvent(android.app.smartspace.SmartspaceSessionId,android.app.smartspace.SmartspaceTargetEvent)>
+<android.app.smartspace.ISmartspaceManager$Stub$Proxy: void registerSmartspaceUpdates(android.app.smartspace.SmartspaceSessionId,android.app.smartspace.ISmartspaceCallback)>
+<android.app.smartspace.ISmartspaceManager$Stub$Proxy: void requestSmartspaceUpdate(android.app.smartspace.SmartspaceSessionId)>
+<android.app.smartspace.ISmartspaceManager$Stub$Proxy: void unregisterSmartspaceUpdates(android.app.smartspace.SmartspaceSessionId,android.app.smartspace.ISmartspaceCallback)>
+<android.app.smartspace.ISmartspaceManager$Stub: android.app.smartspace.ISmartspaceManager asInterface(android.os.IBinder)>
+<android.app.smartspace.ISmartspaceManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.smartspace.ISmartspaceManager$Stub: void <init>()>

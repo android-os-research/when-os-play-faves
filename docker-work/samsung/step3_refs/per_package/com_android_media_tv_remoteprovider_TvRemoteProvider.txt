@@ -1,0 +1,6 @@
+# com.android.media.tv.remoteprovider.TvRemoteProvider [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.tv.TvRemoteProviderProxy: void bind()>
+<com.android.server.tv.TvRemoteProviderWatcher: void scanPackages()>

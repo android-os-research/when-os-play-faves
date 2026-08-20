@@ -1,0 +1,89 @@
+.class public Lcom/android/server/display/WifiDisplayController$2;
+.super Ljava/lang/Object;
+.source "WifiDisplayController.java"
+
+# interfaces
+.implements Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/display/WifiDisplayController;->updateWfdEnableState()V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic this$0:Lcom/android/server/display/WifiDisplayController;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/display/WifiDisplayController;)V
+    .registers 2
+
+    .line 486
+    iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$2;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onFailure(I)V
+    .registers 2
+
+    .line 505
+    iget-object p0, p0, Lcom/android/server/display/WifiDisplayController$2;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    const/4 p1, 0x0
+
+    invoke-static {p0, p1}, Lcom/android/server/display/WifiDisplayController;->-$$Nest$fputmWfdEnabling(Lcom/android/server/display/WifiDisplayController;Z)V
+
+    return-void
+.end method
+
+.method public onSuccess()V
+    .registers 3
+
+    .line 492
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$2;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->-$$Nest$fgetmWfdEnabling(Lcom/android/server/display/WifiDisplayController;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1e
+
+    .line 493
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$2;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/server/display/WifiDisplayController;->-$$Nest$fputmWfdEnabling(Lcom/android/server/display/WifiDisplayController;Z)V
+
+    .line 494
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$2;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/android/server/display/WifiDisplayController;->-$$Nest$fputmWfdEnabled(Lcom/android/server/display/WifiDisplayController;Z)V
+
+    .line 495
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$2;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->-$$Nest$mreportFeatureState(Lcom/android/server/display/WifiDisplayController;)V
+
+    .line 496
+    iget-object p0, p0, Lcom/android/server/display/WifiDisplayController$2;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {p0}, Lcom/android/server/display/WifiDisplayController;->-$$Nest$mupdateScanState(Lcom/android/server/display/WifiDisplayController;)V
+
+    :cond_1e
+    return-void
+.end method

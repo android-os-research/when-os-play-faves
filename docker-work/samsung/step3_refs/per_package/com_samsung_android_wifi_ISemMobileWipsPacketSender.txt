@@ -1,0 +1,16 @@
+# com.samsung.android.wifi.ISemMobileWipsPacketSender [NEW]
+# Refs: 12
+# JARs: framework
+
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub$Proxy: boolean pingTcp(byte[],byte[],int,int,int)>
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub$Proxy: boolean sendDnsQueries(long[],byte[],byte[],java.lang.String,java.util.List,int)>
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub$Proxy: boolean sendTcp(int,byte[],byte[],java.lang.String)>
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub$Proxy: byte[] sendDns(long[],byte[],byte[],byte[],java.lang.String,boolean)>
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub$Proxy: int sendDhcp(int,byte[],int,java.lang.String)>
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub$Proxy: java.util.List sendArp(int,byte[],byte[],java.lang.String)>
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub$Proxy: java.util.List sendArpToSniffing(int,byte[],byte[],java.lang.String)>
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub$Proxy: java.util.List sendIcmp(int,byte[],byte[],java.lang.String)>
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub: com.samsung.android.wifi.ISemMobileWipsPacketSender asInterface(android.os.IBinder)>
+<com.samsung.android.wifi.ISemMobileWipsPacketSender$Stub: void <init>()>

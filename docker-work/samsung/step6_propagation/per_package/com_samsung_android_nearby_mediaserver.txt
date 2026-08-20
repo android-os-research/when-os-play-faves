@@ -1,0 +1,29 @@
+######################################################################
+# Propagation: com.samsung.android.nearby.mediaserver
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.allshare.extension.DeviceChecker
+  Method:   <com.samsung.android.allshare.extension.DeviceChecker: boolean isMyLocalProvider(android.content.Context,java.lang.String)>
+  Line:     813
+  Register: v1 := "com.samsung.android.nearby.mediaserver"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Lan
+  Patterns: early_return
+  Flow:     [invoke] android.content.Context.createPackageContext() → [reassigned] v1 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.createPackageContext()
+      → Context.getSharedPreferences()
+      → SharedPreferences.getString()
+      → DLog.w_api()
+

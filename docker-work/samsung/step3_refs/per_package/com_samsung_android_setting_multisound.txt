@@ -1,0 +1,6 @@
+# com.samsung.android.setting.multisound [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.audio.AudioService$SamsungBroadcastReceiver: void handleIntent(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.audio.MultiSoundManager: void showNotification()>

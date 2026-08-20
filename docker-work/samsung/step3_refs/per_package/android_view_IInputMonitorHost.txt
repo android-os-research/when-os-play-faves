@@ -1,0 +1,10 @@
+# android.view.IInputMonitorHost [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.view.IInputMonitorHost$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IInputMonitorHost$Stub$Proxy: void dispose()>
+<android.view.IInputMonitorHost$Stub$Proxy: void pilferPointers()>
+<android.view.IInputMonitorHost$Stub: android.view.IInputMonitorHost asInterface(android.os.IBinder)>
+<android.view.IInputMonitorHost$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IInputMonitorHost$Stub: void <init>()>

@@ -1,0 +1,8 @@
+# com.samsung.systemui.statusbar.ANIMATING [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.inputmethod.InputMethodManagerService$ImmsBroadcastReceiverForSystemUser: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.inputmethod.InputMethodManagerService: void systemRunning(com.android.server.statusbar.StatusBarManagerService)>
+<com.android.server.wm.MultiWindowPointerEventListener$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.wm.MultiWindowPointerEventListener: void <init>(com.android.server.wm.WindowManagerService,com.android.server.wm.DisplayContent)>

@@ -1,0 +1,11 @@
+# com.samsung.android.cover.ICoverService [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.cover.ICoverService$Stub$Proxy: int onCoverAppCovered(boolean)>
+<com.samsung.android.cover.ICoverService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.cover.ICoverService$Stub$Proxy: void onSystemReady()>
+<com.samsung.android.cover.ICoverService$Stub$Proxy: void onUpdateCoverState(com.samsung.android.cover.CoverState)>
+<com.samsung.android.cover.ICoverService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.cover.ICoverService$Stub: com.samsung.android.cover.ICoverService asInterface(android.os.IBinder)>
+<com.samsung.android.cover.ICoverService$Stub: void <init>()>

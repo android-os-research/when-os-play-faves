@@ -1,0 +1,9 @@
+# com.android.ims.internal.IImsFeatureStatusCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.android.ims.internal.IImsFeatureStatusCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsFeatureStatusCallback$Stub$Proxy: void notifyImsFeatureStatus(int)>
+<com.android.ims.internal.IImsFeatureStatusCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.IImsFeatureStatusCallback$Stub: com.android.ims.internal.IImsFeatureStatusCallback asInterface(android.os.IBinder)>
+<com.android.ims.internal.IImsFeatureStatusCallback$Stub: void <init>()>

@@ -1,0 +1,16 @@
+# android.hardware.camera2.extension.IAdvancedExtenderImpl [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.ISessionProcessorImpl getSessionProcessor()>
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.LatencyRange getEstimatedCaptureLatencyRange(java.lang.String,android.hardware.camera2.extension.Size,int)>
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub$Proxy: android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureRequestKeys(java.lang.String)>
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub$Proxy: android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureResultKeys(java.lang.String)>
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub$Proxy: boolean isExtensionAvailable(java.lang.String)>
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub$Proxy: java.util.List getSupportedCaptureOutputResolutions(java.lang.String)>
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub$Proxy: java.util.List getSupportedPreviewOutputResolutions(java.lang.String)>
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub$Proxy: void init(java.lang.String)>
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub: android.hardware.camera2.extension.IAdvancedExtenderImpl asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.IAdvancedExtenderImpl$Stub: void <init>()>

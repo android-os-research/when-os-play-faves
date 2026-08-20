@@ -1,0 +1,10 @@
+# com.samsung.android.fast [NEW]
+# Refs: 7
+# JARs: framework, services
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<android.net.VpnService$Builder: boolean isSecureWifiUid(int)>
+<android.net.VpnService: android.content.Intent prepareAndAuthorizeVpnForFast()>
+<android.net.VpnService: boolean isSecureWifiPackage(android.content.Context)>
+<com.android.server.connectivity.Vpn: boolean isSecureWifiPackage()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>

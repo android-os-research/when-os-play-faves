@@ -1,0 +1,7 @@
+# wifi.controller.tx [NEW]
+# Refs: 3
+# JARs: framework
+
+<android.os.connectivity.WifiActivityEnergyInfo: long calculateEnergyMicroJoules(long,long,long)>
+<com.android.internal.os.PowerProfile: void dumpDebug(android.util.proto.ProtoOutputStream)>
+<com.android.internal.os.WifiPowerCalculator: void <init>(com.android.internal.os.PowerProfile)>

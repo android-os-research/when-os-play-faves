@@ -1,0 +1,17 @@
+# com.sec.imsservice [NEW]
+# Refs: 13
+# JARs: framework, imsmanager, rcsopenapi, vsimmanager
+
+<com.gsma.services.rcs.capability.CapabilityService: void connect()>
+<com.gsma.services.rcs.chat.ChatService: void connect()>
+<com.gsma.services.rcs.contact.ContactService: void connect()>
+<com.gsma.services.rcs.extension.MultimediaSessionService: void connect()>
+<com.gsma.services.rcs.filetransfer.FileTransferService: void connect()>
+<com.gsma.services.rcs.history.HistoryService: void connect()>
+<com.gsma.services.rcs.sharing.geoloc.GeolocSharingService: void connect()>
+<com.gsma.services.rcs.sharing.image.ImageSharingService: void connect()>
+<com.gsma.services.rcs.sharing.video.VideoSharingService: void connect()>
+<com.gsma.services.rcs.upload.FileUploadService: void connect()>
+<com.samsung.android.ims.options.SemCapabilityManager: void connect()>
+<com.sec.ims.options.CapabilityManager: void connect()>
+<com.sec.vsim.attsoftphone.SoftphoneManager: void connectService()>

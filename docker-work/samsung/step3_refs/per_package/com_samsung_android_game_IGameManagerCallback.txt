@@ -1,0 +1,10 @@
+# com.samsung.android.game.IGameManagerCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.game.IGameManagerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.game.IGameManagerCallback$Stub$Proxy: void onGameFocusIn(java.lang.String)>
+<com.samsung.android.game.IGameManagerCallback$Stub$Proxy: void onGameFocusOut(java.lang.String)>
+<com.samsung.android.game.IGameManagerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.game.IGameManagerCallback$Stub: com.samsung.android.game.IGameManagerCallback asInterface(android.os.IBinder)>
+<com.samsung.android.game.IGameManagerCallback$Stub: void <init>()>

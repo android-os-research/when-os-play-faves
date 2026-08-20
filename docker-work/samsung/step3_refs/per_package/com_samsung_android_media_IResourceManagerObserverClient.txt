@@ -1,0 +1,9 @@
+# com.samsung.android.media.IResourceManagerObserverClient [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.media.IResourceManagerObserverClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.media.IResourceManagerObserverClient$Stub$Proxy: void notify(int,int,int,com.samsung.android.media.MediaResourceNotifyInfoParcel)>
+<com.samsung.android.media.IResourceManagerObserverClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.media.IResourceManagerObserverClient$Stub: com.samsung.android.media.IResourceManagerObserverClient asInterface(android.os.IBinder)>
+<com.samsung.android.media.IResourceManagerObserverClient$Stub: void <init>()>

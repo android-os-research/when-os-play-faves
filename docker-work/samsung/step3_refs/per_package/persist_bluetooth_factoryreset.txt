@@ -1,0 +1,6 @@
+# persist.bluetooth.factoryreset [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.sysprop.BluetoothProperties: java.util.Optional factory_reset()>
+<android.sysprop.BluetoothProperties: void factory_reset(java.lang.Boolean)>

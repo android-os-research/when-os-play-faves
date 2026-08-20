@@ -1,0 +1,12 @@
+# android.net.INetdEventCallback [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.net.INetdEventCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.INetdEventCallback$Stub$Proxy: void onConnectEvent(java.lang.String,int,long,int)>
+<android.net.INetdEventCallback$Stub$Proxy: void onDnsEvent(int,int,int,java.lang.String,java.lang.String[],int,long,int)>
+<android.net.INetdEventCallback$Stub$Proxy: void onNat64PrefixEvent(int,boolean,java.lang.String,int)>
+<android.net.INetdEventCallback$Stub$Proxy: void onPrivateDnsValidationEvent(int,java.lang.String,java.lang.String,boolean)>
+<android.net.INetdEventCallback$Stub: android.net.INetdEventCallback asInterface(android.os.IBinder)>
+<android.net.INetdEventCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.INetdEventCallback$Stub: void <init>()>

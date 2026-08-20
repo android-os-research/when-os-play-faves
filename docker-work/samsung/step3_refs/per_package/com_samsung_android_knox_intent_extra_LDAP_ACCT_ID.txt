@@ -1,0 +1,6 @@
+# com.samsung.android.knox.intent.extra.LDAP_ACCT_ID [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.email.LDAPAccountPolicy$LDAPIntentReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.enterprise.email.LDAPAccountPolicy: void sendBroadcastCreateLDAPAcctResultIntent(int,int,long)>

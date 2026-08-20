@@ -1,0 +1,74 @@
+######################################################################
+# Propagation: com.samsung.android.service.peoplestripe
+######################################################################
+
+JARs:                 services
+Classes:              3
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     88
+  Register: v24 := "com.samsung.android.service.peoplestripe"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: void <clinit>()>
+  Line:     2117
+  Register: v4 := "com.samsung.android.service.peoplestripe"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v11}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Uri.parse()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.notification.NotificationManagerService
+  Method:   <com.android.server.notification.NotificationManagerService: void <clinit>()>
+  Line:     2274
+  Register: v1 := "com.samsung.android.service.peoplestripe"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → <android.os.Binder: void <init>()>
+      → Process.myPid()
+      → Process.myUid()
+      → SystemProperties.getBoolean()
+      → MultiRateLimiter$RateLimit.create()
+      → Duration.ofSeconds()
+        → <android.os.Binder: void <init>(java.lang.String)>
+        → <com.android.server.utils.quota.MultiRateLimiter$RateLimit: 
+          → Binder.getNativeBBinderHolder()
+          → NativeAllocationRegistry.registerNativeAllocation()
+

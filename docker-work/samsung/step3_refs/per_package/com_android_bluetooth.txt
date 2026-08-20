@@ -1,0 +1,10 @@
+# com.android.bluetooth [NEW]
+# Refs: 7
+# JARs: framework, semwifi-service, services
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<com.android.server.Watchdog: void <clinit>()>
+<com.android.server.audio.AudioService: void setStreamVolumeWithAttribution(int,int,int,java.lang.String,java.lang.String,java.lang.String,int,boolean,int)>
+<com.android.server.audio.FocusRequester: boolean handleFocusLossFromGain(int,com.android.server.audio.FocusRequester,boolean)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: boolean enableBluetooth(com.samsung.android.knox.ContextInfo,boolean,android.os.Bundle)>
+<com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl: boolean isAllowedPackageForNextAction(java.lang.String)>

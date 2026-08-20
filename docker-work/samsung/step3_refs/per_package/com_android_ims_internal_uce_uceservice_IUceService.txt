@@ -1,0 +1,19 @@
+# com.android.ims.internal.uce.uceservice.IUceService [NEW]
+# Refs: 15
+# JARs: framework
+
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: boolean getServiceStatus()>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: boolean isServiceStarted()>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: boolean startService(com.android.ims.internal.uce.uceservice.IUceListener)>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: boolean stopService()>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: com.android.ims.internal.uce.options.IOptionsService getOptionsService()>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: com.android.ims.internal.uce.options.IOptionsService getOptionsServiceForSubscription(java.lang.String)>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: com.android.ims.internal.uce.presence.IPresenceService getPresenceService()>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: com.android.ims.internal.uce.presence.IPresenceService getPresenceServiceForSubscription(java.lang.String)>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: int createOptionsService(com.android.ims.internal.uce.options.IOptionsListener,com.android.ims.internal.uce.common.UceLong)>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: int createOptionsServiceForSubscription(com.android.ims.internal.uce.options.IOptionsListener,com.android.ims.internal.uce.common.UceLong,java.lang.String)>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: int createPresenceService(com.android.ims.internal.uce.presence.IPresenceListener,com.android.ims.internal.uce.common.UceLong)>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: int createPresenceServiceForSubscription(com.android.ims.internal.uce.presence.IPresenceListener,com.android.ims.internal.uce.common.UceLong,java.lang.String)>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: void destroyOptionsService(int)>
+<com.android.ims.internal.uce.uceservice.IUceService$Stub$Proxy: void destroyPresenceService(int)>

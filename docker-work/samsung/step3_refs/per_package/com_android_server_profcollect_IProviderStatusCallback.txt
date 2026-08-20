@@ -1,0 +1,9 @@
+# com.android.server.profcollect.IProviderStatusCallback [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.profcollect.IProviderStatusCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.server.profcollect.IProviderStatusCallback$Stub$Proxy: void onProviderReady()>
+<com.android.server.profcollect.IProviderStatusCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.server.profcollect.IProviderStatusCallback$Stub: com.android.server.profcollect.IProviderStatusCallback asInterface(android.os.IBinder)>
+<com.android.server.profcollect.IProviderStatusCallback$Stub: void <init>()>

@@ -1,0 +1,158 @@
+######################################################################
+# Propagation: com.winzo.gold
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: allowlist_check, early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DssController
+  Method:   <com.android.server.DssController: float getScalingFactor(java.lang.String)>
+  Line:     689
+  Register: v1 := "com.winzo.gold"
+  Usage:    [invoke] invoke-virtual {p1, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: allowlist_check, early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v1 → [branch] if-eqz v1, :cond_f → [other] iget-object v1, p0
+
+  CALLERS (who invokes this method):
+      ← DssController.createScaledConfiguration()
+      ← DssController.getScalingFactor()
+      ← DssController.scaleExistingConfiguration()
+      ← DssController.scaleExistingMergedConfiguration()
+      ← ActivityManagerService.getScalingFactor()
+        ← ActivityTaskManagerService.updateGlobalConfigurationLocked()
+        ← DisplayManagerService.getDisplayInfoInternal()
+        ← InputManagerService.injectInputEventToTarget()
+        ← <com.android.server.wm.WindowState: void <init>(com.android.
+        ← ActivityManagerService.attachApplicationLocked()
+        ← ActivityRecord.ensureActivityConfiguration()
+        ← ActivityRecord.relaunchActivityLocked()
+        ← ActivityTaskSupervisor.realStartActivityLocked()
+        ← WindowContextListenerController$WindowContextListenerImpl.reportConfigToWindowTokenClient()
+        ← WindowManagerService.attachWindowContextToDisplayArea()
+        ← WindowProcessController.updateConfiguration()
+        ← WindowState.fillClientWindowFramesAndConfiguration()
+        ← WindowState.reportResized()
+          ← ActivityTaskManagerService.updateConfigurationLocked()
+          ← DisplayContent.updateDisplayOverrideConfigurationLocked()
+          ← <com.android.server.display.DisplayManagerService: android.v
+          ← DisplayManagerService.getDisplayInfoInternal()
+          ← InputManagerService.injectInputEvent()
+          ← <com.android.server.wm.WindowState: void <init>(com.android.
+          ← ActivityManagerService.attachApplication()
+          ← ActivityRecord.ensureActivityConfiguration()
+          ← ActivityRecord.updateMultiWindowMode()
+          ← ActivityRecord.updatePictureInPictureMode()
+          ← EnsureActivitiesVisibleHelper.setActivityVisibilityState()
+          ← RecentsAnimation.preloadRecentsActivity()
+          ← Task.enterSplitActivityMode()
+          ← WindowProcessController.updateAssetConfiguration()
+          ← TaskFragment.completePause()
+          ← ActivityTaskSupervisor.startSpecificActivity()
+          ← RootWindowContainer$AttachApplicationHelper.test()
+          ← <com.android.server.wm.WindowContextListenerController$Windo
+          ← WindowContextListenerController$WindowContextListenerImpl.reportConfigToWindowTokenClient()
+          ← WindowProcessController.onConfigurationChanged()
+          ← WindowManagerService.relayoutWindow()
+          ← RootWindowContainer.handleResizingWindows()
+            ← ActivityTaskManagerService.updateConfiguration()
+            ← ActivityTaskManagerService.updateConfigurationLocked()
+            ← DexController.updateDexFontScaleIfNeeded()
+            ← DisplayContent.onDescendantOrientationChanged()
+            ← DisplayContent.updateDisplayOverrideConfigurationLocked()
+            ← RootWindowContainer.ensureVisibilityAndConfig()
+            ← DisplayManagerService$BinderService.getDisplayInfo()
+            ← DisplayManagerService$LocalService.getDisplayInfo()
+            ← <com.android.server.display.DisplayManagerService: android.v
+            ← DisplayManagerService.createSpegVirtualDisplayInternal()
+            ← WindowManagerService.addWindow()
+            ← ActivityRecord.applyFixedRotationTransform()
+            ← ActivityRecord.onCancelFixedRotationTransform()
+            ← ActivityRecord.setRequestedOrientation()
+            ← ActivityTaskManagerService.ensureConfigAndVisibilityAfterUpdate()
+            ← <com.android.server.wm.ActivityTaskManagerService: void lamb
+            ← CompatModePackages.setPackageScreenCompatModeLocked()
+            ← Task.resize()
+            ← TaskFragment$EnsureVisibleActivitiesConfigHelper.test()
+            ← WindowOrganizerController$$ExternalSyntheticLambda8.accept()
+            ← WindowProcessController.updateAppSpecificSettingsForAllActivitiesInPackage()
+            ← ActivityTaskSupervisor$ActivityTaskSupervisorHandler.handleMessageInner()
+            ← <com.android.server.wm.EnsureActivitiesVisibleHelper: void $
+            ← EnsureActivitiesVisibleHelper.process()
+            ← ActivityTaskManagerService.startRecentsActivity()
+            ← ActivityRecordGroup.addChild()
+            ← ActivityTaskManagerService.updateAssetConfiguration()
+            ← ActivityRecord.activityPaused()
+            ← TaskFragment.startPausing()
+            ← EnsureActivitiesVisibleHelper.makeVisibleAndRestartIfNeeded()
+            ← TaskFragment.resumeTopActivity()
+            ← RootWindowContainer$AttachApplicationHelper.test()
+            ← WindowContextListenerController.dispatchPreUpdatedConfigurationIfNeeded()
+            ← <com.android.server.wm.WindowContextListenerController$Windo
+            ← WindowContextListenerController$WindowContextListenerImpl.onDisplayChanged()
+            ← WindowContextListenerController$WindowContextListenerImpl.onMergedOverrideConfigurationChanged()
+            ← ActivityTaskManagerService$LocalService.onProcessMapped()
+            ← <com.android.server.wm.WindowProcessController: void <init>(
+            ← WindowProcessController.updateGlobalConfiguration()
+            ← Session.relayout()
+            ← RootWindowContainer.performSurfacePlacementNoTrace()
+              ← ActivityManagerService.updateConfiguration()
+              ← ActivityManagerService.updateMccMncConfiguration()
+              ← WindowManagerService.displayReady()
+              ← <com.android.server.wm.ActivityTaskManagerService: boolean -
+              ← ActivityTaskManagerService.updateConfigurationLocked()
+              ← ActivityTaskManagerService.updatePersistentConfiguration()
+              ← DexController.activateDexDisplayLocked()
+              ← DisplayContent.sendNewConfiguration()
+              ← ActivityRecord.destroyIfPossible()
+              ← ActivityStarter.handleStartResult()
+              ← DexController.moveTasksBackAndStartPendingActivity()
+              ← Task.moveTaskToBack()
+              ← <com.android.server.display.DisplayManagerService: int -$$Ne
+              ← Session.addToDisplay()
+              ← Session.addToDisplayAsUser()
+              ← Session.addToDisplayWithoutInputChannel()
+              ← ActivityClientController.setRequestedOrientation()
+              ← ActivityTaskManagerService.ensureConfigAndVisibilityAfterUpdate()
+              ← <com.android.server.wm.ActivityTaskManagerService: void $r8$
+              ← ActivityTaskManagerService.setFrontActivityScreenCompatMode()
+              ← CompatModePackages.setPackageScreenCompatModeLocked()
+              ← ActivityTaskManagerService.resizeTask()
+              ← <com.android.server.wm.DexController: void lambda$changeAllR
+              ← <com.android.server.wm.FreeformController: void lambda$updat
+              ← FreeformController.resizeTaskByFreeformHeaderTypeLocked()
+              ← FreeformController.setFreeformWindowingModeByCornerGestureLocked()
+              ← FreeformController.updateFreeformBoundsForDisplayDeviceTypeChanged()
+              ← Task.resize()
+              ← Task.resize()
+              ← TaskMotionController.postAnimationFinished()
+              ← TaskFragment$EnsureVisibleActivitiesConfigHelper.test()
+              ← PackageConfigurationUpdaterImpl.updateConfig()
+              ← ActivityTaskSupervisor$ActivityTaskSupervisorHandler.handleMessage()
+              ← EnsureActivitiesVisibleHelper$$ExternalSyntheticLambda0.accept()
+              ← TaskFragment.updateActivityVisibilities()
+              ← ActivityRecord.reparentGroup()
+              ← ProcessList.updateApplicationInfoLOSP()
+              ← ActivityClientController.activityPaused()
+              ← ActivityRecord$1.run()
+              ← TaskFragment.awakeFromSleeping()
+              ← ActivityRecord.finishIfPossible()
+              ← TaskFragment.startPausing()
+              ← Task.resumeTopActivityInnerLocked()
+              ← TaskFragment.resumeTopActivity()
+              ← WindowContextListenerController.dispatchPendingConfigurationIfNeeded()
+              ← <com.android.server.am.ProcessRecord: void <init>(com.androi
+              ← ActivityManagerService.finishBooting()
+              ← RootWindowContainer.performSurfacePlacement()
+
+  CALLEES (what this method invokes):
+      → HashMap.containsKey()
+      → HashMap.get()
+

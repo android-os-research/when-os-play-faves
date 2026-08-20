@@ -1,0 +1,6 @@
+# com.samsung.android.knox.intent.action.LICENSE_STATUS [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.license.EnterpriseLicenseService: boolean processLicenseValidationResult(java.lang.String,java.lang.String,com.samsung.android.knox.license.RightsObject,com.samsung.android.knox.license.Error,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>
+<com.android.server.enterprise.license.EnterpriseLicenseService: void sendElmResult(java.lang.String,int,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.ArrayList,java.util.ArrayList,com.android.server.enterprise.license.EnterpriseLicenseService$LicenseResultRecord)>

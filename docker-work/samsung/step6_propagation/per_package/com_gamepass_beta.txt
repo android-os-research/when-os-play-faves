@@ -1,0 +1,60 @@
+######################################################################
+# Propagation: com.gamepass.beta
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.twt.SemTwtAiEngineInterfaces
+  Method:   <com.samsung.android.server.wifi.twt.SemTwtAiEngineInterfaces: boolean getAppTwtDisableFlag(java.lang.String)>
+  Line:     1719
+  Register: v1 := "com.gamepass.beta"
+  Usage:    [invoke] invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-nez v1, :cond_13 → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemWifiTwtMonitor$TwtHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → SemTwtAiEngineInterfaces.getCloudGame()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.twt.SemTwtAiEngineInterfaces
+  Method:   <com.samsung.android.server.wifi.twt.SemTwtAiEngineInterfaces: com.samsung.android.server.wifi.twt.SemTwtAiEngineInterfaces$algOutput modeSelectionDet(int,java.lang.String)>
+  Line:     2181
+  Register: v0 := "com.gamepass.beta"
+  Usage:    [invoke] invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-nez v0, :cond_13 → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemTwtAiEngineInterfaces.reinitialize()
+        ← SemWifiTwtMonitor$TwtHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → SemTwtInfo.addEvent()
+      → SemTwtSpDuration.setmEpsilon()
+      → SemTwtSpDuration.setmOverflowGuardThr()
+      → SemTwtSpDuration.setmOverflowThresholdPercent()
+      → SemTwtSpDuration.setmStableGuardHiEpsThr()
+      → SemTwtSpDuration.setmStableGuardLoEpsThr()
+      → SemTwtSpDuration.setmTdtUpdateMode()
+        → SimpleDateFormat.format()
+        → <java.text.SimpleDateFormat: void <init>(java.lang.String)>
+        → <java.util.Date: void <init>(long)>
+        → LinkedList.add()
+        → LinkedList.size()
+        → LinkedList.removeFirst()
+

@@ -1,0 +1,12 @@
+# com.samsung.android.biometrics.ISemBiometricSysUiCallback [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.samsung.android.biometrics.ISemBiometricSysUiCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.biometrics.ISemBiometricSysUiCallback$Stub$Proxy: void onError(int,int,int)>
+<com.samsung.android.biometrics.ISemBiometricSysUiCallback$Stub$Proxy: void onEvent(int,int,int)>
+<com.samsung.android.biometrics.ISemBiometricSysUiCallback$Stub$Proxy: void onSysUiDismissed(int,int,byte[])>
+<com.samsung.android.biometrics.ISemBiometricSysUiCallback$Stub$Proxy: void onTouchEvent(int,int)>
+<com.samsung.android.biometrics.ISemBiometricSysUiCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.biometrics.ISemBiometricSysUiCallback$Stub: com.samsung.android.biometrics.ISemBiometricSysUiCallback asInterface(android.os.IBinder)>
+<com.samsung.android.biometrics.ISemBiometricSysUiCallback$Stub: void <init>()>

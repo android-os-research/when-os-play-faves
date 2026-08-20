@@ -1,0 +1,33 @@
+######################################################################
+# Propagation: com.whitepages.nameid.tmobile
+######################################################################
+
+JARs:                 telephony-common
+Classes:              1
+Occurrences:          1
+Usage types:          unknown
+Enforcement patterns: (none)
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.whitepages.nameid.NameIDBlockingHelper
+  Method:   <com.whitepages.nameid.NameIDBlockingHelper: java.lang.String getActivePackageName(android.content.Context)>
+  Line:     32
+  Register: p0 := "com.whitepages.nameid.tmobile"
+  Usage:    [unknown] return-object p0
+  Patterns: (none)
+  Flow:     [other] return-object p0
+
+  CALLERS (who invokes this method):
+      ← NameIDBlockingHelper.wrapIntent()
+      ← NameIDBlockingHelper.isNameIDInstalledAndEnabled()
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Settings$System.getString()
+      → TextUtils.isEmpty()
+        → CharSequence.length()
+

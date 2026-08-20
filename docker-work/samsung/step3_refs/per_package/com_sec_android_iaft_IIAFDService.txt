@@ -1,0 +1,10 @@
+# com.sec.android.iaft.IIAFDService [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.sec.android.iaft.IIAFDService$Stub$Proxy: boolean IAFDParse(java.lang.String,java.lang.String,int,int,int,java.lang.String,java.lang.String,java.lang.String)>
+<com.sec.android.iaft.IIAFDService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.android.iaft.IIAFDService$Stub$Proxy: void IAFDShow(int,int,java.lang.String)>
+<com.sec.android.iaft.IIAFDService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.android.iaft.IIAFDService$Stub: com.sec.android.iaft.IIAFDService asInterface(android.os.IBinder)>
+<com.sec.android.iaft.IIAFDService$Stub: void <init>()>

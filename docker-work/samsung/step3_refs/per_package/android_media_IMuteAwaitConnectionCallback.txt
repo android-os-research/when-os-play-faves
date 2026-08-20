@@ -1,0 +1,10 @@
+# android.media.IMuteAwaitConnectionCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.IMuteAwaitConnectionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IMuteAwaitConnectionCallback$Stub$Proxy: void dispatchOnMutedUntilConnection(android.media.AudioDeviceAttributes,int[])>
+<android.media.IMuteAwaitConnectionCallback$Stub$Proxy: void dispatchOnUnmutedEvent(int,android.media.AudioDeviceAttributes,int[])>
+<android.media.IMuteAwaitConnectionCallback$Stub: android.media.IMuteAwaitConnectionCallback asInterface(android.os.IBinder)>
+<android.media.IMuteAwaitConnectionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IMuteAwaitConnectionCallback$Stub: void <init>()>

@@ -1,0 +1,11 @@
+# android.view.IWindowId [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.view.IWindowId$Stub$Proxy: boolean isFocused()>
+<android.view.IWindowId$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IWindowId$Stub$Proxy: void registerFocusObserver(android.view.IWindowFocusObserver)>
+<android.view.IWindowId$Stub$Proxy: void unregisterFocusObserver(android.view.IWindowFocusObserver)>
+<android.view.IWindowId$Stub: android.view.IWindowId asInterface(android.os.IBinder)>
+<android.view.IWindowId$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IWindowId$Stub: void <init>()>

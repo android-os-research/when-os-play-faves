@@ -1,0 +1,7 @@
+# com.samsung.android.knoxguard.RETRY_LOCK [NEW]
+# Refs: 3
+# JARs: services
+
+<com.samsung.android.knoxguard.service.KnoxGuardSeService: void registerAlarmReceiver(android.content.Context)>
+<com.samsung.android.knoxguard.service.utils.Utils: android.app.PendingIntent getPendingIntentForRetryLockAction(android.content.Context,int)>
+<com.samsung.android.knoxguard.service.utils.Utils: boolean isRetryLockAlarmRunning(android.content.Context,int)>

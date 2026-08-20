@@ -1,0 +1,18 @@
+# android.os.IIdmap2 [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.os.IIdmap2$Stub$Proxy: android.os.FabricatedOverlayInfo createFabricatedOverlay(android.os.FabricatedOverlayInternal)>
+<android.os.IIdmap2$Stub$Proxy: boolean deleteFabricatedOverlay(java.lang.String)>
+<android.os.IIdmap2$Stub$Proxy: boolean removeIdmap(java.lang.String,int)>
+<android.os.IIdmap2$Stub$Proxy: boolean verifyIdmap(java.lang.String,java.lang.String,java.lang.String,int,boolean,int)>
+<android.os.IIdmap2$Stub$Proxy: java.lang.String createIdmap(java.lang.String,java.lang.String,java.lang.String,int,boolean,int)>
+<android.os.IIdmap2$Stub$Proxy: java.lang.String dumpIdmap(java.lang.String)>
+<android.os.IIdmap2$Stub$Proxy: java.lang.String getIdmapPath(java.lang.String,int)>
+<android.os.IIdmap2$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IIdmap2$Stub$Proxy: java.util.List nextFabricatedOverlayInfos()>
+<android.os.IIdmap2$Stub$Proxy: void acquireFabricatedOverlayIterator()>
+<android.os.IIdmap2$Stub$Proxy: void releaseFabricatedOverlayIterator()>
+<android.os.IIdmap2$Stub: android.os.IIdmap2 asInterface(android.os.IBinder)>
+<android.os.IIdmap2$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IIdmap2$Stub: void <init>()>

@@ -1,0 +1,17 @@
+# com.android.ims.internal.uce.presence.IPresenceListener [NEW]
+# Refs: 13
+# JARs: framework
+
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub$Proxy: void capInfoReceived(java.lang.String,com.android.ims.internal.uce.presence.PresTupleInfo[])>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub$Proxy: void cmdStatus(com.android.ims.internal.uce.presence.PresCmdStatus)>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub$Proxy: void getVersionCb(java.lang.String)>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub$Proxy: void listCapInfoReceived(com.android.ims.internal.uce.presence.PresRlmiInfo,com.android.ims.internal.uce.presence.PresResInfo[])>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub$Proxy: void publishTriggering(com.android.ims.internal.uce.presence.PresPublishTriggerType)>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub$Proxy: void serviceAvailable(com.android.ims.internal.uce.common.StatusCode)>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub$Proxy: void serviceUnAvailable(com.android.ims.internal.uce.common.StatusCode)>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub$Proxy: void sipResponseReceived(com.android.ims.internal.uce.presence.PresSipResponse)>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub$Proxy: void unpublishMessageSent()>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub: com.android.ims.internal.uce.presence.IPresenceListener asInterface(android.os.IBinder)>
+<com.android.ims.internal.uce.presence.IPresenceListener$Stub: void <init>()>

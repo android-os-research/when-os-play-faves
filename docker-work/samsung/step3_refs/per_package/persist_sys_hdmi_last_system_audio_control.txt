@@ -1,0 +1,6 @@
+# persist.sys.hdmi.last_system_audio_control [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.hdmi.HdmiCecLocalDeviceAudioSystem: void onAddressAllocated(int,int)>
+<com.android.server.hdmi.HdmiCecLocalDeviceAudioSystem: void onStandby(boolean,int)>

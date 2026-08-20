@@ -1,0 +1,6 @@
+# persist.input.velocitytracker.strategy [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.sysprop.InputProperties: java.util.Optional velocitytracker_strategy()>
+<android.sysprop.InputProperties: void velocitytracker_strategy(java.lang.String)>

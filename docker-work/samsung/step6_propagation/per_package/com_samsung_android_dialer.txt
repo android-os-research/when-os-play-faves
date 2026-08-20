@@ -1,0 +1,685 @@
+######################################################################
+# Propagation: com.samsung.android.dialer
+######################################################################
+
+JARs:                 framework, services
+Classes:              8
+Occurrences:          10
+Usage types:          invoke
+Enforcement patterns: allowlist_check, early_return, permission_grant, string_compare, system_property_read
+Security tags:        APPOPS, DEVICE_ID, PERM_FLAGS, PERM_GRANT, PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.pm.ASKSManager
+  Method:   <android.content.pm.ASKSManager: boolean isBlockTarget(int,java.lang.String)>
+  Line:     909
+  Register: v1 := "com.samsung.android.dialer"
+  Usage:    [invoke] invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-nez v1, :cond_7e → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← ZygoteProcess.startViaZygote()
+        ← ZygoteProcess.startChildZygote()
+        ← ZygoteProcess.start()
+          ← AppZygote.connectToZygoteIfNeededLocked()
+          ← WebViewZygote.connectToZygoteIfNeededLocked()
+            ← AppZygote.getProcess()
+            ← WebViewZygote.getProcess()
+              ← ProcessList.startProcess()
+              ← SystemImpl.ensureZygoteStarted()
+
+  CALLEES (what this method invokes):
+      → ASKSManager.getASKSIDataFromXML()
+      → IASKSManager.getIMEIList() [DEVICE_ID]
+      → File.delete()
+      → File.exists()
+      → <java.io.File: void <init>(java.lang.String)>
+      → ArrayList.addAll()
+      → ArrayList.isEmpty()
+      → ArrayList.iterator()
+      → HashMap.containsKey()
+      → HashMap.isEmpty()
+      → <java.util.HashMap: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.isEmpty()
+        → Xml.newPullParser()
+        → File.mkdir()
+        → File.setReadable()
+        → File.getParentFile()
+        → FileNotFoundException.printStackTrace()
+        → <java.io.FileReader: void <init>(java.io.File)>
+        → FileReader.close()
+        → IOException.printStackTrace()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → ArrayList.get()
+        → <java.util.ArrayList: void <init>()>
+        → HashMap.put()
+        → XmlPullParser.getEventType()
+        → XmlPullParser.next()
+        → XmlPullParser.getAttributeValue()
+        → XmlPullParser.getName()
+        → XmlPullParser.setInput()
+        → XmlPullParserException.printStackTrace()
+          → <java.lang.AssertionError: void <init>()>
+          → XmlObjectFactory.newXmlPullParser()
+          → XmlPullParser.setFeature()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     84
+  Register: v22 := "com.samsung.android.dialer"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.devicepolicy.KnoxUtils
+  Method:   <com.android.server.devicepolicy.KnoxUtils: void installLegacyKnoxApps(android.content.Context,int)>
+  Line:     757
+  Register: v0 := "com.samsung.android.dialer"
+  Usage:    [invoke] invoke-interface {v1, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, early_return
+  Flow:     [invoke] java.util.Set.contains() → [invoke] java.util.Set.remove() → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getInstalledApplicationsAsUser()
+      → <com.android.server.devicepolicy.KnoxUtils$$ExternalSyntheti
+      → KnoxUtils.isCLTypeProvisioning()
+      → KnoxUtils.isVoiceCapable()
+      → KnoxUtils.getProvisioningType()
+      → KnoxUtils.installExistingApps()
+      → KnoxConfigurationType.getAppInstallationList()
+      → KnoxContainerManager.getConfigurationTypeByName()
+      → <java.util.HashSet: void <init>()>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+      → Set.add()
+      → Set.contains()
+      → Set.remove()
+      → Set.removeIf()
+        → Bundle.getBoolean()
+        → KnoxContainerManager.getProvisioningState()
+        → Context.getSystemService()
+        → TelephonyManager.isVoiceCapable()
+        → Bundle.getString()
+        → PackageManager.installExistingPackageAsUser()
+        → Exception.getMessage()
+        → Exception.printStackTrace()
+        → Set.isEmpty()
+        → Set.size()
+        → Set.iterator()
+        → KnoxContainerManager.getConfigurationTypeByName()
+          → <android.os.Bundle: void <init>()>
+          → ContextInfo$$ExternalSyntheticOutline0.m()
+          → IKnoxContainerManager.getProvisioningState()
+          → KnoxContainerManager.getContainerService()
+          → ContextInfo$$ExternalSyntheticOutline0.m()
+          → IKnoxContainerManager.getConfigurationTypeByName()
+          → List.isEmpty()
+          → List.get()
+            → ServiceManager.getService()
+            → IKnoxContainerManager$Stub.asInterface()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.container.IKnoxContainerManager$St
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.devicepolicy.KnoxUtils
+  Method:   <com.android.server.devicepolicy.KnoxUtils: void setNonRequiredApps(java.util.Set,android.content.Context)>
+  Line:     1178
+  Register: p1 := "com.samsung.android.dialer"
+  Usage:    [invoke] invoke-interface {p0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.add()
+
+  CALLEES (what this method invokes):
+      → KnoxUtils.isCLTypeProvisioning()
+      → KnoxUtils.isVoiceCapable()
+      → KnoxUtils.getProvisioningType()
+      → KnoxConfigurationType.getAppInstallationList()
+      → KnoxContainerManager.getConfigurationTypeByName()
+      → Set.add()
+      → Set.removeAll()
+        → Bundle.getBoolean()
+        → KnoxContainerManager.getProvisioningState()
+        → Context.getSystemService()
+        → TelephonyManager.isVoiceCapable()
+        → Bundle.getString()
+        → KnoxContainerManager.getConfigurationTypeByName()
+          → <android.os.Bundle: void <init>()>
+          → ContextInfo$$ExternalSyntheticOutline0.m()
+          → IKnoxContainerManager.getProvisioningState()
+          → KnoxContainerManager.getContainerService()
+          → ContextInfo$$ExternalSyntheticOutline0.m()
+          → IKnoxContainerManager.getConfigurationTypeByName()
+          → List.isEmpty()
+          → List.get()
+            → ServiceManager.getService()
+            → IKnoxContainerManager$Stub.asInterface()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.container.IKnoxContainerManager$St
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: byte[] getKnoxPhoneOrMessageIcon(java.lang.String)>
+  Line:     8235
+  Register: p1 := "com.samsung.android.dialer"
+  Usage:    [invoke] invoke-static {v0, p1}, Lcom/android/server/knox/ContainerDependencyWrapper;->isPackageInstalled(Lco
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.knox.ContainerDependencyWrapper.isPackage → [invoke] android.content.Intent.setPackage() → [
+
+  CALLERS (who invokes this method):
+      ← PersonaManagerService.getKnoxIcon()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getLauncherLargeIconDensity()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → Intent.addCategory()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Intent.removeCategory()
+      → ActivityInfo.getIconResource()
+      → PackageManager.getResourcesForApplicationAsUser()
+      → PackageManager.queryIntentActivitiesAsUser()
+      → Resources.getDrawableForDensity()
+      → Resources.getIdentifier()
+      → Bitmap.compress()
+      → ContainerDependencyWrapper.isPackageInstalled()
+      → PersonaManagerService.drawableToBitmap()
+      → ByteArrayOutputStream.toByteArray()
+      → <java.io.ByteArrayOutputStream: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.size()
+      → List.get()
+      → List.iterator()
+        → PackageManagerService.isPackageInstalled()
+        → Bitmap.createBitmap()
+        → Canvas.getHeight()
+        → Canvas.getWidth()
+        → <android.graphics.Canvas: void <init>(android.graphics.Bitma
+        → Rect.isEmpty()
+        → Rect.height()
+        → Rect.width()
+        → BitmapDrawable.getBitmap()
+        → Drawable.getBounds()
+        → Drawable.getIntrinsicHeight()
+        → Drawable.getIntrinsicWidth()
+        → Drawable.draw()
+        → Drawable.setBounds()
+          → WatchedArrayMap.containsKey()
+            → ArrayMap.containsKey()
+              → ArrayMap.indexOfKey()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: java.util.ArrayList getMoveToKnoxMenuList(int)>
+  Line:     9270
+  Register: v6 := "com.samsung.android.dialer"
+  Usage:    [invoke] invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v6 overwritten
+
+  CALLERS (who invokes this method):
+      ← PersonaManagerService.getMoveToKnoxMenuList()
+
+  CALLEES (what this method invokes):
+      → DevicePolicyManager.isOrganizationOwnedDeviceWithManagedProfile()
+      → Context.getContentResolver()
+      → UserInfo.isQuietModeEnabled()
+      → UserInfo.isSuperLocked()
+      → Binder.getCallingPid() [UID_CHECK]
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putInt()
+      → Bundle.putString()
+      → UserManager.getUserInfo()
+      → UserManager.isUserRunning()
+      → Settings$Secure.getIntForUser()
+      → ContainerDependencyWrapper.isInEmergencyMode()
+      → ContainerDependencyWrapper.isSecureFolderPkgAvailable()
+      → ContainerDependencyWrapper.getContactsPkgName()
+      → PersonaManagerService$Injector.binderClearCallingIdentity()
+      → PersonaManagerService$Injector.binderRestoreCallingIdentity()
+      → PersonaManagerService.getUserManager()
+      → PersonaManagerService.isSecureFolderSupported()
+      → PersonaManagerService.getPersonaManager()
+      → PersonaManagerService.getAppNameByPID()
+      → PersonaManagerService.getContainerName()
+      → PersonaManagerService.getPersonalModeName()
+      → PersonaManagerService.getSecureFolderName()
+      → SemPersonaManager.isDoEnabled()
+      → SemPersonaManager.isKnoxId()
+      → SemPersonaManager.isKnoxVersionSupported()
+      → SemPersonaManager.isSecureFolderId()
+      → SemPersonaManager.isSupported()
+      → SemPersonaManager.getSecureFolderId()
+      → SemPersonaManager.getKnoxIds()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → List.size()
+      → List.get()
+        → Settings$System.getInt()
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → Context.getSystemService()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationEnabledSetting()
+        → ContainerDependencyWrapper.getSecProductFeature_SEC_PRODUCT_FEATURE_KNOX_CONFIG_SECURE_FOLDER_VERSION()
+        → Exception.printStackTrace()
+        → ActivityManager.getRunningAppProcesses()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.isEmpty()
+        → List.iterator()
+        → PersonaManagerService$Injector.getUserManager()
+        → PersonaManagerService.isSecureFolderIds()
+        → PersonaManagerService.getContainerNamePerTypes()
+        → PersonaPolicyManagerService.getCustomNamePersonalMode()
+        → ApplicationInfo.loadUnsafeLabel()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → PersonaManagerService$Injector.getPackageManager()
+        → SystemProperties.getBoolean()
+        → SemPersonaManager.checkContainerType()
+        → SemPersonaManager.isDualAppId()
+        → SemPersonaManager$KnoxContainerVersion.getVersionNumber()
+        → SemPersonaManager.getKnoxContainerVersion()
+        → Bundle.getString()
+        → SemPersonaManager.getKnoxInfo()
+        → SemPersonaManager.isMoveFilesToContainerAllowed()
+        → SemPersonaManager.isMoveFilesToOwnerAllowed()
+        → SemPersonaManager.getPersonaService()
+        → UserInfo.isDualAppProfile()
+        → UserInfo.isEnabled()
+        → ISemPersonaManager.getProfiles()
+        → List.add()
+          → SemFloatingFeature.loge()
+          → Hashtable.get()
+          → PersonaManagerService.getAppSeparationName()
+          → PersonaManagerService.getECName()
+          → PersonaManagerService.getProfileName()
+          → PersonaManagerService.getWorkProfileName()
+          → PersonaPolicyManagerService.getPersonaData()
+          → SystemProperties.get()
+          → SemDualAppManager.isDualAppId()
+          → SemPersonaManager$KnoxContainerVersion.ordinal()
+          → KnoxInfoImpl.getKnoxInfo()
+          → ISemPersonaManager.isMoveFilesToContainerAllowed()
+          → SemPersonaManager.getPersonaService()
+          → ISemPersonaManager.isMoveFilesToOwnerAllowed()
+            → UserInfo.isUserTypeAppSeparation()
+            → TextUtils.isEmpty()
+            → PersonaManagerService$Injector.isTestingMode()
+            → PersonaManagerService$Injector.getPersonaManagerInternal()
+            → PersonaManagerService$LocalService.getECName()
+            → PersonaManagerInternal.getECName()
+            → PersonaPolicyManagerService.getCustomNamePersona()
+            → PersonaManagerService$Injector.getPersonaPolicyManagerService()
+            → DevicePolicyManager.getResources()
+            → DevicePolicyResourcesManager.getString()
+            → <com.android.server.pm.PersonaManagerService$$ExternalSynthe
+            → SparseArray.get()
+            → SparseArray.append()
+            → <com.android.server.knox.PersonaPolicyManagerService$Persona
+            → PersonaPolicyManagerService.loadSettingsLocked()
+            → ServiceManager.getService()
+            → ISemPersonaManager$Stub.asInterface()
+              → CharSequence.length()
+              → ContainerDependencyWrapper.getECName()
+              → PersonaPolicyManagerService.getInstance()
+              → IDevicePolicyManager.getString()
+              → ParcelableResource.getString()
+              → ParcelableResource.loadDefaultString()
+              → DeviceConfig.getBoolean()
+              → Objects.requireNonNull()
+              → SparseArray.get()
+              → SparseArray.gc()
+              → SparseArray.put()
+              → GrowingArrayUtils.append()
+              → GrowingArrayUtils.append()
+              → <java.util.HashMap: void <init>()>
+              → Xml.newPullParser()
+              → JournaledFile.chooseForRead()
+              → XmlUtils.skipCurrentTag()
+              → <com.android.server.knox.PersonaPolicyManagerService$Persona
+              → PersonaPolicyManagerService.makeJournaledFile()
+              → PersonaPolicyManagerService.dumpRCPSettings()
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileInputStream.close()
+              → HashMap.get()
+              → HashMap.put()
+              → XmlPullParser.next()
+              → XmlPullParser.getAttributeValue()
+              → XmlPullParser.getName()
+              → XmlPullParser.setInput()
+              → <org.xmlpull.v1.XmlPullParserException: void <init>(java.lan
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.ISemPersonaManager$Stub$Proxy: voi
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.DexOptHelper
+  Method:   <com.android.server.pm.DexOptHelper: void <init>(com.android.server.pm.PackageManagerService)>
+  Line:     148
+  Register: v2 := "com.samsung.android.dialer"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v6}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← BackgroundDexOptService$Injector.getDexOptHelper()
+      ← <com.android.server.pm.PackageManagerService: void <init>(co
+        ← <com.android.server.pm.BackgroundDexOptService: void <init>(
+        ← PackageManagerService.main()
+          ← <com.android.server.pm.BackgroundDexOptService: void <init>(
+          ← SystemServer.startBootstrapServices()
+            ← <com.android.server.pm.PackageManagerService: com.android.se
+            ← SystemServer.run()
+              ← <com.android.server.pm.PackageManagerService: com.android.se
+              ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.permission.DefaultPermissionGrantPolicy
+  Method:   <com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+  Line:     9500
+  Register: v1 := "com.samsung.android.dialer"
+  Usage:    [invoke] invoke-virtual {v9, v1}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManag
+  Patterns: string_compare, early_return, permission_grant, system_property_read
+
+  CALLERS (who invokes this method):
+      ← DefaultPermissionGrantPolicy.grantDefaultPermissions() [PERM_GRANT]
+        ← LegacyPermissionManagerService$Internal.grantDefaultPermissions() [PERM_GRANT]
+
+  CALLEES (what this method invokes):
+      → ActivityManager.isLowRamDeviceStatic()
+      → AppOpsManager.setUidMode()
+      → Context.getContentResolver()
+      → Context.getPackageManager()
+      → Context.getResources()
+      → Context.getSystemService()
+      → Intent.addCategory()
+      → Intent.setDataAndType()
+      → Intent.setType()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → IPackageManager$Stub.asInterface()
+      → IPackageManager.isFirstBoot()
+      → PackageManager.hasSystemFeature()
+      → PackageManager.checkSignatures() [SIG_CHECK]
+      → PackageManager.getPermissionControllerPackageName()
+      → Resources.getBoolean()
+      → Uri.fromFile()
+      → SemSystemProperties.get()
+      → ServiceManager.getService()
+      → SystemProperties.get()
+      → UserHandle.of()
+      → Settings$Global.putString()
+      → TextUtils.isEmpty()
+      → <android.util.ArraySet: void <init>()>
+      → ArrayUtils.firstOrNull()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPackageInfo() [PKG_QUERY]
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.getSystemPackageInfo()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSystemPackage()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.updatePermissionFlags() [PERM_FLAGS]
+      → DefaultPermissionGrantPolicy.doesPackageSupportRuntimePermissions()
+      → DefaultPermissionGrantPolicy.isDuoStubModel()
+      → DefaultPermissionGrantPolicy.getDefaultCaptivePortalLoginPackage()
+      → DefaultPermissionGrantPolicy.getDefaultProviderAuthorityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSearchSelectorPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerActivityPackageForCategory()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerServicePackage()
+      → DefaultPermissionGrantPolicy.getDefaultSystemHandlerServicePackage()
+      → DefaultPermissionGrantPolicy.getKnownPackages()
+      → DefaultPermissionGrantPolicy.getHeadlessSyncAdapterPackages()
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToAsrApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToAttApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToCharterApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToCricketApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemDialerApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemSimCallManager() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemSmsApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSystemUseOpenWifiApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToMetroApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToSprintApps() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToTmoApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToUSCApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToVerizonApp() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantDefaultPermissionsToVerizonAppForVPP() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionToEachSystemPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionsToPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantPermissionsToSystemPackage() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantSystemFixedPermissionsToSystemPackage()
+      → DefaultPermissionGrantPolicy.setAppOpToSystemPackage()
+      → LegacyPermissionManagerInternal$PackagesProvider.getPackages()
+      → LegacyPermissionManagerInternal$SyncAdapterPackagesProvider.getPackages()
+      → SemCscFeature.getBoolean()
+      → SemCscFeature.getInstance()
+      → <java.io.File: void <init>(java.lang.String)>
+      → Set.add()
+      → Set.addAll()
+        → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+        → Uri$PathPart.fromDecoded()
+        → File.getAbsolutePath()
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+        → CharSequence.length()
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → ApplicationInfo.isSystemApp()
+        → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSystemPackage()
+        → Context.getString()
+        → PackageManager.resolveContentProviderAsUser()
+        → PackageManager.resolveActivityAsUser()
+        → PackageManagerInternal.isResolveActivityComponent()
+        → PackageManager.queryIntentServicesAsUser()
+        → List.size()
+        → List.get()
+        → PackageManagerInternal.getKnownPackageNames()
+        → Intent.setPackage()
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+        → DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSimCallManager() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.isSprintOreoMRUpgradeModel()
+        → ArrayList.size()
+        → ArrayList.get()
+        → DefaultPermissionGrantPolicy.grantPermissionsToPackage() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.grantPermissionsToSystemPackage() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+        → AppOpsManager.setMode() [APPOPS]
+        → Hashtable.get()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+          → Uri$PathPart.from()
+          → ArraySet.allocArrays()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSysComponentOrPersistentPlatformSignedPrivApp()
+          → ApplicationInfo.isUpdatedSystemApp()
+          → PackageManagerInternal.getDisabledSystemPackageName()
+          → Bundle.getBoolean()
+          → PermissionManager$SplitPermissionInfo.getTargetSdk()
+          → PermissionManager$SplitPermissionInfo.getSplitPermission()
+          → PermissionManager$SplitPermissionInfo.getNewPermissions()
+          → PermissionManager.getSplitPermissions()
+          → ArraySet.addAll()
+          → ArraySet.contains()
+          → <android.util.ArraySet: void <init>(java.util.Collection)>
+          → ArrayUtils.contains()
+          → ArrayUtils.isEmpty()
+          → ArrayUtils.filterNotNull()
+          → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isGranted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isPermissionRestricted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionFlags()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getBackgroundPermission()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.grantPermission() [PERM_GRANT]
+          → DefaultPermissionGrantPolicy.isFixedOrUserSet()
+          → Map.get()
+          → Map.put()
+          → Set.contains()
+          → SystemProperties.get()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → Uri$Part.nonNull()
+            → <android.net.Uri$PathPart: void <init>(java.lang.String,java
+            → ApplicationInfo.isPrivilegedApp()
+            → PackageManagerInternal.isPlatformSigned()
+            → UserHandle.getAppId()
+            → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+            → SplitPermissionInfoParcelable.getTargetSdk()
+            → SplitPermissionInfoParcelable.getSplitPermission()
+            → SplitPermissionInfoParcelable.getNewPermissions()
+            → ActivityThread.getPermissionManager()
+            → IPermissionManager.getSplitPermissions()
+            → PermissionManager.splitPermissionInfoListToNonParcelableList()
+            → Collections.emptyList()
+            → ArraySet.add()
+            → ArraySet.ensureCapacity()
+            → Collection.size()
+            → Collection.iterator()
+            → Iterator.hasNext()
+            → Iterator.next()
+            → ArraySet.indexOf()
+            → PermissionInfo.isRestricted()
+            → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionInfo()
+            → SemCscFeature.loadFeatureFile()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+              → <android.net.Uri$AbstractPart: void <init>(java.lang.String,
+              → <android.permission.PermissionManager$SplitPermissionInfo: v
+              → <java.util.ArrayList: void <init>(int)>
+              → List.add()
+              → ArraySet.indexOf()
+              → ArraySet.indexOfNull()
+              → ArraySet.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: java.lang.String[] getConcentrationModeSuspendPackages(java.util.List,java.util.List,java.lang.String)>
+  Line:     16800
+  Register: v2 := "com.samsung.android.dialer"
+  Usage:    [] 
+  Patterns: (none)
+
+  CALLERS (who invokes this method):
+      ← ApplicationPolicy.setConcentrationMode()
+
+  CALLEES (what this method invokes):
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.remove()
+      → List.toArray()
+      → List.iterator()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.notification.NotificationReminder
+  Method:   <com.android.server.notification.NotificationReminder: java.lang.String getCallAndMsgPackage(android.content.Context)>
+  Line:     728
+  Register: v0 := "com.samsung.android.dialer"
+  Usage:    [invoke] invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: (none)
+  Flow:     [invoke] java.util.List.add() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.notification.NotificationReminder: java.
+      ← NotificationReminder.updateEnablePackageList()
+        ← NotificationReminder$1.onReceive()
+        ← <com.android.server.notification.NotificationReminder: void 
+          ← NotificationReminder$UpdateEnablePackageTask.doInBackground()
+            ← NotificationReminder$UpdateEnablePackageTask.doInBackground()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → Telephony$Sms.getDefaultSmsPackage()
+      → TelecomManager.getDefaultDialerPackage()
+      → StringBuffer.length()
+      → StringBuffer.toString()
+      → StringBuffer.append()
+      → <java.lang.StringBuffer: void <init>()>
+      → <java.util.ArrayList: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.add()
+      → List.iterator()
+        → ComponentName.getPackageName()
+        → SmsApplication.getDefaultSmsApplication()
+        → TelecomManager.getTelecomService()
+        → ITelecomService.getDefaultDialerPackage()
+          → IBinder.linkToDeath()
+          → ServiceManager.getService()
+          → ITelecomService$Stub.asInterface()
+          → ITelecomService.asBinder()
+            → IBinder.queryLocalInterface()
+            → <com.android.internal.telecom.ITelecomService$Stub$Proxy: vo
+

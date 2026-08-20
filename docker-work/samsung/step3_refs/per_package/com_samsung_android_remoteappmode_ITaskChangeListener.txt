@@ -1,0 +1,13 @@
+# com.samsung.android.remoteappmode.ITaskChangeListener [NEW]
+# Refs: 9
+# JARs: framework
+
+<com.samsung.android.remoteappmode.ITaskChangeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.remoteappmode.ITaskChangeListener$Stub$Proxy: void onRecentTaskListUpdated()>
+<com.samsung.android.remoteappmode.ITaskChangeListener$Stub$Proxy: void onTaskDisplayChanged(int,int)>
+<com.samsung.android.remoteappmode.ITaskChangeListener$Stub$Proxy: void onTaskPlayed(int,int)>
+<com.samsung.android.remoteappmode.ITaskChangeListener$Stub$Proxy: void onTaskRemoved(int)>
+<com.samsung.android.remoteappmode.ITaskChangeListener$Stub$Proxy: void onTaskTriedToGoToBackground(int,int)>
+<com.samsung.android.remoteappmode.ITaskChangeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.remoteappmode.ITaskChangeListener$Stub: com.samsung.android.remoteappmode.ITaskChangeListener asInterface(android.os.IBinder)>
+<com.samsung.android.remoteappmode.ITaskChangeListener$Stub: void <init>()>

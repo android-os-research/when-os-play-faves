@@ -1,0 +1,9 @@
+# android.hardware.ISensorPrivacyListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.ISensorPrivacyListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.ISensorPrivacyListener$Stub$Proxy: void onSensorPrivacyChanged(int,int,boolean)>
+<android.hardware.ISensorPrivacyListener$Stub: android.hardware.ISensorPrivacyListener asInterface(android.os.IBinder)>
+<android.hardware.ISensorPrivacyListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.ISensorPrivacyListener$Stub: void <init>()>

@@ -1,0 +1,6 @@
+# android.telephony.mbms.action.CLEANUP [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.telephony.mbms.MbmsDownloadReceiver: boolean verifyIntentContents(android.content.Context,android.content.Intent)>
+<android.telephony.mbms.MbmsDownloadReceiver: void onReceive(android.content.Context,android.content.Intent)>

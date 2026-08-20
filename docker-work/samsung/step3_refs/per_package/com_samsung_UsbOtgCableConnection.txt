@@ -1,0 +1,10 @@
+# com.samsung.UsbOtgCableConnection [NEW]
+# Refs: 6
+# JARs: motionrecognitionservice, services, telephony-common
+
+<com.android.internal.telephony.SemDeviceStateMonitor$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.SemDeviceStateMonitor: void <init>(com.android.internal.telephony.Phone)>
+<com.android.server.usb.UsbDeviceManager: void <init>(android.content.Context,com.android.server.usb.UsbAlsaManager,com.android.server.usb.UsbSettingsManager,com.android.server.usb.UsbPermissionManager,android.util.sysfwutil.DexObserver)>
+<com.android.server.usb.UsbHostManager$1: void onUEvent(android.os.UEventObserver$UEvent)>
+<com.samsung.android.gesture.MotionRecognitionSAR$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.gesture.MotionRecognitionSAR: void setupIntentFilter()>

@@ -1,0 +1,9 @@
+# android.content.om.ISamsungOverlayCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.om.ISamsungOverlayCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.om.ISamsungOverlayCallback$Stub$Proxy: void overlayStateChanged(java.lang.String,boolean)>
+<android.content.om.ISamsungOverlayCallback$Stub: android.content.om.ISamsungOverlayCallback asInterface(android.os.IBinder)>
+<android.content.om.ISamsungOverlayCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.om.ISamsungOverlayCallback$Stub: void <init>()>

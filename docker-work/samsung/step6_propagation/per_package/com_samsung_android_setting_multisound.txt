@@ -1,0 +1,718 @@
+######################################################################
+# Propagation: com.samsung.android.setting.multisound
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.AudioService$SamsungBroadcastReceiver
+  Method:   <com.android.server.audio.AudioService$SamsungBroadcastReceiver: void handleIntent(android.content.Context,android.content.Intent)>
+  Line:     1176
+  Register: p2 := "com.samsung.android.setting.multisound"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] p2 overwritten
+
+  CALLERS (who invokes this method):
+      ← AudioService$SamsungBroadcastReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → BluetoothA2dp.getActiveDevice()
+      → BluetoothDevice.getAddress()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → Intent.getData()
+      → Intent.getParcelableExtra()
+      → Intent.getBooleanExtra()
+      → Intent.getIntExtra()
+      → Intent.getAction()
+      → Intent.getStringExtra()
+      → <android.content.Intent: void <init>()>
+      → AudioSystem.getParameters()
+      → Uri.getSchemeSpecificPart()
+      → Settings$System.putString()
+      → Settings$System.getString()
+      → TextUtils.equals()
+      → TextUtils.isEmpty()
+      → SparseIntArray.delete()
+      → AudioDeviceBroker.getA2dp()
+      → AudioDeviceBroker.checkSendBecomingNoisyIntent()
+      → AudioDeviceBroker.getPriorityDevice()
+      → AudioDeviceBroker.getAddressForDevice()
+      → AudioDeviceBroker.handleTmsStateChange()
+      → AudioDeviceBroker.postActiveBluetoothDeviceChanged()
+      → AudioDeviceBroker.setDualA2dpMode()
+      → AudioDeviceBroker.updateDeviceQuickConnection()
+      → <com.android.server.audio.AudioEventLogger$StringEvent: void
+      → AudioEventLogger.log()
+      → <com.android.server.audio.AudioService$SamsungBroadcastRecei
+      → <com.android.server.audio.AudioService$SamsungBroadcastRecei
+      → <com.android.server.audio.AudioService: android.content.Cont
+      → <com.android.server.audio.AudioService: android.util.SparseI
+      → AudioService.isInAllowedList()
+      → <com.android.server.audio.AudioService: com.android.server.a
+      → <com.android.server.audio.AudioService: com.android.server.a
+      → <com.android.server.audio.AudioService: com.android.server.a
+      → <com.android.server.audio.AudioService: com.android.server.a
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: int -$$Nest$fgetmNbQ
+      → AudioService.getDeviceForStream()
+      → AudioService.getPinDeviceInternal()
+      → AudioService.setDeviceToForceByUser()
+      → <com.android.server.audio.AudioService: void -$$Nest$fputmAl
+      → <com.android.server.audio.AudioService: void -$$Nest$fputmGo
+      → <com.android.server.audio.AudioService: void -$$Nest$fputmIs
+      → <com.android.server.audio.AudioService: void -$$Nest$fputmNb
+      → <com.android.server.audio.AudioService: void -$$Nest$mcheckM
+      → <com.android.server.audio.AudioService: void -$$Nest$mclearS
+      → <com.android.server.audio.AudioService: void -$$Nest$msendBr
+      → <com.android.server.audio.AudioService: void -$$Nest$msetAll
+      → <com.android.server.audio.AudioService: void -$$Nest$munSetS
+      → <com.android.server.audio.AudioService: void -$$Nest$smsendM
+      → AudioSystemAdapter.setParameters()
+      → MediaFocusControl.getIgnoredUid()
+      → MediaFocusControl.setIgnoreAudioFocus()
+      → <com.samsung.android.media.AudioParameter: void <init>(java.
+      → AudioExecutor.execute()
+      → AudioGameManager.isGamePackager()
+      → AudioGameManager.addGameUid()
+      → AudioGameManager.deleteGameUid()
+      → AudioHelper.setNbQualityMode()
+      → AudioHqmHelper.sendHqmAudioData()
+      → BluetoothHelper.setBtVolumeMonitor()
+      → <com.samsung.android.server.audio.GoodCatchManager: void <in
+      → KaraokeHelper.checkAndBroadcastKaraokeInstalled()
+      → MultiSoundManager.removeItem()
+      → MultiSoundManager.getAppDevice()
+      → MultiSoundManager.clearHeadUpNotification()
+      → MultiSoundManager.clearNotification()
+      → MultiSoundManager.resetPinDevice()
+      → MultiSoundManager.setAppVolume()
+      → MultiSoundManager.showToast()
+      → MultiSoundManager.updateAudioServiceNotificationChannel()
+      → PackageListHelper.addPackage()
+      → PackageListHelper.removePackageForName()
+      → PhoneStateHelper.registerPhoneStateListener()
+      → PhoneStateHelper.unregisterPhoneStateListener()
+      → ScreenSharingHelper.isDLNAEnabled()
+      → ScreenSharingHelper.setDLNAEnabled()
+      → ScreenSharingHelper.setSplitSoundEnabled()
+      → SoundAppPolicyManager.init()
+        → CharSequence.charAt()
+        → CharSequence.length()
+        → ContainerHelpers.binarySearch()
+        → SparseIntArray.removeAt()
+        → BtHelper.getA2dp()
+        → AudioDeviceInventory.checkSendBecomingNoisyIntent()
+        → AudioDeviceInventory.getPriorityDevice()
+        → AudioDeviceInventory.getAddressForDevice()
+        → AudioDeviceInventory.handleTmsStateChange()
+        → AudioDeviceBroker.sendLMsgNoDelay()
+        → BluetoothA2dp.getConnectedDevices()
+        → BluetoothDevice.equals()
+        → BluetoothDevice.semGetAudioType()
+        → AudioDeviceBroker.postSetVolumeIndexForA2dpDevice()
+        → DualA2dpVolumeManager.setDualA2dpMode()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.size()
+        → List.iterator()
+        → AudioDeviceInventory.updateDeviceQuickConnection()
+        → <com.android.server.audio.AudioEventLogger$Event: void <init
+        → LinkedList.add()
+        → LinkedList.size()
+        → LinkedList.removeFirst()
+        → PackageListHelper.isInAllowedList()
+        → AudioService.selectOneAudioDevice()
+        → AudioService.getDeviceSetForStream()
+        → Set.contains()
+        → Set.iterator()
+        → AtomicInteger.get()
+        → MultiSoundManager.getPinDevice()
+        → AudioDeviceBroker.setDeviceToForceByUser()
+        → AudioService.checkModifyPhoneStateOrRoutingPermission()
+        → AudioService.checkMuteInterval()
+        → AudioService.clearSoundAssistantSettings()
+        → AudioService.sendBroadcastToAll()
+        → AudioService.setAllSoundMute()
+        → AudioService.unSetSoundSettingEventBroadcastIntent()
+        → AudioService.sendMsg()
+        → AudioSystem.setParameters()
+        → FocusRequester.hasSameUid()
+        → FocusRequester.handleFocusLoss()
+        → FocusRequester.release()
+        → MultiFocusStack.getFocusRequester()
+        → ArrayList.isEmpty()
+        → ArrayList.size()
+        → ArrayList.get()
+        → LinkedHashMap.put()
+        → <java.util.LinkedHashMap: void <init>()>
+        → StringTokenizer.hasMoreTokens()
+        → StringTokenizer.nextToken()
+        → <java.util.StringTokenizer: void <init>(java.lang.String,jav
+        → Debug.getCaller()
+        → HandlerExecutor.execute()
+        → <com.samsung.android.server.audio.AudioExecutor$$ExternalSyn
+        → AudioExecutor.init()
+        → SemGameManager.isAvailable()
+        → SemGameManager.isGamePackage()
+        → AudioGameManager.setParamGameUidList()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → ArrayList.remove()
+        → AudioParameter.get()
+        → AudioHqmHelper.sendLoggingDataToHQM()
+        → <java.util.ArrayList: void <init>()>
+        → <com.samsung.android.sepunion.SemGoodCatchManager: void <ini
+        → <com.samsung.android.server.audio.GoodCatchManager$1: void <
+        → <com.samsung.android.server.audio.GoodCatchManager$2: void <
+        → Intent.putExtra()
+        → Intent.putExtra()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → AudioHelper.sendBroadcastToUser()
+        → AudioSettingsHelper.checkAppCategory()
+        → MultiSoundManager.setDeviceToNative()
+        → HashMap.get()
+        → HashMap.remove()
+        → MultiSoundManager$MultiSoundItem.getAppDevice()
+        → MultiSoundManager.getAppDevice()
+        → NotificationManager.cancel()
+        → MultiSoundManager.disable()
+        → MultiSoundManager.setAppDevice()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → HashMap.values()
+        → MultiSoundManager$MultiSoundItem.removable()
+        → <com.samsung.android.server.audio.MultiSoundManager$MultiSou
+        → MultiSoundManager$MultiSoundItem.setAppVolume()
+        → MultiSoundManager.setAppVolumeToNative()
+        → HashMap.put()
+        → Context.getResources()
+        → Context.getString()
+        → Resources.getText()
+        → <android.view.ContextThemeWrapper: void <init>(android.conte
+        → Toast.makeText()
+        → Toast.show()
+        → <android.app.NotificationChannel: void <init>(java.lang.Stri
+        → NotificationManager.createNotificationChannel()
+        → NotificationManager.deleteNotificationChannel()
+        → Context.getSystemService()
+        → Resources.getString()
+        → Context.getPackageManager()
+        → Context.checkCallingOrSelfPermission()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → AppCategorizer.putPackage()
+        → AppCategorizer.removePackage()
+        → AudioHelper.getUidForPackage()
+        → PackageListHelper.checkAudioSettingsPermission()
+        → SubscriptionManager.getSubId()
+        → TelephonyManager.createForSubscriptionId()
+        → TelephonyManager.getActiveModemCount()
+        → TelephonyManager.listen()
+        → PhoneStateHelper.getPhoneStateListener()
+        → ScreenSharingHelper.setMirroingPolicyParameter()
+        → <com.samsung.android.server.audio.SoundAppPolicyManager$$Ext
+        → Executors.newSingleThreadScheduledExecutor()
+        → ScheduledExecutorService.schedule()
+          → AudioDeviceInventory.checkSendBecomingNoisyIntentInt()
+          → LinkedHashMap.get()
+          → LinkedHashMap.entrySet()
+          → Map$Entry.getKey()
+          → Map$Entry.getValue()
+          → BluetoothHeadset.isAudioConnected()
+          → BluetoothHeadset.getConnectedDevices()
+          → AudioDeviceInfo.convertInternalDeviceToDeviceType()
+          → AudioDeviceBroker.getBTHeadset()
+          → <com.android.server.audio.AudioDeviceInventory$DeviceInfo: j
+          → <android.media.AudioDeviceAttributes: void <init>(int,java.l
+          → <com.android.server.audio.AudioDeviceInventory$DeviceInfo: v
+          → AudioDeviceInventory.checkDeviceConnected()
+          → AudioSystemAdapter.setDeviceConnectionState()
+          → LinkedHashMap.remove()
+          → AudioDeviceBroker.sendIILMsg()
+          → AudioSystem.setStreamVolumeIndexAS()
+          → AudioDeviceBroker.postSetVolumeIndexOnDevice()
+          → DualA2dpVolumeManager.getMainVolume()
+          → ArrayMap.getOrDefault()
+          → AudioEventLogger$Event.printLog()
+          → AudioManagerHelper.getAddressForLog()
+          → DualA2dpVolumeManager.updateMainVolume()
+          → List.get()
+          → AudioSystem.deviceSetToString()
+          → Set.isEmpty()
+          → Set.size()
+          → AudioService$VolumeStreamState.observeDevicesForStream_syncVSS()
+          → AudioService.ensureValidStreamType()
+          → AudioDeviceInventory.setDeviceToForceByUser()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → Settings$Global.putInt()
+          → AudioService.isMuteIntervalEnabled()
+          → AudioService.setRingerMode()
+          → Settings$System.putFloatForUser()
+          → Settings$System.putIntForUser()
+          → SparseIntArray.keyAt()
+          → SparseIntArray.size()
+          → SparseIntArray.clear()
+          → AudioService.setMediaVolumeSteps()
+          → AudioService.muteMediaStreamOfSpeaker()
+          → SemAudioSystem.setPolicyParameters()
+          → AudioSettingsHelper.removeValue()
+          → Context.sendBroadcastAsUser()
+          → Intent.addFlags()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → SystemServerAdapter.isPrivileged()
+          → AudioService.setAllSoundMuteToNative()
+          → ComponentName.getPackageName()
+          → AudioService$SoundEventReceiver.samePackageName()
+          → MediaSessionService$MediaSessionServiceInternal.getMediaKeyEventReceiver()
+          → MediaSessionService$MediaSessionServiceInternal.getVolumeLongPressReceiver()
+          → MediaSessionService$MediaSessionServiceInternal.setMediaKeyEventReceiver()
+          → MediaSessionService$MediaSessionServiceInternal.setVolumeLongPressReceiver()
+          → ArrayList.iterator()
+          → ArrayList.clear()
+          → Handler.obtainMessage()
+          → Handler.hasMessages()
+          → Handler.sendMessageAtTime()
+          → Handler.removeMessages()
+          → SystemClock.uptimeMillis()
+          → IAudioFocusDispatcher.dispatchAudioFocusChange()
+          → FocusRequester.toAudioFocusInfo()
+          → FocusRequester.frameworkHandleFocusLoss()
+          → MediaFocusControl.mustNotifyFocusOwnerOnDuck()
+          → MediaFocusControl.notifyExtPolicyFocusLoss_syncAf()
+          → IBinder.unlinkToDeath()
+          → SparseArray.size()
+          → SparseArray.valueAt()
+          → MultiFocusStack.findFocusRequester()
+          → ArrayList.addAll()
+          → Stack.removeAll()
+          → Handler.post()
+          → <java.util.concurrent.RejectedExecutionException: void <init
+          → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+          → HandlerThread.getThreadHandler()
+          → <android.os.HandlerThread: void <init>(java.lang.String)>
+          → HandlerThread.start()
+          → GmsLog.w()
+          → SemGameManager.getGMSBinder()
+          → GmsLog.d()
+          → IGameManagerService$Stub.asInterface()
+          → IGameManagerService.identifyGamePackage()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → LinkedHashMap.isEmpty()
+          → SemHqmManager.sendHWParamToHQM()
+          → AudioHqmHelper.convertToBigDataFormat()
+          → <android.os.Binder: void <init>()>
+          → Looper.getMainLooper()
+          → RemoteException.printStackTrace()
+          → IGoodCatchManager$Stub.asInterface()
+          → IGoodCatchManager.registerListener()
+          → <com.samsung.android.sepunion.SemGoodCatchManager$1: void <i
+          → <com.samsung.android.sepunion.SemGoodCatchManager$2: void <i
+          → SemUnionManager.getSemSystemService()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → <com.samsung.android.server.audio.AudioSettingsHelper$$Exter
+          → CopyOnWriteArrayList.isEmpty()
+          → CopyOnWriteArrayList.stream()
+          → Stream.anyMatch()
+          → Handler.postAtTime()
+          → AudioParameter$Builder.build()
+          → AudioParameter$Builder.setParam()
+          → AudioParameter$Builder.setParam()
+          → <com.samsung.android.media.AudioParameter$Builder: void <ini
+          → <com.samsung.android.server.audio.MultiSoundManager$$Externa
+          → MultiSoundManager$MultiSoundInterface.getConnectedDevice()
+          → MultiSoundManager.isDeviceConnected()
+          → MultiSoundManager.getCurrentMediaDevice()
+          → MultiSoundManager$MultiSoundInterface.clearNotification()
+          → MultiSoundManager.resetByEnableDisable()
+          → AudioSystem.getDevicesForStream()
+          → MultiSoundManager$MultiSoundInterface.checkAudioSettingsPermission()
+          → MultiSoundManager$MultiSoundInterface.sendBecomingNoisyIntent()
+          → MultiSoundManager$MultiSoundInterface.showHeadUpNotification()
+          → MultiSoundManager$MultiSoundInterface.updateFocusRequester()
+          → MultiSoundManager$MultiSoundItem.getUid()
+          → MultiSoundManager$MultiSoundItem.setAppDevice()
+          → HashMap.entrySet()
+          → Handler.removeCallbacks()
+          → <com.samsung.android.server.audio.MultiSoundManager$SetVolum
+          → <com.samsung.android.server.audio.MultiSoundManager$SetVolum
+          → <android.content.ContextWrapper: void <init>(android.content
+          → Toast.makeText()
+          → INotificationManager.enqueueTextToastForDex()
+          → INotificationManager.enqueueToastForDex()
+          → Compatibility.isChangeEnabled()
+          → Context.getApplicationInfo() [PKG_QUERY]
+          → Context.getDisplayId()
+          → Context.getOpPackageName()
+          → PackageManager.getApplicationLabel()
+          → Debug.getCallers()
+          → Html.fromHtml()
+          → Html.toHtml()
+          → <android.text.SpannableString: void <init>(java.lang.CharSeq
+          → View.findViewById()
+          → TextView.getText()
+          → TextView.setText()
+          → <android.widget.Toast$CallbackBinder: void <init>(java.util.
+          → Toast.getService()
+          → Toast.checkGameHomeAllowList()
+          → Toast.isSpeg()
+          → Toast.semGetMessageFromTv()
+          → Preconditions.checkState()
+          → CustomDeviceManagerProxy.getToastEnabledState()
+          → CustomDeviceManagerProxy.getToastShowPackageNameState()
+          → CustomDeviceManagerProxy.getInstance()
+          → CharSequence.toString()
+          → <java.lang.RuntimeException: void <init>(java.lang.String)>
+          → NotificationChannel.getTrimmedString()
+          → AppCategorizer.checkExist()
+          → AudioSettingsHelper.putPackage()
+          → Hashtable.put()
+          → AudioSettingsHelper.removePackage()
+          → Hashtable.remove()
+          → PackageManager.getApplicationInfoAsUser() [PKG_QUERY]
+          → AudioHelper.getCurrentUserId()
+          → <com.samsung.android.server.audio.PhoneStateHelper$1: void <
+            → AudioSystem.isSingleAudioDeviceType()
+            → AudioSystem.getDeviceName()
+            → MediaMetrics$Item.set()
+            → MediaMetrics$Item.record()
+            → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+            → AudioDeviceBroker.hasAudioFocusUsers()
+            → AudioDeviceBroker.hasMediaDynamicPolicy()
+            → AudioDeviceBroker.isInCommunication()
+            → AudioDeviceBroker.isMultiSoundOn()
+            → AudioDeviceBroker.getDeviceForStream()
+            → AudioDeviceBroker.getPinDevice()
+            → AudioDeviceBroker.postBroadcastBecomingNoisy()
+            → AudioDeviceBroker.sendBecomingNoisyToPinnedApp()
+            → AudioDeviceInventory.checkEnforcedStream()
+            → AudioSystemAdapter.isStreamActive()
+            → AudioHelper.isFactoryMode()
+            → AudioHelper.isWiredDeviceType()
+            → ScreenSharingHelper.isSplitSoundEnabled()
+            → Collection.iterator()
+            → <java.util.HashSet: void <init>()>
+            → LinkedHashMap.values()
+            → Set.add()
+            → SparseIntArray.get()
+            → BtHelper.getBTHeadset()
+            → AudioDeviceInventory$DeviceInfo.makeDeviceListKey()
+            → <com.android.server.audio.AudioDeviceInventory$DeviceInfo: v
+            → <com.android.server.audio.AudioDeviceInventory$$ExternalSynt
+            → AudioSystemAdapter.getDeviceConnectionState()
+            → Collection.stream()
+            → AudioSystem.setDeviceConnectionState()
+            → AudioSystemAdapter.invalidateRoutingCache()
+            → PowerManager$WakeLock.acquire()
+            → AudioDeviceBroker.isMessageHandledUnderWakelock()
+            → AudioDeviceBroker.checkMessagesMuteMusic()
+            → AudioService.postSetVolumeIndexOnDevice()
+            → AudioEventLogger$Event.printLog()
+            → AudioManagerHelper.getAddressForLog()
+            → ArrayMap.size()
+            → ArrayMap.valueAt()
+            → AudioSystem.getDeviceMaskFromSet()
+            → EventLogTags.writeStreamDevicesChanged()
+            → <com.android.server.audio.AudioService: com.android.server.a
+            → <com.android.server.audio.AudioService: java.util.Set -$$Nes
+            → <com.android.server.audio.AudioService: java.util.concurrent
+            → AudioService.postObserveDevicesForAllStreams()
+            → CurrentDeviceManager.changedCurrentDevice()
+            → MultiSoundManager.getPreventOverheatState()
+            → MultiSoundManager.setPreventOverheatState()
+            → Collections.unmodifiableSet()
+            → Set.equals()
+            → <java.util.TreeSet: void <init>()>
+            → BluetoothA2dp.setAudioPath()
+            → AudioDeviceBroker.postSetDeviceConnectionStateForceByUser()
+            → AudioDeviceBroker.setBluetoothA2dpOnInt()
+            → <com.android.server.audio.AudioDeviceInventory$SetForceDevic
+            → AudioDeviceInventory.changeActiveBleDevice()
+            → AudioDeviceInventory.changeActiveBluetoothDevice()
+            → Settings$Global.getInt()
+            → AudioManagerInternal$RingerModeDelegate.onSetRingerModeExternal()
+            → AudioManagerInternal$RingerModeDelegate.onSetRingerModeInternal()
+            → AudioService.getRingerModeExternal()
+            → AudioService.getRingerModeInternal()
+            → AudioService.ensureValidRingerMode()
+            → AudioService.handleSetRingerMode()
+            → AudioService.sendBroadcastToSoundEventReceiver()
+            → AudioService.setRingerModeExt()
+            → AudioService.setRingerModeInt()
+            → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+            → AudioService.getStreamMaxVolume()
+            → AudioService.createVariableMediaVolumeMap()
+            → AudioService$DeviceVolumeUpdate.getVolumeIndex()
+            → <com.android.server.audio.AudioService$DeviceVolumeUpdate: v
+            → AudioService$VolumeStreamState.getIndex()
+            → AudioSettingsHelper.setIntValue()
+            → AudioSettingsHelper.remove()
+            → <com.android.server.media.MediaSessionService: android.conte
+            → <com.android.server.media.MediaSessionService: android.conte
+            → <com.android.server.media.MediaSessionService: java.lang.Obj
+            → <com.android.server.media.MediaSessionService: void -$$Nest$
+            → <com.android.server.media.MediaSessionService: void -$$Nest$
+            → <android.media.AudioFocusInfo: void <init>(android.media.Aud
+            → FocusRequester.getSdkTarget()
+            → MediaFocusControl.duckPlayers()
+            → AudioFocusInfo.getGainRequest()
+            → AudioFocusInfo.getPackageName()
+            → IAudioPolicyCallback.asBinder()
+            → IAudioPolicyCallback.notifyAudioFocusLoss()
+            → AudioService.notifyCarLifeEvent()
+            → SparseArray.gc()
+            → <com.android.server.audio.MultiFocusStack$$ExternalSynthetic
+            → <com.android.server.audio.MultiFocusStack$$ExternalSynthetic
+            → Stack.stream()
+            → Collectors.toCollection()
+            → Stream.collect()
+            → Stream.filter()
+            → Preconditions.checkNotNull()
+            → <android.os.Handler: void <init>(android.os.Looper)>
+            → HandlerThread.getLooper()
+            → <java.lang.Thread: void <init>(java.lang.String)>
+            → GmsLog.replaceForbiddenString()
+            → ServiceManager.getService()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.game.IGameManagerService$Stub$Proxy: vo
+            → ISemHqmManager.sendHWParamToHQM()
+            → SemHqmManager.printExceptionTrace()
+            → JSONException.printStackTrace()
+            → JSONObject.toString()
+            → JSONObject.put()
+            → <org.json.JSONObject: void <init>()>
+            → <android.os.Binder: void <init>(java.lang.String)>
+            → <com.samsung.android.sepunion.IGoodCatchManager$Stub$Proxy: 
+            → <com.samsung.android.sepunion.IGoodCatchDispatcher$Stub: voi
+            → <android.os.Bundle: void <init>()>
+            → IUnionManager.getSemSystemService()
+            → Log.i()
+            → SemUnionManager.getService()
+            → <com.samsung.android.media.AudioParameter: void <init>(java.
+            → MultiSoundManager$MultiSoundInterface.getCurrentMediaDevice()
+            → MultiSoundManager.setStateToNative()
+            → <android.widget.Toast: void <init>(android.content.Context,a
+            → ToastPresenter.getTextToastView()
+            → <android.text.SpannableString: void <init>(java.lang.CharSeq
+            → <android.widget.Toast$CallbackBinder: void <init>(java.util.
+            → INotificationManager$Stub.asInterface()
+            → Context.getContentResolver()
+            → Context.getPackageName()
+            → SystemProperties.get()
+            → Settings$System.getInt()
+            → ActivityThread.currentApplication()
+            → PackageManager.isSpeg()
+            → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+            → IEDMProxy.getToastEnabledState()
+            → IEDMProxy.getToastShowPackageNameState()
+            → <com.samsung.android.knox.custom.CustomDeviceManagerProxy: v
+            → Hashtable.containsValue()
+            → <android.content.ContentValues: void <init>()>
+            → ContentValues.put()
+            → ContentValues.put()
+            → AudioSettingsHelper.set()
+            → ActivityManager.getService()
+            → IActivityManager.getCurrentUser()
+            → <android.telephony.PhoneStateListener: void <init>()>
+              → MediaMetrics$Item.putDouble()
+              → MediaMetrics$Item.putInt()
+              → MediaMetrics$Item.putLong()
+              → MediaMetrics$Item.putString()
+              → MediaMetrics$Key.getName()
+              → MediaMetrics$Item.updateHeader()
+              → <android.media.MediaMetrics: int -$$Nest$smnative_submit_byt
+              → ByteBuffer.limit()
+              → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+              → AudioService.hasAudioFocusUsers()
+              → AudioService.hasMediaDynamicPolicy()
+              → AudioService.isInCommunication()
+              → AudioService.isRingtoneMode()
+              → AudioService.isMultiSoundOn()
+              → AudioDeviceBroker.sendIMsgNoDelay()
+              → AudioService.sendBecomingNoisyToPinnedApp()
+              → AudioSystem.isStreamActive()
+              → AudioSystem.getDeviceConnectionState()
+              → ConcurrentHashMap.clear()
+              → Handler.postDelayed()
+              → PowerManager$WakeLock.acquireLocked()
+              → AudioDeviceBroker.messageMutesMusic()
+              → AudioService.setMusicMute()
+              → AtomicBoolean.getAndSet()
+              → AudioEventLogger$Event.eventToString()
+              → EventLog.writeEvent()
+              → AudioService.getDeviceSetForStreamDirect()
+              → <com.android.server.audio.CurrentDeviceManager$$ExternalSynt
+              → Set.forEach()
+              → <com.samsung.android.server.audio.MultiSoundManager$PreventO
+              → MultiSoundManager$PreventOverheatState.setDevice()
+              → AudioDeviceBroker.sendLMsg()
+              → AudioDeviceBroker.onSetForceUse()
+              → AudioDeviceBroker.sendMsg()
+              → AtomicBoolean.get()
+              → BluetoothDevice.semGetAliasName()
+              → BluetoothLeAudio.setActiveDevice()
+              → BluetoothLeAudio.getConnectedDevices()
+              → AudioDeviceBroker.getLeAudio()
+              → AudioDeviceInventory.isBleHeadsetConnected()
+              → BluetoothHelper.setBtVolumeMonitor()
+              → BluetoothA2dp.setActiveDevice()
+              → BluetoothDevice.getName()
+              → AudioDeviceBroker.setActiveBluetoothDevice()
+              → AudioService.isValidRingerMode()
+              → AudioService.checkPlayRingerModeEffect()
+              → AudioService.isStreamMutedByRingerOrZenMode()
+              → <com.samsung.android.server.audio.AudioEvents$RingerModeEven
+              → GoodCatchManager.isRingerModeCatchEnabled()
+              → GoodCatchManager.updateRingerMode()
+              → IndexOutOfBoundsException.printStackTrace()
+              → Intent.setComponent()
+              → AudioService$SoundEventReceiver.hasEventType()
+              → AudioService.broadcastRingerMode()
+              → AudioService.muteRingerModeStreams()
+              → AudioService$VolumeStreamState.getMaxIndex()
+              → <com.android.server.audio.AudioService$VolumeMap: void <init
+              → Preconditions.checkState()
+              → SparseIntArray.get()
+              → SQLiteDatabase.delete()
+              → AudioAttributes$Builder.build()
+              → <android.media.AudioAttributes$Builder: void <init>()>
+              → PlayerFocusEnforcer.duckPlayers()
+              → HandlerThread.isAlive()
+              → Thread.currentThread()
+              → Thread.interrupt()
+              → Exception.printStackTrace()
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+              → IGoodCatchDispatcher$Stub.attachInterface()
+              → Log.getCodeInfoString()
+              → IUnionManager$Stub.asInterface()
+              → <com.samsung.android.media.AudioParameter$$ExternalSynthetic
+              → LinkedHashMap.keySet()
+              → Set.stream()
+              → AudioParameter$Builder.setParam()
+              → <com.samsung.android.server.audio.MultiSoundManager$$Externa
+              → Resources.getDimensionPixelSize()
+              → Resources.getInteger()
+              → <android.widget.Toast$TN: void <init>(android.content.Contex
+              → Toast.getLooper()
+              → Context.getTheme()
+              → Resources$Theme.resolveAttribute()
+              → <android.util.TypedValue: void <init>()>
+              → LayoutInflater.from()
+              → LayoutInflater.inflate()
+              → ToastPresenter.semCheckMaxFontScale()
+              → <android.text.SpannableStringInternal: void <init>(java.lang
+              → <android.app.ITransientNotificationCallback$Stub: void <init
+              → IEDMProxy$Stub.asInterface()
+              → <android.util.ArrayMap: void <init>()>
+              → ArrayMap.put()
+              → SQLiteDatabase.update()
+              → SQLiteDatabase.insert()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.audio.MultiSoundManager
+  Method:   <com.samsung.android.server.audio.MultiSoundManager: void showNotification()>
+  Line:     4849
+  Register: v2 := "com.samsung.android.setting.multisound"
+  Usage:    [invoke] invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v2, p0, Lcom/samsung/android/server/audio/MultiS → 
+
+  CALLERS (who invokes this method):
+      ← AudioService$8.showNotification()
+      ← AudioService.handleCustomMessage()
+      ← AudioService.onSetAppDevice()
+        ← <com.android.server.audio.AudioService: void -$$Nest$mhandle
+          ← AudioService$AudioHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Notification$BigTextStyle.bigText()
+      → <android.app.Notification$BigTextStyle: void <init>()>
+      → Notification$Builder.build()
+      → Notification$Builder.addAction()
+      → Notification$Builder.setAutoCancel()
+      → Notification$Builder.setContentIntent()
+      → Notification$Builder.setContentText()
+      → Notification$Builder.setContentTitle()
+      → Notification$Builder.setSmallIcon()
+      → Notification$Builder.setStyle()
+      → Notification$Builder.setVibrate()
+      → <android.app.Notification$Builder: void <init>(android.conte
+      → NotificationManager.notify()
+      → PendingIntent.getActivity()
+      → PendingIntent.getBroadcast()
+      → Context.getResources()
+      → Context.getString()
+      → Context.getString()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Resources.getText()
+      → AudioSystem.getDevicesForStream()
+      → MultiSoundManager.getPinDevice()
+      → MultiSoundManager.getPinAppInfo()
+        → Notification.secSafeCharSequence()
+        → <android.app.Notification$Style: void <init>()>
+        → MultiSoundManager$MultiSoundItem.getAppDevice()
+        → MultiSoundManager.getAppDevice()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → HashMap.values()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+        → MultiSoundManager$MultiSoundInterface.getApplicationLabel()
+        → MultiSoundManager$MultiSoundInterface.getMultiSoundAppFromSetting()
+        → MultiSoundManager$MultiSoundInterface.getPackageName()
+        → MultiSoundManager.isRemoteSubmixAppExist()
+        → HashMap.entrySet()
+        → Map$Entry.getKey()
+        → Set.iterator()
+          → Notification.removeTextSizeSpans()
+          → CharSequence.length()
+          → CharSequence.subSequence()
+          → CharSequence.toString()
+          → MultiSoundManager$MultiSoundInterface.getConnectedDevice()
+          → MultiSoundManager.isDeviceConnected()
+          → MultiSoundManager.getCurrentMediaDevice()
+          → HashMap.get()
+          → Set.contains()
+          → Set.size()
+            → <android.text.SpannableStringBuilder: void <init>(java.lang.
+            → SpannableStringBuilder.setSpan()
+            → Spanned.getSpanEnd()
+            → Spanned.getSpanFlags()
+            → Spanned.getSpanStart()
+            → Spanned.length()
+            → Spanned.getSpans()
+            → CharacterStyle.getUnderlying()
+            → TextAppearanceSpan.getLinkTextColor()
+            → TextAppearanceSpan.getTextColor()
+            → TextAppearanceSpan.getTextStyle()
+            → TextAppearanceSpan.getFamily()
+            → <android.text.style.TextAppearanceSpan: void <init>(java.lan
+            → AudioSystemAdapter.getDeviceConnectionState()
+            → MultiSoundManager$MultiSoundInterface.getCurrentMediaDevice()
+              → <android.text.style.MetricAffectingSpan: void <init>()>
+              → AudioSystem.getDeviceConnectionState()
+

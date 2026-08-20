@@ -1,0 +1,9 @@
+# android.hardware.biometrics.IBiometricEnabledOnKeyguardCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.biometrics.IBiometricEnabledOnKeyguardCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.IBiometricEnabledOnKeyguardCallback$Stub$Proxy: void onChanged(boolean,int)>
+<android.hardware.biometrics.IBiometricEnabledOnKeyguardCallback$Stub: android.hardware.biometrics.IBiometricEnabledOnKeyguardCallback asInterface(android.os.IBinder)>
+<android.hardware.biometrics.IBiometricEnabledOnKeyguardCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.IBiometricEnabledOnKeyguardCallback$Stub: void <init>()>

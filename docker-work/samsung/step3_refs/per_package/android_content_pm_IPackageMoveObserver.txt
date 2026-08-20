@@ -1,0 +1,10 @@
+# android.content.pm.IPackageMoveObserver [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.content.pm.IPackageMoveObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IPackageMoveObserver$Stub$Proxy: void onCreated(int,android.os.Bundle)>
+<android.content.pm.IPackageMoveObserver$Stub$Proxy: void onStatusChanged(int,int,long)>
+<android.content.pm.IPackageMoveObserver$Stub: android.content.pm.IPackageMoveObserver asInterface(android.os.IBinder)>
+<android.content.pm.IPackageMoveObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IPackageMoveObserver$Stub: void <init>()>

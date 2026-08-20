@@ -1,0 +1,55 @@
+######################################################################
+# Propagation: com.samsung.cmfa.AuthTouch
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          unknown
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.cmfa.AuthTouch.AuthFactorTouchManager
+  Method:   <com.samsung.cmfa.AuthTouch.AuthFactorTouchManager: void connectService()>
+  Line:     130
+  Register: v1 := "com.samsung.cmfa.AuthTouch"
+  Usage:    [unknown] .local v1, "pkg":Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] .local v1, "pkg":Ljava/lang/String; → [invoke] android.content.ComponentName.<init>() → [invoke] android.content
+
+  CALLERS (who invokes this method):
+      ← AuthFactorTouchManager.registerAuthTouchEventListener()
+      ← AuthFactorTouchManager.setTouchEvent()
+      ← AuthFactorTouchManager.unregisterAuthTouchEventListener()
+      ← <com.samsung.cmfa.AuthTouch.AuthFactorTouchManager: void <in
+      ← AuthFactorTouchManager.onPointerEvent()
+        ← AuthFactorTouchManager.getInstance()
+        ← TouchEventView.onPointerEvent()
+          ← <com.samsung.cmfa.AuthTouch.TouchEventView: void <init>(andr
+            ← DisplayPolicy.enableTouchListener()
+              ← <com.android.server.wm.DisplayPolicy: void -$$Nest$menableTo
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.bindService()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → AuthFactorTouchManager.isServiceInstalled()
+        → PackageManager.getServiceInfo()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.plm.context.AuthTouchContext
+  Method:   <com.android.server.enterprise.plm.context.AuthTouchContext: java.lang.String getPackageName()>
+  Line:     45
+  Register: p0 := "com.samsung.cmfa.AuthTouch"
+  Usage:    [unknown] return-object p0
+  Patterns: (none)
+  Flow:     [other] return-object p0
+

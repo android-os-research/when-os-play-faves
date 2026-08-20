@@ -1,0 +1,14 @@
+# android.hardware.camera2.extension.ICaptureCallback [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.hardware.camera2.extension.ICaptureCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.ICaptureCallback$Stub$Proxy: void onCaptureCompleted(long,int,android.hardware.camera2.impl.CameraMetadataNative)>
+<android.hardware.camera2.extension.ICaptureCallback$Stub$Proxy: void onCaptureFailed(int)>
+<android.hardware.camera2.extension.ICaptureCallback$Stub$Proxy: void onCaptureProcessStarted(int)>
+<android.hardware.camera2.extension.ICaptureCallback$Stub$Proxy: void onCaptureSequenceAborted(int)>
+<android.hardware.camera2.extension.ICaptureCallback$Stub$Proxy: void onCaptureSequenceCompleted(int)>
+<android.hardware.camera2.extension.ICaptureCallback$Stub$Proxy: void onCaptureStarted(int,long)>
+<android.hardware.camera2.extension.ICaptureCallback$Stub: android.hardware.camera2.extension.ICaptureCallback asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.ICaptureCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.ICaptureCallback$Stub: void <init>()>

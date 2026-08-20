@@ -1,0 +1,6 @@
+# android.media.route.feature.LIVE_VIDEO [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.media.SystemMediaRoute2Provider: android.media.MediaRoute2Info buildDeviceRoute(java.lang.String,java.lang.String,boolean,int)>
+<com.android.server.media.SystemMediaRoute2Provider: void updateDeviceRoute(android.media.AudioRoutesInfo)>

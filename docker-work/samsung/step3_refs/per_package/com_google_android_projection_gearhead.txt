@@ -1,0 +1,12 @@
+# com.google.android.projection.gearhead [NEW]
+# Refs: 10
+# JARs: semwifi-service, services
+
+<com.android.server.am.BaseRestrictionMgr: boolean isRestrictedPackage(android.content.ComponentName,java.lang.String,int,java.lang.String,android.content.Intent,java.lang.String,int,boolean,boolean,android.content.pm.ActivityInfo)>
+<com.android.server.audio.MediaFocusControl: int requestAudioFocus(android.media.AudioAttributes,int,android.os.IBinder,android.media.IAudioFocusDispatcher,java.lang.String,java.lang.String,java.lang.String,int,int,boolean,int)>
+<com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+<com.samsung.android.server.wifi.SemClientModeImpl$ConnectedState: void enter()>
+<com.samsung.android.server.wifi.SemWifiConnectivityMonitor: void <init>(android.content.Context,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.ISemInterfaceNameProvider,com.samsung.android.server.wifi.tcp.SemWifiSwitchForIndividualAppsService)>
+<com.samsung.android.server.wifi.diagnostics.PatternAbnormalAndroidAuto: boolean isAndroidAuto(com.samsung.android.server.wifi.diagnostics.ReportData)>
+<com.samsung.android.server.wifi.diagnostics.PatternAbnormalAndroidAuto: boolean pdc1Matches()>
+<com.samsung.android.server.wifi.silentroaming.SilentRoamingManager: void <init>(android.content.Context,com.samsung.android.server.wifi.util.SemClock,android.os.Looper,com.samsung.android.server.wifi.halclient.SemWifiNative,com.samsung.android.server.wifi.SemWifiManagerProxy,com.samsung.android.server.wifi.SemWifiConfigManager,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.SemFrameworkFacade,android.util.LocalLog,com.samsung.android.server.wifi.silentroaming.SilentRoamingWifiInfo,com.samsung.android.server.wifi.silentroaming.SilentRoamingPnoScanner,com.samsung.android.server.wifi.silentroaming.SemThroughputPredictor,com.samsung.android.server.wifi.silentroaming.SemThroughputScorer)>

@@ -1,0 +1,20 @@
+# com.samsung.android.wifi.ISemMobileWipsService [NEW]
+# Refs: 16
+# JARs: framework
+
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: boolean checkMWIPS(java.lang.String,int)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: boolean registerCallback(com.samsung.android.wifi.ISemMobileWipsFramework)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: boolean registerPacketSender(com.samsung.android.wifi.ISemMobileWipsPacketSender)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: boolean setCurrentBss(java.lang.String,java.lang.String,java.lang.String,int,byte[])>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: boolean unregisterCallback(com.samsung.android.wifi.ISemMobileWipsFramework)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: boolean unregisterPacketSender(com.samsung.android.wifi.ISemMobileWipsPacketSender)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: void broadcastBcnEventAbort(java.lang.String,int)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: void broadcastBcnIntervalEvent(java.lang.String,java.lang.String,java.lang.String,int,int,long,long)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: void onDnsResponses(java.util.List,java.lang.String)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: void onScanResults(java.util.List)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: void sendMessage(android.os.Message)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub$Proxy: void updateWifiChipInfo(java.lang.String,java.lang.String)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub: com.samsung.android.wifi.ISemMobileWipsService asInterface(android.os.IBinder)>
+<com.samsung.android.wifi.ISemMobileWipsService$Stub: void <init>()>

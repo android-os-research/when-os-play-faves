@@ -1,0 +1,7 @@
+# com.android.server.blockchain.Utils [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.blockchain.Utils: boolean sendSecureUIAbortIntent(android.content.Context)>
+<com.android.server.blockchain.Utils: boolean writeFile(byte[],java.lang.String)>
+<com.android.server.blockchain.Utils: byte[] readFile(java.lang.String)>

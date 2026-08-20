@@ -1,0 +1,38 @@
+######################################################################
+# Propagation: com.samsung.android.app.repaircal
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY, SIG_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.PACMService$2
+  Method:   <com.android.server.PACMService$2: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     196
+  Register: p1 := "com.samsung.android.app.repaircal"
+  Usage:    [invoke] invoke-static {p0, p1}, Lcom/android/server/PACMService;->-$$Nest$misPackageInstalled(Lcom/android/s
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.android.server.PACMService.-$$Nest$misPackageInstalled() → [invoke] java.lang.String.equals() → [reassigned
+
+  CALLEES (what this method invokes):
+      → Intent.getExtras()
+      → Intent.getAction()
+      → Bundle.getString()
+      → <com.android.server.PACMService: boolean -$$Nest$misPackageI
+      → <com.android.server.PACMService: java.lang.Object -$$Nest$fg
+      → <com.android.server.PACMService: java.lang.String -$$Nest$fg
+      → <com.android.server.PACMService: java.util.HashSet -$$Nest$f
+      → <com.android.server.PACMService: void -$$Nest$fputmEmTokenSt
+      → HashSet.clear()
+        → PACMService.isPackageInstalled()
+          → Context.getPackageManager()
+          → PackageManager.getPackageInfo() [PKG_QUERY]
+          → PackageManager.checkSignatures() [SIG_CHECK]
+

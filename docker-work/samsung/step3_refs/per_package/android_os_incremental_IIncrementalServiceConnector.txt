@@ -1,0 +1,9 @@
+# android.os.incremental.IIncrementalServiceConnector [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.incremental.IIncrementalServiceConnector$Stub$Proxy: int setStorageParams(boolean)>
+<android.os.incremental.IIncrementalServiceConnector$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.incremental.IIncrementalServiceConnector$Stub: android.os.incremental.IIncrementalServiceConnector asInterface(android.os.IBinder)>
+<android.os.incremental.IIncrementalServiceConnector$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.incremental.IIncrementalServiceConnector$Stub: void <init>()>

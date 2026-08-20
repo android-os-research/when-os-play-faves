@@ -1,0 +1,11 @@
+# com.gsma.services.rcs.upload.IFileUploadListener [NEW]
+# Refs: 7
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.upload.IFileUploadListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.upload.IFileUploadListener$Stub$Proxy: void onProgressUpdate(java.lang.String,long,long)>
+<com.gsma.services.rcs.upload.IFileUploadListener$Stub$Proxy: void onStateChanged(java.lang.String,com.gsma.services.rcs.upload.FileUpload$State)>
+<com.gsma.services.rcs.upload.IFileUploadListener$Stub$Proxy: void onUploaded(java.lang.String,com.gsma.services.rcs.upload.FileUploadInfo)>
+<com.gsma.services.rcs.upload.IFileUploadListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.upload.IFileUploadListener$Stub: com.gsma.services.rcs.upload.IFileUploadListener asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.upload.IFileUploadListener$Stub: void <init>()>

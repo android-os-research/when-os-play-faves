@@ -1,0 +1,31 @@
+# com.sec.android.diagmonagent [NEW]
+# Refs: 27
+# JARs: framework, services, telephony-common, vendor.samsung.frameworks.codecsolution-service
+
+<android.view.accessibility.A11yLogger: boolean checkVersionOfDMA(android.content.Context)>
+<android.view.accessibility.A11yLogger: void insertSALog(android.content.Context,java.lang.String,java.lang.String,long,java.lang.String)>
+<com.android.internal.app.MaintenanceModeUtils: void sendLoggingDataToSA(android.content.Context,java.lang.String,java.lang.String)>
+<com.android.internal.telephony.SemBigDataInfoController: boolean checkVersionOfDMA(android.content.Context)>
+<com.android.internal.telephony.SemBigDataInfoController: void insertLog(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int)>
+<com.android.server.BootReceiver: void sendToDiagmon(android.content.Context,java.lang.String,java.lang.String)>
+<com.android.server.FMRadioService: void sendInfoSamsungAnalytics(java.lang.String,java.lang.String)>
+<com.android.server.HermesService: void reportToDiagmon()>
+<com.android.server.biometrics.SemBioAnalyticsManager: boolean isSupportDMALogging(android.content.Context)>
+<com.android.server.biometrics.SemBioAnalyticsManager: void faceHandleData(com.android.server.biometrics.SemBioAnalyticsManager$EventData)>
+<com.android.server.biometrics.SemBioAnalyticsManager: void fpHandleData(com.android.server.biometrics.SemBioAnalyticsManager$EventData)>
+<com.android.server.desktopmode.DesktopModeLogger$LazyHolder: boolean isDmaSupported()>
+<com.android.server.desktopmode.DesktopModeLogger: void sendDmaLog(android.content.Context,java.lang.String,java.lang.String)>
+<com.android.server.knox.SeamLessSwitchHandler$1: void run()>
+<com.android.server.locksettings.LockSettingsServiceLog: void sendToDiagmon(int)>
+<com.android.server.media.MediaResourceMonitorService$MediaResourceMonitorImpl: android.content.Intent getBroadcastIntent(int,android.media.MediaMonitorEvent)>
+<com.samsung.android.camera.CameraServiceWorker: void insertDMALog(java.lang.String,java.lang.String,java.lang.Long)>
+<com.samsung.android.core.CoreSaLogger: void lambda$sendSaLoggingBroadcast$0(java.lang.String,java.lang.String,long,java.lang.String,android.content.Context)>
+<com.samsung.android.core.CoreSaLogger: void lambda$sendSaLoggingBroadcastForSetting$1(java.lang.String,java.lang.String,java.lang.String,android.content.Context)>
+<com.samsung.android.core.RunestoneLogger: void sendRunestoneLogging(android.content.Context,int,int,java.util.ArrayList)>
+<com.samsung.android.jdsms.Sender: void sendMessage(com.samsung.android.jdsms.DsmsMessage)>
+<com.samsung.android.security.mdf.MdfService.MdfPolicy: void sendSamsungAnalyticsMultiLog()>
+<com.samsung.android.share.SemShareLogging: boolean checkDMASupport()>
+<com.samsung.android.share.SemShareLogging: void insertLog(java.lang.String,java.lang.String)>
+<com.samsung.android.share.SemShareLogging: void insertLogWithDimension(java.lang.String,java.util.HashMap)>
+<vendor.samsung.frameworks.codecsolution.Logging: boolean checkVersionOfDMA(android.content.Context)>
+<vendor.samsung.frameworks.codecsolution.Logging: void insertDiagmonLog(java.lang.String,java.lang.String,long)>

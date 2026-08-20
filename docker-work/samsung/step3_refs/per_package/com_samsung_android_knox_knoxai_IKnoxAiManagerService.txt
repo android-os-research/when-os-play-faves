@@ -1,0 +1,11 @@
+# com.samsung.android.knox.knoxai.IKnoxAiManagerService [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.knox.knoxai.IKnoxAiManagerService$Stub$Proxy: int initializeTaSession(com.samsung.android.knox.knoxai.TaLoaderOptions)>
+<com.samsung.android.knox.knoxai.IKnoxAiManagerService$Stub$Proxy: int terminateTaSession()>
+<com.samsung.android.knox.knoxai.IKnoxAiManagerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.knoxai.IKnoxAiManagerService$Stub$Proxy: void processTaCommand(int,com.samsung.android.knox.knoxai.TaProcessBuffer[],com.samsung.android.knox.knoxai.TaProcessBuffer[])>
+<com.samsung.android.knox.knoxai.IKnoxAiManagerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.knoxai.IKnoxAiManagerService$Stub: com.samsung.android.knox.knoxai.IKnoxAiManagerService asInterface(android.os.IBinder)>
+<com.samsung.android.knox.knoxai.IKnoxAiManagerService$Stub: void <init>()>

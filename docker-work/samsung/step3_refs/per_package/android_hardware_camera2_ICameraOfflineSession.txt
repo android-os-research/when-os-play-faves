@@ -1,0 +1,9 @@
+# android.hardware.camera2.ICameraOfflineSession [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.camera2.ICameraOfflineSession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.ICameraOfflineSession$Stub$Proxy: void disconnect()>
+<android.hardware.camera2.ICameraOfflineSession$Stub: android.hardware.camera2.ICameraOfflineSession asInterface(android.os.IBinder)>
+<android.hardware.camera2.ICameraOfflineSession$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.ICameraOfflineSession$Stub: void <init>()>

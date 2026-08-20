@@ -1,0 +1,12 @@
+# android.app.ambientcontext.IAmbientContextManager [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.app.ambientcontext.IAmbientContextManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.ambientcontext.IAmbientContextManager$Stub$Proxy: void queryServiceStatus(int[],java.lang.String,android.os.RemoteCallback)>
+<android.app.ambientcontext.IAmbientContextManager$Stub$Proxy: void registerObserver(android.app.ambientcontext.AmbientContextEventRequest,android.app.PendingIntent,android.os.RemoteCallback)>
+<android.app.ambientcontext.IAmbientContextManager$Stub$Proxy: void startConsentActivity(int[],java.lang.String)>
+<android.app.ambientcontext.IAmbientContextManager$Stub$Proxy: void unregisterObserver(java.lang.String)>
+<android.app.ambientcontext.IAmbientContextManager$Stub: android.app.ambientcontext.IAmbientContextManager asInterface(android.os.IBinder)>
+<android.app.ambientcontext.IAmbientContextManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.ambientcontext.IAmbientContextManager$Stub: void <init>()>

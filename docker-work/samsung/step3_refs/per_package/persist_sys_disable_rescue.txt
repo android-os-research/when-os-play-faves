@@ -1,0 +1,5 @@
+# persist.sys.disable_rescue [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.RescueParty: boolean isDisabled()>

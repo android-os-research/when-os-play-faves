@@ -1,0 +1,6 @@
+# persist.keyguard.ucs [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: void setKeyguardProperty()>
+<com.samsung.ucm.ucmservice.CredentialManagerService: boolean setKeyguardStorageForCurrentUser(int,java.lang.String,java.lang.String)>

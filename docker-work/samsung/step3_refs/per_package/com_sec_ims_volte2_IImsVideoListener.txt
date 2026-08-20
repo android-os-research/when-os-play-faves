@@ -1,0 +1,22 @@
+# com.sec.ims.volte2.IImsVideoListener [NEW]
+# Refs: 18
+# JARs: imsmanager
+
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onCallDownGraded(int)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onCameraEvent(int,boolean)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onCameraFirstFrameReady(int)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onCameraStopEvent(int,boolean)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onCameraSwitchFailure(int,int)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onCameraSwitchSuccess(int,int)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onCaptureFailure(int,boolean)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onCaptureSuccess(int,boolean,java.lang.String)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onNoFarFrame(int)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onRecordEvent(int,boolean,boolean)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onVideoAttemped(int)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onVideoAvailable(int)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onVideoHeld(int)>
+<com.sec.ims.volte2.IImsVideoListener$Stub$Proxy: void onVideoResumed(int)>
+<com.sec.ims.volte2.IImsVideoListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.volte2.IImsVideoListener$Stub: com.sec.ims.volte2.IImsVideoListener asInterface(android.os.IBinder)>
+<com.sec.ims.volte2.IImsVideoListener$Stub: void <init>()>

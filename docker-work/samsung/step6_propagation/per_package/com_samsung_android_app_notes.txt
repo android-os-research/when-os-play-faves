@@ -1,0 +1,166 @@
+######################################################################
+# Propagation: com.samsung.android.app.notes
+######################################################################
+
+JARs:                 framework, services
+Classes:              5
+Occurrences:          6
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1326
+  Register: v38 := "com.samsung.android.app.notes"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     70
+  Register: v15 := "com.samsung.android.app.notes"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.WindowProcessController
+  Method:   <com.android.server.wm.WindowProcessController: void <clinit>()>
+  Line:     254
+  Register: v1 := "com.samsung.android.app.notes"
+  Usage:    [array_init] filled-new-array {v1, v2, v3}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.smartclip.SpenGestureManagerService
+  Method:   <com.android.server.smartclip.SpenGestureManagerService: void launchActionMemo(android.graphics.Point)>
+  Line:     4016
+  Register: v1 := "com.samsung.android.app.notes"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] sget-object p1, Lcom/android/server/smartclip/SpenGestureMan → 
+
+  CALLERS (who invokes this method):
+      ← SpenGestureManagerService.launchDoubleTapAction()
+        ← <com.android.server.smartclip.SpenGestureManagerService: voi
+          ← SpenGestureManagerService$5.run()
+
+  CALLEES (what this method invokes):
+      → Context.startServiceAsUser()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → SpenGestureManagerService.getFocusedUserHandle()
+        → Context.getSystemService()
+        → <android.os.UserHandle: void <init>(int)>
+        → SemPersonaManager.getFocusedKnoxId()
+        → SemPersonaManager.getKioskId()
+          → SemPersonaManager.getFocusedUser()
+            → UserHandle.getCallingUserId()
+            → ISemPersonaManager.getFocusedUser()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.samsungnotes.SamsungNotesService
+  Method:   <com.android.server.samsungnotes.SamsungNotesService: void <init>(android.content.Context)>
+  Line:     45
+  Register: v0 := "com.samsung.android.app.notes"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← SystemServer.startOtherServices()
+        ← SystemServer.run()
+          ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → IntentFilter.setPriority()
+      → <android.os.Binder: void <init>()>
+      → <com.android.server.samsungnotes.SamsungNotesService$UpdateR
+      → SamsungNotesService.backgroundAllowlist()
+        → <android.os.Binder: void <init>(java.lang.String)>
+        → <com.android.server.samsungnotes.SamsungNotesService$UpdateR
+        → ActivityManager.getService()
+        → IActivityManager.backgroundAllowlistUid()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → Binder.getNativeBBinderHolder()
+          → NativeAllocationRegistry.registerNativeAllocation()
+          → <android.content.BroadcastReceiver: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.samsungnotes.SamsungNotesService
+  Method:   <com.android.server.samsungnotes.SamsungNotesService: void backgroundAllowlist(android.content.Context)>
+  Line:     94
+  Register: v1 := "com.samsung.android.app.notes"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.samsungnotes.SamsungNotesService: void -
+      ← <com.android.server.samsungnotes.SamsungNotesService: void <
+        ← SamsungNotesService$UpdateReceiver.onReceive()
+        ← SystemServer.startOtherServices()
+          ← SystemServer.run()
+            ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → IActivityManager.backgroundAllowlistUid()
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+

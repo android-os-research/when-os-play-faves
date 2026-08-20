@@ -1,0 +1,8 @@
+# com.android.incallui.call.InCallActivity [NEW]
+# Refs: 4
+# JARs: framework, knoxsdk, services
+
+<android.sec.enterprise.PasswordPolicy: void <clinit>()>
+<com.android.server.wm.ActivityStartInterceptor: boolean isIntentFromExceptionList()>
+<com.android.server.wm.PersonaActivityHelper: boolean isIntentFromShowWhenLockedCase(android.content.Intent,android.content.pm.ActivityInfo)>
+<com.samsung.android.knox.devicesecurity.PasswordPolicy: void <clinit>()>

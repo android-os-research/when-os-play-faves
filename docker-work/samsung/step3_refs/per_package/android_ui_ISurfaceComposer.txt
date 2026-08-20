@@ -1,0 +1,24 @@
+# android.ui.ISurfaceComposer [NEW]
+# Refs: 20
+# JARs: framework, gamemanager, gamesdk, services, ssrm
+
+<com.android.server.desktopmode.ModeChanger: void setDesktopModeToSurfaceFlinger(boolean)>
+<com.android.server.display.color.DisplayTransformManager: boolean isDeviceColorManaged()>
+<com.android.server.display.color.DisplayTransformManager: void applyColorMatrix(float[])>
+<com.android.server.display.color.DisplayTransformManager: void applyDaltonizerMode(int)>
+<com.android.server.display.color.DisplayTransformManager: void applySaturation(float)>
+<com.android.server.display.color.DisplayTransformManager: void setDisplayColor(int,int)>
+<com.android.server.display.exynos.ExynosDisplayUtils: void sendEmptyUpdate()>
+<com.android.server.enterprise.restriction.DeveloperModeSettings: boolean isShowingScreenUpdateAndReloadSurface()>
+<com.android.server.enterprise.restriction.DeveloperModeSettings: boolean resetDrawingOptions()>
+<com.android.server.ibs.sqd.IbsQuickDim: int getFpsFromSurfaceFlinger()>
+<com.android.server.ssrm.CustomFrequencyManagerService: void setDynamicFpsLevel(int)>
+<com.android.server.wm.WindowManagerService: boolean isLayerTracing()>
+<com.android.server.wm.WindowManagerService: void performEnableScreen()>
+<com.android.server.wm.WindowManagerService: void setLayerTracing(boolean)>
+<com.android.server.wm.WindowManagerService: void setLayerTracingFlags(int)>
+<com.samsung.android.displaysolution.MdnieScenarioControlService: void wcg_property_changed(int)>
+<com.samsung.android.game.GameManagerService: boolean setDfs(android.os.IBinder,int)>
+<com.samsung.android.game.SemGameManager: int getTargetFrameRate()>
+<com.samsung.android.gamesdk.subsystem.FrameCounter: int getFlipCount()>
+<com.samsung.android.hardware.display.AdaptiveDisplayColorService: void updateScreen()>

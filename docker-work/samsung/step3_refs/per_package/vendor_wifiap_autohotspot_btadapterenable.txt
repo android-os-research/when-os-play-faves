@@ -1,0 +1,6 @@
+# vendor.wifiap.autohotspot.btadapterenable [NEW]
+# Refs: 3
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartD2DGattClient: boolean connectToSmartD2DClient(java.lang.String,java.lang.String,com.samsung.android.wifi.ISemWifiApSmartCallback)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartD2DGattClient: void shutdownclient()>

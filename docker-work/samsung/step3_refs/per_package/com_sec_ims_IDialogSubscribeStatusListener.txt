@@ -1,0 +1,9 @@
+# com.sec.ims.IDialogSubscribeStatusListener [NEW]
+# Refs: 5
+# JARs: imsmanager
+
+<com.sec.ims.IDialogSubscribeStatusListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.IDialogSubscribeStatusListener$Stub$Proxy: void onDialogSubscribeStatus(int)>
+<com.sec.ims.IDialogSubscribeStatusListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.IDialogSubscribeStatusListener$Stub: com.sec.ims.IDialogSubscribeStatusListener asInterface(android.os.IBinder)>
+<com.sec.ims.IDialogSubscribeStatusListener$Stub: void <init>()>

@@ -1,0 +1,49 @@
+######################################################################
+# Propagation: com.samsung.android.server.wifi.mobilewips.client
+######################################################################
+
+JARs:                 knoxsdk
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$1
+  Method:   <com.samsung.android.knox.EdmConstants$1: void <init>()>
+  Line:     80
+  Register: v0 := "com.samsung.android.server.wifi.mobilewips.client"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1
+  Method:   <com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1: void <init>()>
+  Line:     53
+  Register: v0 := "com.samsung.android.server.wifi.mobilewips.client"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.appconfig.ApplicationRestrictionsM
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+

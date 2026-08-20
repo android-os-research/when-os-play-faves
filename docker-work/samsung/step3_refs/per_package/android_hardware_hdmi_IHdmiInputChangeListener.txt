@@ -1,0 +1,9 @@
+# android.hardware.hdmi.IHdmiInputChangeListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.hdmi.IHdmiInputChangeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.hdmi.IHdmiInputChangeListener$Stub$Proxy: void onChanged(android.hardware.hdmi.HdmiDeviceInfo)>
+<android.hardware.hdmi.IHdmiInputChangeListener$Stub: android.hardware.hdmi.IHdmiInputChangeListener asInterface(android.os.IBinder)>
+<android.hardware.hdmi.IHdmiInputChangeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.hdmi.IHdmiInputChangeListener$Stub: void <init>()>

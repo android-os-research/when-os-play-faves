@@ -1,0 +1,6 @@
+# persist.sys.clear_package_cache_needed [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<com.android.server.pm.PackageManagerService: void <init>(com.android.server.pm.PackageManagerServiceInjector,boolean,boolean,java.lang.String,boolean,boolean,int,java.lang.String)>
+<com.samsung.android.core.pm.BroadcastReceiverListParserWithScpm: com.samsung.android.core.pm.BroadcastReceiverListParser updateParserIfNeeded(java.io.FileDescriptor)>

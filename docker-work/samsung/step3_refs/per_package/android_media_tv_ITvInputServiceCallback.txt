@@ -1,0 +1,11 @@
+# android.media.tv.ITvInputServiceCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.media.tv.ITvInputServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.tv.ITvInputServiceCallback$Stub$Proxy: void addHardwareInput(int,android.media.tv.TvInputInfo)>
+<android.media.tv.ITvInputServiceCallback$Stub$Proxy: void addHdmiInput(int,android.media.tv.TvInputInfo)>
+<android.media.tv.ITvInputServiceCallback$Stub$Proxy: void removeHardwareInput(java.lang.String)>
+<android.media.tv.ITvInputServiceCallback$Stub: android.media.tv.ITvInputServiceCallback asInterface(android.os.IBinder)>
+<android.media.tv.ITvInputServiceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.tv.ITvInputServiceCallback$Stub: void <init>()>

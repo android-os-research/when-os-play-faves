@@ -1,0 +1,26 @@
+# com.samsung.android.aod.IAODManager [NEW]
+# Refs: 22
+# JARs: framework
+
+<com.samsung.android.aod.IAODManager$Stub$Proxy: boolean isAODState()>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: boolean isSViewCoverBrightnessHigh()>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: int setLiveClockCommand(int,int,int,int[])>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: int setLiveClockImage(int,int,byte[],java.lang.String)>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: int setLiveClockInfo(int,long,long,long,long,long,long,long,long)>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: java.lang.String getActiveImageInfo()>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void acquireDoze(android.os.IBinder,java.lang.String,java.lang.String)>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void addLogText(java.util.List)>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void readyToScreenTurningOn()>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void registerAODDozeCallback(android.os.IBinder)>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void registerAODListener(android.os.IBinder)>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void releaseDoze(android.os.IBinder)>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void requestAODToast(java.lang.String,com.samsung.android.aod.AODToast)>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void setLiveClockNeedle(byte[])>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void unregisterAODDozeCallback(android.os.IBinder)>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void unregisterAODListener(android.os.IBinder)>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void updateAODTspRect(int,int,int,int,java.lang.String)>
+<com.samsung.android.aod.IAODManager$Stub$Proxy: void writeAODCommand(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>
+<com.samsung.android.aod.IAODManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.aod.IAODManager$Stub: com.samsung.android.aod.IAODManager asInterface(android.os.IBinder)>
+<com.samsung.android.aod.IAODManager$Stub: void <init>()>

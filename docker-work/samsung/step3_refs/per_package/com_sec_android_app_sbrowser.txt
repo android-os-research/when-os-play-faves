@@ -1,0 +1,18 @@
+# com.sec.android.app.sbrowser [NEW]
+# Refs: 14
+# JARs: framework, knoxsdk, services
+
+<android.sec.enterprise.proxy.EnterpriseProxyConstants$1: void <init>()>
+<com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+<com.android.server.am.BGProtectManager: int isWebviewProcess(com.android.server.am.ProcessRecord)>
+<com.android.server.desktopmode.DesktopModeKillPolicyManager: void <clinit>()>
+<com.android.server.enterprise.certificate.CertificatePolicy: boolean setPrivateKeyGrant(java.lang.String,int,java.lang.String,java.lang.String,boolean)>
+<com.android.server.enterprise.smartcard.SmartCardBrowserPolicy: void broadcastIntentAsUser(boolean,int,int)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnConstants: void <clinit>()>
+<com.android.server.knox.dar.sdp.engine.SdpServiceKeeper: void initWhitelist()>
+<com.android.server.wm.WindowProcessController: void <clinit>()>
+<com.samsung.android.hardware.display.AdaptiveDisplayColorService: void <init>(android.content.Context)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+<com.samsung.android.knox.application.ApplicationPolicy: void disableAndroidBrowser()>
+<com.samsung.android.knox.application.ApplicationPolicy: void enableAndroidBrowser()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.Integer lambda$setBrowserHomepage$59(java.lang.String)>

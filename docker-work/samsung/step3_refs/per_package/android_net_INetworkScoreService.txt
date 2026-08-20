@@ -1,0 +1,19 @@
+# android.net.INetworkScoreService [NEW]
+# Refs: 15
+# JARs: framework
+
+<android.net.INetworkScoreService$Stub$Proxy: android.net.NetworkScorerAppData getActiveScorer()>
+<android.net.INetworkScoreService$Stub$Proxy: boolean clearScores()>
+<android.net.INetworkScoreService$Stub$Proxy: boolean isCallerActiveScorer(int)>
+<android.net.INetworkScoreService$Stub$Proxy: boolean requestScores(android.net.NetworkKey[])>
+<android.net.INetworkScoreService$Stub$Proxy: boolean setActiveScorer(java.lang.String)>
+<android.net.INetworkScoreService$Stub$Proxy: boolean updateScores(android.net.ScoredNetwork[])>
+<android.net.INetworkScoreService$Stub$Proxy: java.lang.String getActiveScorerPackage()>
+<android.net.INetworkScoreService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.INetworkScoreService$Stub$Proxy: java.util.List getAllValidScorers()>
+<android.net.INetworkScoreService$Stub$Proxy: void disableScoring()>
+<android.net.INetworkScoreService$Stub$Proxy: void registerNetworkScoreCache(int,android.net.INetworkScoreCache,int)>
+<android.net.INetworkScoreService$Stub$Proxy: void unregisterNetworkScoreCache(int,android.net.INetworkScoreCache)>
+<android.net.INetworkScoreService$Stub: android.net.INetworkScoreService asInterface(android.os.IBinder)>
+<android.net.INetworkScoreService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.INetworkScoreService$Stub: void <init>()>

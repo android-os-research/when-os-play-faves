@@ -1,0 +1,8 @@
+# android.media.IMediaCapture [NEW]
+# Refs: 4
+# JARs: framework
+
+<com.samsung.android.media.mediacapture.SemMediaCapture$BackgroundMusic: android.os.Parcel writeToParcel()>
+<com.samsung.android.media.mediacapture.SemMediaCapture: float getProgressForCapture()>
+<com.samsung.android.media.mediacapture.SemMediaCapture: void setBackgroundMusic(com.samsung.android.media.SemBackgroundMusic)>
+<com.samsung.android.media.mediacapture.SemMediaCapture: void setDynamicViewingConfigurations(java.util.List)>

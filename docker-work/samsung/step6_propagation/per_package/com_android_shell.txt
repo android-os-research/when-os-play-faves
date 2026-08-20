@@ -1,0 +1,2035 @@
+######################################################################
+# Propagation: com.android.shell
+######################################################################
+
+JARs:                 content, semwifi-service, services, telephony-common, uiautomator
+Classes:              18
+Occurrences:          34
+Usage types:          field_store, invoke, move, unknown
+Enforcement patterns: allowlist_check, early_return, string_compare
+Security tags:        APPOPS, PERM_CHECK, PKG_MGMT, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      content
+  Class:    com.android.commands.content.Content$Command
+  Method:   <com.android.commands.content.Content$Command: java.lang.String resolveCallingPackage()>
+  Line:     59
+  Register: v0 := "com.android.shell"
+  Usage:    [unknown] return-object v0
+  Patterns: (none)
+  Flow:     [other] return-object v0 → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → Process.myUid()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.diagnostics.WifiIssuePattern
+  Method:   <com.samsung.android.server.wifi.diagnostics.WifiIssuePattern: boolean isApiCalledByNonSystemApk(java.lang.String)>
+  Line:     472
+  Register: p0 := "com.android.shell"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-nez p0, :cond_2c → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← PatternAbnormalDisconnect.matches()
+      ← PatternWifiAppProblem.isAppEvent()
+        ← PatternWifiAppProblem.isAssociated()
+        ← PatternWifiAppProblem.matches()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.appop.AppOpsService
+  Method:   <com.android.server.appop.AppOpsService: com.android.server.appop.AppOpsService$PackageVerificationResult verifyAndGetBypass(int,java.lang.String,java.lang.String,java.lang.String)>
+  Line:     23965
+  Register: v3 := "com.android.shell"
+  Usage:    [invoke] invoke-static {p2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+  Patterns: (none)
+  Flow:     [invoke] java.util.Objects.equals() → [other] move-result v3 → [branch] if-eqz v3, :cond_75 → [reassigned] v3 overwritte
+
+  CALLERS (who invokes this method):
+      ← AppOpsService.noteOperationUnchecked() [APPOPS]
+      ← AppOpsService.startOperationUnchecked()
+      ← AppOpsService.verifyAndGetBypass()
+        ← AppOpsService.noteOperationImpl() [APPOPS]
+        ← AppOpsService.noteProxyOperationImpl()
+        ← AppOpsService.startOperationImpl()
+        ← AppOpsService.startProxyOperationImpl()
+        ← AppOpsService.checkOperationUnchecked() [APPOPS]
+        ← AppOpsService.checkPackage()
+        ← AppOpsService.extractAsyncOps()
+        ← AppOpsService.finishOperationUnchecked()
+        ← AppOpsService.setMode() [APPOPS]
+        ← AppOpsService.startWatchingAsyncNoted()
+        ← AppOpsService.stopWatchingAsyncNoted()
+          ← <com.android.server.appop.AppOpsService: android.app.SyncNot [APPOPS]
+          ← <com.android.server.appop.AppOpsService: android.app.SyncNot
+          ← <com.android.server.appop.AppOpsService: android.app.SyncNot
+          ← <com.android.server.appop.AppOpsService: android.app.SyncNot
+          ← AppOpsService.checkOperationImpl() [APPOPS]
+          ← ActivityManagerService$LocalService.bindSdkSandboxService()
+          ← ActivityManagerService.isInstantApp()
+          ← ContentProviderHelper.getContentProvider()
+          ← AppOpsService.enforceGetAppOpsStatsPermissionIfNeeded()
+          ← AppOpsService.finishProxyOperationImpl()
+          ← AppOpsService.finishOperationImpl()
+          ← <com.android.server.appop.AppOpsService: void -$$Nest$msetMo [APPOPS]
+          ← AppOpsService.setMode() [APPOPS]
+            ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+            ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+            ← AppOpsService$CheckOpsDelegateDispatcher.noteOperation() [APPOPS]
+            ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+            ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+            ← AppOpsService$CheckOpsDelegateDispatcher.noteProxyOperation() [APPOPS]
+            ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+            ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+            ← AppOpsService$CheckOpsDelegateDispatcher.startOperation() [APPOPS]
+            ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+            ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+            ← AppOpsService$CheckOpsDelegateDispatcher.startProxyOperation() [APPOPS]
+            ← <com.android.server.appop.AppOpsService: int -$$Nest$mcheckO [APPOPS]
+            ← ActivityManagerService.registerReceiverWithFeature()
+            ← ActivityManagerService.broadcastIntentLocked()
+            ← ActivityManagerService.getContentProvider()
+            ← AppOpsService.getOpsForPackage()
+            ← <com.android.server.appop.AppOpsService: java.lang.Void -$$N
+            ← <com.android.server.appop.AppOpsService: void -$$Nest$mfinis
+            ← AppOpsService$AppOpsManagerInternalImpl.setModeFromPermissionPolicy() [APPOPS]
+            ← ActivityManagerService.startInstrumentation()
+            ← ActivityManagerService.finishInstrumentationLocked()
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← AppOpsService.noteOperation() [APPOPS]
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← AppOpsService.noteProxyOperation()
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← AppOpsService.startOperation()
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← AppOpsService.startProxyOperation()
+              ← AppOpsService$CheckOpsDelegateDispatcher.checkOperation() [APPOPS]
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← ActivityManagerService.registerReceiver()
+              ← ActivityManagerService$LocalService.broadcastIntent()
+              ← ActivityManagerService.broadcastIntentInPackage()
+              ← ActivityManagerService.broadcastIntentLocked()
+              ← AppOpsService.isProxying()
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← AppOpsService$CheckOpsDelegateDispatcher.finishProxyOperation() [APPOPS]
+              ← AppOpsService$CheckOpsDelegateDispatcher.finishOperation() [APPOPS]
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← <com.android.server.appop.AppOpsService$CheckOpsDelegateDisp [APPOPS]
+              ← ActivityManagerService.inputDispatchingTimedOut()
+              ← ActivityManagerService.finishInstrumentation()
+              ← ActivityManagerService.handleProcessStartOrKillTimeoutLocked()
+              ← <com.android.server.am.ActivityManagerService: void lambda$h
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager$NameNotFoundException.printStackTrace()
+      → PackageManager$PackageInfoFlags.of()
+      → PackageManager.getPackageUidAsUser()
+      → PackageManager.getSdkSandboxPackageName()
+      → PackageManagerInternal.getPackage()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → Process.isSdkSandboxUid()
+      → UserHandle.getAppId()
+      → UserHandle.getUid()
+      → UserHandle.getUserId()
+      → ArrayMap.get()
+      → ArraySet.contains()
+      → SparseArray.get()
+      → IPlatformCompat.isChangeEnabledByPackageName()
+      → IPlatformCompat.isChangeEnabledByUid()
+      → LocalServices.getService()
+      → <com.android.server.appop.AppOpsService$PackageVerificationR
+      → AppOpsService.getBypassforPackage()
+      → AppOpsService.isAttributionInPackage()
+      → AppOpsService.resolveUid()
+      → AndroidPackageApi.getUid()
+      → <java.lang.SecurityException: void <init>(java.lang.String)>
+      → Objects.equals()
+        → <android.content.pm.PackageManager$PackageInfoFlags: void <i
+        → ArrayMap.indexOfKey()
+        → ArraySet.indexOf()
+        → SparseArray.get()
+        → <android.app.AppOpsManager$RestrictionBypass: void <init>(bo
+        → Context.checkPermission() [PERM_CHECK]
+        → AndroidPackageApi.isPrivileged()
+        → ParsedAttribution.getTag()
+        → ParsingPackageRead.getAttributions()
+        → List.size()
+        → List.get()
+          → <android.content.pm.PackageManager$Flags: void <init>(long)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArraySet.indexOf()
+          → ArraySet.indexOfNull()
+          → ContainerHelpers.binarySearch()
+            → ArrayMap.binarySearchHashes()
+            → ArraySet.binarySearch()
+              → <java.util.ConcurrentModificationException: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.BugReportHandlerUtil
+  Method:   <com.android.server.am.BugReportHandlerUtil: boolean isShellApp(java.lang.String)>
+  Line:     214
+  Register: v0 := "com.android.shell"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← BugReportHandlerUtil.launchBugReportHandlerApp()
+        ← ActivityManagerService.launchBugReportHandlerApp()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService
+  Method:   <com.android.server.am.ActivityManagerService: void requestBugReportWithDescription(java.lang.String,java.lang.String,int,long,boolean)>
+  Line:     69281
+  Register: v1 := "com.android.shell"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerService$LocalService.requestCustomFullBugreport()
+      ← ActivityManagerService.requestBugReportWithDescription()
+        ← ActivityManagerService.requestBugReport()
+        ← ActivityManagerService.requestBugReportWithDescription()
+        ← ActivityManagerService.requestRemoteBugReport()
+          ← ActivityManagerService.requestFullBugReport()
+          ← ActivityManagerService.requestInteractiveBugReport()
+          ← ActivityManagerService.requestInteractiveBugReportWithDescription()
+          ← ActivityManagerService.requestTelephonyBugReport()
+          ← ActivityManagerService.requestWifiBugReport()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → TextUtils.isEmpty()
+      → ActivityManagerService.enforceCallingPermission()
+      → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → CharSequence.length()
+        → Binder.getCallingPid() [UID_CHECK]
+        → ActivityManagerService.checkCallingPermission()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → ActivityManagerService.checkPermission() [PERM_CHECK]
+            → ActivityManagerService.checkComponentPermission()
+              → ActivityManager.checkComponentPermission()
+              → ASKSManager.getASKSManager()
+              → ASKSManager.isRestrictedTarget()
+              → ASKSManager.getPackageNameFromPid()
+              → IASKSManager.checkRestrictedPermission()
+              → ArraySet.contains()
+              → SparseArray.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.AppProfiler
+  Method:   <com.android.server.am.AppProfiler: void handlePostDumpHeapNotification()>
+  Line:     4630
+  Register: v4 := "com.android.shell"
+  Usage:    [invoke] invoke-virtual {v0, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v4 overwritten
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerService$MainHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UserHandle.getUserHandleForUid()
+      → ProcessMap.get()
+        → ArrayMap.get()
+        → SparseArray.get()
+          → ArrayMap.indexOfKey()
+          → SparseArray.get()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ContainerHelpers.binarySearch()
+              → ArrayMap.binarySearchHashes()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService$ShellDelegate
+  Method:   <com.android.server.am.ActivityManagerService$ShellDelegate: int checkAudioOperation(int,int,int,java.lang.String,com.android.internal.util.function.QuadFunction)>
+  Line:     105
+  Register: v0 := "com.android.shell"
+  Usage:    [invoke] invoke-interface {p5, p1, p2, p0, v0}, Lcom/android/internal/util/function/QuadFunction;->apply(Ljav
+  Patterns: early_return
+  Flow:     [invoke] com.android.internal.util.function.QuadFunction.apply()
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → UserHandle.getUid()
+      → UserHandle.getUserId()
+      → QuadFunction.apply()
+      → ActivityManagerService$ShellDelegate.isTargetOp()
+        → AppOpsManager.opToPermission()
+        → ActivityManagerService$ShellDelegate.isTargetPermission()
+          → ArrayUtils.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService$ShellDelegate
+  Method:   <com.android.server.am.ActivityManagerService$ShellDelegate: int checkOperation(int,int,java.lang.String,java.lang.String,boolean,com.android.internal.util.function.QuintFunction)>
+  Line:     215
+  Register: v3 := "com.android.shell"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → UserHandle.getUid()
+      → UserHandle.getUserId()
+      → QuintFunction.apply()
+      → ActivityManagerService$ShellDelegate.isTargetOp()
+        → AppOpsManager.opToPermission()
+        → ActivityManagerService$ShellDelegate.isTargetPermission()
+          → ArrayUtils.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService$ShellDelegate
+  Method:   <com.android.server.am.ActivityManagerService$ShellDelegate: void finishProxyOperation(android.os.IBinder,int,android.content.AttributionSource,boolean,com.android.internal.util.function.QuadFunction)>
+  Line:     346
+  Register: v3 := "com.android.shell"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → AttributionSource.getNext()
+      → AttributionSource.getToken()
+      → AttributionSource.getUid()
+      → AttributionSource.getAttributionTag()
+      → <android.content.AttributionSource: void <init>(int,java.lan
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → UserHandle.getUid()
+      → UserHandle.getUserId()
+      → QuadFunction.apply()
+      → ActivityManagerService$ShellDelegate.isTargetOp()
+        → <android.content.AttributionSource: void <init>(android.cont
+        → <android.content.AttributionSource: void <init>(int,java.lan
+        → AppOpsManager.opToPermission()
+        → ActivityManagerService$ShellDelegate.isTargetPermission()
+          → <android.content.AttributionSourceState: void <init>()>
+          → ArrayUtils.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService$ShellDelegate
+  Method:   <com.android.server.am.ActivityManagerService$ShellDelegate: android.app.SyncNotedAppOp noteOperation(int,int,java.lang.String,java.lang.String,boolean,java.lang.String,boolean,com.android.internal.util.function.HeptFunction)>
+  Line:     539
+  Register: v6 := "com.android.shell"
+  Usage:    [] 
+  Patterns: (none)
+  Flow:     [reassigned] v6 overwritten
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → UserHandle.getUid()
+      → UserHandle.getUserId()
+      → HeptFunction.apply()
+      → ActivityManagerService$ShellDelegate.isTargetOp()
+        → AppOpsManager.opToPermission()
+        → ActivityManagerService$ShellDelegate.isTargetPermission()
+          → ArrayUtils.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService$ShellDelegate
+  Method:   <com.android.server.am.ActivityManagerService$ShellDelegate: android.app.SyncNotedAppOp noteProxyOperation(int,android.content.AttributionSource,boolean,java.lang.String,boolean,boolean,com.android.internal.util.function.HexFunction)>
+  Line:     683
+  Register: v4 := "com.android.shell"
+  Usage:    [] 
+  Patterns: (none)
+  Flow:     [reassigned] v4 overwritten
+
+  CALLEES (what this method invokes):
+      → AttributionSource.getNext()
+      → AttributionSource.getToken()
+      → AttributionSource.getUid()
+      → AttributionSource.getAttributionTag()
+      → <android.content.AttributionSource: void <init>(int,java.lan
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → UserHandle.getUid()
+      → UserHandle.getUserId()
+      → HexFunction.apply()
+      → ActivityManagerService$ShellDelegate.isTargetOp()
+        → <android.content.AttributionSource: void <init>(android.cont
+        → <android.content.AttributionSource: void <init>(int,java.lan
+        → AppOpsManager.opToPermission()
+        → ActivityManagerService$ShellDelegate.isTargetPermission()
+          → <android.content.AttributionSourceState: void <init>()>
+          → ArrayUtils.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService$ShellDelegate
+  Method:   <com.android.server.am.ActivityManagerService$ShellDelegate: android.app.SyncNotedAppOp startOperation(android.os.IBinder,int,int,java.lang.String,java.lang.String,boolean,boolean,java.lang.String,boolean,int,int,com.android.internal.util.function.UndecFunction)>
+  Line:     851
+  Register: v8 := "com.android.shell"
+  Usage:    [] 
+  Patterns: (none)
+  Flow:     [other] move-object/from16 v8, p4
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → UserHandle.getUid()
+      → UserHandle.getUserId()
+      → UndecFunction.apply()
+      → ActivityManagerService$ShellDelegate.isTargetOp()
+        → AppOpsManager.opToPermission()
+        → ActivityManagerService$ShellDelegate.isTargetPermission()
+          → ArrayUtils.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService$ShellDelegate
+  Method:   <com.android.server.am.ActivityManagerService$ShellDelegate: android.app.SyncNotedAppOp startProxyOperation(android.os.IBinder,int,android.content.AttributionSource,boolean,boolean,java.lang.String,boolean,boolean,int,int,int,com.android.internal.util.function.UndecFunction)>
+  Line:     1037
+  Register: v5 := "com.android.shell"
+  Usage:    [] 
+  Patterns: (none)
+
+  CALLEES (what this method invokes):
+      → AttributionSource.getNext()
+      → AttributionSource.getToken()
+      → AttributionSource.getUid()
+      → AttributionSource.getAttributionTag()
+      → <android.content.AttributionSource: void <init>(int,java.lan
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → UserHandle.getUid()
+      → UserHandle.getUserId()
+      → UndecFunction.apply()
+      → ActivityManagerService$ShellDelegate.isTargetOp()
+        → <android.content.AttributionSource: void <init>(android.cont
+        → <android.content.AttributionSource: void <init>(int,java.lan
+        → AppOpsManager.opToPermission()
+        → ActivityManagerService$ShellDelegate.isTargetPermission()
+          → <android.content.AttributionSourceState: void <init>()>
+          → ArrayUtils.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ContentProviderHelper$DevelopmentSettingsObserver
+  Method:   <com.android.server.am.ContentProviderHelper$DevelopmentSettingsObserver: void <init>(com.android.server.am.ContentProviderHelper)>
+  Line:     53
+  Register: v2 := "com.android.shell"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← ContentProviderHelper.installSystemProviders()
+        ← SystemServer.startOtherServices()
+          ← SystemServer.run()
+            ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → ContentResolver.registerContentObserver()
+      → Context.getContentResolver()
+      → <android.database.ContentObserver: void <init>(android.os.Ha
+      → Settings$Global.getUriFor()
+      → ContentProviderHelper$DevelopmentSettingsObserver.onChange()
+      → <com.android.server.am.ContentProviderHelper: com.android.se
+        → Context.getPackageManager()
+        → PackageManager.setComponentEnabledSetting() [PKG_MGMT]
+        → Settings$Global.getInt()
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerShellCommand
+  Method:   <com.android.server.am.ActivityManagerShellCommand: java.util.List getRecentConfigurations(int)>
+  Line:     2820
+  Register: v7 := "com.android.shell"
+  Usage:    [invoke] invoke-interface/range {v1 .. v7}, Landroid/app/usage/IUsageStatsManager;->queryConfigurationStats(I
+  Patterns: (none)
+  Flow:     [invoke] android.app.usage.IUsageStatsManager.queryConfigurationStats
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerShellCommand.runGetConfig()
+        ← ActivityManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → ConfigurationStats.getConfiguration()
+      → ConfigurationStats.getActivationCount()
+      → IUsageStatsManager$Stub.asInterface()
+      → IUsageStatsManager.queryConfigurationStats()
+      → ParceledListSlice.getList()
+      → ServiceManager.getService()
+      → ArrayMap.indexOfKey()
+      → ArrayMap.size()
+      → ArrayMap.put()
+      → ArrayMap.setValueAt()
+      → ArrayMap.valueAt()
+      → ArrayMap.keySet()
+      → <android.util.ArrayMap: void <init>()>
+      → <com.android.server.am.ActivityManagerShellCommand$4: void <
+      → ArrayList.addAll()
+      → <java.util.ArrayList: void <init>(int)>
+      → Collections.emptyList()
+      → Collections.sort()
+      → List.size()
+      → List.get()
+        → <android.app.usage.IUsageStatsManager$Stub$Proxy: void <init
+        → IBinder.queryLocalInterface()
+        → ArrayMap.indexOf()
+        → ArrayMap.indexOfNull()
+        → ArrayMap.allocArrays()
+        → ArrayMap.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → ArrayMap.getCollection()
+        → MapCollections.getKeySet()
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.binarySearchHashes()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+          → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+          → <android.util.MapCollections$KeySet: void <init>(android.uti
+            → ContainerHelpers.binarySearch()
+            → <android.util.MapCollections: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerShellCommand
+  Method:   <com.android.server.am.ActivityManagerShellCommand: int runGetInactive(java.io.PrintWriter)>
+  Line:     7642
+  Register: v2 := "com.android.shell"
+  Usage:    [invoke] invoke-interface {v1, p0, v0, v2}, Landroid/app/usage/IUsageStatsManager;->isAppInactive(Ljava/lang/
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.app.usage.IUsageStatsManager.isAppInactive()
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → IUsageStatsManager$Stub.asInterface()
+      → IUsageStatsManager.isAppInactive()
+      → ServiceManager.getService()
+      → ShellCommand.getErrPrintWriter()
+      → ShellCommand.getNextArgRequired()
+      → ShellCommand.getNextOption()
+      → UserHandle.parseUserArg()
+      → PrintWriter.println()
+        → <android.app.usage.IUsageStatsManager$Stub$Proxy: void <init
+        → IBinder.queryLocalInterface()
+
+────────────────────────────────────────────────────────────
+Occurrence #17
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerShellCommand
+  Method:   <com.android.server.am.ActivityManagerShellCommand: int runGetStandbyBucket(java.io.PrintWriter)>
+  Line:     7850
+  Register: p0 := "com.android.shell"
+  Usage:    [invoke] invoke-interface {v1, p0, v0}, Landroid/app/usage/IUsageStatsManager;->getAppStandbyBuckets(Ljava/la
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.app.usage.IUsageStatsManager.getAppStandbyBuckets() → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → IUsageStatsManager$Stub.asInterface()
+      → IUsageStatsManager.getAppStandbyBuckets()
+      → IUsageStatsManager.getAppStandbyBucket()
+      → ParceledListSlice.getList()
+      → ServiceManager.getService()
+      → ShellCommand.getErrPrintWriter()
+      → ShellCommand.getNextArg()
+      → ShellCommand.getNextArgRequired()
+      → ShellCommand.getNextOption()
+      → UserHandle.parseUserArg()
+      → PrintWriter.print()
+      → PrintWriter.println()
+      → PrintWriter.println()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → <android.app.usage.IUsageStatsManager$Stub$Proxy: void <init
+        → IBinder.queryLocalInterface()
+
+────────────────────────────────────────────────────────────
+Occurrence #18
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerShellCommand
+  Method:   <com.android.server.am.ActivityManagerShellCommand: int runPackageImportance(java.io.PrintWriter)>
+  Line:     8706
+  Register: v1 := "com.android.shell"
+  Usage:    [invoke] invoke-interface {p0, v0, v1}, Landroid/app/IActivityManager;->getPackageProcessState(Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.app.IActivityManager.getPackageProcessState()
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → ActivityManager$RunningAppProcessInfo.procStateToImportance()
+      → IActivityManager.getPackageProcessState()
+      → ShellCommand.getNextArgRequired()
+      → PrintWriter.println()
+
+────────────────────────────────────────────────────────────
+Occurrence #19
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerShellCommand
+  Method:   <com.android.server.am.ActivityManagerShellCommand: int runStartActivity(java.io.PrintWriter)>
+  Line:     12013
+  Register: v18 := "com.android.shell"
+  Usage:    [move] move-object/from16 v8, v18
+  Patterns: string_compare, early_return
+  Flow:     [other] move-object v8, v10 → [reassigned] v10 overwritten
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → ActivityOptions.makeBasic()
+      → ActivityOptions.setLaunchDisplayId()
+      → ActivityOptions.setLockTaskEnabled()
+      → ActivityOptions.setSplashScreenStyle()
+      → ActivityOptions.toBundle()
+      → ActivityOptions.setApplyBigFreeformSize()
+      → ActivityOptions.setDismissKeyguardIfInsecure()
+      → ActivityOptions.setForceLaunchWindowingMode()
+      → ActivityOptions.setLaunchActivityType()
+      → ActivityOptions.setLaunchTaskId()
+      → ActivityOptions.setLaunchWindowingMode()
+      → ActivityOptions.setTaskOverlay()
+      → IActivityManager.getProviderMimeType()
+      → IActivityManager.forceStopPackage()
+      → IActivityTaskManager.unhandledBack()
+      → <android.app.ProfilerInfo: void <init>(java.lang.String,andr
+      → WaitResult.launchStateToString()
+      → <android.app.WaitResult: void <init>()>
+      → ComponentName.flattenToShortString()
+      → ComponentName.getPackageName()
+      → ComponentName.toShortString()
+      → Intent.getComponent()
+      → Intent.addFlags()
+      → Intent.getData()
+      → Intent.getType()
+      → Intent.toString()
+      → IPackageManager.queryIntentActivities()
+      → ParceledListSlice.getList()
+      → Uri.getScheme()
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → ShellCommand.openFileForSystem()
+      → ShellCommand.getErrPrintWriter()
+      → SystemClock.uptimeMillis()
+      → ActivityManagerService.startActivityAndWait()
+      → ActivityManagerService.startActivityAsUserWithFeature()
+      → ActivityManagerShellCommand.makeIntent()
+      → UserController.handleIncomingUser()
+      → BaiduCarlifeADBConnectUtils.repackIntent()
+      → BaiduCarlifeADBConnectUtils.isCarLinkIntent()
+      → BaiduCarlifeADBConnectUtils.isCarlifeForceConnect()
+      → BaiduCarlifeADBConnectUtils.printForCarlifeStart()
+      → BaiduCarlifeADBConnectUtils.printForCarlifeStartWarning()
+      → PrintWriter.flush()
+      → PrintWriter.println()
+      → <java.lang.RuntimeException: void <init>(java.lang.String,ja
+      → Thread.sleep()
+      → URISyntaxException.getMessage()
+      → List.size()
+      → List.get()
+        → <android.app.ActivityOptions: void <init>()>
+        → ComponentOptions.toBundle()
+        → Bitmap.copy()
+        → Bitmap.getHardwareBuffer()
+        → Bundle.putBinder()
+        → Bundle.putBoolean()
+        → Bundle.putBundle()
+        → Bundle.putFloatArray()
+        → Bundle.putInt()
+        → Bundle.putIntArray()
+        → Bundle.putParcelable()
+        → Bundle.putParcelableArray()
+        → Bundle.putString()
+        → Bundle.putStringArrayList()
+        → Bundle.remove()
+        → IRemoteCallback.asBinder()
+        → IAppTransitionAnimationSpecsFuture.asBinder()
+        → ActivityTaskManagerService.startActivityAndWait()
+        → ActivityTaskManagerService.startActivityAsUser()
+        → Intent.parseCommandArgs()
+        → <com.android.server.am.ActivityManagerShellCommand$1: void <
+        → Debug.getCallers()
+        → UserHandle.getUserId()
+        → UserHandle.formatUid()
+        → UserController$Injector.isCallerRecents()
+        → UserController$Injector.checkComponentPermission()
+        → UserController.canInteractWithAcrossProfilesPermission()
+        → UserController.hasUserRestriction()
+        → UserController.isSameProfileGroup()
+        → UserController.unsafeConvertIncomingUser()
+        → UserController.ensureNotSpecialUser()
+        → Slogf.w()
+        → SemDualAppManager.isDualAppId()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → ComponentName.getClassName()
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → Intent.putExtra()
+        → Intent.setAction()
+        → Intent.setClassName()
+        → Intent.setComponent()
+        → Intent.setPackage()
+        → SystemProperties.get()
+          → <android.app.ComponentOptions: void <init>()>
+          → <android.os.Bundle: void <init>()>
+          → ActivityStartController.obtainStarter()
+          → ActivityStarter.setActivityOptions()
+          → ActivityStarter.setCaller()
+          → ActivityStarter.setCallingFeatureId()
+          → ActivityStarter.setCallingPackage()
+          → ActivityStarter.setProfilerInfo()
+          → ActivityStarter.setRequestCode()
+          → ActivityStarter.setResolvedType()
+          → ActivityStarter.setResultTo()
+          → ActivityStarter.setResultWho()
+          → ActivityStarter.setStartFlags()
+          → ActivityStarter.setUserId()
+          → ActivityStarter.setWaitResult()
+          → ActivityStarter.execute()
+          → ActivityTaskManagerService.getActivityStartController()
+          → ActivityTaskManagerService.handleIncomingUser()
+          → ActivityTaskManagerService.assertPackageMatchesCallingUid()
+          → ActivityTaskManagerService.enforceNotIsolatedCaller()
+          → Context.getPackageManager()
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → PackageManager.getApplicationLabel()
+          → Handler.obtainMessage()
+          → Handler.sendMessage()
+          → ActivityTaskManagerService.isPossibleToStart()
+          → ActivityTaskManagerService.startActivityAsUser()
+          → CharSequence.toString()
+          → ActivityTaskManagerInternal.isCallerRecents()
+          → ActivityManagerService.checkComponentPermission()
+          → UserController$Injector.checkPermissionForPreflight() [PERM_CHECK]
+          → UserController$Injector.getUserManager()
+          → UserManagerService.hasUserRestriction()
+          → SparseIntArray.get()
+          → UserController.getCurrentUserId()
+            → ActivityStarter$Factory.obtain()
+            → ActivityStarter.setIntent()
+            → ActivityStarter.setReason()
+            → ActivityStarter.setActivityOptions()
+            → SafeActivityOptions.fromBundle()
+            → ActivityManagerInternal.cancelDisablePolicy()
+            → ActivityManagerInternal.enforceCallingPermission()
+            → ActivityOptions.isActiveApplaunch()
+            → ActivityOptions.isMlLaunch()
+            → ActivityOptions.setActiveApplaunch()
+            → ActivityOptions.setMlLaunch()
+            → Intent.hasFileDescriptors()
+            → Intent.getAction()
+            → Intent.getPackage()
+            → Configuration.diff()
+            → Binder.clearCallingIdentity()
+            → Binder.restoreCallingIdentity()
+            → AppLockPolicy.isSupportSSecure()
+            → ProtoLogImpl.v()
+            → DualAppManagerService.changeInfoIfDeletingDualApp()
+            → DualAppManagerService.changeUriForDualApp()
+            → DualAppManagerService.recordDaUsageCount()
+            → BaseRestrictionMgr.isRestrictedPackage()
+            → BaseRestrictionMgr.getInstance()
+            → Pageboost.onAppLaunch()
+            → Pageboost.stopActiveLaunch()
+            → AppPrelaunchManagerService.handleActivityExecution()
+            → AppPrelaunchManagerService.isAppPrelaunched()
+            → AppPrelaunchManagerService.isAppPrelaunched()
+            → ShutdownCheckPoints.recordCheckPoint()
+            → ActivityMetricsLogger.notifyActivityLaunching()
+            → ActivityMetricsLogger.notifyActivityLaunched()
+            → ActivityRecord.forTokenLocked()
+            → ActivityStarter$Request.resolveActivity()
+            → ActivityStarter.executeRequest()
+            → ActivityStarter.getExternalResult()
+            → ActivityStarter.resolveToHeavyWeightSwitcherIfNeeded()
+            → ActivityStarter.waitResultIfNeeded()
+            → ActivityStarter.onExecutionComplete()
+            → ActivityTaskManagerService.getGlobalConfiguration()
+            → ActivityTaskManagerService.isAppLockedPackage()
+            → ActivityTaskManagerService.updateConfigurationLocked()
+            → ActivityTaskManagerService.startProcessAsyncForActiveLaunch()
+            → ActivityTaskSupervisor.getActivityMetricsLogger()
+            → ConfigurationContainer.inSplitScreenWindowingMode()
+            → RootWindowContainer.getTopDisplayFocusedRootTask()
+            → SafeActivityOptions.getOptions()
+            → SafeActivityOptions.getOriginalOptions()
+            → Task.reparent()
+            → TaskFragment.topRunningActivity()
+            → TaskOrganizerController.preloadSplashScreenAppIcon()
+            → WindowContainer.getTaskDisplayArea()
+            → WindowManagerService.boostPriorityForLockedSection()
+            → WindowManagerService.resetPriorityAfterLockedSection()
+            → SemDualAppManager.getDualAppProfileId()
+            → ActivityManagerInternal.handleIncomingUser()
+            → ActivityTaskManagerService.isSameApp()
+            → UserHandle.isIsolated()
+            → Intent.hasCategory()
+            → HashMap.containsKey()
+            → HashMap.get()
+            → HashMap.entrySet()
+            → Iterator.hasNext()
+            → Iterator.next()
+            → Map$Entry.getKey()
+            → Map$Entry.getValue()
+            → Set.iterator()
+            → ActivityOptions.fromBundle()
+            → Context.getSystemService()
+            → DisplayManager.getHiddenDisplayId()
+            → Process.isSdkSandboxUid()
+            → DualAppManagerService.startDAChooserActivity()
+            → DualAppManagerService.shouldForwardToOwner()
+            → LocalManagerRegistry.getManager()
+            → SdkSandboxManagerLocal.enforceAllowedToStartActivity()
+            → ActivityStartController.checkTargetUser()
+            → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+            → ActivityManager.checkComponentPermission()
+            → ASKSManager.getASKSManager()
+            → ASKSManager.isRestrictedTarget()
+            → ASKSManager.getPackageNameFromPid()
+            → IASKSManager.checkRestrictedPermission()
+            → ArraySet.contains()
+            → SparseArray.get()
+            → PermissionChecker.checkPermissionForPreflight() [PERM_CHECK]
+            → UserController$Injector.getContext()
+            → IUserManager$Stub.asInterface()
+            → ServiceManager.getService()
+            → UserManagerService$LocalService.hasUserRestriction()
+            → UserManagerService.checkManageOrInteractPermissionIfCallerInOtherProfileGroup()
+            → ContainerHelpers.binarySearch()
+              → <com.android.server.wm.SafeActivityOptions: void <init>(andr
+              → ProtoLogImpl.getSingleInstance()
+              → ProtoLogImpl.log()
+              → Intent.putExtra()
+              → Intent.putExtra()
+              → Intent.getParcelableExtra()
+              → <android.content.Intent: void <init>()>
+              → <android.content.Intent: void <init>(android.content.Intent)
+              → PackageManager.resolveActivityAsUser()
+              → Uri.getSchemeSpecificPart()
+              → UserHandle.getIdentifier()
+              → SemDualAppManager.isSamsungLauncher()
+              → SemDualAppManager.isWhitelistedPackage()
+              → SemDualAppManager.getInstance()
+              → ClipData.fixUris()
+              → ContentProvider.maybeAddUserId()
+              → Intent.getClipData()
+              → Intent.putExtra()
+              → Intent.setDataAndType()
+              → Intent.getExtras()
+              → Intent.getExtra()
+              → Intent.getParcelableArrayListExtra()
+              → Bundle.getParcelable()
+              → SemDualAppManager.shouldAddUserId()
+              → Exception.printStackTrace()
+              → ArrayList.add()
+              → ArrayList.size()
+              → ArrayList.iterator()
+              → <java.util.ArrayList: void <init>()>
+              → DualAppManagerService.isInstalledWhitelistedPackageInternal()
+              → DualAppManagerService.sendInternalMsg()
+              → BaseRestrictionMgr.isRestrictedPackage()
+              → <com.android.server.am.BaseRestrictionMgr$BaseRestrictionMgr
+              → Pageboost$PageboostAppCapture.isRecordingCapture()
+              → Pageboost.isPageboostMinimized()
+              → Pageboost.sendMessageWithObject()
+              → Pageboost.sendMessage()
+              → AppPrelaunchService.handleActivityExecution()
+              → AppPrelaunchService.isAppPrelaunched()
+              → AppPrelaunchService.isAppPrelaunched()
+              → ShutdownCheckPoints.recordCheckPointInternal()
+              → SystemClock.elapsedRealtimeNanos()
+              → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+              → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+              → ActivityMetricsLogger$TransitionInfo.contains()
+              → ActivityMetricsLogger.launchObserverNotifyIntentStarted()
+              → ActivityRecord.getUid()
+              → ArrayList.get()
+              → ArrayMap.put()
+              → ArrayMap.remove()
+              → ActivityManagerPerformance.onAppLaunch()
+              → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+              → ActivityMetricsLogger$TransitionInfo.canCoalesce()
+              → ActivityMetricsLogger$TransitionInfo.isInterestingToLoggerAndObserver()
+              → ActivityMetricsLogger$TransitionInfo.create()
+              → ActivityMetricsLogger$TransitionInfo.setLatestLaunchedActivity()
+              → ActivityMetricsLogger.abort()
+              → ActivityMetricsLogger.launchObserverNotifyActivityLaunched()
+              → ActivityMetricsLogger.launchObserverNotifyIntentFailed()
+              → ActivityMetricsLogger.scheduleCheckActivityToBeDrawn()
+              → ActivityMetricsLogger.scheduleCheckActivityToBeDrawnIfSleeping()
+              → ActivityMetricsLogger.startLaunchTrace()
+              → ActivityMetricsLogger.stopLaunchTrace()
+              → ActivityRecord.isReportedDrawn()
+              → ActivityRecord.isVisible()
+              → ActivityTaskManagerService.getProcessController()
+              → WindowProcessController.hasStartedActivity()
+              → ActivityRecord.getRootTask()
+              → WeakReference.get()
+              → PackageManagerInternal.isInstantAppInstallerComponent()
+              → UserInfo.isManagedProfile()
+              → UserManager.getProfileParent()
+              → UserManager.get()
+              → UserManager.isUserUnlockingOrUnlocked()
+              → UriGrantsManagerInternal.checkGrantUriPermissionFromIntent()
+              → ActivityStarter.computeResolveFilterUid()
+              → ActivityTaskManagerService.getPackageManagerInternalLocked()
+              → ActivityTaskManagerService.getProcessController()
+              → ActivityTaskSupervisor.resolveActivity()
+              → ActivityTaskSupervisor.resolveIntent()
+              → ActivityTaskSupervisor.getUserInfo()
+              → ActivityOptions.getLaunchRootTask()
+              → ActivityOptions.abort()
+              → IActivityController.activityStarting()
+              → Context.getUserId()
+              → Intent.addCategory()
+              → Intent.cloneFilter()
+              → Intent.putExtra()
+              → Intent.putExtra()
+              → Intent.setFlags()
+              → Intent.getFlags()
+              → Intent.getIntExtra()
+              → Intent.toShortString()
+              → <android.content.Intent: void <init>(java.lang.String)>
+              → <android.content.IntentSender: void <init>(android.content.I
+              → IPackageManager.activitySupportsIntent()
+              → PackageManagerInternal.isPermissionsReviewRequired()
+              → Process.myPid()
+              → Trace.traceBegin()
+              → Trace.traceEnd()
+              → AuditLog.logAsUser()
+              → TextUtils.isEmpty()
+              → AppLockPolicy.isActivityInExceptionList()
+              → AppLockPolicy.skipLockWhenStart()
+              → IntentFirewall.checkStartActivity()
+              → PermissionPolicyInternal.checkStartActivity()
+              → ActivityRecord$Builder.build()
+              → ActivityRecord$Builder.setActivityInfo()
+              → ActivityRecord$Builder.setActivityOptions()
+              → ActivityRecord$Builder.setCaller()
+              → ActivityRecord$Builder.setComponentSpecified()
+              → ActivityRecord$Builder.setConfiguration()
+              → ActivityRecord$Builder.setIntent()
+              → ActivityRecord$Builder.setLaunchedFromFeature()
+              → ActivityRecord$Builder.setLaunchedFromPackage()
+              → ActivityRecord$Builder.setLaunchedFromPid()
+              → ActivityRecord$Builder.setLaunchedFromUid()
+              → ActivityRecord$Builder.setRequestCode()
+              → ActivityRecord$Builder.setResolvedType()
+              → ActivityRecord$Builder.setResultTo()
+              → ActivityRecord$Builder.setResultWho()
+              → ActivityRecord$Builder.setRootVoiceInteraction()
+              → ActivityRecord$Builder.setSourceRecord()
+              → <com.android.server.wm.ActivityRecord$Builder: void <init>(c
+              → ActivityRecord.canShowWhenLocked()
+              → ActivityRecord.isInRootTaskLocked()
+              → ActivityRecord.isInAnyTask()
+              → ActivityRecord.getTask()
+              → ActivityRecord.removeResultsLocked()
+              → ActivityRecord.sendResult()
+              → ActivityRecord.setLaunchingRequestFromNotification()
+              → ActivityStartController.getPendingRemoteAnimationRegistry()
+              → ActivityStartInterceptor.hasAliasActivity()
+              → ActivityStartInterceptor.intercept()
+              → ActivityStartInterceptor.setStates()
+              → ActivityStarter.createLaunchIntent()
+              → ActivityStarter.shouldAbortBackgroundActivityStart()
+              → ActivityStarter.checkStartActivityAllowedByEDM()
+              → ActivityStarter.startActivityUnchecked()
+              → ActivityTaskManagerService.getIntentSenderLocked()
+              → ActivityTaskManagerService.getPackageManager()
+              → ActivityTaskManagerService.isAppLockedVerifying()
+              → ActivityTaskManagerService.getPermissionPolicyInternal()
+              → ActivityTaskManagerService.getAppLockedCheckAction()
+              → ActivityTaskManagerService.resumeAppSwitches()
+              → ActivityTaskManagerServiceExt.isSmRccOpen()
+              → ActivityTaskManagerServiceExt.isSmRccPkg()
+              → ActivityTaskManagerServiceExt.getSmRccAction()
+              → ActivityTaskManagerServiceExt.resetSmRccOpen()
+              → ActivityTaskSupervisor.checkStartAnyActivityPermission()
+              → PendingRemoteAnimationRegistry.overrideOptionsIfNeeded()
+              → SafeActivityOptions.getOptions()
+              → SafeActivityOptions.popAppVerificationBundle()
+              → SafeActivityOptions.abort()
+              → Task.fromWindowContainerToken()
+              → TaskFragment.isEmbedded()
+              → TaskFragment.getDisplayId()
+              → WindowProcessController.getPid()
+              → WindowProcessControllerMap.getProcess()
+              → SemPersonaManager.isKnoxId()
+              → ActivityManagerInternal.getActivityInfoForUser()
+              → WindowProcessController.updateIntentForHeavyWeightActivity()
+              → ActivityRecord.isState()
+              → ActivityTaskSupervisor.waitActivityVisibleOrLaunched()
+              → ActivityStartController.onExecutionComplete()
+              → <android.content.res.Configuration: void <init>()>
+              → ConfigurationContainer.getConfiguration()
+              → ActivityTaskManagerServiceExt.isAppLockedPackage()
+              → ActivityTaskManagerService.updateConfigurationLocked()
+              → PooledLambda.obtainMessage()
+              → <com.android.server.wm.ActivityTaskManagerService$$ExternalS
+              → WindowConfiguration.isSplitScreenWindowingMode()
+              → DisplayContent.getFocusedRootTask()
+              → WindowContainer.getChildAt()
+              → WindowContainer.getChildCount()
+              → Task.canBeLaunchedOnDisplay()
+              → Task.isLeafTask()
+              → TaskDisplayArea.getDisplayId()
+              → TaskDisplayArea.onLeafTaskMoved()
+              → WindowContainer.getParent()
+              → WindowContainer.reparent()
+              → TaskFragment.topRunningActivity()
+              → ITaskOrganizer.preloadSplashScreenAppIcon()
+              → LinkedList.peekLast()
+              → WindowManagerThreadPriorityBooster.boost()
+              → WindowManagerThreadPriorityBooster.reset()
+              → SystemProperties.get()
+              → PackageManagerInternal.isSameApp()
+              → <android.app.ActivityOptions: void <init>(android.os.Bundle)
+              → DualAppManagerService.startDAChooserActivity()
+              → PackageManager.getNameForUid()
+              → SemDualAppManager.isInstalledWhitelistedPackage()
+              → Map.get()
+              → ActivityManagerInternal.ensureNotSpecialUser()
+              → IASKSManager$Stub.asInterface()
+              → ArraySet.indexOf()
+              → SparseArray.get()
+              → <android.content.AttributionSource: void <init>(int,java.lan
+              → PermissionChecker.checkPermissionForPreflight() [PERM_CHECK]
+              → IBinder.queryLocalInterface()
+              → <android.os.IUserManager$Stub$Proxy: void <init>(android.os.
+              → Bundle.getBoolean()
+              → <com.android.server.pm.UserManagerService: android.os.Bundle
+              → UserRestrictionsUtils.isValidRestriction()
+              → UserHandle.getCallingUserId()
+              → UserManagerService.hasManageUsersPermission()
+              → UserManagerService.hasPermissionGranted()
+              → UserManagerService.isSameProfileGroupNoChecks()
+
+────────────────────────────────────────────────────────────
+Occurrence #20
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerShellCommand
+  Method:   <com.android.server.am.ActivityManagerShellCommand: int runStartActivity(java.io.PrintWriter)>
+  Line:     12080
+  Register: v10 := "com.android.shell"
+  Usage:    [move] move-object v8, v10
+  Patterns: string_compare, early_return
+  Flow:     [other] move-object v8, v10 → [reassigned] v10 overwritten
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → ActivityOptions.makeBasic()
+      → ActivityOptions.setLaunchDisplayId()
+      → ActivityOptions.setLockTaskEnabled()
+      → ActivityOptions.setSplashScreenStyle()
+      → ActivityOptions.toBundle()
+      → ActivityOptions.setApplyBigFreeformSize()
+      → ActivityOptions.setDismissKeyguardIfInsecure()
+      → ActivityOptions.setForceLaunchWindowingMode()
+      → ActivityOptions.setLaunchActivityType()
+      → ActivityOptions.setLaunchTaskId()
+      → ActivityOptions.setLaunchWindowingMode()
+      → ActivityOptions.setTaskOverlay()
+      → IActivityManager.getProviderMimeType()
+      → IActivityManager.forceStopPackage()
+      → IActivityTaskManager.unhandledBack()
+      → <android.app.ProfilerInfo: void <init>(java.lang.String,andr
+      → WaitResult.launchStateToString()
+      → <android.app.WaitResult: void <init>()>
+      → ComponentName.flattenToShortString()
+      → ComponentName.getPackageName()
+      → ComponentName.toShortString()
+      → Intent.getComponent()
+      → Intent.addFlags()
+      → Intent.getData()
+      → Intent.getType()
+      → Intent.toString()
+      → IPackageManager.queryIntentActivities()
+      → ParceledListSlice.getList()
+      → Uri.getScheme()
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → ShellCommand.openFileForSystem()
+      → ShellCommand.getErrPrintWriter()
+      → SystemClock.uptimeMillis()
+      → ActivityManagerService.startActivityAndWait()
+      → ActivityManagerService.startActivityAsUserWithFeature()
+      → ActivityManagerShellCommand.makeIntent()
+      → UserController.handleIncomingUser()
+      → BaiduCarlifeADBConnectUtils.repackIntent()
+      → BaiduCarlifeADBConnectUtils.isCarLinkIntent()
+      → BaiduCarlifeADBConnectUtils.isCarlifeForceConnect()
+      → BaiduCarlifeADBConnectUtils.printForCarlifeStart()
+      → BaiduCarlifeADBConnectUtils.printForCarlifeStartWarning()
+      → PrintWriter.flush()
+      → PrintWriter.println()
+      → <java.lang.RuntimeException: void <init>(java.lang.String,ja
+      → Thread.sleep()
+      → URISyntaxException.getMessage()
+      → List.size()
+      → List.get()
+        → <android.app.ActivityOptions: void <init>()>
+        → ComponentOptions.toBundle()
+        → Bitmap.copy()
+        → Bitmap.getHardwareBuffer()
+        → Bundle.putBinder()
+        → Bundle.putBoolean()
+        → Bundle.putBundle()
+        → Bundle.putFloatArray()
+        → Bundle.putInt()
+        → Bundle.putIntArray()
+        → Bundle.putParcelable()
+        → Bundle.putParcelableArray()
+        → Bundle.putString()
+        → Bundle.putStringArrayList()
+        → Bundle.remove()
+        → IRemoteCallback.asBinder()
+        → IAppTransitionAnimationSpecsFuture.asBinder()
+        → ActivityTaskManagerService.startActivityAndWait()
+        → ActivityTaskManagerService.startActivityAsUser()
+        → Intent.parseCommandArgs()
+        → <com.android.server.am.ActivityManagerShellCommand$1: void <
+        → Debug.getCallers()
+        → UserHandle.getUserId()
+        → UserHandle.formatUid()
+        → UserController$Injector.isCallerRecents()
+        → UserController$Injector.checkComponentPermission()
+        → UserController.canInteractWithAcrossProfilesPermission()
+        → UserController.hasUserRestriction()
+        → UserController.isSameProfileGroup()
+        → UserController.unsafeConvertIncomingUser()
+        → UserController.ensureNotSpecialUser()
+        → Slogf.w()
+        → SemDualAppManager.isDualAppId()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → ComponentName.getClassName()
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → Intent.putExtra()
+        → Intent.setAction()
+        → Intent.setClassName()
+        → Intent.setComponent()
+        → Intent.setPackage()
+        → SystemProperties.get()
+          → <android.app.ComponentOptions: void <init>()>
+          → <android.os.Bundle: void <init>()>
+          → ActivityStartController.obtainStarter()
+          → ActivityStarter.setActivityOptions()
+          → ActivityStarter.setCaller()
+          → ActivityStarter.setCallingFeatureId()
+          → ActivityStarter.setCallingPackage()
+          → ActivityStarter.setProfilerInfo()
+          → ActivityStarter.setRequestCode()
+          → ActivityStarter.setResolvedType()
+          → ActivityStarter.setResultTo()
+          → ActivityStarter.setResultWho()
+          → ActivityStarter.setStartFlags()
+          → ActivityStarter.setUserId()
+          → ActivityStarter.setWaitResult()
+          → ActivityStarter.execute()
+          → ActivityTaskManagerService.getActivityStartController()
+          → ActivityTaskManagerService.handleIncomingUser()
+          → ActivityTaskManagerService.assertPackageMatchesCallingUid()
+          → ActivityTaskManagerService.enforceNotIsolatedCaller()
+          → Context.getPackageManager()
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → PackageManager.getApplicationLabel()
+          → Handler.obtainMessage()
+          → Handler.sendMessage()
+          → ActivityTaskManagerService.isPossibleToStart()
+          → ActivityTaskManagerService.startActivityAsUser()
+          → CharSequence.toString()
+          → ActivityTaskManagerInternal.isCallerRecents()
+          → ActivityManagerService.checkComponentPermission()
+          → UserController$Injector.checkPermissionForPreflight() [PERM_CHECK]
+          → UserController$Injector.getUserManager()
+          → UserManagerService.hasUserRestriction()
+          → SparseIntArray.get()
+          → UserController.getCurrentUserId()
+            → ActivityStarter$Factory.obtain()
+            → ActivityStarter.setIntent()
+            → ActivityStarter.setReason()
+            → ActivityStarter.setActivityOptions()
+            → SafeActivityOptions.fromBundle()
+            → ActivityManagerInternal.cancelDisablePolicy()
+            → ActivityManagerInternal.enforceCallingPermission()
+            → ActivityOptions.isActiveApplaunch()
+            → ActivityOptions.isMlLaunch()
+            → ActivityOptions.setActiveApplaunch()
+            → ActivityOptions.setMlLaunch()
+            → Intent.hasFileDescriptors()
+            → Intent.getAction()
+            → Intent.getPackage()
+            → Configuration.diff()
+            → Binder.clearCallingIdentity()
+            → Binder.restoreCallingIdentity()
+            → AppLockPolicy.isSupportSSecure()
+            → ProtoLogImpl.v()
+            → DualAppManagerService.changeInfoIfDeletingDualApp()
+            → DualAppManagerService.changeUriForDualApp()
+            → DualAppManagerService.recordDaUsageCount()
+            → BaseRestrictionMgr.isRestrictedPackage()
+            → BaseRestrictionMgr.getInstance()
+            → Pageboost.onAppLaunch()
+            → Pageboost.stopActiveLaunch()
+            → AppPrelaunchManagerService.handleActivityExecution()
+            → AppPrelaunchManagerService.isAppPrelaunched()
+            → AppPrelaunchManagerService.isAppPrelaunched()
+            → ShutdownCheckPoints.recordCheckPoint()
+            → ActivityMetricsLogger.notifyActivityLaunching()
+            → ActivityMetricsLogger.notifyActivityLaunched()
+            → ActivityRecord.forTokenLocked()
+            → ActivityStarter$Request.resolveActivity()
+            → ActivityStarter.executeRequest()
+            → ActivityStarter.getExternalResult()
+            → ActivityStarter.resolveToHeavyWeightSwitcherIfNeeded()
+            → ActivityStarter.waitResultIfNeeded()
+            → ActivityStarter.onExecutionComplete()
+            → ActivityTaskManagerService.getGlobalConfiguration()
+            → ActivityTaskManagerService.isAppLockedPackage()
+            → ActivityTaskManagerService.updateConfigurationLocked()
+            → ActivityTaskManagerService.startProcessAsyncForActiveLaunch()
+            → ActivityTaskSupervisor.getActivityMetricsLogger()
+            → ConfigurationContainer.inSplitScreenWindowingMode()
+            → RootWindowContainer.getTopDisplayFocusedRootTask()
+            → SafeActivityOptions.getOptions()
+            → SafeActivityOptions.getOriginalOptions()
+            → Task.reparent()
+            → TaskFragment.topRunningActivity()
+            → TaskOrganizerController.preloadSplashScreenAppIcon()
+            → WindowContainer.getTaskDisplayArea()
+            → WindowManagerService.boostPriorityForLockedSection()
+            → WindowManagerService.resetPriorityAfterLockedSection()
+            → SemDualAppManager.getDualAppProfileId()
+            → ActivityManagerInternal.handleIncomingUser()
+            → ActivityTaskManagerService.isSameApp()
+            → UserHandle.isIsolated()
+            → Intent.hasCategory()
+            → HashMap.containsKey()
+            → HashMap.get()
+            → HashMap.entrySet()
+            → Iterator.hasNext()
+            → Iterator.next()
+            → Map$Entry.getKey()
+            → Map$Entry.getValue()
+            → Set.iterator()
+            → ActivityOptions.fromBundle()
+            → Context.getSystemService()
+            → DisplayManager.getHiddenDisplayId()
+            → Process.isSdkSandboxUid()
+            → DualAppManagerService.startDAChooserActivity()
+            → DualAppManagerService.shouldForwardToOwner()
+            → LocalManagerRegistry.getManager()
+            → SdkSandboxManagerLocal.enforceAllowedToStartActivity()
+            → ActivityStartController.checkTargetUser()
+            → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+            → ActivityManager.checkComponentPermission()
+            → ASKSManager.getASKSManager()
+            → ASKSManager.isRestrictedTarget()
+            → ASKSManager.getPackageNameFromPid()
+            → IASKSManager.checkRestrictedPermission()
+            → ArraySet.contains()
+            → SparseArray.get()
+            → PermissionChecker.checkPermissionForPreflight() [PERM_CHECK]
+            → UserController$Injector.getContext()
+            → IUserManager$Stub.asInterface()
+            → ServiceManager.getService()
+            → UserManagerService$LocalService.hasUserRestriction()
+            → UserManagerService.checkManageOrInteractPermissionIfCallerInOtherProfileGroup()
+            → ContainerHelpers.binarySearch()
+              → <com.android.server.wm.SafeActivityOptions: void <init>(andr
+              → ProtoLogImpl.getSingleInstance()
+              → ProtoLogImpl.log()
+              → Intent.putExtra()
+              → Intent.putExtra()
+              → Intent.getParcelableExtra()
+              → <android.content.Intent: void <init>()>
+              → <android.content.Intent: void <init>(android.content.Intent)
+              → PackageManager.resolveActivityAsUser()
+              → Uri.getSchemeSpecificPart()
+              → UserHandle.getIdentifier()
+              → SemDualAppManager.isSamsungLauncher()
+              → SemDualAppManager.isWhitelistedPackage()
+              → SemDualAppManager.getInstance()
+              → ClipData.fixUris()
+              → ContentProvider.maybeAddUserId()
+              → Intent.getClipData()
+              → Intent.putExtra()
+              → Intent.setDataAndType()
+              → Intent.getExtras()
+              → Intent.getExtra()
+              → Intent.getParcelableArrayListExtra()
+              → Bundle.getParcelable()
+              → SemDualAppManager.shouldAddUserId()
+              → Exception.printStackTrace()
+              → ArrayList.add()
+              → ArrayList.size()
+              → ArrayList.iterator()
+              → <java.util.ArrayList: void <init>()>
+              → DualAppManagerService.isInstalledWhitelistedPackageInternal()
+              → DualAppManagerService.sendInternalMsg()
+              → BaseRestrictionMgr.isRestrictedPackage()
+              → <com.android.server.am.BaseRestrictionMgr$BaseRestrictionMgr
+              → Pageboost$PageboostAppCapture.isRecordingCapture()
+              → Pageboost.isPageboostMinimized()
+              → Pageboost.sendMessageWithObject()
+              → Pageboost.sendMessage()
+              → AppPrelaunchService.handleActivityExecution()
+              → AppPrelaunchService.isAppPrelaunched()
+              → AppPrelaunchService.isAppPrelaunched()
+              → ShutdownCheckPoints.recordCheckPointInternal()
+              → SystemClock.elapsedRealtimeNanos()
+              → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+              → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+              → ActivityMetricsLogger$TransitionInfo.contains()
+              → ActivityMetricsLogger.launchObserverNotifyIntentStarted()
+              → ActivityRecord.getUid()
+              → ArrayList.get()
+              → ArrayMap.put()
+              → ArrayMap.remove()
+              → ActivityManagerPerformance.onAppLaunch()
+              → <com.android.server.wm.ActivityMetricsLogger$LaunchingState:
+              → ActivityMetricsLogger$TransitionInfo.canCoalesce()
+              → ActivityMetricsLogger$TransitionInfo.isInterestingToLoggerAndObserver()
+              → ActivityMetricsLogger$TransitionInfo.create()
+              → ActivityMetricsLogger$TransitionInfo.setLatestLaunchedActivity()
+              → ActivityMetricsLogger.abort()
+              → ActivityMetricsLogger.launchObserverNotifyActivityLaunched()
+              → ActivityMetricsLogger.launchObserverNotifyIntentFailed()
+              → ActivityMetricsLogger.scheduleCheckActivityToBeDrawn()
+              → ActivityMetricsLogger.scheduleCheckActivityToBeDrawnIfSleeping()
+              → ActivityMetricsLogger.startLaunchTrace()
+              → ActivityMetricsLogger.stopLaunchTrace()
+              → ActivityRecord.isReportedDrawn()
+              → ActivityRecord.isVisible()
+              → ActivityTaskManagerService.getProcessController()
+              → WindowProcessController.hasStartedActivity()
+              → ActivityRecord.getRootTask()
+              → WeakReference.get()
+              → PackageManagerInternal.isInstantAppInstallerComponent()
+              → UserInfo.isManagedProfile()
+              → UserManager.getProfileParent()
+              → UserManager.get()
+              → UserManager.isUserUnlockingOrUnlocked()
+              → UriGrantsManagerInternal.checkGrantUriPermissionFromIntent()
+              → ActivityStarter.computeResolveFilterUid()
+              → ActivityTaskManagerService.getPackageManagerInternalLocked()
+              → ActivityTaskManagerService.getProcessController()
+              → ActivityTaskSupervisor.resolveActivity()
+              → ActivityTaskSupervisor.resolveIntent()
+              → ActivityTaskSupervisor.getUserInfo()
+              → ActivityOptions.getLaunchRootTask()
+              → ActivityOptions.abort()
+              → IActivityController.activityStarting()
+              → Context.getUserId()
+              → Intent.addCategory()
+              → Intent.cloneFilter()
+              → Intent.putExtra()
+              → Intent.putExtra()
+              → Intent.setFlags()
+              → Intent.getFlags()
+              → Intent.getIntExtra()
+              → Intent.toShortString()
+              → <android.content.Intent: void <init>(java.lang.String)>
+              → <android.content.IntentSender: void <init>(android.content.I
+              → IPackageManager.activitySupportsIntent()
+              → PackageManagerInternal.isPermissionsReviewRequired()
+              → Process.myPid()
+              → Trace.traceBegin()
+              → Trace.traceEnd()
+              → AuditLog.logAsUser()
+              → TextUtils.isEmpty()
+              → AppLockPolicy.isActivityInExceptionList()
+              → AppLockPolicy.skipLockWhenStart()
+              → IntentFirewall.checkStartActivity()
+              → PermissionPolicyInternal.checkStartActivity()
+              → ActivityRecord$Builder.build()
+              → ActivityRecord$Builder.setActivityInfo()
+              → ActivityRecord$Builder.setActivityOptions()
+              → ActivityRecord$Builder.setCaller()
+              → ActivityRecord$Builder.setComponentSpecified()
+              → ActivityRecord$Builder.setConfiguration()
+              → ActivityRecord$Builder.setIntent()
+              → ActivityRecord$Builder.setLaunchedFromFeature()
+              → ActivityRecord$Builder.setLaunchedFromPackage()
+              → ActivityRecord$Builder.setLaunchedFromPid()
+              → ActivityRecord$Builder.setLaunchedFromUid()
+              → ActivityRecord$Builder.setRequestCode()
+              → ActivityRecord$Builder.setResolvedType()
+              → ActivityRecord$Builder.setResultTo()
+              → ActivityRecord$Builder.setResultWho()
+              → ActivityRecord$Builder.setRootVoiceInteraction()
+              → ActivityRecord$Builder.setSourceRecord()
+              → <com.android.server.wm.ActivityRecord$Builder: void <init>(c
+              → ActivityRecord.canShowWhenLocked()
+              → ActivityRecord.isInRootTaskLocked()
+              → ActivityRecord.isInAnyTask()
+              → ActivityRecord.getTask()
+              → ActivityRecord.removeResultsLocked()
+              → ActivityRecord.sendResult()
+              → ActivityRecord.setLaunchingRequestFromNotification()
+              → ActivityStartController.getPendingRemoteAnimationRegistry()
+              → ActivityStartInterceptor.hasAliasActivity()
+              → ActivityStartInterceptor.intercept()
+              → ActivityStartInterceptor.setStates()
+              → ActivityStarter.createLaunchIntent()
+              → ActivityStarter.shouldAbortBackgroundActivityStart()
+              → ActivityStarter.checkStartActivityAllowedByEDM()
+              → ActivityStarter.startActivityUnchecked()
+              → ActivityTaskManagerService.getIntentSenderLocked()
+              → ActivityTaskManagerService.getPackageManager()
+              → ActivityTaskManagerService.isAppLockedVerifying()
+              → ActivityTaskManagerService.getPermissionPolicyInternal()
+              → ActivityTaskManagerService.getAppLockedCheckAction()
+              → ActivityTaskManagerService.resumeAppSwitches()
+              → ActivityTaskManagerServiceExt.isSmRccOpen()
+              → ActivityTaskManagerServiceExt.isSmRccPkg()
+              → ActivityTaskManagerServiceExt.getSmRccAction()
+              → ActivityTaskManagerServiceExt.resetSmRccOpen()
+              → ActivityTaskSupervisor.checkStartAnyActivityPermission()
+              → PendingRemoteAnimationRegistry.overrideOptionsIfNeeded()
+              → SafeActivityOptions.getOptions()
+              → SafeActivityOptions.popAppVerificationBundle()
+              → SafeActivityOptions.abort()
+              → Task.fromWindowContainerToken()
+              → TaskFragment.isEmbedded()
+              → TaskFragment.getDisplayId()
+              → WindowProcessController.getPid()
+              → WindowProcessControllerMap.getProcess()
+              → SemPersonaManager.isKnoxId()
+              → ActivityManagerInternal.getActivityInfoForUser()
+              → WindowProcessController.updateIntentForHeavyWeightActivity()
+              → ActivityRecord.isState()
+              → ActivityTaskSupervisor.waitActivityVisibleOrLaunched()
+              → ActivityStartController.onExecutionComplete()
+              → <android.content.res.Configuration: void <init>()>
+              → ConfigurationContainer.getConfiguration()
+              → ActivityTaskManagerServiceExt.isAppLockedPackage()
+              → ActivityTaskManagerService.updateConfigurationLocked()
+              → PooledLambda.obtainMessage()
+              → <com.android.server.wm.ActivityTaskManagerService$$ExternalS
+              → WindowConfiguration.isSplitScreenWindowingMode()
+              → DisplayContent.getFocusedRootTask()
+              → WindowContainer.getChildAt()
+              → WindowContainer.getChildCount()
+              → Task.canBeLaunchedOnDisplay()
+              → Task.isLeafTask()
+              → TaskDisplayArea.getDisplayId()
+              → TaskDisplayArea.onLeafTaskMoved()
+              → WindowContainer.getParent()
+              → WindowContainer.reparent()
+              → TaskFragment.topRunningActivity()
+              → ITaskOrganizer.preloadSplashScreenAppIcon()
+              → LinkedList.peekLast()
+              → WindowManagerThreadPriorityBooster.boost()
+              → WindowManagerThreadPriorityBooster.reset()
+              → SystemProperties.get()
+              → PackageManagerInternal.isSameApp()
+              → <android.app.ActivityOptions: void <init>(android.os.Bundle)
+              → DualAppManagerService.startDAChooserActivity()
+              → PackageManager.getNameForUid()
+              → SemDualAppManager.isInstalledWhitelistedPackage()
+              → Map.get()
+              → ActivityManagerInternal.ensureNotSpecialUser()
+              → IASKSManager$Stub.asInterface()
+              → ArraySet.indexOf()
+              → SparseArray.get()
+              → <android.content.AttributionSource: void <init>(int,java.lan
+              → PermissionChecker.checkPermissionForPreflight() [PERM_CHECK]
+              → IBinder.queryLocalInterface()
+              → <android.os.IUserManager$Stub$Proxy: void <init>(android.os.
+              → Bundle.getBoolean()
+              → <com.android.server.pm.UserManagerService: android.os.Bundle
+              → UserRestrictionsUtils.isValidRestriction()
+              → UserHandle.getCallingUserId()
+              → UserManagerService.hasManageUsersPermission()
+              → UserManagerService.hasPermissionGranted()
+              → UserManagerService.isSameProfileGroupNoChecks()
+
+────────────────────────────────────────────────────────────
+Occurrence #21
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerShellCommand
+  Method:   <com.android.server.am.ActivityManagerShellCommand: int runStartService(java.io.PrintWriter,boolean)>
+  Line:     12625
+  Register: v7 := "com.android.shell"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → IActivityManager.startService()
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → Intent.getType()
+      → ShellCommand.getErrPrintWriter()
+      → ActivityManagerShellCommand.makeIntent()
+      → PrintWriter.flush()
+      → PrintWriter.println()
+      → <java.lang.RuntimeException: void <init>(java.lang.String,ja
+      → URISyntaxException.getMessage()
+        → Intent.parseCommandArgs()
+        → <com.android.server.am.ActivityManagerShellCommand$1: void <
+
+────────────────────────────────────────────────────────────
+Occurrence #22
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vibrator.VibratorManagerService$VibratorManagerShellCommand$CommonOptions
+  Method:   <com.android.server.vibrator.VibratorManagerService$VibratorManagerShellCommand$CommonOptions: void <init>(com.android.server.vibrator.VibratorManagerService$VibratorManagerShellCommand)>
+  Line:     51
+  Register: v1 := "com.android.shell"
+  Usage:    [field_store] iput-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$VibratorManagerShellCommand$
+  Patterns: string_compare, early_return
+  Flow:     [field_store] com.android.server.vibrator.VibratorManagerService$VibratorM → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← VibratorManagerService$VibratorManagerShellCommand.runMono()
+      ← VibratorManagerService$VibratorManagerShellCommand.runSequential()
+      ← VibratorManagerService$VibratorManagerShellCommand.runStereo()
+        ← VibratorManagerService$VibratorManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → ShellCommand.getNextArgRequired()
+      → ShellCommand.peekNextArg()
+
+────────────────────────────────────────────────────────────
+Occurrence #23
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageManagerShellCommand
+  Method:   <com.android.server.pm.PackageManagerShellCommand: com.android.server.pm.PackageManagerShellCommand$InstallParams makeInstallParams(java.util.Set)>
+  Line:     4430
+  Register: v7 := "com.android.shell"
+  Usage:    [field_store] iput-object v7, v2, Lcom/android/server/pm/PackageManagerShellCommand$InstallParams;->installerPacka
+  Patterns: allowlist_check, string_compare
+  Flow:     [field_store] com.android.server.pm.PackageManagerShellCommand$InstallPara → [other] iget v7, v0, Landroid/content/pm/Pa
+
+  CALLERS (who invokes this method):
+      ← PackageManagerShellCommand.runIncrementalInstall()
+      ← PackageManagerShellCommand.runInstall()
+      ← PackageManagerShellCommand.runInstallCreate()
+      ← PackageManagerShellCommand.runStreamingInstall()
+        ← PackageManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → <android.content.pm.PackageInstaller$SessionParams: void <in
+      → PackageInstaller$SessionParams.setForceQueryable()
+      → PackageInstaller$SessionParams.setInstallAsApex()
+      → PackageInstaller$SessionParams.setInstallAsInstantApp()
+      → PackageInstaller$SessionParams.setInstallAsVirtualPreload()
+      → PackageInstaller$SessionParams.setMultiPackage()
+      → PackageInstaller$SessionParams.setPackageSource()
+      → PackageInstaller$SessionParams.setSize()
+      → PackageInstaller$SessionParams.setStaged()
+      → Uri.parse()
+      → ShellCommand.getNextArg()
+      → ShellCommand.getNextArgRequired()
+      → ShellCommand.getNextOption()
+      → UserHandle.parseUserArg()
+      → <com.android.server.pm.PackageManagerShellCommand$InstallPar
+      → PackageManagerShellCommand.checkAbiArgument()
+      → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+      → Set.contains()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → <com.android.server.pm.PackageManagerShellCommand$InstallPar
+        → TextUtils.isEmpty()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+          → CharSequence.length()
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #24
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageManagerShellCommand
+  Method:   <com.android.server.pm.PackageManagerShellCommand: int runCreateUser()>
+  Line:     11123
+  Register: v4 := "com.android.shell"
+  Usage:    [invoke] invoke-interface {v0, v3, v9, v4}, Landroid/accounts/IAccountManager;->addSharedAccountsFromParentUs
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.accounts.IAccountManager.addSharedAccountsFromParent → [other] new-instance v4, Ljava/lang/StringBuilde
+
+  CALLERS (who invokes this method):
+      ← PackageManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → IAccountManager$Stub.asInterface()
+      → IAccountManager.addSharedAccountsFromParentUser()
+      → UserInfo.getDefaultUserType()
+      → IUserManager$Stub.asInterface()
+      → IUserManager.createProfileForUserWithThrow()
+      → IUserManager.createRestrictedProfileWithThrow()
+      → IUserManager.createUserWithThrow()
+      → IUserManager.preCreateUserWithThrow()
+      → Process.myUid()
+      → ServiceManager.getService()
+      → ShellCommand.getErrPrintWriter()
+      → ShellCommand.getOutPrintWriter()
+      → ShellCommand.getNextArg()
+      → ShellCommand.getNextArgRequired()
+      → ShellCommand.getNextOption()
+      → Trace.traceBegin()
+      → Trace.traceEnd()
+      → UserHandle.parseUserArg()
+      → UserManager.isUserTypeRestricted()
+      → PackageManagerShellCommand.checkIfMaintenanceModeUserExists()
+      → PackageManagerShellCommand.translateUserId()
+      → PrintWriter.println()
+        → <android.accounts.IAccountManager$Stub$Proxy: void <init>(an
+        → IBinder.queryLocalInterface()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <android.os.IUserManager$Stub$Proxy: void <init>(android.os.
+        → UserInfo.isMaintenanceMode()
+        → IUserManager.getUsers()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+        → ActivityManager.handleIncomingUser()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+
+────────────────────────────────────────────────────────────
+Occurrence #25
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageManagerShellCommand
+  Method:   <com.android.server.pm.PackageManagerShellCommand: int runRollbackApp()>
+  Line:     17833
+  Register: v6 := "com.android.shell"
+  Usage:    [invoke] invoke-virtual {v5, v6, v8, v7}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/St
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Context.createPackageContextAsUser() → [other] new-instance v6, Lcom/android/server/pm/PackageM
+
+  CALLERS (who invokes this method):
+      ← PackageManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → Context.createPackageContextAsUser()
+      → Context.getSystemService()
+      → Intent.getIntExtra()
+      → Intent.getStringExtra()
+      → PackageRollbackInfo.getPackageName()
+      → RollbackInfo.isStaged()
+      → RollbackInfo.getCommittedSessionId()
+      → RollbackInfo.getRollbackId()
+      → RollbackInfo.getPackages()
+      → RollbackManager.getAvailableRollbacks()
+      → RollbackManager.commitRollback()
+      → Binder.getCallingUserHandle()
+      → ShellCommand.getOutPrintWriter()
+      → ShellCommand.getNextArgRequired()
+      → ShellCommand.getNextOption()
+      → PackageManagerShellCommand$LocalIntentReceiver.getResult()
+      → PackageManagerShellCommand$LocalIntentReceiver.getIntentSender()
+      → <com.android.server.pm.PackageManagerShellCommand$LocalInten
+      → PackageManagerShellCommand.doWaitForStagedSessionReady()
+      → PrintWriter.println()
+      → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+      → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+      → Collections.emptyList()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → VersionedPackage.getPackageName()
+        → ParceledListSlice.getList()
+        → IRollbackManager.getAvailableRollbacks()
+        → RemoteException.rethrowFromSystemServer()
+        → <android.content.pm.ParceledListSlice: void <init>(java.util
+        → IRollbackManager.commitRollback()
+        → Binder.getCallingUid() [UID_CHECK]
+        → UserHandle.of()
+        → UserHandle.getUserId()
+        → LinkedBlockingQueue.take()
+        → <android.content.IntentSender: void <init>(android.content.I
+        → <com.android.server.pm.PackageManagerShellCommand$LocalInten
+        → IPackageInstaller.getSessionInfo()
+        → IPackageManager.getPackageInstaller()
+        → PackageInstaller$SessionInfo.isStaged()
+        → PackageInstaller$SessionInfo.isStagedSessionFailed()
+        → PackageInstaller$SessionInfo.isStagedSessionReady()
+        → PackageInstaller$SessionInfo.getStagedSessionErrorCode()
+        → PackageInstaller$SessionInfo.getStagedSessionErrorMessage()
+        → SystemClock.sleep()
+        → Preconditions.checkArgument()
+          → <android.os.DeadSystemRuntimeException: void <init>()>
+          → <com.android.server.pm.PackageManagerShellCommand$LocalInten
+          → <java.util.concurrent.LinkedBlockingQueue: void <init>()>
+            → <android.os.DeadSystemException: void <init>()>
+            → <android.content.IIntentSender$Stub: void <init>()>
+              → <android.os.DeadObjectException: void <init>()>
+              → IIntentSender$Stub.attachInterface()
+              → <android.os.Binder: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #26
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageManagerShellCommand
+  Method:   <com.android.server.pm.PackageManagerShellCommand: int runSnapshotProfile()>
+  Line:     19705
+  Register: v1 := "com.android.shell"
+  Usage:    [move] move-object v6, v1
+  Patterns: string_compare, early_return
+  Flow:     [other] move-object v6, v1 → [other] iget-object v1, p0, Lcom/android/server/pm/PackageManagerShe → [invoke] android.con
+
+  CALLERS (who invokes this method):
+      ← PackageManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → ApplicationInfo.getBaseCodePath()
+      → IPackageManager.getPackageInfo() [PKG_QUERY]
+      → IPackageManager.getArtManager()
+      → IArtManager.isRuntimeProfilingEnabled()
+      → IArtManager.snapshotRuntimeProfile()
+      → Binder.getCallingUid() [UID_CHECK]
+      → <android.os.ParcelFileDescriptor$AutoCloseInputStream: void 
+      → ShellCommand.getOutPrintWriter()
+      → ShellCommand.getNextArg()
+      → Os.chmod()
+      → <com.android.server.pm.PackageManagerShellCommand$SnapshotRu
+      → PackageManagerShellCommand$SnapshotRuntimeProfileCallback.waitTillDone()
+      → <com.android.server.pm.PackageManagerShellCommand$SnapshotRu
+      → <com.android.server.pm.PackageManagerShellCommand$SnapshotRu
+      → File.getName()
+      → <java.io.File: void <init>(java.lang.String)>
+      → <java.io.FileOutputStream: void <init>(java.lang.String)>
+      → InputStream.close()
+      → OutputStream.close()
+      → PrintWriter.println()
+      → PrintWriter.write()
+      → Exception.getMessage()
+      → Exception.printStackTrace()
+      → Throwable.addSuppressed()
+      → Objects.equals()
+      → Streams.copy()
+        → ParcelFileDescriptor.getFileDescriptor()
+        → <java.io.FileInputStream: void <init>(java.io.FileDescriptor
+        → CountDownLatch.await()
+        → <com.android.server.pm.PackageManagerShellCommand$SnapshotRu
+          → <android.content.pm.dex.ISnapshotRuntimeProfileCallback$Stub
+          → <java.util.concurrent.CountDownLatch: void <init>(int)>
+            → ISnapshotRuntimeProfileCallback$Stub.attachInterface()
+            → <android.os.Binder: void <init>()>
+              → <android.os.Binder: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #27
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageManagerShellCommand
+  Method:   <com.android.server.pm.PackageManagerShellCommand: int runSuspend(boolean)>
+  Line:     20330
+  Register: v10 := "com.android.shell"
+  Usage:    [move] move-object/from16 v19, v10
+  Patterns: string_compare, early_return
+  Flow:     [other] move-object/from16 v19, v10 → [other] move-result v10 → [branch] if-nez v10, :cond_121 → [other] new-instance v1
+
+  CALLERS (who invokes this method):
+      ← PackageManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → IPackageManager.isPackageSuspendedForUser()
+      → IPackageManager.setPackagesSuspendedAsUser()
+      → SuspendDialogInfo$Builder.build()
+      → SuspendDialogInfo$Builder.setMessage()
+      → <android.content.pm.SuspendDialogInfo$Builder: void <init>()
+      → Binder.getCallingUid() [UID_CHECK]
+      → PersistableBundle.size()
+      → <android.os.PersistableBundle: void <init>()>
+      → PersistableBundle.putDouble()
+      → PersistableBundle.putLong()
+      → PersistableBundle.putString()
+      → ShellCommand.getOutPrintWriter()
+      → ShellCommand.getNextArgRequired()
+      → ShellCommand.getNextOption()
+      → UserHandle.parseUserArg()
+      → TextUtils.isEmpty()
+      → PackageManagerShellCommand.translateUserId()
+      → PackageManagerShellCommand.getRemainingArgs()
+      → PrintWriter.println()
+      → Exception.toString()
+      → List.isEmpty()
+      → List.size()
+      → List.get()
+      → List.toArray()
+        → <android.content.pm.SuspendDialogInfo: void <init>(android.c
+        → Preconditions.checkStringNotEmpty()
+        → <android.os.BaseBundle: void <init>()>
+        → CharSequence.length()
+        → ActivityManager.handleIncomingUser()
+        → Binder.getCallingPid() [UID_CHECK]
+        → ShellCommand.getNextArg()
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+          → <android.content.pm.SuspendDialogInfo$Builder: int -$$Nest$f
+          → <android.content.pm.SuspendDialogInfo$Builder: int -$$Nest$f
+          → <android.content.pm.SuspendDialogInfo$Builder: int -$$Nest$f
+          → <android.content.pm.SuspendDialogInfo$Builder: int -$$Nest$f
+          → <android.content.pm.SuspendDialogInfo$Builder: int -$$Nest$f
+          → <android.content.pm.SuspendDialogInfo$Builder: java.lang.Str
+          → <android.content.pm.SuspendDialogInfo$Builder: java.lang.Str
+          → <android.content.pm.SuspendDialogInfo$Builder: java.lang.Str
+
+────────────────────────────────────────────────────────────
+Occurrence #28
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.permission.PermissionManagerService$ShellDelegate
+  Method:   <com.android.server.pm.permission.PermissionManagerService$ShellDelegate: int checkPermission(java.lang.String,java.lang.String,int,com.android.internal.util.function.TriFunction)>
+  Line:     109
+  Register: v0 := "com.android.shell"
+  Usage:    [invoke] invoke-interface {p4, v0, p2, p3}, Lcom/android/internal/util/function/TriFunction;->apply(Ljava/lan
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.android.internal.util.function.TriFunction.apply()
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → TriFunction.apply()
+      → PermissionManagerService$ShellDelegate.isDelegatedPermission()
+        → List.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #29
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.location.gnss.sec.GnssConstants
+  Method:   <com.android.server.location.gnss.sec.GnssConstants: void <clinit>()>
+  Line:     180
+  Register: v6 := "com.android.shell"
+  Usage:    [] 
+  Patterns: early_return
+
+────────────────────────────────────────────────────────────
+Occurrence #30
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.om.OverlayManagerShellCommand
+  Method:   <com.android.server.om.OverlayManagerShellCommand: int runFabricate()>
+  Line:     1066
+  Register: v2 := "com.android.shell"
+  Usage:    [invoke] invoke-direct {v0, v2, v1, v3}, Landroid/content/om/FabricatedOverlay$Builder;-><init>(Ljava/lang/St
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.om.FabricatedOverlay$Builder.<init>()
+
+  CALLERS (who invokes this method):
+      ← OverlayManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → FabricatedOverlay$Builder.build()
+      → FabricatedOverlay$Builder.setResourceValue()
+      → FabricatedOverlay$Builder.setTargetOverlayable()
+      → <android.content.om.FabricatedOverlay$Builder: void <init>(j
+      → IOverlayManager.commit()
+      → OverlayManagerTransaction$Builder.build()
+      → OverlayManagerTransaction$Builder.registerFabricatedOverlay()
+      → <android.content.om.OverlayManagerTransaction$Builder: void 
+      → Binder.getCallingUid() [UID_CHECK]
+      → ShellCommand.getErrPrintWriter()
+      → ShellCommand.getNextArgRequired()
+      → ShellCommand.getNextOption()
+      → UserHandle.parseUserArg()
+      → PrintWriter.println()
+        → <android.content.om.FabricatedOverlay: void <init>(android.o
+        → <android.os.FabricatedOverlayInternal: void <init>()>
+        → <java.util.ArrayList: void <init>()>
+        → List.addAll()
+        → <android.os.FabricatedOverlayInternalEntry: void <init>()>
+        → ArrayList.add()
+        → TextUtils.emptyIfNull()
+        → Preconditions.checkStringNotEmpty()
+        → <android.content.om.OverlayManagerTransaction: void <init>(j
+        → FabricatedOverlay.getIdentifier()
+        → <android.content.om.OverlayManagerTransaction$Request: void 
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putParcelable()
+        → List.add()
+          → <android.content.om.FabricatedOverlay: void <init>(android.o
+          → Preconditions.checkNotNull()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → List.contains()
+          → <android.content.om.OverlayIdentifier: void <init>(java.lang
+          → TextUtils.nullIfEmpty()
+            → TextUtils.isEmpty()
+              → CharSequence.length()
+
+────────────────────────────────────────────────────────────
+Occurrence #31
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.profcollect.ProfcollectForwardingService
+  Method:   <com.android.server.profcollect.ProfcollectForwardingService: void lambda$packProfileReport$3(android.content.Context)>
+  Line:     350
+  Register: v2 := "com.android.shell"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.profcollect.ProfcollectForwardingService
+        ← ProfcollectForwardingService$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → Context.getResources()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → Resources.getBoolean()
+      → RemoteException.getMessage()
+      → IProfCollectd.report()
+
+────────────────────────────────────────────────────────────
+Occurrence #32
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.media.MediaSessionService$SessionManagerImpl
+  Method:   <com.android.server.media.MediaSessionService$SessionManagerImpl: void onShellCommand(java.io.FileDescriptor,java.io.FileDescriptor,java.io.FileDescriptor,java.lang.String[],android.os.ShellCallback,android.os.ResultReceiver)>
+  Line:     5397
+  Register: v0 := "com.android.shell"
+  Usage:    [invoke] invoke-direct {v1, v0}, Lcom/android/server/media/MediaShellCommand;-><init>(Ljava/lang/String;)V
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.media.MediaShellCommand.<init>()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackagesForUid()
+      → Binder.getCallingUid() [UID_CHECK]
+      → ShellCommand.exec()
+      → <com.android.server.media.MediaSessionService: android.conte
+      → <com.android.server.media.MediaShellCommand: void <init>(jav
+        → <android.os.ShellCommand: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #33
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.android.internal.telephony.Am
+  Method:   <com.android.internal.telephony.Am: void runStartService(boolean)>
+  Line:     347
+  Register: v6 := "com.android.shell"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+
+  CALLERS (who invokes this method):
+      ← Am.onRun()
+        ← Am.run()
+          ← Am.main()
+            ← SehNetworkIndication.execute()
+            ← SehRadioIndication.execute()
+
+  CALLEES (what this method invokes):
+      → IActivityManager.startService()
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → Intent.getType()
+      → Am.makeIntent()
+        → Intent.parseCommandArgs()
+        → <com.android.internal.telephony.Am$2: void <init>(com.androi
+
+────────────────────────────────────────────────────────────
+Occurrence #34
+────────────────────────────────────────────────────────────
+  JAR:      uiautomator
+  Class:    com.android.uiautomator.core.ShellUiAutomatorBridge
+  Method:   <com.android.uiautomator.core.ShellUiAutomatorBridge: java.lang.String resolveCallingPackage()>
+  Line:     54
+  Register: v0 := "com.android.shell"
+  Usage:    [unknown] return-object v0
+  Patterns: (none)
+  Flow:     [other] return-object v0 → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← ShellUiAutomatorBridge.getSystemLongPressTime()
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+

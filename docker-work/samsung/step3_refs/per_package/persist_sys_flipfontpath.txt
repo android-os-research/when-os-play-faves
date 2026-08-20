@@ -1,0 +1,6 @@
+# persist.sys.flipfontpath [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<com.android.server.enterprise.general.FontWriter: void writeLoc(android.content.Context,java.lang.String,java.lang.String)>
+<com.samsung.android.fontutil.FontWriter: void writeLoc(java.lang.String)>

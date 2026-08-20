@@ -1,0 +1,9 @@
+# com.samsung.android.wifi.aware.ISemWifiAwareManager [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.wifi.aware.ISemWifiAwareManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.wifi.aware.ISemWifiAwareManager$Stub$Proxy: void setClusterMergingEnabled(boolean)>
+<com.samsung.android.wifi.aware.ISemWifiAwareManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.wifi.aware.ISemWifiAwareManager$Stub: com.samsung.android.wifi.aware.ISemWifiAwareManager asInterface(android.os.IBinder)>
+<com.samsung.android.wifi.aware.ISemWifiAwareManager$Stub: void <init>()>

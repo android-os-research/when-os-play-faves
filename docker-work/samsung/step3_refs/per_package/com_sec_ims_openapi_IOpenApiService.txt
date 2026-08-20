@@ -1,0 +1,19 @@
+# com.sec.ims.openapi.IOpenApiService [NEW]
+# Refs: 15
+# JARs: imsmanager
+
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: boolean sendSip(com.sec.ims.util.ImsUri,java.lang.String,com.sec.ims.openapi.ISipDialogListener)>
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: void registerDialogEventListener(com.sec.ims.IDialogEventListener)>
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: void registerImsCallEventListener(com.sec.ims.volte2.IImsCallEventListener)>
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: void registerImsRegistrationListener(com.sec.ims.IImsRegistrationListener)>
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: void registerIncomingSipMessageListener(com.sec.ims.openapi.ISipDialogListener)>
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: void setFeatureTags(java.lang.String[])>
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: void setupMediaPath(java.lang.String[])>
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: void unregisterDialogEventListener(com.sec.ims.IDialogEventListener)>
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: void unregisterImsCallEventListener(com.sec.ims.volte2.IImsCallEventListener)>
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: void unregisterImsRegistrationListener(com.sec.ims.IImsRegistrationListener)>
+<com.sec.ims.openapi.IOpenApiService$Stub$Proxy: void unregisterIncomingSipMessageListener(com.sec.ims.openapi.ISipDialogListener)>
+<com.sec.ims.openapi.IOpenApiService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.openapi.IOpenApiService$Stub: com.sec.ims.openapi.IOpenApiService asInterface(android.os.IBinder)>
+<com.sec.ims.openapi.IOpenApiService$Stub: void <init>()>

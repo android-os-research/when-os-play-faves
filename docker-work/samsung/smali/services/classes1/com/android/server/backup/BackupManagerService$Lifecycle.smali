@@ -1,0 +1,99 @@
+.class public Lcom/android/server/backup/BackupManagerService$Lifecycle;
+.super Lcom/android/server/SystemService;
+.source "BackupManagerService.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/backup/BackupManagerService;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "Lifecycle"
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .registers 3
+
+    .line 1723
+    new-instance v0, Lcom/android/server/backup/BackupManagerService;
+
+    invoke-direct {v0, p1}, Lcom/android/server/backup/BackupManagerService;-><init>(Landroid/content/Context;)V
+
+    invoke-direct {p0, p1, v0}, Lcom/android/server/backup/BackupManagerService$Lifecycle;-><init>(Landroid/content/Context;Lcom/android/server/backup/BackupManagerService;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/backup/BackupManagerService;)V
+    .registers 3
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    .line 1728
+    invoke-direct {p0, p1}, Lcom/android/server/SystemService;-><init>(Landroid/content/Context;)V
+
+    .line 1729
+    sput-object p2, Lcom/android/server/backup/BackupManagerService;->sInstance:Lcom/android/server/backup/BackupManagerService;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onStart()V
+    .registers 3
+
+    .line 1734
+    sget-object v0, Lcom/android/server/backup/BackupManagerService;->sInstance:Lcom/android/server/backup/BackupManagerService;
+
+    const-string v1, "backup"
+
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/backup/BackupManagerService$Lifecycle;->publishService(Ljava/lang/String;Landroid/os/IBinder;)V
+
+    return-void
+.end method
+
+.method public onUserStopping(Lcom/android/server/SystemService$TargetUser;)V
+    .registers 2
+
+    .line 1744
+    sget-object p0, Lcom/android/server/backup/BackupManagerService;->sInstance:Lcom/android/server/backup/BackupManagerService;
+
+    invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/backup/BackupManagerService;->onStopUser(I)V
+
+    return-void
+.end method
+
+.method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
+    .registers 2
+
+    .line 1739
+    sget-object p0, Lcom/android/server/backup/BackupManagerService;->sInstance:Lcom/android/server/backup/BackupManagerService;
+
+    invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/backup/BackupManagerService;->onUnlockUser(I)V
+
+    return-void
+.end method
+
+.method public publishService(Ljava/lang/String;Landroid/os/IBinder;)V
+    .registers 3
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    .line 1749
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+
+    return-void
+.end method

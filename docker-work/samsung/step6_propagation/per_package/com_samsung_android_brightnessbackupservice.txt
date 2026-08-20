@@ -1,0 +1,32 @@
+######################################################################
+# Propagation: com.samsung.android.brightnessbackupservice
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.display.AdaptiveBrightnessLongtermModelBuilder$PackageBroadcastReceiver
+  Method:   <com.android.server.display.AdaptiveBrightnessLongtermModelBuilder$PackageBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     92
+  Register: p2 := "com.samsung.android.brightnessbackupservice"
+  Usage:    [invoke] invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLEES (what this method invokes):
+      → Intent.getData()
+      → Intent.getAction()
+      → Uri.getSchemeSpecificPart()
+      → Handler.obtainMessage()
+      → Message.sendToTarget()
+      → <com.android.server.display.AdaptiveBrightnessLongtermModelB
+        → Handler.sendMessage()
+

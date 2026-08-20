@@ -1,0 +1,14 @@
+# com.sec.android.app.fm [NEW]
+# Refs: 12
+# JARs: framework, services
+
+<com.android.server.FMRadioService$10: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.FMRadioService: boolean offInternal(int,boolean)>
+<com.android.server.FMRadioService: boolean on(boolean)>
+<com.android.server.FMRadioService: void inDirectModeBroadcast()>
+<com.android.server.FMRadioService: void sendFMOFFBroadcast()>
+<com.android.server.FMRadioService: void sendFMONBroadcast(java.lang.Object)>
+<com.android.server.PlayerExternalChipsetBesRichwave: boolean openConnection()>
+<com.android.server.am.mars.filter.filter.ActiveMusicRecordFilter: int filter(java.lang.String,int,int,int)>
+<com.android.server.audio.AudioService: void setStreamVolumeWithAttribution(int,int,int,java.lang.String,java.lang.String,java.lang.String,int,boolean,int)>
+<com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>

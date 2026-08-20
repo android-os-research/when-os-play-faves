@@ -1,0 +1,1266 @@
+.class public Lcom/samsung/android/sume/core/service/LocalServiceProxy;
+.super Ljava/lang/Object;
+.source "LocalServiceProxy.java"
+
+# interfaces
+.implements Lcom/samsung/android/sume/core/service/ServiceProxy;
+.implements Lcom/samsung/android/sume/core/controller/MediaController$OnEventListener;
+
+
+# static fields
+.field private static final blacklist TAG:Ljava/lang/String;
+
+
+# instance fields
+.field private blacklist connection:Landroid/content/ServiceConnection;
+
+.field private final blacklist context:Landroid/content/Context;
+
+.field private blacklist eventListener:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference<",
+            "Lcom/samsung/android/sume/core/controller/MediaController$OnEventListener;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private blacklist exceptionHandler:Lcom/samsung/android/sume/core/functional/ExceptionHandler;
+
+.field private blacklist localService:Lcom/samsung/android/sume/core/service/LocalService;
+
+.field private blacklist mediaFilterControllerId:I
+
+.field private final blacklist mfControllerSync:Landroid/os/ConditionVariable;
+
+.field private final blacklist requestChannel:Ljava/util/concurrent/BlockingQueue;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/concurrent/BlockingQueue<",
+            "Lcom/samsung/android/sume/core/message/Request;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private blacklist requestJob:Ljava/util/concurrent/Future;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/concurrent/Future<",
+            "Ljava/lang/Void;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private blacklist requestThreadPool:Ljava/util/concurrent/ExecutorService;
+
+.field private final blacklist responseList:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lcom/samsung/android/sume/core/message/ResponseHolder;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor blacklist <clinit>()V
+    .registers 1
+
+    .line 32
+    const-class v0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;
+
+    invoke-static {v0}, Lcom/samsung/android/sume/core/Def;->tagOf(Ljava/lang/Class;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public constructor blacklist <init>(Landroid/content/Context;Ljava/lang/Class;Ljava/util/Map;)V
+    .registers 10
+    .param p1, "context"    # Landroid/content/Context;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Ljava/lang/Class<",
+            "*>;",
+            "Ljava/util/Map<",
+            "Ljava/lang/Integer;",
+            "Ljava/lang/Object;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 52
+    .local p2, "serviceClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .local p3, "options":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Object;>;"
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 43
+    new-instance v0, Landroid/os/ConditionVariable;
+
+    invoke-direct {v0}, Landroid/os/ConditionVariable;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->mfControllerSync:Landroid/os/ConditionVariable;
+
+    .line 45
+    new-instance v0, Ljava/util/concurrent/LinkedBlockingQueue;
+
+    invoke-direct {v0}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->requestChannel:Ljava/util/concurrent/BlockingQueue;
+
+    .line 46
+    invoke-static {}, Ljava/util/concurrent/Executors;->newCachedThreadPool()Ljava/util/concurrent/ExecutorService;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->requestThreadPool:Ljava/util/concurrent/ExecutorService;
+
+    .line 50
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->responseList:Ljava/util/List;
+
+    .line 53
+    iput-object p1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->context:Landroid/content/Context;
+
+    .line 55
+    move-object v0, p0
+
+    .line 56
+    .local v0, "eventListener":Lcom/samsung/android/sume/core/controller/MediaController$OnEventListener;
+    new-instance v1, Lcom/samsung/android/sume/core/service/LocalServiceProxy$1;
+
+    invoke-direct {v1, p0, v0}, Lcom/samsung/android/sume/core/service/LocalServiceProxy$1;-><init>(Lcom/samsung/android/sume/core/service/LocalServiceProxy;Lcom/samsung/android/sume/core/controller/MediaController$OnEventListener;)V
+
+    iput-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->connection:Landroid/content/ServiceConnection;
+
+    .line 86
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->requestThreadPool:Ljava/util/concurrent/ExecutorService;
+
+    new-instance v2, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda3;
+
+    invoke-direct {v2, p0}, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda3;-><init>(Lcom/samsung/android/sume/core/service/LocalServiceProxy;)V
+
+    invoke-interface {v1, v2}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->requestJob:Ljava/util/concurrent/Future;
+
+    .line 100
+    new-instance v1, Landroid/content/Intent;
+
+    invoke-direct {v1, p1, p2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    .line 101
+    .local v1, "intent":Landroid/content/Intent;
+    const/4 v2, 0x0
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-interface {p3, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4b
+
+    .line 102
+    const-string/jumbo v2, "start-foreground"
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 103
+    :cond_4b
+    const/4 v2, 0x1
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-interface {p3, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_59
+
+    .line 104
+    invoke-virtual {p1, v1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    .line 106
+    :cond_59
+    iget-object v3, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->connection:Landroid/content/ServiceConnection;
+
+    invoke-virtual {p1, v1, v3, v2}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
+
+    move-result v2
+
+    .line 107
+    .local v2, "success":Z
+    sget-object v3, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "success to bind: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 108
+    return-void
+.end method
+
+.method static synthetic blacklist access$000(Lcom/samsung/android/sume/core/service/LocalServiceProxy;)Lcom/samsung/android/sume/core/service/LocalService;
+    .registers 2
+    .param p0, "x0"    # Lcom/samsung/android/sume/core/service/LocalServiceProxy;
+
+    .line 31
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->localService:Lcom/samsung/android/sume/core/service/LocalService;
+
+    return-object v0
+.end method
+
+.method static synthetic blacklist access$002(Lcom/samsung/android/sume/core/service/LocalServiceProxy;Lcom/samsung/android/sume/core/service/LocalService;)Lcom/samsung/android/sume/core/service/LocalService;
+    .registers 2
+    .param p0, "x0"    # Lcom/samsung/android/sume/core/service/LocalServiceProxy;
+    .param p1, "x1"    # Lcom/samsung/android/sume/core/service/LocalService;
+
+    .line 31
+    iput-object p1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->localService:Lcom/samsung/android/sume/core/service/LocalService;
+
+    return-object p1
+.end method
+
+.method static synthetic blacklist access$102(Lcom/samsung/android/sume/core/service/LocalServiceProxy;I)I
+    .registers 2
+    .param p0, "x0"    # Lcom/samsung/android/sume/core/service/LocalServiceProxy;
+    .param p1, "x1"    # I
+
+    .line 31
+    iput p1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->mediaFilterControllerId:I
+
+    return p1
+.end method
+
+.method static synthetic blacklist access$200(Lcom/samsung/android/sume/core/service/LocalServiceProxy;)Landroid/os/ConditionVariable;
+    .registers 2
+    .param p0, "x0"    # Lcom/samsung/android/sume/core/service/LocalServiceProxy;
+
+    .line 31
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->mfControllerSync:Landroid/os/ConditionVariable;
+
+    return-object v0
+.end method
+
+.method static synthetic blacklist access$300()Ljava/lang/String;
+    .registers 1
+
+    .line 31
+    sget-object v0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic blacklist access$400(Lcom/samsung/android/sume/core/service/LocalServiceProxy;Lcom/samsung/android/sume/core/message/Response;)V
+    .registers 2
+    .param p0, "x0"    # Lcom/samsung/android/sume/core/service/LocalServiceProxy;
+    .param p1, "x1"    # Lcom/samsung/android/sume/core/message/Response;
+
+    .line 31
+    invoke-direct {p0, p1}, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->onError(Lcom/samsung/android/sume/core/message/Response;)V
+
+    return-void
+.end method
+
+.method static synthetic blacklist lambda$onError$5(Lcom/samsung/android/sume/core/message/Response;Ljava/lang/Exception;Lcom/samsung/android/sume/core/message/ResponseHolder;)V
+    .registers 7
+    .param p0, "response"    # Lcom/samsung/android/sume/core/message/Response;
+    .param p1, "exception"    # Ljava/lang/Exception;
+    .param p2, "it"    # Lcom/samsung/android/sume/core/message/ResponseHolder;
+
+    .line 231
+    sget-object v0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "send response("
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/sume/core/message/Response;->getCode()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ") for request("
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p2}, Lcom/samsung/android/sume/core/message/ResponseHolder;->getCode()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ")"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 232
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "\tmessage: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "message"
+
+    const-string v3, ""
+
+    invoke-virtual {p0, v2, v3}, Lcom/samsung/android/sume/core/message/Response;->get(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 233
+    invoke-virtual {p2}, Lcom/samsung/android/sume/core/message/ResponseHolder;->get()Lcom/samsung/android/sume/core/message/Response;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_5f
+
+    .line 234
+    invoke-virtual {p2}, Lcom/samsung/android/sume/core/message/ResponseHolder;->get()Lcom/samsung/android/sume/core/message/Response;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/samsung/android/sume/core/message/Response;->setException(Ljava/lang/Exception;)Lcom/samsung/android/sume/core/message/Message;
+
+    goto :goto_67
+
+    .line 236
+    :cond_5f
+    const/4 v0, -0x4
+
+    invoke-static {v0, p1}, Lcom/samsung/android/sume/core/message/Response;->of(ILjava/lang/Exception;)Lcom/samsung/android/sume/core/message/Response;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Lcom/samsung/android/sume/core/message/ResponseHolder;->put(Lcom/samsung/android/sume/core/message/Response;)V
+
+    .line 237
+    :goto_67
+    invoke-virtual {p2}, Lcom/samsung/android/sume/core/message/ResponseHolder;->signal()V
+
+    .line 238
+    return-void
+.end method
+
+.method static synthetic blacklist lambda$onWarn$4(Lcom/samsung/android/sume/core/message/Response;Lcom/samsung/android/sume/core/message/ResponseHolder;)V
+    .registers 6
+    .param p0, "response"    # Lcom/samsung/android/sume/core/message/Response;
+    .param p1, "it"    # Lcom/samsung/android/sume/core/message/ResponseHolder;
+
+    .line 213
+    sget-object v0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "send response("
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/sume/core/message/Response;->getCode()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ") for request("
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lcom/samsung/android/sume/core/message/ResponseHolder;->getCode()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ")"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 214
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "\tmessage: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "message"
+
+    const-string v3, ""
+
+    invoke-virtual {p0, v2, v3}, Lcom/samsung/android/sume/core/message/Response;->get(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 215
+    invoke-virtual {p1, p0}, Lcom/samsung/android/sume/core/message/ResponseHolder;->put(Lcom/samsung/android/sume/core/message/Response;)V
+
+    .line 216
+    invoke-virtual {p1}, Lcom/samsung/android/sume/core/message/ResponseHolder;->signal()V
+
+    .line 217
+    return-void
+.end method
+
+.method static synthetic blacklist lambda$release$3(Lcom/samsung/android/sume/core/message/ResponseHolder;)V
+    .registers 4
+    .param p0, "it"    # Lcom/samsung/android/sume/core/message/ResponseHolder;
+
+    .line 187
+    sget-object v0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "send canceled response for "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/sume/core/message/ResponseHolder;->getCode()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " to finish up releasing"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 188
+    const/16 v0, 0x2be
+
+    invoke-static {v0}, Lcom/samsung/android/sume/core/message/Response;->of(I)Lcom/samsung/android/sume/core/message/Response;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/sume/core/message/ResponseHolder;->put(Lcom/samsung/android/sume/core/message/Response;)V
+
+    .line 189
+    invoke-virtual {p0}, Lcom/samsung/android/sume/core/message/ResponseHolder;->signal()V
+
+    .line 190
+    return-void
+.end method
+
+.method static synthetic blacklist lambda$request$1(Lcom/samsung/android/sume/core/message/ResponseHolder;Lcom/samsung/android/sume/core/message/Message;)V
+    .registers 3
+    .param p0, "responseHolder"    # Lcom/samsung/android/sume/core/message/ResponseHolder;
+    .param p1, "response"    # Lcom/samsung/android/sume/core/message/Message;
+
+    .line 136
+    move-object v0, p1
+
+    check-cast v0, Lcom/samsung/android/sume/core/message/Response;
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/sume/core/message/ResponseHolder;->put(Lcom/samsung/android/sume/core/message/Response;)V
+
+    .line 137
+    invoke-virtual {p0}, Lcom/samsung/android/sume/core/message/ResponseHolder;->signal()V
+
+    .line 138
+    return-void
+.end method
+
+.method private blacklist onError(Lcom/samsung/android/sume/core/message/Response;)V
+    .registers 5
+    .param p1, "response"    # Lcom/samsung/android/sume/core/message/Response;
+
+    .line 221
+    invoke-virtual {p1}, Lcom/samsung/android/sume/core/message/Response;->getException()Ljava/lang/Exception;
+
+    move-result-object v0
+
+    .line 223
+    .local v0, "exception":Ljava/lang/Exception;
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->exceptionHandler:Lcom/samsung/android/sume/core/functional/ExceptionHandler;
+
+    if-eqz v1, :cond_c
+
+    .line 224
+    invoke-interface {v1, v0}, Lcom/samsung/android/sume/core/functional/ExceptionHandler;->accept(Ljava/lang/Exception;)Z
+
+    goto :goto_16
+
+    .line 230
+    :cond_c
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->responseList:Ljava/util/List;
+
+    new-instance v2, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p1, v0}, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda1;-><init>(Lcom/samsung/android/sume/core/message/Response;Ljava/lang/Exception;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
+
+    .line 240
+    :goto_16
+    return-void
+.end method
+
+.method private blacklist onWarn(Lcom/samsung/android/sume/core/message/Response;)V
+    .registers 5
+    .param p1, "response"    # Lcom/samsung/android/sume/core/message/Response;
+
+    .line 211
+    sget-object v0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "onWarn: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 212
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->responseList:Ljava/util/List;
+
+    new-instance v1, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p1}, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda2;-><init>(Lcom/samsung/android/sume/core/message/Response;)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
+
+    .line 218
+    return-void
+.end method
+
+
+# virtual methods
+.method public blacklist getBinder()Landroid/os/IBinder;
+    .registers 2
+
+    .line 122
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->localService:Lcom/samsung/android/sume/core/service/LocalService;
+
+    iget-object v0, v0, Lcom/samsung/android/sume/core/service/LocalService;->binder:Landroid/os/Binder;
+
+    return-object v0
+.end method
+
+.method public blacklist getExceptionHandler()Lcom/samsung/android/sume/core/functional/ExceptionHandler;
+    .registers 2
+
+    .line 112
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->exceptionHandler:Lcom/samsung/android/sume/core/functional/ExceptionHandler;
+
+    return-object v0
+.end method
+
+.method synthetic blacklist lambda$new$0$com-samsung-android-sume-core-service-LocalServiceProxy()Ljava/lang/Void;
+    .registers 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    .line 87
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->mfControllerSync:Landroid/os/ConditionVariable;
+
+    invoke-virtual {v0}, Landroid/os/ConditionVariable;->block()V
+
+    .line 91
+    :goto_5
+    :try_start_5
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->requestChannel:Ljava/util/concurrent/BlockingQueue;
+
+    invoke-interface {v0}, Ljava/util/concurrent/BlockingQueue;->take()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/sume/core/message/Request;
+
+    .line 92
+    .local v0, "request":Lcom/samsung/android/sume/core/message/Request;
+    sget-object v1, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "take request: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 93
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->localService:Lcom/samsung/android/sume/core/service/LocalService;
+
+    iget v2, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->mediaFilterControllerId:I
+
+    invoke-virtual {v1, v2, v0}, Lcom/samsung/android/sume/core/service/LocalService;->request(ILcom/samsung/android/sume/core/message/Request;)Lcom/samsung/android/sume/core/message/ResponseHolder;
+    :try_end_2d
+    .catch Ljava/lang/InterruptedException; {:try_start_5 .. :try_end_2d} :catch_2f
+
+    .line 96
+    nop
+
+    .end local v0    # "request":Lcom/samsung/android/sume/core/message/Request;
+    goto :goto_5
+
+    .line 94
+    :catch_2f
+    move-exception v0
+
+    .line 95
+    .local v0, "e":Ljava/lang/InterruptedException;
+    sget-object v1, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "request canceled or release"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 96
+    .end local v0    # "e":Ljava/lang/InterruptedException;
+    goto :goto_5
+.end method
+
+.method synthetic blacklist lambda$request$2$com-samsung-android-sume-core-service-LocalServiceProxy(Lcom/samsung/android/sume/core/message/Request;Lcom/samsung/android/sume/core/message/ResponseHolder;)Lcom/samsung/android/sume/core/message/Response;
+    .registers 6
+    .param p1, "request"    # Lcom/samsung/android/sume/core/message/Request;
+    .param p2, "responseHolder"    # Lcom/samsung/android/sume/core/message/ResponseHolder;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    .line 147
+    :try_start_0
+    invoke-virtual {p1}, Lcom/samsung/android/sume/core/message/Request;->isOneWay()Z
+
+    move-result v0
+
+    if-nez v0, :cond_41
+
+    .line 148
+    sget-object v0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "wait response...E: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lcom/samsung/android/sume/core/message/Request;->getCode()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 149
+    invoke-virtual {p2}, Lcom/samsung/android/sume/core/message/ResponseHolder;->await()Lcom/samsung/android/sume/core/message/Response;
+
+    .line 150
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "wait response...X: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lcom/samsung/android/sume/core/message/Request;->getCode()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_41
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_41} :catch_42
+
+    .line 157
+    :cond_41
+    goto :goto_54
+
+    .line 152
+    :catch_42
+    move-exception v0
+
+    .line 153
+    .local v0, "e":Ljava/lang/Exception;
+    invoke-virtual {p2}, Lcom/samsung/android/sume/core/message/ResponseHolder;->get()Lcom/samsung/android/sume/core/message/Response;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_51
+
+    .line 154
+    invoke-virtual {p2}, Lcom/samsung/android/sume/core/message/ResponseHolder;->get()Lcom/samsung/android/sume/core/message/Response;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/samsung/android/sume/core/message/Response;->setException(Ljava/lang/Exception;)Lcom/samsung/android/sume/core/message/Message;
+
+    goto :goto_54
+
+    .line 156
+    :cond_51
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 159
+    .end local v0    # "e":Ljava/lang/Exception;
+    :goto_54
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->responseList:Ljava/util/List;
+
+    invoke-interface {v0, p2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    .line 160
+    invoke-virtual {p2}, Lcom/samsung/android/sume/core/message/ResponseHolder;->reset()Lcom/samsung/android/sume/core/message/Response;
+
+    move-result-object v0
+
+    .line 161
+    .local v0, "response":Lcom/samsung/android/sume/core/message/Response;
+    invoke-virtual {v0}, Lcom/samsung/android/sume/core/message/Response;->getException()Ljava/lang/Exception;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_77
+
+    .line 162
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->exceptionHandler:Lcom/samsung/android/sume/core/functional/ExceptionHandler;
+
+    if-eqz v1, :cond_72
+
+    invoke-virtual {v0}, Lcom/samsung/android/sume/core/message/Response;->getException()Ljava/lang/Exception;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Lcom/samsung/android/sume/core/functional/ExceptionHandler;->accept(Ljava/lang/Exception;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_72
+
+    goto :goto_77
+
+    .line 163
+    :cond_72
+    invoke-virtual {v0}, Lcom/samsung/android/sume/core/message/Response;->getException()Ljava/lang/Exception;
+
+    move-result-object v1
+
+    throw v1
+
+    .line 166
+    :cond_77
+    :goto_77
+    return-object v0
+.end method
+
+.method public blacklist onEvent(Lcom/samsung/android/sume/core/message/Event;)V
+    .registers 5
+    .param p1, "event"    # Lcom/samsung/android/sume/core/message/Event;
+
+    .line 245
+    sget-object v0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "onEvent: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 246
+    invoke-static {p1}, Lcom/samsung/android/sume/core/message/Response;->of(Lcom/samsung/android/sume/core/message/Message;)Lcom/samsung/android/sume/core/message/Response;
+
+    move-result-object v0
+
+    .line 247
+    .local v0, "response":Lcom/samsung/android/sume/core/message/Response;
+    invoke-virtual {v0}, Lcom/samsung/android/sume/core/message/Response;->isError()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_26
+
+    .line 248
+    invoke-direct {p0, v0}, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->onError(Lcom/samsung/android/sume/core/message/Response;)V
+
+    goto :goto_3d
+
+    .line 249
+    :cond_26
+    invoke-virtual {v0}, Lcom/samsung/android/sume/core/message/Response;->isWarn()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_30
+
+    .line 250
+    invoke-direct {p0, v0}, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->onWarn(Lcom/samsung/android/sume/core/message/Response;)V
+
+    goto :goto_3d
+
+    .line 252
+    :cond_30
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->eventListener:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/samsung/android/sume/core/controller/MediaController$OnEventListener;
+
+    .line 253
+    .local v1, "eventListener":Lcom/samsung/android/sume/core/controller/MediaController$OnEventListener;
+    if-eqz v1, :cond_3d
+
+    .line 254
+    invoke-interface {v1, p1}, Lcom/samsung/android/sume/core/controller/MediaController$OnEventListener;->onEvent(Lcom/samsung/android/sume/core/message/Event;)V
+
+    .line 256
+    .end local v1    # "eventListener":Lcom/samsung/android/sume/core/controller/MediaController$OnEventListener;
+    :cond_3d
+    :goto_3d
+    return-void
+.end method
+
+.method public blacklist release()V
+    .registers 6
+
+    .line 172
+    sget-object v0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "release E"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 174
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->localService:Lcom/samsung/android/sume/core/service/LocalService;
+
+    iget v2, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->mediaFilterControllerId:I
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/sume/core/service/LocalService;->releaseMediaFilterController(I)V
+
+    .line 176
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->connection:Landroid/content/ServiceConnection;
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_41
+
+    .line 177
+    const-string/jumbo v1, "try to unbind"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 179
+    :try_start_1a
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->context:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->connection:Landroid/content/ServiceConnection;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    :try_end_21
+    .catch Ljava/util/NoSuchElementException; {:try_start_1a .. :try_end_21} :catch_22
+
+    .line 182
+    goto :goto_3f
+
+    .line 180
+    :catch_22
+    move-exception v0
+
+    .line 181
+    .local v0, "e":Ljava/util/NoSuchElementException;
+    sget-object v1, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "broken connection: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v0}, Ljava/util/NoSuchElementException;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 183
+    .end local v0    # "e":Ljava/util/NoSuchElementException;
+    :goto_3f
+    iput-object v2, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->connection:Landroid/content/ServiceConnection;
+
+    .line 186
+    :cond_41
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->responseList:Ljava/util/List;
+
+    new-instance v1, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda0;-><init>()V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
+
+    .line 192
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->requestJob:Ljava/util/concurrent/Future;
+
+    if-eqz v0, :cond_55
+
+    .line 193
+    const/4 v1, 0x1
+
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
+
+    .line 194
+    iput-object v2, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->requestJob:Ljava/util/concurrent/Future;
+
+    .line 197
+    :cond_55
+    iget-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->requestThreadPool:Ljava/util/concurrent/ExecutorService;
+
+    if-eqz v0, :cond_5e
+
+    .line 198
+    invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->shutdown()V
+
+    .line 199
+    iput-object v2, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->requestThreadPool:Ljava/util/concurrent/ExecutorService;
+
+    .line 201
+    :cond_5e
+    sget-object v0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "release X"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 202
+    return-void
+.end method
+
+.method public blacklist request(Lcom/samsung/android/sume/core/message/Request;)Ljava/util/concurrent/Future;
+    .registers 6
+    .param p1, "request"    # Lcom/samsung/android/sume/core/message/Request;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/samsung/android/sume/core/message/Request;",
+            ")",
+            "Ljava/util/concurrent/Future<",
+            "Lcom/samsung/android/sume/core/message/Response;",
+            ">;"
+        }
+    .end annotation
+
+    .line 127
+    new-instance v0, Lcom/samsung/android/sume/core/message/ResponseHolder;
+
+    invoke-virtual {p1}, Lcom/samsung/android/sume/core/message/Request;->getCode()I
+
+    move-result v1
+
+    invoke-direct {v0, v1}, Lcom/samsung/android/sume/core/message/ResponseHolder;-><init>(I)V
+
+    .line 128
+    .local v0, "responseHolder":Lcom/samsung/android/sume/core/message/ResponseHolder;
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->responseList:Ljava/util/List;
+
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 130
+    :try_start_e
+    invoke-virtual {p1}, Lcom/samsung/android/sume/core/message/Request;->isOneWay()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1d
+
+    .line 132
+    const/4 v1, 0x0
+
+    invoke-static {v1}, Lcom/samsung/android/sume/core/message/Response;->of(I)Lcom/samsung/android/sume/core/message/Response;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sume/core/message/ResponseHolder;->put(Lcom/samsung/android/sume/core/message/Response;)V
+
+    goto :goto_41
+
+    .line 134
+    :cond_1d
+    sget-object v1, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "add response-listener for "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Lcom/samsung/android/sume/core/message/Request;->getCode()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 135
+    new-instance v1, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda4;
+
+    invoke-direct {v1, v0}, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda4;-><init>(Lcom/samsung/android/sume/core/message/ResponseHolder;)V
+
+    invoke-virtual {p1, v1}, Lcom/samsung/android/sume/core/message/Request;->then(Ljava/util/function/Consumer;)Lcom/samsung/android/sume/core/message/Message;
+
+    .line 141
+    :goto_41
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->requestChannel:Ljava/util/concurrent/BlockingQueue;
+
+    invoke-interface {v1, p1}, Ljava/util/concurrent/BlockingQueue;->put(Ljava/lang/Object;)V
+    :try_end_46
+    .catch Ljava/lang/InterruptedException; {:try_start_e .. :try_end_46} :catch_47
+
+    .line 144
+    goto :goto_4b
+
+    .line 142
+    :catch_47
+    move-exception v1
+
+    .line 143
+    .local v1, "e":Ljava/lang/InterruptedException;
+    invoke-virtual {v1}, Ljava/lang/InterruptedException;->printStackTrace()V
+
+    .line 145
+    .end local v1    # "e":Ljava/lang/InterruptedException;
+    :goto_4b
+    iget-object v1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->requestThreadPool:Ljava/util/concurrent/ExecutorService;
+
+    new-instance v2, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda5;
+
+    invoke-direct {v2, p0, p1, v0}, Lcom/samsung/android/sume/core/service/LocalServiceProxy$$ExternalSyntheticLambda5;-><init>(Lcom/samsung/android/sume/core/service/LocalServiceProxy;Lcom/samsung/android/sume/core/message/Request;Lcom/samsung/android/sume/core/message/ResponseHolder;)V
+
+    invoke-interface {v1, v2}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
+.method public blacklist setEventListener(Lcom/samsung/android/sume/core/controller/MediaController$OnEventListener;)V
+    .registers 3
+    .param p1, "eventListener"    # Lcom/samsung/android/sume/core/controller/MediaController$OnEventListener;
+
+    .line 207
+    new-instance v0, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object v0, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->eventListener:Ljava/lang/ref/WeakReference;
+
+    .line 208
+    return-void
+.end method
+
+.method public blacklist setExceptionHandler(Lcom/samsung/android/sume/core/functional/ExceptionHandler;)V
+    .registers 2
+    .param p1, "exceptionHandler"    # Lcom/samsung/android/sume/core/functional/ExceptionHandler;
+
+    .line 117
+    iput-object p1, p0, Lcom/samsung/android/sume/core/service/LocalServiceProxy;->exceptionHandler:Lcom/samsung/android/sume/core/functional/ExceptionHandler;
+
+    .line 118
+    return-void
+.end method

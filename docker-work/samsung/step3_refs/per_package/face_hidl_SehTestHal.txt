@@ -1,0 +1,20 @@
+# face.hidl.SehTestHal [NEW]
+# Refs: 16
+# JARs: services
+
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal$1: void handleMessage(android.os.Message)>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: android.hardware.biometrics.face.V1_0.OptionalUint64 generateChallenge(int)>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: int authenticate(long)>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: int cancel()>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: int enroll(java.util.ArrayList,int,java.util.ArrayList)>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: int enumerate()>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: int remove(int)>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: int resetLockout(java.util.ArrayList)>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: int revokeChallenge()>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: int sehAuthenticate(long,int,java.util.ArrayList)>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: int setActiveUser(int,java.lang.String)>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: int setFeature(int,boolean,java.util.ArrayList,int)>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: int userActivity()>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: void <init>(android.content.Context,int)>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: void InitTPA(int)>
+<com.android.server.biometrics.sensors.face.hidl.SehTestHal: void doAction()>

@@ -1,0 +1,7 @@
+# com.sec.android.app.applinker [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.sepunion.cover.CoverServiceManager: void bindCoverService(int,boolean)>
+<com.samsung.accessory.manager.authentication.cover.CoverAuthenticator: void setCoverVerified(boolean,boolean,com.samsung.accessory.manager.authentication.cover.CoverInfo,com.samsung.accessory.manager.authentication.AuthenticationResult)>
+<com.samsung.accessory.manager.authentication.cover.RestrictionPolicyOberver: void showFelicaNotification()>

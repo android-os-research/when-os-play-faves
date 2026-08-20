@@ -1,0 +1,99 @@
+######################################################################
+# Propagation: com.belgacom.fon
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemWifiConnectivityMonitor
+  Method:   <com.samsung.android.server.wifi.SemWifiConnectivityMonitor: boolean isIgnorableNetwork(java.lang.String,int)>
+  Line:     10497
+  Register: v4 := "com.belgacom.fon"
+  Usage:    [invoke] invoke-direct {p0, p2, v4}, Lcom/samsung/android/server/wifi/SemWifiConnectivityMonitor;->isPackageR
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.samsung.android.server.wifi.SemWifiConnectivityMonitor.i → [other] move-result p2 → [branch] if-eqz p2, :co
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor:
+      ← SemWifiConnectivityMonitor.determineMode()
+      ← SemWifiConnectivityMonitor.setCaptivePortalMode()
+        ← SemWifiConnectivityMonitor$ConnectedState.processMessage()
+        ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor:
+        ← SemClientModeImpl.report()
+        ← SemWifiServiceImpl.report()
+          ← SemWifiConnectivityMonitor$12.eleCheckFinished()
+          ← SemWifiConnectivityMonitor$ConnectedState.enter()
+          ← SemWifiConnectivityMonitor$ConnectedState.exit()
+          ← SemWifiConnectivityMonitor$InvalidState.processMessage()
+          ← SemWifiConnectivityMonitor$InvalidState.enter()
+          ← SemWifiConnectivityMonitor$Level1State.enter()
+          ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+          ← SemWifiConnectivityMonitor$ValidState.processMessage()
+          ← SemWifiConnectivityMonitor$ValidState.enter()
+          ← <com.samsung.android.server.wifi.SemClientModeImpl: void -$$
+          ← SemClientModeImpl.reportBigDataLog()
+          ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void -$
+          ← SemWifiServiceImpl.reportIssue()
+            ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+            ← SemClientModeImpl$3.onDestroyed()
+            ← SemClientModeImpl$ConnectModeState.processMessage()
+            ← SemClientModeImpl$ConnectedState.processMessage()
+            ← SemClientModeImpl$ConnectedState.enter()
+            ← SemClientModeImpl$ConnectedState.exit()
+            ← SemClientModeImpl$L2ConnectedState.processMessage()
+            ← SemClientModeImpl$ObtainingIpState.processMessage()
+            ← SemClientModeImpl.processBigDataLogEvent()
+            ← SemWifiServiceImpl$5.onReceive()
+            ← SemWifiServiceImpl$8.onReceive()
+              ← SemWifiConnectivityMonitor$NetworkCallbackController$1$$ExternalSyntheticLambda1.run()
+              ← <com.samsung.android.server.wifi.SemClientModeImpl: void -$$
+
+  CALLEES (what this method invokes):
+      → WifiInfo.getNetworkId()
+      → WifiInfo.getSSID()
+      → SemWifiConnectivityMonitor.syncGetCurrentWifiInfo()
+      → SemWifiConnectivityMonitor.isPackageExists()
+      → SemWifiConnectivityMonitor.isPackageRunning()
+      → WcmUtil.getWifiConfiguration()
+      → WcmUtil.getWifiConfiguration()
+      → WcmUtil.getInstance()
+      → WcmUtil.getSavedNetworks()
+      → BitSet.get()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → WcmUtil.getCurrentWifiInfo()
+        → Context.getPackageManager()
+        → PackageManager$NameNotFoundException.toString()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → ActivityManager.getRunningTasks()
+        → ComponentName.getClassName()
+        → ComponentName.getPackageName()
+        → Context.getSystemService()
+        → Exception.printStackTrace()
+        → SemWifiConfigManager.getSavedNetwork()
+        → SemWifiConfigManager.getSavedNetwork()
+        → SemWifiConfigManager.getSavedNetworks()
+          → SystemClock.elapsedRealtime()
+          → SemWifiManagerProxy.getConnectionInfo()
+          → SemWifiManagerProxy.getConnectionInfo()
+          → WifiConfiguration.isSecurityType()
+          → WifiInfo.getCurrentSecurityType()
+          → SemWifiConfigManager.convertSecurityTypeToWifiConfiguration()
+          → List.isEmpty()
+          → List.size()
+          → List.get()
+          → Collections.emptyList()
+          → Map.getOrDefault()
+            → WifiManager.getConnectionInfo()
+            → SemWifiManagerProxy.isVerboseLoggingEnabled()
+              → AtomicBoolean.get()
+

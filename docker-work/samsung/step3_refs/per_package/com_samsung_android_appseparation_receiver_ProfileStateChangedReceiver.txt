@@ -1,0 +1,7 @@
+# com.samsung.android.appseparation.receiver.ProfileStateChangedReceiver [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.pm.PersonaManagerService: boolean enforceSeparatedAppsRemoveInternal()>
+<com.android.server.pm.PersonaManagerService: void enforceAppSeparationAllowListUpdateInternal()>
+<com.android.server.pm.PersonaManagerService: void enforceAppSeparationDeletionInternal()>

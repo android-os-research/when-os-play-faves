@@ -1,0 +1,10 @@
+# android.media.ISpatializerCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.ISpatializerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.ISpatializerCallback$Stub$Proxy: void dispatchSpatializerAvailableChanged(boolean)>
+<android.media.ISpatializerCallback$Stub$Proxy: void dispatchSpatializerEnabledChanged(boolean)>
+<android.media.ISpatializerCallback$Stub: android.media.ISpatializerCallback asInterface(android.os.IBinder)>
+<android.media.ISpatializerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.ISpatializerCallback$Stub: void <init>()>

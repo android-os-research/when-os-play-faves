@@ -1,0 +1,10 @@
+# com.samsung.android.bio.face.intent.action.FACE_RESET [NEW]
+# Refs: 6
+# JARs: services
+
+<com.android.server.biometrics.sensors.face.aidl.SemFaceServiceExImpl: void lambda$doTemplateSyncForUser$3(int)>
+<com.android.server.biometrics.sensors.face.aidl.SemFaceServiceExImpl: void lambda$doTemplateSyncForUser$5(int,android.hardware.face.Face)>
+<com.android.server.biometrics.sensors.face.aidl.SemFaceServiceExImpl: void onRemovedExt(java.lang.String,int)>
+<com.android.server.biometrics.sensors.face.hidl.Face10$ProviderExtensionImpl: void lambda$doTemplateSyncForUser$3(int)>
+<com.android.server.biometrics.sensors.face.hidl.Face10$ProviderExtensionImpl: void lambda$doTemplateSyncForUser$5(int,android.hardware.face.Face)>
+<com.android.server.biometrics.sensors.face.hidl.Face10$ProviderExtensionImpl: void onRemovedExt(java.lang.String,int)>

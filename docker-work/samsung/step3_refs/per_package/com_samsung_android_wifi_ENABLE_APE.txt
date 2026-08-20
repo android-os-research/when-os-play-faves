@@ -1,0 +1,7 @@
+# com.samsung.android.wifi.ENABLE_APE [NEW]
+# Refs: 3
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.SemApeController: void sendBroadcastEnableApe(int,int,java.lang.String,int)>
+<com.samsung.android.server.wifi.SemApeService$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.SemApeService: void registerBroadcastReceivers()>

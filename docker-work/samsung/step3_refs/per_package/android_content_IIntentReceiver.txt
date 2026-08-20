@@ -1,0 +1,9 @@
+# android.content.IIntentReceiver [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.IIntentReceiver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.IIntentReceiver$Stub$Proxy: void performReceive(android.content.Intent,int,java.lang.String,android.os.Bundle,boolean,boolean,int)>
+<android.content.IIntentReceiver$Stub: android.content.IIntentReceiver asInterface(android.os.IBinder)>
+<android.content.IIntentReceiver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.IIntentReceiver$Stub: void <init>()>

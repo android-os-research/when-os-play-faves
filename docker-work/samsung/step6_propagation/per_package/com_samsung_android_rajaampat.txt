@@ -1,0 +1,317 @@
+######################################################################
+# Propagation: com.samsung.android.rajaampat
+######################################################################
+
+JARs:                 service-samsung-payment, services
+Classes:              4
+Occurrences:          7
+Usage types:          invoke
+Enforcement patterns: allowlist_check, early_return, string_compare
+Security tags:        PKG_MGMT, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      service-samsung-payment
+  Class:    com.android.server.spay.UpdateReceiver$2
+  Method:   <com.android.server.spay.UpdateReceiver$2: void handleMessage(android.os.Message)>
+  Line:     133
+  Register: v4 := "com.samsung.android.rajaampat"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.android.server.spay.Utils.backgroundWhitelist() → [invoke] java.lang.StringBuilder.append() → [invoke] java
+
+  CALLEES (what this method invokes):
+      → Bundle.getString()
+      → Message.getData()
+      → <com.android.server.spay.UpdateReceiver: android.content.Con
+      → UpdateReceiver.triggerPFInstall()
+      → Utils.backgroundWhitelist()
+        → <android.os.Bundle: void <init>()>
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → Context.sendBroadcastAsUser()
+        → Intent.addFlags()
+        → Intent.setAction()
+        → Intent.setComponent()
+        → <android.content.Intent: void <init>()>
+        → Utils.backgroundWhitelist()
+          → ActivityManager.getService()
+          → IActivityManager.backgroundAllowlistUid()
+          → Context.getPackageManager()
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → Utils.hasValidSignature()
+          → Exception.toString()
+          → Exception.printStackTrace()
+          → ArrayList.add()
+          → ArrayList.contains()
+          → ArrayList.toString()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+            → Signature.equals()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      service-samsung-payment
+  Class:    com.android.server.spay.Utils
+  Method:   <com.android.server.spay.Utils: boolean backgroundWhitelist(android.content.Context,java.lang.String,boolean)>
+  Line:     116
+  Register: v5 := "com.samsung.android.rajaampat"
+  Usage:    [] 
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v3 → [branch] if-nez v3, :cond_43 → [other] move-result v3 → [b
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.spay.PaymentManagerService: void <init>(
+      ← Utils.backgroundWhitelist()
+        ← <com.android.server.SystemServer: void lambda$startOtherServ
+        ← UpdateReceiver$2.handleMessage()
+          ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+            ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → IActivityManager.backgroundAllowlistUid()
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → Utils.hasValidSignature()
+      → Exception.toString()
+      → Exception.printStackTrace()
+      → ArrayList.add()
+      → ArrayList.contains()
+      → ArrayList.toString()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → Signature.equals()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      service-samsung-payment
+  Class:    com.android.server.spay.PaymentManagerService
+  Method:   <com.android.server.spay.PaymentManagerService: void <init>(android.content.Context)>
+  Line:     161
+  Register: v6 := "com.samsung.android.rajaampat"
+  Usage:    [invoke] invoke-virtual {v0, v6, v2}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [invoke] com.android.server.spay.Utils.backgroundWhi
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.SystemServer: void lambda$startOtherServ
+        ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+          ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → IntentFilter.setPriority()
+      → <android.spay.IPaymentManager$Stub: void <init>()>
+      → PaymentManagerService.disableSpay()
+      → <com.android.server.spay.UpdateReceiver: void <init>()>
+      → Utils.backgroundWhitelist()
+      → <java.util.HashMap: void <init>()>
+        → <android.os.Binder: void <init>()>
+        → IPaymentManager$Stub.attachInterface()
+        → Context.getPackageManager()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → PackageManager.getApplicationEnabledSetting()
+        → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+        → IllegalArgumentException.printStackTrace()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → Looper.getMainLooper()
+        → <com.android.server.spay.UpdateReceiver$2: void <init>(com.a
+        → ActivityManager.getService()
+        → IActivityManager.backgroundAllowlistUid()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → Utils.hasValidSignature()
+        → Exception.toString()
+        → Exception.printStackTrace()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → ArrayList.toString()
+          → <android.os.Binder: void <init>(java.lang.String)>
+          → <android.os.Handler: void <init>(android.os.Looper)>
+          → Signature.equals()
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.spay.UpdateReceiver$2
+  Method:   <com.android.server.spay.UpdateReceiver$2: void handleMessage(android.os.Message)>
+  Line:     131
+  Register: v3 := "com.samsung.android.rajaampat"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.android.server.spay.Utils.backgroundWhitelist() → [invoke] java.lang.StringBuilder.append() → [invoke] java
+
+  CALLEES (what this method invokes):
+      → Bundle.getString()
+      → Message.getData()
+      → <com.android.server.spay.UpdateReceiver: android.content.Con
+      → UpdateReceiver.triggerPFInstall()
+      → Utils.backgroundWhitelist()
+        → <android.os.Bundle: void <init>()>
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → Context.sendBroadcastAsUser()
+        → Intent.addFlags()
+        → Intent.setAction()
+        → Intent.setComponent()
+        → <android.content.Intent: void <init>()>
+        → Utils.backgroundWhitelist()
+          → ActivityManager.getService()
+          → IActivityManager.backgroundAllowlistUid()
+          → Context.getPackageManager()
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → Utils.hasValidSignature()
+          → Exception.toString()
+          → Exception.printStackTrace()
+          → ArrayList.add()
+          → ArrayList.contains()
+          → ArrayList.toString()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+            → Signature.equals()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.spay.Utils
+  Method:   <com.android.server.spay.Utils: boolean backgroundWhitelist(android.content.Context,java.lang.String,boolean)>
+  Line:     103
+  Register: v4 := "com.samsung.android.rajaampat"
+  Usage:    [] 
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v3 → [branch] if-nez v3, :cond_43 → [other] move-result v3 → [b
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.spay.PaymentManagerService: void <init>(
+      ← Utils.backgroundWhitelist()
+        ← <com.android.server.SystemServer: void lambda$startOtherServ
+        ← UpdateReceiver$2.handleMessage()
+          ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+            ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → IActivityManager.backgroundAllowlistUid()
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → Utils.hasValidSignature()
+      → Exception.toString()
+      → Exception.printStackTrace()
+      → ArrayList.add()
+      → ArrayList.contains()
+      → ArrayList.toString()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → Signature.equals()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.spay.PaymentManagerService
+  Method:   <com.android.server.spay.PaymentManagerService: void <init>(android.content.Context)>
+  Line:     158
+  Register: v6 := "com.samsung.android.rajaampat"
+  Usage:    [invoke] invoke-virtual {v0, v6, v2}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [invoke] com.android.server.spay.Utils.backgroundWhi
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.SystemServer: void lambda$startOtherServ
+        ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+          ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → IntentFilter.setPriority()
+      → <android.spay.IPaymentManager$Stub: void <init>()>
+      → PaymentManagerService.disableSpay()
+      → <com.android.server.spay.UpdateReceiver: void <init>()>
+      → Utils.backgroundWhitelist()
+      → <java.util.HashMap: void <init>()>
+        → <android.os.Binder: void <init>()>
+        → IPaymentManager$Stub.attachInterface()
+        → Context.getPackageManager()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → PackageManager.getApplicationEnabledSetting()
+        → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+        → IllegalArgumentException.printStackTrace()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → Looper.getMainLooper()
+        → <com.android.server.spay.UpdateReceiver$2: void <init>(com.a
+        → ActivityManager.getService()
+        → IActivityManager.backgroundAllowlistUid()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → Utils.hasValidSignature()
+        → Exception.toString()
+        → Exception.printStackTrace()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → ArrayList.toString()
+          → <android.os.Binder: void <init>(java.lang.String)>
+          → <android.os.Handler: void <init>(android.os.Looper)>
+          → Signature.equals()
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.DisplayPolicyExt
+  Method:   <com.android.server.wm.DisplayPolicyExt: void addWindowLw(com.android.server.wm.WindowState,android.view.WindowManager$LayoutParams)>
+  Line:     300
+  Register: v1 := "com.samsung.android.rajaampat"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.startsWith()
+
+  CALLERS (who invokes this method):
+      ← DisplayPolicy.addWindowLw()
+        ← DisplayPolicy.restoreDefaultNavigationBar()
+        ← DisplayPolicy.restoreDefaultNotificationShade()
+        ← DisplayPolicy.restoreDefaultStatusBar()
+        ← WindowManagerService.addWindow()
+          ← Session.addToDisplay()
+          ← Session.addToDisplayAsUser()
+          ← Session.addToDisplayWithoutInputChannel()
+
+  CALLEES (what this method invokes):
+      → WindowManagerPolicyExt.notifyRequestedGameToolsWin()
+      → CustomLetterboxConfiguration.performEnhancedControllerIfNonNull()
+      → <com.android.server.wm.DisplayPolicyExt$$ExternalSyntheticLa
+      → OneHandOpPolicy.addWindowLw()
+      → PopOverController.addPopOverWindowLw()
+      → PopOverState.hasOptions()
+        → SparseArray.get()
+        → CustomLetterboxConfiguration.getInstance()
+        → CustomLetterboxEnhancedController.isAvailable()
+        → Consumer.accept()
+        → ArraySet.add()
+        → ArraySet.isEmpty()
+        → ActivityRecord.findMainWindow()
+        → PopOverController.isChildDimmingDialog()
+        → PopOverController.updatePopOverDimAttributesLw()
+          → SparseArray.get()
+          → ArraySet.indexOf()
+          → ArraySet.indexOfNull()
+          → ArraySet.allocArrays()
+          → ArraySet.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → ArrayList.size()
+          → ArrayList.get()
+          → WindowManager$LayoutParams.isFullscreen()
+          → ConfigurationContainer.getConfiguration()
+          → PopOverState.isRemoveOutlineEffectSet()
+            → ContainerHelpers.binarySearch()
+            → ArraySet.binarySearch()
+

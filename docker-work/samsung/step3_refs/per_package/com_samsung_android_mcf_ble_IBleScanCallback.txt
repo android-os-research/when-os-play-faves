@@ -1,0 +1,10 @@
+# com.samsung.android.mcf.ble.IBleScanCallback [NEW]
+# Refs: 12
+# JARs: mcfsdk, services
+
+<com.samsung.android.mcf.ble.IBleScanCallback$Stub$a: java.lang.String b()>
+<com.samsung.android.mcf.ble.IBleScanCallback$Stub$a: void onScanFailed(int)>
+<com.samsung.android.mcf.ble.IBleScanCallback$Stub$a: void onScanResult(android.bluetooth.le.ScanResult)>
+<com.samsung.android.mcf.ble.IBleScanCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.ble.IBleScanCallback$Stub: com.samsung.android.mcf.ble.IBleScanCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.ble.IBleScanCallback$Stub: void <init>()>

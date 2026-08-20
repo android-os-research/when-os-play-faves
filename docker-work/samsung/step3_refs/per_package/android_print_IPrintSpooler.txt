@@ -1,0 +1,24 @@
+# android.print.IPrintSpooler [NEW]
+# Refs: 20
+# JARs: framework
+
+<android.print.IPrintSpooler$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.print.IPrintSpooler$Stub$Proxy: void clearCustomPrinterIconCache(android.print.IPrintSpoolerCallbacks,int)>
+<android.print.IPrintSpooler$Stub$Proxy: void createPrintJob(android.print.PrintJobInfo)>
+<android.print.IPrintSpooler$Stub$Proxy: void getCustomPrinterIcon(android.print.PrinterId,android.print.IPrintSpoolerCallbacks,int)>
+<android.print.IPrintSpooler$Stub$Proxy: void getPrintJobInfo(android.print.PrintJobId,android.print.IPrintSpoolerCallbacks,int,int)>
+<android.print.IPrintSpooler$Stub$Proxy: void getPrintJobInfos(android.print.IPrintSpoolerCallbacks,android.content.ComponentName,int,int,int)>
+<android.print.IPrintSpooler$Stub$Proxy: void onCustomPrinterIconLoaded(android.print.PrinterId,android.graphics.drawable.Icon,android.print.IPrintSpoolerCallbacks,int)>
+<android.print.IPrintSpooler$Stub$Proxy: void pruneApprovedPrintServices(java.util.List)>
+<android.print.IPrintSpooler$Stub$Proxy: void removeObsoletePrintJobs()>
+<android.print.IPrintSpooler$Stub$Proxy: void setClient(android.print.IPrintSpoolerClient)>
+<android.print.IPrintSpooler$Stub$Proxy: void setPrintJobCancelling(android.print.PrintJobId,boolean)>
+<android.print.IPrintSpooler$Stub$Proxy: void setPrintJobState(android.print.PrintJobId,int,java.lang.String,android.print.IPrintSpoolerCallbacks,int)>
+<android.print.IPrintSpooler$Stub$Proxy: void setPrintJobTag(android.print.PrintJobId,java.lang.String,android.print.IPrintSpoolerCallbacks,int)>
+<android.print.IPrintSpooler$Stub$Proxy: void setProgress(android.print.PrintJobId,float)>
+<android.print.IPrintSpooler$Stub$Proxy: void setStatus(android.print.PrintJobId,java.lang.CharSequence)>
+<android.print.IPrintSpooler$Stub$Proxy: void setStatusRes(android.print.PrintJobId,int,java.lang.CharSequence)>
+<android.print.IPrintSpooler$Stub$Proxy: void writePrintJobData(android.os.ParcelFileDescriptor,android.print.PrintJobId)>
+<android.print.IPrintSpooler$Stub: android.print.IPrintSpooler asInterface(android.os.IBinder)>
+<android.print.IPrintSpooler$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.print.IPrintSpooler$Stub: void <init>()>

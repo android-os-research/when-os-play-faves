@@ -1,0 +1,99 @@
+.class public final Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;
+.super Ljava/lang/Object;
+.source "ActivityManagerService.java"
+
+# interfaces
+.implements Landroid/os/IBinder$DeathRecipient;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/am/ActivityManagerService;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x11
+    name = "AppDeathRecipient"
+.end annotation
+
+
+# instance fields
+.field public final mApp:Lcom/android/server/am/ProcessRecord;
+
+.field public final mAppThread:Landroid/app/IApplicationThread;
+
+.field public final mPid:I
+
+.field public final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;ILandroid/app/IApplicationThread;)V
+    .registers 5
+
+    .line 1817
+    iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 1821
+    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    .line 1822
+    iput p3, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mPid:I
+
+    .line 1823
+    iput-object p4, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mAppThread:Landroid/app/IApplicationThread;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public binderDied()V
+    .registers 8
+
+    .line 1831
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v0
+
+    :try_start_3
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
+
+    .line 1832
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    iget v3, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mPid:I
+
+    iget-object v4, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mAppThread:Landroid/app/IApplicationThread;
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x0
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/am/ActivityManagerService;->appDiedLocked(Lcom/android/server/am/ProcessRecord;ILandroid/app/IApplicationThread;ZLjava/lang/String;)V
+
+    .line 1833
+    monitor-exit v0
+    :try_end_14
+    .catchall {:try_start_3 .. :try_end_14} :catchall_18
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
+    return-void
+
+    :catchall_18
+    move-exception p0
+
+    :try_start_19
+    monitor-exit v0
+    :try_end_1a
+    .catchall {:try_start_19 .. :try_end_1a} :catchall_18
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
+    throw p0
+.end method

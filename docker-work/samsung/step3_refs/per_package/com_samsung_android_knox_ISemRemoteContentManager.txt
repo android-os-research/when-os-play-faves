@@ -1,0 +1,23 @@
+# com.samsung.android.knox.ISemRemoteContentManager [NEW]
+# Refs: 19
+# JARs: framework
+
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: android.content.IRCPInterface getRCPInterface()>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: android.os.Bundle exchangeData(java.lang.String,int,android.os.Bundle)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: android.os.Bundle getFileInfo(java.lang.String,int)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: boolean deleteFile(java.lang.String,int)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: boolean isFileExist(java.lang.String,int)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: int copyChunks(int,java.lang.String,int,java.lang.String,long,int,long,boolean)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: int copyFile(int,java.lang.String,int,java.lang.String)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: int copyFileInternal(int,java.lang.String,int,java.lang.String)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: int moveFile(int,java.lang.String,int,java.lang.String)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: java.util.List getFiles(java.lang.String,int)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: long moveFilesForApp(int,java.util.List,java.util.List)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: long moveFilesForAppEx(int,java.util.List,java.util.List,int)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: long moveUnlimitedFiles(int,android.net.Uri,int,int)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: void cancelCopyChunks(long)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub$Proxy: void registerRCPInterface(android.content.IRCPInterface,int)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub: com.samsung.android.knox.ISemRemoteContentManager asInterface(android.os.IBinder)>
+<com.samsung.android.knox.ISemRemoteContentManager$Stub: void <init>()>

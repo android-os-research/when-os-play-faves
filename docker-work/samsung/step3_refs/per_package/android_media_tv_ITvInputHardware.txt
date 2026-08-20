@@ -1,0 +1,11 @@
+# android.media.tv.ITvInputHardware [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.media.tv.ITvInputHardware$Stub$Proxy: boolean setSurface(android.view.Surface,android.media.tv.TvStreamConfig)>
+<android.media.tv.ITvInputHardware$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.tv.ITvInputHardware$Stub$Proxy: void overrideAudioSink(int,java.lang.String,int,int,int)>
+<android.media.tv.ITvInputHardware$Stub$Proxy: void setStreamVolume(float)>
+<android.media.tv.ITvInputHardware$Stub: android.media.tv.ITvInputHardware asInterface(android.os.IBinder)>
+<android.media.tv.ITvInputHardware$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.tv.ITvInputHardware$Stub: void <init>()>

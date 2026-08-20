@@ -1,0 +1,12 @@
+# com.gsma.services.rcs.extension.IMultimediaSessionServiceConfiguration [NEW]
+# Refs: 8
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.extension.IMultimediaSessionServiceConfiguration$Stub$Proxy: boolean isServiceActivated(java.lang.String)>
+<com.gsma.services.rcs.extension.IMultimediaSessionServiceConfiguration$Stub$Proxy: int getMessageMaxLength()>
+<com.gsma.services.rcs.extension.IMultimediaSessionServiceConfiguration$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.extension.IMultimediaSessionServiceConfiguration$Stub$Proxy: long getInactivityTimeout()>
+<com.gsma.services.rcs.extension.IMultimediaSessionServiceConfiguration$Stub$Proxy: long getMessagingSessionInactivityTimeout(java.lang.String)>
+<com.gsma.services.rcs.extension.IMultimediaSessionServiceConfiguration$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.extension.IMultimediaSessionServiceConfiguration$Stub: com.gsma.services.rcs.extension.IMultimediaSessionServiceConfiguration asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.extension.IMultimediaSessionServiceConfiguration$Stub: void <init>()>

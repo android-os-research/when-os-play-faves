@@ -1,0 +1,14 @@
+# android.media.IMediaHTTPConnection [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.media.IMediaHTTPConnection$Stub$Proxy: android.os.IBinder connect(java.lang.String,java.lang.String)>
+<android.media.IMediaHTTPConnection$Stub$Proxy: int readAt(long,int)>
+<android.media.IMediaHTTPConnection$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IMediaHTTPConnection$Stub$Proxy: java.lang.String getMIMEType()>
+<android.media.IMediaHTTPConnection$Stub$Proxy: java.lang.String getUri()>
+<android.media.IMediaHTTPConnection$Stub$Proxy: long getSize()>
+<android.media.IMediaHTTPConnection$Stub$Proxy: void disconnect()>
+<android.media.IMediaHTTPConnection$Stub: android.media.IMediaHTTPConnection asInterface(android.os.IBinder)>
+<android.media.IMediaHTTPConnection$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IMediaHTTPConnection$Stub: void <init>()>

@@ -1,0 +1,14 @@
+# persist.sys.timezone [NEW]
+# Refs: 11
+# JARs: framework, services, telephony-common
+
+<com.android.internal.os.RuntimeInit: java.lang.String lambda$commonInit$0()>
+<com.android.internal.telephony.cat.DTTZResponseData: void format(java.io.ByteArrayOutputStream)>
+<com.android.server.SystemServer: void run()>
+<com.android.server.alarm.AlarmManagerService$ClockReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.alarm.AlarmManagerService: void onStart()>
+<com.android.server.alarm.AlarmManagerService: void setTimeZoneImpl(java.lang.String)>
+<com.android.server.timezonedetector.EnvironmentImpl: java.lang.String getDeviceTimeZone()>
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: java.util.Optional sys_timezone()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional sys_timezone()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void sys_timezone(java.lang.String)>

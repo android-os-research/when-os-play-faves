@@ -1,0 +1,8 @@
+# android.media.midi.MidiDeviceService [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<android.media.midi.MidiDeviceService: android.os.IBinder onBind(android.content.Intent)>
+<com.android.server.midi.MidiService$Device: void addDeviceConnection(com.android.server.midi.MidiService$DeviceConnection)>
+<com.android.server.midi.MidiService: void addPackageDeviceServer(android.content.pm.ServiceInfo)>
+<com.android.server.midi.MidiService: void onUnlockUser()>

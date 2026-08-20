@@ -1,0 +1,13 @@
+# android.media.IMediaRoute2ProviderServiceCallback [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.media.IMediaRoute2ProviderServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IMediaRoute2ProviderServiceCallback$Stub$Proxy: void notifyProviderUpdated(android.media.MediaRoute2ProviderInfo)>
+<android.media.IMediaRoute2ProviderServiceCallback$Stub$Proxy: void notifyRequestFailed(long,int)>
+<android.media.IMediaRoute2ProviderServiceCallback$Stub$Proxy: void notifySessionCreated(long,android.media.RoutingSessionInfo)>
+<android.media.IMediaRoute2ProviderServiceCallback$Stub$Proxy: void notifySessionReleased(android.media.RoutingSessionInfo)>
+<android.media.IMediaRoute2ProviderServiceCallback$Stub$Proxy: void notifySessionsUpdated(java.util.List)>
+<android.media.IMediaRoute2ProviderServiceCallback$Stub: android.media.IMediaRoute2ProviderServiceCallback asInterface(android.os.IBinder)>
+<android.media.IMediaRoute2ProviderServiceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IMediaRoute2ProviderServiceCallback$Stub: void <init>()>

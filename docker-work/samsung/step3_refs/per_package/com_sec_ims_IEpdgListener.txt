@@ -1,0 +1,17 @@
+# com.sec.ims.IEpdgListener [NEW]
+# Refs: 13
+# JARs: imsmanager
+
+<com.sec.ims.IEpdgListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.IEpdgListener$Stub$Proxy: void onEpdgAvailable(int,int,int)>
+<com.sec.ims.IEpdgListener$Stub$Proxy: void onEpdgDeregister(int)>
+<com.sec.ims.IEpdgListener$Stub$Proxy: void onEpdgHandoverEnableChanged(int,boolean)>
+<com.sec.ims.IEpdgListener$Stub$Proxy: void onEpdgHandoverResult(int,int,int,java.lang.String)>
+<com.sec.ims.IEpdgListener$Stub$Proxy: void onEpdgIpsecConnection(int,java.lang.String,int,int)>
+<com.sec.ims.IEpdgListener$Stub$Proxy: void onEpdgIpsecDisconnection(int,java.lang.String)>
+<com.sec.ims.IEpdgListener$Stub$Proxy: void onEpdgRegister(int,boolean)>
+<com.sec.ims.IEpdgListener$Stub$Proxy: void onEpdgReleaseCall(int)>
+<com.sec.ims.IEpdgListener$Stub$Proxy: void onEpdgShowPopup(int,int)>
+<com.sec.ims.IEpdgListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.IEpdgListener$Stub: com.sec.ims.IEpdgListener asInterface(android.os.IBinder)>
+<com.sec.ims.IEpdgListener$Stub: void <init>()>

@@ -1,0 +1,6 @@
+# ro.hdmi.device_type [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<android.sysprop.HdmiProperties: java.util.List device_type()>
+<com.android.server.hdmi.HdmiControlService: java.util.List readDeviceTypes()>

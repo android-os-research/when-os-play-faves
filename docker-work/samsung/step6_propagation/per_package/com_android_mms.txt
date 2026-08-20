@@ -1,0 +1,183 @@
+######################################################################
+# Propagation: com.android.mms
+######################################################################
+
+JARs:                 duraspeed, framework, services
+Classes:              5
+Occurrences:          7
+Usage types:          invoke, unknown
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.collector.q
+  Method:   <com.mediatek.duraspeed.collector.q: void <clinit>()>
+  Line:     51
+  Register: v5 := "com.android.mms"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     565
+  Register: v4 := "com.android.mms"
+  Usage:    [invoke] invoke-static {v3, v4}, Lcom/samsung/android/knox/SemPersonaManager;->getFloatingPackageName(Ljava/l
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig
+  Method:   <com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: java.lang.String getMessagePackageName(android.content.Context)>
+  Line:     607
+  Register: v2 := "com.android.mms"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: (none)
+  Flow:     [other] return-object v0
+
+  CALLERS (who invokes this method):
+      ← SmsApplication$DefaultMessageAppConfig.setSMorOperatorMessageApp()
+        ← SmsApplication$DefaultMessageAppConfig.setDefaultMsgApp()
+
+  CALLEES (what this method invokes):
+      → SmsApplication$DefaultMessageAppConfig.hasPackage()
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig
+  Method:   <com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: java.lang.String getMessagePackageName(android.content.Context)>
+  Line:     622
+  Register: v0 := "com.android.mms"
+  Usage:    [unknown] return-object v0
+  Patterns: (none)
+  Flow:     [other] return-object v0
+
+  CALLERS (who invokes this method):
+      ← SmsApplication$DefaultMessageAppConfig.setSMorOperatorMessageApp()
+        ← SmsApplication$DefaultMessageAppConfig.setDefaultMsgApp()
+
+  CALLEES (what this method invokes):
+      → SmsApplication$DefaultMessageAppConfig.hasPackage()
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.utils.Utils
+  Method:   <com.android.server.enterprise.utils.Utils: java.lang.String getMessagePackageName(android.content.Context)>
+  Line:     1840
+  Register: v2 := "com.android.mms"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: string_compare
+  Flow:     [invoke] com.samsung.android.feature.SemFloatingFeature.getString() → [invoke] java.lang.String.equals() → [other] retur
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.enterprise.auditlog.AuditLogService: voi
+        ← <com.android.server.enterprise.auditlog.AuditLogService: voi
+          ← EnterpriseDeviceManagerServiceImpl.createDeferredServices()
+            ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+            ← EnterpriseDeviceManagerServiceImpl.systemReady()
+              ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+              ← EnterpriseDeviceManagerServiceImpl.systemReady()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.om.SemSamsungThemeUtils
+  Method:   <com.android.server.om.SemSamsungThemeUtils: java.util.HashMap getChangedPackageNames()>
+  Line:     235
+  Register: v1 := "com.android.mms"
+  Usage:    [invoke] invoke-static {v1}, Lcom/android/server/om/SemSamsungThemeUtils;->getReplaceablePackageName(Ljava/la
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.om.SemSamsungThemeUtils.getReplaceablePac → [invoke] java.lang.String.equals() → [invoke] ja
+
+  CALLEES (what this method invokes):
+      → SemSamsungThemeUtils.getReplaceablePackageName()
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+        → TextUtils.isEmpty()
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → CharSequence.length()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.om.SemSamsungThemeUtils
+  Method:   <com.android.server.om.SemSamsungThemeUtils: java.lang.String getReplaceablePackageName(java.lang.String)>
+  Line:     312
+  Register: v3 := "com.android.mms"
+  Usage:    [] 
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [invoke] com.samsung.android.feature.SemFloatingFeature.getString() → [invoke] java
+
+  CALLERS (who invokes this method):
+      ← SemSamsungThemeUtils.getChangedPackageNames()
+
+  CALLEES (what this method invokes):
+      → TextUtils.isEmpty()
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → CharSequence.length()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+

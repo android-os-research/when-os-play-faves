@@ -1,0 +1,55 @@
+######################################################################
+# Propagation: com.samsung.android.statsd
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.ibs.sleepmode.SleepModePolicyController
+  Method:   <com.android.server.ibs.sleepmode.SleepModePolicyController: void lambda$sendPackageRemovedMessage$4(android.net.Uri)>
+  Line:     542
+  Register: v0 := "com.samsung.android.statsd"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] const-string/jumbo v0, "sendPackageRemovedMessage" → [invoke] android.util.
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.ibs.sleepmode.SleepModePolicyController:
+        ← SleepModePolicyController$$ExternalSyntheticLambda3.accept()
+
+  CALLEES (what this method invokes):
+      → Uri.getSchemeSpecificPart()
+      → Handler.obtainMessage()
+      → Handler.sendMessage()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.ibs.sqd.IbsQuickDim$IntentReceiver
+  Method:   <com.android.server.ibs.sqd.IbsQuickDim$IntentReceiver: void lambda$onReceive$0(android.net.Uri)>
+  Line:     52
+  Register: v0 := "com.samsung.android.statsd"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.ibs.sqd.IbsQuickDim$IntentReceiver: void
+        ← IbsQuickDim$IntentReceiver$$ExternalSyntheticLambda0.accept()
+
+  CALLEES (what this method invokes):
+      → Uri.getSchemeSpecificPart()
+      → <com.android.server.ibs.sqd.IbsQuickDim: void -$$Nest$mhandl
+        → IbsQuickDim.handlePkgRemoved()
+          → Handler.post()
+          → <com.android.server.ibs.sqd.IbsQuickDim$$ExternalSyntheticLa
+

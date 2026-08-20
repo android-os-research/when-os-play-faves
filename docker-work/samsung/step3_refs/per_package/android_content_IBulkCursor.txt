@@ -1,0 +1,14 @@
+# android.content.IBulkCursor [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.database.BulkCursorNative: android.database.IBulkCursor asInterface(android.os.IBinder)>
+<android.database.BulkCursorNative: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.database.BulkCursorNative: void <init>()>
+<android.database.BulkCursorProxy: android.database.CursorWindow getWindow(int)>
+<android.database.BulkCursorProxy: android.os.Bundle getExtras()>
+<android.database.BulkCursorProxy: android.os.Bundle respond(android.os.Bundle)>
+<android.database.BulkCursorProxy: int requery(android.database.IContentObserver)>
+<android.database.BulkCursorProxy: void close()>
+<android.database.BulkCursorProxy: void deactivate()>
+<android.database.BulkCursorProxy: void onMove(int)>

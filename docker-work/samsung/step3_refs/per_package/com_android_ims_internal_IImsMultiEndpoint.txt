@@ -1,0 +1,10 @@
+# com.android.ims.internal.IImsMultiEndpoint [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.android.ims.internal.IImsMultiEndpoint$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsMultiEndpoint$Stub$Proxy: void requestImsExternalCallStateInfo()>
+<com.android.ims.internal.IImsMultiEndpoint$Stub$Proxy: void setListener(com.android.ims.internal.IImsExternalCallStateListener)>
+<com.android.ims.internal.IImsMultiEndpoint$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.IImsMultiEndpoint$Stub: com.android.ims.internal.IImsMultiEndpoint asInterface(android.os.IBinder)>
+<com.android.ims.internal.IImsMultiEndpoint$Stub: void <init>()>

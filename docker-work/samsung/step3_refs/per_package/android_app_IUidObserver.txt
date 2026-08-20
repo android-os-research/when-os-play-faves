@@ -1,0 +1,14 @@
+# android.app.IUidObserver [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.app.IUidObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IUidObserver$Stub$Proxy: void onUidActive(int)>
+<android.app.IUidObserver$Stub$Proxy: void onUidCachedChanged(int,boolean)>
+<android.app.IUidObserver$Stub$Proxy: void onUidGone(int,boolean)>
+<android.app.IUidObserver$Stub$Proxy: void onUidIdle(int,boolean)>
+<android.app.IUidObserver$Stub$Proxy: void onUidProcAdjChanged(int)>
+<android.app.IUidObserver$Stub$Proxy: void onUidStateChanged(int,int,long,int)>
+<android.app.IUidObserver$Stub: android.app.IUidObserver asInterface(android.os.IBinder)>
+<android.app.IUidObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IUidObserver$Stub: void <init>()>

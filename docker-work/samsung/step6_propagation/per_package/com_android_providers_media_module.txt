@@ -1,0 +1,68 @@
+######################################################################
+# Propagation: com.android.providers.media.module
+######################################################################
+
+JARs:                 services
+Classes:              3
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     87
+  Register: v0 := "com.android.providers.media.module"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$1
+  Method:   <com.android.server.pm.PersonaServiceHelper$1: void <init>()>
+  Line:     40
+  Register: v1 := "com.android.providers.media.module"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$3
+  Method:   <com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+  Line:     36
+  Register: v1 := "com.android.providers.media.module"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+

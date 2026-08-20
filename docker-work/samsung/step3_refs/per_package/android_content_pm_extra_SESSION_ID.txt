@@ -1,0 +1,14 @@
+# android.content.pm.extra.SESSION_ID [NEW]
+# Refs: 10
+# JARs: framework, services
+
+<com.android.internal.app.UnknownSourceConfirmActivity: void lambda$initAlertParams$0$com-android-internal-app-UnknownSourceConfirmActivity(int,android.content.DialogInterface,int)>
+<com.android.internal.app.UnknownSourceConfirmActivity: void onCreate(android.os.Bundle)>
+<com.android.internal.app.UnknownSourcePhishingActivity: void onCreate(android.os.Bundle)>
+<com.android.server.enterprise.application.ApplicationPolicy$4: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.pm.PackageInstallerSession: void lambda$startUnknownSourceConfirmDialog$3(int)>
+<com.android.server.pm.PackageInstallerSession: void sendOnPackageInstalled(android.content.Context,android.content.IntentSender,int,boolean,int,java.lang.String,int,java.lang.String,android.os.Bundle)>
+<com.android.server.pm.PackageInstallerSession: void sendOnUserActionRequired(android.content.Context,android.content.IntentSender,int,android.content.Intent)>
+<com.android.server.pm.PackageInstallerSession: void sendPendingStreaming(android.content.Context,android.content.IntentSender,int,java.lang.String)>
+<com.android.server.pm.PackageInstallerSession: void sendPendingUserActionIntent(android.content.IntentSender)>
+<com.android.server.pm.VerificationParams: void sendPackageVerificationRequest(int,android.content.pm.PackageInfoLite,com.android.server.pm.PackageVerificationState)>

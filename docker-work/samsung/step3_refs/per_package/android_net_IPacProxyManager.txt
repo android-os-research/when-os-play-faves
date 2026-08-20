@@ -1,0 +1,11 @@
+# android.net.IPacProxyManager [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.net.IPacProxyManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.IPacProxyManager$Stub$Proxy: void addListener(android.net.IPacProxyInstalledListener)>
+<android.net.IPacProxyManager$Stub$Proxy: void removeListener(android.net.IPacProxyInstalledListener)>
+<android.net.IPacProxyManager$Stub$Proxy: void setCurrentProxyScriptUrl(android.net.ProxyInfo)>
+<android.net.IPacProxyManager$Stub: android.net.IPacProxyManager asInterface(android.os.IBinder)>
+<android.net.IPacProxyManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.IPacProxyManager$Stub: void <init>()>

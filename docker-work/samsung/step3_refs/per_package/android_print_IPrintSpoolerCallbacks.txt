@@ -1,0 +1,16 @@
+# android.print.IPrintSpoolerCallbacks [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.print.IPrintSpoolerCallbacks$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.print.IPrintSpoolerCallbacks$Stub$Proxy: void customPrinterIconCacheCleared(int)>
+<android.print.IPrintSpoolerCallbacks$Stub$Proxy: void onCancelPrintJobResult(boolean,int)>
+<android.print.IPrintSpoolerCallbacks$Stub$Proxy: void onCustomPrinterIconCached(int)>
+<android.print.IPrintSpoolerCallbacks$Stub$Proxy: void onGetCustomPrinterIconResult(android.graphics.drawable.Icon,int)>
+<android.print.IPrintSpoolerCallbacks$Stub$Proxy: void onGetPrintJobInfoResult(android.print.PrintJobInfo,int)>
+<android.print.IPrintSpoolerCallbacks$Stub$Proxy: void onGetPrintJobInfosResult(java.util.List,int)>
+<android.print.IPrintSpoolerCallbacks$Stub$Proxy: void onSetPrintJobStateResult(boolean,int)>
+<android.print.IPrintSpoolerCallbacks$Stub$Proxy: void onSetPrintJobTagResult(boolean,int)>
+<android.print.IPrintSpoolerCallbacks$Stub: android.print.IPrintSpoolerCallbacks asInterface(android.os.IBinder)>
+<android.print.IPrintSpoolerCallbacks$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.print.IPrintSpoolerCallbacks$Stub: void <init>()>

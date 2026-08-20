@@ -1,0 +1,12 @@
+# android.print.ILayoutResultCallback [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.print.ILayoutResultCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.print.ILayoutResultCallback$Stub$Proxy: void onLayoutCanceled(int)>
+<android.print.ILayoutResultCallback$Stub$Proxy: void onLayoutFailed(java.lang.CharSequence,int)>
+<android.print.ILayoutResultCallback$Stub$Proxy: void onLayoutFinished(android.print.PrintDocumentInfo,boolean,int)>
+<android.print.ILayoutResultCallback$Stub$Proxy: void onLayoutStarted(android.os.ICancellationSignal,int)>
+<android.print.ILayoutResultCallback$Stub: android.print.ILayoutResultCallback asInterface(android.os.IBinder)>
+<android.print.ILayoutResultCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.print.ILayoutResultCallback$Stub: void <init>()>

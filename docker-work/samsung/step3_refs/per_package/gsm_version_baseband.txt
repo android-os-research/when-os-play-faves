@@ -1,0 +1,10 @@
+# gsm.version.baseband [NEW]
+# Refs: 6
+# JARs: framework, services, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.List baseband_version()>
+<android.internal.telephony.sysprop.TelephonyProperties: void baseband_version(java.util.List)>
+<android.sysprop.TelephonyProperties: java.util.List baseband_version()>
+<android.sysprop.TelephonyProperties: void baseband_version(java.util.List)>
+<com.android.server.enterprise.device.DeviceInfo: java.lang.String getModemFirmware(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.analytics.service.KnoxAnalyticsVersionCollector: java.lang.String getBasebandVersion()>

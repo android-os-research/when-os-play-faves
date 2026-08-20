@@ -1,0 +1,6 @@
+# com.android.server.contentcapture.ContentCaptureManagerService [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<com.android.server.SystemServer: void startContentCaptureService(android.content.Context,com.android.server.utils.TimingsTraceAndSlog)>
+<com.samsung.isrb.IsrbHooks: void <clinit>()>

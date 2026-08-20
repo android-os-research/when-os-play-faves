@@ -1,0 +1,17 @@
+# com.sec.epdg.IEpdgHandoverListener [NEW]
+# Refs: 13
+# JARs: EpdgManager
+
+<com.sec.epdg.IEpdgHandoverListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.epdg.IEpdgHandoverListener$Stub$Proxy: void onEpdgAvailable(int,int,int)>
+<com.sec.epdg.IEpdgHandoverListener$Stub$Proxy: void onEpdgDeregister(int)>
+<com.sec.epdg.IEpdgHandoverListener$Stub$Proxy: void onEpdgHandoverEnableChanged(int,boolean)>
+<com.sec.epdg.IEpdgHandoverListener$Stub$Proxy: void onEpdgHandoverResult(int,int,int,java.lang.String)>
+<com.sec.epdg.IEpdgHandoverListener$Stub$Proxy: void onEpdgIpsecConnection(int,java.lang.String,int,int)>
+<com.sec.epdg.IEpdgHandoverListener$Stub$Proxy: void onEpdgIpsecDisconnection(int,java.lang.String)>
+<com.sec.epdg.IEpdgHandoverListener$Stub$Proxy: void onEpdgRegister(int,boolean)>
+<com.sec.epdg.IEpdgHandoverListener$Stub$Proxy: void onEpdgReleaseCall(int)>
+<com.sec.epdg.IEpdgHandoverListener$Stub$Proxy: void onEpdgShowPopup(int,int)>
+<com.sec.epdg.IEpdgHandoverListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.epdg.IEpdgHandoverListener$Stub: com.sec.epdg.IEpdgHandoverListener asInterface(android.os.IBinder)>
+<com.sec.epdg.IEpdgHandoverListener$Stub: void <init>()>

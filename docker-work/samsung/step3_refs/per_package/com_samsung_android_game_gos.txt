@@ -1,0 +1,25 @@
+# com.samsung.android.game.gos [NEW]
+# Refs: 21
+# JARs: gamemanager, services
+
+<com.android.server.am.MARsPolicyManager: boolean isIntentProhibited(android.content.Intent,java.lang.String)>
+<com.android.server.am.MARsTrigger$6: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+<com.samsung.android.game.AlarmReceiver$Task: java.lang.Void doInBackground(android.content.Context[])>
+<com.samsung.android.game.FgCheckThread: void notifyFocusInOut(com.samsung.android.game.PkgWithUserId,int,boolean)>
+<com.samsung.android.game.GameManagerService$DisplayListener$DisplayNotifyRunnable: void sendResolutionChangedToGos()>
+<com.samsung.android.game.GameManagerService$DisplayListener: void sendVrrSettingChangedToGos()>
+<com.samsung.android.game.GameManagerService$PkgUpdateReceiver: void onPackageAdded(java.lang.String,android.os.UserHandle)>
+<com.samsung.android.game.GameManagerService$PkgUpdateReceiver: void onPackageRemoved(java.lang.String,android.os.UserHandle)>
+<com.samsung.android.game.GameManagerService$SecFamilyPkgChangeReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.game.GameManagerService: boolean bindService()>
+<com.samsung.android.game.GameManagerService: void <init>(android.content.Context)>
+<com.samsung.android.game.GameManagerService: void checkPkgEnabledState(java.lang.String)>
+<com.samsung.android.game.GameManagerService: void dumpGosState(java.io.PrintWriter)>
+<com.samsung.android.game.GosNotifyThread$1: void sendVrrSettingChangedToGos()>
+<com.samsung.android.game.GosNotifyThread$2: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.game.GosNotifyThread: void notifyGosEnabledToGos()>
+<com.samsung.android.game.GosNotifyThread: void notifyPackageChangedToGos(int,java.lang.String,int)>
+<com.samsung.android.game.GosNotifyThread: void notifyUserSwitchedToGos()>
+<com.samsung.android.game.GosNotifyThread: void notifyWifiConnectedToGos()>
+<com.samsung.android.game.network.RequestHeader: void <init>(android.content.Context)>

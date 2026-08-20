@@ -1,0 +1,7 @@
+# com.samsung.android.server.action_google_net_state [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.alarm.GmsAlarmManager: void sendIntentToIBS(boolean)>
+<com.android.server.ibs.IntelligentBatterySaverGoogleAppPolicy$IBSGoogleAppPolicyReceiver: void <init>(com.android.server.ibs.IntelligentBatterySaverGoogleAppPolicy)>
+<com.android.server.ibs.IntelligentBatterySaverGoogleAppPolicy$IBSGoogleAppPolicyReceiver: void onReceive(android.content.Context,android.content.Intent)>

@@ -1,0 +1,8 @@
+# persist.radio.airplane_mode_on [NEW]
+# Refs: 4
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional airplane_mode_on()>
+<android.internal.telephony.sysprop.TelephonyProperties: void airplane_mode_on(java.lang.Boolean)>
+<android.sysprop.TelephonyProperties: java.util.Optional airplane_mode_on()>
+<android.sysprop.TelephonyProperties: void airplane_mode_on(java.lang.Boolean)>

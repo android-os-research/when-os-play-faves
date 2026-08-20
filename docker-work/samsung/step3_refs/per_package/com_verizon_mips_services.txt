@@ -1,0 +1,11 @@
+# com.verizon.mips.services [NEW]
+# Refs: 7
+# JARs: services
+
+<com.android.server.BatteryService$17: void run()>
+<com.android.server.BatteryService$18: void run()>
+<com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+<com.android.server.pm.BroadcastHelper: java.lang.String getMVSPackageName()>
+<com.android.server.pm.PackageManagerService: void systemReady()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultPermissionsToVerizonApp(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultPermissionsToVerizonAppForVPP(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>

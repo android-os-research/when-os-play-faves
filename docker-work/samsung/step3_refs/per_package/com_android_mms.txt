@@ -1,0 +1,10 @@
+# com.android.mms [NEW]
+# Refs: 7
+# JARs: duraspeed, framework, services
+
+<com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: java.lang.String getMessagePackageName(android.content.Context)>
+<com.android.server.enterprise.utils.Utils: java.lang.String getMessagePackageName(android.content.Context)>
+<com.android.server.om.SemSamsungThemeUtils: java.lang.String getReplaceablePackageName(java.lang.String)>
+<com.android.server.om.SemSamsungThemeUtils: java.util.HashMap getChangedPackageNames()>
+<com.mediatek.duraspeed.collector.q: void <clinit>()>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>

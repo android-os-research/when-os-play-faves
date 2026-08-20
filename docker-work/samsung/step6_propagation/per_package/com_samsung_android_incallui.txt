@@ -1,0 +1,173 @@
+######################################################################
+# Propagation: com.samsung.android.incallui
+######################################################################
+
+JARs:                 framework, services
+Classes:              6
+Occurrences:          6
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     321
+  Register: v11 := "com.samsung.android.incallui"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     104
+  Register: v32 := "com.samsung.android.incallui"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.FoldingPolicy
+  Method:   <com.android.server.wm.FoldingPolicy: boolean isInCallPackage(java.lang.String,java.lang.String)>
+  Line:     1005
+  Register: p1 := "com.samsung.android.incallui"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p1 → [branch] if-eqz p1, :cond_15
+
+  CALLERS (who invokes this method):
+      ← FoldingPolicy.buildFullScreenFoldingPolicy()
+        ← FoldingPolicy.buildFoldingPolicy()
+          ← FoldingPolicy.applyFoldingPolicy()
+            ← FoldingPolicy.apply()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.MultiWindowFoldController
+  Method:   <com.android.server.wm.MultiWindowFoldController: boolean lambda$findDialerTaskLocked$1(java.lang.String,com.android.server.wm.Task)>
+  Line:     168
+  Register: v1 := "com.samsung.android.incallui"
+  Usage:    [invoke] invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.wm.MultiWindowFoldController: boolean $r
+        ← MultiWindowFoldController$$ExternalSyntheticLambda1.test()
+
+  CALLEES (what this method invokes):
+      → Task.getRootActivity()
+      → WindowContainer.isVisible()
+        → Task.getRootActivity()
+        → ArrayList.size()
+        → ArrayList.get()
+          → Task$FindRootHelper.findRoot()
+            → WindowContainer.forAllActivities()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.PersonaActivityHelper
+  Method:   <com.android.server.wm.PersonaActivityHelper: boolean canShowWhenLocked(com.android.server.wm.ActivityRecord)>
+  Line:     315
+  Register: v0 := "com.samsung.android.incallui"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← PersonaActivityHelper.notifyActivityResumedLocked()
+
+  CALLEES (what this method invokes):
+      → ActivityRecord.canShowWhenLocked()
+        → ActivityRecord.canShowWhenLocked()
+        → ActivityRecord.getTaskFragment()
+        → TaskFragment.isEmbedded()
+        → TaskFragment.getTopNonFinishingActivity()
+        → TaskFragment.getAdjacentTaskFragment()
+          → ActivityRecord.containsShowWhenLockedWindow()
+          → ConfigurationContainer.inPinnedWindowingMode()
+          → WindowContainer.getActivityBelow()
+          → WindowContainer.asTaskFragment()
+          → WindowContainer.getParent()
+          → TaskFragment.getTopNonFinishingActivity()
+            → ActivityRecord.isRelaunching()
+            → ArrayList.size()
+            → ArrayList.get()
+            → WindowConfiguration.getWindowingMode()
+            → <com.android.server.wm.WindowContainer$$ExternalSyntheticLam
+            → WindowContainer.getActivity()
+            → TaskFragment.getTopNonFinishingActivity()
+              → WindowContainer.getActivity()
+              → <com.android.server.wm.TaskFragment$$ExternalSyntheticLambda
+              → <com.android.server.wm.TaskFragment$$ExternalSyntheticLambda
+              → <com.android.server.wm.TaskFragment$$ExternalSyntheticLambda
+              → <com.android.server.wm.TaskFragment$$ExternalSyntheticLambda
+              → WindowContainer.getActivity()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.sepunion.cover.StateNotifier
+  Method:   <com.android.server.sepunion.cover.StateNotifier: void registerListenerCallback(android.os.IBinder,android.content.ComponentName,int)>
+  Line:     1609
+  Register: v0 := "com.samsung.android.incallui"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_1b → [other] iget-object v0, p0,
+
+  CALLERS (who invokes this method):
+      ← CoverManagerServiceImpl.registerListenerCallbackInternal()
+        ← CoverManagerServiceImpl.registerCallback()
+        ← CoverManagerServiceImpl.registerListenerCallback()
+          ← SemPluginLocalService.registerCallback()
+          ← SemPluginLocalService.registerListenerCallback()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getPackageName()
+      → StateNotifier.addListenerToListLocked()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → IBinder.linkToDeath()
+        → RemoteException.printStackTrace()
+        → <com.android.server.sepunion.cover.StateNotifier$CoverStateL
+        → Log.e()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.add()
+        → List.iterator()
+          → Log.getCodeInfoString()
+            → StackTraceElement.toString()
+            → StringBuffer.toString()
+            → StringBuffer.append()
+            → <java.lang.StringBuffer: void <init>(java.lang.String)>
+            → Thread.getStackTrace()
+            → Thread.currentThread()
+

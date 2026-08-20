@@ -1,0 +1,14 @@
+# com.samsung.accessibility [NEW]
+# Refs: 10
+# JARs: framework, knoxsdk, services
+
+<android.view.accessibility.A11yLogger: void insertSALog(android.content.Context,java.lang.String,java.lang.String,long,java.lang.String)>
+<com.android.internal.accessibility.dialog.AccessibilitySamsungShortcutChooserActivity: void onEditShorcutClicked()>
+<com.android.internal.accessibility.util.AccessibilityUtils: void updateProfile(android.content.Context,java.lang.String)>
+<com.android.server.accessibility.AccessibilityManagerService$FlashNoti: void <init>(com.android.server.accessibility.AccessibilityManagerService,android.os.IBinder,int,java.lang.String,java.lang.String,int)>
+<com.android.server.accessibility.AccessibilityManagerService: void sendComponentForUpdateProfile(java.lang.String)>
+<com.android.server.audio.AudioService: boolean checkPlayRingerModeEffect(java.lang.String,int,boolean)>
+<com.android.server.sepunion.SemExclusiveTaskManagerService$3: void run()>
+<com.android.server.sepunion.SemExclusiveTaskManagerService: void executePostProccess(com.android.server.sepunion.SemExclusiveTaskManagerService$Task,boolean,com.android.server.sepunion.SemExclusiveTaskManagerService$UserStatus)>
+<com.samsung.android.knox.EdmConstants$1: void <init>()>
+<com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1: void <init>()>

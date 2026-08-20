@@ -1,0 +1,6 @@
+# sys.isrb.networkcrash [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<com.android.server.isrb.IsrbManagerServiceImpl: boolean isNetworkReady()>
+<com.samsung.isrb.IsrbHooks$ISRBExceptionHandler: void uncaughtException(java.lang.Thread,java.lang.Throwable)>

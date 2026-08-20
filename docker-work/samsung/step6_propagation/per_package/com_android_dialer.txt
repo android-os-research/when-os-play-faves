@@ -1,0 +1,26 @@
+######################################################################
+# Propagation: com.android.dialer
+######################################################################
+
+JARs:                 duraspeed
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.collector.q
+  Method:   <com.mediatek.duraspeed.collector.q: void <clinit>()>
+  Line:     35
+  Register: v1 := "com.android.dialer"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+

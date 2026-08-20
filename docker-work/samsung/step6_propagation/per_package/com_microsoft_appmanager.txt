@@ -1,0 +1,131 @@
+######################################################################
+# Propagation: com.microsoft.appmanager
+######################################################################
+
+JARs:                 semwifi-service, services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemApeService
+  Method:   <com.samsung.android.server.wifi.SemApeService: void <init>(android.content.Context,android.os.HandlerThread,com.samsung.android.server.wifi.SemClientModeManager)>
+  Line:     628
+  Register: p0 := "com.microsoft.appmanager"
+  Usage:    [invoke] invoke-interface {v1, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.List.add() → [reassigned] p0 overwritten
+
+  CALLEES (what this method invokes):
+      → HandlerThread.getLooper()
+      → <com.samsung.android.server.wifi.SemApeService$1: void <init
+      → <com.samsung.android.server.wifi.SemApeService$2: void <init
+      → <com.samsung.android.server.wifi.SemApeService$ApeHandler: v
+      → <com.samsung.android.server.wifi.SemApeService$Stats: void <
+      → SemApeService.logi()
+      → SemApeService.registerBroadcastReceivers()
+      → SemApeService.registerNetworkCallbacks()
+      → SemApeService.registerPrimaryInterfaceListener()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.LinkedList: void <init>()>
+      → List.add()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <android.net.ConnectivityManager$NetworkCallback: void <init
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → Context.registerReceiver()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → Context.getSystemService()
+        → ConnectivityManager.registerNetworkCallback()
+        → NetworkRequest$Builder.build()
+        → NetworkRequest$Builder.addTransportType()
+        → NetworkRequest$Builder.removeCapability()
+        → NetworkRequest$Builder.setUids()
+        → <android.net.NetworkRequest$Builder: void <init>()>
+        → <com.samsung.android.server.wifi.SemApeService$NetworkCallba
+        → <com.samsung.android.server.wifi.SemApeService$$ExternalSynt
+        → SemApeService.logd()
+        → SemClientModeManager.registerPrimaryInterfaceListener()
+          → <com.samsung.android.server.wifi.SemApeService$NetworkCallba
+          → <com.samsung.android.server.wifi.SemClientModeManager$$Exter
+          → SemWifiThreadRunner.post()
+            → Handler.post()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.semclipboard.SemClipboardService
+  Method:   <com.android.server.semclipboard.SemClipboardService: android.net.Uri insertToClipboard(android.content.ClipData,int)>
+  Line:     1066
+  Register: v1 := "com.microsoft.appmanager"
+  Usage:    [] 
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.semclipboard.SemClipboardService.grantUri
+
+  CALLERS (who invokes this method):
+      ← SemClipboardService.setPrimaryClip()
+        ← ClipboardService$ClipboardImpl.checkAndSetPrimaryClip()
+          ← ClipboardService$ClipboardImpl.setPrimaryClip()
+          ← ClipboardService$ClipboardImpl.setPrimaryClipAsPackage()
+
+  CALLEES (what this method invokes):
+      → ClipData$Item.getUri()
+      → ClipData$Item.getText()
+      → ClipData$Item.getHtmlText()
+      → ClipData.getItemAt()
+      → ClipData.getDescription()
+      → ClipData.getItemCount()
+      → ClipDescription.getExtras()
+      → ClipDescription.getMimeTypeCount()
+      → ClipDescription.getLabel()
+      → ClipDescription.getMimeType()
+      → ContentResolver.insert()
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → ContentValues.put()
+      → ContentValues.put()
+      → Context.getContentResolver()
+      → Uri.parse()
+      → Uri.toString()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → PersistableBundle.containsKey()
+      → PersistableBundle.getBoolean()
+      → Log.e()
+      → SemClipboardService.grantUriPermission()
+      → CharSequence.toString()
+      → Exception.getMessage()
+        → ArrayList.get()
+        → ArrayList.size()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → IUriGrantsManager.grantUriPermissionFromOwner()
+        → ContentProvider.getUriWithoutUserId()
+        → ContentProvider.getUserIdFromUri()
+        → Uri.getScheme()
+        → UserHandle.getUserId()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → ContainerHelpers.binarySearch()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+

@@ -1,0 +1,14 @@
+# android.window.ITaskFragmentOrganizerController [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.window.ITaskFragmentOrganizerController$Stub$Proxy: boolean isActivityEmbedded(android.os.IBinder)>
+<android.window.ITaskFragmentOrganizerController$Stub$Proxy: boolean isSupportActivityEmbedded(java.lang.String)>
+<android.window.ITaskFragmentOrganizerController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.ITaskFragmentOrganizerController$Stub$Proxy: void registerOrganizer(android.window.ITaskFragmentOrganizer)>
+<android.window.ITaskFragmentOrganizerController$Stub$Proxy: void registerRemoteAnimations(android.window.ITaskFragmentOrganizer,int,android.view.RemoteAnimationDefinition)>
+<android.window.ITaskFragmentOrganizerController$Stub$Proxy: void unregisterOrganizer(android.window.ITaskFragmentOrganizer)>
+<android.window.ITaskFragmentOrganizerController$Stub$Proxy: void unregisterRemoteAnimations(android.window.ITaskFragmentOrganizer,int)>
+<android.window.ITaskFragmentOrganizerController$Stub: android.window.ITaskFragmentOrganizerController asInterface(android.os.IBinder)>
+<android.window.ITaskFragmentOrganizerController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.ITaskFragmentOrganizerController$Stub: void <init>()>

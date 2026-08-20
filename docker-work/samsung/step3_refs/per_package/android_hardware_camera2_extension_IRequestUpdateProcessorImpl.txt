@@ -1,0 +1,12 @@
+# android.hardware.camera2.extension.IRequestUpdateProcessorImpl [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.hardware.camera2.extension.IRequestUpdateProcessorImpl$Stub$Proxy: android.hardware.camera2.extension.CaptureStageImpl process(android.hardware.camera2.impl.CameraMetadataNative,int)>
+<android.hardware.camera2.extension.IRequestUpdateProcessorImpl$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.IRequestUpdateProcessorImpl$Stub$Proxy: void onImageFormatUpdate(int)>
+<android.hardware.camera2.extension.IRequestUpdateProcessorImpl$Stub$Proxy: void onOutputSurface(android.view.Surface,int)>
+<android.hardware.camera2.extension.IRequestUpdateProcessorImpl$Stub$Proxy: void onResolutionUpdate(android.hardware.camera2.extension.Size)>
+<android.hardware.camera2.extension.IRequestUpdateProcessorImpl$Stub: android.hardware.camera2.extension.IRequestUpdateProcessorImpl asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.IRequestUpdateProcessorImpl$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.IRequestUpdateProcessorImpl$Stub: void <init>()>

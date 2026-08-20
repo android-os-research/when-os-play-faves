@@ -1,0 +1,9 @@
+# android.nfc.INfcUnlockHandler [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.nfc.INfcUnlockHandler$Stub$Proxy: boolean onUnlockAttempted(android.nfc.Tag)>
+<android.nfc.INfcUnlockHandler$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.nfc.INfcUnlockHandler$Stub: android.nfc.INfcUnlockHandler asInterface(android.os.IBinder)>
+<android.nfc.INfcUnlockHandler$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.nfc.INfcUnlockHandler$Stub: void <init>()>

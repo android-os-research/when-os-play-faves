@@ -1,0 +1,9 @@
+# android.content.pm.IPackageDataObserver [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.pm.IPackageDataObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IPackageDataObserver$Stub$Proxy: void onRemoveCompleted(java.lang.String,boolean)>
+<android.content.pm.IPackageDataObserver$Stub: android.content.pm.IPackageDataObserver asInterface(android.os.IBinder)>
+<android.content.pm.IPackageDataObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IPackageDataObserver$Stub: void <init>()>

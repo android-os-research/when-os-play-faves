@@ -1,0 +1,20 @@
+# com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface [NEW]
+# Refs: 16
+# JARs: knoxsdk
+
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: android.os.Bundle startAuthenticationProcess(com.samsung.android.knox.net.vpn.serviceprovider.tethering.IAuthenticationStatus)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: boolean setCaAlias(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: boolean setCaptivePortalAlias(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: boolean setServerAlias(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: int getAuthenticationStatus()>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: int setCACertificate(byte[],java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: int setCaptivePortalCertificate(byte[],java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: int setServerCertificate(byte[],java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: int stopAuthenticationProcess()>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: void setClientAuthDetails(android.os.Bundle)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: void setHtmlResponsePage(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub$Proxy: void setHtmlSignInPage(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub: com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface asInterface(android.os.IBinder)>
+<com.samsung.android.knox.net.vpn.serviceprovider.tethering.IKnoxVpnTetherAuthInterface$Stub: void <init>()>

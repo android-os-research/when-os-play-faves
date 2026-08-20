@@ -1,0 +1,20 @@
+# android.app.IAlarmManager [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.app.IAlarmManager$Stub$Proxy: android.app.AlarmManager$AlarmClockInfo getNextAlarmClock(int)>
+<android.app.IAlarmManager$Stub$Proxy: boolean canScheduleExactAlarms(java.lang.String)>
+<android.app.IAlarmManager$Stub$Proxy: boolean hasScheduleExactAlarm(java.lang.String,int)>
+<android.app.IAlarmManager$Stub$Proxy: boolean setTime(long)>
+<android.app.IAlarmManager$Stub$Proxy: int getConfigVersion()>
+<android.app.IAlarmManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IAlarmManager$Stub$Proxy: java.util.List getNextAlarmClocks(int)>
+<android.app.IAlarmManager$Stub$Proxy: long currentNetworkTimeMillis()>
+<android.app.IAlarmManager$Stub$Proxy: long getNextWakeFromIdleTime()>
+<android.app.IAlarmManager$Stub$Proxy: void remove(android.app.PendingIntent,android.app.IAlarmListener)>
+<android.app.IAlarmManager$Stub$Proxy: void set(java.lang.String,int,long,long,long,int,android.app.PendingIntent,android.app.IAlarmListener,java.lang.String,android.os.WorkSource,android.app.AlarmManager$AlarmClockInfo)>
+<android.app.IAlarmManager$Stub$Proxy: void setAutoPowerUp(java.lang.String)>
+<android.app.IAlarmManager$Stub$Proxy: void setTimeZone(java.lang.String)>
+<android.app.IAlarmManager$Stub: android.app.IAlarmManager asInterface(android.os.IBinder)>
+<android.app.IAlarmManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IAlarmManager$Stub: void <init>()>

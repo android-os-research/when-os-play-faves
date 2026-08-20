@@ -1,0 +1,140 @@
+######################################################################
+# Propagation: com.infraware.polarisoffice5tablet
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.fontutil.FlipFontOptimizer
+  Method:   <com.samsung.android.fontutil.FlipFontOptimizer: void setFlipfont(android.content.Context,java.lang.String)>
+  Line:     1124
+  Register: v1 := "com.infraware.polarisoffice5tablet"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.compareTo() → [other] move-result v1 → [branch] if-nez v1, :cond_232 → [reassigned] v1 overwri
+
+  CALLERS (who invokes this method):
+      ← FlipFontOptimizer.setFlipfont()
+        ← ActivityManagerService.finishBooting()
+          ← ActivityManagerService$LocalService.finishBooting()
+          ← ActivityManagerService.bootAnimationComplete()
+          ← ActivityManagerService.ensureBootCompleted()
+            ← ActivityManagerService$LocalService.ensureBootCompleted()
+            ← ActivityManagerService$UiHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → ActivityManager.getRunningTasks()
+      → ActivityManager.forceStopPackage()
+      → ActivityManager.restartPackage()
+      → IActivityManager.getGlobalConfiguration()
+      → IActivityManager.updateConfiguration()
+      → ComponentName.getPackageName()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → PackageManager.getResourcesForApplication()
+      → AssetManager.open()
+      → Resources.getAssets()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → RemoteException.getMessage()
+      → FlipFontOptimizer.getFontString()
+      → FlipFontOptimizer.savePreferences()
+      → FontWriter.copyFontFile()
+      → FontWriter.createFontDirectory()
+      → <com.samsung.android.fontutil.FontWriter: void <init>()>
+      → FontWriter.writeLoc()
+      → SemTypeface.getFontPackageName()
+      → SemTypeface.getTypefaceFilename()
+      → TypefaceFile.getDroidName()
+      → TypefaceFile.getFileName()
+      → TypefaceFinder.findMatchingTypefaceByName()
+      → File.getAbsolutePath()
+      → InputStream.close()
+      → Exception.getMessage()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → FlipFontOptimizer.getFontsVector()
+        → ArrayList.size()
+        → ArrayList.get()
+        → Context.getContentResolver()
+        → Context.createPackageContext()
+        → Context.getSharedPreferences()
+        → Context.getPackageName()
+        → SharedPreferences$Editor.putBoolean()
+        → SharedPreferences$Editor.putInt()
+        → SharedPreferences$Editor.putString()
+        → SharedPreferences$Editor.commit()
+        → SharedPreferences.edit()
+        → Settings$Global.putInt()
+        → Exception.printStackTrace()
+        → FontWriter.setFileProperties()
+        → <java.io.BufferedOutputStream: void <init>(java.io.OutputStr
+        → BufferedOutputStream.close()
+        → BufferedOutputStream.write()
+        → File.delete()
+        → File.getCanonicalPath()
+        → File.length()
+        → <java.io.File: void <init>(java.io.File,java.lang.String)>
+        → <java.io.FileOutputStream: void <init>(java.io.File)>
+        → FileOutputStream.close()
+        → InputStream.read()
+        → <java.lang.Exception: void <init>(java.lang.String)>
+        → Throwable.addSuppressed()
+        → UserHandle.myUserId()
+        → <java.io.File: void <init>(java.lang.String)>
+        → SystemProperties.set()
+        → <java.io.File: void <init>(java.lang.String,java.lang.String
+        → <java.io.OutputStreamWriter: void <init>(java.io.OutputStrea
+        → OutputStreamWriter.close()
+        → OutputStreamWriter.write()
+        → SemTypeface.getName()
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → PackageManager.getResourcesForApplication()
+          → PackageManager.getInstalledApplications()
+          → <com.samsung.android.fontutil.TypefaceFinder: void <init>()>
+          → TypefaceFinder.findTypefaces()
+          → TypefaceFinder.getSansEntries()
+          → <java.util.ArrayList: void <init>()>
+          → File.createNewFile()
+          → File.mkdir()
+          → File.setExecutable()
+          → File.setReadable()
+          → File.setWritable()
+            → AssetManager.list()
+            → TypefaceFinder.findTypefacesWithCR()
+            → TypefaceFinder.parseTypefaceXml()
+            → Context.getResources()
+            → Resources.getText()
+            → SemTypeface.getSansName()
+            → <com.samsung.android.fontutil.TypefaceFinder$TypefaceSortByN
+            → TypefaceFinder.isDomesticModel()
+            → ArrayList.add()
+            → ArrayList.add()
+            → Collections.sort()
+              → ContentResolver.openInputStream()
+              → ContentResolver.getType()
+              → Uri.parse()
+              → SemTypeface.setFontPackageName()
+              → SemTypeface.setTypefaceFilename()
+              → TypefaceParser.getParsedData()
+              → <com.samsung.android.fontutil.TypefaceParser: void <init>()>
+              → List.add()
+              → SAXParser.getXMLReader()
+              → SAXParserFactory.newSAXParser()
+              → SAXParserFactory.newInstance()
+              → <org.xml.sax.InputSource: void <init>(java.io.InputStream)>
+              → XMLReader.parse()
+              → XMLReader.setContentHandler()
+              → List.isEmpty()
+              → TypefaceFinder.readCountryCode()
+

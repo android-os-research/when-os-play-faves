@@ -1,0 +1,9 @@
+# android.app.admin.IKeyguardClient [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.admin.IKeyguardClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.admin.IKeyguardClient$Stub$Proxy: void onCreateKeyguardSurface(android.os.IBinder,android.app.admin.IKeyguardCallback)>
+<android.app.admin.IKeyguardClient$Stub: android.app.admin.IKeyguardClient asInterface(android.os.IBinder)>
+<android.app.admin.IKeyguardClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.admin.IKeyguardClient$Stub: void <init>()>

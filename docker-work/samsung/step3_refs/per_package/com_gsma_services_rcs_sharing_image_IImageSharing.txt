@@ -1,0 +1,21 @@
+# com.gsma.services.rcs.sharing.image.IImageSharing [NEW]
+# Refs: 17
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: com.gsma.services.rcs.contact.ContactId getRemoteContact()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: com.gsma.services.rcs.sharing.image.ImageSharing$ReasonCode getReasonCode()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: com.gsma.services.rcs.sharing.image.ImageSharing$State getState()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: int getDirection()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: java.lang.String getFile()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: java.lang.String getFileName()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: java.lang.String getFileType()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: java.lang.String getSharingId()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: long getFileSize()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: long getTimeStamp()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: void abortSharing()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: void acceptInvitation()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub$Proxy: void rejectInvitation()>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub: com.gsma.services.rcs.sharing.image.IImageSharing asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.sharing.image.IImageSharing$Stub: void <init>()>

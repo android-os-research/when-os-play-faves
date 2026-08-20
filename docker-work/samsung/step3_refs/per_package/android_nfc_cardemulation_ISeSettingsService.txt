@@ -1,0 +1,9 @@
+# android.nfc.cardemulation.ISeSettingsService [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.nfc.cardemulation.ISeSettingsService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.nfc.cardemulation.ISeSettingsService$Stub$Proxy: void setSeacActive(android.content.ComponentName,boolean)>
+<android.nfc.cardemulation.ISeSettingsService$Stub: android.nfc.cardemulation.ISeSettingsService asInterface(android.os.IBinder)>
+<android.nfc.cardemulation.ISeSettingsService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.nfc.cardemulation.ISeSettingsService$Stub: void <init>()>

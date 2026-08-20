@@ -1,0 +1,12 @@
+# com.samsung.android.knox.intent.extra.ACCOUNT_ID [NEW]
+# Refs: 8
+# JARs: services
+
+<com.android.server.enterprise.email.AccountsReceiver$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy$SMIMEIntentReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: boolean setForceSMIMECertificateAlias(com.samsung.android.knox.ContextInfo,long,java.lang.String,java.lang.String,int)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: int setForceSMIMECertificateInternal(com.samsung.android.knox.ContextInfo,long,java.lang.String,java.lang.String,java.lang.String)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: void sendReleaseSMIMECertificate(int,long,int)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: void sendReleaseSMIMECertificateForEncryption(int,long,int)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: void sendReleaseSMIMECertificateForSigning(int,long,int)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: void sendSMIMEAliasResultIntent(long,int,int)>

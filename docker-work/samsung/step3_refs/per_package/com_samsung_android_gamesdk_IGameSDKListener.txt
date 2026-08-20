@@ -1,0 +1,13 @@
+# com.samsung.android.gamesdk.IGameSDKListener [NEW]
+# Refs: 18
+# JARs: framework, gamesdk
+
+<com.samsung.android.gamesdk.IGameSDKListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.gamesdk.IGameSDKListener$Stub$Proxy: void onHighTempWarning(int)>
+<com.samsung.android.gamesdk.IGameSDKListener$Stub$Proxy: void onRefreshRateChanged()>
+<com.samsung.android.gamesdk.IGameSDKListener$Stub$Proxy: void onReleasedByTimeout()>
+<com.samsung.android.gamesdk.IGameSDKListener$Stub$Proxy: void onReleasedCpuBoost()>
+<com.samsung.android.gamesdk.IGameSDKListener$Stub$Proxy: void onReleasedGpuBoost()>
+<com.samsung.android.gamesdk.IGameSDKListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.gamesdk.IGameSDKListener$Stub: com.samsung.android.gamesdk.IGameSDKListener asInterface(android.os.IBinder)>
+<com.samsung.android.gamesdk.IGameSDKListener$Stub: void <init>()>

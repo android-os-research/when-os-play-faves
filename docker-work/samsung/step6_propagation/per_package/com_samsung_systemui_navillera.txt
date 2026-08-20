@@ -1,0 +1,79 @@
+######################################################################
+# Propagation: com.samsung.systemui.navillera
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          array_init
+Enforcement patterns: early_return
+Security tags:        PERM_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.MultiTaskingBinder
+  Method:   <com.android.server.wm.MultiTaskingBinder: void setNaviStarSplitImmersiveMode(boolean)>
+  Line:     4322
+  Register: v3 := "com.samsung.systemui.navillera"
+  Usage:    [array_init] filled-new-array {v3}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v3}, [Ljava/lang/String; → [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → DisplayContent.setLayoutNeeded()
+      → MultiStarController.checkMultiStarPackageAndPermission()
+      → MultiWindowEnableController.setNaviStarImmersiveSplitModeLocked()
+      → WindowManagerService.getDefaultDisplayContentLocked()
+      → WindowManagerService.requestTraversal()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → Debug.getCallers()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → ActivityTaskManagerService.enforceTaskPermission()
+        → MultiStarController.ensureCallingPkg()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → <java.util.ArrayList: void <init>()>
+        → List.addAll()
+        → ActivityTaskManagerServiceExt.getStartedUserIdsLocked()
+        → CoreStateController.setVolatileState()
+        → SimpleDateFormat.format()
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.remove()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → RootWindowContainer.getDisplayContent()
+        → WindowSurfacePlacer.requestTraversal()
+          → ActivityTaskManagerService.checkCallingPermission()
+          → AppGlobals.getPackageManager()
+          → IPackageManager.getPackagesForUid()
+          → List.iterator()
+          → WindowManagerService.boostPriorityForLockedSection()
+          → WindowManagerService.resetPriorityAfterLockedSection()
+          → CoreStateObserverController.setVolatileState()
+          → HashMap.get()
+          → WindowContainer.getChildAt()
+          → WindowContainer.getChildCount()
+          → Handler.post()
+            → ActivityTaskManagerService.checkPermission() [PERM_CHECK]
+            → ActivityThread.getPackageManager()
+            → WindowManagerThreadPriorityBooster.boost()
+            → WindowManagerThreadPriorityBooster.reset()
+            → CoreStateVolatileObserver.setState()
+            → ArrayList.get()
+              → ActivityTaskManagerService.checkComponentPermission()
+              → Process.myTid()
+              → ThreadPriorityBooster.boost()
+              → ThreadPriorityBooster.reset()
+              → <android.util.SparseArray: void <init>()>
+              → SparseArray.put()
+              → CoreStateObserverController.onCoreStateChanged()
+              → <com.samsung.android.server.corestate.CoreStateVolatileObser
+              → Map.get()
+              → Map.put()
+

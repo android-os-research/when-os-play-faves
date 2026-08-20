@@ -1,0 +1,11 @@
+# android.app.ILocaleManager [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.app.ILocaleManager$Stub$Proxy: android.os.LocaleList getApplicationLocales(java.lang.String,int)>
+<android.app.ILocaleManager$Stub$Proxy: android.os.LocaleList getSystemLocales()>
+<android.app.ILocaleManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.ILocaleManager$Stub$Proxy: void setApplicationLocales(java.lang.String,int,android.os.LocaleList)>
+<android.app.ILocaleManager$Stub: android.app.ILocaleManager asInterface(android.os.IBinder)>
+<android.app.ILocaleManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.ILocaleManager$Stub: void <init>()>

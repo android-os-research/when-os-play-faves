@@ -1,0 +1,115 @@
+######################################################################
+# Propagation: com.sec.app.RilErrorNotifier
+######################################################################
+
+JARs:                 telephony-common
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.android.internal.telephony.uicc.UiccProfile
+  Method:   <com.android.internal.telephony.uicc.UiccProfile: void sendIntentPermBlocked()>
+  Line:     4648
+  Register: v3 := "com.sec.app.RilErrorNotifier"
+  Usage:    [invoke] invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← UiccProfile.updateExternalState()
+        ← UiccProfile$4.handleMessage()
+        ← UiccProfile.updateIccAvailability()
+          ← UiccProfile.setVoiceRadioTech()
+          ← UiccProfile.update()
+            ← UiccPort.update()
+            ← <com.android.internal.telephony.uicc.UiccProfile: void <init
+              ← <com.android.internal.telephony.uicc.UiccPort: void <init>(a
+              ← EuiccPort.update()
+              ← TelephonyComponentFactory.makeUiccProfile()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.sendBroadcast()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UiccProfile.getIccPersoRetryCount()
+      → UiccProfile.log()
+      → SemCscFeature.getBoolean()
+      → SemCscFeature.getBoolean()
+      → SemCscFeature.getInstance()
+        → UiccCardApplication.getIccPersoRetryCount()
+        → Rlog.d()
+        → Hashtable.get()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → Rlog.log()
+          → SystemProperties.get()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → SemCscFeature.loadFeatureFile()
+              → TextUtils.isEmpty()
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.File: void <init>(java.lang.String)>
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.put()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.android.internal.telephony.uicc.UiccProfile
+  Method:   <com.android.internal.telephony.uicc.UiccProfile: void sendPersoBlockedIntent()>
+  Line:     4733
+  Register: v2 := "com.sec.app.RilErrorNotifier"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← UiccProfile.updateExternalState()
+        ← UiccProfile$4.handleMessage()
+        ← UiccProfile.updateIccAvailability()
+          ← UiccProfile.setVoiceRadioTech()
+          ← UiccProfile.update()
+            ← UiccPort.update()
+            ← <com.android.internal.telephony.uicc.UiccProfile: void <init
+              ← <com.android.internal.telephony.uicc.UiccPort: void <init>(a
+              ← EuiccPort.update()
+              ← TelephonyComponentFactory.makeUiccProfile()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.sendBroadcast()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UiccProfile.log()
+        → Rlog.d()
+          → Rlog.log()
+

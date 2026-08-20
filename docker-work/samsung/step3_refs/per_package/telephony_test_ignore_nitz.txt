@@ -1,0 +1,6 @@
+# telephony.test.ignore.nitz [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional ignore_nitz()>
+<android.sysprop.TelephonyProperties: java.util.Optional ignore_nitz()>

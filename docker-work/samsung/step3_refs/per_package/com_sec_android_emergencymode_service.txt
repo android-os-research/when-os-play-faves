@@ -1,0 +1,8 @@
+# com.sec.android.emergencymode.service [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<com.android.server.audio.AudioService: boolean checkPlayRingerModeEffect(java.lang.String,int,boolean)>
+<com.android.server.pm.PackageManagerService$IPackageManagerImpl: void setApplicationEnabledSetting(java.lang.String,int,int,int,java.lang.String)>
+<com.samsung.android.emergencymode.SemEmergencyManager: void startService(java.lang.String,boolean,int,boolean,android.content.Intent)>
+<com.samsung.android.emergencymode.SemEmergencyManager: void stopService()>

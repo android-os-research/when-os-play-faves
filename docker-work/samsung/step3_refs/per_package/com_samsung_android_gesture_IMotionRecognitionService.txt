@@ -1,0 +1,22 @@
+# com.samsung.android.gesture.IMotionRecognitionService [NEW]
+# Refs: 18
+# JARs: framework
+
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: boolean getPickUpMotionStatus()>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: boolean getSSPstatus()>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: boolean isAvailable(int)>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: boolean setTestSensor()>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: float[] getEvToLux(float[])>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: int resetMotionEngine()>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: java.lang.String getEvLuxTableInfo(java.lang.String)>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: void registerCallback(android.os.IBinder,int,int)>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: void setMotionAngle(android.os.IBinder,int)>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: void setMotionTiltLevel(int,int,int,int,int,int)>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: void startAdaptiveBrightness()>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: void stopAdaptiveBrightness()>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: void unregisterCallback(android.os.IBinder)>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub$Proxy: void useMotionAlways(android.os.IBinder,boolean)>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub: com.samsung.android.gesture.IMotionRecognitionService asInterface(android.os.IBinder)>
+<com.samsung.android.gesture.IMotionRecognitionService$Stub: void <init>()>

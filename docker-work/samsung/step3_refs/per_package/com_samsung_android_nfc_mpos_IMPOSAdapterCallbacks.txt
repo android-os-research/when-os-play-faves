@@ -1,0 +1,10 @@
+# com.samsung.android.nfc.mpos.IMPOSAdapterCallbacks [NEW]
+# Refs: 6
+# JARs: com.samsung.android.nfc.mpos
+
+<com.samsung.android.nfc.mpos.IMPOSAdapterCallbacks$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.nfc.mpos.IMPOSAdapterCallbacks$Stub$Proxy: void onErrorNotified(int)>
+<com.samsung.android.nfc.mpos.IMPOSAdapterCallbacks$Stub$Proxy: void onTransactionEventDetected(android.content.Intent)>
+<com.samsung.android.nfc.mpos.IMPOSAdapterCallbacks$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.nfc.mpos.IMPOSAdapterCallbacks$Stub: com.samsung.android.nfc.mpos.IMPOSAdapterCallbacks asInterface(android.os.IBinder)>
+<com.samsung.android.nfc.mpos.IMPOSAdapterCallbacks$Stub: void <init>()>

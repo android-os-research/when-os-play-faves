@@ -1,0 +1,9 @@
+# android.hardware.radio.ICloseHandle [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.radio.ICloseHandle$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.radio.ICloseHandle$Stub$Proxy: void close()>
+<android.hardware.radio.ICloseHandle$Stub: android.hardware.radio.ICloseHandle asInterface(android.os.IBinder)>
+<android.hardware.radio.ICloseHandle$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.radio.ICloseHandle$Stub: void <init>()>

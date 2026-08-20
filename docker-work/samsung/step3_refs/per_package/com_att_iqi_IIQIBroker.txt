@@ -1,0 +1,21 @@
+# com.att.iqi.IIQIBroker [NEW]
+# Refs: 17
+# JARs: services
+
+<com.att.iqi.IIQIBroker$Stub$Proxy: boolean shouldSubmitMetric(com.att.iqi.lib.Metric$ID)>
+<com.att.iqi.IIQIBroker$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.att.iqi.IIQIBroker$Stub$Proxy: long getTimestamp()>
+<com.att.iqi.IIQIBroker$Stub$Proxy: void disableService()>
+<com.att.iqi.IIQIBroker$Stub$Proxy: void forceStopService()>
+<com.att.iqi.IIQIBroker$Stub$Proxy: void registerMetricQueryCallback(com.att.iqi.lib.Metric$ID,com.att.iqi.IMetricQueryCallback)>
+<com.att.iqi.IIQIBroker$Stub$Proxy: void registerMetricSourcingCallback(com.att.iqi.lib.Metric$ID,com.att.iqi.IMetricSourcingCallback)>
+<com.att.iqi.IIQIBroker$Stub$Proxy: void registerProfileChangedCallback(com.att.iqi.IProfileChangedCallback)>
+<com.att.iqi.IIQIBroker$Stub$Proxy: void registerServiceChangedCallback(com.att.iqi.IServiceStateChangeCallback)>
+<com.att.iqi.IIQIBroker$Stub$Proxy: void submitMetric(com.att.iqi.lib.Metric)>
+<com.att.iqi.IIQIBroker$Stub$Proxy: void unregisterMetricQueryCallback(com.att.iqi.lib.Metric$ID,com.att.iqi.IMetricQueryCallback)>
+<com.att.iqi.IIQIBroker$Stub$Proxy: void unregisterMetricSourcingCallback(com.att.iqi.lib.Metric$ID,com.att.iqi.IMetricSourcingCallback)>
+<com.att.iqi.IIQIBroker$Stub$Proxy: void unregisterProfileChangedCallback(com.att.iqi.IProfileChangedCallback)>
+<com.att.iqi.IIQIBroker$Stub$Proxy: void unregisterServiceChangedCallback(com.att.iqi.IServiceStateChangeCallback)>
+<com.att.iqi.IIQIBroker$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.att.iqi.IIQIBroker$Stub: com.att.iqi.IIQIBroker asInterface(android.os.IBinder)>
+<com.att.iqi.IIQIBroker$Stub: void <init>()>

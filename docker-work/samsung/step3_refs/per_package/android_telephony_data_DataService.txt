@@ -1,0 +1,9 @@
+# android.telephony.data.DataService [NEW]
+# Refs: 5
+# JARs: framework, telephony-common
+
+<android.telephony.data.DataService: android.os.IBinder onBind(android.content.Intent)>
+<com.android.internal.telephony.data.DataServiceManager: java.util.Set getAllDataServicePackageNames()>
+<com.android.internal.telephony.data.DataServiceManager: void bindDataService(java.lang.String)>
+<com.android.internal.telephony.dataconnection.DataServiceManager: java.util.Set getAllDataServicePackageNames()>
+<com.android.internal.telephony.dataconnection.DataServiceManager: void bindDataService(java.lang.String)>

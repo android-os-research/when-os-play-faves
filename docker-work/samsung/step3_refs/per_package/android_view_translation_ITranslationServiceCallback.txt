@@ -1,0 +1,9 @@
+# android.view.translation.ITranslationServiceCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.translation.ITranslationServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.translation.ITranslationServiceCallback$Stub$Proxy: void updateTranslationCapability(android.view.translation.TranslationCapability)>
+<android.view.translation.ITranslationServiceCallback$Stub: android.view.translation.ITranslationServiceCallback asInterface(android.os.IBinder)>
+<android.view.translation.ITranslationServiceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.translation.ITranslationServiceCallback$Stub: void <init>()>

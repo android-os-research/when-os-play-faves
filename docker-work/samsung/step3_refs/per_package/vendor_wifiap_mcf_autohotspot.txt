@@ -1,0 +1,6 @@
+# vendor.wifiap.mcf.autohotspot [NEW]
+# Refs: 2
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.SemFrameworkFacade: boolean isMCFAutohotspotSupported(android.content.Context)>
+<com.samsung.android.server.wifi.SemFrameworkFacade: boolean isMCFClientAutohotspotSupported(android.content.Context)>

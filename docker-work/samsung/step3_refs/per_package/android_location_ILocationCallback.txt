@@ -1,0 +1,9 @@
+# android.location.ILocationCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.location.ILocationCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.ILocationCallback$Stub$Proxy: void onLocation(android.location.Location)>
+<android.location.ILocationCallback$Stub: android.location.ILocationCallback asInterface(android.os.IBinder)>
+<android.location.ILocationCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.ILocationCallback$Stub: void <init>()>

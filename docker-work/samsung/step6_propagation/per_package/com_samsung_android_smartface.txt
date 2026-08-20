@@ -1,0 +1,73 @@
+######################################################################
+# Propagation: com.samsung.android.smartface
+######################################################################
+
+JARs:                 framework, services
+Classes:              3
+Occurrences:          3
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.smartface.SmartFaceManager
+  Method:   <com.samsung.android.smartface.SmartFaceManager: void startSmartFaceService()>
+  Line:     345
+  Register: v2 := "com.samsung.android.smartface"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] sget-object v2, Landroid/os/UserHandle;->CURRENT_OR_SELF:Lan →
+
+  CALLERS (who invokes this method):
+      ← SmartFaceManager.ensureServiceConnected()
+        ← SmartFaceManager.start()
+        ← SmartFaceManager.getSupportedServices()
+        ← SmartFaceManager.setValue()
+        ← SmartFaceManager.startAsync()
+        ← SmartFaceManager.stop()
+        ← SmartFaceManager.stopAsync()
+          ← SmartFaceManager.checkForSmartStay()
+          ← SmartFaceManager.setValue()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startServiceAsUser()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.camera.CameraServiceProxy
+  Method:   <com.android.server.camera.CameraServiceProxy: void <clinit>()>
+  Line:     277
+  Register: v0 := "com.samsung.android.smartface"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String; → [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.os.Binder: void <init>()>
+        → <android.os.Binder: void <init>(java.lang.String)>
+          → Binder.getNativeBBinderHolder()
+          → NativeAllocationRegistry.registerNativeAllocation()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.camera.CameraServiceWorker
+  Method:   <com.samsung.android.camera.CameraServiceWorker: void <clinit>()>
+  Line:     361
+  Register: v1 := "com.samsung.android.smartface"
+  Usage:    [array_init] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+  Patterns: string_compare, early_return
+  Flow:     [other] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Debug.semIsProductDev()
+

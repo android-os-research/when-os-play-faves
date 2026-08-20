@@ -1,0 +1,5 @@
+# com.samsung.android.permission.REMOTELOCK [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.locksettings.LockSettingsService: void checkRemoteLockPassword(int,byte[],int,android.os.IRemoteCallback)>

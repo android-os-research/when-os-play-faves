@@ -1,0 +1,9 @@
+# com.sec.vsim.ericssonnsds.IDeviceConfigListener [NEW]
+# Refs: 5
+# JARs: vsimmanager
+
+<com.sec.vsim.ericssonnsds.IDeviceConfigListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.vsim.ericssonnsds.IDeviceConfigListener$Stub$Proxy: void onResponseAvailable(com.sec.vsim.ericssonnsds.data.ResponseManageConnectivity)>
+<com.sec.vsim.ericssonnsds.IDeviceConfigListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.vsim.ericssonnsds.IDeviceConfigListener$Stub: com.sec.vsim.ericssonnsds.IDeviceConfigListener asInterface(android.os.IBinder)>
+<com.sec.vsim.ericssonnsds.IDeviceConfigListener$Stub: void <init>()>

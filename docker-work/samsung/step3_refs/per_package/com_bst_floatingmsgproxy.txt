@@ -1,0 +1,8 @@
+# com.bst.floatingmsgproxy [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+<com.android.server.DualAppManagerService: boolean shouldForwardToOwner(java.lang.String)>
+<com.android.server.DualAppManagerService: void <clinit>()>
+<com.android.server.am.BaseRestrictionMgr: boolean isLauncherableApp(java.lang.String,int)>

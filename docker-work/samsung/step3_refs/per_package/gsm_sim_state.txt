@@ -1,0 +1,21 @@
+# gsm.sim.state [NEW]
+# Refs: 17
+# JARs: framework, semwifi-service, services, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.List sim_state()>
+<android.internal.telephony.sysprop.TelephonyProperties: void sim_state(java.util.List)>
+<android.sysprop.TelephonyProperties: java.util.List sim_state()>
+<android.sysprop.TelephonyProperties: void sim_state(java.util.List)>
+<com.android.internal.telephony.CellBroadcastServiceManager$1: void handleMessage(android.os.Message)>
+<com.android.internal.telephony.MccTable: void updateMccMncConfiguration(android.content.Context,java.lang.String)>
+<com.android.internal.telephony.SmsDispatchersController: void handleMessage(android.os.Message)>
+<com.android.internal.telephony.SmsDispatchersController: void handleRadioStateChanged()>
+<com.android.internal.telephony.data.SemPhoneSwitcher: android.util.Pair performAutoDataSwitching()>
+<com.android.internal.telephony.data.TelephonyNetworkFactory: void onNeedNetworkFor(android.os.Message)>
+<com.android.internal.telephony.dataconnection.DataAllowPopup: boolean isDataAllowPopupNecessary(com.android.internal.telephony.dataconnection.ApnContext)>
+<com.android.internal.telephony.ims.ImsResolver: boolean alwaysRequireMmtelFeatureForECall(int,int)>
+<com.android.internal.telephony.uicc.UiccProfile: void removeInvalidSIMNotification()>
+<com.android.server.location.gnss.GnssLocationProviderSec: java.lang.String getGpsCurrentApn(android.content.Context)>
+<com.samsung.android.emergencymode.SemEmergencySettings: java.lang.String checkForMCC()>
+<com.samsung.android.server.wifi.ap.SemWifiApUtils: boolean isSimEnabled(android.content.Context)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartNetworkCallback: boolean isSimEnabled()>

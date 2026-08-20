@@ -1,0 +1,12 @@
+# com.gsma.services.rcs.sharing.video.IVideoPlayer [NEW]
+# Refs: 8
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.sharing.video.IVideoPlayer$Stub$Proxy: com.gsma.services.rcs.sharing.video.VideoCodec getCodec()>
+<com.gsma.services.rcs.sharing.video.IVideoPlayer$Stub$Proxy: com.gsma.services.rcs.sharing.video.VideoCodec[] getSupportedCodecs()>
+<com.gsma.services.rcs.sharing.video.IVideoPlayer$Stub$Proxy: int getLocalRtpPort()>
+<com.gsma.services.rcs.sharing.video.IVideoPlayer$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.sharing.video.IVideoPlayer$Stub$Proxy: void setRemoteInfo(com.gsma.services.rcs.sharing.video.VideoCodec,java.lang.String,int,int)>
+<com.gsma.services.rcs.sharing.video.IVideoPlayer$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.sharing.video.IVideoPlayer$Stub: com.gsma.services.rcs.sharing.video.IVideoPlayer asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.sharing.video.IVideoPlayer$Stub: void <init>()>

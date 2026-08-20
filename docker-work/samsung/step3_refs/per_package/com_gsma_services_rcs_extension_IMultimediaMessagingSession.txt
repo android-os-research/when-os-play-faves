@@ -1,0 +1,20 @@
+# com.gsma.services.rcs.extension.IMultimediaMessagingSession [NEW]
+# Refs: 16
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: com.gsma.services.rcs.RcsService$Direction getDirection()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: com.gsma.services.rcs.contact.ContactId getRemoteContact()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: com.gsma.services.rcs.extension.MultimediaSession$ReasonCode getReasonCode()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: com.gsma.services.rcs.extension.MultimediaSession$State getState()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: java.lang.String getServiceId()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: java.lang.String getSessionId()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: void abortSession()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: void acceptInvitation()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: void flushMessages()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: void rejectInvitation()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: void rejectInvitation2(com.gsma.services.rcs.extension.MultimediaSession$ReasonCode)>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub$Proxy: void sendMessage(byte[],java.lang.String)>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub: com.gsma.services.rcs.extension.IMultimediaMessagingSession asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSession$Stub: void <init>()>

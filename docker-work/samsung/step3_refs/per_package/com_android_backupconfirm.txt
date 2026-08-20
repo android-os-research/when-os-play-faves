@@ -1,0 +1,6 @@
+# com.android.backupconfirm [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.backup.UserBackupManagerService: boolean startConfirmationUi(int,java.lang.String)>
+<com.android.server.backup.UserBackupManagerService: void tearDownAgentAndKill(android.content.pm.ApplicationInfo)>

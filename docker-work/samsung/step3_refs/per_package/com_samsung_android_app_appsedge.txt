@@ -1,0 +1,11 @@
+# com.samsung.android.app.appsedge [NEW]
+# Refs: 7
+# JARs: framework, services
+
+<com.android.server.cocktailbar.CocktailBarManagerServiceContainer: void sendSystemBarAppearance(int)>
+<com.android.server.cocktailbar.CocktailBarManagerServiceImpl$CocktailHostInfo: void stopPinMode()>
+<com.android.server.wm.MultiTaskingController: void <init>(com.android.server.wm.ActivityTaskManagerService)>
+<com.android.server.wm.MultiTaskingController: void showOverlayAllApps(android.os.IBinder,int[])>
+<com.android.server.wm.RecentTasks: void loadRecentsComponent(android.content.res.Resources)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void <clinit>()>
+<com.samsung.android.multiwindow.MultiWindowUtils: android.content.Intent getEdgeAllAppsActivityIntent(android.content.ComponentName,int,int)>

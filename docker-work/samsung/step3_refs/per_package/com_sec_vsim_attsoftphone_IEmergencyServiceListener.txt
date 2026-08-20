@@ -1,0 +1,9 @@
+# com.sec.vsim.attsoftphone.IEmergencyServiceListener [NEW]
+# Refs: 5
+# JARs: vsimmanager
+
+<com.sec.vsim.attsoftphone.IEmergencyServiceListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.vsim.attsoftphone.IEmergencyServiceListener$Stub$Proxy: void onNotify(com.sec.vsim.attsoftphone.data.AddressValidationNotify)>
+<com.sec.vsim.attsoftphone.IEmergencyServiceListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.vsim.attsoftphone.IEmergencyServiceListener$Stub: com.sec.vsim.attsoftphone.IEmergencyServiceListener asInterface(android.os.IBinder)>
+<com.sec.vsim.attsoftphone.IEmergencyServiceListener$Stub: void <init>()>

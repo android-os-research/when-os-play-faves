@@ -1,0 +1,19 @@
+# android.printservice.IPrintService [NEW]
+# Refs: 15
+# JARs: framework
+
+<android.printservice.IPrintService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.printservice.IPrintService$Stub$Proxy: void createPrinterDiscoverySession()>
+<android.printservice.IPrintService$Stub$Proxy: void destroyPrinterDiscoverySession()>
+<android.printservice.IPrintService$Stub$Proxy: void onPrintJobQueued(android.print.PrintJobInfo)>
+<android.printservice.IPrintService$Stub$Proxy: void requestCancelPrintJob(android.print.PrintJobInfo)>
+<android.printservice.IPrintService$Stub$Proxy: void requestCustomPrinterIcon(android.print.PrinterId)>
+<android.printservice.IPrintService$Stub$Proxy: void setClient(android.printservice.IPrintServiceClient)>
+<android.printservice.IPrintService$Stub$Proxy: void startPrinterDiscovery(java.util.List)>
+<android.printservice.IPrintService$Stub$Proxy: void startPrinterStateTracking(android.print.PrinterId)>
+<android.printservice.IPrintService$Stub$Proxy: void stopPrinterDiscovery()>
+<android.printservice.IPrintService$Stub$Proxy: void stopPrinterStateTracking(android.print.PrinterId)>
+<android.printservice.IPrintService$Stub$Proxy: void validatePrinters(java.util.List)>
+<android.printservice.IPrintService$Stub: android.printservice.IPrintService asInterface(android.os.IBinder)>
+<android.printservice.IPrintService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.printservice.IPrintService$Stub: void <init>()>

@@ -1,0 +1,10 @@
+# android.net.vcn.IVcnStatusCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.net.vcn.IVcnStatusCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.vcn.IVcnStatusCallback$Stub$Proxy: void onGatewayConnectionError(java.lang.String,int,java.lang.String,java.lang.String)>
+<android.net.vcn.IVcnStatusCallback$Stub$Proxy: void onVcnStatusChanged(int)>
+<android.net.vcn.IVcnStatusCallback$Stub: android.net.vcn.IVcnStatusCallback asInterface(android.os.IBinder)>
+<android.net.vcn.IVcnStatusCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.vcn.IVcnStatusCallback$Stub: void <init>()>

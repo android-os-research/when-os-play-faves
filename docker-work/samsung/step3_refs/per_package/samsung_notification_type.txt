@@ -1,0 +1,9 @@
+# samsung.notification.type [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.NotificationManager$EdgeNotificationManager: void postEdgeNotification(int,android.os.Bundle)>
+<android.app.NotificationManager$EdgeNotificationManager: void postEdgeNotificationByNormal(int,android.app.Notification)>
+<android.app.NotificationManager$EdgeNotificationManager: void removeEdgeNotification(int,android.os.Bundle)>
+<android.app.NotificationManager$EdgeNotificationManager: void removeEdgeNotificationAllByNormal()>
+<android.app.NotificationManager$EdgeNotificationManager: void removeEdgeNotificationByNormal(int)>

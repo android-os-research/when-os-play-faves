@@ -1,0 +1,35 @@
+######################################################################
+# Propagation: com.samsung.android.app.bikemode
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          field_store
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.globalactions.util.PackageManagerWrapper
+  Method:   <com.samsung.android.globalactions.util.PackageManagerWrapper: void <init>(android.content.Context)>
+  Line:     29
+  Register: v0 := "com.samsung.android.app.bikemode"
+  Usage:    [field_store] iput-object v0, p0, Lcom/samsung/android/globalactions/util/PackageManagerWrapper;->BIKE_MODE_PACKAG
+  Patterns: early_return
+  Flow:     [field_store] com.samsung.android.globalactions.util.PackageManagerWrapper → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.globalactions.util.DefaultUtilFactory: 
+        ← SamsungGlobalActionsDialog.initDependencies()
+          ← <com.android.server.policy.globalactions.presentation.view.S
+            ← GlobalActions.ensureLegacyCreated()
+              ← <com.android.server.policy.GlobalActions: void -$$Nest$mensu
+              ← GlobalActions.onGlobalActionsAvailableChanged()
+              ← GlobalActions.showDialog()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+

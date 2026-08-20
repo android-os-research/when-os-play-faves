@@ -1,0 +1,10 @@
+# com.samsung.android.sepunion.IUnionManager [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.sepunion.IUnionManager$Stub$Proxy: android.os.IBinder getSemSystemService(java.lang.String,android.os.Bundle)>
+<com.samsung.android.sepunion.IUnionManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.sepunion.IUnionManager$Stub$Proxy: void setDumpEnabled(java.lang.String,java.lang.String)>
+<com.samsung.android.sepunion.IUnionManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.sepunion.IUnionManager$Stub: com.samsung.android.sepunion.IUnionManager asInterface(android.os.IBinder)>
+<com.samsung.android.sepunion.IUnionManager$Stub: void <init>()>

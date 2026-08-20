@@ -1,0 +1,9 @@
+# android.content.pm.IOnChecksumsReadyListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.pm.IOnChecksumsReadyListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IOnChecksumsReadyListener$Stub$Proxy: void onChecksumsReady(java.util.List)>
+<android.content.pm.IOnChecksumsReadyListener$Stub: android.content.pm.IOnChecksumsReadyListener asInterface(android.os.IBinder)>
+<android.content.pm.IOnChecksumsReadyListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IOnChecksumsReadyListener$Stub: void <init>()>

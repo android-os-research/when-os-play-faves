@@ -1,0 +1,14 @@
+# com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy [NEW]
+# Refs: 10
+# JARs: knoxsdk
+
+<com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy$Stub$Proxy: boolean disableAuthentication(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy$Stub$Proxy: boolean enableAuthentication(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy$Stub$Proxy: boolean isAuthenticationEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy$Stub$Proxy: boolean removeClientCertificateAlias(com.samsung.android.knox.ContextInfo,java.lang.String,int)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy$Stub$Proxy: boolean setClientCertificateAlias(com.samsung.android.knox.ContextInfo,java.lang.String,int,java.lang.String)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy$Stub$Proxy: java.lang.String getClientCertificateAlias(com.samsung.android.knox.ContextInfo,java.lang.String,int)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy$Stub: com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardBrowserPolicy$Stub: void <init>()>

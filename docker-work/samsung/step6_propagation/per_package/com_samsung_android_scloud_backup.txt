@@ -1,0 +1,30 @@
+######################################################################
+# Propagation: com.samsung.android.scloud.backup
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants$1
+  Method:   <android.content.om.SamsungThemeConstants$1: void <init>()>
+  Line:     73
+  Register: v0 := "com.samsung.android.scloud.backup"
+  Usage:    [invoke] invoke-virtual {p0, v0, v2}, Landroid/content/om/SamsungThemeConstants$1;->put(Ljava/lang/Object;Lja
+  Patterns: early_return
+  Flow:     [invoke] android.content.om.SamsungThemeConstants$1.put()
+
+  CALLERS (who invokes this method):
+      ← <android.content.om.SamsungThemeConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → SamsungThemeConstants$1.put()
+      → <java.util.HashMap: void <init>()>
+

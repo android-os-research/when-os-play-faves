@@ -1,0 +1,30 @@
+######################################################################
+# Propagation: com.dti.telefonica
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper
+  Method:   <com.android.server.pm.PersonaServiceHelper: void <clinit>()>
+  Line:     225
+  Register: v5 := "com.dti.telefonica"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → <com.android.server.pm.PersonaServiceHelper$1: void <init>()
+      → <com.android.server.pm.PersonaServiceHelper$2: void <init>()
+      → <com.android.server.pm.PersonaServiceHelper$3: void <init>()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → HashMap.put()
+        → <java.util.HashMap: void <init>()>
+

@@ -1,0 +1,7 @@
+# persist.sys.bub_onoff [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.am.BGProtectManager: void initBGProtectManagerPostBoot()>
+<com.android.server.am.MARsPolicyManager: void <init>()>
+<com.android.server.chimera.ChimeraCommonUtil: boolean isBubEnabled(com.android.server.chimera.SystemRepository)>

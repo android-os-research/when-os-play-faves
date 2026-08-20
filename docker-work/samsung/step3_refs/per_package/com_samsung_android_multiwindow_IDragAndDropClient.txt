@@ -1,0 +1,11 @@
+# com.samsung.android.multiwindow.IDragAndDropClient [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.multiwindow.IDragAndDropClient$Stub$Proxy: boolean getInitialDropTargetVisible()>
+<com.samsung.android.multiwindow.IDragAndDropClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.multiwindow.IDragAndDropClient$Stub$Proxy: void onConnected(android.os.IBinder,int)>
+<com.samsung.android.multiwindow.IDragAndDropClient$Stub$Proxy: void onDisconnected()>
+<com.samsung.android.multiwindow.IDragAndDropClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.multiwindow.IDragAndDropClient$Stub: com.samsung.android.multiwindow.IDragAndDropClient asInterface(android.os.IBinder)>
+<com.samsung.android.multiwindow.IDragAndDropClient$Stub: void <init>()>

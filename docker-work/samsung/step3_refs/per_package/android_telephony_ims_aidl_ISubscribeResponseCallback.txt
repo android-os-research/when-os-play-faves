@@ -1,0 +1,14 @@
+# android.telephony.ims.aidl.ISubscribeResponseCallback [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.telephony.ims.aidl.ISubscribeResponseCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.ISubscribeResponseCallback$Stub$Proxy: void onCommandError(int)>
+<android.telephony.ims.aidl.ISubscribeResponseCallback$Stub$Proxy: void onNetworkRespHeader(int,java.lang.String,int,java.lang.String)>
+<android.telephony.ims.aidl.ISubscribeResponseCallback$Stub$Proxy: void onNetworkResponse(int,java.lang.String)>
+<android.telephony.ims.aidl.ISubscribeResponseCallback$Stub$Proxy: void onNotifyCapabilitiesUpdate(java.util.List)>
+<android.telephony.ims.aidl.ISubscribeResponseCallback$Stub$Proxy: void onResourceTerminated(java.util.List)>
+<android.telephony.ims.aidl.ISubscribeResponseCallback$Stub$Proxy: void onTerminated(java.lang.String,long)>
+<android.telephony.ims.aidl.ISubscribeResponseCallback$Stub: android.telephony.ims.aidl.ISubscribeResponseCallback asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.ISubscribeResponseCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.ISubscribeResponseCallback$Stub: void <init>()>

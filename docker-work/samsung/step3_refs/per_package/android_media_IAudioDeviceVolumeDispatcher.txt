@@ -1,0 +1,10 @@
+# android.media.IAudioDeviceVolumeDispatcher [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.IAudioDeviceVolumeDispatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IAudioDeviceVolumeDispatcher$Stub$Proxy: void dispatchDeviceVolumeAdjusted(android.media.AudioDeviceAttributes,android.media.VolumeInfo,int,int)>
+<android.media.IAudioDeviceVolumeDispatcher$Stub$Proxy: void dispatchDeviceVolumeChanged(android.media.AudioDeviceAttributes,android.media.VolumeInfo)>
+<android.media.IAudioDeviceVolumeDispatcher$Stub: android.media.IAudioDeviceVolumeDispatcher asInterface(android.os.IBinder)>
+<android.media.IAudioDeviceVolumeDispatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IAudioDeviceVolumeDispatcher$Stub: void <init>()>

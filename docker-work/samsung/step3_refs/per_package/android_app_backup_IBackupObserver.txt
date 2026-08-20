@@ -1,0 +1,11 @@
+# android.app.backup.IBackupObserver [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.app.backup.IBackupObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.backup.IBackupObserver$Stub$Proxy: void backupFinished(int)>
+<android.app.backup.IBackupObserver$Stub$Proxy: void onResult(java.lang.String,int)>
+<android.app.backup.IBackupObserver$Stub$Proxy: void onUpdate(java.lang.String,android.app.backup.BackupProgress)>
+<android.app.backup.IBackupObserver$Stub: android.app.backup.IBackupObserver asInterface(android.os.IBinder)>
+<android.app.backup.IBackupObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.backup.IBackupObserver$Stub: void <init>()>

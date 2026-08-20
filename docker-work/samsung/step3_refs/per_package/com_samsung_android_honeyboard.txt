@@ -1,0 +1,25 @@
+# com.samsung.android.honeyboard [NEW]
+# Refs: 21
+# JARs: framework, knoxsdk, services
+
+<android.sec.clipboard.util.ClipboardPolicyObserver: java.lang.String getTopActivityPackageName()>
+<android.widget.SearchView: boolean semSetSviEnabled(boolean)>
+<android.widget.directwriting.DirectWritingServiceBinder: void requestBindService(android.content.Context,long,android.widget.directwriting.DirectWritingTriggerCallback)>
+<android.widget.directwriting.DirectWritingServiceBinder: void stopService(android.content.Context)>
+<com.android.server.am.PerProcessNandswap$NandswapHandler: int getNandswapNonActivityAppType(com.android.server.am.ProcessRecord,int,int)>
+<com.android.server.chimera.ChimeraAppManager$1: void <init>(com.android.server.chimera.ChimeraAppManager)>
+<com.android.server.inputmethod.InputMethodManagerService: boolean isHoneyboardInstalled()>
+<com.android.server.inputmethod.InputMethodManagerService: boolean isSKBDPacakge(java.lang.String)>
+<com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter$1: void onClick(android.view.View)>
+<com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)>
+<com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter: boolean isHoneyboardSupported()>
+<com.android.server.inputmethod.InputMethodMenuController: void showInputMethodMenu(boolean,int)>
+<com.android.server.inputmethod.InputMethodUtils: java.lang.CharSequence getImeAndSubtypeDisplayName(android.content.Context,android.view.inputmethod.InputMethodInfo,android.view.inputmethod.InputMethodSubtype)>
+<com.android.server.pm.DexOptHelper: void <init>(com.android.server.pm.PackageManagerService)>
+<com.android.server.pm.PersonaServiceHelper$1: void <init>()>
+<com.android.server.semclipboard.SemClipboardService: android.net.Uri insertToClipboard(android.content.ClipData,int)>
+<com.android.server.semclipboard.SemClipboardService: void insertToClipboardForMigration(com.samsung.android.content.clipboard.data.SemClipData,int)>
+<com.samsung.android.knox.EdmConstants$1: void <init>()>
+<com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1: void <init>()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: boolean getKeyboardModeOverriden(int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setKeyboardMode(int)>

@@ -1,0 +1,8 @@
+# android.os.usertype.system.HEADLESS [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.pm.UserManagerService: void fallbackToSingleUserLP()>
+<com.android.server.pm.UserManagerService: void upgradeIfNecessaryLP(android.os.Bundle,int,int)>
+<com.android.server.pm.UserTypeFactory: android.util.ArrayMap getDefaultBuilders()>
+<com.android.server.pm.UserTypeFactory: com.android.server.pm.UserTypeDetails$Builder getDefaultTypeSystemHeadless()>

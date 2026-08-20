@@ -1,0 +1,5 @@
+# persist.debug.framework_watchdog.fatal_ignore [NEW]
+# Refs: 1
+# JARs: services
+
+<android.sysprop.WatchdogProperties: java.util.Optional should_ignore_fatal_count()>

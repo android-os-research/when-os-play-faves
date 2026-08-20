@@ -1,0 +1,9 @@
+# android.media.IStrategyPreferredDevicesDispatcher [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.IStrategyPreferredDevicesDispatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IStrategyPreferredDevicesDispatcher$Stub$Proxy: void dispatchPrefDevicesChanged(int,java.util.List)>
+<android.media.IStrategyPreferredDevicesDispatcher$Stub: android.media.IStrategyPreferredDevicesDispatcher asInterface(android.os.IBinder)>
+<android.media.IStrategyPreferredDevicesDispatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IStrategyPreferredDevicesDispatcher$Stub: void <init>()>

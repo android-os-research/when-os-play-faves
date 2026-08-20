@@ -1,0 +1,48 @@
+######################################################################
+# Propagation: com.samsung.android.samsungpass
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants$1
+  Method:   <android.content.om.SamsungThemeConstants$1: void <init>()>
+  Line:     112
+  Register: v0 := "com.samsung.android.samsungpass"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/om/SamsungThemeConstants$1;->put(Ljava/lang/Object;Lja
+  Patterns: early_return
+  Flow:     [invoke] android.content.om.SamsungThemeConstants$1.put()
+
+  CALLERS (who invokes this method):
+      ← <android.content.om.SamsungThemeConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → SamsungThemeConstants$1.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     124
+  Register: v42 := "com.samsung.android.samsungpass"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+

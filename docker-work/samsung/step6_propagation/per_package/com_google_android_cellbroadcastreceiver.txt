@@ -1,0 +1,64 @@
+######################################################################
+# Propagation: com.google.android.cellbroadcastreceiver
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     217
+  Register: v0 := "com.google.android.cellbroadcastreceiver"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vibrator.VibratorManagerService
+  Method:   <com.android.server.vibrator.VibratorManagerService: com.android.server.vibrator.Vibration$Status shouldIgnoreVibrationForOngoingLocked(com.android.server.vibrator.Vibration)>
+  Line:     4901
+  Register: p1 := "com.google.android.cellbroadcastreceiver"
+  Usage:    [invoke] invoke-static {p0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequ
+  Patterns: string_compare
+  Flow:     [invoke] android.text.TextUtils.equals() → [reassigned] p1 overwritten
+
+  CALLERS (who invokes this method):
+      ← VibratorManagerService.vibrateInternal()
+        ← <com.android.server.vibrator.VibratorManagerService: com.and
+        ← VibratorManagerService.vibrate()
+          ← VibratorManagerService$VibratorManagerShellCommand.runVibrate()
+            ← VibratorManagerService$VibratorManagerShellCommand.runMono()
+            ← VibratorManagerService$VibratorManagerShellCommand.runSequential()
+            ← VibratorManagerService$VibratorManagerShellCommand.runStereo()
+              ← VibratorManagerService$VibratorManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → VibrationAttributes.hasTag()
+      → VibrationAttributes.getUsage()
+      → TextUtils.equals()
+      → Vibration.hasEnded()
+      → Vibration.isRepeating()
+      → VibrationStepConductor.getVibration()
+      → VibratorManagerService.isDocomoVibrate()
+        → CharSequence.charAt()
+        → CharSequence.length()
+        → CombinedVibration.getDuration()
+

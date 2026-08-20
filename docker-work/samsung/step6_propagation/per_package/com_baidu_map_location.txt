@@ -1,0 +1,55 @@
+######################################################################
+# Propagation: com.baidu.map.location
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     112
+  Register: v0 := "com.baidu.map.location"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo$PackageList
+  Method:   <com.android.server.alarm.AppSyncInfo$PackageList: void loadChnAllowlist()>
+  Line:     880
+  Register: v0 := "com.baidu.map.location"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/android/server/alarm/AppSyncInfo$PackageList;->add(Ljava/lang/String;)
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.alarm.AppSyncInfo$PackageList.add() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.alarm.AppSyncInfo: void <init>(android.c
+        ← AppSyncInfo.createAppSync()
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+            ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → AppSyncInfo$PackageList.add()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.contains()
+

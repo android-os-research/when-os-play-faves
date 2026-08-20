@@ -1,0 +1,10 @@
+# android.os.IProcessInfoService [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.IProcessInfoService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IProcessInfoService$Stub$Proxy: void getProcessStatesAndOomScoresFromPids(int[],int[],int[])>
+<android.os.IProcessInfoService$Stub$Proxy: void getProcessStatesFromPids(int[],int[])>
+<android.os.IProcessInfoService$Stub: android.os.IProcessInfoService asInterface(android.os.IBinder)>
+<android.os.IProcessInfoService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IProcessInfoService$Stub: void <init>()>

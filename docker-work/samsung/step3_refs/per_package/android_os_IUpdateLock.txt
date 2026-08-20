@@ -1,0 +1,10 @@
+# android.os.IUpdateLock [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.IUpdateLock$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IUpdateLock$Stub$Proxy: void acquireUpdateLock(android.os.IBinder,java.lang.String)>
+<android.os.IUpdateLock$Stub$Proxy: void releaseUpdateLock(android.os.IBinder)>
+<android.os.IUpdateLock$Stub: android.os.IUpdateLock asInterface(android.os.IBinder)>
+<android.os.IUpdateLock$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IUpdateLock$Stub: void <init>()>

@@ -1,0 +1,18 @@
+# com.samsung.android.mcfds [NEW]
+# Refs: 14
+# JARs: services
+
+<com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+<com.android.server.input.WirelessKeyboardMouseShare: void sendReadyToConnectIntent()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.samsung.android.mcf.continuity.common.VersionUtil: long getServiceVersionCode(android.content.Context)>
+<com.samsung.android.mcf.continuity.impl.ContinuityAdapterImpl: android.content.Intent createStartIntent(android.content.Context)>
+<com.samsung.android.mcf.continuity.impl.ContinuityAdapterImpl: android.content.Intent createStartIntentForPublicService(android.content.Context)>
+<com.samsung.android.mcf.continuity.impl.ContinuityAdapterImpl: void lambda$bindService$2(com.samsung.android.mcf.continuity.api.ContinuityAdapter$ServiceStateListener,android.content.Context)>
+<com.samsung.android.mcfds.lib.AbstractDeviceSyncManager: boolean connectService(com.samsung.android.mcfds.lib.AbstractDeviceSyncManager$StateListener)>
+<com.samsung.android.mcfds.lib.AbstractDeviceSyncManager: boolean connectServiceAsUser(com.samsung.android.mcfds.lib.AbstractDeviceSyncManager$StateListener,android.os.UserHandle)>
+<com.samsung.android.server.continuity.AbstractPreconditionObserver: void logContinuitySettingEnable()>
+<com.samsung.android.server.continuity.AbstractPreconditionObserver: void registerPackageObserver()>
+<com.samsung.android.server.continuity.AbstractPreconditionObserver: void setInstalledFlag(java.lang.String)>
+<com.samsung.android.server.continuity.AbstractPreconditionObserver: void start(int,com.samsung.android.server.continuity.AbstractPreconditionObserver$StateChangedListener)>
+<com.samsung.android.server.continuity.AbstractPreconditionObserver: void unsetInstalledFlag(java.lang.String)>

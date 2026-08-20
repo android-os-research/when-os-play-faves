@@ -1,0 +1,14 @@
+# android.content.pm.IOtaDexopt [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.content.pm.IOtaDexopt$Stub$Proxy: boolean isDone()>
+<android.content.pm.IOtaDexopt$Stub$Proxy: float getProgress()>
+<android.content.pm.IOtaDexopt$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IOtaDexopt$Stub$Proxy: java.lang.String nextDexoptCommand()>
+<android.content.pm.IOtaDexopt$Stub$Proxy: void cleanup()>
+<android.content.pm.IOtaDexopt$Stub$Proxy: void dexoptNextPackage()>
+<android.content.pm.IOtaDexopt$Stub$Proxy: void prepare()>
+<android.content.pm.IOtaDexopt$Stub: android.content.pm.IOtaDexopt asInterface(android.os.IBinder)>
+<android.content.pm.IOtaDexopt$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IOtaDexopt$Stub: void <init>()>

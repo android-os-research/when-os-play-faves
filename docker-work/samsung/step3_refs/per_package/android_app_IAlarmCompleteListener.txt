@@ -1,0 +1,9 @@
+# android.app.IAlarmCompleteListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.IAlarmCompleteListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IAlarmCompleteListener$Stub$Proxy: void alarmComplete(android.os.IBinder)>
+<android.app.IAlarmCompleteListener$Stub: android.app.IAlarmCompleteListener asInterface(android.os.IBinder)>
+<android.app.IAlarmCompleteListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IAlarmCompleteListener$Stub: void <init>()>

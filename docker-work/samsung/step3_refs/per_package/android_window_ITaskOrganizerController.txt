@@ -1,0 +1,20 @@
+# android.window.ITaskOrganizerController [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.window.ITaskOrganizerController$Stub$Proxy: android.content.pm.ParceledListSlice registerTaskOrganizer(android.window.ITaskOrganizer)>
+<android.window.ITaskOrganizerController$Stub$Proxy: android.window.WindowContainerToken getImeTarget(int)>
+<android.window.ITaskOrganizerController$Stub$Proxy: boolean deleteRootTask(android.window.WindowContainerToken)>
+<android.window.ITaskOrganizerController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.ITaskOrganizerController$Stub$Proxy: java.util.List getChildTasks(android.window.WindowContainerToken,int[])>
+<android.window.ITaskOrganizerController$Stub$Proxy: java.util.List getRootTasks(int,int[])>
+<android.window.ITaskOrganizerController$Stub$Proxy: void createRootTask(int,int,android.os.IBinder)>
+<android.window.ITaskOrganizerController$Stub$Proxy: void createStageRootTask(int,int,int,android.os.IBinder)>
+<android.window.ITaskOrganizerController$Stub$Proxy: void restartTaskTopActivityProcessIfVisible(android.window.WindowContainerToken)>
+<android.window.ITaskOrganizerController$Stub$Proxy: void setInterceptBackPressedOnTaskRoot(android.window.WindowContainerToken,boolean)>
+<android.window.ITaskOrganizerController$Stub$Proxy: void setIsIgnoreOrientationRequestDisabled(boolean)>
+<android.window.ITaskOrganizerController$Stub$Proxy: void unregisterTaskOrganizer(android.window.ITaskOrganizer)>
+<android.window.ITaskOrganizerController$Stub$Proxy: void updateCameraCompatControlState(android.window.WindowContainerToken,int)>
+<android.window.ITaskOrganizerController$Stub: android.window.ITaskOrganizerController asInterface(android.os.IBinder)>
+<android.window.ITaskOrganizerController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.ITaskOrganizerController$Stub: void <init>()>

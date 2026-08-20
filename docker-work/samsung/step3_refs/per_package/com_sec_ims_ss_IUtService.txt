@@ -1,0 +1,25 @@
+# com.sec.ims.ss.IUtService [NEW]
+# Refs: 21
+# JARs: imsmanager
+
+<com.sec.ims.ss.IUtService$Stub$Proxy: boolean isUtEnabled(int)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int queryCLIP(int)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int queryCLIR(int)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int queryCOLP(int)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int queryCOLR(int)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int queryCallBarring(int,int,int)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int queryCallForward(int,int,java.lang.String)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int queryCallWaiting(int)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int updateCLIP(int,boolean)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int updateCLIR(int,int)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int updateCOLP(int,boolean)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int updateCOLR(int,int)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int updateCallBarring(int,int,int,int,java.lang.String,java.lang.String[])>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int updateCallForward(int,int,int,java.lang.String,int,int)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: int updateCallWaiting(int,boolean,int)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.ss.IUtService$Stub$Proxy: void deRegisterForUtEvent(int,com.sec.ims.ss.IImsUtEventListener)>
+<com.sec.ims.ss.IUtService$Stub$Proxy: void registerForUtEvent(int,com.sec.ims.ss.IImsUtEventListener)>
+<com.sec.ims.ss.IUtService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.ss.IUtService$Stub: com.sec.ims.ss.IUtService asInterface(android.os.IBinder)>
+<com.sec.ims.ss.IUtService$Stub: void <init>()>

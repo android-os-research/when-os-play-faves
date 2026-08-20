@@ -1,0 +1,9 @@
+# android.content.pm.IDataLoaderStatusListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.pm.IDataLoaderStatusListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IDataLoaderStatusListener$Stub$Proxy: void onStatusChanged(int,int)>
+<android.content.pm.IDataLoaderStatusListener$Stub: android.content.pm.IDataLoaderStatusListener asInterface(android.os.IBinder)>
+<android.content.pm.IDataLoaderStatusListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IDataLoaderStatusListener$Stub: void <init>()>

@@ -1,0 +1,6 @@
+# android.app.backup.intent.INIT [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.backup.UserBackupManagerService: void <init>(int,android.content.Context,com.android.server.backup.BackupManagerService,android.os.HandlerThread,java.io.File,java.io.File,com.android.server.backup.TransportManager)>
+<com.android.server.backup.internal.RunInitializeReceiver: void onReceive(android.content.Context,android.content.Intent)>

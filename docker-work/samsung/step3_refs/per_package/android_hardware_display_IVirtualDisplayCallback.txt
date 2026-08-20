@@ -1,0 +1,11 @@
+# android.hardware.display.IVirtualDisplayCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.hardware.display.IVirtualDisplayCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.display.IVirtualDisplayCallback$Stub$Proxy: void onPaused()>
+<android.hardware.display.IVirtualDisplayCallback$Stub$Proxy: void onResumed()>
+<android.hardware.display.IVirtualDisplayCallback$Stub$Proxy: void onStopped()>
+<android.hardware.display.IVirtualDisplayCallback$Stub: android.hardware.display.IVirtualDisplayCallback asInterface(android.os.IBinder)>
+<android.hardware.display.IVirtualDisplayCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.display.IVirtualDisplayCallback$Stub: void <init>()>

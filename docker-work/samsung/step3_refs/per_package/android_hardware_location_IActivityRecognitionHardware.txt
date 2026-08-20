@@ -1,0 +1,15 @@
+# android.hardware.location.IActivityRecognitionHardware [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.hardware.location.IActivityRecognitionHardware$Stub$Proxy: boolean disableActivityEvent(java.lang.String,int)>
+<android.hardware.location.IActivityRecognitionHardware$Stub$Proxy: boolean enableActivityEvent(java.lang.String,int,long)>
+<android.hardware.location.IActivityRecognitionHardware$Stub$Proxy: boolean flush()>
+<android.hardware.location.IActivityRecognitionHardware$Stub$Proxy: boolean isActivitySupported(java.lang.String)>
+<android.hardware.location.IActivityRecognitionHardware$Stub$Proxy: boolean registerSink(android.hardware.location.IActivityRecognitionHardwareSink)>
+<android.hardware.location.IActivityRecognitionHardware$Stub$Proxy: boolean unregisterSink(android.hardware.location.IActivityRecognitionHardwareSink)>
+<android.hardware.location.IActivityRecognitionHardware$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.location.IActivityRecognitionHardware$Stub$Proxy: java.lang.String[] getSupportedActivities()>
+<android.hardware.location.IActivityRecognitionHardware$Stub: android.hardware.location.IActivityRecognitionHardware asInterface(android.os.IBinder)>
+<android.hardware.location.IActivityRecognitionHardware$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.location.IActivityRecognitionHardware$Stub: void <init>()>

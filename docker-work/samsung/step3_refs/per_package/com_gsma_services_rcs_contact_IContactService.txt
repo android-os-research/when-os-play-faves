@@ -1,0 +1,14 @@
+# com.gsma.services.rcs.contact.IContactService [NEW]
+# Refs: 10
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.contact.IContactService$Stub$Proxy: com.gsma.services.rcs.contact.RcsContact getRcsContact(com.gsma.services.rcs.contact.ContactId)>
+<com.gsma.services.rcs.contact.IContactService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.contact.IContactService$Stub$Proxy: java.util.List getRcsContacts()>
+<com.gsma.services.rcs.contact.IContactService$Stub$Proxy: java.util.List getRcsContactsOnline()>
+<com.gsma.services.rcs.contact.IContactService$Stub$Proxy: java.util.List getRcsContactsSupporting(java.lang.String)>
+<com.gsma.services.rcs.contact.IContactService$Stub$Proxy: void blockContact(com.gsma.services.rcs.contact.ContactId)>
+<com.gsma.services.rcs.contact.IContactService$Stub$Proxy: void unblockContact(com.gsma.services.rcs.contact.ContactId)>
+<com.gsma.services.rcs.contact.IContactService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.contact.IContactService$Stub: com.gsma.services.rcs.contact.IContactService asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.contact.IContactService$Stub: void <init>()>

@@ -1,0 +1,76 @@
+.class public Lcom/android/server/policy/LegacyGlobalActions$6;
+.super Lcom/android/internal/globalactions/SinglePressAction;
+.source "LegacyGlobalActions.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/policy/LegacyGlobalActions;->getVoiceAssistAction()Lcom/android/internal/globalactions/Action;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic this$0:Lcom/android/server/policy/LegacyGlobalActions;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/policy/LegacyGlobalActions;II)V
+    .registers 4
+
+    .line 484
+    iput-object p1, p0, Lcom/android/server/policy/LegacyGlobalActions$6;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+
+    invoke-direct {p0, p2, p3}, Lcom/android/internal/globalactions/SinglePressAction;-><init>(II)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onPress()V
+    .registers 3
+
+    .line 487
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.intent.action.VOICE_ASSIST"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/high16 v1, 0x14000000
+
+    .line 488
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    .line 489
+    iget-object p0, p0, Lcom/android/server/policy/LegacyGlobalActions$6;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+
+    invoke-static {p0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fgetmContext(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    return-void
+.end method
+
+.method public showBeforeProvisioning()Z
+    .registers 1
+
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public showDuringKeyguard()Z
+    .registers 1
+
+    const/4 p0, 0x1
+
+    return p0
+.end method

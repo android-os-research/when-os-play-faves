@@ -1,0 +1,20 @@
+# com.samsung.android.knox.accounts.IEmailPolicy [NEW]
+# Refs: 16
+# JARs: knoxsdk
+
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean allowAccountAddition(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean allowEmailSettingsChange(com.samsung.android.knox.ContextInfo,boolean,long)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean allowPopImapEmail(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean getAllowEmailForwarding(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean getAllowHTMLEmail(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean isAccountAdditionAllowed(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean isEmailNotificationsEnabled(com.samsung.android.knox.ContextInfo,long)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean isEmailSettingsChangeAllowed(com.samsung.android.knox.ContextInfo,long)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean isPopImapEmailAllowed(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean setAllowEmailForwarding(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean setAllowHTMLEmail(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: boolean setEmailNotificationsState(com.samsung.android.knox.ContextInfo,boolean,long)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub: com.samsung.android.knox.accounts.IEmailPolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.accounts.IEmailPolicy$Stub: void <init>()>

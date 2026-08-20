@@ -1,0 +1,15 @@
+# com.sec.android.sdhms [NEW]
+# Refs: 12
+# JARs: gamemanager, services, ssrm
+
+<com.android.server.CustomizedBinderCallsStatsInternal: void notifyAnomalyApp(com.android.internal.os.BinderCallsStats$HeavyBinderCallerInfo)>
+<com.android.server.am.AnrHelper: void appNotResponding(com.android.server.am.ProcessRecord,java.lang.String,android.content.pm.ApplicationInfo,java.lang.String,com.android.server.wm.WindowProcessController,boolean,java.lang.String)>
+<com.android.server.am.AppErrors: void crashApplicationInner(com.android.server.am.ProcessRecord,android.app.ApplicationErrorReport$CrashInfo,int,int)>
+<com.android.server.am.MARsPolicyManager: void notifyAnomalyApp(java.lang.String,int)>
+<com.android.server.am.ProcessList: com.android.server.am.ProcessRecord startProcessLocked(java.lang.String,android.content.pm.ApplicationInfo,boolean,int,com.android.server.am.HostingRecord,int,boolean,boolean,int,boolean,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String[],java.lang.Runnable,boolean,int)>
+<com.android.server.ssrm.CustomFrequencyManagerService$4: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.ssrm.CustomFrequencyManagerService: ???>
+<com.android.server.wm.ActivityMetricsLogger: void logAppTransition(long,long,int,com.android.server.wm.ActivityMetricsLogger$TransitionInfoSnapshot,boolean)>
+<com.samsung.android.camera.visionserver.VisionServerReceiver$3: void onCameraDeviceStateChanged(java.lang.String,int,int,java.lang.String)>
+<com.samsung.android.game.GameManagerService: void sendPackageDataToSdhms(com.samsung.android.game.SemPackageConfiguration[])>
+<com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils: void <clinit>()>

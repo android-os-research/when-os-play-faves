@@ -1,0 +1,17 @@
+# com.samsung.android.camera.iris.IIrisDaemonCallback [NEW]
+# Refs: 13
+# JARs: framework
+
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub$Proxy: void onAcquired(long,com.samsung.android.camera.iris.EyeInfo)>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub$Proxy: void onAuthenticated(long,int,int,byte[],byte[])>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub$Proxy: void onEnrollResult(long,int,int,int)>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub$Proxy: void onEnumerate(long,int[],int[])>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub$Proxy: void onError(long,int)>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub$Proxy: void onGeneralParameterChanged(long,java.lang.String,java.lang.String)>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub$Proxy: void onIRPropertyChanged(long,java.lang.String,java.lang.String)>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub$Proxy: void onImageProcessed(long,int,byte[],int,int)>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub$Proxy: void onRemoved(long,int,int)>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub: com.samsung.android.camera.iris.IIrisDaemonCallback asInterface(android.os.IBinder)>
+<com.samsung.android.camera.iris.IIrisDaemonCallback$Stub: void <init>()>

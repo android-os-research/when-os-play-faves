@@ -1,0 +1,11 @@
+# android.os.IStoraged [NEW]
+# Refs: 14
+# JARs: framework, services
+
+<android.os.IStoraged$Stub$Proxy: int getRecentPerf()>
+<android.os.IStoraged$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IStoraged$Stub$Proxy: void onUserStarted(int)>
+<android.os.IStoraged$Stub$Proxy: void onUserStopped(int)>
+<android.os.IStoraged$Stub: android.os.IStoraged asInterface(android.os.IBinder)>
+<android.os.IStoraged$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IStoraged$Stub: void <init>()>

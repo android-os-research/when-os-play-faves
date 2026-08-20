@@ -1,0 +1,8 @@
+# com.samsung.android.knox.intent.extra.KIOSK_RESULT [NEW]
+# Refs: 4
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.kioskmode.KioskModeService: void broadcastKioskResult(int,int,int)>
+<com.samsung.android.knox.kiosk.KioskMode: void disableKioskMode()>
+<com.samsung.android.knox.kiosk.KioskMode: void enableKioskMode()>
+<com.samsung.android.knox.kiosk.KioskMode: void enableKioskMode(java.lang.String)>

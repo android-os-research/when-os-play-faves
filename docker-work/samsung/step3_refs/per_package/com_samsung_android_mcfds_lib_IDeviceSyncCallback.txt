@@ -1,0 +1,11 @@
+# com.samsung.android.mcfds.lib.IDeviceSyncCallback [NEW]
+# Refs: 7
+# JARs: services
+
+<com.samsung.android.mcfds.lib.IDeviceSyncCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.mcfds.lib.IDeviceSyncCallback$Stub$Proxy: void onDeviceFound(android.os.PersistableBundle)>
+<com.samsung.android.mcfds.lib.IDeviceSyncCallback$Stub$Proxy: void onDeviceLost(android.os.PersistableBundle)>
+<com.samsung.android.mcfds.lib.IDeviceSyncCallback$Stub$Proxy: void onDeviceUpdated(android.os.PersistableBundle)>
+<com.samsung.android.mcfds.lib.IDeviceSyncCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcfds.lib.IDeviceSyncCallback$Stub: com.samsung.android.mcfds.lib.IDeviceSyncCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcfds.lib.IDeviceSyncCallback$Stub: void <init>()>

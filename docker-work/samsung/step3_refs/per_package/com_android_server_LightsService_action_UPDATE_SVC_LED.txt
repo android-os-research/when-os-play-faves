@@ -1,0 +1,6 @@
+# com.android.server.LightsService.action.UPDATE_SVC_LED [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.lights.LightsService$SvcLEDReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.lights.LightsService: void systemReady()>

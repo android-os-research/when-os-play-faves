@@ -1,0 +1,10 @@
+# persist.sys.knox.userinfo [NEW]
+# Refs: 6
+# JARs: framework, knoxsdk, services
+
+<com.android.server.pm.PersonaManagerService: void recoverContainerInfo()>
+<com.samsung.android.knox.KnoxInfoImpl: int getWorkProfileUserId()>
+<com.samsung.android.knox.SemPersonaManager: boolean checkContainerType(int)>
+<com.samsung.android.knox.SemPersonaManager: boolean checkContainerType(int,int)>
+<com.samsung.android.knox.SemPersonaManager: java.util.HashMap getContainerInfo()>
+<com.samsung.android.knox.container.KnoxContainerManager: boolean checkContainerType(int,int)>

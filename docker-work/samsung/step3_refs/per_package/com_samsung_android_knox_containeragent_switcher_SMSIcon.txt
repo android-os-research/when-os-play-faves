@@ -1,0 +1,8 @@
+# com.samsung.android.knox.containeragent.switcher.SMSIcon [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxIcon(java.lang.String,java.lang.String,int)>
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxPhoneOrMessageIcon(java.lang.String)>
+<com.samsung.android.knox.KnoxHelper: java.util.List convertToActivityList(android.content.Context,android.content.pm.ParceledListSlice,android.os.UserHandle,boolean)>
+<com.samsung.android.knox.KnoxHelper: java.util.List convertToActivityList(android.content.Context,android.content.pm.ParceledListSlice,android.os.UserHandle,boolean,java.util.List)>

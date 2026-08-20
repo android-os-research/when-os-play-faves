@@ -1,0 +1,5 @@
+# persist.sys.adb.config.carlife_force [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils: boolean isCarlifeForceConnect()>

@@ -1,0 +1,13 @@
+# android.telephony.INetworkService [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.telephony.INetworkService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.INetworkService$Stub$Proxy: void createNetworkServiceProvider(int)>
+<android.telephony.INetworkService$Stub$Proxy: void registerForNetworkRegistrationInfoChanged(int,android.telephony.INetworkServiceCallback)>
+<android.telephony.INetworkService$Stub$Proxy: void removeNetworkServiceProvider(int)>
+<android.telephony.INetworkService$Stub$Proxy: void requestNetworkRegistrationInfo(int,int,android.telephony.INetworkServiceCallback)>
+<android.telephony.INetworkService$Stub$Proxy: void unregisterForNetworkRegistrationInfoChanged(int,android.telephony.INetworkServiceCallback)>
+<android.telephony.INetworkService$Stub: android.telephony.INetworkService asInterface(android.os.IBinder)>
+<android.telephony.INetworkService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.INetworkService$Stub: void <init>()>

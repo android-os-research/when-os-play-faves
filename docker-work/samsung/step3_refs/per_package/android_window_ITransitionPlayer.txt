@@ -1,0 +1,10 @@
+# android.window.ITransitionPlayer [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.window.ITransitionPlayer$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.ITransitionPlayer$Stub$Proxy: void onTransitionReady(android.os.IBinder,android.window.TransitionInfo,android.view.SurfaceControl$Transaction,android.view.SurfaceControl$Transaction)>
+<android.window.ITransitionPlayer$Stub$Proxy: void requestStartTransition(android.os.IBinder,android.window.TransitionRequestInfo)>
+<android.window.ITransitionPlayer$Stub: android.window.ITransitionPlayer asInterface(android.os.IBinder)>
+<android.window.ITransitionPlayer$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.ITransitionPlayer$Stub: void <init>()>

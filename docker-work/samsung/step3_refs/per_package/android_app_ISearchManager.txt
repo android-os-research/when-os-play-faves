@@ -1,0 +1,15 @@
+# android.app.ISearchManager [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.app.ISearchManager$Stub$Proxy: android.app.SearchableInfo getSearchableInfo(android.content.ComponentName)>
+<android.app.ISearchManager$Stub$Proxy: android.content.ComponentName getGlobalSearchActivity()>
+<android.app.ISearchManager$Stub$Proxy: android.content.ComponentName getWebSearchActivity()>
+<android.app.ISearchManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.ISearchManager$Stub$Proxy: java.util.List getGlobalSearchActivities()>
+<android.app.ISearchManager$Stub$Proxy: java.util.List getSearchablesInGlobalSearch()>
+<android.app.ISearchManager$Stub$Proxy: java.util.List getSearchablesInInsightSearch(boolean)>
+<android.app.ISearchManager$Stub$Proxy: void launchAssist(int,android.os.Bundle)>
+<android.app.ISearchManager$Stub: android.app.ISearchManager asInterface(android.os.IBinder)>
+<android.app.ISearchManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.ISearchManager$Stub: void <init>()>

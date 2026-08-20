@@ -1,0 +1,6 @@
+# sys.init.userspace_reboot.in_progress [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.sysprop.InitProperties: java.util.Optional userspace_reboot_in_progress()>
+<android.sysprop.InitProperties: void userspace_reboot_in_progress(java.lang.Boolean)>

@@ -1,0 +1,9 @@
+# com.samsung.android.knox.integrity.IEnhancedAttestationPolicyCallback [NEW]
+# Refs: 5
+# JARs: knoxsdk
+
+<com.samsung.android.knox.integrity.IEnhancedAttestationPolicyCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.integrity.IEnhancedAttestationPolicyCallback$Stub$Proxy: void onAttestationFinished(com.samsung.android.knox.integrity.EnhancedAttestationResult)>
+<com.samsung.android.knox.integrity.IEnhancedAttestationPolicyCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.integrity.IEnhancedAttestationPolicyCallback$Stub: com.samsung.android.knox.integrity.IEnhancedAttestationPolicyCallback asInterface(android.os.IBinder)>
+<com.samsung.android.knox.integrity.IEnhancedAttestationPolicyCallback$Stub: void <init>()>

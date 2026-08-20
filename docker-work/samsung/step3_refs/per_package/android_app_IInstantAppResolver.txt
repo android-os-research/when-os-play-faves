@@ -1,0 +1,10 @@
+# android.app.IInstantAppResolver [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.IInstantAppResolver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IInstantAppResolver$Stub$Proxy: void getInstantAppIntentFilterList(android.content.pm.InstantAppRequestInfo,android.os.IRemoteCallback)>
+<android.app.IInstantAppResolver$Stub$Proxy: void getInstantAppResolveInfoList(android.content.pm.InstantAppRequestInfo,int,android.os.IRemoteCallback)>
+<android.app.IInstantAppResolver$Stub: android.app.IInstantAppResolver asInterface(android.os.IBinder)>
+<android.app.IInstantAppResolver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IInstantAppResolver$Stub: void <init>()>

@@ -1,0 +1,9 @@
+# android.hardware.iris.IIrisService [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.iris.IIrisService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.iris.IIrisService$Stub$Proxy: void registerAuthenticators(java.util.List)>
+<android.hardware.iris.IIrisService$Stub: android.hardware.iris.IIrisService asInterface(android.os.IBinder)>
+<android.hardware.iris.IIrisService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.iris.IIrisService$Stub: void <init>()>

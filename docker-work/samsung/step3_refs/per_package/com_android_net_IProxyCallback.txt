@@ -1,0 +1,12 @@
+# com.android.net.IProxyCallback [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.android.net.IProxyCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.net.IProxyCallback$Stub$Proxy: void clearProxyServerCache()>
+<com.android.net.IProxyCallback$Stub$Proxy: void getProxyPort(android.os.IBinder)>
+<com.android.net.IProxyCallback$Stub$Proxy: void onCredentialsReceived(android.os.Bundle,android.sec.enterprise.proxy.IProxyCredentialsCallback)>
+<com.android.net.IProxyCallback$Stub$Proxy: void setEnterpriseProxy(boolean)>
+<com.android.net.IProxyCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.net.IProxyCallback$Stub: com.android.net.IProxyCallback asInterface(android.os.IBinder)>
+<com.android.net.IProxyCallback$Stub: void <init>()>

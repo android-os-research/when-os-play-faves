@@ -1,0 +1,29 @@
+# com.samsung.android.knox.containercore [NEW]
+# Refs: 25
+# JARs: framework, services
+
+<com.android.server.am.ActivityManagerService: void finishBooting()>
+<com.android.server.bridge.BridgeProxy: void <init>(int)>
+<com.android.server.devicepolicy.DevicePolicyManagerService: void onProvisionFullyManagedDeviceStartedForDualDar(android.app.admin.FullyManagedDeviceProvisioningParams)>
+<com.android.server.devicepolicy.DevicePolicyManagerService: void startKnoxCoreService(int)>
+<com.android.server.enterprise.adapterlayer.PersonaManagerAdapter: boolean isContainerCore(java.lang.String)>
+<com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy$ProvisioningProcessObserver: void onProcessDied(int,int)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy$ProvisioningState: int getProcessId(java.lang.String)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: int createContainer(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.container.CreationParams,int)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: java.util.List getConfigurationTypeByName(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.android.server.enterprise.restriction.RestrictionPolicy: void <clinit>()>
+<com.android.server.enterprise.security.PasswordPolicy$1: void <init>(com.android.server.enterprise.security.PasswordPolicy)>
+<com.android.server.knox.ContainerDependencyWrapper: boolean deactivateKnoxCore(android.content.Context,int)>
+<com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl: void <init>(com.android.server.knox.dar.DarManagerService$Injector)>
+<com.android.server.knox.dar.ddar.proxy.DualDARComnService: void initDualDARAgentsIfRequired()>
+<com.android.server.pm.PersonaManagerService$5: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.pm.PersonaManagerService: void <clinit>()>
+<com.android.server.pm.PersonaManagerService: void systemReady()>
+<com.android.server.pm.PersonaServiceProxy$3: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.pm.PersonaServiceProxy: void <init>(android.content.Context)>
+<com.android.server.pm.PersonaServiceProxy: void findAndConnectToContainerService(int)>
+<com.samsung.android.knox.SemPersonaManager: android.content.ComponentName getKnoxAdminReceiver()>
+<com.samsung.android.knox.SemPersonaManager: android.content.Intent createLockdownIntent(int)>
+<com.samsung.android.knox.SemPersonaManager: java.lang.String getKnoxCorePackageName()>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>

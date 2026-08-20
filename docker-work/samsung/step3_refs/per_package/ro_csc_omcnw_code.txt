@@ -1,0 +1,8 @@
+# ro.csc.omcnw_code [NEW]
+# Refs: 4
+# JARs: framework, vsimmanager
+
+<com.android.internal.telephony.TelephonyFeatures: void <clinit>()>
+<com.android.server.SystemConfig: void readAllPermissions()>
+<com.samsung.android.feature.FeatureUtil: java.lang.String getNetworkCode(int)>
+<com.sec.vsim.util.OmcCode: java.lang.String getNWCode()>

@@ -1,0 +1,6 @@
+# ro.telephony.call_ring.multiple [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional ril_sends_multiple_call_ring()>
+<android.sysprop.TelephonyProperties: java.util.Optional ril_sends_multiple_call_ring()>

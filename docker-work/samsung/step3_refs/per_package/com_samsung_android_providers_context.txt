@@ -1,0 +1,22 @@
+# com.samsung.android.providers.context [NEW]
+# Refs: 18
+# JARs: framework, hqm, motionrecognitionservice, semwifi-service, services, vendor.samsung.frameworks.codecsolution-service
+
+<a.f: boolean M(android.content.Intent)>
+<com.android.server.accessibility.GestureWakeup: void insertLog(android.content.Context,java.lang.String,java.lang.String)>
+<com.android.server.alarm.GmsAlarmManager: void insertLog(java.lang.String,java.lang.String,java.lang.String)>
+<com.android.server.biometrics.SemBioAnalyticsManager: void faceHandleData(com.android.server.biometrics.SemBioAnalyticsManager$EventData)>
+<com.android.server.biometrics.SemBioAnalyticsManager: void fpHandleData(com.android.server.biometrics.SemBioAnalyticsManager$EventData)>
+<com.android.server.desktopmode.DesktopModeLogger: void sendGsimLog(android.content.Context,java.lang.String,java.lang.String)>
+<com.android.server.ibs.IntelligentBatterySaverSurvey: void insertLog(java.lang.String,java.lang.String,java.lang.String)>
+<com.android.server.input.InputKeyCounter: void sendBroadcastKeyCountInternal(android.content.Context,android.util.ArrayMap)>
+<com.android.server.smartclip.SpenGestureManagerService: void sendLogSpenInsertInfo(java.lang.String,java.lang.String)>
+<com.samsung.android.gesture.MotionRecognitionPalmMotion: void insertLog(android.content.Context,java.lang.String)>
+<com.samsung.android.gesture.MotionRecognitionSensorChecker: void insertLog(java.lang.String)>
+<com.samsung.android.server.pm.install.PackageInstallTimeLogger: void insertLog(java.lang.String,java.lang.String,java.lang.String,long,android.os.UserHandle)>
+<com.samsung.android.server.wifi.bigdata.SemIwcBigDataManager: void sendBroadcastToContextFramework(java.lang.String,java.lang.String,long)>
+<com.samsung.android.server.wifi.bigdata.SemIwcBigDataManager: void sendBroadcastToContextFramework(java.lang.String[],java.lang.String[],long[])>
+<com.samsung.android.server.wifi.wcm.WcmBigDataManager: void sendBroadcastToContextFramework(java.lang.String,java.lang.String,long)>
+<com.samsung.android.server.wifi.wcm.WcmBigDataManager: void sendBroadcastToContextFramework(java.lang.String[],java.lang.String[],long[])>
+<com.samsung.android.share.SemShareLogging: void insertLog(java.lang.String,java.lang.String)>
+<vendor.samsung.frameworks.codecsolution.Logging: void insertContextLog(java.lang.String,java.lang.String,long)>

@@ -1,0 +1,9 @@
+# android.os.usertype.full.DEMO [NEW]
+# Refs: 5
+# JARs: framework, services
+
+<android.content.pm.UserInfo: java.lang.String getDefaultUserType(int)>
+<com.android.server.devicepolicy.DevicePolicyManagerService: android.os.UserHandle createAndManageUser(android.content.ComponentName,java.lang.String,android.content.ComponentName,android.os.PersistableBundle,int)>
+<com.android.server.pm.PackageManagerShellCommand: int runCreateUser()>
+<com.android.server.pm.UserTypeFactory: android.util.ArrayMap getDefaultBuilders()>
+<com.android.server.pm.UserTypeFactory: com.android.server.pm.UserTypeDetails$Builder getDefaultTypeFullDemo()>

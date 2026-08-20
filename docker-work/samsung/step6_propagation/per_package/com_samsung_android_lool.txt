@@ -1,0 +1,718 @@
+######################################################################
+# Propagation: com.samsung.android.lool
+######################################################################
+
+JARs:                 framework, hcm, services
+Classes:              9
+Occurrences:          11
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_MGMT, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDDiagnosis
+  Method:   <com.sec.android.iaft.IAFDDiagnosis: void init(android.content.Context)>
+  Line:     2830
+  Register: v2 := "com.samsung.android.lool"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.AppErrors: void <init>(android.conten
+      ← IAFDService.IAFDServiceInit()
+        ← <com.android.server.am.ActivityManagerService: void <init>(a
+        ← IAFDService.onCreate()
+          ← <com.android.server.am.ActivityManagerService$Lifecycle: voi
+
+  CALLEES (what this method invokes):
+      → SemSystemProperties.getSalesCode()
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+      → IAFDDiagnosis.initData()
+        → SystemProperties.get()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+        → IAFDDBManager.getInstance()
+        → IAFDDBManager.getData()
+        → IAFDDBManager.init()
+        → Exception.printStackTrace()
+        → Thread.sleep()
+          → <com.sec.android.iaft.IAFDDBManager$IAFDDBManagerHolder: com
+          → Message.sendToTarget()
+          → IAFDDBManager$IAFDDBManagerHandler.obtainMessage()
+          → <com.sec.android.iaft.IAFDDBManager$IAFDDBManagerThread: voi
+          → IAFDDBManager$IAFDDBManagerThread.start()
+          → IAFDDBManager.setContext()
+          → IAFDDBManager.syncDBType()
+          → IAFDHCDatabase.getData()
+          → IAFDHCDatabase.getInstance()
+          → IAFDHCDatabase.init()
+            → Handler.sendMessage()
+            → <java.lang.Thread: void <init>(java.lang.String)>
+            → IAFDDiagnosis$IAFD_CONTROLINFO.getDBVersion()
+            → <com.sec.android.iaft.IAFDHCDatabase$IAFDHCDatabaseHolder: c
+            → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: void <
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setCSCFilter()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setDBVersion()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setIAFDDBControlFeature()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setWhiteList()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setenableDetectAll32bitApp()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocApp()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocAppOnlyShow()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setreMovableAppPaths()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setwebView_pkgName()
+            → <com.sec.android.iaft.IAFDDiagnosis$IAFD_DATA: void <init>()
+            → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+            → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+            → <java.util.HashMap: void <init>()>
+              → IAFDDiagnosis$IAFD_CONTROLINFO.setSupportRepair()
+              → IAFDDiagnosis$IAFD_CONTROLINFO.inithashMapValues()
+              → IAFDDiagnosis$IAFD_ENTITY.initENTITY()
+              → HashMap.putIfAbsent()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDDiagnosis
+  Method:   <com.sec.android.iaft.IAFDDiagnosis: boolean showIAFDCrashDialogs(int,int,java.lang.String)>
+  Line:     3065
+  Register: v6 := "com.samsung.android.lool"
+  Usage:    [invoke] invoke-virtual {v0, v5, v6}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v6 overwritten
+
+  CALLERS (who invokes this method):
+      ← AppErrors.handleShowAppErrorUi()
+      ← IAFDService$IAFDBinder.IAFDShow()
+        ← ActivityManagerService$UiHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.startService()
+      → Context.getPackageManager()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → ApplicationInfo.loadLabel()
+      → PackageInfo.getLongVersionCode()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: java.l
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: java.l
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: java.l
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: java.l
+      → IAFDDiagnosis$IAFD_CONTROLINFO.gethashMapOfRepairDBInfo()
+      → IAFDDiagnosis.getExpType()
+      → IAFDDiagnosis.getRepairType()
+      → IAFDDiagnosis.getCallstack()
+      → IAFDDiagnosis.getComponent()
+      → CharSequence.toString()
+      → Exception.printStackTrace()
+      → Locale.getLanguage()
+      → Locale.getDefault()
+        → PackageInfo.composeLongVersionCode()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+        → HashMap.containsKey()
+        → HashMap.get()
+        → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: boolea
+        → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: long -
+        → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: long -
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDServiceImpl
+  Method:   <com.sec.android.iaft.IAFDServiceImpl: boolean IAFDstartApp(android.os.Bundle,boolean)>
+  Line:     279
+  Register: v8 := "com.samsung.android.lool"
+  Usage:    [invoke] invoke-virtual {v0, v1, v8}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.samsung.android.feature.SemFloatingFeature.getString()
+
+  CALLERS (who invokes this method):
+      ← <com.sec.android.iaft.IAFDServiceImpl: boolean -$$Nest$mIAFD
+        ← IAFDServiceImpl$ServiceHandler.handleMessage()
+          ← IAFDServiceImpl.IAFDServiceHandlerMessage()
+            ← IAFDService.onStartCommand()
+
+  CALLEES (what this method invokes):
+      → Context.startService()
+      → Context.startActivity()
+      → Intent.addFlags()
+      → Intent.putExtras()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.content.Intent: void <init>(java.lang.String,androi
+      → Uri.parse()
+      → Bundle.getBoolean()
+      → Bundle.getInt()
+      → Bundle.getString()
+      → Bundle.putInt()
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+      → IAFDServiceImpl.getDualUserIdAndIsNoSettingsProvidersOfDual()
+      → IAFDServiceImpl.reportErrorDataToServer()
+      → IAFDServiceImpl.showSystemAppDiaglog()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+        → BufferedReader.readLine()
+        → <java.io.BufferedReader: void <init>(java.io.Reader)>
+        → BufferedReader.close()
+        → <java.io.InputStreamReader: void <init>(java.io.InputStream)
+        → Process.waitFor()
+        → Process.getInputStream()
+        → Runtime.exec()
+        → Runtime.getRuntime()
+        → Bundle.getString()
+        → Bundle.getLong()
+        → IafdSmAPIManager.reportErrorDataToServer()
+        → Exception.printStackTrace()
+        → AlertDialog$Builder.create()
+        → AlertDialog$Builder.setCancelable()
+        → AlertDialog$Builder.setMessage()
+        → AlertDialog$Builder.setNegativeButton()
+        → AlertDialog$Builder.setPositiveButton()
+        → AlertDialog$Builder.setTitle()
+        → <android.app.AlertDialog$Builder: void <init>(android.conten
+        → AlertDialog.getWindow()
+        → AlertDialog.show()
+        → <android.graphics.drawable.ColorDrawable: void <init>(int)>
+        → <android.graphics.drawable.GradientDrawable: void <init>()>
+        → GradientDrawable.setColor()
+        → GradientDrawable.setCornerRadius()
+        → GradientDrawable.setStroke()
+        → Window.setBackgroundDrawable()
+        → Window.setGravity()
+        → Window.setType()
+        → <com.sec.android.iaft.IAFDServiceImpl$1: void <init>(com.sec
+        → <com.sec.android.iaft.IAFDServiceImpl$2: void <init>(com.sec
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+          → ContentResolver.call()
+          → Context.getContentResolver()
+          → <android.os.Bundle: void <init>()>
+          → Bundle.putLong()
+          → Bundle.putString()
+          → <android.app.AlertDialog: com.android.internal.app.AlertCont
+          → <android.app.AlertDialog: void <init>(android.content.Contex
+          → AlertDialog.setCancelable()
+          → AlertDialog.setCanceledOnTouchOutside()
+          → AlertDialog.setOnCancelListener()
+          → AlertDialog.setOnDismissListener()
+          → AlertDialog.setOnKeyListener()
+          → AlertController$AlertParams.apply()
+          → <android.app.AlertDialog$Builder: void <init>(android.conten
+          → AlertDialog.resolveDialogTheme()
+          → <android.graphics.drawable.GradientDrawable$GradientState: v
+          → <android.graphics.drawable.GradientDrawable: void <init>(and
+          → ColorStateList.valueOf()
+          → Paint.setColor()
+          → GradientDrawable$GradientState.setSolidColors()
+          → GradientDrawable.invalidateSelf()
+          → GradientDrawable$GradientState.setCornerRadius()
+          → GradientDrawable.setStroke()
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+            → AlertDialog.getContext()
+            → <android.app.Dialog: void <init>(android.content.Context,int
+            → Window.alwaysReadCloseOnTouchAttr()
+            → AlertController.create()
+            → AlertController$AlertParams.createListView()
+            → AlertController.getIconAttributeResId()
+            → AlertController.setButton()
+            → AlertController.setCustomTitle()
+            → AlertController.setIcon()
+            → AlertController.setIcon()
+            → AlertController.setInverseBackgroundForced()
+            → AlertController.setMessage()
+            → AlertController.setTitle()
+            → AlertController.setView()
+            → AlertController.setView()
+            → AlertController.setView()
+            → Context.getTheme()
+            → Resources$Theme.resolveAttribute()
+            → <android.util.TypedValue: void <init>()>
+            → <android.view.ContextThemeWrapper: void <init>(android.conte
+            → <com.android.internal.app.AlertController$AlertParams: void 
+            → ResourceId.isValid()
+            → <android.graphics.drawable.Drawable$ConstantState: void <ini
+            → GradientDrawable$GradientState.setGradientColors()
+            → <android.graphics.Paint: void <init>(int)>
+            → <android.graphics.Path: void <init>()>
+            → <android.graphics.RectF: void <init>()>
+            → <android.graphics.drawable.Drawable: void <init>()>
+            → GradientDrawable.updateLocalState()
+            → GradientDrawable$GradientState.computeOpacity()
+            → GradientDrawable$GradientState.setStroke()
+            → GradientDrawable.setStrokeInternal()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+              → Activity.getActivityInfo()
+              → <android.app.Dialog$$ExternalSyntheticLambda0: void <init>(a
+              → <android.app.Dialog$$ExternalSyntheticLambda1: void <init>(a
+              → <android.app.Dialog$$ExternalSyntheticLambda2: void <init>(a
+              → <android.app.Dialog$ListenersHandler: void <init>(android.ap
+              → Dialog.getActivityContext()
+              → Context.getPackageManager()
+              → Context.getSystemService()
+              → Context.getPackageName()
+              → PackageManager.getApplicationInfo() [PKG_QUERY]
+              → <android.os.Handler: void <init>()>
+              → Window.setCallback()
+              → Window.setOnWindowDismissedCallback()
+              → Window.setOnWindowSwipeDismissedCallback()
+              → Window.setWindowManager()
+              → <com.android.internal.policy.PhoneWindow: void <init>(androi
+              → Context.obtainStyledAttributes()
+              → TypedArray.getInt()
+              → TypedArray.recycle()
+              → <com.android.internal.app.AlertController: void <init>(andro
+              → <com.android.internal.app.MicroAlertController: void <init>(
+              → LayoutInflater.inflate()
+              → <android.widget.SimpleCursorAdapter: void <init>(android.con
+              → <com.android.internal.app.AlertController$AlertParams$1: voi
+              → <com.android.internal.app.AlertController$AlertParams$2: voi
+              → <com.android.internal.app.AlertController$AlertParams$3: voi
+              → <com.android.internal.app.AlertController$AlertParams$4: voi
+              → AlertController$AlertParams$OnPrepareListViewListener.onPrepareListView()
+              → <com.android.internal.app.AlertController$CheckedItemAdapter
+              → AlertController$RecycleListView.setChoiceMode()
+              → AlertController$RecycleListView.setOnItemClickListener()
+              → AlertController$RecycleListView.setOnItemSelectedListener()
+              → <com.android.internal.app.AlertController: int -$$Nest$fgetm
+              → <com.android.internal.app.AlertController: int -$$Nest$fgetm
+              → <com.android.internal.app.AlertController: int -$$Nest$fgetm
+              → <com.android.internal.app.AlertController: int -$$Nest$fgetm
+              → <com.android.internal.app.AlertController: void -$$Nest$fput
+              → <com.android.internal.app.AlertController: void -$$Nest$fput
+              → Handler.obtainMessage()
+              → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+              → ImageView.setImageDrawable()
+              → ImageView.setVisibility()
+              → ImageView.setImageResource()
+              → TextView.setText()
+              → Window.setTitle()
+              → ResourcesImpl$ThemeImpl.resolveAttribute()
+              → <android.content.ContextWrapper: void <init>(android.content
+              → ColorStateList.getColorForState()
+              → <android.graphics.DashPathEffect: void <init>(float[],float)
+              → Paint.setPathEffect()
+              → Paint.setStrokeWidth()
+              → Paint.setStyle()
+              → <android.graphics.drawable.GradientDrawable$GradientState: v
+              → GradientDrawable.updateBlendModeFilter()
+              → GradientDrawable.getState()
+              → ColorStateList.getDefaultColor()
+              → GradientDrawable.isOpaque()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.MaintenanceModeUtils
+  Method:   <com.android.internal.app.MaintenanceModeUtils: void sendLoggingDataToSA(android.content.Context,java.lang.String,java.lang.String)>
+  Line:     1045
+  Register: v2 := "com.samsung.android.lool"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.internal.app.MaintenanceModeBackupActivity: voi
+      ← <com.android.internal.app.MaintenanceModeBackupActivity: voi
+      ← <com.android.internal.app.MaintenanceModeIntroActivity$1: vo
+      ← <com.android.internal.app.MaintenanceModeIntroActivity$2: vo
+      ← <com.android.internal.app.MaintenanceModeIntroActivity$2: vo
+      ← <com.android.internal.app.MaintenanceModeIntroActivity: void
+      ← <com.android.internal.app.MaintenanceModeIntroActivity: void
+      ← <com.android.internal.app.MaintenanceModeIntroActivity: void
+      ← <com.android.internal.app.MaintenanceModeIntroActivity: void
+        ← MaintenanceModeBackupActivity$$ExternalSyntheticLambda5.run()
+        ← MaintenanceModeBackupActivity$$ExternalSyntheticLambda6.run()
+        ← MaintenanceModeIntroActivity$1$$ExternalSyntheticLambda1.run()
+        ← MaintenanceModeIntroActivity$2$$ExternalSyntheticLambda2.run()
+        ← MaintenanceModeIntroActivity$2$$ExternalSyntheticLambda3.run()
+        ← MaintenanceModeIntroActivity$$ExternalSyntheticLambda0.run()
+        ← MaintenanceModeIntroActivity$$ExternalSyntheticLambda12.run()
+        ← MaintenanceModeIntroActivity$$ExternalSyntheticLambda7.run()
+        ← MaintenanceModeIntroActivity$$ExternalSyntheticLambda10.run()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtras()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      hcm
+  Class:    a.a
+  Method:   <a.a: void <clinit>()>
+  Line:     146
+  Register: v2 := "com.samsung.android.lool"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.feature.SemFloatingFeature.getString()
+
+  CALLEES (what this method invokes):
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.MARsPolicyManager
+  Method:   <com.android.server.am.MARsPolicyManager: void <clinit>()>
+  Line:     337
+  Register: v2 := "com.samsung.android.lool"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: early_return, system_property_read
+  Flow:     [invoke] com.samsung.android.feature.SemFloatingFeature.getString()
+
+  CALLEES (what this method invokes):
+      → SystemProperties.get()
+      → <com.android.server.am.MARsPolicyManager$Lock: void <init>(c
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → <com.android.server.am.MARsPolicyManager$Lock: void <init>()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.KillPolicyManager
+  Method:   <com.android.server.am.KillPolicyManager: void reportMemCriticalLow(int)>
+  Line:     5856
+  Register: v3 := "com.samsung.android.lool"
+  Usage:    [invoke] invoke-virtual {v1, v2, v3}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.feature.SemFloatingFeature.getString()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.KillPolicyManager: void -$$Nest$mrepo
+        ← KillPolicyManager$KpmRaw.checkMemCriticalLowTH()
+          ← <com.android.server.am.KillPolicyManager$KpmRaw: void -$$Nes
+            ← KillPolicyManager.updateKpmBigdata()
+            ← KillPolicyManager.updateKpmCycleData()
+              ← KillPolicyManager$2.onReceive()
+              ← KillPolicyManager.calculateKpmStats()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.KillPolicyManager
+  Method:   <com.android.server.am.KillPolicyManager: void reportResetState(java.lang.String)>
+  Line:     6234
+  Register: v3 := "com.samsung.android.lool"
+  Usage:    [invoke] invoke-virtual {v1, v2, v3}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.feature.SemFloatingFeature.getString() → [other] iget-wide v3, p0, Lcom/android/server/am/K
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.KillPolicyManager: void -$$Nest$mrepo
+        ← KillPolicyManager$KpmRaw.checkMemCriticalLowTH()
+          ← <com.android.server.am.KillPolicyManager$KpmRaw: void -$$Nes
+            ← KillPolicyManager.updateKpmBigdata()
+            ← KillPolicyManager.updateKpmCycleData()
+              ← KillPolicyManager$2.onReceive()
+              ← KillPolicyManager.calculateKpmStats()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → SystemClock.uptimeMillis()
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.hardware.display.AfterimageCompensationService$AfcThread
+  Method:   <com.samsung.android.hardware.display.AfterimageCompensationService$AfcThread: void run()>
+  Line:     1106
+  Register: v5 := "com.samsung.android.lool"
+  Usage:    [invoke] invoke-virtual {v3, v4, v5}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] com.samsung.android.feature.SemFloatingFeature.getString() → [other] new-array v5, v2, [Ljava/lang/Object; → [f
+
+  CALLEES (what this method invokes):
+      → Context.getResources()
+      → Context.sendBroadcastAsUser()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Resources.getConfiguration()
+      → SystemProperties.get()
+      → Display.getRotation()
+      → WindowManager.getDefaultDisplay()
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → <com.samsung.android.hardware.display.AfterimageCompensation
+      → Exception.printStackTrace()
+      → Thread.sleep()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+        → AfterimageCompensationService.fileWriteString()
+        → AfterimageCompensationService.getBrightness()
+        → AfterimageCompensationService.getBrightness_sub()
+        → AfterimageCompensationService.nativeDataReadAvgLum()
+        → AfterimageCompensationService.nativeDataReadAvgLumSub()
+        → AfterimageCompensationService.nativeDataReadEffAvgLum()
+        → AfterimageCompensationService.nativeDataReadEffAvgLumSub()
+        → AfterimageCompensationService.nativeDataReadEffMaxBDI()
+        → AfterimageCompensationService.nativeDataReadEffMaxBDISub()
+        → AfterimageCompensationService.nativeDataReadEffNBDI()
+        → AfterimageCompensationService.nativeDataReadEffNBDISub()
+        → AfterimageCompensationService.nativeDataReadMaxBDI()
+        → AfterimageCompensationService.nativeDataReadMaxBDISub()
+        → AfterimageCompensationService.nativeDataReadNBDI()
+        → AfterimageCompensationService.nativeDataReadNBDISub()
+        → AfterimageCompensationService.nativeDataEvaluate()
+        → AfterimageCompensationService.nativeDataRead()
+        → AfterimageCompensationService.nativeDataReadSub()
+        → AfterimageCompensationService.nativeDataSave()
+        → AfterimageCompensationService.nativeDataSaveSub()
+        → AfterimageCompensationService.nativeDataUpdate()
+        → AfterimageCompensationService.nativeDataUpdateSub()
+        → AfterimageCompensationService.nativeDataWriteV2()
+        → AfterimageCompensationService.updateHWParam()
+          → <java.io.File: void <init>(java.lang.String)>
+          → <java.io.FileOutputStream: void <init>(java.io.File)>
+          → FileOutputStream.close()
+          → FileOutputStream.write()
+          → IOException.printStackTrace()
+          → AfterimageCompensationService.readStrFromFile()
+          → File.exists()
+          → AfterimageCompensationService.parseBigData()
+          → AfterimageCompensationService.handleSendBroadcastToHWParam()
+            → BufferedReader.readLine()
+            → <java.io.BufferedReader: void <init>(java.io.Reader)>
+            → BufferedReader.close()
+            → FileNotFoundException.printStackTrace()
+            → <java.io.FileReader: void <init>(java.lang.String)>
+            → FileReader.close()
+            → IOException.getMessage()
+            → JSONException.printStackTrace()
+            → JSONObject.toString()
+            → JSONObject.put()
+            → <org.json.JSONObject: void <init>()>
+            → SemHqmManager.sendHWParamToHQM()
+              → ISemHqmManager.sendHWParamToHQM()
+              → SemHqmManager.printExceptionTrace()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.install.SilentUninstallerList
+  Method:   <com.samsung.android.server.pm.install.SilentUninstallerList: void <init>()>
+  Line:     31
+  Register: v3 := "com.samsung.android.lool"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v0 .. v15}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+      ← <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+        ← <com.android.server.pm.AsecInstallHelper: void <init>(com.an
+        ← InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+        ← InstallPackageHelper.commitPackagesLocked() [PKG_MGMT]
+        ← PackageInstallerSession.onSystemDataLoaderUnrecoverable()
+        ← <com.android.server.pm.PackageManagerService: void <init>(co
+          ← InstallPackageHelper.handlePackagePostInstall() [PKG_MGMT]
+          ← PackageHandler.doHandleMessage()
+          ← <com.android.server.pm.PackageManagerService: void <init>(co
+          ← InstallPackageHelper.addForInitLI() [PKG_MGMT]
+          ← InstallPackageHelper.installPackagesLI() [PKG_MGMT]
+          ← <com.android.server.pm.PackageInstallerSession: void -$$Nest
+          ← PackageManagerService.main()
+            ← PackageHandler.handleMessage()
+            ← InstallPackageHelper.addSamsungOverlayForInitLI() [PKG_MGMT]
+            ← InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesFromAppRootDir() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesFromDir() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesTracedLI() [PKG_MGMT]
+            ← PackageInstallerSession$6.onStatusChanged()
+            ← SystemServer.startBootstrapServices()
+              ← PackageManagerService$PackageManagerInternalImpl.parseSamsungThemeOverlayPackages()
+              ← InstallPackageHelper.scanSystemPackageTracedLI() [PKG_MGMT]
+              ← <com.android.server.pm.InstallPackageHelper: void lambda$upd [PKG_MGMT]
+              ← InitAppsHelper.scanDirTracedLI()
+              ← InstallPackageHelper.processInstallRequests() [PKG_MGMT]
+              ← SystemServer.run()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.storage.DeviceStorageMonitorService
+  Method:   <com.android.server.storage.DeviceStorageMonitorService: void updateBroadcasts(android.os.storage.VolumeInfo,int,int,int)>
+  Line:     2770
+  Register: v6 := "com.samsung.android.lool"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.feature.SemFloatingFeature.getString() → [invoke] com.samsung.android.feature.SemFloatingFe
+
+  CALLERS (who invokes this method):
+      ← DeviceStorageMonitorService.checkLow()
+        ← <com.android.server.storage.DeviceStorageMonitorService: voi
+          ← DeviceStorageMonitorService$1.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.removeStickyBroadcastAsUser()
+      → Context.sendBroadcastAsUser()
+      → Context.sendStickyBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.StatFs: void <init>(java.lang.String)>
+      → VolumeInfo.getFsUuid()
+      → SystemService.getContext()
+      → <com.android.server.storage.DeviceStorageMonitorService$Stat
+      → <com.android.server.storage.DeviceStorageMonitorService$Stat
+      → DeviceStorageMonitorService.loge()
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+      → Objects.equals()
+        → DeviceStorageMonitorService$State.isEntering()
+        → DeviceStorageMonitorService$State.isLeaving()
+        → LocalLog.log()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+

@@ -1,0 +1,140 @@
+######################################################################
+# Propagation: com.samsung.storyservice
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, permission_grant, string_compare, system_property_read
+Security tags:        PERM_CHECK, PERM_FLAGS, PERM_GRANT, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.permission.DefaultPermissionGrantPolicy
+  Method:   <com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantPermissionsToSysComponentsAndPrivApps(com.android.server.pm.permission.DefaultPermissionGrantPolicy$DelayingPackageManagerCache,int)>
+  Line:     11591
+  Register: v1 := "com.samsung.storyservice"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return, permission_grant, system_property_read
+  Flow:     [invoke] java.lang.String.equals() → [other] move-object/from16 v1, p1 → [other] move-object/from16 v1, p1 → [other] mov
+
+  CALLERS (who invokes this method):
+      ← DefaultPermissionGrantPolicy.grantDefaultPermissions() [PERM_GRANT]
+        ← LegacyPermissionManagerService$Internal.grantDefaultPermissions() [PERM_GRANT]
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getInstalledPackagesAsUser()
+      → PermissionInfo.isRuntime()
+      → SystemProperties.getInt()
+      → UserHandle.of()
+      → ArrayUtils.isEmpty()
+      → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.getPermissionInfo()
+      → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.isGranted()
+      → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.addPackageInfo()
+      → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.updatePermissionFlags() [PERM_FLAGS]
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.getSystemPackageInfo()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSysComponentOrPersistentPlatformSignedPrivApp()
+      → DefaultPermissionGrantPolicy.doesPackageSupportRuntimePermissions()
+      → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantRuntimePermissionsForSystemPackage() [PERM_GRANT]
+      → Collections.singleton()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → ArrayMap.indexOfKey()
+        → ArrayMap.put()
+        → ArrayMap.valueAt()
+        → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionInfo()
+        → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+        → DefaultPermissionGrantPolicy$DelayingPackageManagerCache$PermissionState.initGranted()
+        → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.getPermissionState()
+        → DefaultPermissionGrantPolicy$DelayingPackageManagerCache$PermissionState.initFlags()
+        → ApplicationInfo.isSystemApp()
+        → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPackageInfo() [PKG_QUERY]
+        → ApplicationInfo.isPrivilegedApp()
+        → PackageManagerInternal.isPlatformSigned()
+        → PackageManagerInternal.getDisabledSystemPackageName()
+        → UserHandle.getAppId()
+        → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+        → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.grantRuntimePermissionsForSystemPackage() [PERM_GRANT]
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+          → UserHandle.getIdentifier()
+          → UserHandle.getUid()
+          → <android.util.ArrayMap: void <init>()>
+          → SparseArray.indexOfKey()
+          → SparseArray.valueAt()
+          → SparseArray.put()
+          → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionFlags()
+          → Context.getSystemService()
+          → ApplicationInfo.isUpdatedSystemApp()
+          → Bundle.getBoolean()
+          → PermissionManager$SplitPermissionInfo.getTargetSdk()
+          → PermissionManager$SplitPermissionInfo.getSplitPermission()
+          → PermissionManager$SplitPermissionInfo.getNewPermissions()
+          → PermissionManager.getSplitPermissions()
+          → ArraySet.addAll()
+          → ArraySet.contains()
+          → <android.util.ArraySet: void <init>(java.util.Collection)>
+          → ArrayUtils.contains()
+          → ArrayUtils.filterNotNull()
+          → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isGranted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isPermissionRestricted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getBackgroundPermission()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.grantPermission() [PERM_GRANT]
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.updatePermissionFlags() [PERM_FLAGS]
+          → DefaultPermissionGrantPolicy.isFixedOrUserSet()
+          → List.size()
+          → List.get()
+          → Map.get()
+          → Map.put()
+          → Set.contains()
+          → <android.util.ArraySet: void <init>()>
+          → Set.add()
+          → Set.isEmpty()
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.createContextAsUser()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ContainerHelpers.binarySearch()
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+            → SplitPermissionInfoParcelable.getTargetSdk()
+            → SplitPermissionInfoParcelable.getSplitPermission()
+            → SplitPermissionInfoParcelable.getNewPermissions()
+            → ActivityThread.getPermissionManager()
+            → IPermissionManager.getSplitPermissions()
+            → PermissionManager.splitPermissionInfoListToNonParcelableList()
+            → Collections.emptyList()
+            → ArraySet.add()
+            → ArraySet.ensureCapacity()
+            → Collection.size()
+            → Collection.iterator()
+            → ArraySet.indexOf()
+            → PermissionInfo.isRestricted()
+            → <android.util.ArraySet: void <init>(int,boolean)>
+              → Context.createContextAsUser()
+              → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+              → <android.permission.PermissionManager$SplitPermissionInfo: v
+              → <java.util.ArrayList: void <init>(int)>
+              → List.add()
+              → ArraySet.indexOf()
+              → ArraySet.indexOfNull()
+              → ArraySet.allocArrays()
+              → ArraySet.freeArrays()
+

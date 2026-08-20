@@ -1,0 +1,9 @@
+# android.hardware.hdmi.IHdmiDeviceEventListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.hdmi.IHdmiDeviceEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.hdmi.IHdmiDeviceEventListener$Stub$Proxy: void onStatusChanged(android.hardware.hdmi.HdmiDeviceInfo,int)>
+<android.hardware.hdmi.IHdmiDeviceEventListener$Stub: android.hardware.hdmi.IHdmiDeviceEventListener asInterface(android.os.IBinder)>
+<android.hardware.hdmi.IHdmiDeviceEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.hdmi.IHdmiDeviceEventListener$Stub: void <init>()>

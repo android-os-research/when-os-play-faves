@@ -1,0 +1,9 @@
+# android.os.ServiceManager [NEW]
+# Refs: 5
+# JARs: framework, imsmanager, services
+
+<android.security.KeyStoreAuditLog: boolean isCallerAdmin(java.lang.String,int,int)>
+<android.security.KeyStoreAuditLog: java.lang.String getPackageNameForUid(android.content.Context,int)>
+<com.att.iqi.lib.IQIManager: void a()>
+<com.samsung.android.ims.SemImsManager: android.os.IBinder getSystemService(java.lang.String)>
+<com.sec.ims.ImsManager: android.os.IBinder getSystemService(java.lang.String)>

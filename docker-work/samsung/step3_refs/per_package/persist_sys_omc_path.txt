@@ -1,0 +1,7 @@
+# persist.sys.omc_path [NEW]
+# Refs: 3
+# JARs: framework, semwifi-service, vsimmanager
+
+<com.android.internal.app.LocaleStore: void fillCacheManaged(android.content.Context,boolean)>
+<com.samsung.android.server.wifi.ap.SemCscParser: java.lang.String getCustomerPath()>
+<com.sec.vsim.util.OmcCode: java.lang.String getPath()>

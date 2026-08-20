@@ -1,0 +1,26 @@
+######################################################################
+# Propagation: com.samsung.android
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.sume.core.plugin.PluginStore
+  Method:   <com.samsung.android.sume.core.plugin.PluginStore: boolean lambda$getPluginName$2(java.lang.String)>
+  Line:     247
+  Register: v0 := "com.samsung.android"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.startsWith() → [other] move-result v0 → [other] return v0
+
+  CALLERS (who invokes this method):
+      ← PluginStore$$ExternalSyntheticLambda4.test()
+

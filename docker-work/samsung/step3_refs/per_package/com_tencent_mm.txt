@@ -1,0 +1,13 @@
+# com.tencent.mm [NEW]
+# Refs: 9
+# JARs: duraspeed, framework, semwifi-service, services
+
+<com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+<com.android.server.am.ActivityManagerServiceExt: void <init>(android.content.Context,com.android.server.am.ActivityManagerService)>
+<com.android.server.audio.AudioService: void startBluetoothScoInt(android.os.IBinder,int,int,java.lang.String)>
+<com.android.server.audio.MediaFocusControl: void <clinit>()>
+<com.android.server.notification.PreferencesHelper: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.notification.RankingHandler,com.android.server.notification.ZenModeHelper,com.android.server.notification.PermissionHelper,com.android.server.notification.NotificationChannelLogger,android.app.AppOpsManager,com.android.server.notification.SysUiStatsEvent$BuilderFactory,boolean)>
+<com.android.server.wm.ActivityStartController: int startActivityInPackage(int,int,int,java.lang.String,java.lang.String,android.content.Intent,java.lang.String,android.os.IBinder,java.lang.String,int,int,com.android.server.wm.SafeActivityOptions,int,com.android.server.wm.Task,java.lang.String,boolean,com.android.server.am.PendingIntentRecord,boolean)>
+<com.mediatek.duraspeed.collector.q: void <clinit>()>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+<com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils: void <clinit>()>

@@ -1,0 +1,16 @@
+# com.android.ims.internal.IImsVideoCallProvider [NEW]
+# Refs: 12
+# JARs: framework
+
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: void requestCallDataUsage()>
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: void requestCameraCapabilities()>
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: void sendSessionModifyRequest(android.telecom.VideoProfile,android.telecom.VideoProfile)>
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: void sendSessionModifyResponse(android.telecom.VideoProfile)>
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: void setCallback(com.android.ims.internal.IImsVideoCallCallback)>
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: void setCamera(java.lang.String,int)>
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: void setDeviceOrientation(int)>
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: void setDisplaySurface(android.view.Surface)>
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: void setPauseImage(android.net.Uri)>
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: void setPreviewSurface(android.view.Surface)>
+<com.android.ims.internal.IImsVideoCallProvider$Stub$Proxy: void setZoom(float)>

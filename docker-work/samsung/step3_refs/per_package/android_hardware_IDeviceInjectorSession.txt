@@ -1,0 +1,10 @@
+# android.hardware.IDeviceInjectorSession [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.hardware.IDeviceInjectorSession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.IDeviceInjectorSession$Stub$Proxy: void setDeviceInjectorPending(boolean)>
+<android.hardware.IDeviceInjectorSession$Stub$Proxy: void stopDeviceInjector()>
+<android.hardware.IDeviceInjectorSession$Stub: android.hardware.IDeviceInjectorSession asInterface(android.os.IBinder)>
+<android.hardware.IDeviceInjectorSession$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.IDeviceInjectorSession$Stub: void <init>()>

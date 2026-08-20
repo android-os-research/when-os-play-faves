@@ -1,0 +1,17 @@
+# com.samsung.android.app.telephonyui [NEW]
+# Refs: 13
+# JARs: framework, knoxsdk, services, telephony-common
+
+<android.telecom.TelecomManager: void <clinit>()>
+<com.android.internal.telephony.SemTelephonyKnoxHelper: boolean isApplicationRestrictedForCall(int)>
+<com.android.internal.telephony.dataconnection.DataKnoxUtils: boolean isDataAllowedFromKnox(com.android.internal.telephony.dataconnection.ApnContext,com.android.internal.telephony.Phone)>
+<com.android.internal.telephony.dataconnection.DcTracker: void onDataSetupComplete(com.android.internal.telephony.dataconnection.ApnContext,boolean,int,int,int)>
+<com.android.internal.telephony.nitz.SemNitzStateMachineImpl$1: void handleMessage(android.os.Message)>
+<com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+<com.android.server.enterprise.appconfig.ApplicationRestrictionsService: void sendBroadcastAsUserInternal(java.lang.String,int)>
+<com.android.server.enterprise.restriction.RoamingPolicy: boolean setRoamingData(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.EdmConstants$1: void <init>()>
+<com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1: void <init>()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: boolean isDataAllowedFromKnox(int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>
+<com.samsung.android.service.SemService.SemServiceManager$1: void run()>

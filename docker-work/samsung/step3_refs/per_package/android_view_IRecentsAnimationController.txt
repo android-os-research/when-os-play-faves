@@ -1,0 +1,20 @@
+# android.view.IRecentsAnimationController [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.view.IRecentsAnimationController$Stub$Proxy: android.window.TaskSnapshot screenshotTask(int)>
+<android.view.IRecentsAnimationController$Stub$Proxy: boolean removeTask(int)>
+<android.view.IRecentsAnimationController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IRecentsAnimationController$Stub$Proxy: void animateNavigationBarToApp(long)>
+<android.view.IRecentsAnimationController$Stub$Proxy: void cleanupScreenshot()>
+<android.view.IRecentsAnimationController$Stub$Proxy: void detachNavigationBarFromApp(boolean)>
+<android.view.IRecentsAnimationController$Stub$Proxy: void finish(boolean,boolean)>
+<android.view.IRecentsAnimationController$Stub$Proxy: void hideCurrentInputMethod()>
+<android.view.IRecentsAnimationController$Stub$Proxy: void setAnimationTargetsBehindSystemBars(boolean)>
+<android.view.IRecentsAnimationController$Stub$Proxy: void setDeferCancelUntilNextTransition(boolean,boolean)>
+<android.view.IRecentsAnimationController$Stub$Proxy: void setFinishTaskTransaction(int,android.window.PictureInPictureSurfaceTransaction,android.view.SurfaceControl)>
+<android.view.IRecentsAnimationController$Stub$Proxy: void setInputConsumerEnabled(boolean)>
+<android.view.IRecentsAnimationController$Stub$Proxy: void setWillFinishToHome(boolean)>
+<android.view.IRecentsAnimationController$Stub: android.view.IRecentsAnimationController asInterface(android.os.IBinder)>
+<android.view.IRecentsAnimationController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IRecentsAnimationController$Stub: void <init>()>

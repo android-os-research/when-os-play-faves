@@ -1,0 +1,7 @@
+# com.android.settings.fingerprint.RegisterFingerprint [NEW]
+# Refs: 3
+# JARs: framework, knoxsdk, services
+
+<android.sec.enterprise.RestrictionPolicy: void <clinit>()>
+<com.android.server.pm.PersonaServiceHelper: void addSecureFodlerImmeditateLockExceptionalCase(java.util.List)>
+<com.samsung.android.knox.restriction.RestrictionPolicy: void <clinit>()>

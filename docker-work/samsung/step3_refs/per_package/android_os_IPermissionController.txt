@@ -1,0 +1,13 @@
+# android.os.IPermissionController [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.os.IPermissionController$Stub$Proxy: boolean checkPermission(java.lang.String,int,int)>
+<android.os.IPermissionController$Stub$Proxy: boolean isRuntimePermission(java.lang.String)>
+<android.os.IPermissionController$Stub$Proxy: int getPackageUid(java.lang.String,int)>
+<android.os.IPermissionController$Stub$Proxy: int noteOp(java.lang.String,int,java.lang.String)>
+<android.os.IPermissionController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IPermissionController$Stub$Proxy: java.lang.String[] getPackagesForUid(int)>
+<android.os.IPermissionController$Stub: android.os.IPermissionController asInterface(android.os.IBinder)>
+<android.os.IPermissionController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IPermissionController$Stub: void <init>()>

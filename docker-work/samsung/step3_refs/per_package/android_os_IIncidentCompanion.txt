@@ -1,0 +1,18 @@
+# android.os.IIncidentCompanion [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.os.IIncidentCompanion$Stub$Proxy: android.os.IncidentManager$IncidentReport getIncidentReport(java.lang.String,java.lang.String,java.lang.String)>
+<android.os.IIncidentCompanion$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IIncidentCompanion$Stub$Proxy: java.util.List getIncidentReportList(java.lang.String,java.lang.String)>
+<android.os.IIncidentCompanion$Stub$Proxy: java.util.List getPendingReports()>
+<android.os.IIncidentCompanion$Stub$Proxy: void approveReport(java.lang.String)>
+<android.os.IIncidentCompanion$Stub$Proxy: void authorizeReport(int,java.lang.String,java.lang.String,java.lang.String,int,android.os.IIncidentAuthListener)>
+<android.os.IIncidentCompanion$Stub$Proxy: void cancelAuthorization(android.os.IIncidentAuthListener)>
+<android.os.IIncidentCompanion$Stub$Proxy: void deleteAllIncidentReports(java.lang.String)>
+<android.os.IIncidentCompanion$Stub$Proxy: void deleteIncidentReports(java.lang.String,java.lang.String,java.lang.String)>
+<android.os.IIncidentCompanion$Stub$Proxy: void denyReport(java.lang.String)>
+<android.os.IIncidentCompanion$Stub$Proxy: void sendReportReadyBroadcast(java.lang.String,java.lang.String)>
+<android.os.IIncidentCompanion$Stub: android.os.IIncidentCompanion asInterface(android.os.IBinder)>
+<android.os.IIncidentCompanion$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IIncidentCompanion$Stub: void <init>()>

@@ -1,0 +1,13 @@
+# com.publicnfc.IAdapter [NEW]
+# Refs: 9
+# JARs: com.publicnfc
+
+<com.publicnfc.IAdapter$Stub$Proxy: boolean disable()>
+<com.publicnfc.IAdapter$Stub$Proxy: boolean enable()>
+<com.publicnfc.IAdapter$Stub$Proxy: boolean readerDisable()>
+<com.publicnfc.IAdapter$Stub$Proxy: boolean readerEnable()>
+<com.publicnfc.IAdapter$Stub$Proxy: int getNfcState()>
+<com.publicnfc.IAdapter$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.publicnfc.IAdapter$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.publicnfc.IAdapter$Stub: com.publicnfc.IAdapter asInterface(android.os.IBinder)>
+<com.publicnfc.IAdapter$Stub: void <init>()>

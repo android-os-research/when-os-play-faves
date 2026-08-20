@@ -1,0 +1,8 @@
+# persist.ril.preconfig [NEW]
+# Refs: 4
+# JARs: framework, telephony-common
+
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: java.util.Optional ril_preconfig()>
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: void ril_preconfig(java.lang.String)>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional ril_preconfig()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void ril_preconfig(java.lang.String)>

@@ -1,0 +1,6 @@
+# android.hardware.wifi [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.adb.AdbService: boolean isAdbWifiSupported()>

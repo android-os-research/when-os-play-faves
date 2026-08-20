@@ -1,0 +1,10 @@
+# com.sec.android.settings.permission.SOFT_RESET [NEW]
+# Refs: 6
+# JARs: semwifi-service, services
+
+<com.android.server.audio.AudioService: void setupCustomRoutine()>
+<com.android.server.inputmethod.InputMethodManagerService: void registerSamsungAdditionalReceivers()>
+<com.samsung.android.server.continuity.autoswitch.AutoSwitchSettingHelper: void registerObserver()>
+<com.samsung.android.server.wifi.ap.SemWifiApBroadcastReceiver: void startTracking()>
+<com.samsung.android.server.wifi.ap.SemWifiApConfigStore: void <init>(android.content.Context,com.samsung.android.server.wifi.SemFrameworkFacade,com.samsung.android.server.wifi.SemWifiManagerProxy)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartBleScanner: void <init>(android.content.Context,com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartUtil,com.samsung.android.server.wifi.SemWifiManagerProxy,android.util.LocalLog)>

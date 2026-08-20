@@ -1,0 +1,15 @@
+# android.hardware.fingerprint [NEW]
+# Refs: 11
+# JARs: services
+
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.accessibility.AbstractAccessibilityServiceConnection: boolean isFingerprintGestureDetectionAvailable()>
+<com.android.server.accessibility.AccessibilityManagerService: void updateFingerprintGestureHandling(com.android.server.accessibility.AccessibilityUserState)>
+<com.android.server.biometrics.AuthService: java.lang.String[] generateRSdkCompatibleConfiguration()>
+<com.android.server.biometrics.BiometricService$Injector: java.util.List getFingerprintSensorProperties(android.content.Context)>
+<com.android.server.biometrics.BiometricService$SettingObserver: void <init>(android.content.Context,android.os.Handler,java.util.List)>
+<com.android.server.enterprise.security.PasswordPolicy: java.lang.Boolean lambda$fingerprintAvailable$15(android.content.Context)>
+<com.android.server.enterprise.security.PasswordPolicy: java.util.Map getSupportedBiometricAuthentications(com.samsung.android.knox.ContextInfo)>
+<com.android.server.locksettings.LockSettingsService$Injector: android.hardware.fingerprint.FingerprintManager getFingerprintManager()>
+<com.android.server.policy.SideFpsEventHandler: void onFingerprintSensorReady()>
+<com.android.server.stats.pull.StatsPullAtomService: int pullNumBiometricsEnrolledLocked(int,int,java.util.List)>

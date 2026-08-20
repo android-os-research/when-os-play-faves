@@ -1,0 +1,89 @@
+.class public Lcom/android/server/wm/Task$ActivityTaskHandler;
+.super Landroid/os/Handler;
+.source "Task.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/wm/Task;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = "ActivityTaskHandler"
+.end annotation
+
+
+# instance fields
+.field public final synthetic this$0:Lcom/android/server/wm/Task;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/wm/Task;Landroid/os/Looper;)V
+    .registers 3
+
+    .line 710
+    iput-object p1, p0, Lcom/android/server/wm/Task$ActivityTaskHandler;->this$0:Lcom/android/server/wm/Task;
+
+    .line 711
+    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public handleMessage(Landroid/os/Message;)V
+    .registers 3
+
+    .line 716
+    iget p1, p1, Landroid/os/Message;->what:I
+
+    const/16 v0, 0x65
+
+    if-eq p1, v0, :cond_7
+
+    goto :goto_1b
+
+    .line 718
+    :cond_7
+    iget-object p1, p0, Lcom/android/server/wm/Task$ActivityTaskHandler;->this$0:Lcom/android/server/wm/Task;
+
+    iget-object p1, p1, Lcom/android/server/wm/TaskFragment;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object p1, p1, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+
+    monitor-enter p1
+
+    :try_start_e
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
+
+    .line 719
+    iget-object p0, p0, Lcom/android/server/wm/Task$ActivityTaskHandler;->this$0:Lcom/android/server/wm/Task;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/server/wm/Task;->notifyActivityDrawnLocked(Lcom/android/server/wm/ActivityRecord;)V
+
+    .line 720
+    monitor-exit p1
+    :try_end_18
+    .catchall {:try_start_e .. :try_end_18} :catchall_1c
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    :goto_1b
+    return-void
+
+    :catchall_1c
+    move-exception p0
+
+    :try_start_1d
+    monitor-exit p1
+    :try_end_1e
+    .catchall {:try_start_1d .. :try_end_1e} :catchall_1c
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    throw p0
+.end method

@@ -1,0 +1,13 @@
+# android.content.IRestrictionsManager [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.content.IRestrictionsManager$Stub$Proxy: android.content.Intent createLocalApprovalIntent()>
+<android.content.IRestrictionsManager$Stub$Proxy: android.os.Bundle getApplicationRestrictions(java.lang.String)>
+<android.content.IRestrictionsManager$Stub$Proxy: boolean hasRestrictionsProvider()>
+<android.content.IRestrictionsManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.IRestrictionsManager$Stub$Proxy: void notifyPermissionResponse(java.lang.String,android.os.PersistableBundle)>
+<android.content.IRestrictionsManager$Stub$Proxy: void requestPermission(java.lang.String,java.lang.String,java.lang.String,android.os.PersistableBundle)>
+<android.content.IRestrictionsManager$Stub: android.content.IRestrictionsManager asInterface(android.os.IBinder)>
+<android.content.IRestrictionsManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.IRestrictionsManager$Stub: void <init>()>

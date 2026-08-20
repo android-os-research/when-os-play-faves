@@ -1,0 +1,15 @@
+# android.content.pm.verify.domain.IDomainVerificationManager [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.content.pm.verify.domain.IDomainVerificationManager$Stub$Proxy: android.content.pm.verify.domain.DomainVerificationInfo getDomainVerificationInfo(java.lang.String)>
+<android.content.pm.verify.domain.IDomainVerificationManager$Stub$Proxy: android.content.pm.verify.domain.DomainVerificationUserState getDomainVerificationUserState(java.lang.String,int)>
+<android.content.pm.verify.domain.IDomainVerificationManager$Stub$Proxy: int setDomainVerificationStatus(java.lang.String,android.content.pm.verify.domain.DomainSet,int)>
+<android.content.pm.verify.domain.IDomainVerificationManager$Stub$Proxy: int setDomainVerificationUserSelection(java.lang.String,android.content.pm.verify.domain.DomainSet,boolean,int)>
+<android.content.pm.verify.domain.IDomainVerificationManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.verify.domain.IDomainVerificationManager$Stub$Proxy: java.util.List getOwnersForDomain(java.lang.String,int)>
+<android.content.pm.verify.domain.IDomainVerificationManager$Stub$Proxy: java.util.List queryValidVerificationPackageNames()>
+<android.content.pm.verify.domain.IDomainVerificationManager$Stub$Proxy: void setDomainVerificationLinkHandlingAllowed(java.lang.String,boolean,int)>
+<android.content.pm.verify.domain.IDomainVerificationManager$Stub: android.content.pm.verify.domain.IDomainVerificationManager asInterface(android.os.IBinder)>
+<android.content.pm.verify.domain.IDomainVerificationManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.verify.domain.IDomainVerificationManager$Stub: void <init>()>

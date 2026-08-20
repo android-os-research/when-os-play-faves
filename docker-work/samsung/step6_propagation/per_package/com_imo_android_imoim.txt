@@ -1,0 +1,30 @@
+######################################################################
+# Propagation: com.imo.android.imoim
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              1
+Occurrences:          1
+Usage types:          array_init
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils
+  Method:   <com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils: void <clinit>()>
+  Line:     153
+  Register: v9 := "com.imo.android.imoim"
+  Usage:    [array_init] filled-new-array/range {v1 .. v9}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v9}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Debug.semIsProductDev()
+      → SemFloatingFeature.getBoolean()
+      → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+

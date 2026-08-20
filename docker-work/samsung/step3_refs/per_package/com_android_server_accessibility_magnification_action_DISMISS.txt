@@ -1,0 +1,7 @@
+# com.android.server.accessibility.magnification.action.DISMISS [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.accessibility.magnification.WindowMagnificationPromptController$NotificationActionReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.accessibility.magnification.WindowMagnificationPromptController: void registerReceiverIfNeeded()>
+<com.android.server.accessibility.magnification.WindowMagnificationPromptController: void showNotificationIfNeeded()>

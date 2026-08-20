@@ -1,0 +1,7 @@
+# com.android.printspooler [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.android.server.print.PrintManagerService$PrintManagerImpl: void setPrintServiceEnabled(android.content.ComponentName,boolean,int)>
+<com.android.server.print.RemotePrintSpooler: void <init>(android.content.Context,int,boolean,com.android.server.print.RemotePrintSpooler$PrintSpoolerCallbacks)>

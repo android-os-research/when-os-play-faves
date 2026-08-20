@@ -1,0 +1,6 @@
+# persist.sys.resume_on_reboot_provider_package [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.locksettings.LockSettingsShellCommand: boolean runSetResumeOnRebootProviderPackage()>
+<com.android.server.locksettings.ResumeOnRebootServiceProvider: android.content.pm.ServiceInfo resolveService()>

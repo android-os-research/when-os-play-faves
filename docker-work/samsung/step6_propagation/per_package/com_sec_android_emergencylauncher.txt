@@ -1,0 +1,96 @@
+######################################################################
+# Propagation: com.sec.android.emergencylauncher
+######################################################################
+
+JARs:                 framework
+Classes:              2
+Occurrences:          3
+Usage types:          unknown
+Enforcement patterns: early_return, package_enable_disable
+Security tags:        PKG_MGMT
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     220
+  Register: v36 := "com.sec.android.emergencylauncher"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.emergencymode.SemEmergencyManager
+  Method:   <com.samsung.android.emergencymode.SemEmergencyManager: void setMpsmApplicationEnabled()>
+  Line:     1094
+  Register: v1 := "com.sec.android.emergencylauncher"
+  Usage:    [] 
+  Patterns: early_return, package_enable_disable
+  Flow:     [other] .local v2, "mpsmPkg":Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← SemEmergencyManager.readyEmergencyMode()
+        ← SystemServer.startEmergencyModeService()
+          ← <com.android.server.SystemServer: void lambda$startOtherServ
+            ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+              ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getPackageManager()
+      → PackageManager.getApplicationEnabledSetting()
+      → PackageManager.getComponentEnabledSetting()
+      → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+      → PackageManager.setComponentEnabledSetting() [PKG_MGMT]
+      → Elog.d()
+      → SemEmergencyManager.isMinimalBatteryUseMode()
+        → Context.getContentResolver()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → Settings$System.getIntForUser()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.emergencymode.SemEmergencyManager
+  Method:   <com.samsung.android.emergencymode.SemEmergencyManager: void setMpsmApplicationEnabled()>
+  Line:     1096
+  Register: v2 := "com.sec.android.emergencylauncher"
+  Usage:    [unknown] .local v2, "mpsmPkg":Ljava/lang/String;
+  Patterns: early_return, package_enable_disable
+  Flow:     [other] .local v2, "mpsmPkg":Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← SemEmergencyManager.readyEmergencyMode()
+        ← SystemServer.startEmergencyModeService()
+          ← <com.android.server.SystemServer: void lambda$startOtherServ
+            ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+              ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getPackageManager()
+      → PackageManager.getApplicationEnabledSetting()
+      → PackageManager.getComponentEnabledSetting()
+      → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+      → PackageManager.setComponentEnabledSetting() [PKG_MGMT]
+      → Elog.d()
+      → SemEmergencyManager.isMinimalBatteryUseMode()
+        → Context.getContentResolver()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → Settings$System.getIntForUser()
+

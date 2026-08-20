@@ -1,0 +1,1142 @@
+######################################################################
+# Propagation: com.sec.android.diagmonagent
+######################################################################
+
+JARs:                 framework, services, telephony-common, vendor.samsung.frameworks.codecsolution-service
+Classes:              19
+Occurrences:          27
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.view.accessibility.A11yLogger
+  Method:   <android.view.accessibility.A11yLogger: boolean checkVersionOfDMA(android.content.Context)>
+  Line:     241
+  Register: v2 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v1, v2, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← A11yLogger.insertLog()
+        ← A11yLogger.insertLog()
+        ← A11yLogger.insertShortcutSaLog()
+        ← AccessibilityManagerService.setTalkbackMode()
+        ← TouchExplorer.onGestureCompleted()
+          ← FullScreenMagnificationGestureHandler$DetectingState.onTripleTap()
+          ← WindowMagnificationGestureHandler.onTripleTap()
+          ← AccessibilitySamsungShortcutChooserActivity.onTargetSelected()
+          ← AccessibilityManagerService.performAccessibilityShortcutInternal()
+            ← FullScreenMagnificationGestureHandler$DetectingState.onMotionEvent()
+            ← <com.android.server.accessibility.magnification.WindowMagnif
+            ← <com.android.internal.accessibility.dialog.AccessibilitySams
+            ← <com.android.server.accessibility.AccessibilityManagerServic
+              ← WindowMagnificationGestureHandler$DetectingState.onGestureCompleted()
+              ← AccessibilitySamsungShortcutChooserActivity$$ExternalSyntheticLambda2.onItemClick()
+              ← AccessibilityManagerService$$ExternalSyntheticLambda1.accept()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.view.accessibility.A11yLogger
+  Method:   <android.view.accessibility.A11yLogger: void insertSALog(android.content.Context,java.lang.String,java.lang.String,long,java.lang.String)>
+  Line:     457
+  Register: v2 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/Use → [i
+
+  CALLERS (who invokes this method):
+      ← A11yLogger.insertLog()
+        ← A11yLogger.insertLog()
+        ← A11yLogger.insertShortcutSaLog()
+        ← AccessibilityManagerService.setTalkbackMode()
+        ← TouchExplorer.onGestureCompleted()
+          ← FullScreenMagnificationGestureHandler$DetectingState.onTripleTap()
+          ← WindowMagnificationGestureHandler.onTripleTap()
+          ← AccessibilitySamsungShortcutChooserActivity.onTargetSelected()
+          ← AccessibilityManagerService.performAccessibilityShortcutInternal()
+            ← FullScreenMagnificationGestureHandler$DetectingState.onMotionEvent()
+            ← <com.android.server.accessibility.magnification.WindowMagnif
+            ← <com.android.internal.accessibility.dialog.AccessibilitySams
+            ← <com.android.server.accessibility.AccessibilityManagerServic
+              ← WindowMagnificationGestureHandler$DetectingState.onGestureCompleted()
+              ← AccessibilitySamsungShortcutChooserActivity$$ExternalSyntheticLambda2.onItemClick()
+              ← AccessibilityManagerService$$ExternalSyntheticLambda1.accept()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putLong()
+      → Bundle.putString()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.core.RunestoneLogger
+  Method:   <com.samsung.android.core.RunestoneLogger: void sendRunestoneLogging(android.content.Context,int,int,java.util.ArrayList)>
+  Line:     461
+  Register: v4 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v3, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v4, Landroid/os/UserHandle;->CURRENT_OR_SELF:Lan → [i
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.wm.FoldDisplayController: void lambda$on
+      ← RunestoneLogger.sendMultiWindowState()
+        ← RunestoneLogger.sendDismissMultiWindowState()
+        ← RunestoneLogger.sendPairMultiWindow()
+          ← RunestoneLogger.interpretSaToRunestone()
+            ← <com.samsung.android.core.CoreSaLogger: void lambda$sendSaLo
+              ← CoreSaLogger$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtras()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putInt()
+      → Bundle.putLong()
+      → Bundle.putStringArrayList()
+      → RunestoneLogger$ScreenState.getValue()
+      → RunestoneLogger$ScreenType.getValue()
+      → ArrayList.isEmpty()
+      → ArrayList.toString()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.core.CoreSaLogger
+  Method:   <com.samsung.android.core.CoreSaLogger: void lambda$sendSaLoggingBroadcast$0(java.lang.String,java.lang.String,long,java.lang.String,android.content.Context)>
+  Line:     380
+  Register: v2 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] const/high16 v2, 0x4000000 → [invoke] android.content.Intent.addF
+
+  CALLERS (who invokes this method):
+      ← CoreSaLogger$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.putExtras()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putLong()
+      → Bundle.putSerializable()
+      → Bundle.putString()
+      → RunestoneLogger.interpretSaToRunestone()
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+        → RunestoneLogger.sendPairMultiWindow()
+          → RunestoneLogger.sendMultiWindowState()
+          → ArrayList.add()
+          → <java.util.ArrayList: void <init>()>
+            → RunestoneLogger$ScreenState.getValue()
+            → RunestoneLogger$ScreenType.getValue()
+            → RunestoneLogger.sendRunestoneLogging()
+            → ArrayList.size()
+              → Context.sendBroadcastAsUser()
+              → Bundle.putInt()
+              → Bundle.putStringArrayList()
+              → ArrayList.isEmpty()
+              → ArrayList.toString()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.core.CoreSaLogger
+  Method:   <com.samsung.android.core.CoreSaLogger: void lambda$sendSaLoggingBroadcastForSetting$1(java.lang.String,java.lang.String,java.lang.String,android.content.Context)>
+  Line:     588
+  Register: v3 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] const/high16 v3, 0x4000000 → [invoke] android.content.Intent.addF
+
+  CALLERS (who invokes this method):
+      ← CoreSaLogger$$ExternalSyntheticLambda1.run()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.putExtras()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putSerializable()
+      → Bundle.putString()
+      → HashMap.put()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.jdsms.Sender
+  Method:   <com.samsung.android.jdsms.Sender: void sendMessage(com.samsung.android.jdsms.DsmsMessage)>
+  Line:     300
+  Register: v3 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, p0, Lcom/samsung/android/jdsms/Sender;->mCon → [i
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.jdsms.Sender: void -$$Nest$msendMessage
+        ← Sender$1.run()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putSerializable()
+      → Bundle.putString()
+      → DsmsInfoCache.isCommercializedDevice()
+      → DsmsInfoCache.getInstance()
+      → DsmsLog.d()
+      → DsmsMessage.getValue()
+      → DsmsMessage.getDetail()
+      → DsmsMessage.getFeatureCode()
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+        → DsmsInfoCache.updateCommercializedDeviceCache()
+        → <com.samsung.android.jdsms.DsmsInfoCache: void <init>()>
+        → DsmsLog.isDebuggable()
+        → DsmsLog.println()
+          → DsmsInfoCache$DsmsInfoServiceClient.bind()
+          → DsmsInfoCache$DsmsInfoServiceClient.isBound()
+          → DsmsInfoCache$DsmsInfoServiceClient.isCommercializedDevice()
+          → DsmsInfoCache$DsmsInfoServiceClient.isConnected()
+          → <com.samsung.android.jdsms.DsmsInfoCache$DsmsInfoServiceClie
+          → DsmsInfoCache$DsmsInfoServiceClient.unbind()
+          → DsmsInfoCache$DsmsInfoServiceClient.waitConnection()
+          → DsmsLog.e()
+          → Exception.getMessage()
+          → Objects.toString()
+            → Context.bindServiceAsUser()
+            → <com.samsung.android.jdsms.DsmsInfoCache: android.content.Co
+            → IDsmsInfoService.isCommercializedDevice()
+            → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+            → <com.samsung.android.jdsms.DsmsInfoCache$DsmsInfoServiceClie
+            → Context.unbindService()
+            → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+            → <java.util.concurrent.TimeoutException: void <init>(java.lan
+              → <com.samsung.android.jdsms.DsmsInfoCache$DsmsInfoServiceClie
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.share.SemShareLogging
+  Method:   <com.samsung.android.share.SemShareLogging: boolean checkDMASupport()>
+  Line:     64
+  Register: v2 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v1, v2, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [other] iget v2, v1, Landroid/content/pm/PackageInfo;->ver
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.share.SemShareLogging: void <init>(andr
+        ← ResolverActivity.configureContentView()
+          ← ResolverActivity.onCreate()
+            ← ChooserActivity.onCreate()
+            ← ResolverActivity.onCreate()
+            ← ResolverActivity.onCreate()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.share.SemShareLogging
+  Method:   <com.samsung.android.share.SemShareLogging: void insertLog(java.lang.String,java.lang.String)>
+  Line:     264
+  Register: v2 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage()
+
+  CALLERS (who invokes this method):
+      ← ChooserActivity$19.onClick()
+      ← ChooserActivity$25.onClick()
+      ← ChooserActivity$ChooserGridAdapter$3.onClick()
+      ← ChooserActivity$SemTransTask.onPreExecute()
+      ← ChooserActivity.finish()
+      ← ChooserActivity.onBackPressed()
+      ← ChooserActivity.onCreate()
+      ← ChooserActivity.onDestroy()
+      ← ChooserActivity.semInsertLogForPrivacyDetection()
+      ← ChooserActivity.semInsertLogForPrivacyShare()
+      ← ChooserActivity.semInsertLoggingForConvertOption()
+      ← ChooserActivity.semInsertLoggingForIncludeOriginal()
+      ← ChooserActivity.semInsertLoggingForOnClick()
+      ← ChooserActivity.semInsertLoggingForPreloadServices()
+      ← ChooserActivity.semInsertLoggingForRemoveExif()
+      ← ChooserActivity.semInsertLoggingForStartSelect()
+      ← ChooserActivity.semInsertShareLogEditAction()
+      ← ChooserActivity.semPinComponent()
+      ← ChooserActivity.sendLogForCrossApp()
+      ← ResolverActivity.onTargetSelected()
+        ← ChooserActivity$16.run()
+        ← ChooserActivity$27.onClick()
+        ← <com.android.internal.app.ChooserActivity$SemChooserChipButt
+        ← ChooserActivity$SemTransTask.onPostExecute()
+        ← <com.android.internal.app.ChooserActivity: void lambda$creat
+        ← <com.android.internal.app.ChooserActivity: void lambda$creat
+        ← ChooserActivity.onCopyButtonClicked()
+        ← ChooserActivity.onRefinementCanceled()
+        ← ChooserActivity.onRefinementResult()
+        ← ChooserActivity.semLogForSmartShareOpen()
+        ← ChooserActivity.semShareEnhancedImage()
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← ChooserActivity.startSelected()
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← ChooserActivity.startSelectedPost()
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← ChooserActivity.onContextItemSelected()
+        ← ResolverActivity.onTargetSelected()
+          ← ChooserActivity$SemChooserChipButtonViewHolder$$ExternalSyntheticLambda0.onClick()
+          ← ChooserActivity$SemTransTask.onPostExecute()
+          ← ChooserActivity$$ExternalSyntheticLambda1.onClick()
+          ← ChooserActivity$$ExternalSyntheticLambda13.onClick()
+          ← <com.android.internal.app.ChooserActivity: void $r8$lambda$l
+          ← <com.android.internal.app.ChooserActivity: void -$$Nest$monC
+          ← ChooserActivity$RefinementResultReceiver.onReceiveResult()
+          ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+          ← ChooserActivity.showEnhanceIconAnimation()
+          ← ChooserActivity.startEnhancementDetection()
+          ← ChooserActivity.semReplaceTargetInfoWithNewIntent()
+          ← ChooserActivity$ChooserGridAdapter$2.onClick()
+          ← <com.android.internal.app.ChooserActivity$ChooserGridAdapter
+          ← <com.android.internal.app.ChooserActivity$ItemViewHolder: vo
+          ← <com.android.internal.app.ChooserActivity$SemDeviceItemViewH
+          ← ChooserStackedAppDialogFragment.onClick()
+          ← <com.samsung.android.share.SemShareMoreAppsFragment$SemChoos
+          ← <com.android.internal.app.ChooserActivity: void -$$Nest$msta
+          ← ChooserActivity$28.doInBackground()
+          ← ChooserActivity.onTargetSelected()
+          ← ResolverActivity$PickTargetOptionRequest.onPickOptionResult()
+          ← ResolverActivity.onProfileClick()
+          ← ResolverActivity.startSelected()
+            ← ChooserActivity$$ExternalSyntheticLambda14.onClick()
+            ← ChooserActivity$26.onClick()
+            ← ChooserActivity$ChooserHandler.handleMessage()
+            ← ChooserActivity$GalleryAdapter.initEnhancementLayout()
+            ← <com.android.internal.app.ChooserActivity: void -$$Nest$msho
+            ← <com.android.internal.app.ChooserActivity: boolean lambda$in
+            ← <com.android.internal.app.ChooserActivity: void -$$Nest$msta
+            ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+            ← ChooserActivity$ChooserGridAdapter$$ExternalSyntheticLambda2.onClick()
+            ← ChooserActivity$ItemViewHolder$$ExternalSyntheticLambda0.onClick()
+            ← ChooserActivity$SemDeviceItemViewHolder$$ExternalSyntheticLambda0.onClick()
+            ← SemShareMoreAppsFragment$SemChooserItemViewHolder$$ExternalSyntheticLambda0.onClick()
+            ← ChooserActivity$28.doInBackground()
+            ← ChooserActivity$ChooserGridAdapter$$ExternalSyntheticLambda1.onClick()
+            ← ResolverActivity$$ExternalSyntheticLambda2.onClick()
+            ← ResolverActivity$ItemClickListener.onItemClick()
+            ← ResolverActivity.onButtonClick()
+              ← ChooserActivity$GalleryAdapter.bindIntentItemViewHolder()
+              ← ChooserActivity$GalleryAdapter.bindSliceItemViewHolder()
+              ← ChooserActivity$34.onAnimationEnd()
+              ← ChooserActivity$$ExternalSyntheticLambda4.onPreDraw()
+              ← ChooserActivity$32.onScrollStateChanged()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.checkCallingOrSelfPermission()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+      → SemShareLogging.checkSurveyCondition()
+      → SemShareLogging.isSupportDMA()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → Intent.getAction()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.share.SemShareLogging
+  Method:   <com.samsung.android.share.SemShareLogging: void insertLogWithDimension(java.lang.String,java.util.HashMap)>
+  Line:     434
+  Register: v2 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage()
+
+  CALLERS (who invokes this method):
+      ← ChooserActivity$GalleryAdapter.handleEnhancementBtnClicked()
+      ← ChooserActivity.onDestroy()
+      ← ChooserActivity.semInsertLogForSmartShareApply()
+      ← ChooserActivity.semInsertLogForSmartShareOpen()
+        ← <com.android.internal.app.ChooserActivity$GalleryAdapter: vo
+        ← ChooserActivity.semShareEnhancedImage()
+        ← ChooserActivity.semLogForSmartShareOpen()
+          ← ChooserActivity$GalleryAdapter$$ExternalSyntheticLambda0.onClick()
+          ← ChooserActivity.semReplaceTargetInfoWithNewIntent()
+          ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+          ← ChooserActivity.showEnhanceIconAnimation()
+          ← ChooserActivity.startEnhancementDetection()
+            ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+            ← ChooserActivity.startSelected()
+            ← ChooserActivity$ChooserHandler.handleMessage()
+            ← ChooserActivity$GalleryAdapter.initEnhancementLayout()
+            ← <com.android.internal.app.ChooserActivity: void -$$Nest$msho
+            ← <com.android.internal.app.ChooserActivity: boolean lambda$in
+            ← <com.android.internal.app.ChooserActivity: void -$$Nest$msta
+              ← <com.android.internal.app.ChooserActivity$SemChooserChipButt
+              ← ChooserActivity$ChooserGridAdapter$2.onClick()
+              ← <com.android.internal.app.ChooserActivity$ChooserGridAdapter
+              ← <com.android.internal.app.ChooserActivity$ItemViewHolder: vo
+              ← <com.android.internal.app.ChooserActivity$SemDeviceItemViewH
+              ← ChooserActivity.onContextItemSelected()
+              ← ChooserStackedAppDialogFragment.onClick()
+              ← <com.samsung.android.share.SemShareMoreAppsFragment$SemChoos
+              ← ChooserActivity$GalleryAdapter.bindIntentItemViewHolder()
+              ← ChooserActivity$GalleryAdapter.bindSliceItemViewHolder()
+              ← ChooserActivity$34.onAnimationEnd()
+              ← ChooserActivity$$ExternalSyntheticLambda4.onPreDraw()
+              ← ChooserActivity$32.onScrollStateChanged()
+
+  CALLEES (what this method invokes):
+      → Context.checkCallingOrSelfPermission()
+      → Context.sendBroadcast()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putSerializable()
+      → Bundle.putString()
+      → SemShareLogging.checkSurveyCondition()
+      → SemShareLogging.isSupportDMA()
+        → Intent.getAction()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.MaintenanceModeUtils
+  Method:   <com.android.internal.app.MaintenanceModeUtils: void sendLoggingDataToSA(android.content.Context,java.lang.String,java.lang.String)>
+  Line:     1074
+  Register: v2 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.internal.app.MaintenanceModeBackupActivity: voi
+      ← <com.android.internal.app.MaintenanceModeBackupActivity: voi
+      ← <com.android.internal.app.MaintenanceModeIntroActivity$1: vo
+      ← <com.android.internal.app.MaintenanceModeIntroActivity$2: vo
+      ← <com.android.internal.app.MaintenanceModeIntroActivity$2: vo
+      ← <com.android.internal.app.MaintenanceModeIntroActivity: void
+      ← <com.android.internal.app.MaintenanceModeIntroActivity: void
+      ← <com.android.internal.app.MaintenanceModeIntroActivity: void
+      ← <com.android.internal.app.MaintenanceModeIntroActivity: void
+        ← MaintenanceModeBackupActivity$$ExternalSyntheticLambda5.run()
+        ← MaintenanceModeBackupActivity$$ExternalSyntheticLambda6.run()
+        ← MaintenanceModeIntroActivity$1$$ExternalSyntheticLambda1.run()
+        ← MaintenanceModeIntroActivity$2$$ExternalSyntheticLambda2.run()
+        ← MaintenanceModeIntroActivity$2$$ExternalSyntheticLambda3.run()
+        ← MaintenanceModeIntroActivity$$ExternalSyntheticLambda0.run()
+        ← MaintenanceModeIntroActivity$$ExternalSyntheticLambda12.run()
+        ← MaintenanceModeIntroActivity$$ExternalSyntheticLambda7.run()
+        ← MaintenanceModeIntroActivity$$ExternalSyntheticLambda10.run()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtras()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.FMRadioService
+  Method:   <com.android.server.FMRadioService: void sendInfoSamsungAnalytics(java.lang.String,java.lang.String)>
+  Line:     9846
+  Register: v3 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.FMRadioService: void -$$Nest$msendInfoSa
+        ← FMRadioService$SamsungAnalyticsRunnable.run()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+      → FMRadioService.log()
+      → JSONObject.toString()
+      → JSONObject.put()
+      → <org.json.JSONObject: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.BootReceiver
+  Method:   <com.android.server.BootReceiver: void sendToDiagmon(android.content.Context,java.lang.String,java.lang.String)>
+  Line:     10375
+  Register: v5 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {p2, v5}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v5 overwritten
+
+  CALLERS (who invokes this method):
+      ← BootReceiver.logBootEvents()
+        ← <com.android.server.BootReceiver: void -$$Nest$mlogBootEvent
+          ← BootReceiver$1.run()
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Context.sendBroadcast()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Bundle.getBundle()
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putBundle()
+      → Bundle.putString()
+      → Settings$System.getInt()
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.HermesService
+  Method:   <com.android.server.HermesService: void reportToDiagmon()>
+  Line:     345
+  Register: v0 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v3, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v0, Lcom/android/server/HermesService;->mContext → [i
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.HermesService: void -$$Nest$smreportToDi
+        ← HermesService$1.run()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putBundle()
+      → Bundle.putString()
+      → <com.android.server.BigdataException: void <init>(com.androi
+      → File.exists()
+      → File.length()
+      → <java.io.File: void <init>(java.lang.String)>
+        → <com.android.server.BigdataException: void <init>(java.lang.
+        → HermesBigdataFunction$BigdataError.reason()
+          → <java.lang.Exception: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.biometrics.SemBioAnalyticsManager
+  Method:   <com.android.server.biometrics.SemBioAnalyticsManager: void faceHandleData(com.android.server.biometrics.SemBioAnalyticsManager$EventData)>
+  Line:     678
+  Register: p1 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] new-instance p1, Ljava/lang/StringBuilder; → [invoke] java.lang.S
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+          ← SemBioAnalyticsManager$$ExternalSyntheticLambda2.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+      → SemBioAnalyticsManager$DQAManager.faceHandleDqaData()
+      → SemBioAnalyticsManager$EventData.toString()
+      → Exception.getMessage()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → SemBioAnalyticsManager$DQAManager.needToSaveBigFeatures()
+        → SemBioAnalyticsManager$DQAManager.faceGetDqaDataFormatToSave()
+        → SemBioAnalyticsManager$DQAManager.sendFaceBigData()
+        → SemBioAnalyticsManager$DQAManager.writeDqaDataToFile()
+        → Map.containsKey()
+        → Map.get()
+        → Map.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <com.android.server.biometrics.SemBioAnalyticsManager: boole
+          → Exception.toString()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → Map.keySet()
+          → Set.iterator()
+          → Context.getSystemService()
+          → SemHqmManager.sendHWParamToHQM()
+          → Handler.post()
+          → <com.android.server.biometrics.SemBioAnalyticsManager$DQAMan
+          → SemBioFgThread.getHandler()
+          → SemBioFgThread.get()
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ISemHqmManager.sendHWParamToHQM()
+            → SemHqmManager.printExceptionTrace()
+            → HandlerThread.getThreadHandler()
+            → HandlerThread.start()
+            → <com.android.server.biometrics.SemBioFgThread: void <init>()
+              → ContainerHelpers.binarySearch()
+              → Exception.printStackTrace()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → HandlerThread.getLooper()
+              → <com.android.server.ServiceThread: void <init>(java.lang.Str
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.biometrics.SemBioAnalyticsManager
+  Method:   <com.android.server.biometrics.SemBioAnalyticsManager: void fpHandleData(com.android.server.biometrics.SemBioAnalyticsManager$EventData)>
+  Line:     1605
+  Register: p1 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] new-instance p1, Ljava/lang/StringBuilder; → [invoke] java.lang.S
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+      ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+          ← SemBioAnalyticsManager$$ExternalSyntheticLambda1.run()
+          ← SemBioAnalyticsManager$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putSerializable()
+      → Bundle.putString()
+      → SemBioAnalyticsManager$DQAManager.fpHandleDqaData()
+      → SemBioAnalyticsManager$EventData.toString()
+      → Utils.isRuneStoneApp()
+      → Exception.getMessage()
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → SemBioAnalyticsManager$DQAManager.needToSaveBigFeatures()
+        → SemBioAnalyticsManager$DQAManager.fpGetDqaDataFormatToSave()
+        → SemBioAnalyticsManager$DQAManager.sendFingerprintBigData()
+        → SemBioAnalyticsManager$DQAManager.writeDqaDataToFile()
+        → Map.containsKey()
+        → Map.get()
+        → Map.put()
+        → Utils.hasInternalPermission()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <com.android.server.biometrics.SemBioAnalyticsManager: boole
+          → Exception.toString()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → Map.keySet()
+          → Set.iterator()
+          → Context.getSystemService()
+          → SemHqmManager.sendHWParamToHQM()
+          → Handler.post()
+          → <com.android.server.biometrics.SemBioAnalyticsManager$DQAMan
+          → SemBioFgThread.getHandler()
+          → SemBioFgThread.get()
+          → Context.checkCallingOrSelfPermission()
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ISemHqmManager.sendHWParamToHQM()
+            → SemHqmManager.printExceptionTrace()
+            → HandlerThread.getThreadHandler()
+            → HandlerThread.start()
+            → <com.android.server.biometrics.SemBioFgThread: void <init>()
+              → ContainerHelpers.binarySearch()
+              → Exception.printStackTrace()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → HandlerThread.getLooper()
+              → <com.android.server.ServiceThread: void <init>(java.lang.Str
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.biometrics.SemBioAnalyticsManager
+  Method:   <com.android.server.biometrics.SemBioAnalyticsManager: boolean isSupportDMALogging(android.content.Context)>
+  Line:     2110
+  Register: v0 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {p1, v0, p0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [other] const v0, 0x202fbf00 → [other] if-lt p1, v0, :cond
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+          ← SemBioAnalyticsManager$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → Exception.getMessage()
+
+────────────────────────────────────────────────────────────
+Occurrence #17
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DesktopModeLogger$LazyHolder
+  Method:   <com.android.server.desktopmode.DesktopModeLogger$LazyHolder: boolean isDmaSupported()>
+  Line:     60
+  Register: v2 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v0, v2}, Landroid/content/pm/PackageManagerInternal;->getPackage(Ljava/lang/String;)
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManagerInternal.getPackage() → [other] move-result-wide v2 → [invoke] java.lang.Strin
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.desktopmode.DesktopModeLogger$LazyHolder
+
+  CALLEES (what this method invokes):
+      → PackageManagerInternal.getPackage()
+      → LocalServices.getService()
+      → <com.android.server.desktopmode.DesktopModeLogger: java.lang
+      → Log.d()
+      → PkgWithoutStateAppInfo.getLongVersionCode()
+        → ArrayMap.get()
+        → Log.save()
+          → ArrayMap.indexOfKey()
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayDeque.size()
+            → ArrayDeque.removeFirst()
+            → ArrayDeque.addLast()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+              → ArrayMap.binarySearchHashes()
+
+────────────────────────────────────────────────────────────
+Occurrence #18
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DesktopModeLogger
+  Method:   <com.android.server.desktopmode.DesktopModeLogger: void sendDmaLog(android.content.Context,java.lang.String,java.lang.String)>
+  Line:     199
+  Register: v1 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v1, Landroid/os/UserHandle;->CURRENT_OR_SELF:Lan → [i
+
+  CALLERS (who invokes this method):
+      ← DesktopModeLogger.log()
+        ← DesktopModeService.logDesktopModeChanged()
+        ← HardwareManager.logConnectedAccessoryInformationLocked()
+          ← <com.android.server.desktopmode.DesktopModeService: void -$$
+          ← HardwareManager$5.onDualModeStopLoadingScreen()
+            ← DesktopModeService$Receiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtras()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+      → Log.d()
+        → Log.save()
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+            → ArrayDeque.size()
+            → ArrayDeque.removeFirst()
+            → ArrayDeque.addLast()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+
+────────────────────────────────────────────────────────────
+Occurrence #19
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.security.mdf.MdfService.MdfPolicy
+  Method:   <com.samsung.android.security.mdf.MdfService.MdfPolicy: void sendSamsungAnalyticsMultiLog()>
+  Line:     2518
+  Register: v1 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage()
+
+  CALLERS (who invokes this method):
+      ← MdfReceiver$1.run()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+      → Bundle.putStringArray()
+      → MdfPolicy.checkCCModeOnDevice()
+      → ArrayList.add()
+      → ArrayList.size()
+      → ArrayList.toArray()
+      → <java.util.ArrayList: void <init>()>
+        → MdfUtils.getCCModeFlag()
+
+────────────────────────────────────────────────────────────
+Occurrence #20
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.camera.CameraServiceWorker
+  Method:   <com.samsung.android.camera.CameraServiceWorker: void insertDMALog(java.lang.String,java.lang.String,java.lang.Long)>
+  Line:     1236
+  Register: p2 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] move-result-wide p2 → [invoke] android.os.Binder.restoreCallingId
+
+  CALLERS (who invokes this method):
+      ← CameraServiceWorker$3.notifyCameraSessionEvent()
+      ← CameraServiceWorker.updateActivityCount()
+      ← ShakeEventListener.dumpDMALog()
+        ← <com.samsung.android.camera.CameraServiceWorker: void -$$Nes
+        ← ShakeEventListener.onReceive()
+          ← CameraServiceWorker$3.notifyCameraState()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putLong()
+      → Bundle.putString()
+
+────────────────────────────────────────────────────────────
+Occurrence #21
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.locksettings.LockSettingsServiceLog
+  Method:   <com.android.server.locksettings.LockSettingsServiceLog: void sendToDiagmon(int)>
+  Line:     1401
+  Register: p1 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v5, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object p1, p0, Lcom/android/server/locksettings/LockSet → [i
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.locksettings.LockSettingsServiceLog: voi
+        ← LockSettingsServiceLog$1.run()
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Context.sendBroadcast()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Bundle.getBundle()
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putBundle()
+      → Bundle.putString()
+      → Settings$System.getInt()
+      → LockSettingsServiceLog$LogFileManager.hasLogType()
+      → LockSettingsServiceLog$LogFileManager.getErrorCode()
+      → LockSettingsServiceLog.isDevBuild()
+      → LockSettingsServiceLog.isShipBuild()
+        → SystemProperties.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #22
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.SeamLessSwitchHandler$1
+  Method:   <com.android.server.knox.SeamLessSwitchHandler$1: void run()>
+  Line:     102
+  Register: v1 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v1, p0, Lcom/android/server/knox/SeamLessSwitchH → [i
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+      → <com.android.server.knox.SeamLessSwitchHandler: android.cont
+      → <com.android.server.knox.SeamLessSwitchHandler: boolean -$$N
+      → Exception.printStackTrace()
+
+────────────────────────────────────────────────────────────
+Occurrence #23
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.media.MediaResourceMonitorService$MediaResourceMonitorImpl
+  Method:   <com.android.server.media.MediaResourceMonitorService$MediaResourceMonitorImpl: android.content.Intent getBroadcastIntent(int,android.media.MediaMonitorEvent)>
+  Line:     367
+  Register: p1 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare
+  Flow:     [invoke] android.content.Intent.setPackage()
+
+  CALLERS (who invokes this method):
+      ← MediaResourceMonitorService$MediaResourceMonitorImpl.notifyMediaInfo()
+
+  CALLEES (what this method invokes):
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → MediaMonitorDimension.getText()
+      → MediaMonitorDimension.getNumber()
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putLong()
+      → Bundle.putSerializable()
+      → Bundle.putString()
+      → MediaResourceMonitorService$MediaResourceMonitorImpl.getPackageName()
+      → MediaResourceMonitorService$MediaResourceMonitorImpl.getPackageNamesFromPid()
+      → <java.lang.IllegalArgumentException: void <init>()>
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+        → <java.lang.UnsupportedOperationException: void <init>()>
+        → ActivityManager.getRunningAppProcesses()
+        → Context.getSystemService()
+        → SystemService.getContext()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+
+────────────────────────────────────────────────────────────
+Occurrence #24
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.android.internal.telephony.SemBigDataInfoController
+  Method:   <com.android.internal.telephony.SemBigDataInfoController: boolean checkVersionOfDMA(android.content.Context)>
+  Line:     601
+  Register: v1 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.internal.telephony.SemBigDataInfoController: vo
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #25
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.android.internal.telephony.SemBigDataInfoController
+  Method:   <com.android.internal.telephony.SemBigDataInfoController: void insertLog(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int)>
+  Line:     1096
+  Register: v1 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage()
+
+  CALLERS (who invokes this method):
+      ← <com.android.internal.telephony.SemBigDataInfoController: vo
+        ← SemBigDataInfoController$1.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageName()
+      → Context.sendBroadcast()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+      → SemHqmManager.sendHWParamToHQMwithAppId()
+      → SemBigDataInfoController.isSemHqmEnable()
+      → SemBigDataInfoController.deleteCID()
+      → SemBigDataInfoController.insertLogToNedi()
+        → ISemHqmManager.sendHWParamToHQMwithAppId()
+        → SemHqmManager.printExceptionTrace()
+        → Context.getSystemService()
+        → SemHqmManager.getCFServerEnable()
+        → SemHqmManager.getDVServerEnable()
+        → AlarmManager.set()
+        → PendingIntent.getBroadcast()
+        → Bundle.putBoolean()
+        → Bundle.putLong()
+        → SystemClock.elapsedRealtime()
+        → SemBigDataInfoController.checkDuplicated()
+          → Exception.printStackTrace()
+          → ISemHqmManager.getCFServerEnable()
+          → ISemHqmManager.getDVServerEnable()
+          → AlarmManager.legacyExactLength()
+          → AlarmManager.setImpl()
+          → SemBigDataInfoController.updateDuplicated()
+            → AlarmManager.setImpl()
+            → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+            → ContentResolver.update()
+            → <android.content.ContentValues: void <init>()>
+            → ContentValues.put()
+            → ContentValues.put()
+            → ContentValues.put()
+            → Context.getContentResolver()
+            → Uri.parse()
+            → Exception.getMessage()
+              → <android.app.AlarmManager$ListenerWrapper: void <init>(andro
+              → AlarmManager$ListenerWrapper.setExecutor()
+              → IAlarmManager.set()
+              → RemoteException.rethrowFromSystemServer()
+              → WeakReference.get()
+              → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+              → WeakHashMap.get()
+              → WeakHashMap.put()
+              → <java.util.WeakHashMap: void <init>()>
+              → Preconditions.checkNotNull()
+              → <android.util.ArrayMap: void <init>()>
+              → ArrayMap.put()
+              → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+
+────────────────────────────────────────────────────────────
+Occurrence #26
+────────────────────────────────────────────────────────────
+  JAR:      vendor.samsung.frameworks.codecsolution-service
+  Class:    vendor.samsung.frameworks.codecsolution.Logging
+  Method:   <vendor.samsung.frameworks.codecsolution.Logging: boolean checkVersionOfDMA(android.content.Context)>
+  Line:     110
+  Register: v2 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v1, v2, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← <vendor.samsung.frameworks.codecsolution.Logging: void <init
+        ← <vendor.samsung.frameworks.codecsolution.SehCodecSolutionSer
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #27
+────────────────────────────────────────────────────────────
+  JAR:      vendor.samsung.frameworks.codecsolution-service
+  Class:    vendor.samsung.frameworks.codecsolution.Logging
+  Method:   <vendor.samsung.frameworks.codecsolution.Logging: void insertDiagmonLog(java.lang.String,java.lang.String,long)>
+  Line:     352
+  Register: v2 := "com.sec.android.diagmonagent"
+  Usage:    [invoke] invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v2, p0, Lvendor/samsung/frameworks/codecsolution → [i
+
+  CALLERS (who invokes this method):
+      ← Logging.insertLog()
+        ← Logging.insertLog()
+          ← SehCodecSolutionService$1.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.checkCallingOrSelfPermission()
+      → Context.sendBroadcast()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putLong()
+      → Bundle.putString()
+      → IllegalStateException.printStackTrace()
+

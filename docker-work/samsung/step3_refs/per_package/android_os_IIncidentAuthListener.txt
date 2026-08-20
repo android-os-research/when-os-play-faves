@@ -1,0 +1,10 @@
+# android.os.IIncidentAuthListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.IIncidentAuthListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IIncidentAuthListener$Stub$Proxy: void onReportApproved()>
+<android.os.IIncidentAuthListener$Stub$Proxy: void onReportDenied()>
+<android.os.IIncidentAuthListener$Stub: android.os.IIncidentAuthListener asInterface(android.os.IBinder)>
+<android.os.IIncidentAuthListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IIncidentAuthListener$Stub: void <init>()>

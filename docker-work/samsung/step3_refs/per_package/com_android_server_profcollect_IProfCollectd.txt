@@ -1,0 +1,15 @@
+# com.android.server.profcollect.IProfCollectd [NEW]
+# Refs: 11
+# JARs: services
+
+<com.android.server.profcollect.IProfCollectd$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.server.profcollect.IProfCollectd$Stub$Proxy: java.lang.String get_supported_provider()>
+<com.android.server.profcollect.IProfCollectd$Stub$Proxy: java.lang.String report()>
+<com.android.server.profcollect.IProfCollectd$Stub$Proxy: void process()>
+<com.android.server.profcollect.IProfCollectd$Stub$Proxy: void registerProviderStatusCallback(com.android.server.profcollect.IProviderStatusCallback)>
+<com.android.server.profcollect.IProfCollectd$Stub$Proxy: void schedule()>
+<com.android.server.profcollect.IProfCollectd$Stub$Proxy: void terminate()>
+<com.android.server.profcollect.IProfCollectd$Stub$Proxy: void trace_once(java.lang.String)>
+<com.android.server.profcollect.IProfCollectd$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.server.profcollect.IProfCollectd$Stub: com.android.server.profcollect.IProfCollectd asInterface(android.os.IBinder)>
+<com.android.server.profcollect.IProfCollectd$Stub: void <init>()>

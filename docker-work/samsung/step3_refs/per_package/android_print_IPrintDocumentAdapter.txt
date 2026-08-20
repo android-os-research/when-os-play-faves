@@ -1,0 +1,14 @@
+# android.print.IPrintDocumentAdapter [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.print.IPrintDocumentAdapter$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.print.IPrintDocumentAdapter$Stub$Proxy: void finish()>
+<android.print.IPrintDocumentAdapter$Stub$Proxy: void kill(java.lang.String)>
+<android.print.IPrintDocumentAdapter$Stub$Proxy: void layout(android.print.PrintAttributes,android.print.PrintAttributes,android.print.ILayoutResultCallback,android.os.Bundle,int)>
+<android.print.IPrintDocumentAdapter$Stub$Proxy: void setObserver(android.print.IPrintDocumentAdapterObserver)>
+<android.print.IPrintDocumentAdapter$Stub$Proxy: void start()>
+<android.print.IPrintDocumentAdapter$Stub$Proxy: void write(android.print.PageRange[],android.os.ParcelFileDescriptor,android.print.IWriteResultCallback,int)>
+<android.print.IPrintDocumentAdapter$Stub: android.print.IPrintDocumentAdapter asInterface(android.os.IBinder)>
+<android.print.IPrintDocumentAdapter$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.print.IPrintDocumentAdapter$Stub: void <init>()>

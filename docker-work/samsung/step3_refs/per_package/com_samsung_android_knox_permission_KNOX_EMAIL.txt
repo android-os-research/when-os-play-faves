@@ -1,0 +1,27 @@
+# com.samsung.android.knox.permission.KNOX_EMAIL [NEW]
+# Refs: 24
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.email.AccountsReceiver$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.enterprise.email.AccountsReceiver: void <init>(android.content.Context)>
+<com.android.server.enterprise.email.EmailAccountPolicy: boolean deleteAccount(com.samsung.android.knox.ContextInfo,long)>
+<com.android.server.enterprise.email.EmailAccountPolicy: com.samsung.android.knox.ContextInfo enforceEmailAccountPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.email.EmailAccountPolicy: java.lang.String getSecurityInComingServerPassword(com.samsung.android.knox.ContextInfo,long)>
+<com.android.server.enterprise.email.EmailAccountPolicy: java.lang.String getSecurityOutGoingServerPassword(com.samsung.android.knox.ContextInfo,long)>
+<com.android.server.enterprise.email.EmailAccountPolicy: long addNewAccount_ex(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,boolean,boolean,boolean,boolean,boolean,boolean,java.lang.String,boolean)>
+<com.android.server.enterprise.email.EmailAccountPolicy: long addNewAccount_new(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.accounts.EmailAccount)>
+<com.android.server.enterprise.email.EmailAccountPolicy: long setSecurityInComingServerPassword(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.android.server.enterprise.email.EmailAccountPolicy: long setSecurityOutGoingServerPassword(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.android.server.enterprise.email.EmailAccountPolicy: void removePendingAccount(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String,java.lang.String)>
+<com.android.server.enterprise.email.EmailPolicy: com.samsung.android.knox.ContextInfo enforceEmailPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy$2: void handleMessage(android.os.Message)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: boolean deleteAccount(com.samsung.android.knox.ContextInfo,long)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: java.lang.String getDeviceId(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: long addNewAccount_ex(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,boolean,java.lang.String,java.lang.String,java.lang.String,boolean,boolean,java.lang.String,boolean,boolean,boolean,java.lang.String,java.lang.String,int,int,int,int,int,int,int,boolean,int,int,byte[],java.lang.String)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: long addNewAccount_new(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.accounts.ExchangeAccount)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: void removePendingAccount(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: void setClientAuthCert(com.samsung.android.knox.ContextInfo,byte[],java.lang.String,long)>
+<com.android.server.enterprise.email.LDAPAccountPolicy: void createLDAPAccount(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.accounts.LDAPAccount)>
+<com.android.server.enterprise.email.SettingsUtils: java.lang.String[] getPassword(int,long,android.content.Context,int)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

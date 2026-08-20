@@ -1,0 +1,12 @@
+# android.location.provider.ILocationProvider [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.location.provider.ILocationProvider$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.provider.ILocationProvider$Stub$Proxy: void flush()>
+<android.location.provider.ILocationProvider$Stub$Proxy: void sendExtraCommand(java.lang.String,android.os.Bundle)>
+<android.location.provider.ILocationProvider$Stub$Proxy: void setLocationProviderManager(android.location.provider.ILocationProviderManager)>
+<android.location.provider.ILocationProvider$Stub$Proxy: void setRequest(android.location.provider.ProviderRequest)>
+<android.location.provider.ILocationProvider$Stub: android.location.provider.ILocationProvider asInterface(android.os.IBinder)>
+<android.location.provider.ILocationProvider$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.provider.ILocationProvider$Stub: void <init>()>

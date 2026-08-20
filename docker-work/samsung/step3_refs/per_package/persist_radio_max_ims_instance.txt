@@ -1,0 +1,6 @@
+# persist.radio.max_ims_instance [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional max_ims_instance()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void max_ims_instance(java.lang.Integer)>

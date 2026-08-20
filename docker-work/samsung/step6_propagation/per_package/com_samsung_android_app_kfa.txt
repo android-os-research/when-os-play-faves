@@ -1,0 +1,76 @@
+######################################################################
+# Propagation: com.samsung.android.app.kfa
+######################################################################
+
+JARs:                 knoxsdk, services
+Classes:              2
+Occurrences:          2
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.ex.knoxAI.KnoxAiManagerInternal
+  Method:   <com.samsung.android.knox.ex.knoxAI.KnoxAiManagerInternal: boolean bindKFAServiceInstance()>
+  Line:     854
+  Register: v1 := "com.samsung.android.app.kfa"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← KnoxAiManagerInternal$1.onServiceDisconnected()
+      ← KnoxAiManagerInternal.getKFAServiceInstance()
+      ← KnoxAiManagerInternal.close()
+      ← KnoxAiManagerInternal.destroyKnoxAiSession()
+      ← KnoxAiManagerInternal.execute()
+      ← KnoxAiManagerInternal.getModelInputShape()
+      ← KnoxAiManagerInternal.open()
+      ← KnoxAiManagerInternal.getInstance()
+      ← KnoxAiManagerInternal.createKnoxAiSession()
+      ← KnoxAiManagerInternal.getKeyProvisioning()
+        ← KnoxAiSession.close()
+        ← KnoxAiManager.destroyKnoxAiSession()
+        ← KnoxAiSession.execute()
+        ← KnoxAiSession.getModelInputShape()
+        ← KnoxAiSession.open()
+        ← <com.samsung.android.knox.ex.knoxAI.KnoxAiManager: void <ini
+        ← KnoxAiManager.createKnoxAiSession()
+        ← KnoxAiManager.getKeyProvisioning()
+          ← KnoxAiManager.getInstance()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+  Line:     324
+  Register: v5 := "com.samsung.android.app.kfa"
+  Usage:    [array_init] filled-new-array {v3, v4, v5}, [Ljava/lang/String;
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] java.util.List.add() → [other] new-instance v0, Landroid/os/ConditionVariable; → [invoke] android.os.ConditionV
+
+  CALLEES (what this method invokes):
+      → <android.os.ConditionVariable: void <init>()>
+      → Process.myPid()
+      → SystemProperties.get()
+      → EnterpriseDeviceManagerServiceImpl.isPackageInstalled()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → ActivityThread.getPackageManager()
+

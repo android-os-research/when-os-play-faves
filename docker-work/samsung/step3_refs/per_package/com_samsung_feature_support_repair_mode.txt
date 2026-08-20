@@ -1,0 +1,9 @@
+# com.samsung.feature.support_repair_mode [NEW]
+# Refs: 5
+# JARs: framework, services
+
+<com.android.internal.app.MaintenanceModeUtils: boolean hasSystemFeature(int)>
+<com.android.internal.app.MaintenanceModeUtils: boolean isMaintenanceModeFeature(java.lang.String)>
+<com.android.server.SystemConfig: void readPermissionsFromXml(org.xmlpull.v1.XmlPullParser,java.io.File,int)>
+<com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils: boolean hasSystemFeature()>
+<com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils: boolean isDisallowedByPolicy(android.content.Context,java.lang.String)>

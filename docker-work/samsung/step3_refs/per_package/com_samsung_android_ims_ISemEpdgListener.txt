@@ -1,0 +1,13 @@
+# com.samsung.android.ims.ISemEpdgListener [NEW]
+# Refs: 9
+# JARs: framework
+
+<com.samsung.android.ims.ISemEpdgListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.ims.ISemEpdgListener$Stub$Proxy: void onEpdgAvailable(int,boolean,int)>
+<com.samsung.android.ims.ISemEpdgListener$Stub$Proxy: void onEpdgShowPopup(int,int)>
+<com.samsung.android.ims.ISemEpdgListener$Stub$Proxy: void onHandoverResult(int,int,int,java.lang.String)>
+<com.samsung.android.ims.ISemEpdgListener$Stub$Proxy: void onIpsecConnection(int,java.lang.String,int,int)>
+<com.samsung.android.ims.ISemEpdgListener$Stub$Proxy: void onIpsecDisconnection(int,java.lang.String)>
+<com.samsung.android.ims.ISemEpdgListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.ims.ISemEpdgListener$Stub: com.samsung.android.ims.ISemEpdgListener asInterface(android.os.IBinder)>
+<com.samsung.android.ims.ISemEpdgListener$Stub: void <init>()>

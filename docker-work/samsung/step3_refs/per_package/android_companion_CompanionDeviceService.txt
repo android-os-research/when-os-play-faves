@@ -1,0 +1,7 @@
+# android.companion.CompanionDeviceService [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.companion.CompanionDeviceService: android.os.IBinder onBind(android.content.Intent)>
+<com.android.server.companion.CompanionDeviceServiceConnector: android.content.Intent buildIntent(android.content.ComponentName)>
+<com.android.server.companion.PackageUtils: void <clinit>()>

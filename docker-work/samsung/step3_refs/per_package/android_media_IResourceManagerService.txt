@@ -1,0 +1,23 @@
+# android.media.IResourceManagerService [NEW]
+# Refs: 19
+# JARs: framework
+
+<android.media.IResourceManagerService$Stub$Proxy: boolean reclaimResource(int,android.media.MediaResourceParcel[])>
+<android.media.IResourceManagerService$Stub$Proxy: com.samsung.android.media.IResourceManagerObserver createResourceObserver(com.samsung.android.media.IResourceManagerObserverClient)>
+<android.media.IResourceManagerService$Stub$Proxy: float getRemainedFrameRateFor(java.lang.String,int,int)>
+<android.media.IResourceManagerService$Stub$Proxy: float getSupportedFrameRateFor(java.lang.String,int,int)>
+<android.media.IResourceManagerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IResourceManagerService$Stub$Proxy: void addMediaInfo(int,int,long,android.media.IResourceManagerClient,com.samsung.android.media.MediaInfoParcel[])>
+<android.media.IResourceManagerService$Stub$Proxy: void addResource(int,int,long,android.media.IResourceManagerClient,android.media.MediaResourceParcel[])>
+<android.media.IResourceManagerService$Stub$Proxy: void config(android.media.MediaResourcePolicyParcel[])>
+<android.media.IResourceManagerService$Stub$Proxy: void markClientForPendingRemoval(int,long)>
+<android.media.IResourceManagerService$Stub$Proxy: void overridePid(int,int)>
+<android.media.IResourceManagerService$Stub$Proxy: void overrideProcessInfo(android.media.IResourceManagerClient,int,int,int)>
+<android.media.IResourceManagerService$Stub$Proxy: void reclaimResourcesFromClientsPendingRemoval(int)>
+<android.media.IResourceManagerService$Stub$Proxy: void removeClient(int,long)>
+<android.media.IResourceManagerService$Stub$Proxy: void removeResource(int,long,android.media.MediaResourceParcel[])>
+<android.media.IResourceManagerService$Stub$Proxy: void sendCapacityError(int,int,long,android.media.IResourceManagerClient,com.samsung.android.media.MediaInfoParcel[])>
+<android.media.IResourceManagerService$Stub$Proxy: void setCodecState(int,int,long,android.media.IResourceManagerClient,int)>
+<android.media.IResourceManagerService$Stub: android.media.IResourceManagerService asInterface(android.os.IBinder)>
+<android.media.IResourceManagerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IResourceManagerService$Stub: void <init>()>

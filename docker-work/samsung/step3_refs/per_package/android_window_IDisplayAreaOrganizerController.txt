@@ -1,0 +1,12 @@
+# android.window.IDisplayAreaOrganizerController [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.window.IDisplayAreaOrganizerController$Stub$Proxy: android.content.pm.ParceledListSlice registerOrganizer(android.window.IDisplayAreaOrganizer,int)>
+<android.window.IDisplayAreaOrganizerController$Stub$Proxy: android.window.DisplayAreaAppearedInfo createTaskDisplayArea(android.window.IDisplayAreaOrganizer,int,int,java.lang.String)>
+<android.window.IDisplayAreaOrganizerController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.IDisplayAreaOrganizerController$Stub$Proxy: void deleteTaskDisplayArea(android.window.WindowContainerToken)>
+<android.window.IDisplayAreaOrganizerController$Stub$Proxy: void unregisterOrganizer(android.window.IDisplayAreaOrganizer)>
+<android.window.IDisplayAreaOrganizerController$Stub: android.window.IDisplayAreaOrganizerController asInterface(android.os.IBinder)>
+<android.window.IDisplayAreaOrganizerController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.IDisplayAreaOrganizerController$Stub: void <init>()>

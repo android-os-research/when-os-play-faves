@@ -1,0 +1,9 @@
+# android.net.vcn.IVcnUnderlyingNetworkPolicyListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.net.vcn.IVcnUnderlyingNetworkPolicyListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.vcn.IVcnUnderlyingNetworkPolicyListener$Stub$Proxy: void onPolicyChanged()>
+<android.net.vcn.IVcnUnderlyingNetworkPolicyListener$Stub: android.net.vcn.IVcnUnderlyingNetworkPolicyListener asInterface(android.os.IBinder)>
+<android.net.vcn.IVcnUnderlyingNetworkPolicyListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.vcn.IVcnUnderlyingNetworkPolicyListener$Stub: void <init>()>

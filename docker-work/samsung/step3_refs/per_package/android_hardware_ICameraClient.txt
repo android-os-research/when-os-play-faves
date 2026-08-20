@@ -1,0 +1,8 @@
+# android.hardware.ICameraClient [NEW]
+# Refs: 4
+# JARs: framework
+
+<android.hardware.ICameraClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.ICameraClient$Stub: android.hardware.ICameraClient asInterface(android.os.IBinder)>
+<android.hardware.ICameraClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.ICameraClient$Stub: void <init>()>

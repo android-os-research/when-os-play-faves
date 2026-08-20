@@ -1,0 +1,6 @@
+# sys.boot.errp [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.BootReceiver: int waitUntileRRpDone(int)>
+<com.android.server.BootReceiver: void logBootEvents(android.content.Context)>

@@ -1,0 +1,13 @@
+# com.android.server.telecom [NEW]
+# Refs: 11
+# JARs: framework, services
+
+<com.android.server.DualAppManagerService: void <clinit>()>
+<com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+<com.android.server.audio.MediaFocusControl: int requestAudioFocus(android.media.AudioAttributes,int,android.os.IBinder,android.media.IAudioFocusDispatcher,java.lang.String,java.lang.String,java.lang.String,int,int,boolean,int)>
+<com.android.server.telecom.TelecomLoaderService: void <clinit>()>
+<com.android.server.vibrator.VibratorManagerService: boolean ignoreCancellingCurrentRingVibration(com.android.server.vibrator.VibrationStepConductor)>
+<com.android.server.vibrator.VibratorManagerService: void reportVibrationInfo(android.os.ExternalVibration)>
+<com.android.server.wm.PersonaActivityHelper: boolean canShowWhenLocked(com.android.server.wm.ActivityRecord)>
+<com.samsung.android.server.audio.ScreenSharingHelper: void checkAndSetSplitSound(boolean,android.media.AudioAttributes,java.lang.String)>
+<com.samsung.android.telecom.SamsungTelecomServiceConnection: void <clinit>()>

@@ -1,0 +1,390 @@
+######################################################################
+# Propagation: com.samsung.android.forest
+######################################################################
+
+JARs:                 framework, services
+Classes:              4
+Occurrences:          5
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.SuspendedAppActivity
+  Method:   <com.android.internal.app.SuspendedAppActivity: boolean isDigitalWellbingPackage(java.lang.String)>
+  Line:     416
+  Register: v0 := "com.samsung.android.forest"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [other] return v0
+
+  CALLERS (who invokes this method):
+      ← SuspendedAppActivity.createSuspendedAppInterceptIntent()
+      ← SuspendedAppActivity.getMoreDetailsActivity()
+      ← SuspendedAppActivity.onCreate()
+        ← AppWidgetServiceImpl.maskWidgetsViewsLocked()
+        ← ActivityStartInterceptor.interceptSuspendedPackageIfNeeded()
+          ← AppWidgetServiceImpl.onWidgetProviderAddedOrChangedLocked()
+          ← AppWidgetServiceImpl.reloadWidgetsMaskedState()
+          ← AppWidgetServiceImpl.updateWidgetPackageSuspensionMaskedState()
+          ← ActivityStartInterceptor.intercept()
+            ← AppWidgetServiceImpl.bindAppWidgetId()
+            ← AppWidgetServiceImpl.addWidgetLocked()
+            ← <com.android.server.appwidget.AppWidgetServiceImpl: void -$$
+            ← AppWidgetServiceImpl.reloadWidgetsMaskedStateForGroup()
+            ← <com.android.server.appwidget.AppWidgetServiceImpl: void -$$
+            ← ActivityStarter.executeRequest()
+              ← AppWidgetServiceImpl$BackupRestoreController.restoreWidgetState()
+              ← AppWidgetServiceImpl.allocateAppWidgetIdWhileBindingLocked()
+              ← AppWidgetServiceImpl.allocateAppWidgetId()
+              ← AppWidgetServiceImpl.bindLoadedWidgetsLocked()
+              ← AppWidgetServiceImpl$1.onReceive()
+              ← AppWidgetServiceImpl$2.onContainerAdminLocked()
+              ← AppWidgetServiceImpl$2.onContainerAdminUnlocked()
+              ← AppWidgetService.onUserSwitching()
+              ← AppWidgetServiceImpl.handleUserUnlocked()
+              ← ActivityStarter.execute()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$2
+  Method:   <com.android.server.pm.PersonaServiceHelper$2: void <init>()>
+  Line:     48
+  Register: v2 := "com.samsung.android.forest"
+  Usage:    [invoke] invoke-virtual {p0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.SuspendPackageHelper
+  Method:   <com.android.server.pm.SuspendPackageHelper: java.lang.String[] setPackagesSuspended(com.android.server.pm.Computer,java.lang.String[],boolean,android.os.PersistableBundle,android.os.PersistableBundle,android.content.pm.SuspendDialogInfo,java.lang.String,int,int)>
+  Line:     2688
+  Register: v0 := "com.samsung.android.forest"
+  Usage:    [invoke] invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_1bf → [other] move-result v0 → [
+
+  CALLERS (who invokes this method):
+      ← PackageManagerService$IPackageManagerImpl.setPackagesSuspendedAsUser()
+
+  CALLEES (what this method invokes):
+      → UserHandle.getUid()
+      → ArraySet.add()
+      → ArraySet.isEmpty()
+      → ArraySet.toArray()
+      → <android.util.ArraySet: void <init>(int)>
+      → IntArray.toArray()
+      → <android.util.IntArray: void <init>(int)>
+      → IntArray.add()
+      → ArrayUtils.isEmpty()
+      → CollectionUtils.size()
+      → Computer.shouldFilterApplication()
+      → Computer.getPackageStateInternal()
+      → PackageManagerService.snapshotComputer()
+      → PackageManagerService.commitPackageStateMutation()
+      → PackageManagerService.scheduleWritePackageRestrictions()
+      → <com.android.server.pm.SuspendPackageHelper$$ExternalSynthet
+      → SuspendPackageHelper.isSuspendAllowedForUser()
+      → SuspendPackageHelper.canSuspendPackageForUser()
+      → SuspendPackageHelper.sendMyPackageSuspendedOrUnsuspended()
+      → SuspendPackageHelper.sendPackagesSuspendedForUser()
+      → PackageState.getAppId()
+      → PackageStateInternal.getUserStateOrDefault()
+      → PackageUserStateInternal.getSuspendParams()
+      → <com.android.server.pm.pkg.SuspendParams: void <init>(androi
+      → WatchedArrayMap.containsKey()
+      → WatchedArrayMap.get()
+      → <java.util.ArrayList: void <init>(int)>
+      → List.add()
+      → List.isEmpty()
+      → List.toArray()
+      → Objects.equals()
+        → ArraySet.indexOf()
+        → ArraySet.indexOfNull()
+        → ArraySet.allocArrays()
+        → ArraySet.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → Array.newInstance()
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → ArrayUtils.newUnpaddedIntArray()
+        → IntArray.add()
+        → Map.size()
+        → Computer.use()
+        → Computer.getVersion()
+        → PackageManagerService.rebuildSnapshot()
+        → Thread.holdsLock()
+        → AtomicInteger.get()
+        → AtomicReference.get()
+        → AtomicReference.set()
+        → ChangedPackagesTracker.getSequenceNumber()
+        → PackageManagerService.onChanged()
+        → PackageStateMutator.generateResult()
+        → Consumer.accept()
+        → Handler.hasMessages()
+        → Handler.sendEmptyMessageDelayed()
+        → PackageManagerService.invalidatePackageInfoCache()
+        → UserManagerService.exists()
+        → UserManagerService.getUserIds()
+        → PackageManagerServiceInjector.getUserManagerService()
+        → SuspendPackageHelper.isCallerDeviceOrProfileOwner()
+        → UserManagerService.hasUserRestriction()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → Computer.getBlockUninstall()
+        → DefaultAppProvider.getDefaultDialer()
+        → DefaultAppProvider.getDefaultHome()
+        → PackageManagerService.isPackageDeviceAdmin()
+        → PackageManagerServiceInjector.getDefaultAppProvider()
+        → ProtectedPackages.isPackageStateProtected()
+        → SuspendPackageHelper.getKnownPackageName()
+        → PackageStateInternal.getPkg()
+        → ParsingPackageRead.getSdkLibName()
+        → ParsingPackageRead.getStaticSharedLibName()
+        → PkgWithoutStateAppInfo.isSdkLibrary()
+        → PkgWithoutStateAppInfo.isStaticSharedLibrary()
+        → Handler.post()
+        → PackageManagerServiceInjector.getHandler()
+        → <com.android.server.pm.SuspendPackageHelper$$ExternalSynthet
+        → <android.os.Bundle: void <init>(int)>
+        → Bundle.putIntArray()
+        → Bundle.putStringArray()
+        → IntArray.wrap()
+        → SparseArray.size()
+        → SparseArray.get()
+        → <android.util.SparseArray: void <init>(int)>
+        → AppsFilterBase.getVisibilityAllowList()
+        → Computer.getPackageStates()
+        → Computer.getPackageStateInternal()
+        → PackageManagerServiceInjector.getAppsFilter()
+        → <com.android.server.pm.SuspendPackageHelper$$ExternalSynthet
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → List.size()
+        → List.get()
+        → PackageStateInternal.getUserStates()
+        → ArrayMap.containsKey()
+        → ArrayMap.get()
+          → ArraySet.binarySearch()
+          → IntArray.ensureCapacity()
+          → ArrayUtils.checkBounds()
+          → SystemClock.currentTimeMicro()
+          → Computer.getUsed()
+          → <com.android.server.pm.ComputerEngine: void <init>(com.andro
+          → <com.android.server.pm.PackageManagerService$Snapshot: void 
+          → SnapshotStatistics.rebuild()
+          → PackageManagerService.onChange()
+          → <com.android.server.pm.pkg.mutate.PackageStateMutator$Initia
+          → <com.android.server.pm.pkg.mutate.PackageStateMutator$Initia
+          → AtomicLong.get()
+          → PackageManager.invalidatePackageInfoCache()
+          → UserManagerService$LocalService.exists()
+          → PackageManagerServiceInjector$Singleton.get()
+          → Computer.getPackageUidInternal()
+          → ProtectedPackages.getDeviceOwnerOrProfileOwnerPackage()
+          → UserManagerService$LocalService.hasUserRestriction()
+          → UserManagerService.checkManageOrInteractPermissionIfCallerInOtherProfileGroup()
+          → DefaultAppProvider.getRoleHolder()
+          → UserManagerInternal.getProfileParentId()
+          → Supplier.get()
+          → IDevicePolicyManager.getDeviceOwnerComponent()
+          → IDevicePolicyManager.packageHasActiveAdmins()
+          → ComponentName.getPackageName()
+          → PackageManagerService.getDevicePolicyManager()
+          → ProtectedPackages.hasDeviceOwnerOrProfileOwner()
+          → ProtectedPackages.isProtectedPackage()
+          → PackageManagerService.getKnownPackageNamesInternal()
+          → <android.util.IntArray: void <init>(int[],int)>
+          → SparseArray.gc()
+          → SparseArray.get()
+          → ArrayUtils.newUnpaddedObjectArray()
+          → ArrayMap.size()
+          → ArrayMap.valueAt()
+          → SparseArray.put()
+          → AppsFilterBase.isForceQueryable()
+          → AppsFilterBase.shouldFilterApplication()
+          → ArrayMap.indexOfKey()
+            → ContainerHelpers.binarySearch()
+            → <com.android.server.pm.ComputerEngine$Settings: void <init>(
+            → PackageManagerService.getDefaultAppProvider()
+            → PackageManagerService.getDexManager()
+            → ComponentName.clone()
+            → <android.content.pm.ActivityInfo: void <init>(android.conten
+            → <android.content.pm.ApplicationInfo: void <init>(android.con
+            → <android.content.pm.ResolveInfo: void <init>(android.content
+            → AppsFilterImpl.snapshot()
+            → InstantAppRegistry.snapshot()
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → Settings.snapshot()
+            → SharedLibrariesImpl.snapshot()
+            → ComponentResolver.snapshot()
+            → SnapshotCache.snapshot()
+            → WatchedSparseBooleanArray.snapshot()
+            → <java.lang.IllegalArgumentException: void <init>()>
+            → EventLogTags.writePmSnapshotRebuild()
+            → SnapshotStatistics$BinMap.getBin()
+            → <com.android.server.pm.SnapshotStatistics$Stats: void -$$Nes
+            → AtomicInteger.incrementAndGet()
+            → <com.android.server.pm.UserManagerService: android.content.p
+            → PackageManagerServiceInjector$Producer.produce()
+            → Bundle.getBoolean()
+            → <com.android.server.pm.UserManagerService: android.os.Bundle
+            → UserRestrictionsUtils.isValidRestriction()
+            → Binder.getCallingUid() [UID_CHECK]
+            → UserHandle.getCallingUserId()
+            → UserManagerService.hasManageUsersPermission()
+            → UserManagerService.hasPermissionGranted()
+            → UserManagerService.isSameProfileGroupNoChecks()
+            → <java.lang.SecurityException: void <init>(java.lang.String)>
+            → RoleManager.getRoleHoldersAsUser()
+            → UserHandle.of()
+            → CollectionUtils.firstOrNull()
+            → IDevicePolicyManager$Stub.asInterface()
+            → ServiceManager.getService()
+            → ProtectedPackages.isOwnerProtectedPackage()
+            → KnownPackages.getKnownPackageNames()
+            → <com.android.server.pm.KnownPackages: void <init>(com.androi
+            → Preconditions.checkArgumentInRange()
+            → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → WatchedArraySet.contains()
+            → Process.isSdkSandboxUid()
+            → UserHandle.getAppId()
+            → AppsFilterBase.isImplicitlyQueryable()
+            → AppsFilterBase.shouldFilterApplicationInternal()
+            → AppsFilterBase.shouldFilterApplicationUsingCache()
+            → AppsFilterBase.log()
+            → FeatureConfig.isLoggingEnabled()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+              → <com.android.server.utils.SnapshotCache$Statistics: java.uti
+              → <com.android.server.utils.SnapshotCache$Statistics: java.uti
+              → SnapshotCache.createSnapshot()
+              → WatchableImpl.seal()
+              → <com.android.server.utils.WatchedSparseBooleanArray: void <i
+              → EventLog.writeEvent()
+              → SnapshotStatistics$Stats.rebuild()
+              → UserManagerService.getUserInfoNoChecks()
+              → UserManagerService.getEffectiveUserRestrictions()
+              → AppGlobals.getPackageManager()
+              → IPackageManager.getPackagesForUid()
+              → UserRestrictionsUtils.isSystemApp()
+              → Set.contains()
+              → UserManagerService.hasManageUsersPermission()
+              → ActivityManager.checkComponentPermission()
+              → UserManagerService.getUserInfoLU()
+              → CollectionUtils.isEmpty()
+              → <android.app.admin.IDevicePolicyManager$Stub$Proxy: void <in
+              → IBinder.queryLocalInterface()
+              → ProtectedPackages.isPackageProtectedForUser()
+              → TextUtils.isEmpty()
+              → ArrayUtils.emptyArray()
+              → Computer.filterOnlySystemPackages()
+              → DefaultAppProvider.getDefaultBrowser()
+              → ArraySet.contains()
+              → WatchedSparseSetArray.contains()
+              → ArraySet.size()
+              → ArraySet.valueAt()
+              → <android.util.ArraySet: void <init>()>
+              → ArraySet.addAll()
+              → OverlayReferenceMapper.isValidActor()
+              → AppsFilterBase.getSharedUserPackages()
+              → AppsFilterBase.isQueryableViaComponent()
+              → AppsFilterBase.isQueryableViaComponentWhenRequireRecompute()
+              → AppsFilterBase.isQueryableViaPackage()
+              → AppsFilterBase.isQueryableViaUsesLibrary()
+              → AppsFilterBase.isRetainedImplicitlyQueryable()
+              → AppsFilterUtils.requestsQueryAllPackages()
+              → FeatureConfig.isGloballyEnabled()
+              → FeatureConfig.packageIsEnabled()
+              → PackageManagerSamsungUtils.installedOnSdcardAsUser()
+              → SharedUserSetting.getPackageStates()
+              → PackageState.hasSharedUser()
+              → PackageState.getSharedUserAppId()
+              → PackageState.getPackageName()
+              → PkgWithoutStatePackageInfo.getPackageName()
+              → PackageDataSnapshot.getPackageStates()
+              → PackageDataSnapshot.getAllSharedUsers()
+              → AtomicBoolean.get()
+              → WatchedSparseBooleanMatrix.valueAt()
+              → WatchedSparseBooleanMatrix.indexOfKey()
+              → ArrayMap.binarySearchHashes()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void endFocusMode()>
+  Line:     9496
+  Register: v2 := "com.samsung.android.forest"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] const-string/jumbo v2, "mode_id" → [invoke] android.content.Inten
+
+  CALLERS (who invokes this method):
+      ← ApplicationPolicy.setConcentrationMode()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → ApplicationPolicy.getFocusModeStatus()
+        → ContentResolver.query()
+        → Context.getContentResolver()
+        → Cursor.moveToNext()
+        → Cursor.getColumnIndex()
+        → Cursor.getString()
+        → Cursor.close()
+        → Uri.parse()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+            → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+              → <java.lang.NullPointerException: void <init>(java.lang.Strin
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void sendBroadcastToDigitalWellBeing(boolean)>
+  Line:     39193
+  Register: p1 := "com.samsung.android.forest"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] p1 overwritten
+
+  CALLERS (who invokes this method):
+      ← ApplicationPolicy.setConcentrationMode()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+

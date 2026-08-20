@@ -1,0 +1,10 @@
+# com.samsung.android.knox.profile.IProfilePolicy [NEW]
+# Refs: 6
+# JARs: knoxsdk
+
+<com.samsung.android.knox.profile.IProfilePolicy$Stub$Proxy: boolean getRestrictionPolicy(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.profile.IProfilePolicy$Stub$Proxy: boolean setRestrictionPolicy(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+<com.samsung.android.knox.profile.IProfilePolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.profile.IProfilePolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.profile.IProfilePolicy$Stub: com.samsung.android.knox.profile.IProfilePolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.profile.IProfilePolicy$Stub: void <init>()>

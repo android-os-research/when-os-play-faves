@@ -1,0 +1,6 @@
+# android.sensor.proximity [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.display.DisplayModeDirector$SensorObserver: void <init>(android.content.Context,com.android.server.display.DisplayModeDirector$BallotBox,com.android.server.display.DisplayModeDirector$Injector)>
+<com.android.server.display.DisplayModeDirector$SensorObserver: void recalculateVotesLocked()>

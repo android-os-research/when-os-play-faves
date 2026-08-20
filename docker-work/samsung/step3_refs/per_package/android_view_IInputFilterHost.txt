@@ -1,0 +1,9 @@
+# android.view.IInputFilterHost [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.IInputFilterHost$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IInputFilterHost$Stub$Proxy: void sendInputEvent(android.view.InputEvent,int)>
+<android.view.IInputFilterHost$Stub: android.view.IInputFilterHost asInterface(android.os.IBinder)>
+<android.view.IInputFilterHost$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IInputFilterHost$Stub: void <init>()>

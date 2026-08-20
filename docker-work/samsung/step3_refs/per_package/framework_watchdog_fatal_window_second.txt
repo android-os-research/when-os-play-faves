@@ -1,0 +1,6 @@
+# framework_watchdog.fatal_window.second [NEW]
+# Refs: 2
+# JARs: services
+
+<android.sysprop.WatchdogProperties: java.util.Optional fatal_window_seconds()>
+<com.android.server.Watchdog: boolean isCrashLoopFound()>

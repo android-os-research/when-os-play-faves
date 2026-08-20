@@ -1,0 +1,8 @@
+# com.samsung.android.bio.face.permission.MANAGE_FACE [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.biometrics.sensors.face.FaceService$FaceServiceWrapper: boolean semIsEnrollSession()>
+<com.android.server.biometrics.sensors.face.FaceService$FaceServiceWrapper: void semSessionClose()>
+<com.android.server.biometrics.sensors.face.FaceService$FaceServiceWrapper: void semSessionOpen()>
+<com.android.server.biometrics.sensors.face.FaceService: android.util.Pair checkManagePermissionAndGetSingleProvider()>

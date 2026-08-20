@@ -1,0 +1,18 @@
+# com.samsung.android.knox.multiuser.IMultiUserManager [NEW]
+# Refs: 14
+# JARs: knoxsdk
+
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub$Proxy: boolean allowUserCreation(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub$Proxy: boolean allowUserRemoval(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub$Proxy: boolean isUserCreationAllowed(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub$Proxy: boolean isUserRemovalAllowed(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub$Proxy: boolean multipleUsersSupported(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub$Proxy: boolean removeUser(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub$Proxy: int allowMultipleUsers(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub$Proxy: int createUser(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub$Proxy: int multipleUsersAllowed(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub$Proxy: int[] getUsers(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub: com.samsung.android.knox.multiuser.IMultiUserManager asInterface(android.os.IBinder)>
+<com.samsung.android.knox.multiuser.IMultiUserManager$Stub: void <init>()>

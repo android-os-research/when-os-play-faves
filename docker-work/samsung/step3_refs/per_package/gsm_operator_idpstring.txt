@@ -1,0 +1,8 @@
+# gsm.operator.idpstring [NEW]
+# Refs: 4
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional operator_idp_string()>
+<android.internal.telephony.sysprop.TelephonyProperties: void operator_idp_string(java.lang.String)>
+<android.sysprop.TelephonyProperties: java.util.Optional operator_idp_string()>
+<android.sysprop.TelephonyProperties: void operator_idp_string(java.lang.String)>

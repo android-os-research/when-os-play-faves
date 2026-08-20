@@ -1,0 +1,5 @@
+# sys.config.phone_start_early [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.am.ActivityManagerService: void systemReady(java.lang.Runnable,com.android.server.utils.TimingsTraceAndSlog)>

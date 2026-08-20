@@ -1,0 +1,583 @@
+######################################################################
+# Propagation: com.samsung.android.knox.kpecore
+######################################################################
+
+JARs:                 knoxsdk, services
+Classes:              7
+Occurrences:          14
+Usage types:          array_init, invoke
+Enforcement patterns: allowlist_check, early_return, string_compare, system_property_read
+Security tags:        PERM_CHECK, PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EnterpriseDeviceManager
+  Method:   <com.samsung.android.knox.EnterpriseDeviceManager: com.samsung.android.knox.EnterpriseDeviceManager getInstance(android.content.Context,int)>
+  Line:     4264
+  Register: v1 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] new-instance v1, Lcom/samsung/android/knox/EnterpriseDeviceM → [invoke] com
+
+  CALLEES (what this method invokes):
+      → Context.getPackageName()
+      → Process.myPid()
+      → Process.myTid()
+      → Process.myUid()
+      → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+      → KnoxsdkFileLog.d()
+      → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → <com.samsung.android.knox.ContextInfo: void <init>(int,boole
+        → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+        → KnoxsdkFileLog.fileLog()
+        → SemLog.d()
+          → UserHandle.getUserId()
+          → SemPersonaManager.isKnoxId()
+          → Context.getSystemService()
+          → Binder.getCallingUid() [UID_CHECK]
+          → ContextInfo$$ExternalSyntheticOutline0.m()
+          → <com.samsung.android.knox.ContextInfo: void <init>(int,int,b
+          → KnoxsdkFileLog.d()
+          → <java.lang.Exception: void <init>(java.lang.String)>
+          → <java.util.HashMap: void <init>()>
+          → Logger.log()
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+            → KnoxsdkFileLog.fileLog()
+            → SemLog.d()
+              → SystemProperties.get()
+              → SemDualAppManager.isDualAppId()
+              → Logger.log()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EnterpriseDeviceManager
+  Method:   <com.samsung.android.knox.EnterpriseDeviceManager: com.samsung.android.knox.EnterpriseDeviceManager getParentInstance(android.content.Context,int)>
+  Line:     4425
+  Register: v1 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] new-instance v1, Lcom/samsung/android/knox/EnterpriseDeviceM → [invoke] com
+
+  CALLEES (what this method invokes):
+      → Context.getPackageName()
+      → AccessController.enforceWpcod()
+      → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+      → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → Process.myUid()
+        → RemoteException.printStackTrace()
+        → AccessController.getService()
+        → IEnterpriseDeviceManager.enforceWpcod()
+        → <com.samsung.android.knox.ContextInfo: void <init>(int,boole
+        → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+          → ServiceManager.getService()
+          → IEnterpriseDeviceManager$Stub.asInterface()
+          → UserHandle.getUserId()
+          → SemPersonaManager.isKnoxId()
+          → Context.getSystemService()
+          → Binder.getCallingUid() [UID_CHECK]
+          → Process.myPid()
+          → Process.myTid()
+          → ContextInfo$$ExternalSyntheticOutline0.m()
+          → <com.samsung.android.knox.ContextInfo: void <init>(int,int,b
+          → KnoxsdkFileLog.d()
+          → <java.lang.Exception: void <init>(java.lang.String)>
+          → <java.util.HashMap: void <init>()>
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+            → KnoxsdkFileLog.fileLog()
+            → SemLog.d()
+              → SystemProperties.get()
+              → SemDualAppManager.isDualAppId()
+              → Logger.log()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$2
+  Method:   <com.samsung.android.knox.EdmConstants$2: void <init>()>
+  Line:     62
+  Register: v0 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.appconfig.ApplicationRestrictionsManager
+  Method:   <com.samsung.android.knox.appconfig.ApplicationRestrictionsManager: com.samsung.android.knox.appconfig.ApplicationRestrictionsManager getInstance(android.content.Context,int)>
+  Line:     692
+  Register: v2 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageName()
+      → <com.samsung.android.knox.appconfig.ApplicationRestrictionsM
+      → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → Process.myUid()
+        → <com.samsung.android.knox.ContextInfo: void <init>(int,boole
+        → <com.samsung.android.knox.appconfig.ApplicationRestrictionsM
+          → UserHandle.getUserId()
+          → SemPersonaManager.isKnoxId()
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+              → SystemProperties.get()
+              → SemDualAppManager.isDualAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.appconfig.ApplicationRestrictionsManager
+  Method:   <com.samsung.android.knox.appconfig.ApplicationRestrictionsManager: android.os.Bundle setApplicationRestrictions(java.lang.String,java.lang.String,android.os.Bundle,int)>
+  Line:     2952
+  Register: v1 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] iget-object v1, p0, Lcom/samsung/android/knox/appconfig/Appl
+
+  CALLEES (what this method invokes):
+      → Context.getPackageName()
+      → <android.os.Bundle: void <init>()>
+      → RemoteException.rethrowFromSystemServer()
+      → EdmUtils.getAPILevelForInternal()
+      → ApplicationRestrictionsManager.getService()
+      → IKnoxCustomManager.setApplicationRestrictionsInternal()
+        → <android.os.DeadSystemRuntimeException: void <init>()>
+        → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+        → ServiceManager.getService()
+        → IKnoxCustomManager$Stub.asInterface()
+          → <android.os.DeadSystemException: void <init>()>
+          → IBinder.queryLocalInterface()
+          → <com.samsung.android.knox.custom.IKnoxCustomManager$Stub$Pro
+            → <android.os.DeadObjectException: void <init>()>
+              → <android.os.RemoteException: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.custom.CustomDeviceManager
+  Method:   <com.samsung.android.knox.custom.CustomDeviceManager: com.samsung.android.knox.custom.CustomDeviceManager getInstance(android.content.Context,int)>
+  Line:     1276
+  Register: v1 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] sget-object v1, Landroid/os/UserHandle;->SYSTEM:Landroid/os/ → [invoke] and
+
+  CALLEES (what this method invokes):
+      → Context.getPackageName()
+      → Process.myUserHandle()
+      → Process.myUid()
+      → UserHandle.equals()
+      → <com.samsung.android.knox.ContextInfo: void <init>(int,boole
+      → <com.samsung.android.knox.custom.CustomDeviceManager: void <
+      → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → UserHandle.getUserId()
+        → SemPersonaManager.isKnoxId()
+          → SemPersonaManager.checkContainerType()
+          → SemPersonaManager.isDualAppId()
+            → SystemProperties.get()
+            → SemDualAppManager.isDualAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     252
+  Register: v0 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: android.os.ParcelFileDescriptor getTcpDump()>
+  Line:     38398
+  Register: v1 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-eqz v1, :cond_60 → [other] iget-object v1, p0,
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.checkSignatures() [SIG_CHECK]
+      → PackageManager.getNameForUid()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → ParcelFileDescriptor.open()
+      → KnoxCustomManagerService.getLatestFileFromDir()
+      → Exception.toString()
+      → Exception.printStackTrace()
+        → ParcelFileDescriptor.openInternal()
+        → <android.os.ParcelFileDescriptor: void <init>(java.io.FileDe
+        → File.listFiles()
+        → File.lastModified()
+        → <java.io.File: void <init>(java.lang.String)>
+          → FileUtils.translateModePfdToPosix()
+          → ParcelFileDescriptor.ifAtLeastQ()
+          → ErrnoException.getMessage()
+          → Os.open()
+          → File.getPath()
+          → <java.io.FileNotFoundException: void <init>(java.lang.String
+          → <android.os.ParcelFileDescriptor: void <init>(java.io.FileDe
+            → ParcelFileDescriptor.isAtLeastQ()
+            → CloseGuard.get()
+            → CloseGuard.open()
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+            → IoUtils.setFdOwner()
+              → VMRuntime.getRuntime()
+              → VMRuntime.getTargetSdkVersion()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: android.os.Bundle setApplicationRestrictionsInternal(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String,android.os.Bundle,int)>
+  Line:     43977
+  Register: v0 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p1 → [branch] if-eqz p1, :cond_128
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingPid() [UID_CHECK]
+      → Bundle.toString()
+      → Bundle.keySet()
+      → <android.os.Bundle: void <init>()>
+      → Bundle.remove()
+      → LocalServices.getService()
+      → KnoxAnalytics.log()
+      → <com.samsung.android.knox.analytics.KnoxAnalyticsData: void 
+      → KnoxAnalyticsData.setProperty()
+      → ApplicationRestrictionsValidator.validate()
+      → KnoxCustomManagerService.migrateKeys()
+      → KnoxCustomManagerService.getProcessName()
+      → KnoxCustomManagerService.setHardKeyConfiguration()
+      → KnoxsdkFileLog.d()
+      → ApplicationRestrictionsInternal.setApplicationRestrictionsInternal()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.contains()
+      → Map.containsKey()
+      → Set.iterator()
+        → ArrayMap.get()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → IKnoxAnalyticsService.log()
+        → KnoxAnalytics.getService()
+        → KnoxAnalyticsData.toString()
+        → KnoxAnalyticsData.generateTimestamp()
+        → Bundle.putString()
+        → Context.getContentResolver()
+        → Bundle.getBundle()
+        → Bundle.containsKey()
+        → Bundle.isEmpty()
+        → Bundle.getString()
+        → Bundle.putInt()
+        → Settings$System.putInt()
+        → ApplicationRestrictionsValidator.checkKeyType()
+        → ApplicationRestrictionsValidator.checkWPCODMode()
+        → ApplicationRestrictionsValidator.hasSystemVibrationMenu()
+        → ApplicationRestrictionsValidator.supportAutoBrightness()
+        → ApplicationRestrictionsValidator.supportPocketMode()
+        → ApplicationRestrictionsValidator.checkPermission() [PERM_CHECK]
+        → ApplicationRestrictionsValidator.checkVersion()
+        → ApplicationRestrictionsValidator.getCallerPackage()
+        → KnoxsdkFileLog.e()
+        → Map.get()
+        → Bundle.putBundle()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → KnoxCustomManagerService$Injector.binderWithCleanCallingIdentity()
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → Intent.setComponent()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → KnoxCustomManagerService.clearKeyCustomizationInfoByAction()
+        → KnoxCustomManagerService.putKeyCustomizationInfo()
+        → KnoxCustomManagerService.removeKeyCustomizationInfo()
+        → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+        → List.iterator()
+        → KnoxsdkFileLog.fileLog()
+        → SemLog.d()
+          → ArrayMap.indexOfKey()
+          → ServiceManager.getService()
+          → IKnoxAnalyticsService$Stub.asInterface()
+          → Calendar.getInstance()
+          → Calendar.getTimeInMillis()
+          → TimeZone.getTimeZone()
+          → DevicePolicyManager.isOrganizationOwnedDeviceWithManagedProfile()
+          → Context.getSystemService()
+          → ApplicationRestrictionsValidator.hasVibrator()
+          → ApplicationRestrictionsValidator.isEnableIntensity()
+          → ApplicationRestrictionsValidator.isSupportDcHaptic()
+          → ApplicationRestrictionsValidator.supportCameraSensor()
+          → ApplicationRestrictionsValidator.supportLightSensor()
+          → SemMotionRecognitionManager.isAvailable()
+          → Context.getPackageManager()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → KeyInfo$KEY.getPermission()
+          → EnterpriseDeviceManager.getAPILevelForInternal()
+          → KeyInfo$KEY.getVersion()
+          → Context.getPackageName()
+          → SemLog.e()
+          → Binder.withCleanCallingIdentity()
+          → IWindowManager.clearKeyCustomizationInfoByAction()
+          → IWindowManager.putKeyCustomizationInfo()
+          → IWindowManager.removeKeyCustomizationInfo()
+          → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+          → Logger.log()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.analytics.IKnoxAnalyticsService$St
+            → Vibrator.hasVibrator()
+            → Vibrator.semGetSupportedVibrationType()
+            → SensorManager.getDefaultSensor()
+            → Sensor.getType()
+            → SensorManager.getSensorList()
+            → List.size()
+            → List.get()
+            → IMotionRecognitionService.isAvailable()
+            → EdmUtils.getAPILevelForInternal()
+            → ExceptionUtils.propagate()
+            → FunctionalUtils$ThrowingSupplier.getOrThrow()
+              → ArrayMap.binarySearchHashes()
+              → Sensor.isWakeUpSensor()
+              → SensorManager.getFullSensorList()
+              → SparseArray.get()
+              → SparseArray.append()
+              → <java.util.ArrayList: void <init>()>
+              → Collections.unmodifiableList()
+              → List.add()
+              → ExceptionUtils.propagateIfInstanceOf()
+              → Preconditions.checkNotNull()
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: int setHardKeyIntentBroadcastInternal(java.lang.String,boolean,int,int,android.content.Intent,java.lang.String,boolean)>
+  Line:     47481
+  Register: v9 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] com.samsung.android.knox.custom.KnoxCustomManagerService.get → [reassigned] v8 overwritten
+
+  CALLERS (who invokes this method):
+      ← KnoxCustomManagerService.setHardKeyIntentBroadcast()
+      ← KnoxCustomManagerService.setHardKeyIntentBroadcastExternal()
+      ← KnoxCustomManagerService.setHardKeyIntentBroadcastInternal()
+
+  CALLEES (what this method invokes):
+      → Intent.putExtra()
+      → Intent.setFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → Bundle.isEmpty()
+      → UserHandle.getUserId()
+      → KnoxCustomManagerService.getApplicationRestrictionsInternal()
+      → KnoxCustomManagerService.enforceSystemPermission()
+      → KnoxCustomManagerService.getProcessName()
+      → KnoxCustomManagerService.putKeyCustomizationInfo()
+      → KnoxCustomManagerService.removeKeyCustomizationInfo()
+      → KnoxsdkFileLog.d()
+      → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+      → List.contains()
+        → <android.os.Bundle: void <init>()>
+        → LocalServices.getService()
+        → ApplicationRestrictionsInternal.getApplicationRestrictionsInternal()
+        → EnterpriseDeviceManager.enforceActiveAdminPermission()
+        → KnoxCustomManagerService.getEDM()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → KnoxCustomManagerService$Injector.binderWithCleanCallingIdentity()
+        → IWindowManager.putKeyCustomizationInfo()
+        → IWindowManager.removeKeyCustomizationInfo()
+        → KnoxsdkFileLog.fileLog()
+        → SemLog.d()
+        → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+          → ArrayMap.get()
+          → EnterpriseDeviceManager.getService()
+          → IEnterpriseDeviceManager.enforceActiveAdminPermission()
+          → KnoxCustomManagerService$Injector.getEDM()
+          → Binder.withCleanCallingIdentity()
+          → Logger.log()
+            → ArrayMap.indexOfKey()
+            → ServiceManager.getService()
+            → IEnterpriseDeviceManager$Stub.asInterface()
+            → EnterpriseDeviceManager.getInstance()
+            → ExceptionUtils.propagate()
+            → FunctionalUtils$ThrowingSupplier.getOrThrow()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+              → Process.myPid()
+              → Process.myTid()
+              → Process.myUid()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.w()
+              → ExceptionUtils.propagateIfInstanceOf()
+              → Preconditions.checkNotNull()
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: int startTcpDump(java.lang.String,int)>
+  Line:     59777
+  Register: v1 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-eqz v1, :cond_36 → [other] iget-object v1, p0,
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.checkSignatures() [SIG_CHECK]
+      → PackageManager.getNameForUid()
+      → Binder.getCallingUid() [UID_CHECK]
+      → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+      → KnoxCustomManagerService$Injector.binderWithCleanCallingIdentity()
+        → Binder.withCleanCallingIdentity()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → ExceptionUtils.propagate()
+          → FunctionalUtils$ThrowingSupplier.getOrThrow()
+            → ExceptionUtils.propagateIfInstanceOf()
+            → Preconditions.checkNotNull()
+            → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: int stopTcpDump()>
+  Line:     60126
+  Register: v1 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-eqz v1, :cond_36 → [other] iget-object v1, p0,
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.checkSignatures() [SIG_CHECK]
+      → PackageManager.getNameForUid()
+      → Binder.getCallingUid() [UID_CHECK]
+      → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+      → KnoxCustomManagerService$Injector.binderWithCleanCallingIdentity()
+        → Binder.withCleanCallingIdentity()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → ExceptionUtils.propagate()
+          → FunctionalUtils$ThrowingSupplier.getOrThrow()
+            → ExceptionUtils.propagateIfInstanceOf()
+            → Preconditions.checkNotNull()
+            → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+  Line:     320
+  Register: v3 := "com.samsung.android.knox.kpecore"
+  Usage:    [array_init] filled-new-array {v3, v4, v5}, [Ljava/lang/String;
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] java.util.List.add() → [other] new-instance v0, Landroid/os/ConditionVariable; → [invoke] android.os.ConditionV
+
+  CALLEES (what this method invokes):
+      → <android.os.ConditionVariable: void <init>()>
+      → Process.myPid()
+      → SystemProperties.get()
+      → EnterpriseDeviceManagerServiceImpl.isPackageInstalled()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → ActivityThread.getPackageManager()
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: boolean checkCallerIsKPECore(java.lang.String)>
+  Line:     2885
+  Register: v0 := "com.samsung.android.knox.kpecore"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_1f → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← EnterpriseDeviceManagerServiceImpl.hasDelegatedPermission()
+      ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+      ← EnterpriseDeviceManagerServiceImpl.enforceWpcod()
+        ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforceContainerOwnerShipPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforceDoPoOnlyPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyAndActiveAdminPermissionByContext()
+        ← EnterpriseDeviceManagerServiceImpl.enforcePermissionByContext() [PERM_CHECK]
+        ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermission()
+          ← EnterpriseDeviceManagerServiceImpl.activateDevicePermissions()
+          ← EnterpriseDeviceManagerServiceImpl.setAdminRemovable()
+          ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyAndActiveAdminPermission()
+          ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyPermissionByContext()
+          ← EnterpriseDeviceManagerServiceImpl.writeUmcEnrollmentData()
+          ← EnterpriseDeviceManagerServiceImpl.captureUmcLogs()
+          ← EnterpriseDeviceManagerServiceImpl.readUmcEnrollmentData()
+            ← EnterpriseDeviceManagerServiceImpl$MyPackageMonitor.onPackageUpdateFinished()
+            ← EnterpriseDeviceManagerServiceImpl$MyPackageMonitor.onSomePackagesChanged()
+            ← EnterpriseDeviceManagerServiceImpl.activateAdmin()
+            ← EnterpriseDeviceManagerServiceImpl.loadActiveAdmins()
+              ← EnterpriseDeviceManagerServiceImpl.setActiveAdmin()
+              ← EnterpriseDeviceManagerServiceImpl.setActiveAdminSilent()
+              ← EnterpriseDeviceManagerServiceImpl.systemReady()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.checkPermission() [PERM_CHECK]
+

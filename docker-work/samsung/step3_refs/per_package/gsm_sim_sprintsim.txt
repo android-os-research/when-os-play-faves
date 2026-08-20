@@ -1,0 +1,6 @@
+# gsm.sim.sprintsim [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.SemPhoneInternal: boolean checkIsSprintSimCard()>
+<com.android.internal.telephony.dataconnection.DcTracker: boolean isSprSim()>

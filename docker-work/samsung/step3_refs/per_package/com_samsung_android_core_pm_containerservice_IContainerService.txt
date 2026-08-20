@@ -1,0 +1,10 @@
+# com.samsung.android.core.pm.containerservice.IContainerService [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.core.pm.containerservice.IContainerService$Stub$Proxy: java.lang.String copyPackageToContainer(java.lang.String,java.lang.String,java.lang.String,boolean,java.lang.String)>
+<com.samsung.android.core.pm.containerservice.IContainerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.core.pm.containerservice.IContainerService$Stub$Proxy: void doForceGC()>
+<com.samsung.android.core.pm.containerservice.IContainerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.core.pm.containerservice.IContainerService$Stub: com.samsung.android.core.pm.containerservice.IContainerService asInterface(android.os.IBinder)>
+<com.samsung.android.core.pm.containerservice.IContainerService$Stub: void <init>()>

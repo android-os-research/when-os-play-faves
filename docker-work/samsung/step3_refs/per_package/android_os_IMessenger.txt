@@ -1,0 +1,9 @@
+# android.os.IMessenger [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.IMessenger$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IMessenger$Stub$Proxy: void send(android.os.Message)>
+<android.os.IMessenger$Stub: android.os.IMessenger asInterface(android.os.IBinder)>
+<android.os.IMessenger$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IMessenger$Stub: void <init>()>

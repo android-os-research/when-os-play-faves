@@ -1,0 +1,22 @@
+# gsm.sim.operator.numeric [NEW]
+# Refs: 18
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.List icc_operator_numeric()>
+<android.internal.telephony.sysprop.TelephonyProperties: void icc_operator_numeric(java.util.List)>
+<android.sysprop.TelephonyProperties: java.util.List icc_operator_numeric()>
+<android.sysprop.TelephonyProperties: void icc_operator_numeric(java.util.List)>
+<com.android.internal.telephony.PreferredNetworkUpdater: void setPrefNetTypeForDataLockSim()>
+<com.android.internal.telephony.SemRIL: void <init>(android.content.Context,java.lang.Integer)>
+<com.android.internal.telephony.SmsConfig: void updateMnoNameForKorSim()>
+<com.android.internal.telephony.SmsDomainSelector: int getCommonSmsDomain(int,java.lang.String)>
+<com.android.internal.telephony.SmsDomainSelector: int getKorSmsDomain(int)>
+<com.android.internal.telephony.cat.CatBIPManager: int openChannelAsRemoteClient(com.android.internal.telephony.cat.CatBIPClientConnection)>
+<com.android.internal.telephony.cat.CatBIPManager: void setBipApn(com.android.internal.telephony.cat.CatBIPClientConnection)>
+<com.android.internal.telephony.dataconnection.DcTracker: java.lang.String getOperatorForCreateAllApnList(java.lang.String)>
+<com.kddi.android.CpaNotiReceiver: void loadPrevApnInfo()>
+<com.kddi.android.CpaNotiReceiver: void setApnCarrierEnabledStatus(java.lang.String)>
+<com.kddi.android.CpaNotiReceiver: void showApnListForDebug()>
+<com.samsung.android.emergencymode.SemEmergencySettings: java.lang.String checkForMCC()>
+<com.sec.tmodiagnostics.DeviceReportingSecurityChecker: boolean isSPRSIM()>
+<com.sec.tmodiagnostics.DeviceReportingSecurityChecker: boolean isTMOSIM()>

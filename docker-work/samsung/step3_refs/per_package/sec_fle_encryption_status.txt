@@ -1,0 +1,8 @@
+# sec.fle.encryption.status [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.DirEncryptServiceHelper: boolean isSdCardEncryped()>
+<com.android.server.DirEncryptServiceHelper: void checkSdCardMetafile()>
+<com.android.server.DirEncryptServiceHelper: void doWorkForUSBState(java.lang.String)>
+<com.android.server.StorageManagerService$3: void onEncryptionStateChanged(java.lang.String,java.lang.String,java.lang.String)>

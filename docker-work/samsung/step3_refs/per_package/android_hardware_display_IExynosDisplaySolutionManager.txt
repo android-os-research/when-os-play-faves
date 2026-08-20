@@ -1,0 +1,25 @@
+# android.hardware.display.IExynosDisplaySolutionManager [NEW]
+# Refs: 21
+# JARs: framework
+
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: float[] getRgbGain()>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: java.lang.String getColorEnhancementMode()>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setColorEnhancementSettingValue(int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setColorTempSettingOn(int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setColorTempSettingValue(int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setDisplayFeature(java.lang.String,int,int,java.lang.String)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setEdgeSharpnessSettingOn(int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setEdgeSharpnessSettingValue(int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setEyeTempSettingOn(int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setEyeTempSettingValue(int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setHsvGainSettingOn(int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setHsvGainSettingValue(int,int,int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setRgbGain(float,float,float)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setRgbGainSettingOn(int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setRgbGainSettingValue(int,int,int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setSkinColorSettingOn(int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub$Proxy: void setWhitePointColorSettingOn(int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub: android.hardware.display.IExynosDisplaySolutionManager asInterface(android.os.IBinder)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.display.IExynosDisplaySolutionManager$Stub: void <init>()>

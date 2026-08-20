@@ -1,0 +1,11 @@
+# android.app.role.DIALER [NEW]
+# Refs: 7
+# JARs: framework, services
+
+<android.telecom.DefaultDialerManager: boolean setDefaultDialerApplication(android.content.Context,java.lang.String,int)>
+<android.telecom.DefaultDialerManager: java.lang.String getDefaultDialerApplication(android.content.Context,int)>
+<com.android.server.am.AppRestrictionController: int getBackgroundRestrictionExemptionReason(int)>
+<com.android.server.am.AppRestrictionController: void <clinit>()>
+<com.android.server.notification.NotificationManagerService: void <clinit>()>
+<com.android.server.pm.DefaultAppProvider: java.lang.String getDefaultDialer(int)>
+<com.android.server.policy.role.RoleServicePlatformHelperImpl: java.util.Map readFromLegacySettings(int)>

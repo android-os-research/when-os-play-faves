@@ -1,0 +1,8 @@
+# ril.sim.mobility [NEW]
+# Refs: 4
+# JARs: framework, telephony-common
+
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: java.util.List sim_mobility()>
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: void sim_mobility(java.util.List)>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.List sim_mobility()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void sim_mobility(java.util.List)>

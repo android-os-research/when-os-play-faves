@@ -1,0 +1,7 @@
+# persist.sys.test_harness [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.adb.AdbService: void systemReady()>
+<com.android.server.testharness.TestHarnessModeService: void setUpTestHarnessMode()>
+<com.android.server.testharness.TestHarnessModeService: void showNotificationIfEnabled()>

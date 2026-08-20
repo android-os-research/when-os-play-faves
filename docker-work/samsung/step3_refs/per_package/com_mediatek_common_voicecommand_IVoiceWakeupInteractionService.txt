@@ -1,0 +1,12 @@
+# com.mediatek.common.voicecommand.IVoiceWakeupInteractionService [NEW]
+# Refs: 8
+# JARs: mediatek-common
+
+<com.mediatek.common.voicecommand.IVoiceWakeupInteractionService$Stub$Proxy: boolean startRecognition()>
+<com.mediatek.common.voicecommand.IVoiceWakeupInteractionService$Stub$Proxy: boolean stopRecognition()>
+<com.mediatek.common.voicecommand.IVoiceWakeupInteractionService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.common.voicecommand.IVoiceWakeupInteractionService$Stub$Proxy: void registerCallback(com.mediatek.common.voicecommand.IVoiceWakeupInteractionCallback)>
+<com.mediatek.common.voicecommand.IVoiceWakeupInteractionService$Stub$Proxy: void setCurrentUserOnSwitch(int)>
+<com.mediatek.common.voicecommand.IVoiceWakeupInteractionService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.common.voicecommand.IVoiceWakeupInteractionService$Stub: com.mediatek.common.voicecommand.IVoiceWakeupInteractionService asInterface(android.os.IBinder)>
+<com.mediatek.common.voicecommand.IVoiceWakeupInteractionService$Stub: void <init>()>

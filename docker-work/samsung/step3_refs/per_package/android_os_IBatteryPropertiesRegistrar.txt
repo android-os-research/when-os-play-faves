@@ -1,0 +1,10 @@
+# android.os.IBatteryPropertiesRegistrar [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.IBatteryPropertiesRegistrar$Stub$Proxy: int getProperty(int,android.os.BatteryProperty)>
+<android.os.IBatteryPropertiesRegistrar$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IBatteryPropertiesRegistrar$Stub$Proxy: void scheduleUpdate()>
+<android.os.IBatteryPropertiesRegistrar$Stub: android.os.IBatteryPropertiesRegistrar asInterface(android.os.IBinder)>
+<android.os.IBatteryPropertiesRegistrar$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IBatteryPropertiesRegistrar$Stub: void <init>()>

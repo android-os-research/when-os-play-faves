@@ -1,0 +1,9 @@
+# android.app.people.IConversationListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.people.IConversationListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.people.IConversationListener$Stub$Proxy: void onConversationUpdate(android.app.people.ConversationChannel)>
+<android.app.people.IConversationListener$Stub: android.app.people.IConversationListener asInterface(android.os.IBinder)>
+<android.app.people.IConversationListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.people.IConversationListener$Stub: void <init>()>

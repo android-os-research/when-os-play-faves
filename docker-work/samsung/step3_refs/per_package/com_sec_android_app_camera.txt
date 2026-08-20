@@ -1,0 +1,22 @@
+# com.sec.android.app.camera [NEW]
+# Refs: 18
+# JARs: framework, motionrecognitionservice, services
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<android.hardware.CameraLightSensorManager: void initAllowListListenerList()>
+<com.android.server.am.FreecessController: void enterOLAF(java.lang.String,int)>
+<com.android.server.am.PerProcessNandswap: void <clinit>()>
+<com.android.server.bgslotmanager.CameraKillModeManager: void doReduceBackgroundCached(int,java.lang.String)>
+<com.android.server.chimera.PolicyHandler: void onAppLaunchIntent(java.lang.String)>
+<com.android.server.chimera.PolicyHandler: void updateBigApps(int,java.lang.String)>
+<com.android.server.enterprise.restriction.RestrictionPolicy: boolean setCamera(com.samsung.android.knox.ContextInfo,boolean)>
+<com.android.server.pm.DexOptHelper: void <init>(com.android.server.pm.PackageManagerService)>
+<com.android.server.pm.PackageManagerService: void setEnabledSettings(java.util.List,int,java.lang.String)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.android.server.wm.PersonaActivityHelper: boolean isIntentFromShowWhenLockedCase(android.content.Intent,android.content.pm.ActivityInfo)>
+<com.samsung.android.camera.CameraServiceWorker: void <clinit>()>
+<com.samsung.android.fontutil.FlipFontOptimizer: void setFlipfont(android.content.Context,java.lang.String)>
+<com.samsung.android.gesture.AutoRotationHandler: void <init>(android.content.Context)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+<com.samsung.android.server.kernelmemory.UnifiedMemoryReclaimer: void notifyAppLaunchStarted(java.lang.String)>
+<com.samsung.android.server.pm.install.SilentUninstallerList: void <init>()>

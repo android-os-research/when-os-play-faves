@@ -1,0 +1,9 @@
+# persist.sys.locale [NEW]
+# Refs: 5
+# JARs: framework, services, telephony-common
+
+<com.android.internal.telephony.MccTable: void updateMccMncConfiguration(android.content.Context,java.lang.String)>
+<com.android.server.SystemServer: void run()>
+<com.android.server.wm.ActivityTaskManagerService: int updateGlobalConfigurationLocked(android.content.res.Configuration,boolean,boolean,int)>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional sys_locale()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void sys_locale(java.lang.String)>

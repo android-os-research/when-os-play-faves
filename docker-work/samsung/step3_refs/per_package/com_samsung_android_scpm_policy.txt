@@ -1,0 +1,9 @@
+# com.samsung.android.scpm.policy [NEW]
+# Refs: 5
+# JARs: semwifi-service, services, vendor.samsung.frameworks.codecsolution-service
+
+<com.android.server.ibs.IntelligentBatterySaverScpmManager: boolean isAvailable()>
+<com.samsung.android.scloud.lib.platform.api.Configuration: boolean lambda$isAvailable$0(android.content.pm.ProviderInfo)>
+<com.samsung.android.server.audio.SoundAppPolicyManager: boolean isAvailable(android.content.Context)>
+<com.samsung.android.server.wifi.scpm.WifiScpmMonitor: ???>
+<vendor.samsung.frameworks.codecsolution.SCPMV2Helper: boolean isAvailable()>

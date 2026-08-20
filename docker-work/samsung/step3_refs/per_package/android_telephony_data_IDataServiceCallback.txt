@@ -1,0 +1,18 @@
+# android.telephony.data.IDataServiceCallback [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.telephony.data.IDataServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.data.IDataServiceCallback$Stub$Proxy: void onApnUnthrottled(java.lang.String)>
+<android.telephony.data.IDataServiceCallback$Stub$Proxy: void onDataCallListChanged(java.util.List)>
+<android.telephony.data.IDataServiceCallback$Stub$Proxy: void onDataProfileUnthrottled(android.telephony.data.DataProfile)>
+<android.telephony.data.IDataServiceCallback$Stub$Proxy: void onDeactivateDataCallComplete(int)>
+<android.telephony.data.IDataServiceCallback$Stub$Proxy: void onHandoverCancelled(int)>
+<android.telephony.data.IDataServiceCallback$Stub$Proxy: void onHandoverStarted(int)>
+<android.telephony.data.IDataServiceCallback$Stub$Proxy: void onRequestDataCallListComplete(int,java.util.List)>
+<android.telephony.data.IDataServiceCallback$Stub$Proxy: void onSetDataProfileComplete(int)>
+<android.telephony.data.IDataServiceCallback$Stub$Proxy: void onSetInitialAttachApnComplete(int)>
+<android.telephony.data.IDataServiceCallback$Stub$Proxy: void onSetupDataCallComplete(int,android.telephony.data.DataCallResponse)>
+<android.telephony.data.IDataServiceCallback$Stub: android.telephony.data.IDataServiceCallback asInterface(android.os.IBinder)>
+<android.telephony.data.IDataServiceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.data.IDataServiceCallback$Stub: void <init>()>

@@ -1,0 +1,11 @@
+# com.samsung.android.knox.cmfa.IAuthFactorListener [NEW]
+# Refs: 7
+# JARs: knoxsdk
+
+<com.samsung.android.knox.cmfa.IAuthFactorListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.cmfa.IAuthFactorListener$Stub$Proxy: void onFail(java.lang.String)>
+<com.samsung.android.knox.cmfa.IAuthFactorListener$Stub$Proxy: void onStateUpdate()>
+<com.samsung.android.knox.cmfa.IAuthFactorListener$Stub$Proxy: void onSuccess()>
+<com.samsung.android.knox.cmfa.IAuthFactorListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.cmfa.IAuthFactorListener$Stub: com.samsung.android.knox.cmfa.IAuthFactorListener asInterface(android.os.IBinder)>
+<com.samsung.android.knox.cmfa.IAuthFactorListener$Stub: void <init>()>

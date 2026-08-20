@@ -1,0 +1,10 @@
+# com.samsung.android.game.gos.IGosSystemService [NEW]
+# Refs: 12
+# JARs: gamemanager, gamesdk
+
+<com.samsung.android.game.gos.IGosSystemService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.game.gos.IGosSystemService$Stub$Proxy: java.lang.String requestOnlyForDumpOrTest(java.lang.String,java.lang.String)>
+<com.samsung.android.game.gos.IGosSystemService$Stub$Proxy: void requestWithJsonNoReturn(java.lang.String,java.lang.String)>
+<com.samsung.android.game.gos.IGosSystemService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.game.gos.IGosSystemService$Stub: com.samsung.android.game.gos.IGosSystemService asInterface(android.os.IBinder)>
+<com.samsung.android.game.gos.IGosSystemService$Stub: void <init>()>

@@ -1,0 +1,25 @@
+# Build context is the repo root; keep it small and reproducible.
+# The image only needs scripts/ and examples/ (baksmali is downloaded in the
+# Dockerfile), so exclude everything heavy or irrelevant to the sample run.
+.git
+.venv
+docker-work
+poc-videos
+# Keep tools/rom_tools out of the image EXCEPT the bundled baksmali jar,
+# which the Dockerfile COPYs (the upstream download URL is dead).
+tools/rom_tools/*
+!tools/rom_tools/tools
+tools/rom_tools/tools/*
+!tools/rom_tools/tools/baksmali-2.5.2.jar
+reproducibility
+docs
+artifact_appendix.pdf
+artifact_appendix.tex
+artifact_appendix.aux
+artifact_appendix.log
+artifact_appendix.out
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/.DS_Store
+._*

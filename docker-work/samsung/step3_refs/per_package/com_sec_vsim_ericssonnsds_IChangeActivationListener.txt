@@ -1,0 +1,9 @@
+# com.sec.vsim.ericssonnsds.IChangeActivationListener [NEW]
+# Refs: 5
+# JARs: vsimmanager
+
+<com.sec.vsim.ericssonnsds.IChangeActivationListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.vsim.ericssonnsds.IChangeActivationListener$Stub$Proxy: void onResponeAvailable(com.sec.vsim.ericssonnsds.data.ResponseManageConnectivity,com.sec.vsim.ericssonnsds.data.ResponseRegisteredMSISDN,com.sec.vsim.ericssonnsds.data.ResponseRegisteredDevices)>
+<com.sec.vsim.ericssonnsds.IChangeActivationListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.vsim.ericssonnsds.IChangeActivationListener$Stub: com.sec.vsim.ericssonnsds.IChangeActivationListener asInterface(android.os.IBinder)>
+<com.sec.vsim.ericssonnsds.IChangeActivationListener$Stub: void <init>()>

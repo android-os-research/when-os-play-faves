@@ -1,0 +1,10 @@
+# ril.signal.param [NEW]
+# Refs: 6
+# JARs: framework, telephony-common
+
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.List signal_param()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void signal_param(java.util.List)>
+<com.tmobile.echolocate.DataMetrics: float getNrRsrp()>
+<com.tmobile.echolocate.DataMetrics: float getNrRsrq()>
+<com.tmobile.echolocate.DataMetrics: float getNrSnr()>
+<com.tmobile.echolocate.DataMetrics: int getNrPci()>

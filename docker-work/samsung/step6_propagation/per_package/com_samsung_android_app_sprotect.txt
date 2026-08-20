@@ -1,0 +1,247 @@
+######################################################################
+# Propagation: com.samsung.android.app.sprotect
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_MGMT, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.SProtect
+  Method:   <com.android.server.pm.SProtect: com.android.server.pm.parsing.pkg.AndroidPackage getSProtectPackage()>
+  Line:     273
+  Register: v2 := "com.samsung.android.app.sprotect"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Lcom/android/server/utils/WatchedArrayMap;->get(Ljava/lang/Object;)Ljava/la
+  Patterns: (none)
+  Flow:     [invoke] com.android.server.utils.WatchedArrayMap.get()
+
+  CALLERS (who invokes this method):
+      ← BroadcastHelper.doSendBroadcast()
+        ← BroadcastHelper.sendPackageBroadcast()
+        ← <com.android.server.pm.SuspendPackageHelper: void lambda$sen
+          ← BroadcastHelper.sendFirstLaunchBroadcast()
+          ← BroadcastHelper.sendPackageAddedForNewUsers()
+          ← BroadcastHelper.sendPackageChangedBroadcast()
+          ← BroadcastHelper.sendResourcesChangedBroadcast()
+          ← <com.android.server.pm.DistractingPackageHelper: void lambda
+          ← <com.android.server.pm.PackageManagerService: void lambda$se
+          ← <com.android.server.pm.SuspendPackageHelper: void lambda$sen
+          ← <com.android.server.pm.SuspendPackageHelper: void $r8$lambda
+            ← InstallPackageHelper.handlePackagePostInstall() [PKG_MGMT]
+            ← <com.android.server.pm.PackageManagerService: void lambda$no
+            ← <com.android.server.pm.PackageManagerService: void lambda$se
+            ← <com.android.server.pm.PackageManagerService: void lambda$se
+            ← BroadcastHelper.sendResourcesChangedBroadcast()
+            ← StorageEventHelper.sendResourcesChangedBroadcast()
+            ← <com.android.server.pm.DistractingPackageHelper: void $r8$la
+            ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+            ← <com.android.server.pm.SuspendPackageHelper: void $r8$lambda
+            ← SuspendPackageHelper$$ExternalSyntheticLambda1.run()
+              ← PackageHandler.doHandleMessage()
+              ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+              ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+              ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+              ← AsecInstallHelper.loadMediaPackages()
+              ← AsecInstallHelper.unloadMediaPackages()
+              ← <com.android.server.pm.InstallPackageHelper: void lambda$com [PKG_MGMT]
+              ← StorageEventHelper.loadPrivatePackagesInner()
+              ← StorageEventHelper.unloadPrivatePackagesInner()
+              ← DistractingPackageHelper$$ExternalSyntheticLambda2.run()
+              ← PackageManagerService$$ExternalSyntheticLambda63.run()
+              ← SuspendPackageHelper$$ExternalSyntheticLambda2.run()
+
+  CALLEES (what this method invokes):
+      → WatchedArrayMap.get()
+        → ArrayMap.get()
+          → ArrayMap.indexOfKey()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+              → ArrayMap.binarySearchHashes()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.BroadcastHelper
+  Method:   <com.android.server.pm.BroadcastHelper: void doSendBroadcast(java.lang.String,java.lang.String,android.os.Bundle,int,java.lang.String,android.content.IIntentReceiver,int[],boolean,android.util.SparseArray,android.os.Bundle)>
+  Line:     1026
+  Register: v5 := "com.samsung.android.app.sprotect"
+  Usage:    [invoke] invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v8 overwritten
+
+  CALLERS (who invokes this method):
+      ← BroadcastHelper.sendPackageBroadcast()
+      ← <com.android.server.pm.SuspendPackageHelper: void lambda$sen
+        ← BroadcastHelper.sendFirstLaunchBroadcast()
+        ← BroadcastHelper.sendPackageAddedForNewUsers()
+        ← BroadcastHelper.sendPackageChangedBroadcast()
+        ← BroadcastHelper.sendResourcesChangedBroadcast()
+        ← <com.android.server.pm.DistractingPackageHelper: void lambda
+        ← <com.android.server.pm.PackageManagerService: void lambda$se
+        ← <com.android.server.pm.SuspendPackageHelper: void lambda$sen
+        ← <com.android.server.pm.SuspendPackageHelper: void $r8$lambda
+          ← InstallPackageHelper.handlePackagePostInstall() [PKG_MGMT]
+          ← <com.android.server.pm.PackageManagerService: void lambda$no
+          ← <com.android.server.pm.PackageManagerService: void lambda$se
+          ← <com.android.server.pm.PackageManagerService: void lambda$se
+          ← BroadcastHelper.sendResourcesChangedBroadcast()
+          ← StorageEventHelper.sendResourcesChangedBroadcast()
+          ← <com.android.server.pm.DistractingPackageHelper: void $r8$la
+          ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+          ← <com.android.server.pm.SuspendPackageHelper: void $r8$lambda
+          ← SuspendPackageHelper$$ExternalSyntheticLambda1.run()
+            ← PackageHandler.doHandleMessage()
+            ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+            ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+            ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+            ← AsecInstallHelper.loadMediaPackages()
+            ← AsecInstallHelper.unloadMediaPackages()
+            ← <com.android.server.pm.InstallPackageHelper: void lambda$com [PKG_MGMT]
+            ← StorageEventHelper.loadPrivatePackagesInner()
+            ← StorageEventHelper.unloadPrivatePackagesInner()
+            ← DistractingPackageHelper$$ExternalSyntheticLambda2.run()
+            ← PackageManagerService$$ExternalSyntheticLambda63.run()
+            ← SuspendPackageHelper$$ExternalSyntheticLambda2.run()
+              ← PackageHandler.handleMessage()
+              ← PackageManagerService$$ExternalSyntheticLambda16.run()
+              ← PackageManagerService$$ExternalSyntheticLambda12.run()
+              ← PackageManagerService$$ExternalSyntheticLambda59.run()
+              ← AsecInstallHelper.updateExternalMediaStatusInner()
+              ← <com.android.server.pm.InstallPackageHelper: void $r8$lambda [PKG_MGMT]
+              ← <com.android.server.pm.StorageEventHelper: void lambda$loadP
+              ← <com.android.server.pm.StorageEventHelper: void lambda$unloa
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → ActivityManagerInternal.broadcastIntent()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → Intent.getIntExtra()
+      → Intent.clone()
+      → <android.content.Intent: void <init>(java.lang.String,androi
+      → Uri.fromParts()
+      → Bundle.getStringArray()
+      → Handler.post()
+      → UserHandle.getAppId()
+      → UserHandle.getUid()
+      → UserHandle.getUserId()
+      → SparseArray.get()
+      → DualAppManagerService.sendBroadcastCustomIntent()
+      → <com.android.server.pm.BroadcastHelper$$ExternalSyntheticLam
+      → BroadcastHelper.getDSPackageName()
+      → BroadcastHelper.getMVSPackageName()
+      → PackageManagerServiceUtils.logCriticalInfo()
+      → SProtect.getPackageManagerHandler()
+      → SProtect.getSProtectPackage()
+      → SProtect.resetSProtectList()
+      → MonetizationUtils.isGalaxyStoreFeatureEnabled()
+      → MonetizationUtils.updateSettingsForMonetization()
+        → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+        → Uri$Part.fromDecoded()
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+        → SparseArray.get()
+        → Context.sendBroadcastAsUser()
+        → Intent.getData()
+        → Intent.getAction()
+        → Uri.getSchemeSpecificPart()
+        → Log.d()
+        → SemDualAppManager.isWhitelistedPackage()
+        → SemDualAppManager.getInstance()
+        → Context.getPackageManager()
+        → PackageManager$PackageInfoFlags.of()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+        → FileUtils.setPermissions()
+        → <com.android.internal.util.FastPrintWriter: void <init>(java
+        → EventLogTags.writePmCriticalInfo()
+        → PackageManagerServiceUtils.getSettingsProblemFile()
+        → File.toString()
+        → <java.io.FileOutputStream: void <init>(java.io.File,boolean)
+        → PrintWriter.close()
+        → PrintWriter.println()
+        → SimpleDateFormat.format()
+        → <java.text.SimpleDateFormat: void <init>()>
+        → <java.util.Date: void <init>(long)>
+        → WatchedArrayMap.get()
+        → ReentrantReadWriteLock$WriteLock.lock()
+        → ReentrantReadWriteLock$WriteLock.unlock()
+        → ReentrantReadWriteLock.writeLock()
+        → AtomicBoolean.get()
+        → ArraySet.add()
+        → ArraySet.remove()
+        → MonetizationUtils.writeSettingsForMonetization()
+          → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+          → Uri$Part.from()
+          → ContainerHelpers.binarySearch()
+          → Log.println_native()
+          → UserHandle.myUserId()
+          → SemDualAppManager.isDualAppIdInternal()
+          → SemDualAppManager.getAllWhitelistedPackages()
+          → <com.samsung.android.app.SemDualAppManager: void <init>()>
+          → <android.content.pm.PackageManager$PackageInfoFlags: void <i
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+          → <com.android.internal.util.FastPrintWriter: void <init>(java
+          → EventLog.writeEvent()
+          → Environment.getDataDirectory()
+          → <java.io.File: void <init>(java.io.File,java.lang.String)>
+          → ArrayMap.get()
+          → ArraySet.indexOf()
+          → ArraySet.indexOfNull()
+          → ArraySet.allocArrays()
+          → ArraySet.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → ArraySet.indexOf()
+          → ArraySet.removeAt()
+          → Context.getContentResolver()
+          → Settings$Global.putString()
+          → Settings$System.putString()
+          → ArraySet.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+            → <android.net.Uri: void <init>(android.net.Uri-IA)>
+            → <android.net.Uri$Part: void <init>(java.lang.String,java.lan
+            → ISemDualAppManager.getAllWhitelistedPackages()
+            → SemDualAppManager.getDualAppService()
+            → <java.util.HashMap: void <init>()>
+            → <android.content.pm.PackageManager$Flags: void <init>(long)>
+            → <com.android.internal.util.FastPrintWriter$DummyWriter: void
+            → FastPrintWriter.initDefaultEncoder()
+            → <java.io.PrintWriter: void <init>(java.io.Writer,boolean)>
+            → ByteBuffer.allocate()
+            → ArrayMap.indexOfKey()
+            → ArraySet.binarySearch()
+            → ArraySet.shouldShrink()
+            → ArraySet.getNewShrunkenSize()
+            → ArraySet.clear()
+            → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+            → ArraySet.getCollection()
+            → MapCollections.getKeySet()
+            → Set.iterator()
+              → <android.net.Uri: void <init>()>
+              → <android.net.Uri$AbstractPart: void <init>(java.lang.String,
+              → ServiceManager.getService()
+              → ISemDualAppManager$Stub.asInterface()
+              → <com.android.internal.util.FastPrintWriter$DummyWriter: void
+              → Charset.defaultCharset()
+              → Charset.newEncoder()
+              → CharsetEncoder.onMalformedInput()
+              → CharsetEncoder.onUnmappableCharacter()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → <android.util.ArraySet$1: void <init>(android.util.ArraySet)
+              → <android.util.MapCollections$KeySet: void <init>(android.uti
+

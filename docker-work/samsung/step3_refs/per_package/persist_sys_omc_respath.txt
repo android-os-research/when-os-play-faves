@@ -1,0 +1,12 @@
+# persist.sys.omc_respath [NEW]
+# Refs: 8
+# JARs: framework, services
+
+<android.app.SemWallpaperResourcesUtils: boolean isUsedWithLockscreen()>
+<android.app.SemWallpaperResourcesUtils: java.io.File getOMCWallpaperFile(android.content.Context,int,java.lang.String)>
+<android.app.SemWallpaperResourcesUtils: java.lang.String getOMCVideoWallpaperFilePath(java.lang.String)>
+<com.android.server.policy.PhoneWindowManagerExt$PenSoundInfo: java.lang.String getOMCPenSoundPath(java.lang.String)>
+<com.android.server.power.ShutdownDialog$ImageLoadThread: void run()>
+<com.android.server.power.ShutdownDialog: java.lang.String getShutdownSoundPath()>
+<com.android.server.power.ShutdownDialog: void createShutdownQmgPlayList()>
+<com.samsung.android.server.audio.OmcRingtoneManager: void loadExcludedSoundsFromCsc()>

@@ -1,0 +1,6 @@
+# ro.com.android.prov_mobiledata [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.data.DataSettingsManager: boolean isProvisioningDataEnabled()>
+<com.android.internal.telephony.dataconnection.DataEnabledSettings: boolean isProvisioningDataEnabled()>

@@ -1,0 +1,10 @@
+# android.tracing.ITracingServiceProxy [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.tracing.ITracingServiceProxy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.tracing.ITracingServiceProxy$Stub$Proxy: void notifyTraceSessionEnded(boolean)>
+<android.tracing.ITracingServiceProxy$Stub$Proxy: void reportTrace(android.tracing.TraceReportParams)>
+<android.tracing.ITracingServiceProxy$Stub: android.tracing.ITracingServiceProxy asInterface(android.os.IBinder)>
+<android.tracing.ITracingServiceProxy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.tracing.ITracingServiceProxy$Stub: void <init>()>

@@ -1,0 +1,9 @@
+# android.view.IOnKeyguardExitResult [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.IOnKeyguardExitResult$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IOnKeyguardExitResult$Stub$Proxy: void onKeyguardExitResult(boolean)>
+<android.view.IOnKeyguardExitResult$Stub: android.view.IOnKeyguardExitResult asInterface(android.os.IBinder)>
+<android.view.IOnKeyguardExitResult$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IOnKeyguardExitResult$Stub: void <init>()>

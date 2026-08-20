@@ -1,0 +1,27 @@
+# com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback [NEW]
+# Refs: 23
+# JARs: knoxsdk
+
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setBatteryLevelColourItem(com.samsung.android.knox.custom.StatusbarIconItem)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setChargerConnectionSoundEnabledState(boolean)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setHardKeyIntentState(boolean)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setHideNotificationMessages(int)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setLockScreenHiddenItems(int)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setLockScreenOverrideMode(int)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setQuickPanelButtonUsers(boolean)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setQuickPanelButtons(int)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setQuickPanelEditMode(int)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setQuickPanelItems(java.lang.String)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setQuickPanelUnavailableButtons(java.lang.String)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setScreenOffOnStatusBarDoubleTapState(boolean)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setStatusBarHidden(boolean)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setStatusBarIconsState(boolean)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setStatusBarNotificationsState(boolean)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setStatusBarTextInfo(java.lang.String,int,int,int)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setUnlockSimOnBootState(boolean)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setUnlockSimPin(java.lang.String)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub$Proxy: void setVolumePanelEnabledState(boolean)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub: com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback asInterface(android.os.IBinder)>
+<com.samsung.android.knox.custom.IKnoxCustomManagerSystemUiCallback$Stub: void <init>()>

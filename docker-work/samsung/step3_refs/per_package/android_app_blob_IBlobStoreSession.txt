@@ -1,0 +1,20 @@
+# android.app.blob.IBlobStoreSession [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.app.blob.IBlobStoreSession$Stub$Proxy: android.os.ParcelFileDescriptor openRead()>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: android.os.ParcelFileDescriptor openWrite(long,long)>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: boolean isPackageAccessAllowed(java.lang.String,byte[])>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: boolean isPublicAccessAllowed()>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: boolean isSameSignatureAccessAllowed()>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: long getSize()>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: void abandon()>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: void allowPackageAccess(java.lang.String,byte[])>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: void allowPublicAccess()>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: void allowSameSignatureAccess()>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: void close()>
+<android.app.blob.IBlobStoreSession$Stub$Proxy: void commit(android.app.blob.IBlobCommitCallback)>
+<android.app.blob.IBlobStoreSession$Stub: android.app.blob.IBlobStoreSession asInterface(android.os.IBinder)>
+<android.app.blob.IBlobStoreSession$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.blob.IBlobStoreSession$Stub: void <init>()>

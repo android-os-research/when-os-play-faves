@@ -1,0 +1,6 @@
+# com.samsung.android.multiuser.disable_for_guest [NEW]
+# Refs: 2
+# JARs: services
+
+<com.samsung.android.server.pm.install.MultiUserInstallPolicy: int checkIfInstallAllowed(android.os.Bundle,int,java.util.function.Function)>
+<com.samsung.android.server.pm.install.MultiUserInstallPolicy: void applyInstallPolicyPackageInternalLPw(com.android.server.pm.PackageSetting,java.util.List,int)>

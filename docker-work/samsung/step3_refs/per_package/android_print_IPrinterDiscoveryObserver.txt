@@ -1,0 +1,10 @@
+# android.print.IPrinterDiscoveryObserver [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.print.IPrinterDiscoveryObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.print.IPrinterDiscoveryObserver$Stub$Proxy: void onPrintersAdded(android.content.pm.ParceledListSlice)>
+<android.print.IPrinterDiscoveryObserver$Stub$Proxy: void onPrintersRemoved(android.content.pm.ParceledListSlice)>
+<android.print.IPrinterDiscoveryObserver$Stub: android.print.IPrinterDiscoveryObserver asInterface(android.os.IBinder)>
+<android.print.IPrinterDiscoveryObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.print.IPrinterDiscoveryObserver$Stub: void <init>()>

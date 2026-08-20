@@ -1,0 +1,15 @@
+# com.samsung.android.da.daagent [NEW]
+# Refs: 11
+# JARs: framework, services
+
+<com.android.server.DualAppManagerService$InternalHandler: void handleMessage(android.os.Message)>
+<com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+<com.android.server.DualAppManagerService: android.content.pm.ActivityInfo changeInfoIfDeletingDualApp(android.content.Context,android.content.pm.ActivityInfo,android.content.Intent,int,java.lang.String)>
+<com.android.server.DualAppManagerService: android.os.Bundle updateDualAppData(java.lang.String,int,android.os.Bundle)>
+<com.android.server.DualAppManagerService: boolean mayForwardShare(android.content.Intent,java.lang.String,int,int)>
+<com.android.server.DualAppManagerService: void sendBroadcastCustomIntent(android.content.Context,int,android.content.Intent)>
+<com.android.server.am.ActivityManagerService: void doDump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[],boolean)>
+<com.android.server.backup.UserBackupManagerService: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.backup.internal.LifecycleOperationStorage)>
+<com.android.server.backup.UserBackupManagerService: void <init>(int,android.content.Context,com.android.server.backup.BackupManagerService,android.os.HandlerThread,java.io.File,java.io.File,com.android.server.backup.TransportManager)>
+<com.android.server.wm.ActivityTaskManagerService: int startActivityAsCaller(android.app.IApplicationThread,java.lang.String,android.content.Intent,java.lang.String,android.os.IBinder,java.lang.String,int,int,android.app.ProfilerInfo,android.os.Bundle,boolean,int)>
+<com.samsung.android.knox.SemPersonaManager: java.lang.String getContainerName(int,android.content.Context)>

@@ -1,0 +1,12 @@
+# android.app.search.ISearchUiManager [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.app.search.ISearchUiManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.search.ISearchUiManager$Stub$Proxy: void createSearchSession(android.app.search.SearchContext,android.app.search.SearchSessionId,android.os.IBinder)>
+<android.app.search.ISearchUiManager$Stub$Proxy: void destroySearchSession(android.app.search.SearchSessionId)>
+<android.app.search.ISearchUiManager$Stub$Proxy: void notifyEvent(android.app.search.SearchSessionId,android.app.search.Query,android.app.search.SearchTargetEvent)>
+<android.app.search.ISearchUiManager$Stub$Proxy: void query(android.app.search.SearchSessionId,android.app.search.Query,android.app.search.ISearchCallback)>
+<android.app.search.ISearchUiManager$Stub: android.app.search.ISearchUiManager asInterface(android.os.IBinder)>
+<android.app.search.ISearchUiManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.search.ISearchUiManager$Stub: void <init>()>

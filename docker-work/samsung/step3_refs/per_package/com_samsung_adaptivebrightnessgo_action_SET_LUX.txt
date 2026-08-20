@@ -1,0 +1,7 @@
+# com.samsung.adaptivebrightnessgo.action.SET_LUX [NEW]
+# Refs: 3
+# JARs: motionrecognitionservice, services
+
+<com.android.server.display.AutomaticBrightnessController: void <init>(com.android.server.display.AutomaticBrightnessController$Injector,com.android.server.display.AutomaticBrightnessController$Callbacks,android.os.Looper,android.hardware.SensorManager,android.hardware.Sensor,com.android.server.display.BrightnessMappingStrategy,int,float,float,float,int,int,long,long,boolean,com.android.server.display.HysteresisLevels,com.android.server.display.HysteresisLevels,android.content.Context,com.android.server.display.HighBrightnessModeController,com.android.server.display.BrightnessThrottler,com.android.server.display.BrightnessMappingStrategy,int,int,com.android.server.display.HysteresisLevels,com.android.server.display.HysteresisLevels,int)>
+<com.samsung.android.gesture.AdaptiveBrightnessController$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.gesture.AdaptiveBrightnessController: void <init>(android.content.Context,android.os.Handler)>

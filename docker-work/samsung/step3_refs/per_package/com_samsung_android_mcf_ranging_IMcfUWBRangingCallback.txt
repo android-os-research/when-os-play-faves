@@ -1,0 +1,13 @@
+# com.samsung.android.mcf.ranging.IMcfUWBRangingCallback [NEW]
+# Refs: 18
+# JARs: mcfsdk, services
+
+<com.samsung.android.mcf.ranging.IMcfUWBRangingCallback$Stub$a: java.lang.String b()>
+<com.samsung.android.mcf.ranging.IMcfUWBRangingCallback$Stub$a: void onDataReceived(com.samsung.android.mcf.ranging.McfUWBRangingData[])>
+<com.samsung.android.mcf.ranging.IMcfUWBRangingCallback$Stub$a: void onDeviceDiscovered(android.os.PersistableBundle)>
+<com.samsung.android.mcf.ranging.IMcfUWBRangingCallback$Stub$a: void onStatusChanged(int,int,java.lang.String)>
+<com.samsung.android.mcf.ranging.IMcfUWBRangingCallback$Stub$a: void onStatusError(int)>
+<com.samsung.android.mcf.ranging.IMcfUWBRangingCallback$Stub$a: void onUWBParamChanged(java.lang.String,byte[])>
+<com.samsung.android.mcf.ranging.IMcfUWBRangingCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.ranging.IMcfUWBRangingCallback$Stub: com.samsung.android.mcf.ranging.IMcfUWBRangingCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.ranging.IMcfUWBRangingCallback$Stub: void <init>()>

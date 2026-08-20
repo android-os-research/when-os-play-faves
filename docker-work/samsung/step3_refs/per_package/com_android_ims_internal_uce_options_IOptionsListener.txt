@@ -1,0 +1,14 @@
+# com.android.ims.internal.uce.options.IOptionsListener [NEW]
+# Refs: 10
+# JARs: framework
+
+<com.android.ims.internal.uce.options.IOptionsListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.uce.options.IOptionsListener$Stub$Proxy: void cmdStatus(com.android.ims.internal.uce.options.OptionsCmdStatus)>
+<com.android.ims.internal.uce.options.IOptionsListener$Stub$Proxy: void getVersionCb(java.lang.String)>
+<com.android.ims.internal.uce.options.IOptionsListener$Stub$Proxy: void incomingOptions(java.lang.String,com.android.ims.internal.uce.options.OptionsCapInfo,int)>
+<com.android.ims.internal.uce.options.IOptionsListener$Stub$Proxy: void serviceAvailable(com.android.ims.internal.uce.common.StatusCode)>
+<com.android.ims.internal.uce.options.IOptionsListener$Stub$Proxy: void serviceUnavailable(com.android.ims.internal.uce.common.StatusCode)>
+<com.android.ims.internal.uce.options.IOptionsListener$Stub$Proxy: void sipResponseReceived(java.lang.String,com.android.ims.internal.uce.options.OptionsSipResponse,com.android.ims.internal.uce.options.OptionsCapInfo)>
+<com.android.ims.internal.uce.options.IOptionsListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.uce.options.IOptionsListener$Stub: com.android.ims.internal.uce.options.IOptionsListener asInterface(android.os.IBinder)>
+<com.android.ims.internal.uce.options.IOptionsListener$Stub: void <init>()>

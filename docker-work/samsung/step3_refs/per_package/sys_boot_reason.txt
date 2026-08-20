@@ -1,0 +1,6 @@
+# sys.boot.reason [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.BootReceiver: java.lang.String GetResetLog(java.lang.String)>
+<com.android.server.power.PowerManagerService: int getLastShutdownReasonInternal()>

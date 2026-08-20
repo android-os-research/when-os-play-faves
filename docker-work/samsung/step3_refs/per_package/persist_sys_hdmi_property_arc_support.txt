@@ -1,0 +1,9 @@
+# persist.sys.hdmi.property_arc_support [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.hdmi.HdmiCecLocalDeviceAudioSystem: android.hardware.hdmi.DeviceFeatures computeDeviceFeatures()>
+<com.android.server.hdmi.HdmiCecLocalDeviceAudioSystem: int handleRequestArcInitiate(com.android.server.hdmi.HdmiCecMessage)>
+<com.android.server.hdmi.HdmiCecLocalDeviceAudioSystem: int handleRequestArcTermination(com.android.server.hdmi.HdmiCecMessage)>
+<com.android.server.hdmi.HdmiCecLocalDeviceAudioSystem: void initArcOnFromAvr()>
+<com.android.server.hdmi.HdmiCecLocalDeviceAudioSystem: void setSystemAudioMode(boolean)>

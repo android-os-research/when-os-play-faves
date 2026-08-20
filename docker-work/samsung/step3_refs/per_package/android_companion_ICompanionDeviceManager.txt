@@ -1,0 +1,25 @@
+# android.companion.ICompanionDeviceManager [NEW]
+# Refs: 21
+# JARs: framework
+
+<android.companion.ICompanionDeviceManager$Stub$Proxy: android.app.PendingIntent requestNotificationAccess(android.content.ComponentName,int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: boolean canPairWithoutPrompt(java.lang.String,java.lang.String,int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: boolean hasNotificationAccess(android.content.ComponentName)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: boolean isDeviceAssociatedForWifiConnection(java.lang.String,java.lang.String,int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: java.util.List getAllAssociationsForUser(int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: java.util.List getAssociations(java.lang.String,int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: void addOnAssociationsChangedListener(android.companion.IOnAssociationsChangedListener,int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: void associate(android.companion.AssociationRequest,android.companion.IAssociationRequestCallback,java.lang.String,int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: void createAssociation(java.lang.String,java.lang.String,int,byte[])>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: void disassociate(int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: void dispatchMessage(int,int,byte[])>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: void legacyDisassociate(java.lang.String,java.lang.String,int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: void notifyDeviceAppeared(int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: void notifyDeviceDisappeared(int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: void registerDevicePresenceListenerService(java.lang.String,java.lang.String,int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: void removeOnAssociationsChangedListener(android.companion.IOnAssociationsChangedListener,int)>
+<android.companion.ICompanionDeviceManager$Stub$Proxy: void unregisterDevicePresenceListenerService(java.lang.String,java.lang.String,int)>
+<android.companion.ICompanionDeviceManager$Stub: android.companion.ICompanionDeviceManager asInterface(android.os.IBinder)>
+<android.companion.ICompanionDeviceManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.companion.ICompanionDeviceManager$Stub: void <init>()>

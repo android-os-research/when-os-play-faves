@@ -1,0 +1,6 @@
+# com.samsung.android.knox.intent.extra.SUB_ID_INTERNAL [NEW]
+# Refs: 2
+# JARs: services, telephony-common
+
+<com.android.internal.telephony.MDMBlockedSmsMmsReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.enterprise.restriction.PhoneRestrictionPolicy: void deliveryBlockedMsgs(int)>

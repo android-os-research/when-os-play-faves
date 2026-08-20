@@ -1,0 +1,91 @@
+######################################################################
+# Propagation: com.samsung.android.knox.attestation
+######################################################################
+
+JARs:                 framework, knoxsdk, services
+Classes:              3
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.tima.attestation.EnhancedAttestationPolicy
+  Method:   <com.samsung.android.knox.tima.attestation.EnhancedAttestationPolicy: boolean bindService()>
+  Line:     307
+  Register: v2 := "com.samsung.android.knox.attestation"
+  Usage:    [invoke] invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← EnhancedAttestationPolicy.startAttestation()
+        ← EnhancedAttestationPolicy.handlePendingRequest()
+        ← EnhancedAttestationPolicy.startAttestation()
+        ← EnhancedAttestationPolicy.startAttestation()
+          ← <com.samsung.android.knox.tima.attestation.EnhancedAttestati
+          ← SemEnhancedAttestationPolicy.attest()
+          ← SemEnhancedAttestationPolicy.attest()
+            ← EnhancedAttestationPolicy$1.onServiceConnected()
+
+  CALLEES (what this method invokes):
+      → Context.bindServiceAsUser()
+      → Intent.setAction()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → IBinder.isBinderAlive()
+      → Process.myUserHandle()
+      → IEnhancedAttestation.asBinder()
+      → Exception.toString()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.integrity.EnhancedAttestationPolicy
+  Method:   <com.samsung.android.knox.integrity.EnhancedAttestationPolicy: boolean bindService()>
+  Line:     1664
+  Register: v2 := "com.samsung.android.knox.attestation"
+  Usage:    [invoke] invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← EnhancedAttestationPolicy.startAttestation()
+        ← EnhancedAttestationPolicy.handlePendingRequest()
+        ← EnhancedAttestationPolicy.startAttestation()
+        ← EnhancedAttestationPolicy.startAttestation()
+          ← EnhancedAttestationPolicy$1.onServiceConnected()
+
+  CALLEES (what this method invokes):
+      → Context.bindServiceAsUser()
+      → Intent.setAction()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → IBinder.isBinderAlive()
+      → IInterface.asBinder()
+      → Process.myUserHandle()
+      → Exception.toString()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.GrdmIcccManagerService
+  Method:   <com.android.server.GrdmIcccManagerService: byte[] grdmSetAttestationData(byte[])>
+  Line:     118
+  Register: v2 := "com.samsung.android.knox.attestation"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingPid() [UID_CHECK]
+      → GrdmIcccManagerService.grdm_iccc_attestation_platform()
+      → GrdmIcccManagerService.getCallerPackageName()
+        → ActivityManager.getPackageFromAppProcesses()
+        → Context.getSystemService()
+

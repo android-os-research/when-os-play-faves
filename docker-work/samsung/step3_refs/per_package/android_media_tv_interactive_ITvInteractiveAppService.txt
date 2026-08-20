@@ -1,0 +1,14 @@
+# android.media.tv.interactive.ITvInteractiveAppService [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.media.tv.interactive.ITvInteractiveAppService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.tv.interactive.ITvInteractiveAppService$Stub$Proxy: void createSession(android.view.InputChannel,android.media.tv.interactive.ITvInteractiveAppSessionCallback,java.lang.String,int)>
+<android.media.tv.interactive.ITvInteractiveAppService$Stub$Proxy: void registerAppLinkInfo(android.media.tv.interactive.AppLinkInfo)>
+<android.media.tv.interactive.ITvInteractiveAppService$Stub$Proxy: void registerCallback(android.media.tv.interactive.ITvInteractiveAppServiceCallback)>
+<android.media.tv.interactive.ITvInteractiveAppService$Stub$Proxy: void sendAppLinkCommand(android.os.Bundle)>
+<android.media.tv.interactive.ITvInteractiveAppService$Stub$Proxy: void unregisterAppLinkInfo(android.media.tv.interactive.AppLinkInfo)>
+<android.media.tv.interactive.ITvInteractiveAppService$Stub$Proxy: void unregisterCallback(android.media.tv.interactive.ITvInteractiveAppServiceCallback)>
+<android.media.tv.interactive.ITvInteractiveAppService$Stub: android.media.tv.interactive.ITvInteractiveAppService asInterface(android.os.IBinder)>
+<android.media.tv.interactive.ITvInteractiveAppService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.tv.interactive.ITvInteractiveAppService$Stub: void <init>()>

@@ -1,0 +1,10 @@
+# android.net.lowpan.ILowpanNetScanCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.net.lowpan.ILowpanNetScanCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.lowpan.ILowpanNetScanCallback$Stub$Proxy: void onNetScanBeacon(android.net.lowpan.LowpanBeaconInfo)>
+<android.net.lowpan.ILowpanNetScanCallback$Stub$Proxy: void onNetScanFinished()>
+<android.net.lowpan.ILowpanNetScanCallback$Stub: android.net.lowpan.ILowpanNetScanCallback asInterface(android.os.IBinder)>
+<android.net.lowpan.ILowpanNetScanCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.lowpan.ILowpanNetScanCallback$Stub: void <init>()>

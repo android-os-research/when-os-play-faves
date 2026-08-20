@@ -1,0 +1,9 @@
+# com.samsung.android.knox.permission.KNOX_HW_CONTROL [NEW]
+# Refs: 5
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.general.MiscPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndHwPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.restriction.RestrictionPolicy: com.samsung.android.knox.ContextInfo enforceHwPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.restriction.RestrictionPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndHwPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

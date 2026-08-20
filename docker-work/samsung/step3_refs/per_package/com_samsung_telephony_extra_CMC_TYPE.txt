@@ -1,0 +1,8 @@
+# com.samsung.telephony.extra.CMC_TYPE [NEW]
+# Refs: 4
+# JARs: telephony-common
+
+<com.android.internal.telephony.CmcCallTracker: void forking(java.lang.String,com.android.internal.telephony.imsphone.ImsPhone$ImsDialArgs)>
+<com.android.internal.telephony.CmcCallTracker: void onIncomingCmcCall(com.android.ims.internal.IImsCallSession,android.os.Bundle)>
+<com.android.internal.telephony.SemCallTrackerHelper: boolean isCmcSdCall(com.android.internal.telephony.Phone,android.os.Bundle)>
+<com.android.internal.telephony.imsphone.ImsPhoneCallTracker$MmTelFeatureListener: void processIncomingCall(com.android.ims.internal.IImsCallSession,android.os.Bundle)>

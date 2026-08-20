@@ -1,0 +1,22 @@
+# android.hardware.camera2.extension.IImageCaptureExtenderImpl [NEW]
+# Refs: 18
+# JARs: framework
+
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.CaptureStageImpl onDisableSession()>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.CaptureStageImpl onEnableSession()>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.CaptureStageImpl onPresetSession()>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.ICaptureProcessorImpl getCaptureProcessor()>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: android.hardware.camera2.extension.LatencyRange getEstimatedCaptureLatencyRange(android.hardware.camera2.extension.Size)>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureRequestKeys()>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureResultKeys()>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: boolean isExtensionAvailable(java.lang.String,android.hardware.camera2.impl.CameraMetadataNative)>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: int getMaxCaptureStage()>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: java.util.List getCaptureStages()>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: java.util.List getSupportedResolutions()>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: void init(java.lang.String,android.hardware.camera2.impl.CameraMetadataNative)>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: void onDeInit()>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub$Proxy: void onInit(java.lang.String,android.hardware.camera2.impl.CameraMetadataNative)>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub: android.hardware.camera2.extension.IImageCaptureExtenderImpl asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.IImageCaptureExtenderImpl$Stub: void <init>()>

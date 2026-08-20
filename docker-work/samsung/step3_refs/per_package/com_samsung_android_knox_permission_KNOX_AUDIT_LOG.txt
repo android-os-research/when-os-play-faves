@@ -1,0 +1,12 @@
+# com.samsung.android.knox.permission.KNOX_AUDIT_LOG [NEW]
+# Refs: 8
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.auditlog.Admin: void notifyDumpFinished(boolean,boolean)>
+<com.android.server.enterprise.auditlog.AuditLogService: com.samsung.android.knox.ContextInfo enforceAuditLogPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.auditlog.AuditLogService: void enforceLoggerPermission()>
+<com.android.server.enterprise.auditlog.CircularBuffer: void checkCriticalSizes()>
+<com.android.server.enterprise.auditlog.InformFailure: void broadcastFailure(java.lang.Exception,java.lang.String)>
+<com.android.server.enterprise.auditlog.InformFailure: void broadcastFailure(java.lang.String,java.lang.String)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

@@ -1,0 +1,857 @@
+######################################################################
+# Propagation: com.sec.android.app.voicenote
+######################################################################
+
+JARs:                 framework, services
+Classes:              7
+Occurrences:          8
+Usage types:          field_store, invoke
+Enforcement patterns: allowlist_check, early_return, string_compare, system_property_read
+Security tags:        APPOPS, PERM_CHECK, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants$1
+  Method:   <android.content.om.SamsungThemeConstants$1: void <init>()>
+  Line:     41
+  Register: v0 := "com.sec.android.app.voicenote"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/om/SamsungThemeConstants$1;->put(Ljava/lang/Object;Lja
+  Patterns: early_return
+  Flow:     [invoke] android.content.om.SamsungThemeConstants$1.put()
+
+  CALLERS (who invokes this method):
+      ← <android.content.om.SamsungThemeConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → SamsungThemeConstants$1.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     635
+  Register: v3 := "com.sec.android.app.voicenote"
+  Usage:    [field_store] aput-object v3, v2, v1
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.AudioService
+  Method:   <com.android.server.audio.AudioService: void setStreamVolumeWithAttribution(int,int,int,java.lang.String,java.lang.String,java.lang.String,int,boolean,int)>
+  Line:     45748
+  Register: v5 := "com.sec.android.app.voicenote"
+  Usage:    [invoke] invoke-virtual {v5, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v6 → [branch] if-eqz v6, :cond_1f1 → [other] iget v6, v0, Lcom/
+
+  CALLERS (who invokes this method):
+      ← AudioService.bypassAdjustStreamVolume()
+      ← AudioService.setA2dpDeviceVolume()
+      ← AudioService.setFineVolume()
+      ← AudioService.setStreamVolume()
+      ← AudioService.setStreamVolumeForDeviceWithAttribution()
+        ← AudioService.skipAdjustStreamVolume()
+        ← AudioService.setStreamVolumeForUid()
+        ← AudioService.setStreamVolumeWithAttribution()
+        ← AudioService.setVolumeIndexForAttributes()
+          ← AudioService.adjustStreamVolume()
+          ← AudioService.setStreamVolume()
+            ← AudioService.adjustStreamVolumeForUid()
+            ← AudioService.adjustStreamVolumeWithAttribution()
+            ← AudioService.adjustSuggestedStreamVolume()
+            ← AudioService.setVolumeLimiter()
+              ← AudioService.adjustStreamVolume()
+              ← AudioService.adjustSuggestedStreamVolumeForUid()
+              ← AudioService.handleVolumeKey()
+              ← AudioService.setAudioServiceConfig()
+
+  CALLEES (what this method invokes):
+      → NotificationManager.isNotificationPolicyAccessGrantedForPackage()
+      → Context.getPackageName()
+      → UserHandle.getAppId()
+      → UserHandle.getUid()
+      → AudioDeviceBroker.postSetAvrcpAbsoluteVolumeIndex()
+      → AudioDeviceBroker.postSetHearingAidVolumeIndex()
+      → AudioDeviceBroker.postSetLeAudioVolumeIndex()
+      → AudioDeviceBroker.updateIndividualA2dpVolumes()
+      → <com.android.server.audio.AudioService$StreamVolumeCommand: 
+      → AudioService$VolumeController.isSafeVolumeDialogShowing()
+      → AudioService$VolumeController.displayVolumeLimiterToast()
+      → AudioService$VolumeController.postDisplaySafeVolumeWarning()
+      → AudioService$VolumeController.postVolumeChanged()
+      → AudioService$VolumeStreamState.setIndex()
+      → <com.android.server.audio.AudioService$VolumeStreamState: in
+      → AudioService$VolumeStreamState.getIndex()
+      → AudioService$VolumeStreamState.getMaxIndex()
+      → AudioService.checkNoteAppOp()
+      → AudioService.checkSafeMediaVolume()
+      → AudioService.isAndroidNPlus()
+      → AudioService.isBluetoothScoOn()
+      → AudioService.isExemptedPackage()
+      → AudioService.isFixedVolumeDevice()
+      → AudioService.isMultiSoundOnInternal()
+      → AudioService.volumeAdjustmentAllowedByDnd()
+      → AudioService.wouldToggleZenMode()
+      → AudioService.getAppDevice()
+      → AudioService.getBluetoothContextualVolumeStream()
+      → AudioService.getCurrentUserId()
+      → AudioService.getDeviceForStream()
+      → AudioService.getNewRingerMode()
+      → AudioService.rescaleIndex()
+      → AudioService.safeMediaVolumeIndex()
+      → AudioService.ensureValidStreamType()
+      → AudioService.maybeSendSystemAudioStatusCommand()
+      → AudioService.onSetStreamVolume()
+      → AudioService.sendMsg()
+      → AudioService.sendVolumeChangedIntent()
+      → AudioService.sendVolumeUpdate()
+      → FrequentWorker.runOrSkip()
+      → GoodCatchManager.isMediaVolumeCatchEnabled()
+      → GoodCatchManager.updateMediaVolume()
+      → ScreenSharingHelper.isSupportDisplayVolumeControl()
+      → <java.lang.SecurityException: void <init>(java.lang.String)>
+      → Set.contains()
+        → AudioDeviceBroker.sendIMsgNoDelay()
+        → AudioDeviceBroker.sendIIMsgNoDelay()
+        → <com.android.server.audio.AudioDeviceBroker$BleVolumeInfo: v
+        → AudioDeviceBroker.sendLMsgNoDelay()
+        → DualA2dpVolumeManager.updateIndividualA2dpVolumes()
+        → IVolumeController.displayVolumeLimiterToast()
+        → IVolumeController.displaySafeVolumeWarning()
+        → IVolumeController.volumeChanged()
+        → AudioSystem.getNumStreamTypes()
+        → SparseIntArray.keyAt()
+        → SparseIntArray.size()
+        → SparseIntArray.put()
+        → EventLogTags.writeVolumeChanged()
+        → <com.android.server.audio.AudioService$VolumeStreamState$$Ex
+        → <com.android.server.audio.AudioService$VolumeStreamState$$Ex
+        → AudioService$VolumeStreamState.hasIndexForDevice()
+        → AudioService$VolumeStreamState.getValidIndex()
+        → <com.android.server.audio.AudioService: boolean -$$Nest$fget
+        → <com.android.server.audio.AudioService: boolean -$$Nest$msho
+        → <com.android.server.audio.AudioService: com.android.server.a
+        → <com.android.server.audio.AudioService: com.samsung.android.
+        → <com.android.server.audio.AudioService: int -$$Nest$mrescale
+        → <com.android.server.audio.AudioService: java.lang.Object -$$
+        → <com.android.server.audio.AudioService: void -$$Nest$msendBr
+        → DeviceAliasManager.apply()
+        → <java.lang.Throwable: void <init>()>
+        → SparseIntArray.get()
+        → SparseIntArray.get()
+        → AppOpsManager.noteOp() [APPOPS]
+        → AudioService.isSafeA2dpDevice()
+        → AudioService.notifyVibrationForSafeMediaPopup()
+        → AudioHelper.isFactoryMode()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfoAsUser() [PKG_QUERY]
+        → Binder.getCallingUid() [UID_CHECK]
+        → UserHandle.getUserId()
+        → AudioDeviceBroker.isBluetoothScoOn()
+        → RecordingActivityMonitor.isLegacyRemoteSubmixActive()
+        → MultiSoundManager.isEnabled()
+        → MultiSoundManager.isRemoteSubmixAppExist()
+        → NotificationManager.getZenMode()
+        → AudioService.isStreamMutedByRingerOrZenMode()
+        → AudioService.isUiSoundsStreamType()
+        → AudioService.getRingerModeExternal()
+        → MultiSoundManager.getAppDevice()
+        → AudioService.getBluetoothContextualVolumeStream()
+        → AtomicInteger.get()
+        → ActivityManager.getService()
+        → IActivityManager.getCurrentUser()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → AudioService.selectOneAudioDevice()
+        → AudioService.getDeviceSetForStream()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Set.iterator()
+        → AudioService.getUiSoundsStreamType()
+        → AudioService$VolumeStreamState.getMinIndex()
+        → AudioService.rescaleIndex()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → HdmiAudioSystemClient.sendReportAudioStatusCecCommand()
+        → AudioService.isStreamMute()
+        → AudioService.getStreamMaxVolume()
+        → AudioService.getStreamVolume()
+        → AudioService$VolumeStreamState.mute()
+        → AudioService.setRingerMode()
+        → AudioService.setStreamVolumeInt()
+        → Handler.obtainMessage()
+        → Handler.hasMessages()
+        → Handler.sendMessageAtTime()
+        → Handler.removeMessages()
+        → SystemClock.uptimeMillis()
+        → AudioDeviceBroker.shouldVolumeChangedIntent()
+        → AudioService.sendVolumeChangedIntent()
+        → AudioService.isFullVolumeDevice()
+        → AudioService.updateFlagsForSamsungVolume()
+        → FrequentWorker.func()
+        → TextUtils.equals()
+        → SemGoodCatchManager.update()
+          → AudioDeviceBroker.sendIILMsg()
+          → ArrayMap.size()
+          → ArrayMap.keyAt()
+          → ArrayMap.valueAt()
+          → <com.android.server.audio.AudioEventLogger$StringEvent: void
+          → AudioEventLogger.log()
+          → DualA2dpVolumeManager.setVolume()
+          → DualA2dpVolumeManager.getValidIndex()
+          → DualA2dpVolumeManager.updateMainVolume()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → ContainerHelpers.binarySearch()
+          → GrowingArrayUtils.insert()
+          → EventLog.writeEvent()
+          → <com.android.server.audio.AudioService: boolean -$$Nest$fget
+          → AudioService.shouldSkipDeviceAlias()
+          → AudioService.sendBroadcastToSoundEventReceiver()
+          → SparseArray.get()
+          → DeviceAliasManager$DeviceAlias.isExcludedStream()
+          → DeviceAliasManager$DeviceAliasRunner.run()
+          → Settings$Global.getInt()
+          → AudioDeviceBroker.isBluetoothHeadphoneActive()
+          → PowerManager.isScreenOn()
+          → AudioService.callLcdOn()
+          → AudioService.callVibrateMsg()
+          → AudioDeviceBroker.isDeviceOnForCommunication()
+          → AtomicBoolean.get()
+          → Set.size()
+          → MultiSoundManager$MultiSoundInterface.getConnectedDevice()
+          → MultiSoundManager$MultiSoundItem.getAppDevice()
+          → MultiSoundManager.isDeviceConnected()
+          → MultiSoundManager.getCurrentMediaDevice()
+          → HashMap.get()
+          → AudioSystem.deviceSetToString()
+          → Set.isEmpty()
+          → AudioService$VolumeStreamState.observeDevicesForStream_syncVSS()
+          → <android.hardware.hdmi.HdmiAudioSystemClient$1: void <init>(
+          → HdmiAudioSystemClient.getDeviceType()
+          → IHdmiControlService.reportAudioStatus()
+          → Handler.postDelayed()
+          → <com.android.server.audio.AudioService$VolumeStreamState: bo
+          → AudioService.getActiveStreamType()
+          → AudioService.getStreamVolume()
+          → Intent.putExtra()
+          → Intent.putExtra()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → <com.android.server.audio.AudioService: com.android.server.a
+          → <com.android.server.audio.AudioService: void -$$Nest$msendBr
+          → <com.android.server.audio.AudioService: void -$$Nest$smsendM
+          → AudioManagerInternal$RingerModeDelegate.onSetRingerModeExternal()
+          → AudioManagerInternal$RingerModeDelegate.onSetRingerModeInternal()
+          → AudioService.getRingerModeInternal()
+          → AudioService.ensureValidRingerMode()
+          → AudioService.handleSetRingerMode()
+          → AudioService.setRingerModeExt()
+          → AudioService.setRingerModeInt()
+          → DualA2dpVolumeManager.shouldVolumeChangedIntent()
+          → Handler.post()
+          → <com.android.server.audio.AudioService$$ExternalSyntheticLam
+          → AudioService.getIndexDividedBy10()
+          → AudioDeviceBroker.isDualA2dpMode()
+          → AudioDeviceBroker.isRemoteVolumeControlSupported()
+          → AudioService.isInCommunication()
+          → CharSequence.charAt()
+          → CharSequence.length()
+          → RemoteException.printStackTrace()
+          → IGoodCatchManager.update()
+            → PowerManager$WakeLock.acquire()
+            → AudioDeviceBroker.isMessageHandledUnderWakelock()
+            → AudioDeviceBroker.checkMessagesMuteMusic()
+            → <com.android.server.audio.AudioEventLogger$Event: void <init
+            → LinkedList.add()
+            → LinkedList.size()
+            → LinkedList.removeFirst()
+            → BluetoothDevice.getAddress()
+            → ArrayMap.put()
+            → DualA2dpVolumeManager.postSaveVolumeDB()
+            → DualA2dpVolumeManager.updateMainVolume()
+            → AudioService.isBluetoothDualModeActive()
+            → Intent.putExtra()
+            → Intent.setComponent()
+            → AudioService$SoundEventReceiver.hasEventType()
+            → ArrayList.isEmpty()
+            → ArrayList.iterator()
+            → SparseArray.get()
+            → DualA2dpVolumeManager.isBluetoothHeadphoneActive()
+            → PowerManager$WakeLock.isHeld()
+            → PowerManager.newWakeLock()
+            → AudioService.vibrateCall()
+            → AudioDeviceAttributes.getType()
+            → AudioDeviceBroker.preferredCommunicationDevice()
+            → AudioSystemAdapter.getDeviceConnectionState()
+            → MultiSoundManager$MultiSoundInterface.getCurrentMediaDevice()
+            → AudioSystem.getDeviceMaskFromSet()
+            → EventLogTags.writeStreamDevicesChanged()
+            → <com.android.server.audio.AudioService: com.android.server.a
+            → <com.android.server.audio.AudioService: com.samsung.android.
+            → <com.android.server.audio.AudioService: java.util.Set -$$Nes
+            → <com.android.server.audio.AudioService: java.util.concurrent
+            → AudioService.postObserveDevicesForAllStreams()
+            → CurrentDeviceManager.changedCurrentDevice()
+            → SystemServerAdapter.isPrivileged()
+            → MultiSoundManager.getPreventOverheatState()
+            → MultiSoundManager.setPreventOverheatState()
+            → Collections.unmodifiableSet()
+            → Set.equals()
+            → <java.util.TreeSet: void <init>()>
+            → AudioDeviceBroker.isBluetoothScoActive()
+            → AudioService.getRemoteMic()
+            → AudioService.wasStreamActiveRecently()
+            → AudioSystemAdapter.isStreamActive()
+            → CustomDeviceManagerProxy.getInstance()
+            → CustomDeviceManagerProxy.getVolumeControlStream()
+            → AudioHelper.getActiveStreamTypeInternal()
+            → AudioService.isMultiSoundOn()
+            → AudioService.sendBroadcastToAll()
+            → AudioService.isValidRingerMode()
+            → AudioService.checkPlayRingerModeEffect()
+            → <com.samsung.android.server.audio.AudioEvents$RingerModeEven
+            → GoodCatchManager.isRingerModeCatchEnabled()
+            → GoodCatchManager.updateRingerMode()
+            → IndexOutOfBoundsException.printStackTrace()
+            → AudioService.broadcastRingerMode()
+            → AudioService.muteMediaStreamOfSpeaker()
+            → AudioService.muteRingerModeStreams()
+            → DualA2dpVolumeManager.isDualA2dpMode()
+            → BtHelper.isRemoteVolumeControlSupported()
+            → Context.getSystemService()
+            → TelecomManager.isInCall()
+              → PowerManager$WakeLock.acquireLocked()
+              → AudioDeviceBroker.messageMutesMusic()
+              → AudioService.setMusicMute()
+              → AtomicBoolean.getAndSet()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → Handler.removeCallbacks()
+              → <com.samsung.android.server.audio.DualA2dpVolumeManager$Pers
+              → AudioDeviceBroker.isDualModeActive()
+              → BluetoothDevice.semGetAudioType()
+              → VibrationAttributes$Builder.build()
+              → VibrationAttributes$Builder.semAddTag()
+              → VibrationAttributes$Builder.setUsage()
+              → <android.os.VibrationAttributes$Builder: void <init>()>
+              → VibrationEffect.semCreateHaptic()
+              → Vibrator.vibrate()
+              → HapticFeedbackConstants.semGetVibrationIndex()
+              → AudioService.hasVibrator()
+              → AudioDeviceBroker.requestedCommunicationDevice()
+              → BtHelper.getHeadsetAudioDevice()
+              → BtHelper.isBluetoothScoOn()
+              → AudioSystem.getDeviceConnectionState()
+              → AudioService.getDeviceSetForStreamDirect()
+              → <com.android.server.audio.CurrentDeviceManager$$ExternalSynt
+              → Set.forEach()
+              → <com.samsung.android.server.audio.MultiSoundManager$PreventO
+              → MultiSoundManager$PreventOverheatState.setDevice()
+              → AudioDeviceBroker.isDeviceActiveForCommunication()
+              → AudioSystemAdapter.isStreamActiveRemotely()
+              → AudioSystem.isStreamActive()
+              → <com.samsung.android.knox.custom.CustomDeviceManagerProxy: v
+              → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+              → IEDMProxy.getVolumeControlStream()
+              → AudioSystem.isStreamActiveRemotely()
+              → AudioHelper.getActiveStreams()
+              → Context.sendBroadcastAsUser()
+              → Intent.addFlags()
+              → AudioService.sendStickyBroadcastToAll()
+              → AudioService$DeviceVolumeUpdate.getVolumeIndex()
+              → <com.android.server.audio.AudioService$DeviceVolumeUpdate: v
+              → AudioSettingsHelper.setIntValue()
+              → Binder.getCallingPid() [UID_CHECK]
+              → SparseIntArray.valueAt()
+              → <com.android.server.audio.AudioService$VolumeStreamState: an
+              → AudioService.isStreamAffectedByRingerMode()
+              → AudioService.shouldZenMuteStream()
+              → BluetoothDevice.getVolumeControlSupport()
+              → Context.getAttributionTag()
+              → Context.getOpPackageName()
+              → TelecomManager.getTelecomService()
+              → ITelecomService.isInCall()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.MediaFocusControl
+  Method:   <com.android.server.audio.MediaFocusControl: void removeFocusStackEntryOnDeath(android.os.IBinder)>
+  Line:     5185
+  Register: v7 := "com.sec.android.app.voicenote"
+  Usage:    [invoke] invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [invoke] android.util.Log.i() → [other] new-instance v6, Lcom/android/server/audio/
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.audio.MediaFocusControl: void -$$Nest$mr
+        ← MediaFocusControl$AudioFocusDeathHandler.binderDied()
+
+  CALLEES (what this method invokes):
+      → <com.android.server.audio.AudioEventLogger$StringEvent: void
+      → AudioEventLogger.log()
+      → AudioSystemAdapter.getDefaultAdapter()
+      → AudioSystemAdapter.setForceUse()
+      → FocusRequester.toAudioFocusInfo()
+      → FocusRequester.hasSameBinder()
+      → FocusRequester.getClientUid()
+      → FocusRequester.getClientId()
+      → FocusRequester.getPackageName()
+      → FocusRequester.release()
+      → MediaFocusControl.notifyExtPolicyFocusLoss_syncAf()
+      → MediaFocusControl.notifyTopOfAudioFocusStack()
+      → SemAudioSystem.setPolicyParameters()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Iterator.remove()
+      → Stack.isEmpty()
+      → Stack.peek()
+      → Stack.iterator()
+        → <com.android.server.audio.AudioEventLogger$Event: void <init
+        → LinkedList.add()
+        → LinkedList.size()
+        → LinkedList.removeFirst()
+        → AudioSystem.getNumStreamTypes()
+        → AudioSystem.setRoutingCallback()
+        → AudioSystem.setVolumeRangeInitRequestCallback()
+        → <com.android.server.audio.AudioSystemAdapter: void <init>()>
+        → <java.util.concurrent.ConcurrentHashMap: void <init>(int)>
+        → AudioSystem.setForceUse()
+        → AudioSystemAdapter.invalidateRoutingCache()
+        → <android.media.AudioFocusInfo: void <init>(android.media.Aud
+        → IBinder.unlinkToDeath()
+        → AudioFocusInfo.getGainRequest()
+        → AudioFocusInfo.getPackageName()
+        → IAudioPolicyCallback.asBinder()
+        → IAudioPolicyCallback.notifyAudioFocusLoss()
+        → AudioService.notifyCarLifeEvent()
+        → ArrayList.iterator()
+        → Handler.obtainMessage()
+        → Handler.sendMessageDelayed()
+        → Handler.removeMessages()
+        → FocusRequester.handleFocusGain()
+        → MediaFocusControl.canReassignAudioFocus()
+        → MediaFocusControl.isDelayLossApp()
+        → MediaFocusControl.isLockedFocusOwner()
+        → ArrayList.isEmpty()
+        → Stack.empty()
+        → AudioSystem.setParameters()
+          → ConcurrentHashMap.clear()
+          → AudioAttributes$Builder.build()
+          → <android.media.AudioAttributes$Builder: void <init>()>
+          → AudioService.sendBroadcastToSoundEventReceiver()
+          → IAudioFocusDispatcher.dispatchAudioFocusChange()
+          → MediaFocusControl.notifyExtPolicyFocusGrant_syncAf()
+          → MediaFocusControl.restoreVShapedPlayers()
+          → AudioSettingsHelper.checkAppCategory()
+          → FocusRequester.hasSameClient()
+          → FocusRequester.isLockedFocusOwner()
+            → <android.media.AudioAttributes: int -$$Nest$fgetmFlags(andro
+            → <android.media.AudioAttributes: int -$$Nest$fgetmUsage(andro
+            → <android.media.AudioAttributes: void -$$Nest$fputmBundle(and
+            → <android.media.AudioAttributes: void -$$Nest$fputmContentTyp
+            → <android.media.AudioAttributes: void -$$Nest$fputmFlags(andr
+            → <android.media.AudioAttributes: void -$$Nest$fputmFormattedT
+            → <android.media.AudioAttributes: void -$$Nest$fputmSource(and
+            → <android.media.AudioAttributes: void -$$Nest$fputmTags(andro
+            → <android.media.AudioAttributes: void -$$Nest$fputmUsage(andr
+            → <android.media.AudioAttributes: void <init>(android.media.Au
+            → <android.os.Bundle: void <init>(android.os.Bundle)>
+            → TextUtils.join()
+            → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+            → HashSet.clone()
+            → <java.util.HashSet: void <init>()>
+            → Intent.putExtra()
+            → Intent.putExtra()
+            → Intent.setComponent()
+            → <android.content.Intent: void <init>(java.lang.String)>
+            → AudioService$SoundEventReceiver.hasEventType()
+            → AudioService.sendMsg()
+            → IAudioPolicyCallback.notifyAudioFocusGrant()
+            → Handler.removeEqualMessages()
+            → <com.android.server.audio.MediaFocusControl$ForgetFadeUidInf
+            → PlayerFocusEnforcer.restoreVShapedPlayers()
+            → <com.samsung.android.server.audio.AudioSettingsHelper$$Exter
+            → CopyOnWriteArrayList.isEmpty()
+            → CopyOnWriteArrayList.stream()
+            → Stream.anyMatch()
+              → Iterable.iterator()
+              → Handler.obtainMessage()
+              → Handler.hasMessages()
+              → Handler.sendMessageAtTime()
+              → Handler.removeMessages()
+              → SystemClock.uptimeMillis()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.sensorprivacy.SensorPrivacyService$SensorPrivacyServiceImpl
+  Method:   <com.android.server.sensorprivacy.SensorPrivacyService$SensorPrivacyServiceImpl: void onSensorUseStarted(int,java.lang.String,int)>
+  Line:     2047
+  Register: v1 := "com.sec.android.app.voicenote"
+  Usage:    [invoke] invoke-static {p2, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequ
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.text.TextUtils.equals() → [other] move-result v1 → [branch] if-eqz v1, :cond_179 → [other] iget-object 
+
+  CALLERS (who invokes this method):
+      ← SensorPrivacyService$SensorPrivacyServiceImpl.onOpNoted()
+        ← SensorPrivacyService$SensorPrivacyServiceImpl.onOpStarted()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getRunningServices()
+      → ActivityManagerInternal.getUidCapability()
+      → ActivityTaskManager.getTasks()
+      → KeyguardManager.isKeyguardLocked()
+      → ComponentName.unflattenFromString()
+      → ComponentName.flattenToString()
+      → ComponentName.getPackageName()
+      → Context.getContentResolver()
+      → Context.getPackageManager()
+      → Context.getString()
+      → ApplicationInfo.loadLabel()
+      → PackageManager.getApplicationInfoAsUser() [PKG_QUERY]
+      → UserHandle.of()
+      → UserHandle.getIdentifier()
+      → Settings$Secure.getStringForUser()
+      → VoiceInteractionManagerInternal.hasActiveSession()
+      → Html.fromHtml()
+      → TextUtils.equals()
+      → ArrayMap.containsKey()
+      → <android.util.ArraySet: void <init>(java.util.Collection)>
+      → <android.util.Pair: void <init>(java.lang.Object,java.lang.O
+      → Toast.makeText()
+      → Toast.show()
+      → LocalServices.getService()
+      → SystemService.getUiContext()
+      → SensorPrivacyService$SensorPrivacyServiceImpl.isCombinedToggleSensorPrivacyEnabled()
+      → SensorPrivacyService$SensorPrivacyServiceImpl.getSensorUseActivityName()
+      → SensorPrivacyService$SensorPrivacyServiceImpl.enqueueSensorUseReminderDialogAsync()
+      → SensorPrivacyService$SensorPrivacyServiceImpl.showSensorUseReminderNotification()
+      → <com.android.server.sensorprivacy.SensorPrivacyService: andr
+      → <com.android.server.sensorprivacy.SensorPrivacyService: andr
+      → <com.android.server.sensorprivacy.SensorPrivacyService: andr
+      → <com.android.server.sensorprivacy.SensorPrivacyService: andr
+      → <com.android.server.sensorprivacy.SensorPrivacyService: andr
+      → <com.android.server.sensorprivacy.SensorPrivacyService: bool
+      → <com.android.server.sensorprivacy.SensorPrivacyService: int 
+      → <com.android.server.sensorprivacy.SensorPrivacyService: java
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+      → List.size()
+      → List.get()
+        → ActivityTaskManager.getTasks()
+        → CharSequence.charAt()
+        → CharSequence.length()
+        → ArrayMap.indexOfKey()
+        → ArraySet.addAll()
+        → <android.util.ArraySet: void <init>()>
+        → Toast.makeText()
+        → INotificationManager.enqueueTextToastForDex()
+        → INotificationManager.enqueueToastForDex()
+        → Compatibility.isChangeEnabled()
+        → Context.getApplicationInfo() [PKG_QUERY]
+        → Context.getDisplayId()
+        → Context.getOpPackageName()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → PackageManager.getApplicationLabel()
+        → Debug.getCallers()
+        → Html.fromHtml()
+        → Html.toHtml()
+        → <android.text.SpannableString: void <init>(java.lang.CharSeq
+        → View.findViewById()
+        → TextView.getText()
+        → TextView.setText()
+        → <android.widget.Toast$CallbackBinder: void <init>(java.util.
+        → Toast.getService()
+        → Toast.checkGameHomeAllowList()
+        → Toast.isSpeg()
+        → Toast.semGetMessageFromTv()
+        → Preconditions.checkState()
+        → CustomDeviceManagerProxy.getToastEnabledState()
+        → CustomDeviceManagerProxy.getToastShowPackageNameState()
+        → CustomDeviceManagerProxy.getInstance()
+        → CharSequence.toString()
+        → <java.lang.RuntimeException: void <init>(java.lang.String)>
+        → ArrayMap.get()
+        → ActivityThread.currentActivityThread()
+        → ActivityThread.getSystemUiContext()
+        → SensorPrivacyService$SensorPrivacyServiceImpl.isToggleSensorPrivacyEnabled()
+        → Context.getResources()
+        → Resources.getString()
+        → ArraySet.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Handler.sendMessage()
+        → PooledLambda.obtainMessage()
+        → <com.android.server.sensorprivacy.SensorPrivacyService$Senso
+        → Notification$Action$Builder.build()
+        → <android.app.Notification$Action$Builder: void <init>(androi
+        → Notification$Builder.build()
+        → Notification$Builder.addAction()
+        → Notification$Builder.extend()
+        → Notification$Builder.setAutoCancel()
+        → Notification$Builder.setContentIntent()
+        → Notification$Builder.setContentText()
+        → Notification$Builder.setContentTitle()
+        → Notification$Builder.setSmallIcon()
+        → Notification$Builder.setTimeoutAfter()
+        → <android.app.Notification$Builder: void <init>(android.conte
+        → <android.app.Notification$TvExtender: void <init>()>
+        → <android.app.NotificationChannel: void <init>(java.lang.Stri
+        → NotificationChannel.enableVibration()
+        → NotificationChannel.setBlockable()
+        → NotificationChannel.setBypassDnd()
+        → NotificationChannel.setSound()
+        → NotificationManager.createNotificationChannel()
+        → NotificationManager.notify()
+        → PendingIntent.getActivity()
+        → PendingIntent.getBroadcast()
+        → Context.getSystemService()
+        → Context.getPackageName()
+        → Context.getString()
+        → Intent.putExtra()
+        → Intent.putExtra()
+        → Intent.setPackage()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → Icon.createWithResource()
+        → SensorPrivacyService$SensorPrivacyServiceImpl.isTelevision()
+        → <com.android.server.sensorprivacy.SensorPrivacyService: java
+          → ActivityTaskManager.getTasks()
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArraySet.add()
+          → ArraySet.ensureCapacity()
+          → Collection.size()
+          → Collection.iterator()
+          → <android.util.ArraySet: void <init>(int,boolean)>
+          → <android.widget.Toast: void <init>(android.content.Context,a
+          → ToastPresenter.getTextToastView()
+          → <android.text.SpannableString: void <init>(java.lang.CharSeq
+          → <android.widget.Toast$CallbackBinder: void <init>(java.util.
+          → INotificationManager$Stub.asInterface()
+          → ServiceManager.getService()
+          → SystemProperties.get()
+          → Settings$System.getInt()
+          → Settings$System.getString()
+          → ActivityThread.currentApplication()
+          → PackageManager.isSpeg()
+          → Binder.getCallingUid() [UID_CHECK]
+          → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+          → IEDMProxy.getToastEnabledState()
+          → IEDMProxy.getToastShowPackageNameState()
+          → <com.samsung.android.knox.custom.CustomDeviceManagerProxy: v
+          → SensorPrivacyService$SensorPrivacyServiceImpl.enforceObserveSensorPrivacyPermission()
+          → SensorPrivacyStateController.getState()
+          → SensorState.isEnabled()
+          → ArraySet.getCollection()
+          → MapCollections.getKeySet()
+          → Set.iterator()
+          → Message.obtain()
+          → Message.setCallback()
+          → PooledLambdaImpl.acquire()
+          → PooledRunnable.recycleOnUse()
+          → Notification$Action$Builder.checkContextualActionNullFields()
+          → <android.app.Notification$Action: void <init>(android.graphi
+          → <android.app.Notification: android.os.Parcelable[] -$$Nest$s
+          → RemoteInput.isDataOnly()
+          → Bundle.putParcelableArray()
+          → ArrayList.add()
+          → ArrayList.isEmpty()
+          → ArrayList.size()
+          → ArrayList.toArray()
+          → ArrayList.iterator()
+          → List.isEmpty()
+          → List.toArray()
+          → <android.app.Notification$Action$Builder: void <init>(androi
+          → <android.os.Bundle: void <init>()>
+          → NotificationChannel.getTrimmedString()
+          → Resources.getConfiguration()
+            → ActivityTaskManager.getService()
+            → IActivityTaskManager.getTasks()
+            → RemoteException.rethrowFromSystemServer()
+            → ArrayMap.binarySearchHashes()
+            → ArraySet.indexOf()
+            → ArraySet.indexOfNull()
+            → ArraySet.allocArrays()
+            → ArraySet.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → Resources.getDimensionPixelSize()
+            → Resources.getInteger()
+            → <android.os.Binder: void <init>()>
+            → <android.os.Handler: void <init>(android.os.Looper)>
+            → <android.widget.Toast$TN: void <init>(android.content.Contex
+            → Toast.getLooper()
+            → Context.getTheme()
+            → Resources$Theme.resolveAttribute()
+            → <android.util.TypedValue: void <init>()>
+            → LayoutInflater.from()
+            → LayoutInflater.inflate()
+            → ToastPresenter.semCheckMaxFontScale()
+            → <android.text.SpannableStringInternal: void <init>(java.lang
+            → <android.app.ITransientNotificationCallback$Stub: void <init
+            → IEDMProxy$Stub.asInterface()
+            → PackageManagerInternal.getPackageUid()
+            → SensorPrivacyService$SensorPrivacyServiceImpl.enforcePermission() [PERM_CHECK]
+            → <com.android.server.sensorprivacy.SensorPrivacyService: andr
+            → SensorPrivacyStateController.getStateLocked()
+            → SensorState.getState()
+            → <android.util.ArraySet$1: void <init>(android.util.ArraySet)
+            → <android.util.MapCollections$KeySet: void <init>(android.uti
+            → <android.os.Message: void <init>()>
+            → ArrayUtils.size()
+            → PooledLambdaImpl$LambdaType.encode()
+            → PooledLambdaImpl.acquire()
+            → PooledLambdaImpl.setFlags()
+            → PooledLambdaImpl.setIfInBounds()
+            → Objects.requireNonNull()
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+            → <android.app.Notification$Action: void <init>(android.graphi
+            → Notification.getParcelableArrayFromBundle()
+            → RemoteInput.getAllowFreeFormInput()
+            → RemoteInput.getChoices()
+            → RemoteInput.getAllowedDataTypes()
+            → Set.isEmpty()
+            → <java.util.ArrayList: void <init>(int)>
+            → Collections.addAll()
+              → Singleton.get()
+              → <android.os.DeadSystemRuntimeException: void <init>()>
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+              → ContainerHelpers.binarySearch()
+              → ArraySet.binarySearch()
+              → <android.os.Binder: void <init>(java.lang.String)>
+              → <android.app.ITransientNotification$Stub: void <init>()>
+              → IAccessibilityManager$Stub.asInterface()
+              → <android.widget.Toast$TN$1: void <init>(android.widget.Toast
+              → <android.widget.Toast: android.app.INotificationManager -$$N
+              → ToastPresenter.getLayoutParams()
+              → <android.widget.ToastPresenter: void <init>(android.content.
+              → Looper.myLooper()
+              → Preconditions.checkNotNull()
+              → ResourcesImpl$ThemeImpl.resolveAttribute()
+              → TextView.setTextSize()
+              → ITransientNotificationCallback$Stub.attachInterface()
+              → IBinder.queryLocalInterface()
+              → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → Context.checkCallingOrSelfPermission()
+              → <java.lang.SecurityException: void <init>(java.lang.String)>
+              → <android.util.MapCollections: void <init>()>
+              → <com.android.internal.util.function.pooled.PooledLambdaImpl:
+              → PooledLambdaImpl$Pool.acquire()
+              → <com.android.internal.util.function.pooled.PooledLambdaImpl:
+              → PooledLambdaImpl.mask()
+              → Icon.getResId()
+              → Icon.getType()
+              → Bundle.getParcelableArray()
+              → Array.newInstance()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.voicenote.VoiceNoteService
+  Method:   <com.android.server.voicenote.VoiceNoteService: void <init>(android.content.Context)>
+  Line:     45
+  Register: v0 := "com.sec.android.app.voicenote"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.SystemServer: void lambda$startOtherServ
+        ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+          ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → IntentFilter.setPriority()
+      → <android.os.Binder: void <init>()>
+      → <com.android.server.voicenote.VoiceNoteService$UpdateReceive
+      → VoiceNoteService.backgroundWhitelist()
+        → <android.os.Binder: void <init>(java.lang.String)>
+        → <com.android.server.voicenote.VoiceNoteService$UpdateReceive
+        → ActivityManager.getService()
+        → IActivityManager.backgroundAllowlistUid()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → Binder.getNativeBBinderHolder()
+          → NativeAllocationRegistry.registerNativeAllocation()
+          → <android.content.BroadcastReceiver: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.voicenote.VoiceNoteService
+  Method:   <com.android.server.voicenote.VoiceNoteService: void backgroundWhitelist(android.content.Context)>
+  Line:     94
+  Register: v1 := "com.sec.android.app.voicenote"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.voicenote.VoiceNoteService: void -$$Nest
+      ← <com.android.server.voicenote.VoiceNoteService: void <init>(
+        ← VoiceNoteService$UpdateReceiver.onReceive()
+        ← <com.android.server.SystemServer: void lambda$startOtherServ
+          ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+            ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → IActivityManager.backgroundAllowlistUid()
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.SeamLessSwitchHandler
+  Method:   <com.android.server.knox.SeamLessSwitchHandler: boolean isAllowedAppsInLockscreen(android.content.ComponentName)>
+  Line:     629
+  Register: p1 := "com.sec.android.app.voicenote"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← SeamLessSwitchHandler.launchSecureFolderAppsAtLockscreen()
+        ← SeamLessSwitchHandler.launchSeamLessForSF()
+          ← PersonaManagerService$PersonaHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getPackageName()
+      → SeamLessSwitchHandler.isCameraRunning()
+        → SystemProperties.get()
+

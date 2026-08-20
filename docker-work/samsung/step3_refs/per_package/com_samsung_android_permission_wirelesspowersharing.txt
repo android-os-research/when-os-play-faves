@@ -1,0 +1,6 @@
+# com.samsung.android.permission.wirelesspowersharing [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.BatteryService: void <init>(android.content.Context)>
+<com.android.server.biometrics.sensors.fingerprint.SemFpWirelessPowerMonitor: void registerBroadcast()>

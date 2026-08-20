@@ -1,0 +1,14 @@
+# com.samsung.android.smartface.ISmartFaceService [NEW]
+# Refs: 10
+# JARs: framework
+
+<com.samsung.android.smartface.ISmartFaceService$Stub$Proxy: boolean register(com.samsung.android.smartface.ISmartFaceClient,int)>
+<com.samsung.android.smartface.ISmartFaceService$Stub$Proxy: int getSupportedServices()>
+<com.samsung.android.smartface.ISmartFaceService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.smartface.ISmartFaceService$Stub$Proxy: void registerAsync(com.samsung.android.smartface.ISmartFaceClient,int)>
+<com.samsung.android.smartface.ISmartFaceService$Stub$Proxy: void setValue(com.samsung.android.smartface.ISmartFaceClient,java.lang.String,java.lang.String)>
+<com.samsung.android.smartface.ISmartFaceService$Stub$Proxy: void unregister(com.samsung.android.smartface.ISmartFaceClient)>
+<com.samsung.android.smartface.ISmartFaceService$Stub$Proxy: void unregisterAsync(com.samsung.android.smartface.ISmartFaceClient)>
+<com.samsung.android.smartface.ISmartFaceService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.smartface.ISmartFaceService$Stub: com.samsung.android.smartface.ISmartFaceService asInterface(android.os.IBinder)>
+<com.samsung.android.smartface.ISmartFaceService$Stub: void <init>()>

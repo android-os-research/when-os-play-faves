@@ -1,0 +1,21 @@
+.class public Lorg/apache/commons/codec/DecoderException;
+.super Ljava/lang/Exception;
+.source "DecoderException.java"
+
+
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;)V
+    .registers 2
+    .param p1, "pMessage"    # Ljava/lang/String;
+
+    .line 38
+    invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+
+    .line 39
+    return-void
+.end method

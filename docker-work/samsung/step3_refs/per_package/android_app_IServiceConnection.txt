@@ -1,0 +1,9 @@
+# android.app.IServiceConnection [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.IServiceConnection$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IServiceConnection$Stub$Proxy: void connected(android.content.ComponentName,android.os.IBinder,boolean)>
+<android.app.IServiceConnection$Stub: android.app.IServiceConnection asInterface(android.os.IBinder)>
+<android.app.IServiceConnection$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IServiceConnection$Stub: void <init>()>

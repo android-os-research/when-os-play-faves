@@ -1,0 +1,19 @@
+# android.net.lowpan.ILowpanInterfaceListener [NEW]
+# Refs: 15
+# JARs: framework
+
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: void onConnectedChanged(boolean)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: void onEnabledChanged(boolean)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: void onLinkAddressAdded(java.lang.String)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: void onLinkAddressRemoved(java.lang.String)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: void onLinkNetworkAdded(android.net.IpPrefix)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: void onLinkNetworkRemoved(android.net.IpPrefix)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: void onLowpanIdentityChanged(android.net.lowpan.LowpanIdentity)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: void onReceiveFromCommissioner(byte[])>
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: void onRoleChanged(java.lang.String)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: void onStateChanged(java.lang.String)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub$Proxy: void onUpChanged(boolean)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub: android.net.lowpan.ILowpanInterfaceListener asInterface(android.os.IBinder)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.lowpan.ILowpanInterfaceListener$Stub: void <init>()>

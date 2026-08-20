@@ -1,0 +1,6 @@
+# com.samsung.android.bluetooth.cast.extra.STATE [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.audio.AudioService$SamsungBroadcastReceiver: void handleIntent(android.content.Context,android.content.Intent)>
+<com.android.server.media.SystemMediaRoute2Provider$AudioManagerBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)>

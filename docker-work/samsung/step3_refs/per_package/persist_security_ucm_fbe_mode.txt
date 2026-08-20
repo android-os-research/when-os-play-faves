@@ -1,0 +1,6 @@
+# persist.security.ucm_fbe_mode [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: boolean isUCMODEEnabled()>
+<com.samsung.ucm.ucmservice.UcmServiceODE: void updateOdeStatus()>

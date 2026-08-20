@@ -1,0 +1,14 @@
+# com.samsung.android.iccc.IIntegrityControlCheckCenter [NEW]
+# Refs: 10
+# JARs: framework
+
+<com.samsung.android.iccc.IIntegrityControlCheckCenter$Stub$Proxy: byte[] getDeviceInfo(byte[])>
+<com.samsung.android.iccc.IIntegrityControlCheckCenter$Stub$Proxy: byte[] getDeviceStatus(int,byte[])>
+<com.samsung.android.iccc.IIntegrityControlCheckCenter$Stub$Proxy: byte[] setAttestationData(byte[])>
+<com.samsung.android.iccc.IIntegrityControlCheckCenter$Stub$Proxy: int getSecureData(int)>
+<com.samsung.android.iccc.IIntegrityControlCheckCenter$Stub$Proxy: int getTrustedBootData()>
+<com.samsung.android.iccc.IIntegrityControlCheckCenter$Stub$Proxy: int setSecureData(int,int)>
+<com.samsung.android.iccc.IIntegrityControlCheckCenter$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.iccc.IIntegrityControlCheckCenter$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.iccc.IIntegrityControlCheckCenter$Stub: com.samsung.android.iccc.IIntegrityControlCheckCenter asInterface(android.os.IBinder)>
+<com.samsung.android.iccc.IIntegrityControlCheckCenter$Stub: void <init>()>

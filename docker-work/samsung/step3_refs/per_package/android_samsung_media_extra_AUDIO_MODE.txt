@@ -1,0 +1,8 @@
+# android.samsung.media.extra.AUDIO_MODE [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.BatteryService$8: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.audio.AudioService: void onUpdateAudioMode(int,int,java.lang.String,boolean)>
+<com.android.server.display.WifiDisplayController$31: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.camera.ShakeEventListener: void onReceive(android.content.Context,android.content.Intent)>

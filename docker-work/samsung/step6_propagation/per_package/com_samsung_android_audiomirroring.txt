@@ -1,0 +1,101 @@
+######################################################################
+# Propagation: com.samsung.android.audiomirroring
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.media.MediaSessionService$SessionManagerImpl
+  Method:   <com.android.server.media.MediaSessionService$SessionManagerImpl: void dispatchAdjustVolumeLocked(java.lang.String,java.lang.String,int,int,boolean,int,int,int,boolean)>
+  Line:     1239
+  Register: v5 := "com.samsung.android.audiomirroring"
+  Usage:    [invoke] invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v5 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.media.MediaSessionService$SessionManager
+      ← MediaSessionService$SessionManagerImpl.dispatchAdjustVolume()
+      ← MediaSessionService$SessionManagerImpl.dispatchVolumeKeyEventLocked()
+        ← MediaSessionService$SessionManagerImpl$VolumeKeyLongPressControlThread.run()
+        ← <com.android.server.media.MediaSessionService$SessionManager
+        ← MediaSessionService$SessionManagerImpl.dispatchVolumeKeyEvent()
+        ← MediaSessionService$SessionManagerImpl.dispatchVolumeKeyEventToSessionAsSystemService()
+          ← MediaSessionService$SessionManagerImpl$KeyEventHandler.cancelTrackingIfNeeded()
+          ← MediaSessionService$SessionManagerImpl$KeyEventHandler.dispatchDownAndUpKeyEventsLocked()
+          ← MediaSessionService$SessionManagerImpl$KeyEventHandler.handleKeyEventLocked()
+          ← MediaSessionService$SessionManagerImpl.needSkipKeyEventFromKeyCustomizer()
+            ← <com.android.server.media.MediaSessionService$SessionManager
+            ← MediaSessionService$SessionManagerImpl$KeyEventHandler.handleMediaKeyEventLocked()
+            ← MediaSessionService$SessionManagerImpl$KeyEventHandler.handleVolumeKeyEventLocked()
+              ← MediaSessionService$SessionManagerImpl$KeyEventHandler$2.run()
+              ← MediaSessionService$SessionManagerImpl$KeyEventHandler$3.run()
+              ← MediaSessionService$SessionManagerImpl$MediaKeyListenerResultReceiver.dispatchMediaKeyEvent()
+              ← MediaSessionService$SessionManagerImpl.dispatchMediaKeyEvent()
+
+  CALLEES (what this method invokes):
+      → AudioSystem.isStreamActive()
+      → Handler.post()
+      → MediaSessionRecordImpl.getPackageName()
+      → MediaSessionRecordImpl.adjustVolume()
+      → <com.android.server.media.MediaSessionService$FullUserRecord
+      → <com.android.server.media.MediaSessionService$SessionManager
+      → MediaSessionService$SessionManagerImpl.isValidLocalStreamType()
+      → <com.android.server.media.MediaSessionService: boolean -$$Ne
+      → <com.android.server.media.MediaSessionService: com.android.s
+      → <com.android.server.media.MediaSessionService: com.android.s
+      → <com.android.server.media.MediaSessionService: com.android.s
+      → MediaSessionStack.getDefaultVolumeSession()
+        → MediaSessionService.isGlobalPriorityActiveLocked()
+        → MediaSessionRecord.canHandleVolumeKey()
+        → MediaSessionRecord.checkPlaybackActiveState()
+        → MediaSessionStack.getPriorityList()
+        → List.size()
+        → List.get()
+          → MediaSessionRecord.isActive()
+          → MediaRouter2Manager.getInstance()
+          → MediaRouter2Manager.getRoutingSessions()
+          → RoutingSessionInfo.isSystemSession()
+          → RoutingSessionInfo.getSelectedRoutes()
+          → MediaSessionRecord.isPlaybackTypeLocal()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.iterator()
+          → PlaybackState.isActive()
+          → MediaSessionRecord.getUserId()
+          → <java.util.ArrayList: void <init>()>
+          → List.add()
+          → List.add()
+            → <android.media.MediaRouter2Manager: void <init>(android.cont
+            → Objects.requireNonNull()
+            → MediaRouter2Manager.getSystemRoutingSession()
+            → MediaRouter2Manager.getRemoteSessions()
+            → RoutingSessionInfo.getClientPackageName()
+            → TextUtils.equals()
+              → Context.getApplicationContext()
+              → Context.getMainLooper()
+              → Context.getSystemService()
+              → Context.getPackageName()
+              → IMediaRouterService$Stub.asInterface()
+              → <android.media.MediaRouter2Manager$$ExternalSyntheticLambda1
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → ServiceManager.getService()
+              → <java.util.HashMap: void <init>()>
+              → <java.util.concurrent.ConcurrentHashMap: void <init>()>
+              → <java.util.concurrent.CopyOnWriteArrayList: void <init>()>
+              → <java.util.concurrent.atomic.AtomicInteger: void <init>(int)
+              → IMediaRouterService.getSystemSessionInfoForPackage()
+              → MediaRouter2Manager.getOrCreateClient()
+              → IMediaRouterService.getRemoteSessions()
+              → Collections.emptyList()
+              → CharSequence.charAt()
+              → CharSequence.length()
+

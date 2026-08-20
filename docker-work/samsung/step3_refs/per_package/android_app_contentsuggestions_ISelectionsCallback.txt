@@ -1,0 +1,9 @@
+# android.app.contentsuggestions.ISelectionsCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.contentsuggestions.ISelectionsCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.contentsuggestions.ISelectionsCallback$Stub$Proxy: void onContentSelectionsAvailable(int,java.util.List)>
+<android.app.contentsuggestions.ISelectionsCallback$Stub: android.app.contentsuggestions.ISelectionsCallback asInterface(android.os.IBinder)>
+<android.app.contentsuggestions.ISelectionsCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.contentsuggestions.ISelectionsCallback$Stub: void <init>()>

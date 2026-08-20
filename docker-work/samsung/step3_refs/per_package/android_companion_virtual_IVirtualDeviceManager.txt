@@ -1,0 +1,10 @@
+# android.companion.virtual.IVirtualDeviceManager [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.companion.virtual.IVirtualDeviceManager$Stub$Proxy: android.companion.virtual.IVirtualDevice createVirtualDevice(android.os.IBinder,java.lang.String,int,android.companion.virtual.VirtualDeviceParams,android.companion.virtual.IVirtualDeviceActivityListener)>
+<android.companion.virtual.IVirtualDeviceManager$Stub$Proxy: int createVirtualDisplay(android.hardware.display.VirtualDisplayConfig,android.hardware.display.IVirtualDisplayCallback,android.companion.virtual.IVirtualDevice,java.lang.String)>
+<android.companion.virtual.IVirtualDeviceManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.companion.virtual.IVirtualDeviceManager$Stub: android.companion.virtual.IVirtualDeviceManager asInterface(android.os.IBinder)>
+<android.companion.virtual.IVirtualDeviceManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.companion.virtual.IVirtualDeviceManager$Stub: void <init>()>

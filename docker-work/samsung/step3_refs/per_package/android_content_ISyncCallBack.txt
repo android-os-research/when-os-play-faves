@@ -1,0 +1,10 @@
+# android.content.ISyncCallBack [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.content.ISyncCallBack$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.ISyncCallBack$Stub$Proxy: void deletePersonaData(int)>
+<android.content.ISyncCallBack$Stub$Proxy: void doSync(java.lang.String,int)>
+<android.content.ISyncCallBack$Stub: android.content.ISyncCallBack asInterface(android.os.IBinder)>
+<android.content.ISyncCallBack$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.ISyncCallBack$Stub: void <init>()>

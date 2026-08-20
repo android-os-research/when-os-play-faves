@@ -1,0 +1,9 @@
+# com.google.android.googlequicksearchbox [NEW]
+# Refs: 5
+# JARs: framework, knoxsdk, services
+
+<com.android.server.am.KillPolicyManager: void initSkipPackage()>
+<com.android.server.inputmethod.InputMethodMenuController: void showInputMethodMenu(boolean,int)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+<com.samsung.android.knox.application.ApplicationPolicy: void disableVoiceDialer()>
+<com.samsung.android.knox.application.ApplicationPolicy: void enableVoiceDialer()>

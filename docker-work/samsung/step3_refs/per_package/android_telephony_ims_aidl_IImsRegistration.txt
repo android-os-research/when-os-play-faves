@@ -1,0 +1,14 @@
+# android.telephony.ims.aidl.IImsRegistration [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.telephony.ims.aidl.IImsRegistration$Stub$Proxy: int getRegistrationTechnology()>
+<android.telephony.ims.aidl.IImsRegistration$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IImsRegistration$Stub$Proxy: void addRegistrationCallback(android.telephony.ims.aidl.IImsRegistrationCallback)>
+<android.telephony.ims.aidl.IImsRegistration$Stub$Proxy: void removeRegistrationCallback(android.telephony.ims.aidl.IImsRegistrationCallback)>
+<android.telephony.ims.aidl.IImsRegistration$Stub$Proxy: void triggerFullNetworkRegistration(int,java.lang.String)>
+<android.telephony.ims.aidl.IImsRegistration$Stub$Proxy: void triggerSipDelegateDeregistration()>
+<android.telephony.ims.aidl.IImsRegistration$Stub$Proxy: void triggerUpdateSipDelegateRegistration()>
+<android.telephony.ims.aidl.IImsRegistration$Stub: android.telephony.ims.aidl.IImsRegistration asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IImsRegistration$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IImsRegistration$Stub: void <init>()>

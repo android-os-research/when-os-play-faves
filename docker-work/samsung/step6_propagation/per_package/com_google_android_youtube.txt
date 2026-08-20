@@ -1,0 +1,698 @@
+######################################################################
+# Propagation: com.google.android.youtube
+######################################################################
+
+JARs:                 framework, knoxsdk, motionrecognitionservice, services
+Classes:              8
+Occurrences:          9
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.content.smartclip.SmartClipDataCropperImpl
+  Method:   <com.samsung.android.content.smartclip.SmartClipDataCropperImpl: int extractDefaultSmartClipData(android.view.View,com.samsung.android.content.smartclip.SemSmartClipCroppedArea,com.samsung.android.content.smartclip.SmartClipDataElementImpl)>
+  Line:     4222
+  Register: v4 := "com.google.android.youtube"
+  Usage:    [invoke] invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v4 overwritten
+
+  CALLEES (what this method invokes):
+      → View.getContext()
+      → View.toString()
+      → Toast.makeText()
+      → Toast.show()
+      → SmartClipDataCropperImpl.extractDefaultSmartClipData_GoogleChromeView()
+      → SmartClipDataCropperImpl.extractDefaultSmartClipData_ImageView()
+      → SmartClipDataCropperImpl.extractDefaultSmartClipData_TextView()
+      → SmartClipDataCropperImpl.extractDefaultSmartClipData_TextureView()
+      → SmartClipDataCropperImpl.extractDefaultSmartClipData_YoutubePlayerView()
+      → SmartClipUtils.isInstanceOf()
+      → ClassCastException.printStackTrace()
+        → Toast.makeText()
+        → INotificationManager.enqueueTextToastForDex()
+        → INotificationManager.enqueueToastForDex()
+        → Compatibility.isChangeEnabled()
+        → Context.getApplicationInfo() [PKG_QUERY]
+        → Context.getPackageManager()
+        → Context.getDisplayId()
+        → Context.getOpPackageName()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → PackageManager.getApplicationLabel()
+        → Debug.getCallers()
+        → Html.fromHtml()
+        → Html.toHtml()
+        → <android.text.SpannableString: void <init>(java.lang.CharSeq
+        → View.findViewById()
+        → TextView.getText()
+        → TextView.setText()
+        → <android.widget.Toast$CallbackBinder: void <init>(java.util.
+        → Toast.getService()
+        → Toast.checkGameHomeAllowList()
+        → Toast.isSpeg()
+        → Toast.semGetMessageFromTv()
+        → Preconditions.checkState()
+        → CustomDeviceManagerProxy.getToastEnabledState()
+        → CustomDeviceManagerProxy.getToastShowPackageNameState()
+        → CustomDeviceManagerProxy.getInstance()
+        → CharSequence.toString()
+        → <java.lang.RuntimeException: void <init>(java.lang.String)>
+        → Rect.height()
+        → Rect.width()
+        → Rect.toString()
+        → <android.graphics.Rect: void <init>(android.graphics.Rect)>
+        → Rect.offset()
+        → View.getLocationOnScreen()
+        → SemSmartClipCroppedArea.getRect()
+        → <com.samsung.android.content.smartclip.SemSmartClipMetaTag: 
+        → <com.samsung.android.content.smartclip.SmartClipDataCropperI
+        → SmartClipDataElementImpl.setTag()
+        → SmartClipDataElementImpl.setMetaAreaRect()
+        → Exception.printStackTrace()
+        → Method.invoke()
+        → ImageView.getBackground()
+        → ImageView.getDrawable()
+        → SemSmartClipMetaTagArray.size()
+        → SmartClipDataElementImpl.addTag()
+        → SmartClipDataElementImpl.getTags()
+        → TextView.getSpannedTextRect()
+        → TextView.getTransformationMethod()
+        → TextView.hasSelection()
+        → TextView.getSelectionEnd()
+        → TextView.getSelectionStart()
+        → CharSequence.subSequence()
+          → <android.widget.Toast: void <init>(android.content.Context,a
+          → ToastPresenter.getTextToastView()
+          → <android.text.SpannableString: void <init>(java.lang.CharSeq
+          → <android.widget.Toast$CallbackBinder: void <init>(java.util.
+          → INotificationManager$Stub.asInterface()
+          → ServiceManager.getService()
+          → Context.getContentResolver()
+          → Context.getPackageName()
+          → SystemProperties.get()
+          → Settings$System.getInt()
+          → Settings$System.getString()
+          → ActivityThread.currentApplication()
+          → PackageManager.isSpeg()
+          → Binder.getCallingUid() [UID_CHECK]
+          → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+          → IEDMProxy.getToastEnabledState()
+          → IEDMProxy.getToastShowPackageNameState()
+          → <com.samsung.android.knox.custom.CustomDeviceManagerProxy: v
+          → <android.os.Handler: void <init>()>
+          → SemSmartClipMetaTag.getType()
+          → SmartClipMetaTagArrayImpl.add()
+          → SmartClipMetaTagArrayImpl.removeMetaTags()
+          → <com.samsung.android.content.smartclip.SmartClipMetaTagArray
+          → SmartClipUtils.isValidMetaTag()
+          → SmartClipMetaTagArrayImpl.getMetaTags()
+            → Context.getResources()
+            → Resources.getDimensionPixelSize()
+            → Resources.getInteger()
+            → <android.os.Binder: void <init>()>
+            → <android.os.Handler: void <init>(android.os.Looper)>
+            → <android.widget.Toast$TN: void <init>(android.content.Contex
+            → Toast.getLooper()
+            → <java.util.ArrayList: void <init>()>
+            → Context.getTheme()
+            → Resources$Theme.resolveAttribute()
+            → <android.util.TypedValue: void <init>()>
+            → LayoutInflater.from()
+            → LayoutInflater.inflate()
+            → ToastPresenter.semCheckMaxFontScale()
+            → <android.text.SpannableStringInternal: void <init>(java.lang
+            → CharSequence.length()
+            → <android.app.ITransientNotificationCallback$Stub: void <init
+            → IEDMProxy$Stub.asInterface()
+            → SmartClipMetaTagArrayImpl.size()
+            → SmartClipMetaTagArrayImpl.get()
+            → SmartClipMetaTagArrayImpl.remove()
+            → <com.samsung.android.content.smartclip.SemSmartClipMetaTagAr
+            → SemSmartClipMetaTag.getValue()
+              → <android.os.Binder: void <init>(java.lang.String)>
+              → <android.app.ITransientNotification$Stub: void <init>()>
+              → IAccessibilityManager$Stub.asInterface()
+              → <android.widget.Toast$TN$1: void <init>(android.widget.Toast
+              → <android.widget.Toast: android.app.INotificationManager -$$N
+              → ToastPresenter.getLayoutParams()
+              → <android.widget.ToastPresenter: void <init>(android.content.
+              → Looper.myLooper()
+              → Preconditions.checkNotNull()
+              → ResourcesImpl$ThemeImpl.resolveAttribute()
+              → Resources.getConfiguration()
+              → TextView.setTextSize()
+              → ITransientNotificationCallback$Stub.attachInterface()
+              → IBinder.queryLocalInterface()
+              → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.content.smartclip.SemSmartClipDataRepository
+  Method:   <com.samsung.android.content.smartclip.SemSmartClipDataRepository: boolean determineContentType()>
+  Line:     947
+  Register: v12 := "com.google.android.youtube"
+  Usage:    [invoke] invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v12 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemSmartClipDataRepository.writeToParcel()
+      ← SmartClipDataCropperImpl.doExtractSmartClipData()
+      ← SmartClipDataCropperImpl.setPendingExtractionResult()
+        ← ViewRootImpl$SmartClipRemoteRequestDispatcherProxy.dispatchSmartClipMetaDataExtraction()
+        ← SmartClipDataCropperImpl$1.handleMessage()
+        ← SmartClipDataCropperImpl$2.handleMessage()
+        ← SmartClipDataElementImpl.sendSuspendedExtractionData()
+          ← <android.view.ViewRootImpl$SmartClipRemoteRequestDispatcherP
+            ← ViewRootImpl$SmartClipRemoteRequestDispatcherProxy$2.run()
+
+  CALLEES (what this method invokes):
+      → SemSmartClipDataRepository.getMetaTag()
+      → SemSmartClipMetaTag.getValue()
+      → SemSmartClipMetaTagArray.size()
+      → SemSmartClipMetaTagArray.iterator()
+      → SmartClipDataElementImpl.getView()
+      → SmartClipDataElementImpl.traverseNextElement()
+      → Iterator.hasNext()
+      → Iterator.next()
+        → SemSmartClipDataRepository.getMergedPlainTextTag()
+        → <com.samsung.android.content.smartclip.SemSmartClipExtendedM
+        → SemSmartClipMetaTag.getType()
+        → SmartClipDataElementImpl.getTagTable()
+        → SmartClipMetaTagArrayImpl.add()
+        → SmartClipMetaTagArrayImpl.size()
+        → SmartClipMetaTagArrayImpl.get()
+        → <com.samsung.android.content.smartclip.SmartClipMetaTagArray
+          → SmartClipDataRootElement.collectPlainTextTag()
+          → <com.samsung.android.content.smartclip.SemSmartClipMetaTag: 
+          → <com.samsung.android.content.smartclip.SemSmartClipMetaTagAr
+            → <android.graphics.Rect: void <init>()>
+            → TextUtils.isEmpty()
+            → TextUtils.getTrimmedLength()
+            → SemSmartClipMetaTagArray.get()
+            → SmartClipDataElementImpl.getMetaAreaRect()
+            → SmartClipDataElementImpl.getTags()
+            → <java.util.ArrayList: void <init>()>
+              → CharSequence.length()
+              → CharSequence.charAt()
+              → SmartClipMetaTagArrayImpl.getMetaTags()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1286
+  Register: v18 := "com.google.android.youtube"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.application.ApplicationPolicy
+  Method:   <com.samsung.android.knox.application.ApplicationPolicy: void disableYouTube()>
+  Line:     27873
+  Register: v0 := "com.google.android.youtube"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/samsung/android/knox/application/ApplicationPolicy;->setApplicatio
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.application.ApplicationPolicy.setAp
+
+  CALLEES (what this method invokes):
+      → ApplicationPolicy.setApplicationState()
+      → ApplicationPolicy.logUsage()
+        → AccessController.throwIfParentInstance()
+        → ApplicationPolicy.getService()
+        → IApplicationPolicy.setApplicationState()
+        → EnterpriseLicenseManager.log()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → ServiceManager.getService()
+          → IApplicationPolicy$Stub.asInterface()
+          → EnterpriseLicenseManager.getService()
+          → IEnterpriseLicense.log()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.application.IApplicationPolicy$Stu
+            → IEnterpriseLicense$Stub.asInterface()
+              → <com.samsung.android.knox.license.IEnterpriseLicense$Stub$Pr
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.application.ApplicationPolicy
+  Method:   <com.samsung.android.knox.application.ApplicationPolicy: void enableYouTube()>
+  Line:     30163
+  Register: v0 := "com.google.android.youtube"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/samsung/android/knox/application/ApplicationPolicy;->setApplicatio
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.application.ApplicationPolicy.setAp
+
+  CALLEES (what this method invokes):
+      → ApplicationPolicy.setApplicationState()
+      → ApplicationPolicy.logUsage()
+        → AccessController.throwIfParentInstance()
+        → ApplicationPolicy.getService()
+        → IApplicationPolicy.setApplicationState()
+        → EnterpriseLicenseManager.log()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → ServiceManager.getService()
+          → IApplicationPolicy$Stub.asInterface()
+          → EnterpriseLicenseManager.getService()
+          → IEnterpriseLicense.log()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.application.IApplicationPolicy$Stu
+            → IEnterpriseLicense$Stub.asInterface()
+              → <com.samsung.android.knox.license.IEnterpriseLicense$Stub$Pr
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      motionrecognitionservice
+  Class:    com.samsung.android.gesture.AutoRotationHandler
+  Method:   <com.samsung.android.gesture.AutoRotationHandler: void <init>(android.content.Context)>
+  Line:     214
+  Register: v4 := "com.google.android.youtube"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v4 .. v30}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← MotionRecognitionService.startMotions()
+        ← <com.samsung.android.gesture.MotionRecognitionService: void 
+          ← MotionRecognitionService$ServiceHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → Sensor.getVersion()
+      → SensorManager.getDefaultSensor()
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+      → AutoRotationHandler$CameraStateMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$ForegroundA
+      → AutoRotationHandler$ForegroundAppWatcher.init()
+      → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+      → AutoRotationHandler$MediaSessionMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+      → AutoRotationHandler$MultimediaMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$ServiceHand
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → Sensor.isWakeUpSensor()
+        → SensorManager.getSensorList()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.size()
+        → List.get()
+        → List.iterator()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+        → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+        → <java.util.HashMap: void <init>()>
+        → AutoRotationHandler$CameraStateMonitor$CameraStateHandler.sendEmptyMessage()
+        → <com.samsung.android.gesture.AutoRotationHandler$ForegroundA
+        → <android.util.ArraySet: void <init>()>
+        → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+        → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+        → AutoRotationHandler$MediaSessionMonitor$MediaSessionMonitorHandler.sendEmptyMessage()
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → SemMediaResourceHelper.createInstance()
+        → <java.util.HashSet: void <init>()>
+        → AutoRotationHandler$MultimediaMonitor$MultimediaHandler.sendEmptyMessage()
+        → <android.os.Handler: void <init>(android.os.Looper)>
+          → Sensor.getType()
+          → SensorManager.getFullSensorList()
+          → SparseArray.get()
+          → SparseArray.append()
+          → <java.util.ArrayList: void <init>()>
+          → Collections.unmodifiableList()
+          → List.add()
+          → <android.hardware.camera2.CameraManager$SemCameraDeviceState
+          → <com.samsung.android.app.usage.IUsageStatsWatcher$Stub: void
+          → <android.util.ArraySet: void <init>(int,boolean)>
+          → <android.media.AudioManager$AudioPlaybackCallback: void <ini
+          → <com.samsung.android.media.SemMediaResourceHelper: void <ini
+            → SparseArray.get()
+            → SparseArray.gc()
+            → SparseArray.put()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → <android.os.Binder: void <init>()>
+            → IUsageStatsWatcher$Stub.attachInterface()
+            → ArraySet.allocArrays()
+            → Looper.getMainLooper()
+            → Looper.myLooper()
+            → Process.myPid()
+            → <com.samsung.android.media.SemMediaResourceHelper$EventHandl
+            → SemMediaResourceHelper.native_setup()
+            → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+              → ContainerHelpers.binarySearch()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+              → <android.os.Binder: void <init>(java.lang.String)>
+              → ThreadLocal.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.FreecessController
+  Method:   <com.android.server.am.FreecessController: void enterOLAF(java.lang.String,int,int)>
+  Line:     5659
+  Register: v0 := "com.google.android.youtube"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_2e → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← FreecessController.enterOLAF()
+      ← FreecessController.enterOLAF()
+        ← ActivityManagerService.onTransact()
+        ← FreecessController.dumpFreecessCommand()
+        ← ActivityManagerPerformance.setBoosterAppSwitch()
+          ← ActivityManagerService.doDump()
+          ← <com.android.server.wm.ActivityManagerPerformance: void -$$N
+          ← ActivityManagerPerformance.notifyCurTopAct()
+          ← ActivityManagerPerformance.onActivityVisibleLocked()
+            ← <com.android.server.am.ActivityManagerService: void -$$Nest$
+            ← ActivityManagerPerformance$MainHandler.handleMessage()
+            ← ActivityTaskSupervisor.realStartActivityLocked()
+            ← TaskFragment.resumeTopActivity()
+            ← ActivityRecord.onWindowsVisible()
+            ← ActivityTaskManagerService.endLaunchPowerMode()
+              ← ActivityManagerService$1.dump()
+              ← ActivityManagerService$1.dumpCritical()
+              ← ActivityManagerService$1.dumpNormal()
+              ← ActivityTaskSupervisor.startSpecificActivity()
+              ← RootWindowContainer$AttachApplicationHelper.test()
+              ← Task.resumeTopActivityInnerLocked()
+              ← TaskFragment.resumeTopActivity()
+              ← ActivityRecord.updateReportedVisibilityLocked()
+              ← ActivityTaskManagerService$H.handleMessage()
+              ← ActivityTaskSupervisor.checkReadyForSleepLocked()
+              ← RecentsAnimation.finishAnimation()
+              ← RootWindowContainer.allResumedActivitiesIdle()
+              ← TransitionController.finishTransition()
+              ← WindowManagerService.doStopFreezingDisplayLocked()
+
+  CALLEES (what this method invokes):
+      → SystemClock.uptimeMillis()
+      → FreecessHandler.getInstance()
+      → FreecessHandler.sendOLAFMsg()
+        → <com.android.server.am.FreecessHandler$FreecessHandlerHolder
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putBoolean()
+        → Bundle.putInt()
+        → Bundle.putString()
+        → Handler.obtainMessage()
+        → Handler.sendMessageAtFrontOfQueue()
+        → Handler.removeMessages()
+        → Message.setData()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.hardware.display.AdaptiveDisplayColorService
+  Method:   <com.samsung.android.hardware.display.AdaptiveDisplayColorService: void <init>(android.content.Context)>
+  Line:     796
+  Register: v22 := "com.google.android.youtube"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+  Flow:     [other] filled-new-array/range {v15 .. v23}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.hardware.display.SemMdnieManagerService
+
+  CALLEES (what this method invokes):
+      → ActivityManagerNative.getDefault()
+      → IActivityManager.registerProcessObserver()
+      → ContentResolver.registerContentObserver()
+      → Context.getContentResolver()
+      → Context.registerReceiver()
+      → Context.getPackageManager()
+      → Context.getResources()
+      → Context.getSystemService()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → PackageManager.hasSystemFeature()
+      → Resources.getBoolean()
+      → Resources.getInteger()
+      → Resources.getIntArray()
+      → Resources.getStringArray()
+      → SensorManager.getDefaultSensor()
+      → <android.hardware.SystemSensorManager: void <init>(android.c
+      → SContextManager.isAvailableService()
+      → Handler.getLooper()
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → Settings$System.getUriFor()
+      → <com.samsung.android.cover.CoverManager: void <init>(android
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → AdaptiveDisplayColorService.setting_is_changed()
+        → ActivityManager.getService()
+        → Sensor.isWakeUpSensor()
+        → SensorManager.getSensorList()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.size()
+        → List.get()
+        → List.iterator()
+        → Context.getApplicationInfo() [PKG_QUERY]
+        → Context.getOpPackageName()
+        → Sensor.getHandle()
+        → <android.hardware.Sensor: void <init>()>
+        → <android.hardware.SensorManager: void <init>()>
+        → SystemSensorManager.nativeGetSensorAtIndex()
+        → SystemSensorManager.nativeCreate()
+        → SystemSensorManager.nativeClassInit()
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+        → HashMap.put()
+        → <java.util.HashMap: void <init>()>
+        → Optional.empty()
+        → SemContextManager.isAvailableService()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <android.os.Binder: void <init>()>
+        → CoverManager.initSystemFeature()
+        → <java.util.concurrent.CopyOnWriteArrayList: void <init>()>
+        → <android.app.IProcessObserver$Stub: void <init>()>
+        → <com.samsung.android.cover.CoverManager$StateListener: void 
+        → <android.os.Handler: void <init>(android.os.Looper,android.o
+        → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+        → <android.database.ContentObserver: void <init>(android.os.Ha
+        → IProcessObserver.onForegroundActivitiesChanged()
+        → Settings$System.getInt()
+        → CoverManager.registerListener()
+        → CoverManager.unregisterListener()
+        → AdaptiveDisplayColorService.enableRgbSensor()
+          → Sensor.getType()
+          → SensorManager.getFullSensorList()
+          → SparseArray.get()
+          → SparseArray.append()
+          → Collections.unmodifiableList()
+          → List.add()
+          → <android.util.SparseArray: void <init>()>
+          → SystemProperties.get()
+          → SemContextManager.getAvailableServiceMap()
+          → Map.containsKey()
+          → <android.os.Binder: void <init>(java.lang.String)>
+          → IProcessObserver$Stub.attachInterface()
+          → <android.content.BroadcastReceiver: void <init>()>
+          → <android.content.ComponentName: void <init>(java.lang.String
+          → Context.getPackageName()
+          → Process.myUid()
+          → CoverListenerDelegate.getListener()
+          → <com.samsung.android.cover.CoverListenerDelegate: void <init
+          → CoverManager.isSupportCover()
+          → CoverManager.getService()
+          → ICoverManager.registerCallback()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → CopyOnWriteArrayList.add()
+          → CopyOnWriteArrayList.iterator()
+          → ICoverManager.unregisterCallback()
+          → CopyOnWriteArrayList.remove()
+          → SensorManager.registerListener()
+          → SensorManager.unregisterListener()
+          → <android.hardware.scontext.SContextEnvironmentAdaptiveDispla
+          → SContextManager.registerListener()
+          → SContextManager.unregisterListener()
+          → Handler.removeMessages()
+          → AdaptiveDisplayColorService.initRgbAverage()
+          → File.exists()
+          → <java.io.File: void <init>(java.lang.String)>
+            → SparseArray.get()
+            → SparseArray.gc()
+            → SparseArray.put()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → <android.util.SparseArray: void <init>(int)>
+            → ISemContextService.getAvailableServiceMap()
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+            → Context.getMainLooper()
+            → <com.samsung.android.cover.CoverListenerDelegate$ListenerDel
+            → <com.samsung.android.cover.ICoverManagerCallback$Stub: void 
+            → ServiceManager.getService()
+            → ICoverManager$Stub.asInterface()
+            → SensorManager.registerListenerImpl()
+            → SensorManager.getDelay()
+            → SensorManager.unregisterListenerImpl()
+            → <android.hardware.scontext.SContextAttribute: void <init>()>
+            → SContextEnvironmentAdaptiveDisplayAttribute.setAttribute()
+            → SContextManager.addListenerAttribute()
+            → SContextManager.registerListener()
+            → SContext.getServiceName()
+            → SContextManager.getListenerDelegate()
+            → SContextManager.checkListenerAndService()
+            → SemContextManager.unregisterListener()
+              → ContainerHelpers.binarySearch()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+              → ArrayUtils.newUnpaddedObjectArray()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → ICoverManagerCallback$Stub.attachInterface()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.cover.ICoverManager$Stub$Proxy: void <i
+              → <com.samsung.android.hardware.context.SemContextAttribute: v
+              → SContextAttribute.setAttribute()
+              → Bundle.getFloat()
+              → Bundle.getInt()
+              → <android.os.Bundle: void <init>()>
+              → Bundle.putFloat()
+              → Bundle.putInt()
+              → <android.hardware.scontext.SContextActivityCalibrationAttrib
+              → <android.hardware.scontext.SContextActivityLocationLoggingAt
+              → <android.hardware.scontext.SContextActivityNotificationAttri
+              → <android.hardware.scontext.SContextActivityNotificationExAtt
+              → <android.hardware.scontext.SContextApproachAttribute: void <
+              → <android.hardware.scontext.SContextAutoBrightnessAttribute: 
+              → <android.hardware.scontext.SContextAutoRotationAttribute: vo
+              → <android.hardware.scontext.SContextDevicePhysicalContextMoni
+              → <android.hardware.scontext.SContextEnvironmentAttribute: voi
+              → <android.hardware.scontext.SContextExerciseAttribute: void <
+              → <android.hardware.scontext.SContextFlatMotionForTableModeAtt
+              → <android.hardware.scontext.SContextInactiveTimerAttribute: v
+              → <android.hardware.scontext.SContextMovementForPositioningAtt
+              → <android.hardware.scontext.SContextPedometerAttribute: void 
+              → <android.hardware.scontext.SContextSLocationCoreAttribute: v
+              → <android.hardware.scontext.SContextShakeMotionAttribute: voi
+              → <android.hardware.scontext.SContextSleepMonitorAttribute: vo
+              → <android.hardware.scontext.SContextSpecificPoseAlertAttribut
+              → <android.hardware.scontext.SContextStepCountAlertAttribute: 
+              → <android.hardware.scontext.SContextStepLevelMonitorAttribute
+              → <android.hardware.scontext.SContextTemperatureAlertAttribute
+              → SContextAttribute.checkAttribute()
+              → <android.hardware.scontext.SContextManager$SContextListenerD
+              → SContextManager.setReferenceData()
+              → SemContextManager.registerListener()
+              → SemContextManager.setClientInfo()
+              → SContextManager$SContextListenerDelegate.getListener()
+              → CopyOnWriteArrayList.isEmpty()
+              → ISemContextService.unregisterCallback()
+              → SemContext.getServiceName()
+              → SemContextManager$ListenerDelegate.clear()
+              → SemContextManager.checkListenerAndService()
+              → SemContextManager.getListenerDelegate()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.audio.SoundAppPolicyManager
+  Method:   <com.samsung.android.server.audio.SoundAppPolicyManager: void setDefaultAllowList()>
+  Line:     1268
+  Register: v1 := "com.google.android.youtube"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/samsung/android/server/audio/AudioSettingsHelper;->putAppList(Ljav
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.audio.AudioSettingsHelper.putAppL → [other] const v1, 0x788659ac → [invoke] com.sams
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.audio.AudioService: void lambda$onCustom
+        ← <com.android.server.audio.AudioService: void $r8$lambda$zqmb
+          ← AudioService$$ExternalSyntheticLambda11.run()
+
+  CALLEES (what this method invokes):
+      → AudioSettingsHelper.putAppList()
+      → AudioSettingsHelper.resetAllowedListTable()
+      → AudioSettingsHelper.setIntValue()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → AudioCipher.encrypt()
+        → AudioSettingsHelper.add()
+        → SQLiteDatabase.execSQL()
+        → <java.util.concurrent.CopyOnWriteArrayList: void <init>()>
+        → ContentValues.put()
+        → AudioSettingsHelper.set()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → Base64.encodeToString()
+          → <com.samsung.android.server.audio.AudioCipher$KeyStoreHolder
+          → AudioCipher.getCipher()
+          → Optional.isPresent()
+          → Optional.get()
+          → Cipher.doFinal()
+          → Cipher.getIV()
+          → Cipher.init()
+          → SQLiteDatabase.insert()
+          → SQLiteDatabase.update()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → Base64.encode()
+            → <java.lang.AssertionError: void <init>(java.lang.Object)>
+            → AudioCipher$KeyStoreHolder.getKey()
+            → Optional.empty()
+            → Optional.of()
+            → Cipher.getInstance()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → Base64.encode()
+              → AudioCipher$KeyStoreHolder.generateKey()
+              → KeyStore.getKey()
+              → KeyStore.getInstance()
+              → KeyStore.load()
+

@@ -1,0 +1,31 @@
+# com.samsung.android.kgclient [NEW]
+# Refs: 27
+# JARs: framework, services
+
+<android.net.VpnService$Builder: android.net.VpnService$Builder addAllowedApplication(java.lang.String)>
+<android.net.VpnService$Builder: android.os.ParcelFileDescriptor establish()>
+<android.net.VpnService: boolean isKGClientPackageInstalled(android.content.Context)>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: boolean checkCallerIsKG()>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void activateAdmin(android.content.ComponentName,boolean)>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void adjustKnoxGuardAdmin()>
+<com.android.server.enterprise.application.ApplicationPolicy: boolean isApplicationForceStopDisabled(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,boolean)>
+<com.android.server.enterprise.restriction.RestrictionPolicy: void <clinit>()>
+<com.samsung.android.knoxguard.service.IntentRelayManager: void sendRequestedIntent(android.content.Context,java.lang.String,android.os.Bundle)>
+<com.samsung.android.knoxguard.service.KnoxGuardSeService: java.lang.String verifyKgRot()>
+<com.samsung.android.knoxguard.service.KnoxGuardSeService: void registerReceiver(android.content.Context)>
+<com.samsung.android.knoxguard.service.KnoxGuardService: void registerReceiver(android.content.Context)>
+<com.samsung.android.knoxguard.service.receiver.SystemReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.knoxguard.service.receiver.SystemSeReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.knoxguard.service.utils.IntegritySeUtil: boolean checkComponents(android.content.Context,com.samsung.android.knoxguard.service.utils.IntegritySeUtil$IntegritySeResult)>
+<com.samsung.android.knoxguard.service.utils.IntegritySeUtil: boolean checkSignatures(android.content.Context)>
+<com.samsung.android.knoxguard.service.utils.IntegritySeUtil: boolean isEnabled(android.content.Context)>
+<com.samsung.android.knoxguard.service.utils.IntegritySeUtil: boolean isSystemApp(android.content.Context)>
+<com.samsung.android.knoxguard.service.utils.IntegritySeUtil: long getClientVersionCode(android.content.Context,long)>
+<com.samsung.android.knoxguard.service.utils.IntegritySeUtil: void disableClient(android.content.Context)>
+<com.samsung.android.knoxguard.service.utils.IntegritySeUtil: void setInitialState(android.content.Context,int)>
+<com.samsung.android.knoxguard.service.utils.IntegrityUtil: boolean checkComponents(android.content.Context,com.samsung.android.knoxguard.service.utils.IntegrityUtil$IntegrityResult)>
+<com.samsung.android.knoxguard.service.utils.IntegrityUtil: boolean checkSignatures(android.content.Context)>
+<com.samsung.android.knoxguard.service.utils.IntegrityUtil: boolean isEnabled(android.content.Context)>
+<com.samsung.android.knoxguard.service.utils.IntegrityUtil: boolean isSystemApp(android.content.Context)>
+<com.samsung.android.knoxguard.service.utils.IntegrityUtil: void setInitialState(android.content.Context,java.lang.String)>

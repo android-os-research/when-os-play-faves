@@ -1,0 +1,9 @@
+# android.content.pm.IPackageStatsObserver [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.pm.IPackageStatsObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IPackageStatsObserver$Stub$Proxy: void onGetStatsCompleted(android.content.pm.PackageStats,boolean)>
+<android.content.pm.IPackageStatsObserver$Stub: android.content.pm.IPackageStatsObserver asInterface(android.os.IBinder)>
+<android.content.pm.IPackageStatsObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IPackageStatsObserver$Stub: void <init>()>

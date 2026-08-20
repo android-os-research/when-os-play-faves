@@ -1,0 +1,11 @@
+# android.location.ILocationListener [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.location.ILocationListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.ILocationListener$Stub$Proxy: void onFlushComplete(int)>
+<android.location.ILocationListener$Stub$Proxy: void onLocationChanged(java.util.List,android.os.IRemoteCallback)>
+<android.location.ILocationListener$Stub$Proxy: void onProviderEnabledChanged(java.lang.String,boolean)>
+<android.location.ILocationListener$Stub: android.location.ILocationListener asInterface(android.os.IBinder)>
+<android.location.ILocationListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.ILocationListener$Stub: void <init>()>

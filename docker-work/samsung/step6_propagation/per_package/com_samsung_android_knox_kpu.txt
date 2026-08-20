@@ -1,0 +1,398 @@
+######################################################################
+# Propagation: com.samsung.android.knox.kpu
+######################################################################
+
+JARs:                 knoxsdk, services
+Classes:              6
+Occurrences:          9
+Usage types:          array_init, invoke, unknown
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PERM_CHECK, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$2
+  Method:   <com.samsung.android.knox.EdmConstants$2: void <init>()>
+  Line:     35
+  Register: v0 := "com.samsung.android.knox.kpu"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.String isChameleon()>
+  Line:     40133
+  Register: v0 := "com.samsung.android.knox.kpu"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->isPackageInstal
+  Patterns: (none)
+  Flow:     [invoke] com.samsung.android.knox.custom.KnoxCustomManagerService.isP → [other] return-object v0 → [reassigned] v0 overw
+
+  CALLERS (who invokes this method):
+      ← KnoxCustomManagerService.setHardKeyReportState()
+
+  CALLEES (what this method invokes):
+      → KnoxCustomManagerService.isPackageInstalled()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: boolean isManagedDevice(java.lang.String)>
+  Line:     40510
+  Register: v0 := "com.samsung.android.knox.kpu"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-nez v0, :cond_2b
+
+  CALLEES (what this method invokes):
+      → KnoxCustomManagerService.getDeviceOwner()
+      → KnoxsdkFileLog.d()
+        → DevicePolicyManager.semGetDeviceOwner()
+        → Context.getSystemService()
+        → Throwable.printStackTrace()
+        → KnoxsdkFileLog.fileLog()
+        → SemLog.d()
+          → Logger.log()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.UserManagerService
+  Method:   <com.android.server.pm.UserManagerService: boolean isKPUAgent(java.lang.String)>
+  Line:     15806
+  Register: v0 := "com.samsung.android.knox.kpu"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_a → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← UserManagerService.setApplicationRestrictions()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.checkPermission() [PERM_CHECK]
+      → Exception.getMessage()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+  Line:     307
+  Register: v5 := "com.samsung.android.knox.kpu"
+  Usage:    [array_init] filled-new-array {v3, v4, v5, v6, v7}, [Ljava/lang/String;
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] java.util.List.add() → [other] new-instance v0, Landroid/os/ConditionVariable; → [invoke] android.os.ConditionV
+
+  CALLEES (what this method invokes):
+      → <android.os.ConditionVariable: void <init>()>
+      → Process.myPid()
+      → SystemProperties.get()
+      → EnterpriseDeviceManagerServiceImpl.isPackageInstalled()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → ActivityThread.getPackageManager()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.utils.KpuHelper
+  Method:   <com.android.server.enterprise.utils.KpuHelper: java.lang.String getKpuPackageName()>
+  Line:     67
+  Register: p0 := "com.samsung.android.knox.kpu"
+  Usage:    [unknown] return-object p0
+  Patterns: (none)
+  Flow:     [other] return-object p0
+
+  CALLERS (who invokes this method):
+      ← EnterpriseDeviceManagerServiceImpl.getKPUPackageName()
+      ← Admin.notifyDumpFinished()
+      ← CircularBuffer.checkCriticalSizes()
+      ← KnoxMUMContainerPolicy.sendContainerStateChangeIntent()
+      ← GeofenceService$GeofencingHandler.handleMessage()
+      ← GeofenceService.deviceLocationUnavailableMessage()
+      ← GeofenceService.sendIntenttoAdmins()
+      ← KioskModeService.broadcastKioskResult()
+        ← EnterpriseDeviceManagerServiceImpl.resetAPILevelPrivacyPolicies()
+        ← CircularBuffer.addNode()
+        ← <com.android.server.enterprise.container.KnoxMUMContainerPol
+        ← GeofenceService.isDeviceInsideGeofence()
+        ← GeofenceService.checkMonitoring()
+        ← GeofenceService.checkDeviceInsideOrOutsideGeo()
+        ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+        ← KioskModeService._disableKioskMode()
+        ← KioskModeService._enableKioskMode()
+        ← KioskModeService.disableKioskMode()
+        ← KioskModeService.enableKioskMode()
+          ← EnterpriseDeviceManagerServiceImpl.migrateKnoxPoliciesForWpcod()
+          ← CircularBuffer.closeFile()
+          ← CircularBuffer.populateCircularBuffer()
+          ← CircularBuffer.write()
+          ← KnoxMUMContainerPolicy$3$1.run()
+          ← <com.android.server.enterprise.geofencing.GeofenceService: j
+          ← GeofenceService.isDeviceInsideGeofence()
+          ← <com.android.server.enterprise.geofencing.GeofenceService: v
+          ← <com.android.server.enterprise.geofencing.GeofenceService: j
+          ← KioskModeService$4.run()
+          ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+          ← KioskModeService.forceTerminateKiosk()
+          ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+            ← LogWritter$SaveLogHandler.handleMessage()
+            ← LogWritter.shutdown()
+            ← <com.android.server.enterprise.auditlog.CircularBuffer: void
+            ← GeofenceService$GeoLocationListener.onLocationChanged()
+            ← KioskModeService$KioskHandler.handleMessage()
+            ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+            ← KioskModeService.onPreAdminRemoval()
+              ← Admin.shutdown()
+              ← <com.android.server.enterprise.auditlog.LogWritter: void <in
+              ← KioskModeService$5.onReceive()
+              ← KioskModeService$6.onReceive()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.utils.KpuHelper
+  Method:   <com.android.server.enterprise.utils.KpuHelper: boolean isKpuPackage(java.lang.String)>
+  Line:     405
+  Register: p0 := "com.samsung.android.knox.kpu"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [other] return p0
+
+  CALLERS (who invokes this method):
+      ← EnterpriseLicenseService.checkPackage()
+      ← KpuHelper.isCallerKpu()
+      ← KpuHelper.isCallerValidKpu()
+        ← EnterpriseLicenseService.activateKnoxLicense()
+        ← EnterpriseLicenseService.activateLicense()
+        ← EnterpriseLicenseService.deActivateKnoxLicense()
+        ← ApplicationPolicy.installApplication()
+        ← EnterpriseDeviceManagerServiceImpl.isCallerValidKPU()
+        ← RestrictionPolicy.setKnoxDelegationEnabled()
+          ← EnterpriseLicenseService.activateKnoxLicenseForUMC()
+          ← EnterpriseLicenseService.activateLicenseForUMC()
+          ← KioskModeService.extractDefaultApkAndInstall()
+          ← EnterpriseDeviceManagerServiceImpl.setAdminRemovable()
+          ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+          ← EnterpriseDeviceManagerServiceImpl.enforceWpcod()
+            ← KioskModeService.initKioskMode()
+            ← EnterpriseDeviceManagerServiceImpl$MyPackageMonitor.onPackageUpdateFinished()
+            ← EnterpriseDeviceManagerServiceImpl$MyPackageMonitor.onSomePackagesChanged()
+            ← EnterpriseDeviceManagerServiceImpl.activateAdmin()
+            ← EnterpriseDeviceManagerServiceImpl.loadActiveAdmins()
+            ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+            ← EnterpriseDeviceManagerServiceImpl.enforceContainerOwnerShipPermissionByContext()
+            ← EnterpriseDeviceManagerServiceImpl.enforceDoPoOnlyPermissionByContext()
+            ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyAndActiveAdminPermissionByContext()
+            ← EnterpriseDeviceManagerServiceImpl.enforcePermissionByContext() [PERM_CHECK]
+            ← EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermission()
+              ← KioskModeService._enableKioskMode()
+              ← EnterpriseDeviceManagerServiceImpl.setActiveAdmin()
+              ← EnterpriseDeviceManagerServiceImpl.setActiveAdminSilent()
+              ← EnterpriseDeviceManagerServiceImpl.systemReady()
+              ← EnterpriseDeviceManagerServiceImpl.activateDevicePermissions()
+              ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyAndActiveAdminPermission()
+              ← EnterpriseDeviceManagerServiceImpl.enforceOwnerOnlyPermissionByContext()
+              ← EnterpriseDeviceManagerServiceImpl.writeUmcEnrollmentData()
+              ← EnterpriseDeviceManagerServiceImpl.captureUmcLogs()
+              ← EnterpriseDeviceManagerServiceImpl.readUmcEnrollmentData()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: boolean isFromApprovedInstaller(int,int)>
+  Line:     28555
+  Register: v0 := "com.samsung.android.knox.kpu"
+  Usage:    [invoke] invoke-virtual {v1, v0, v3}, Lcom/android/server/enterprise/application/ApplicationPolicy;->isApplic
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v13 → [branch] if-eqz v13, :cond_191 → [other] sget-object v13,
+
+  CALLEES (what this method invokes):
+      → PackageManager$NameNotFoundException.printStackTrace()
+      → PackageManager.getPackageUidAsUser()
+      → PackageManager.getPackagesForUid()
+      → SystemProperties.get()
+      → UserHandle.getUserId()
+      → IPersonaManagerAdapter.isContainerAgent()
+      → IPersonaManagerAdapter.isContainerCore()
+      → IPersonaManagerAdapter.isContainerDesktop()
+      → IPersonaManagerAdapter.isDeviceOrProfileOwnerEnabled()
+      → IPersonaManagerAdapter.isDoEnabled()
+      → IPersonaManagerAdapter.isKnoxId()
+      → ApplicationPolicy.checkPkgNameMatch()
+      → ApplicationPolicy.isApplicationInstalled()
+      → EdmStorageProviderBase.getMUMContainerOwnerUid()
+      → KpuHelper.isKpuPermissionGranted()
+      → KpuHelper.getInstance()
+      → Utils.comparePackageSignature()
+      → Exception.printStackTrace()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+      → Map.isEmpty()
+      → Map.get()
+      → Map.keySet()
+      → Set.isEmpty()
+      → Set.iterator()
+        → PackageManagerAdapter.isApplicationInstalled()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → EdmStorageProviderBase.getInt()
+        → Context.getPackageManager()
+        → PackageManager.getNameForUid()
+        → KpuHelper.isKpuPermissionGranted()
+        → <com.android.server.enterprise.utils.KpuHelper: void <init>(
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+        → Signature.toCharsString()
+        → SigningInfo.getApkContentsSigners()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+          → PackageManagerAdapter.getValidStr()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → EdmStorageProviderBase.getIntList()
+          → List.size()
+          → List.get()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → Signature.toChars()
+          → SoftReference.get()
+          → <java.lang.ref.SoftReference: void <init>(java.lang.Object)>
+          → SigningDetails.getSignatures()
+            → IPackageManager.getApplicationInfo() [PKG_QUERY]
+            → Exception.getMessage()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → Cursor.isNull()
+            → Cursor.moveToNext()
+            → Cursor.getInt()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → EdmStorageProviderBase.getCursor()
+            → <java.util.ArrayList: void <init>()>
+            → List.add()
+            → Signature.toChars()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → EdmStorageProviderBase.getCursor()
+              → EdmStorageProviderBase.formatContentValues()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: boolean isFromApprovedInstaller(int,int)>
+  Line:     28566
+  Register: v6 := "com.samsung.android.knox.kpu"
+  Usage:    [invoke] invoke-virtual {v0, v6, v3}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/Str
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v13 → [branch] if-eqz v13, :cond_191 → [other] sget-object v13,
+
+  CALLEES (what this method invokes):
+      → PackageManager$NameNotFoundException.printStackTrace()
+      → PackageManager.getPackageUidAsUser()
+      → PackageManager.getPackagesForUid()
+      → SystemProperties.get()
+      → UserHandle.getUserId()
+      → IPersonaManagerAdapter.isContainerAgent()
+      → IPersonaManagerAdapter.isContainerCore()
+      → IPersonaManagerAdapter.isContainerDesktop()
+      → IPersonaManagerAdapter.isDeviceOrProfileOwnerEnabled()
+      → IPersonaManagerAdapter.isDoEnabled()
+      → IPersonaManagerAdapter.isKnoxId()
+      → ApplicationPolicy.checkPkgNameMatch()
+      → ApplicationPolicy.isApplicationInstalled()
+      → EdmStorageProviderBase.getMUMContainerOwnerUid()
+      → KpuHelper.isKpuPermissionGranted()
+      → KpuHelper.getInstance()
+      → Utils.comparePackageSignature()
+      → Exception.printStackTrace()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+      → Map.isEmpty()
+      → Map.get()
+      → Map.keySet()
+      → Set.isEmpty()
+      → Set.iterator()
+        → PackageManagerAdapter.isApplicationInstalled()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → EdmStorageProviderBase.getInt()
+        → Context.getPackageManager()
+        → PackageManager.getNameForUid()
+        → KpuHelper.isKpuPermissionGranted()
+        → <com.android.server.enterprise.utils.KpuHelper: void <init>(
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+        → Signature.toCharsString()
+        → SigningInfo.getApkContentsSigners()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+          → PackageManagerAdapter.getValidStr()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → EdmStorageProviderBase.getIntList()
+          → List.size()
+          → List.get()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → Signature.toChars()
+          → SoftReference.get()
+          → <java.lang.ref.SoftReference: void <init>(java.lang.Object)>
+          → SigningDetails.getSignatures()
+            → IPackageManager.getApplicationInfo() [PKG_QUERY]
+            → Exception.getMessage()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → Cursor.isNull()
+            → Cursor.moveToNext()
+            → Cursor.getInt()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → EdmStorageProviderBase.getCursor()
+            → <java.util.ArrayList: void <init>()>
+            → List.add()
+            → Signature.toChars()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → EdmStorageProviderBase.getCursor()
+              → EdmStorageProviderBase.formatContentValues()
+

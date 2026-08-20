@@ -1,0 +1,10 @@
+# android.app.trust.IStrongAuthTracker [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.trust.IStrongAuthTracker$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.trust.IStrongAuthTracker$Stub$Proxy: void onIsNonStrongBiometricAllowedChanged(boolean,int)>
+<android.app.trust.IStrongAuthTracker$Stub$Proxy: void onStrongAuthRequiredChanged(int,int)>
+<android.app.trust.IStrongAuthTracker$Stub: android.app.trust.IStrongAuthTracker asInterface(android.os.IBinder)>
+<android.app.trust.IStrongAuthTracker$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.trust.IStrongAuthTracker$Stub: void <init>()>

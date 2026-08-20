@@ -1,0 +1,10 @@
+# android.location.IGeocodeProvider [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.location.IGeocodeProvider$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.IGeocodeProvider$Stub$Proxy: void getFromLocation(double,double,int,android.location.GeocoderParams,android.location.IGeocodeListener)>
+<android.location.IGeocodeProvider$Stub$Proxy: void getFromLocationName(java.lang.String,double,double,double,double,int,android.location.GeocoderParams,android.location.IGeocodeListener)>
+<android.location.IGeocodeProvider$Stub: android.location.IGeocodeProvider asInterface(android.os.IBinder)>
+<android.location.IGeocodeProvider$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.IGeocodeProvider$Stub: void <init>()>

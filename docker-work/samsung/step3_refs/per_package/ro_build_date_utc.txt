@@ -1,0 +1,9 @@
+# ro.build.date.utc [NEW]
+# Refs: 5
+# JARs: framework, services
+
+<android.os.Build: void <clinit>()>
+<com.android.server.RescueParty: void resetBuildTime(android.content.Context)>
+<com.android.server.alarm.AlarmManagerService: void onStart()>
+<com.android.server.asks.ASKSManagerService: void setExpirationDate()>
+<com.android.server.isrb.IsrbManagerServiceImpl$ServiceHandler: void handleMessage(android.os.Message)>

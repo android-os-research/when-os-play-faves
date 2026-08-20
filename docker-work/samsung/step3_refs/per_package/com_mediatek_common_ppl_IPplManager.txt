@@ -1,0 +1,12 @@
+# com.mediatek.common.ppl.IPplManager [NEW]
+# Refs: 8
+# JARs: mediatek-common
+
+<com.mediatek.common.ppl.IPplManager$Stub$Proxy: boolean unlock(java.lang.String)>
+<com.mediatek.common.ppl.IPplManager$Stub$Proxy: int needLock()>
+<com.mediatek.common.ppl.IPplManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.common.ppl.IPplManager$Stub$Proxy: void lock()>
+<com.mediatek.common.ppl.IPplManager$Stub$Proxy: void resetPassword()>
+<com.mediatek.common.ppl.IPplManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.common.ppl.IPplManager$Stub: com.mediatek.common.ppl.IPplManager asInterface(android.os.IBinder)>
+<com.mediatek.common.ppl.IPplManager$Stub: void <init>()>

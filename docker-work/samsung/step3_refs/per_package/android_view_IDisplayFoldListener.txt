@@ -1,0 +1,9 @@
+# android.view.IDisplayFoldListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.IDisplayFoldListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IDisplayFoldListener$Stub$Proxy: void onDisplayFoldChanged(int,boolean)>
+<android.view.IDisplayFoldListener$Stub: android.view.IDisplayFoldListener asInterface(android.os.IBinder)>
+<android.view.IDisplayFoldListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IDisplayFoldListener$Stub: void <init>()>

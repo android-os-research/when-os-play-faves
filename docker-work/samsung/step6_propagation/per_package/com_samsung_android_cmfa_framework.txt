@@ -1,0 +1,23 @@
+######################################################################
+# Propagation: com.samsung.android.cmfa.framework
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          unknown
+Enforcement patterns: (none)
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.plm.context.CmfaContext
+  Method:   <com.android.server.enterprise.plm.context.CmfaContext: java.lang.String getPackageName()>
+  Line:     45
+  Register: p0 := "com.samsung.android.cmfa.framework"
+  Usage:    [unknown] return-object p0
+  Patterns: (none)
+  Flow:     [other] return-object p0
+

@@ -1,0 +1,6 @@
+# vendor.wifiap.provisioning.disable [NEW]
+# Refs: 2
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.ap.SemWifiApServiceImpl: int getProvisionSuccess()>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartGattServer: boolean isProvisioningCheck()>

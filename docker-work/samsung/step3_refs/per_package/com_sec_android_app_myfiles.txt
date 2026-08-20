@@ -1,0 +1,12 @@
+# com.sec.android.app.myfiles [NEW]
+# Refs: 8
+# JARs: framework, services
+
+<com.android.internal.util.DumpUtils: boolean isSecMediaPackage(java.lang.String)>
+<com.android.internal.util.jobs.DumpUtils: boolean isSecMediaPackage(java.lang.String)>
+<com.android.server.StorageManagerService: boolean chkMountUnmountFormatCaller(java.lang.String)>
+<com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+<com.android.server.pm.DexOptHelper: void <init>(com.android.server.pm.PackageManagerService)>
+<com.android.server.wm.WindowProcessController: void <clinit>()>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+<com.samsung.android.server.pm.install.SilentUninstallerList: void <init>()>

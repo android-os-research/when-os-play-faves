@@ -1,0 +1,110 @@
+######################################################################
+# Propagation: com.sec.factory
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.notification.NotificationManagerService$12
+  Method:   <com.android.server.notification.NotificationManagerService$12: boolean dispatchDelayedWakelockAndBlocked(int,java.lang.String,java.lang.String,int)>
+  Line:     4258
+  Register: v0 := "com.sec.factory"
+  Usage:    [invoke] invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_29 → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → PackageManager.getPackageUid()
+      → Handler.postDelayed()
+      → Settings$System.getInt()
+      → SystemService.getContext()
+      → ConcurrentList.add()
+      → ConcurrentList.contains()
+      → ConcurrentList.remove()
+      → <com.android.server.notification.NotificationManagerService$
+      → NotificationManagerService$12.isEdgeLightingAllowed()
+      → <com.android.server.notification.NotificationManagerService:
+      → <com.android.server.notification.NotificationManagerService:
+      → <com.android.server.notification.NotificationManagerService:
+      → <com.android.server.notification.NotificationManagerService:
+      → <com.android.server.notification.NotificationManagerService:
+      → <com.android.server.notification.NotificationManagerService:
+      → <com.android.server.notification.NotificationManagerService:
+      → <com.android.server.notification.NotificationManagerService:
+      → CoverManager.getCoverState()
+      → <com.samsung.android.cover.CoverManager: void <init>(android
+      → CoverState.getSwitchState()
+      → CoverState.getType()
+        → List.add()
+        → Lock.lock()
+        → Lock.unlock()
+        → ReadWriteLock.writeLock()
+        → List.contains()
+        → ReadWriteLock.readLock()
+        → List.remove()
+        → NotificationManagerService$12.enforceSystemOrSystemUI()
+        → PreferencesHelper.isEdgeLightingAllowed()
+        → NotificationManagerService.hasFollowedNotification()
+        → NotificationManagerService.clearDelayedWakelock()
+        → Process.myUid()
+        → CoverManager.isSupportCover()
+        → CoverManager.getService()
+        → ICoverManager.getCoverState()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → <android.os.Binder: void <init>()>
+        → CoverManager.initSystemFeature()
+        → <java.util.concurrent.CopyOnWriteArrayList: void <init>()>
+          → Context.enforceCallingPermission()
+          → NotificationManagerService.isCallerSystemOrPhone()
+          → PreferencesHelper.getOrCreatePackagePreferencesLocked()
+          → StatusBarNotification.getNotification()
+          → ArrayMap.get()
+          → ArrayMap.keySet()
+          → NotificationRecord.getSbn()
+          → NotificationRecord.getImportance()
+          → NotificationRecord.getLifespanMs()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → Set.iterator()
+          → ConcurrentList.clear()
+          → ServiceManager.getService()
+          → ICoverManager$Stub.asInterface()
+          → <android.os.Binder: void <init>(java.lang.String)>
+          → Context.getPackageManager()
+          → PackageManager.hasSystemFeature()
+            → Binder.getCallingUid() [UID_CHECK]
+            → NotificationManagerService.isUidSystemOrPhone()
+            → UserHandle.getUserId()
+            → PreferencesHelper.getOrCreatePackagePreferencesLocked()
+            → ArrayMap.indexOfKey()
+            → ArrayMap.getCollection()
+            → MapCollections.getKeySet()
+            → List.clear()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.cover.ICoverManager$Stub$Proxy: void <i
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+              → UserHandle.getAppId()
+              → ArrayMap.put()
+              → <com.android.server.notification.PreferencesHelper$PackagePr
+              → PreferencesHelper.createDefaultChannelIfNeededLocked()
+              → PreferencesHelper.packagePreferencesKey()
+              → PreferencesHelper.unrestoredPackageKey()
+              → HashSet.contains()
+              → List.isEmpty()
+              → Map.containsKey()
+              → Map.get()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+              → <android.util.MapCollections$KeySet: void <init>(android.uti
+

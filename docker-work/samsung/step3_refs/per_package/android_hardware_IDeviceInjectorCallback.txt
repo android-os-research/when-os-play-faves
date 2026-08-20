@@ -1,0 +1,14 @@
+# android.hardware.IDeviceInjectorCallback [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.hardware.IDeviceInjectorCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.IDeviceInjectorCallback$Stub$Proxy: void onError(int)>
+<android.hardware.IDeviceInjectorCallback$Stub$Proxy: void onInjectionPendingStarted(java.lang.String,java.lang.String)>
+<android.hardware.IDeviceInjectorCallback$Stub$Proxy: void onInjectionPendingStopped(java.lang.String,java.lang.String)>
+<android.hardware.IDeviceInjectorCallback$Stub$Proxy: void onInjectionStarted(java.lang.String,java.lang.String,java.lang.String)>
+<android.hardware.IDeviceInjectorCallback$Stub$Proxy: void onInjectionStopped(java.lang.String,java.lang.String,java.lang.String)>
+<android.hardware.IDeviceInjectorCallback$Stub$Proxy: void onSessionCreated(android.hardware.IDeviceInjectorSession)>
+<android.hardware.IDeviceInjectorCallback$Stub: android.hardware.IDeviceInjectorCallback asInterface(android.os.IBinder)>
+<android.hardware.IDeviceInjectorCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.IDeviceInjectorCallback$Stub: void <init>()>

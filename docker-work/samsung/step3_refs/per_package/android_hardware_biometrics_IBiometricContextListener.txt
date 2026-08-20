@@ -1,0 +1,9 @@
+# android.hardware.biometrics.IBiometricContextListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.biometrics.IBiometricContextListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.IBiometricContextListener$Stub$Proxy: void onDozeChanged(boolean)>
+<android.hardware.biometrics.IBiometricContextListener$Stub: android.hardware.biometrics.IBiometricContextListener asInterface(android.os.IBinder)>
+<android.hardware.biometrics.IBiometricContextListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.IBiometricContextListener$Stub: void <init>()>

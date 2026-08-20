@@ -1,0 +1,22 @@
+# android.app.trust.ITrustManager [NEW]
+# Refs: 18
+# JARs: framework
+
+<android.app.trust.ITrustManager$Stub$Proxy: boolean isDeviceLocked(int,int)>
+<android.app.trust.ITrustManager$Stub$Proxy: boolean isDeviceSecure(int,int)>
+<android.app.trust.ITrustManager$Stub$Proxy: boolean isTrustUsuallyManaged(int)>
+<android.app.trust.ITrustManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.trust.ITrustManager$Stub$Proxy: void clearAllBiometricRecognized(android.hardware.biometrics.BiometricSourceType,int)>
+<android.app.trust.ITrustManager$Stub$Proxy: void registerTrustListener(android.app.trust.ITrustListener)>
+<android.app.trust.ITrustManager$Stub$Proxy: void reportEnabledTrustAgentsChanged(int)>
+<android.app.trust.ITrustManager$Stub$Proxy: void reportKeyguardShowingChanged()>
+<android.app.trust.ITrustManager$Stub$Proxy: void reportUnlockAttempt(boolean,int)>
+<android.app.trust.ITrustManager$Stub$Proxy: void reportUnlockLockout(int,int)>
+<android.app.trust.ITrustManager$Stub$Proxy: void reportUserMayRequestUnlock(int)>
+<android.app.trust.ITrustManager$Stub$Proxy: void reportUserRequestedUnlock(int,boolean)>
+<android.app.trust.ITrustManager$Stub$Proxy: void setDeviceLockedForUser(int,boolean)>
+<android.app.trust.ITrustManager$Stub$Proxy: void unlockedByBiometricForUser(int,android.hardware.biometrics.BiometricSourceType)>
+<android.app.trust.ITrustManager$Stub$Proxy: void unregisterTrustListener(android.app.trust.ITrustListener)>
+<android.app.trust.ITrustManager$Stub: android.app.trust.ITrustManager asInterface(android.os.IBinder)>
+<android.app.trust.ITrustManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.trust.ITrustManager$Stub: void <init>()>

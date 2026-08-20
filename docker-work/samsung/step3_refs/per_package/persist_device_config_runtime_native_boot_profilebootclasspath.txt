@@ -1,0 +1,6 @@
+# persist.device_config.runtime_native_boot.profilebootclasspath [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<com.android.internal.os.ZygoteInit: void preloadClasses()>
+<com.android.server.pm.dex.ArtManagerService: boolean isRuntimeProfilingEnabled(int,java.lang.String)>

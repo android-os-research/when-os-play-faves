@@ -1,0 +1,15 @@
+# android.app.timedetector.ITimeDetectorService [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.app.timedetector.ITimeDetectorService$Stub$Proxy: android.app.time.TimeCapabilitiesAndConfig getCapabilitiesAndConfig()>
+<android.app.timedetector.ITimeDetectorService$Stub$Proxy: boolean suggestManualTime(android.app.timedetector.ManualTimeSuggestion)>
+<android.app.timedetector.ITimeDetectorService$Stub$Proxy: boolean updateConfiguration(android.app.time.TimeConfiguration)>
+<android.app.timedetector.ITimeDetectorService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.timedetector.ITimeDetectorService$Stub$Proxy: void suggestExternalTime(android.app.time.ExternalTimeSuggestion)>
+<android.app.timedetector.ITimeDetectorService$Stub$Proxy: void suggestGnssTime(android.app.timedetector.GnssTimeSuggestion)>
+<android.app.timedetector.ITimeDetectorService$Stub$Proxy: void suggestNetworkTime(android.app.timedetector.NetworkTimeSuggestion)>
+<android.app.timedetector.ITimeDetectorService$Stub$Proxy: void suggestTelephonyTime(android.app.timedetector.TelephonyTimeSuggestion)>
+<android.app.timedetector.ITimeDetectorService$Stub: android.app.timedetector.ITimeDetectorService asInterface(android.os.IBinder)>
+<android.app.timedetector.ITimeDetectorService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.timedetector.ITimeDetectorService$Stub: void <init>()>

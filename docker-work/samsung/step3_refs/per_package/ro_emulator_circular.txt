@@ -1,0 +1,6 @@
+# ro.emulator.circular [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.display.LocalDisplayAdapter$LocalDisplayDevice: com.android.server.display.DisplayDeviceInfo getDisplayDeviceInfoLocked()>
+<com.android.server.wm.WindowManagerService: void showEmulatorDisplayOverlayIfNeeded()>

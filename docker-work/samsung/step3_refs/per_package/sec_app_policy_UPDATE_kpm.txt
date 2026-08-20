@@ -1,0 +1,6 @@
+# sec.app.policy.UPDATE.kpm [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.am.KillPolicyManager$SCPMReceiver: void <init>(com.android.server.am.KillPolicyManager)>
+<com.android.server.am.KillPolicyManager$SCPMReceiver: void onReceive(android.content.Context,android.content.Intent)>

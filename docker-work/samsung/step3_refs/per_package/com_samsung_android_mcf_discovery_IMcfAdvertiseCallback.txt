@@ -1,0 +1,10 @@
+# com.samsung.android.mcf.discovery.IMcfAdvertiseCallback [NEW]
+# Refs: 12
+# JARs: mcfsdk, services
+
+<com.samsung.android.mcf.discovery.IMcfAdvertiseCallback$Stub$a: java.lang.String b()>
+<com.samsung.android.mcf.discovery.IMcfAdvertiseCallback$Stub$a: void onAdvertiseStarted(int)>
+<com.samsung.android.mcf.discovery.IMcfAdvertiseCallback$Stub$a: void onAdvertiseStopped(int)>
+<com.samsung.android.mcf.discovery.IMcfAdvertiseCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.discovery.IMcfAdvertiseCallback$Stub: com.samsung.android.mcf.discovery.IMcfAdvertiseCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.discovery.IMcfAdvertiseCallback$Stub: void <init>()>

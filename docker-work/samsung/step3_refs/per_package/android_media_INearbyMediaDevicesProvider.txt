@@ -1,0 +1,10 @@
+# android.media.INearbyMediaDevicesProvider [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.INearbyMediaDevicesProvider$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.INearbyMediaDevicesProvider$Stub$Proxy: void registerNearbyDevicesCallback(android.media.INearbyMediaDevicesUpdateCallback)>
+<android.media.INearbyMediaDevicesProvider$Stub$Proxy: void unregisterNearbyDevicesCallback(android.media.INearbyMediaDevicesUpdateCallback)>
+<android.media.INearbyMediaDevicesProvider$Stub: android.media.INearbyMediaDevicesProvider asInterface(android.os.IBinder)>
+<android.media.INearbyMediaDevicesProvider$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.INearbyMediaDevicesProvider$Stub: void <init>()>

@@ -1,0 +1,20 @@
+# com.samsung.android.knox.cmfa.ICmfaService [NEW]
+# Refs: 16
+# JARs: knoxsdk
+
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: boolean isEnabled()>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: boolean isStarted()>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: int check(com.samsung.android.knox.cmfa.IResultListener)>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: int disable()>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: int enable(java.lang.String,boolean)>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: int notifyTestFactorScoreChange(java.lang.String,long,boolean)>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: int registerListener(com.samsung.android.knox.cmfa.IEventListener)>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: int start(com.samsung.android.knox.cmfa.IResultListener)>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: int stop(com.samsung.android.knox.cmfa.IResultListener)>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: int unregisterListener(com.samsung.android.knox.cmfa.IEventListener)>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: java.util.List getFactorsToSetup()>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub$Proxy: java.util.List getValidActions()>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub: com.samsung.android.knox.cmfa.ICmfaService asInterface(android.os.IBinder)>
+<com.samsung.android.knox.cmfa.ICmfaService$Stub: void <init>()>

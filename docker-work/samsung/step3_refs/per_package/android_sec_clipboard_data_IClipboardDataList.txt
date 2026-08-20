@@ -1,0 +1,13 @@
+# android.sec.clipboard.data.IClipboardDataList [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.sec.clipboard.data.IClipboardDataList$Stub$Proxy: boolean removeData(int)>
+<android.sec.clipboard.data.IClipboardDataList$Stub$Proxy: boolean updateData(int,com.samsung.android.content.clipboard.data.SemClipData)>
+<android.sec.clipboard.data.IClipboardDataList$Stub$Proxy: com.samsung.android.content.clipboard.data.SemClipData getClipByID(java.lang.String)>
+<android.sec.clipboard.data.IClipboardDataList$Stub$Proxy: com.samsung.android.content.clipboard.data.SemClipData getItem(int)>
+<android.sec.clipboard.data.IClipboardDataList$Stub$Proxy: int size()>
+<android.sec.clipboard.data.IClipboardDataList$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.sec.clipboard.data.IClipboardDataList$Stub: android.sec.clipboard.data.IClipboardDataList asInterface(android.os.IBinder)>
+<android.sec.clipboard.data.IClipboardDataList$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.sec.clipboard.data.IClipboardDataList$Stub: void <init>()>

@@ -1,0 +1,26 @@
+# com.android.ims.internal.IImsUt [NEW]
+# Refs: 22
+# JARs: framework
+
+<com.android.ims.internal.IImsUt$Stub$Proxy: boolean isUssdEnabled()>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int queryCLIP()>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int queryCLIR()>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int queryCOLP()>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int queryCOLR()>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int queryCallBarring(int)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int queryCallBarringForServiceClass(int,int)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int queryCallForward(int,java.lang.String)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int queryCallWaiting()>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int transact(android.os.Bundle)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int updateCLIP(boolean)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int updateCLIR(int)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int updateCOLP(boolean)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int updateCOLR(int)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int updateCallBarring(int,int,java.lang.String[])>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int updateCallBarringForServiceClass(int,int,java.lang.String[],int)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int updateCallBarringWithPassword(int,int,java.lang.String[],int,java.lang.String)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int updateCallForward(int,int,java.lang.String,int,int)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: int updateCallWaiting(boolean,int)>
+<com.android.ims.internal.IImsUt$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsUt$Stub$Proxy: void close()>
+<com.android.ims.internal.IImsUt$Stub$Proxy: void setListener(com.android.ims.internal.IImsUtListener)>

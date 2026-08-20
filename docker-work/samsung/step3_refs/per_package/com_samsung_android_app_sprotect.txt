@@ -1,0 +1,6 @@
+# com.samsung.android.app.sprotect [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.pm.BroadcastHelper: void doSendBroadcast(java.lang.String,java.lang.String,android.os.Bundle,int,java.lang.String,android.content.IIntentReceiver,int[],boolean,android.util.SparseArray,android.os.Bundle)>
+<com.android.server.pm.SProtect: com.android.server.pm.parsing.pkg.AndroidPackage getSProtectPackage()>

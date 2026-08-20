@@ -1,0 +1,13 @@
+# com.samsung.ucs.ucsservice [NEW]
+# Refs: 10
+# JARs: knoxsdk, services
+
+<com.android.server.connectivity.Vpn: java.security.cert.X509Certificate getUCMCertificateForAlias(java.lang.String)>
+<com.android.server.enterprise.EDMProxyService: byte[] ucmDecrypt(java.lang.String,byte[],java.lang.String,android.os.Bundle)>
+<com.android.server.enterprise.EDMProxyService: byte[] ucmEncrypt(java.lang.String,byte[],java.lang.String,android.os.Bundle)>
+<com.android.server.enterprise.EDMProxyService: byte[] ucmGetCertificateChain(java.lang.String)>
+<com.android.server.enterprise.EDMProxyService: byte[] ucmSign(java.lang.String,byte[],java.lang.String)>
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: com.samsung.android.knox.ucm.core.IUcmService getUcmService()>
+<com.samsung.android.knox.ucm.core.SecureChannelManager: com.samsung.android.knox.ucm.core.SecureChannelManager getInstance()>
+<com.samsung.android.knox.ucm.core.UniversalCredentialUtil: com.samsung.android.knox.ucm.core.UniversalCredentialUtil getInstance()>
+<com.samsung.ucm.ucmservice.CredentialManagerService: void publishService()>

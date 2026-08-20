@@ -1,0 +1,6 @@
+# wm.TaskPositioner.resizeTask [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.wm.TaskPositioner: boolean onInputEvent(android.view.InputEvent)>
+<com.android.server.wm.TaskPositioner: boolean onMotionInputEvent(android.view.InputEvent)>

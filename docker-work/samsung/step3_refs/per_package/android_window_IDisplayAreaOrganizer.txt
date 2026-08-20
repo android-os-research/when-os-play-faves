@@ -1,0 +1,11 @@
+# android.window.IDisplayAreaOrganizer [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.window.IDisplayAreaOrganizer$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.IDisplayAreaOrganizer$Stub$Proxy: void onDisplayAreaAppeared(android.window.DisplayAreaInfo,android.view.SurfaceControl)>
+<android.window.IDisplayAreaOrganizer$Stub$Proxy: void onDisplayAreaInfoChanged(android.window.DisplayAreaInfo)>
+<android.window.IDisplayAreaOrganizer$Stub$Proxy: void onDisplayAreaVanished(android.window.DisplayAreaInfo)>
+<android.window.IDisplayAreaOrganizer$Stub: android.window.IDisplayAreaOrganizer asInterface(android.os.IBinder)>
+<android.window.IDisplayAreaOrganizer$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.IDisplayAreaOrganizer$Stub: void <init>()>

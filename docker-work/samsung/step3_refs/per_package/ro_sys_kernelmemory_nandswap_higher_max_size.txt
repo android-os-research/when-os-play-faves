@@ -1,0 +1,5 @@
+# ro.sys.kernelmemory.nandswap.higher_max_size [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.NandswapManager: int getDefaultRamExpandSize()>

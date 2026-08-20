@@ -1,0 +1,12 @@
+# com.samsung.android.location.ISLocationLMSHook [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.samsung.android.location.ISLocationLMSHook$Stub$Proxy: android.location.IGpsGeofenceHardware getHWGeofence()>
+<com.samsung.android.location.ISLocationLMSHook$Stub$Proxy: boolean isProviderEnabledForUser(java.lang.String,int)>
+<com.samsung.android.location.ISLocationLMSHook$Stub$Proxy: boolean isUidForeground(int)>
+<com.samsung.android.location.ISLocationLMSHook$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.location.ISLocationLMSHook$Stub$Proxy: void updateRequestInfo(boolean,int,int,java.lang.String,java.lang.String,boolean,int)>
+<com.samsung.android.location.ISLocationLMSHook$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.location.ISLocationLMSHook$Stub: com.samsung.android.location.ISLocationLMSHook asInterface(android.os.IBinder)>
+<com.samsung.android.location.ISLocationLMSHook$Stub: void <init>()>

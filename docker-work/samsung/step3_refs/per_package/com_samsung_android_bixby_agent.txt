@@ -1,0 +1,9 @@
+# com.samsung.android.bixby.agent [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.accessibility.autoaction.actiontype.TalkToBixby: void performCornerAction(int)>
+<com.android.server.am.MARsPolicyManager: void onSpecialProviderActions(java.lang.String,java.lang.String,int)>
+<com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void <clinit>()>

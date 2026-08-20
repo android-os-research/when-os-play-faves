@@ -1,0 +1,61 @@
+.class public interface abstract Lcom/android/server/accessibility/magnification/FullScreenMagnificationGestureHandler$State;
+.super Ljava/lang/Object;
+.source "FullScreenMagnificationGestureHandler.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/accessibility/magnification/FullScreenMagnificationGestureHandler;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "State"
+.end annotation
+
+
+# direct methods
+.method public static nameOf(Lcom/android/server/accessibility/magnification/FullScreenMagnificationGestureHandler$State;)Ljava/lang/String;
+    .registers 1
+
+    if-eqz p0, :cond_7
+
+    .line 332
+    invoke-interface {p0}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationGestureHandler$State;->name()Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_a
+
+    :cond_7
+    const-string/jumbo p0, "null"
+
+    :goto_a
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public clear()V
+    .registers 1
+
+    return-void
+.end method
+
+.method public name()Ljava/lang/String;
+    .registers 1
+
+    .line 328
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public abstract onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+.end method

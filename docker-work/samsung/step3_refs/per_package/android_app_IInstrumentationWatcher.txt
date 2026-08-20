@@ -1,0 +1,7 @@
+# android.app.IInstrumentationWatcher [NEW]
+# Refs: 3
+# JARs: framework
+
+<android.app.IInstrumentationWatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IInstrumentationWatcher$Stub$Proxy: void instrumentationFinished(android.content.ComponentName,int,android.os.Bundle)>
+<android.app.IInstrumentationWatcher$Stub$Proxy: void instrumentationStatus(android.content.ComponentName,int,android.os.Bundle)>

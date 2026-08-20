@@ -1,0 +1,7 @@
+# security.ASKS.time_value [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.asks.ASKSManagerService: java.lang.String getTrustedToday()>
+<com.android.server.asks.ASKSManagerService: void <init>(android.content.Context)>
+<com.android.server.asks.ASKSManagerService: void setTrustedFile(int,long,long)>

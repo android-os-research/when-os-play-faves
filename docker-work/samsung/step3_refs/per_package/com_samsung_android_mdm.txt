@@ -1,0 +1,11 @@
+# com.samsung.android.mdm [NEW]
+# Refs: 7
+# JARs: services
+
+<com.android.server.enterprise.kioskmode.KioskModeService: int extractDefaultApkAndInstall(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.proxy.LocalProxyManager: void lambda$refreshCredentialsDialogFails$13()>
+<com.android.server.enterprise.proxy.LocalProxyManager: void lambda$showCredentialsDialogNotification$14(java.lang.String)>
+<com.android.server.enterprise.security.SecurityPolicy: boolean isBannerApp(int)>
+<com.android.server.enterprise.security.SecurityPolicy: boolean startBannerService(int)>
+<com.android.server.enterprise.security.SecurityPolicy: boolean stopBannerService(int)>
+<com.android.server.enterprise.security.SecurityPolicy: void addBannerAppToBatteryOptimizationWhitelist(com.samsung.android.knox.ContextInfo,boolean)>

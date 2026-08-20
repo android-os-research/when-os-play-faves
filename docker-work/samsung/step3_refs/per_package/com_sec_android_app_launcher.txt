@@ -1,0 +1,28 @@
+# com.sec.android.app.launcher [NEW]
+# Refs: 25
+# JARs: framework, gamesdk, knoxsdk, semwifi-service, services, ssrm
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<com.android.server.accessibility.autoaction.actiontype.Zoom: void performCornerAction(int)>
+<com.android.server.am.ActivityManagerService: void <init>(android.content.Context,com.android.server.wm.ActivityTaskManagerService)>
+<com.android.server.am.ActivityManagerService: void checkLongLivePermissions(java.lang.String)>
+<com.android.server.am.KillPolicyManager: void initSkipPackage()>
+<com.android.server.am.PerProcessNandswap$NandswapHandler: int getNandswapNonActivityAppType(com.android.server.am.ProcessRecord,int,int)>
+<com.android.server.am.PerProcessNandswap$NandswapMsgHandler: void <init>(com.android.server.am.PerProcessNandswap,com.android.server.am.PerProcessNandswap)>
+<com.android.server.appwidget.AppWidgetServiceImpl: boolean bindAppWidgetId(java.lang.String,int,int,android.content.ComponentName,android.os.Bundle)>
+<com.android.server.chimera.ChimeraAppManager$1: void <init>(com.android.server.chimera.ChimeraAppManager)>
+<com.android.server.chimera.SystemRepositoryDefault: java.lang.String getCurrentHomePackageName()>
+<com.android.server.enterprise.application.ApplicationPolicy: boolean manageHomeShorcut(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String,java.lang.String)>
+<com.android.server.enterprise.application.ApplicationPolicy: java.util.List getHomeShortcuts(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+<com.android.server.enterprise.application.ApplicationPolicy: java.util.Map getAllWidgets(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.android.server.ssrm.DynamicLoadDetector: ???>
+<com.samsung.android.gamesdk.core.LifeCycleManager: boolean checkFocusedPackageName(java.lang.String,int)>
+<com.samsung.android.knox.EdmConstants$1: void <init>()>
+<com.samsung.android.knox.SemPersonaManager: java.lang.String getPersonaName(android.content.Context,int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.Boolean lambda$launchProkioskHomeActivity$148()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void lambda$closeLauncherApp$135()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void lambda$stopProKioskModeInternal$137()>
+<com.samsung.android.multiwindow.MultiWindowUtils: boolean isDefaultLauncher(android.content.Context)>
+<com.samsung.android.server.wifi.SemApeController: void initBlockedPackages()>
+<com.samsung.android.server.wifi.SemWifiOptimizer$5: void noteResumeComponent(android.content.ComponentName,android.content.Intent,int,int)>

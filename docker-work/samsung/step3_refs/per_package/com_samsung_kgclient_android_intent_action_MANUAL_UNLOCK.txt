@@ -1,0 +1,6 @@
+# com.samsung.kgclient.android.intent.action.MANUAL_UNLOCK [NEW]
+# Refs: 2
+# JARs: services
+
+<com.samsung.android.knoxguard.service.KnoxGuardSeService: void unlockCompleted()>
+<com.samsung.android.knoxguard.service.KnoxGuardService$1: void onUnlockedByPasscode()>

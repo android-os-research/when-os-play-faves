@@ -1,0 +1,21 @@
+# android.app.usage.IStorageStatsManager [NEW]
+# Refs: 17
+# JARs: framework
+
+<android.app.usage.IStorageStatsManager$Stub$Proxy: android.app.usage.ExternalStorageStats queryExternalStatsForUser(java.lang.String,int,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: android.app.usage.StorageStats queryStatsForPackage(java.lang.String,java.lang.String,int,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: android.app.usage.StorageStats queryStatsForUid(java.lang.String,int,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: android.app.usage.StorageStats queryStatsForUser(java.lang.String,int,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: android.content.pm.ParceledListSlice queryCratesForPackage(java.lang.String,java.lang.String,int,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: android.content.pm.ParceledListSlice queryCratesForUid(java.lang.String,int,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: android.content.pm.ParceledListSlice queryCratesForUser(java.lang.String,int,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: boolean isQuotaSupported(java.lang.String,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: boolean isReservedSupported(java.lang.String,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: long getCacheBytes(java.lang.String,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: long getCacheQuotaBytes(java.lang.String,int,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: long getFreeBytes(java.lang.String,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub$Proxy: long getTotalBytes(java.lang.String,java.lang.String)>
+<android.app.usage.IStorageStatsManager$Stub: android.app.usage.IStorageStatsManager asInterface(android.os.IBinder)>
+<android.app.usage.IStorageStatsManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.usage.IStorageStatsManager$Stub: void <init>()>

@@ -1,0 +1,7 @@
+# com.samsung.android.audio.headup.changedevice [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.audio.AudioService$SamsungBroadcastReceiver: void handleIntent(android.content.Context,android.content.Intent)>
+<com.android.server.audio.AudioService: void addMultiSoundNotificationIntentFilter(android.content.IntentFilter)>
+<com.samsung.android.server.audio.MultiSoundManager: void showHeadUpNotification(int,int)>

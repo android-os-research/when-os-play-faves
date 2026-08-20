@@ -1,0 +1,5 @@
+# persist.profcollectd.enabled_override [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.profcollect.ProfcollectForwardingService: boolean enabled()>

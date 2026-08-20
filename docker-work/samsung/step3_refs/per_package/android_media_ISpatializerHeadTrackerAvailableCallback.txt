@@ -1,0 +1,9 @@
+# android.media.ISpatializerHeadTrackerAvailableCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.ISpatializerHeadTrackerAvailableCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.ISpatializerHeadTrackerAvailableCallback$Stub$Proxy: void dispatchSpatializerHeadTrackerAvailable(boolean)>
+<android.media.ISpatializerHeadTrackerAvailableCallback$Stub: android.media.ISpatializerHeadTrackerAvailableCallback asInterface(android.os.IBinder)>
+<android.media.ISpatializerHeadTrackerAvailableCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.ISpatializerHeadTrackerAvailableCallback$Stub: void <init>()>

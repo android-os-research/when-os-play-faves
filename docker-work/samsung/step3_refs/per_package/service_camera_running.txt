@@ -1,0 +1,7 @@
+# service.camera.running [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.knox.SeamLessSwitchHandler: boolean isCameraRunning()>
+<com.android.server.policy.PhoneWindowManagerExt: boolean isCameraRunning()>
+<com.samsung.android.hardware.display.AfterimageCompensationService$AfcThread: void run()>

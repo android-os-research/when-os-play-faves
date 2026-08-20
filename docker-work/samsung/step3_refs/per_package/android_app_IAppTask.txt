@@ -1,0 +1,13 @@
+# android.app.IAppTask [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.app.IAppTask$Stub$Proxy: android.app.ActivityManager$RecentTaskInfo getTaskInfo()>
+<android.app.IAppTask$Stub$Proxy: int startActivity(android.os.IBinder,java.lang.String,java.lang.String,android.content.Intent,java.lang.String,android.os.Bundle)>
+<android.app.IAppTask$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IAppTask$Stub$Proxy: void finishAndRemoveTask()>
+<android.app.IAppTask$Stub$Proxy: void moveToFront(android.app.IApplicationThread,java.lang.String)>
+<android.app.IAppTask$Stub$Proxy: void setExcludeFromRecents(boolean)>
+<android.app.IAppTask$Stub: android.app.IAppTask asInterface(android.os.IBinder)>
+<android.app.IAppTask$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IAppTask$Stub: void <init>()>

@@ -1,0 +1,13 @@
+# com.mediatek.common.geofence.IMtkGeofenceCallback [NEW]
+# Refs: 9
+# JARs: mediatek-common
+
+<com.mediatek.common.geofence.IMtkGeofenceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.common.geofence.IMtkGeofenceCallback$Stub$Proxy: void onGeofenceAdd(int,int)>
+<com.mediatek.common.geofence.IMtkGeofenceCallback$Stub$Proxy: void onGeofencePause(int,int)>
+<com.mediatek.common.geofence.IMtkGeofenceCallback$Stub$Proxy: void onGeofenceRemove(int,int)>
+<com.mediatek.common.geofence.IMtkGeofenceCallback$Stub$Proxy: void onGeofenceResume(int,int)>
+<com.mediatek.common.geofence.IMtkGeofenceCallback$Stub$Proxy: void onGeofenceTransition(int,int,android.location.Location,long)>
+<com.mediatek.common.geofence.IMtkGeofenceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.common.geofence.IMtkGeofenceCallback$Stub: com.mediatek.common.geofence.IMtkGeofenceCallback asInterface(android.os.IBinder)>
+<com.mediatek.common.geofence.IMtkGeofenceCallback$Stub: void <init>()>

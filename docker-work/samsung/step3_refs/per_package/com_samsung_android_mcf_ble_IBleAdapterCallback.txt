@@ -1,0 +1,9 @@
+# com.samsung.android.mcf.ble.IBleAdapterCallback [NEW]
+# Refs: 10
+# JARs: mcfsdk, services
+
+<com.samsung.android.mcf.ble.IBleAdapterCallback$Stub$a: java.lang.String b()>
+<com.samsung.android.mcf.ble.IBleAdapterCallback$Stub$a: void onMcfServiceStateChanged(int,int)>
+<com.samsung.android.mcf.ble.IBleAdapterCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.ble.IBleAdapterCallback$Stub: com.samsung.android.mcf.ble.IBleAdapterCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.ble.IBleAdapterCallback$Stub: void <init>()>

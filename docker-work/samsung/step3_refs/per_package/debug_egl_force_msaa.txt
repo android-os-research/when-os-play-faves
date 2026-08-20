@@ -1,0 +1,7 @@
+# debug.egl.force_msaa [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.sysprop.DisplayProperties: java.util.Optional debug_force_msaa()>
+<android.sysprop.DisplayProperties: void debug_force_msaa(java.lang.Boolean)>
+<com.android.server.enterprise.restriction.DeveloperModeSettings$4: void <init>()>

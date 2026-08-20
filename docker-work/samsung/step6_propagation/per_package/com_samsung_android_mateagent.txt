@@ -1,0 +1,143 @@
+######################################################################
+# Propagation: com.samsung.android.mateagent
+######################################################################
+
+JARs:                 framework, services
+Classes:              4
+Occurrences:          5
+Usage types:          invoke
+Enforcement patterns: early_return, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     232
+  Register: v42 := "com.samsung.android.mateagent"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     327
+  Register: v14 := "com.samsung.android.mateagent"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.sepunion.friends.executable.ExecAccessMgr
+  Method:   <com.android.server.sepunion.friends.executable.ExecAccessMgr: void <clinit>()>
+  Line:     57
+  Register: v2 := "com.samsung.android.mateagent"
+  Usage:    [invoke] invoke-direct {v1, v2, v3, v4, v4}, Lcom/android/server/sepunion/friends/executable/ExecAccessMgr$Pr
+  Patterns: early_return, system_property_read
+  Flow:     [invoke] com.android.server.sepunion.friends.executable.ExecAccessMgr → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → SystemProperties.get()
+      → <com.android.server.sepunion.friends.executable.ExecAccessMg
+        → <com.android.server.sepunion.friends.executable.ExecAccessMg
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.sepunion.friends.agentsvc.AgentSvcMgr
+  Method:   <com.android.server.sepunion.friends.agentsvc.AgentSvcMgr: void <init>(android.content.Context,com.android.server.sepunion.friends.common.Logger)>
+  Line:     76
+  Register: p2 := "com.samsung.android.mateagent"
+  Usage:    [invoke] invoke-direct {p1, p2, v0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.sepunion.friends.FrsServiceImpl: void <i
+        ← FriendsManagerLocalService.initialize()
+        ← FriendsManagerService.initialize()
+          ← <com.android.server.sepunion.FriendsManagerLocalService: voi
+          ← <com.android.server.sepunion.FriendsManagerService: void <in
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → <com.android.server.sepunion.friends.agentsvc.AgentSvcClient
+        → <com.android.server.sepunion.friends.agentsvc.AgentSvcClient
+        → <java.util.concurrent.LinkedBlockingDeque: void <init>(int)>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.sepunion.friends.agentsvc.AgentSvcClient
+  Method:   <com.android.server.sepunion.friends.agentsvc.AgentSvcClient: boolean connect()>
+  Line:     237
+  Register: v4 := "com.samsung.android.mateagent"
+  Usage:    [invoke] invoke-virtual {v0, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v4, p0, Lcom/android/server/sepunion/friends/age → 
+
+  CALLERS (who invokes this method):
+      ← AgentSvcMgr.getConnectedSvc()
+        ← AgentSvcMgr.perform()
+
+  CALLEES (what this method invokes):
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → AgentSvcClient.setService()
+      → AgentSvcClient.isAlive()
+      → AgentSvcClient.isConnected()
+      → AgentSvcClient.closedForced()
+      → FwDependency.getUserHandle()
+      → FwDependency.bindServiceAsUser()
+      → LogFrs.d()
+      → LogFrs.v()
+      → LogFrs.w()
+      → LogFrs.printThrowableStackTrace()
+      → BlockingDeque.poll()
+        → IBinder.isBinderAlive()
+        → IInterface.asBinder()
+        → AgentSvc$SvcCloseable.setContPreserved()
+        → AgentSvcClient.close()
+        → Field.get()
+        → Method.invoke()
+        → LogFrs.getMsg()
+        → LogFrs.getTag()
+        → LogFrs.updateLogLevel()
+        → LogFrs.isDebugLogLevel()
+        → LogFrs.isRoDebugLevelMid()
+        → Throwable.getLocalizedMessage()
+        → Throwable.printStackTrace()
+          → Context.unbindService()
+          → AgentSvc$SvcCloseable.closeable()
+          → LogFrs.internalUseSafeString()
+          → LogFrs.internalLogLevel()
+          → LogFrs.getRoBootDebugLevel()
+          → LogFrs.getRoDebugLevel()
+            → SystemProperties.get()
+            → FwDependency.isProductDev()
+

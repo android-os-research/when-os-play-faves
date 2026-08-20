@@ -1,0 +1,7 @@
+# vendor.wlandriver.status [NEW]
+# Refs: 3
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.driver.WifiDriverNativeCommandHelper: boolean setVendorWlanDriverProp(java.lang.String,java.lang.String)>
+<com.samsung.android.server.wifi.driver.WifiDriverNativeCommandHelper: java.lang.String getVendorWlanDriverProp(java.lang.String)>
+<com.samsung.android.server.wifi.driver.WifiDriverNativeCommandHelper: void <init>(com.samsung.android.server.wifi.driver.WifiDriverNativeCommand)>

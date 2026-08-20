@@ -1,0 +1,6 @@
+# ro.telephony.sim_slots.count [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional sim_slots_count()>
+<android.sysprop.TelephonyProperties: java.util.Optional sim_slots_count()>

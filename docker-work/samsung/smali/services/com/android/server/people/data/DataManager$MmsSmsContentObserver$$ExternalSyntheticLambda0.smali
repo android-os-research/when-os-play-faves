@@ -1,0 +1,42 @@
+.class public final synthetic Lcom/android/server/people/data/DataManager$MmsSmsContentObserver$$ExternalSyntheticLambda0;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/util/function/Consumer;
+
+
+# instance fields
+.field public final synthetic f$0:Ljava/lang/String;
+
+.field public final synthetic f$1:Lcom/android/server/people/data/Event;
+
+
+# direct methods
+.method public synthetic constructor <init>(Ljava/lang/String;Lcom/android/server/people/data/Event;)V
+    .registers 3
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/people/data/DataManager$MmsSmsContentObserver$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
+
+    iput-object p2, p0, Lcom/android/server/people/data/DataManager$MmsSmsContentObserver$$ExternalSyntheticLambda0;->f$1:Lcom/android/server/people/data/Event;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final accept(Ljava/lang/Object;)V
+    .registers 3
+
+    iget-object v0, p0, Lcom/android/server/people/data/DataManager$MmsSmsContentObserver$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
+
+    iget-object p0, p0, Lcom/android/server/people/data/DataManager$MmsSmsContentObserver$$ExternalSyntheticLambda0;->f$1:Lcom/android/server/people/data/Event;
+
+    check-cast p1, Lcom/android/server/people/data/UserData;
+
+    invoke-static {v0, p0, p1}, Lcom/android/server/people/data/DataManager$MmsSmsContentObserver;->$r8$lambda$xaovfQH9yaX-FbCifpovOzC94OQ(Ljava/lang/String;Lcom/android/server/people/data/Event;Lcom/android/server/people/data/UserData;)V
+
+    return-void
+.end method

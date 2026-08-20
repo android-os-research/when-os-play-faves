@@ -1,0 +1,9 @@
+# com.samsung.android.smartsuggestions [NEW]
+# Refs: 5
+# JARs: framework, semwifi-service, services
+
+<com.android.internal.app.ChooserActivity: boolean isSmartShareSupported(android.content.Context)>
+<com.android.server.autofill.AutofillManagerService$AugmentedAutofillState: boolean isWhitelisted(int,android.content.ComponentName)>
+<com.android.server.autofill.AutofillManagerService$AugmentedAutofillState: void injectAugmentedAutofillInfo(android.content.AutofillOptions,int,java.lang.String)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.samsung.android.server.wifi.ap.SemWifiApUtils$2: void run()>

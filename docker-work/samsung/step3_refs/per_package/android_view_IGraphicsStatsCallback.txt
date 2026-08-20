@@ -1,0 +1,9 @@
+# android.view.IGraphicsStatsCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.IGraphicsStatsCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IGraphicsStatsCallback$Stub$Proxy: void onRotateGraphicsStatsBuffer()>
+<android.view.IGraphicsStatsCallback$Stub: android.view.IGraphicsStatsCallback asInterface(android.os.IBinder)>
+<android.view.IGraphicsStatsCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IGraphicsStatsCallback$Stub: void <init>()>

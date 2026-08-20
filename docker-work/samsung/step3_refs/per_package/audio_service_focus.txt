@@ -1,0 +1,7 @@
+# audio.service.focus [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.audio.AudioService: int abandonAudioFocus(android.media.IAudioFocusDispatcher,java.lang.String,android.media.AudioAttributes,java.lang.String)>
+<com.android.server.audio.AudioService: int requestAudioFocus(android.media.AudioAttributes,int,android.os.IBinder,android.media.IAudioFocusDispatcher,java.lang.String,java.lang.String,java.lang.String,int,android.media.audiopolicy.IAudioPolicyCallback,int)>
+<com.android.server.audio.AudioService: void unregisterAudioFocusClient(java.lang.String)>

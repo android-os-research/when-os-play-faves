@@ -1,0 +1,72 @@
+######################################################################
+# Propagation: com.android.inputdevices
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.input.InputManagerService
+  Method:   <com.android.server.input.InputManagerService: void visitKeyboardLayoutsInPackage(android.content.pm.PackageManager,android.content.pm.ActivityInfo,java.lang.String,int,com.android.server.input.InputManagerService$KeyboardLayoutVisitor)>
+  Line:     20043
+  Register: v10 := "com.android.inputdevices"
+  Usage:    [invoke] invoke-virtual {v0, v15, v14, v10}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.res.Resources.getIdentifier() → [other] move-result v10 → [invoke] android.content.res.Resource
+
+  CALLERS (who invokes this method):
+      ← InputManagerService.visitAllKeyboardLayouts()
+      ← InputManagerService.visitKeyboardLayout()
+        ← InputManagerService.getKeyboardLayouts()
+        ← InputManagerService.getKeyboardLayoutsForInputDevice()
+        ← InputManagerService.getDefaultKeyboardLayout()
+        ← InputManagerService.dump()
+        ← InputManagerService.updateKeyboardLayouts()
+        ← InputManagerService.getKeyboardLayout()
+        ← InputManagerService.getKeyboardLayoutForInputDevice()
+        ← InputManagerService.getKeyboardLayoutOverlay()
+          ← <com.android.server.input.InputManagerService: void -$$Nest$
+          ← InputManagerService.handleSwitchKeyboardLayout()
+            ← InputManagerService$2.onReceive()
+            ← InputManagerService$InputManagerHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → ActivityInfo.loadLabel()
+      → PackageManager.getResourcesForApplication()
+      → Resources.obtainAttributes()
+      → Resources.getXml()
+      → Resources.getIdentifier()
+      → Resources.getString()
+      → TypedArray.getInt()
+      → TypedArray.getResourceId()
+      → TypedArray.getString()
+      → TypedArray.recycle()
+      → XmlResourceParser.getAttributeValue()
+      → XmlResourceParser.getName()
+      → XmlResourceParser.close()
+      → <android.hardware.input.KeyboardLayout: void <init>(java.lan
+      → Bundle.getInt()
+      → TextUtils.isEmpty()
+      → XmlUtils.beginDocument()
+      → XmlUtils.nextElement()
+      → InputManagerService$KeyboardLayoutDescriptor.format()
+      → InputManagerService$KeyboardLayoutVisitor.visitKeyboardLayout()
+      → InputManagerService.getLocalesFromLanguageTags()
+      → KeyboardLayoutUtils.getStringFromInputDevices()
+      → CharSequence.toString()
+      → Throwable.addSuppressed()
+        → CharSequence.length()
+        → XmlPullParser.next()
+        → XmlPullParser.getName()
+        → <org.xmlpull.v1.XmlPullParserException: void <init>(java.lan
+        → LocaleList.forLanguageTags()
+        → LocaleList.getEmptyLocaleList()
+        → XmlResourceParser.getAttributeResourceValue()
+

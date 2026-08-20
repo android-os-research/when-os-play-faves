@@ -1,0 +1,15 @@
+# com.samsung.android.biometrics.ISemBiometricSysUiService [NEW]
+# Refs: 11
+# JARs: framework
+
+<com.samsung.android.biometrics.ISemBiometricSysUiService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.biometrics.ISemBiometricSysUiService$Stub$Proxy: void hideBiometricDialog(int,int,int)>
+<com.samsung.android.biometrics.ISemBiometricSysUiService$Stub$Proxy: void onBiometricAuthenticated(int,int,boolean,java.lang.String)>
+<com.samsung.android.biometrics.ISemBiometricSysUiService$Stub$Proxy: void onBiometricError(int,int,int,int,java.lang.String)>
+<com.samsung.android.biometrics.ISemBiometricSysUiService$Stub$Proxy: void onBiometricHelp(int,int,int,int,java.lang.String)>
+<com.samsung.android.biometrics.ISemBiometricSysUiService$Stub$Proxy: void sendCommand(int,int,int,android.os.Bundle)>
+<com.samsung.android.biometrics.ISemBiometricSysUiService$Stub$Proxy: void setBiometricTheme(int,java.lang.String,byte[],java.io.FileDescriptor)>
+<com.samsung.android.biometrics.ISemBiometricSysUiService$Stub$Proxy: void showBiometricDialog(int,int,android.os.Bundle,com.samsung.android.biometrics.ISemBiometricSysUiCallback,boolean,int,java.lang.String,long,android.hardware.biometrics.PromptInfo)>
+<com.samsung.android.biometrics.ISemBiometricSysUiService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.biometrics.ISemBiometricSysUiService$Stub: com.samsung.android.biometrics.ISemBiometricSysUiService asInterface(android.os.IBinder)>
+<com.samsung.android.biometrics.ISemBiometricSysUiService$Stub: void <init>()>

@@ -1,0 +1,142 @@
+######################################################################
+# Propagation: com.samsung.android.bbc.bbcagent
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.RCPManagerService
+  Method:   <com.android.server.RCPManagerService: int copyFileInternal(int,java.lang.String,int,java.lang.String)>
+  Line:     721
+  Register: v1 := "com.samsung.android.bbc.bbcagent"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← KnoxMUMContainerPolicy.processNewTypeObject()
+        ← KnoxMUMContainerPolicy.addConfigurationTypeToList()
+          ← KnoxMUMContainerPolicy.addConfigurationType()
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingPid() [UID_CHECK]
+      → RCPManagerService.initService()
+      → RCPManagerService.isPackageDataRelatedPath()
+      → RCPManagerService.checkCallerPermissionFor()
+      → RCPManagerService.copyPackageData()
+      → RCPManagerService.getAppNameByPID()
+      → EnterprisePartitionManager.getInstance()
+      → EnterprisePartitionManager.copy()
+        → Context.registerReceiver()
+        → Context.getSystemService()
+        → <android.content.IntentFilter: void <init>()>
+        → <android.content.IntentFilter: void <init>(java.lang.String)
+        → IntentFilter.addAction()
+        → ContainerStateReceiver.register()
+        → Handler.postDelayed()
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → Looper.getMainLooper()
+        → <com.android.server.KnoxCaptureInputFilter: void <init>(andr
+        → Exception.printStackTrace()
+        → Binder.getCallingUid() [UID_CHECK]
+        → ServiceKeeper.isAuthorized()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → SecurityException.printStackTrace()
+        → EnterprisePartitionManager.copy()
+        → ActivityManager.getRunningAppProcesses()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.isEmpty()
+        → List.iterator()
+        → <com.android.server.knox.dar.EnterprisePartitionManager: voi
+          → Context.getMainLooper()
+          → HandlerThread.getLooper()
+          → <android.os.HandlerThread: void <init>(java.lang.String)>
+          → HandlerThread.start()
+          → <android.view.InputFilter: void <init>(android.os.Looper)>
+          → <com.android.server.KnoxCaptureInputFilter$ScanEventHandler:
+          → <java.util.HashSet: void <init>()>
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → Process.myPid()
+          → SKLogger.logAll()
+          → SKLogger.logAll()
+          → ServiceKeeper.checkForMethodAuthorization()
+          → ServiceKeeper.checkForServiceAuthorization()
+          → ServiceKeeper.isFilterAPI()
+          → ServiceKeeper.getPackageName()
+          → ServiceKeeper.getSeinfo()
+          → Exception.getMessage()
+          → HashSet.contains()
+          → HashSet.isEmpty()
+          → EnterprisePartitionManager.isUserUnlocked()
+          → Installer.copyKnoxAppData()
+          → <com.android.server.knox.dar.EnterprisePartitionManager$Inje
+          → <com.android.server.knox.dar.EnterprisePartitionManager: voi
+            → HandlerThread.isAlive()
+            → Thread.currentThread()
+            → Thread.interrupt()
+            → <java.lang.Thread: void <init>(java.lang.String)>
+            → <com.android.server.KnoxCaptureInputFilter$ScanEventHandler:
+            → Time.format()
+            → <android.text.format.Time: void <init>()>
+            → Time.set()
+            → Logger.log()
+            → SKLogger.getStackTraceString()
+            → HashSet.iterator()
+            → Hashtable.get()
+            → ArrayList.size()
+            → ArrayList.get()
+            → ActivityManager.getPackageFromAppProcesses()
+            → IPackageManager.getApplicationInfo() [PKG_QUERY]
+            → UserHandle.getUserId()
+            → ASKSManagerService.getSEInfo()
+            → UserManager.get()
+            → UserManager.isUserUnlocked()
+            → EnterprisePartitionManager$Injector.binderClearCallingIdentity()
+            → EnterprisePartitionManager$Injector.binderRestoreCallingIdentity()
+            → Throwable.toString()
+            → IInstalld.copyKnoxAppData()
+            → Installer$InstallerException.from()
+            → Installer.checkBeforeRemote()
+            → EnterprisePartitionManager$Injector.getContext()
+            → EnterprisePartitionManager.logD()
+            → <java.util.Hashtable: void <init>()>
+              → <java.util.ArrayList: void <init>()>
+              → Time$TimeCalculator.format()
+              → Time$TimeCalculator.copyFieldsFromTime()
+              → Time.initialize()
+              → TimeZone.getID()
+              → TimeZone.getDefault()
+              → Time$TimeCalculator.copyFieldsToTime()
+              → Time$TimeCalculator.setTimeInMillis()
+              → <java.io.PrintWriter: void <init>(java.io.Writer)>
+              → StringWriter.toString()
+              → <java.io.StringWriter: void <init>()>
+              → Throwable.getCause()
+              → Throwable.printStackTrace()
+              → ASKSManagerService$ASKSState.getRestrict()
+              → ASKSManagerService$ASKSState.getEMMode()
+              → ASKSManagerService$Restrict.getDateLimit()
+              → ASKSManagerService$Restrict.getType()
+              → ASKSManagerService.getTrustedToday()
+              → ASKSManagerService.enforceSystemOrRoot()
+              → EngineeringModeManager.isConnected()
+              → EngineeringModeManager.getStatus()
+              → <com.samsung.android.service.EngineeringMode.EngineeringMode
+              → HashMap.get()
+              → <com.android.server.pm.Installer$InstallerException: void <i
+              → Exception.toString()
+              → Thread.holdsLock()
+              → Thread.getName()
+              → <java.lang.Throwable: void <init>()>
+              → CountDownLatch.await()
+

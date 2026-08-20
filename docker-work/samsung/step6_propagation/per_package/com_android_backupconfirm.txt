@@ -1,0 +1,81 @@
+######################################################################
+# Propagation: com.android.backupconfirm
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.backup.UserBackupManagerService
+  Method:   <com.android.server.backup.UserBackupManagerService: boolean startConfirmationUi(int,java.lang.String)>
+  Line:     15165
+  Register: p2 := "com.android.backupconfirm"
+  Usage:    [invoke] invoke-virtual {v0, p2, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] p2 overwritten
+
+  CALLERS (who invokes this method):
+      ← UserBackupManagerService.adbBackup()
+      ← UserBackupManagerService.adbRestore()
+        ← UserBackupManagerService.semBackupPackage()
+        ← UserBackupManagerService.semBackupPackagePath()
+        ← UserBackupManagerService.adbBackup()
+        ← UserBackupManagerService.adbRestore()
+        ← UserBackupManagerService.semRestorePackage()
+          ← BackupManagerService.semBackupPackage()
+          ← BackupManagerService.semBackupPackagePath()
+          ← BackupManagerService.adbBackup()
+          ← UserBackupManagerService.fullBackupCustomized()
+          ← BackupManagerService.adbRestore()
+          ← UserBackupManagerService.fullRestoreCustomized()
+          ← BackupManagerService.semRestorePackage()
+            ← BackupManagerService.fullBackupCustomized()
+            ← BackupManagerService.fullRestoreCustomized()
+
+  CALLEES (what this method invokes):
+      → Context.startActivityAsUser()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.backup.UserBackupManagerService
+  Method:   <com.android.server.backup.UserBackupManagerService: void tearDownAgentAndKill(android.content.pm.ApplicationInfo)>
+  Line:     15258
+  Register: v1 := "com.android.backupconfirm"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] iget-object v1, p1, Landroid/content/pm/ApplicationInfo;->pr → [invoke] and
+
+  CALLERS (who invokes this method):
+      ← KeyValueAdbBackupEngine.cleanup()
+      ← FullBackupEngine.tearDown()
+      ← PerformAdbBackupTask.handleCancel()
+      ← PerformFullTransportBackupTask$SinglePackageBackupRunner.handleCancel()
+      ← PerformFullTransportBackupTask.run()
+      ← FullRestoreEngine.tearDownAgent()
+        ← KeyValueAdbBackupEngine.backupOnePackage()
+        ← FullBackupEngine.backupOnePackage()
+        ← FullRestoreEngine.restoreOneFile()
+          ← PerformAdbBackupTask.run()
+          ← PerformFullTransportBackupTask$SinglePackageBackupRunner.run()
+          ← FullRestoreEngineThread.run()
+            ← PerformAdbRestoreTask.run()
+
+  CALLEES (what this method invokes):
+      → IActivityManager.killApplicationProcess()
+      → IActivityManager.unbindBackupAgent()
+      → UserHandle.isCore()
+      → UserBackupManagerService.addUserIdToLogMessage()
+

@@ -1,0 +1,105 @@
+######################################################################
+# Propagation: kr.co.vcnc.tada
+######################################################################
+
+JARs:                 motionrecognitionservice
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      motionrecognitionservice
+  Class:    com.samsung.android.gesture.AutoRotationHandler
+  Method:   <com.samsung.android.gesture.AutoRotationHandler: void <init>(android.content.Context)>
+  Line:     250
+  Register: v22 := "kr.co.vcnc.tada"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v4 .. v30}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← MotionRecognitionService.startMotions()
+        ← <com.samsung.android.gesture.MotionRecognitionService: void 
+          ← MotionRecognitionService$ServiceHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → Sensor.getVersion()
+      → SensorManager.getDefaultSensor()
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+      → AutoRotationHandler$CameraStateMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$ForegroundA
+      → AutoRotationHandler$ForegroundAppWatcher.init()
+      → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+      → AutoRotationHandler$MediaSessionMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+      → AutoRotationHandler$MultimediaMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$ServiceHand
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → Sensor.isWakeUpSensor()
+        → SensorManager.getSensorList()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.size()
+        → List.get()
+        → List.iterator()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+        → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+        → <java.util.HashMap: void <init>()>
+        → AutoRotationHandler$CameraStateMonitor$CameraStateHandler.sendEmptyMessage()
+        → <com.samsung.android.gesture.AutoRotationHandler$ForegroundA
+        → <android.util.ArraySet: void <init>()>
+        → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+        → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+        → AutoRotationHandler$MediaSessionMonitor$MediaSessionMonitorHandler.sendEmptyMessage()
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → SemMediaResourceHelper.createInstance()
+        → <java.util.HashSet: void <init>()>
+        → AutoRotationHandler$MultimediaMonitor$MultimediaHandler.sendEmptyMessage()
+        → <android.os.Handler: void <init>(android.os.Looper)>
+          → Sensor.getType()
+          → SensorManager.getFullSensorList()
+          → SparseArray.get()
+          → SparseArray.append()
+          → <java.util.ArrayList: void <init>()>
+          → Collections.unmodifiableList()
+          → List.add()
+          → <android.hardware.camera2.CameraManager$SemCameraDeviceState
+          → <com.samsung.android.app.usage.IUsageStatsWatcher$Stub: void
+          → <android.util.ArraySet: void <init>(int,boolean)>
+          → <android.media.AudioManager$AudioPlaybackCallback: void <ini
+          → <com.samsung.android.media.SemMediaResourceHelper: void <ini
+            → SparseArray.get()
+            → SparseArray.gc()
+            → SparseArray.put()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → <android.os.Binder: void <init>()>
+            → IUsageStatsWatcher$Stub.attachInterface()
+            → ArraySet.allocArrays()
+            → Looper.getMainLooper()
+            → Looper.myLooper()
+            → Process.myPid()
+            → <com.samsung.android.media.SemMediaResourceHelper$EventHandl
+            → SemMediaResourceHelper.native_setup()
+            → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+              → ContainerHelpers.binarySearch()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+              → <android.os.Binder: void <init>(java.lang.String)>
+              → ThreadLocal.get()
+

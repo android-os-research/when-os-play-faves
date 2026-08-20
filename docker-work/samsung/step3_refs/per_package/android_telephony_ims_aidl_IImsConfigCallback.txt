@@ -1,0 +1,10 @@
+# android.telephony.ims.aidl.IImsConfigCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.telephony.ims.aidl.IImsConfigCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IImsConfigCallback$Stub$Proxy: void onIntConfigChanged(int,int)>
+<android.telephony.ims.aidl.IImsConfigCallback$Stub$Proxy: void onStringConfigChanged(int,java.lang.String)>
+<android.telephony.ims.aidl.IImsConfigCallback$Stub: android.telephony.ims.aidl.IImsConfigCallback asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IImsConfigCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IImsConfigCallback$Stub: void <init>()>

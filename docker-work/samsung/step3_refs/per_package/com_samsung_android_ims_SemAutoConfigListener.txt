@@ -1,0 +1,12 @@
+# com.samsung.android.ims.SemAutoConfigListener [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.samsung.android.ims.SemAutoConfigListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.ims.SemAutoConfigListener$Stub$Proxy: void onAutoConfigurationCompleted(boolean)>
+<com.samsung.android.ims.SemAutoConfigListener$Stub$Proxy: void onIidTokenNeeded()>
+<com.samsung.android.ims.SemAutoConfigListener$Stub$Proxy: void onMsisdnNumberNeeded()>
+<com.samsung.android.ims.SemAutoConfigListener$Stub$Proxy: void onVerificationCodeNeeded()>
+<com.samsung.android.ims.SemAutoConfigListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.ims.SemAutoConfigListener$Stub: com.samsung.android.ims.SemAutoConfigListener asInterface(android.os.IBinder)>
+<com.samsung.android.ims.SemAutoConfigListener$Stub: void <init>()>

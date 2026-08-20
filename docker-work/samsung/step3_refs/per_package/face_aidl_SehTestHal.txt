@@ -1,0 +1,24 @@
+# face.aidl.SehTestHal [NEW]
+# Refs: 20
+# JARs: services
+
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$1: void handleMessage(android.os.Message)>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: android.hardware.biometrics.common.ICancellationSignal authenticate(long)>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: android.hardware.biometrics.common.ICancellationSignal detectInteraction()>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: android.hardware.biometrics.common.ICancellationSignal enroll(android.hardware.keymaster.HardwareAuthToken,byte,byte[],android.hardware.common.NativeHandle)>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: void close()>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: void enumerateEnrollments()>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: void generateChallenge()>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: void getAuthenticatorId()>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: void getFeatures()>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: void invalidateAuthenticatorId()>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: void onContextChanged(android.hardware.biometrics.common.OperationContext)>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: void removeEnrollments(int[])>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: void resetLockout(android.hardware.keymaster.HardwareAuthToken)>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: void revokeChallenge(long)>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal$2: void setFeature(android.hardware.keymaster.HardwareAuthToken,byte,boolean)>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal: android.hardware.biometrics.face.ISession createSession(int,int,android.hardware.biometrics.face.ISessionCallback)>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal: android.hardware.biometrics.face.SensorProps[] getSensorProps()>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal: void <init>(android.content.Context,int)>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal: void InitTPA(int)>
+<com.android.server.biometrics.sensors.face.aidl.SehTestHal: void doAction()>

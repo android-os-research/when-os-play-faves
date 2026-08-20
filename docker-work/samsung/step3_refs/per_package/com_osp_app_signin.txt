@@ -1,0 +1,18 @@
+# com.osp.app.signin [NEW]
+# Refs: 16
+# JARs: semwifi-service, services
+
+<com.android.server.ReactiveService: boolean hasPermission(int,java.lang.String)>
+<com.android.server.desktopmode.Utils: java.lang.String getSamsungAccountId(android.content.Context)>
+<com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+<com.android.server.enterprise.security.DeviceAccountPolicy: void <clinit>()>
+<com.samsung.android.server.continuity.AbstractPreconditionObserver: void <clinit>()>
+<com.samsung.android.server.wifi.ap.SemWifiApConfigStore: boolean isSALoggedIn()>
+<com.samsung.android.server.wifi.ap.SemWifiApUtils: int getSamsungAccountCount(android.content.Context)>
+<com.samsung.android.server.wifi.ap.SemWifiApUtils: java.lang.String getSamsungAccount(android.content.Context)>
+<com.samsung.android.server.wifi.ap.mcf.SemWifiApContinuityUtil: boolean hasAccount()>
+<com.samsung.android.server.wifi.ap.mcf.SemWifiApContinuityUtil: boolean hasSamsungAccountPackage()>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartNetworkCallback: boolean isSamsungAccountLoggedOut()>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartUtil: ???>
+<com.samsung.android.server.wifi.share.WifiContinuityService$DefaultState: boolean hasAccount()>
+<com.samsung.android.server.wifi.share.WifiContinuityService$DefaultState: boolean hasSamsungAccountPackage()>

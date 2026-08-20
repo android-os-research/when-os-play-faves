@@ -1,0 +1,15 @@
+# android.hardware.camera2.ICameraDeviceCallbacks [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.hardware.camera2.ICameraDeviceCallbacks$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.ICameraDeviceCallbacks$Stub$Proxy: void onCaptureStarted(android.hardware.camera2.impl.CaptureResultExtras,long)>
+<android.hardware.camera2.ICameraDeviceCallbacks$Stub$Proxy: void onDeviceError(int,android.hardware.camera2.impl.CaptureResultExtras)>
+<android.hardware.camera2.ICameraDeviceCallbacks$Stub$Proxy: void onDeviceIdle()>
+<android.hardware.camera2.ICameraDeviceCallbacks$Stub$Proxy: void onPrepared(int)>
+<android.hardware.camera2.ICameraDeviceCallbacks$Stub$Proxy: void onRepeatingRequestError(long,int)>
+<android.hardware.camera2.ICameraDeviceCallbacks$Stub$Proxy: void onRequestQueueEmpty()>
+<android.hardware.camera2.ICameraDeviceCallbacks$Stub$Proxy: void onResultReceived(android.hardware.camera2.impl.CameraMetadataNative,android.hardware.camera2.impl.CaptureResultExtras,android.hardware.camera2.impl.PhysicalCaptureResultInfo[])>
+<android.hardware.camera2.ICameraDeviceCallbacks$Stub: android.hardware.camera2.ICameraDeviceCallbacks asInterface(android.os.IBinder)>
+<android.hardware.camera2.ICameraDeviceCallbacks$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.ICameraDeviceCallbacks$Stub: void <init>()>

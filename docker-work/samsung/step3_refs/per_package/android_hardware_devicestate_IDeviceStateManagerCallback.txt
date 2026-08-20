@@ -1,0 +1,11 @@
+# android.hardware.devicestate.IDeviceStateManagerCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.hardware.devicestate.IDeviceStateManagerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.devicestate.IDeviceStateManagerCallback$Stub$Proxy: void onDeviceStateInfoChanged(android.hardware.devicestate.DeviceStateInfo)>
+<android.hardware.devicestate.IDeviceStateManagerCallback$Stub$Proxy: void onRequestActive(android.os.IBinder)>
+<android.hardware.devicestate.IDeviceStateManagerCallback$Stub$Proxy: void onRequestCanceled(android.os.IBinder)>
+<android.hardware.devicestate.IDeviceStateManagerCallback$Stub: android.hardware.devicestate.IDeviceStateManagerCallback asInterface(android.os.IBinder)>
+<android.hardware.devicestate.IDeviceStateManagerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.devicestate.IDeviceStateManagerCallback$Stub: void <init>()>

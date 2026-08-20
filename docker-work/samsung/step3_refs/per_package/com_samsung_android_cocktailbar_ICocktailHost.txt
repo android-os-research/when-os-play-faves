@@ -1,0 +1,25 @@
+# com.samsung.android.cocktailbar.ICocktailHost [NEW]
+# Refs: 21
+# JARs: framework
+
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void changeVisibleEdgeService(boolean,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void closeCocktail(int,int,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void notePauseComponent(android.content.ComponentName)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void noteResumeComponent(android.content.ComponentName)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void notifyKeyguardState(boolean,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void notifyWakeUpState(boolean,int,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void partiallyUpdateCocktail(int,android.widget.RemoteViews,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void partiallyUpdateHelpView(int,android.widget.RemoteViews,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void removeCocktail(int,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void sendExtraData(int,android.os.Bundle)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void setDisableTickerView(int,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void setPullToRefresh(int,int,android.app.PendingIntent,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void showCocktail(int,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void switchDefaultCocktail(int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void updateCocktail(int,com.samsung.android.cocktailbar.Cocktail,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void updateToolLauncher(int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub$Proxy: void viewDataChanged(int,int,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub: com.samsung.android.cocktailbar.ICocktailHost asInterface(android.os.IBinder)>
+<com.samsung.android.cocktailbar.ICocktailHost$Stub: void <init>()>

@@ -93,6 +93,16 @@ This allows the same pipeline command to be used in both configurations.
 machines. Unless otherwise stated, reproduction results should be obtained
 using the default 24B configuration.
 
+Note on lite-mode triage quality: the 8B model over-triages. On the bundled
+sample it classified 564/34/4 as HIGH/MEDIUM/LOW, versus 159/60/380 for the
+default 24B model (the deterministic SKIP count, 175, is identical). This does
+not lose findings — Tier-1 only triages, and everything HIGH/MEDIUM is forwarded
+to Tier-2 for validation, so over-triaging costs extra Tier-2 calls rather than
+dropping candidates — but the lite Tier-1 distribution is not representative of
+the paper's. On a memory-constrained machine, prefer `--skip-phase1` with the
+bundled precomputed 24B triage (see "Skipping the Local Triage" below) to obtain
+the representative Tier-1 result without running the 24B model locally.
+
 
 ## What setup.sh Installs
 
@@ -203,13 +213,28 @@ Current test environments:
 * GPU: none
 * Status: TEST IN PROGRESS
 
-TODO-AE: Add:
+### Reproduced output counts (bundled Samsung A22 5G sample)
 
-* total runtime;
-* deterministic Steps 1–6 runtime;
-* Tier-1 runtime;
-* peak RAM;
-* output counts.
+These counts are model/sample-dependent, not hardware-dependent. They were
+produced by the full default (24B) pipeline on the reference run:
+
+| Stage | Output |
+|---|---|
+| Framework JARs (Step 1) | 91 |
+| Identity references / unique packages (Step 3) | 26,051 / 5,247 |
+| Per-package propagation reports (Step 6) | 779 |
+| Tier-1 — HIGH / MEDIUM / LOW / SKIP | 159 / 60 / 380 / 175 |
+| Tier-2 — CONFIRMED_HIGH / CONFIRMED_MEDIUM / LIKELY_FP | 36 / 68 / 495 |
+| Total confirmed (after Phase 2b) | 104 |
+
+For comparison, the paper's own run of this sample reported 37 / 66 / 497 (103
+confirmed). The small differences reflect local-LLM (Tier-1) and cloud-LLM
+(Tier-2) non-determinism; the Tier-2 stage uses temperature 0 and is close to
+deterministic.
+
+TODO-AE: Add per-machine total/Tier-1 runtime and peak RAM for Environments A
+and B once those runs complete. A completed high-core reference run is recorded
+in the Tested Environments table below.
 
 
 ## APK-Store Filtering
@@ -243,9 +268,10 @@ source .venv/bin/activate
 ```
 Internet access is required for this mode.
 
-TODO-AE: Confirm the exact interaction between --skip-filter and the
-bundled cache after the current reproduction run, and add the measured live
-filter runtime.
+On the reference full run, the live Step 3b filter (3,524 candidate packages)
+took approximately 4.5 hours, which is why `--skip-filter` is recommended for
+evaluation. With `--skip-filter`, the bundled cache reproduces the same filtered
+package set without any external queries.
 
 ## Optional Cloud-Assisted Validation
 
@@ -404,9 +430,25 @@ documented reproduction.
 
 | Environment | Architecture | Model | Status |
 |---|---|---|---|
+| Debian 13 server (128 cores, 251 GB) | x86-64 | Dolphin R1 24B | **COMPLETED** — output counts reproduced (above) |
+| Ubuntu 24.04 VM (16 GB, Debian host) | x86-64 | Dolphin 8B (`--lite`) | **COMPLETED** — Steps 1–6 + Phase 1 in 2 h 34 m, no swap, exit 0 (see note) |
 | Ubuntu 24.04.3 VM | x86-64 | Dolphin R1 24B | **TEST IN PROGRESS** |
 | Ubuntu VM on Apple Silicon | ARM64 | Dolphin 8B (`--lite`) | **TEST IN PROGRESS** |
-| Debian 13 | x86-64 | — | **TODO-AE** |
+
+The 16 GB `--lite` run completed Steps 1–6 + Phase 1 (`--skip-filter
+--skip-phase2`) in ~2 h 34 m wall clock with a peak pipeline RSS of ~816 MB and
+no swap, confirming the lite path fits comfortably in 16 GB. Almost all of that
+wall clock is 8B inference in the separate Ollama process (the pipeline itself
+uses only ~4.5 min of CPU). As noted under "Lite — 8B Model", the 8B triage
+distribution (564/34/4 HIGH/MEDIUM/LOW) over-triages relative to the 24B model;
+use `--skip-phase1` for a representative Tier-1 result on such machines.
+
+Reference full run (Debian 13, 128-core server, live filter):
+Steps 1–3 ≈ 2 min · live Step 3b ≈ 4.5 h · Tier-1 (24B) ≈ 4.5 h ·
+Tier-2 (Haiku) ≈ 1.6 h · Phase 2b ≈ seconds.
+Runtimes scale strongly with core count and model size, so a typical evaluator
+machine will differ. The two longest stages are removed by `--skip-filter`
+(bundled cache) and `--skip-phase1` (bundled precomputed Tier-1).
 
 
 ## Installation from a Fresh Machine

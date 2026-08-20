@@ -1,0 +1,146 @@
+######################################################################
+# Propagation: com.android.incallui
+######################################################################
+
+JARs:                 framework, motionrecognitionservice, services
+Classes:              5
+Occurrences:          6
+Usage types:          invoke, unknown
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     311
+  Register: v6 := "com.android.incallui"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      motionrecognitionservice
+  Class:    com.samsung.android.gesture.MotionRecognitionService
+  Method:   <com.samsung.android.gesture.MotionRecognitionService: java.lang.String getInCallUiPackageName()>
+  Line:     2116
+  Register: v0 := "com.android.incallui"
+  Usage:    [unknown] return-object v0
+  Patterns: string_compare
+  Flow:     [other] return-object v0
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.gesture.MotionRecognitionService: void 
+
+  CALLEES (what this method invokes):
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo$PackageList
+  Method:   <com.android.server.alarm.AppSyncInfo$PackageList: void loadAppSyncBlockList()>
+  Line:     843
+  Register: v0 := "com.android.incallui"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/android/server/alarm/AppSyncInfo$PackageList;->add(Ljava/lang/String;)
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.alarm.AppSyncInfo$PackageList.add() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.alarm.AppSyncInfo: void <init>(android.c
+        ← AppSyncInfo.createAppSync()
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+            ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → AppSyncInfo$PackageList.add()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: java.lang.String getIncalluiPkgName()>
+  Line:     18814
+  Register: p0 := "com.android.incallui"
+  Usage:    [invoke] invoke-virtual {v0, v1, p0}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/
+  Patterns: (none)
+  Flow:     [invoke] com.samsung.android.feature.SemFloatingFeature.getString() → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← ApplicationPolicy.handleStatusBarNotificationNotAllowedAsUser()
+
+  CALLEES (what this method invokes):
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.om.SemSamsungThemeUtils
+  Method:   <com.android.server.om.SemSamsungThemeUtils: java.util.HashMap getChangedPackageNames()>
+  Line:     255
+  Register: v1 := "com.android.incallui"
+  Usage:    [invoke] invoke-static {v1}, Lcom/android/server/om/SemSamsungThemeUtils;->getReplaceablePackageName(Ljava/la
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.om.SemSamsungThemeUtils.getReplaceablePac → [invoke] java.lang.String.equals() → [invoke] ja
+
+  CALLEES (what this method invokes):
+      → SemSamsungThemeUtils.getReplaceablePackageName()
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+        → TextUtils.isEmpty()
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → CharSequence.length()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.om.SemSamsungThemeUtils
+  Method:   <com.android.server.om.SemSamsungThemeUtils: java.lang.String getReplaceablePackageName(java.lang.String)>
+  Line:     308
+  Register: v1 := "com.android.incallui"
+  Usage:    [invoke] invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [invoke] com.samsung.android.feature.SemFloatingFeature.getString() → [invoke] java
+
+  CALLERS (who invokes this method):
+      ← SemSamsungThemeUtils.getChangedPackageNames()
+
+  CALLEES (what this method invokes):
+      → TextUtils.isEmpty()
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → CharSequence.length()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+

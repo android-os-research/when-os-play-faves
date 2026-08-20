@@ -1,0 +1,9 @@
+# android.hardware.fingerprint.IFingerprintClientActiveCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.fingerprint.IFingerprintClientActiveCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.fingerprint.IFingerprintClientActiveCallback$Stub$Proxy: void onClientActiveChanged(boolean)>
+<android.hardware.fingerprint.IFingerprintClientActiveCallback$Stub: android.hardware.fingerprint.IFingerprintClientActiveCallback asInterface(android.os.IBinder)>
+<android.hardware.fingerprint.IFingerprintClientActiveCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.fingerprint.IFingerprintClientActiveCallback$Stub: void <init>()>

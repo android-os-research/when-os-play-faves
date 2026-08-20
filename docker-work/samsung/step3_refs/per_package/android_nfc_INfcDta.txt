@@ -1,0 +1,15 @@
+# android.nfc.INfcDta [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.nfc.INfcDta$Stub$Proxy: boolean enableClient(java.lang.String,int,int,int)>
+<android.nfc.INfcDta$Stub$Proxy: boolean enableServer(java.lang.String,int,int,int,int)>
+<android.nfc.INfcDta$Stub$Proxy: boolean registerMessageService(java.lang.String)>
+<android.nfc.INfcDta$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.nfc.INfcDta$Stub$Proxy: void disableClient()>
+<android.nfc.INfcDta$Stub$Proxy: void disableDta()>
+<android.nfc.INfcDta$Stub$Proxy: void disableServer()>
+<android.nfc.INfcDta$Stub$Proxy: void enableDta()>
+<android.nfc.INfcDta$Stub: android.nfc.INfcDta asInterface(android.os.IBinder)>
+<android.nfc.INfcDta$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.nfc.INfcDta$Stub: void <init>()>

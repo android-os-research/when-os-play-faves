@@ -1,0 +1,9 @@
+# persist.sys.zram0.bigdata_info [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.NandswapManager$NandSwapBigdataManager: java.lang.String makeJsonFormat()>
+<com.android.server.NandswapManager$NandswapClient: boolean isExistBigdataInfoProp()>
+<com.android.server.NandswapManager$NandswapClient: java.util.HashMap getBigdataInfoProp()>
+<com.android.server.NandswapManager$NandswapClient: void initBigdataInfoProp()>
+<com.android.server.NandswapManager$NandswapClient: void setBigdataInfoProp()>

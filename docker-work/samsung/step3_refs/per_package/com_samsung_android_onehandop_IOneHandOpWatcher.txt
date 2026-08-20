@@ -1,0 +1,10 @@
+# com.samsung.android.onehandop.IOneHandOpWatcher [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.onehandop.IOneHandOpWatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.onehandop.IOneHandOpWatcher$Stub$Proxy: void onInputFilterChanged()>
+<com.samsung.android.onehandop.IOneHandOpWatcher$Stub$Proxy: void onMagnificationSpecChanged()>
+<com.samsung.android.onehandop.IOneHandOpWatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.onehandop.IOneHandOpWatcher$Stub: com.samsung.android.onehandop.IOneHandOpWatcher asInterface(android.os.IBinder)>
+<com.samsung.android.onehandop.IOneHandOpWatcher$Stub: void <init>()>

@@ -1,0 +1,8 @@
+# com.sec.feature.nfc_authentication_cover [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.desktopmode.CoverStateManager: void <init>(android.content.Context,com.android.server.desktopmode.IStateManager,com.samsung.android.desktopmode.SemDesktopModeManager,android.os.PowerManager,com.android.server.input.InputManagerService)>
+<com.android.server.sepunion.cover.Feature: void updateSystemFeature(android.content.Context)>
+<com.samsung.accessory.manager.SAccessoryManager: void <init>(android.content.Context,com.android.server.input.InputManagerService)>

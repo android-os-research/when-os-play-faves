@@ -1,0 +1,7 @@
+# com.samsung.android.wifi.APE_INFO [NEW]
+# Refs: 3
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.SemApeController: void sendBroadcastRealtimeAppInfo(int,int,java.lang.String,int)>
+<com.samsung.android.server.wifi.strongrssiroaming.SemStrongRssiRoaming$2: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.strongrssiroaming.SemStrongRssiRoaming: void registerListenerAndIntent()>

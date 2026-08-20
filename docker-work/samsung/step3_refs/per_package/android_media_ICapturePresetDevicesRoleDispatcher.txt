@@ -1,0 +1,9 @@
+# android.media.ICapturePresetDevicesRoleDispatcher [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.ICapturePresetDevicesRoleDispatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.ICapturePresetDevicesRoleDispatcher$Stub$Proxy: void dispatchDevicesRoleChanged(int,int,java.util.List)>
+<android.media.ICapturePresetDevicesRoleDispatcher$Stub: android.media.ICapturePresetDevicesRoleDispatcher asInterface(android.os.IBinder)>
+<android.media.ICapturePresetDevicesRoleDispatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.ICapturePresetDevicesRoleDispatcher$Stub: void <init>()>

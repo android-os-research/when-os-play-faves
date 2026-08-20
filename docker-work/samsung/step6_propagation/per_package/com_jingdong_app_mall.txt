@@ -1,0 +1,68 @@
+######################################################################
+# Propagation: com.jingdong.app.mall
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.FreecessController
+  Method:   <com.android.server.am.FreecessController: void enterOLAF(java.lang.String,int,int)>
+  Line:     5671
+  Register: v0 := "com.jingdong.app.mall"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_2e → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← FreecessController.enterOLAF()
+      ← FreecessController.enterOLAF()
+        ← ActivityManagerService.onTransact()
+        ← FreecessController.dumpFreecessCommand()
+        ← ActivityManagerPerformance.setBoosterAppSwitch()
+          ← ActivityManagerService.doDump()
+          ← <com.android.server.wm.ActivityManagerPerformance: void -$$N
+          ← ActivityManagerPerformance.notifyCurTopAct()
+          ← ActivityManagerPerformance.onActivityVisibleLocked()
+            ← <com.android.server.am.ActivityManagerService: void -$$Nest$
+            ← ActivityManagerPerformance$MainHandler.handleMessage()
+            ← ActivityTaskSupervisor.realStartActivityLocked()
+            ← TaskFragment.resumeTopActivity()
+            ← ActivityRecord.onWindowsVisible()
+            ← ActivityTaskManagerService.endLaunchPowerMode()
+              ← ActivityManagerService$1.dump()
+              ← ActivityManagerService$1.dumpCritical()
+              ← ActivityManagerService$1.dumpNormal()
+              ← ActivityTaskSupervisor.startSpecificActivity()
+              ← RootWindowContainer$AttachApplicationHelper.test()
+              ← Task.resumeTopActivityInnerLocked()
+              ← TaskFragment.resumeTopActivity()
+              ← ActivityRecord.updateReportedVisibilityLocked()
+              ← ActivityTaskManagerService$H.handleMessage()
+              ← ActivityTaskSupervisor.checkReadyForSleepLocked()
+              ← RecentsAnimation.finishAnimation()
+              ← RootWindowContainer.allResumedActivitiesIdle()
+              ← TransitionController.finishTransition()
+              ← WindowManagerService.doStopFreezingDisplayLocked()
+
+  CALLEES (what this method invokes):
+      → SystemClock.uptimeMillis()
+      → FreecessHandler.getInstance()
+      → FreecessHandler.sendOLAFMsg()
+        → <com.android.server.am.FreecessHandler$FreecessHandlerHolder
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putBoolean()
+        → Bundle.putInt()
+        → Bundle.putString()
+        → Handler.obtainMessage()
+        → Handler.sendMessageAtFrontOfQueue()
+        → Handler.removeMessages()
+        → Message.setData()
+

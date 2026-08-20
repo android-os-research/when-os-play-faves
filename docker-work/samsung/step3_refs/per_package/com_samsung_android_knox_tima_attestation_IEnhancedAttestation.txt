@@ -1,0 +1,9 @@
+# com.samsung.android.knox.tima.attestation.IEnhancedAttestation [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.knox.tima.attestation.IEnhancedAttestation$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.tima.attestation.IEnhancedAttestation$Stub$Proxy: void enhancedAttestation(java.lang.String,java.lang.String,com.samsung.android.knox.tima.attestation.IEnhancedAttestationPolicyCallback,boolean)>
+<com.samsung.android.knox.tima.attestation.IEnhancedAttestation$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.tima.attestation.IEnhancedAttestation$Stub: com.samsung.android.knox.tima.attestation.IEnhancedAttestation asInterface(android.os.IBinder)>
+<com.samsung.android.knox.tima.attestation.IEnhancedAttestation$Stub: void <init>()>

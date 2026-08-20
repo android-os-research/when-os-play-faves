@@ -1,0 +1,21 @@
+# ro.csc.countryiso_code [NEW]
+# Refs: 18
+# JARs: framework, knoxsdk, semwifi-service, service-samsung-payment, services, telephony-common
+
+<android.os.SemSystemProperties: java.lang.String getCountryIso()>
+<com.android.internal.telephony.MultiSimSettingController: void updateUserPreferences(java.util.List,boolean,boolean,boolean)>
+<com.android.internal.telephony.PreferredNetworkUpdater: void <clinit>()>
+<com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: java.lang.String getActiveOperatorId()>
+<com.android.server.desktopmode.Utils: java.lang.String getPostDataForMuse(android.content.Context)>
+<com.android.server.location.gnss.sec.CarrierConfig: boolean isCanadaMarket()>
+<com.android.server.location.gnss.sec.CarrierConfig: boolean isUSAMarket()>
+<com.android.server.power.PowerManagerUtil$Country: void <clinit>()>
+<com.android.server.spay.PaymentManagerService: void <clinit>()>
+<com.samsung.android.core.pm.runtimemanifest.RuntimeManifestUtils: void <clinit>()>
+<com.samsung.android.feature.SemCscFeature: boolean loadFeatureFile(boolean,java.lang.String,java.util.Map,boolean)>
+<com.samsung.android.hardware.display.SemMdnieManagerService: void <clinit>()>
+<com.samsung.android.knox.kpm.KnoxPushService: boolean isChinaModel()>
+<com.samsung.android.server.pm.install.SkippingApks: void initSkippingApkList(java.io.File)>
+<com.samsung.android.server.wifi.ap.SemSoftApConfiguration: android.net.wifi.SoftApConfiguration setSoftApConfiguration(android.net.wifi.SoftApConfiguration)>
+<com.samsung.android.server.wifi.ap.SemWifiApServiceImpl: boolean isRegionFor6GCountry()>
+<com.samsung.android.server.wifi.util.CountryCodeProperty: void <init>(android.content.Context,com.samsung.android.server.wifi.SemFrameworkFacade)>

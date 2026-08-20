@@ -1,0 +1,130 @@
+######################################################################
+# Propagation: com.samsung.android.allshare.service.fileshare
+######################################################################
+
+JARs:                 framework
+Classes:              3
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.allshare.ServiceConnector$ProfileConstData
+  Method:   <com.samsung.android.allshare.ServiceConnector$ProfileConstData: void <init>(java.lang.String)>
+  Line:     222
+  Register: v4 := "com.samsung.android.allshare.service.fileshare"
+  Usage:    [invoke] invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v4 → [branch] if-eqz v4, :cond_86
+
+  CALLERS (who invokes this method):
+      ← ServiceConnector$2.createServiceProvierImpl()
+        ← <com.samsung.android.allshare.ServiceConnector$2: void <init
+          ← ServiceConnector.createServiceProvider()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.allshare.ServiceConnector$AllShareConnector
+  Method:   <com.samsung.android.allshare.ServiceConnector$AllShareConnector: boolean bindAllShareService()>
+  Line:     422
+  Register: v5 := "com.samsung.android.allshare.service.fileshare"
+  Usage:    [invoke] invoke-virtual {v4, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.startsWith() → [invoke] android.content.Intent.setPackage() → [other] new-instance v5, Ljava/l
+
+  CALLERS (who invokes this method):
+      ← ServiceConnector$AllShareConnector.connect()
+        ← ServiceConnector$AllShareConnector$2.onReceive()
+        ← ServiceConnector.createServiceProvider()
+        ← ServiceConnector.createServiceProvider()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → DLog.e_api()
+      → DLog.v_api()
+      → ServiceConnector$AllShareConnector.startAllShareLauncher()
+      → WeakReference.get()
+        → Context.startService()
+        → DLog.w_api()
+        → DLog.w_api()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.allshare.ServiceConnector$AllShareConnector
+  Method:   <com.samsung.android.allshare.ServiceConnector$AllShareConnector: boolean startAllShareLauncher()>
+  Line:     830
+  Register: v5 := "com.samsung.android.allshare.service.fileshare"
+  Usage:    [invoke] invoke-virtual {v4, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.startsWith() → [invoke] android.content.Intent.setPackage() → [other] iget-object v5, p0, Lcom
+
+  CALLERS (who invokes this method):
+      ← ServiceConnector$AllShareConnector.bindAllShareService()
+      ← ServiceConnector$AllShareConnector.connect()
+        ← ServiceConnector$AllShareConnector$2.onReceive()
+        ← ServiceConnector.createServiceProvider()
+        ← ServiceConnector.createServiceProvider()
+
+  CALLEES (what this method invokes):
+      → Context.startService()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → DLog.w_api()
+      → DLog.w_api()
+      → WeakReference.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.allshare.ServiceConnector$2
+  Method:   <com.samsung.android.allshare.ServiceConnector$2: com.samsung.android.allshare.ServiceProvider createServiceProvierImpl(android.content.Context,com.samsung.android.allshare.ServiceConnector$AllShareConnector,java.lang.String)>
+  Line:     110
+  Register: v1 := "com.samsung.android.allshare.service.fileshare"
+  Usage:    [invoke] invoke-direct {v0, v1}, Lcom/samsung/android/allshare/ServiceConnector$ProfileConstData;-><init>(Lja
+  Patterns: string_compare
+  Flow:     [invoke] com.samsung.android.allshare.ServiceConnector$ProfileConstDa
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.allshare.ServiceConnector$2: void <init
+        ← ServiceConnector.createServiceProvider()
+
+  CALLEES (what this method invokes):
+      → ServiceConnector$AllShareConnector.setProfileConstData()
+      → <com.samsung.android.allshare.ServiceConnector$FileServicePr
+      → <com.samsung.android.allshare.ServiceConnector$MediaServiceP
+      → <com.samsung.android.allshare.ServiceConnector$ProfileConstD
+      → <com.samsung.android.allshare.ServiceConnector$ServiceProvid
+        → <com.samsung.android.allshare.FileDeviceFinderImpl: void <in
+        → <com.samsung.android.allshare.file.FileServiceProvider: void
+        → <com.samsung.android.allshare.MediaDeviceFinderImpl: void <i
+        → <com.samsung.android.allshare.extension.SECDownloader: void 
+        → <com.samsung.android.allshare.media.MediaServiceProvider: vo
+        → <com.samsung.android.allshare.DeviceFinderImpl: void <init>(
+        → <com.samsung.android.allshare.ServiceProvider: void <init>()
+          → DLog.w_api()
+          → <com.samsung.android.allshare.FileDeviceFinderImpl$1: void <
+          → ServiceConnector.getMainLooper()
+          → <com.samsung.android.allshare.file.FileDeviceFinder: void <i
+          → <java.util.HashMap: void <init>()>
+          → <com.samsung.android.allshare.MediaDeviceFinderImpl$AllShare
+          → <com.samsung.android.allshare.media.MediaDeviceFinder: void 
+          → <com.samsung.android.allshare.DeviceFinder: void <init>()>
+          → <com.samsung.android.allshare.DeviceFinderImpl$1: void <init
+            → <com.samsung.android.allshare.AllShareEventHandler: void <in
+            → Context.getMainLooper()
+            → WeakReference.get()
+            → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+              → <android.os.Handler: void <init>(android.os.Looper)>
+

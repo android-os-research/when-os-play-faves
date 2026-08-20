@@ -1,0 +1,13 @@
+# com.tmobile.echolocate [NEW]
+# Refs: 9
+# JARs: services, telephony-common
+
+<com.android.server.am.ActivityManagerServiceExt: boolean shouldAvoidForceStopForTmoPkg(java.lang.String)>
+<com.android.server.am.ActivityManagerServiceExt: void <init>(android.content.Context,com.android.server.am.ActivityManagerService)>
+<com.android.server.am.ActivityManagerServiceExt: void initTmoForceStopPolicy()>
+<com.android.server.am.AppStateBroadcaster: void <clinit>()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultPermissionsToTmoApp(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.samsung.android.server.pm.cmd.ShellRestrictionsHelper: void buildCmdBlockList()>
+<com.sec.tmodiagnostics.DeviceReportingSecurityChecker: boolean getEchoAppSignature()>
+<com.tmobile.echolocate.DataMetrics5gSa: boolean isEchoAppSigPresent()>
+<com.tmobile.echolocate.DataMetrics: boolean isEchoAppSigPresent()>

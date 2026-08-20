@@ -1,0 +1,16 @@
+# android.location.INSLocationManager [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.location.INSLocationManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.INSLocationManager$Stub$Proxy: java.util.Map getGPSUsingApps()>
+<android.location.INSLocationManager$Stub$Proxy: void onGnssEngineStatusUpdated(boolean)>
+<android.location.INSLocationManager$Stub$Proxy: void onGnssEventUpdated(java.lang.String)>
+<android.location.INSLocationManager$Stub$Proxy: void onMessageUpdated(android.os.Message)>
+<android.location.INSLocationManager$Stub$Proxy: void onPassiveLocationReported(android.location.Location)>
+<android.location.INSLocationManager$Stub$Proxy: void onSatelliteStatusUpdated(android.location.GnssStatus)>
+<android.location.INSLocationManager$Stub$Proxy: void onStateUpdated(android.location.LocationConstants$STATE_TYPE,android.os.Bundle)>
+<android.location.INSLocationManager$Stub$Proxy: void setCallback(android.location.INSLocationCallback)>
+<android.location.INSLocationManager$Stub: android.location.INSLocationManager asInterface(android.os.IBinder)>
+<android.location.INSLocationManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.INSLocationManager$Stub: void <init>()>

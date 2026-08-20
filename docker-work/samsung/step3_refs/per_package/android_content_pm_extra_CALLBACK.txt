@@ -1,0 +1,6 @@
+# android.content.pm.extra.CALLBACK [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.pm.DeletePackageHelper: void lambda$deletePackageVersionedInternal$2(java.lang.String,android.content.pm.IPackageDeleteObserver2)>
+<com.android.server.pm.PackageInstallerService: void uninstall(android.content.pm.VersionedPackage,java.lang.String,int,android.content.IntentSender,int)>

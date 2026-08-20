@@ -1,0 +1,15 @@
+# com.gsma.services.rcs.chat.IGroupChatListener [NEW]
+# Refs: 11
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.chat.IGroupChatListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.chat.IGroupChatListener$Stub$Proxy: void onComposingEvent(java.lang.String,com.gsma.services.rcs.contact.ContactId,boolean)>
+<com.gsma.services.rcs.chat.IGroupChatListener$Stub$Proxy: void onDeleted(java.util.List)>
+<com.gsma.services.rcs.chat.IGroupChatListener$Stub$Proxy: void onMessageGroupDeliveryInfoChanged(java.lang.String,com.gsma.services.rcs.contact.ContactId,java.lang.String,java.lang.String,int,int)>
+<com.gsma.services.rcs.chat.IGroupChatListener$Stub$Proxy: void onMessageStatusChanged(java.lang.String,java.lang.String,java.lang.String,int,int)>
+<com.gsma.services.rcs.chat.IGroupChatListener$Stub$Proxy: void onMessagesDeleted(java.lang.String,java.util.List)>
+<com.gsma.services.rcs.chat.IGroupChatListener$Stub$Proxy: void onParticipantStatusChanged(java.lang.String,com.gsma.services.rcs.contact.ContactId,com.gsma.services.rcs.chat.GroupChat$ParticipantStatus)>
+<com.gsma.services.rcs.chat.IGroupChatListener$Stub$Proxy: void onStateChanged(java.lang.String,int,int)>
+<com.gsma.services.rcs.chat.IGroupChatListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.chat.IGroupChatListener$Stub: com.gsma.services.rcs.chat.IGroupChatListener asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.chat.IGroupChatListener$Stub: void <init>()>

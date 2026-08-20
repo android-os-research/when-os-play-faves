@@ -1,0 +1,23 @@
+# com.samsung.android.knox.net.firewall.IFirewall [NEW]
+# Refs: 19
+# JARs: knoxsdk
+
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: boolean isDomainFilterOnIptablesEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: boolean isDomainFilterReportEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: boolean isFirewallEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: com.samsung.android.knox.net.firewall.FirewallResponse enableDomainFilterOnIptables(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: com.samsung.android.knox.net.firewall.FirewallResponse enableDomainFilterReport(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: com.samsung.android.knox.net.firewall.FirewallResponse enableFirewall(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: com.samsung.android.knox.net.firewall.FirewallResponse[] addDomainFilterRules(com.samsung.android.knox.ContextInfo,java.util.List)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: com.samsung.android.knox.net.firewall.FirewallResponse[] addRules(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.net.firewall.FirewallRule[])>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: com.samsung.android.knox.net.firewall.FirewallResponse[] clearRules(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: com.samsung.android.knox.net.firewall.FirewallResponse[] removeDomainFilterRules(com.samsung.android.knox.ContextInfo,java.util.List)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: com.samsung.android.knox.net.firewall.FirewallResponse[] removeRules(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.net.firewall.FirewallRule[])>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: com.samsung.android.knox.net.firewall.FirewallRule[] getRules(com.samsung.android.knox.ContextInfo,int,java.lang.String)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: java.lang.String[] listIptablesRules(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: java.util.List getDomainFilterReport(com.samsung.android.knox.ContextInfo,java.util.List)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub$Proxy: java.util.List getDomainFilterRules(com.samsung.android.knox.ContextInfo,java.util.List)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub: com.samsung.android.knox.net.firewall.IFirewall asInterface(android.os.IBinder)>
+<com.samsung.android.knox.net.firewall.IFirewall$Stub: void <init>()>

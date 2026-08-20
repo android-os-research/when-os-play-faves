@@ -1,0 +1,23 @@
+######################################################################
+# Propagation: com.sec.enterprise.knox.cloudmdm.smdms.agent.global.myknox
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper
+  Method:   <com.android.server.pm.PersonaServiceHelper: boolean isMyKnoxAdmin(java.lang.String)>
+  Line:     2801
+  Register: v0 := "com.sec.enterprise.knox.cloudmdm.smdms.agent.global.myknox"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-nez v0, :cond_13 → [reassigned] v0 overwritten
+

@@ -1,0 +1,7 @@
+# com.samsung.android.sm.devicesecurity [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.BatteryService: java.lang.String getDeviceSecurityPackageName()>
+<com.android.server.pm.BroadcastHelper: java.lang.String getDSPackageName()>
+<com.samsung.android.server.pm.install.SilentUninstallerList: void <init>()>

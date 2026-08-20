@@ -1,0 +1,6 @@
+# persist.service.tspcmd.spay [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.input.InputManagerService: boolean setEnableTSP(int,boolean)>
+<com.android.server.input.InputManagerService: void initTspCmdForSpay()>

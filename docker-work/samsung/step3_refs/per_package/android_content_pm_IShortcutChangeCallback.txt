@@ -1,0 +1,10 @@
+# android.content.pm.IShortcutChangeCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.content.pm.IShortcutChangeCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IShortcutChangeCallback$Stub$Proxy: void onShortcutsAddedOrUpdated(java.lang.String,java.util.List,android.os.UserHandle)>
+<android.content.pm.IShortcutChangeCallback$Stub$Proxy: void onShortcutsRemoved(java.lang.String,java.util.List,android.os.UserHandle)>
+<android.content.pm.IShortcutChangeCallback$Stub: android.content.pm.IShortcutChangeCallback asInterface(android.os.IBinder)>
+<android.content.pm.IShortcutChangeCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IShortcutChangeCallback$Stub: void <init>()>

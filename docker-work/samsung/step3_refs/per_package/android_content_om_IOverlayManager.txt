@@ -1,0 +1,27 @@
+# android.content.om.IOverlayManager [NEW]
+# Refs: 23
+# JARs: framework
+
+<android.content.om.IOverlayManager$Stub$Proxy: android.content.om.OverlayInfo getOverlayInfo(java.lang.String,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: android.content.om.OverlayInfo getOverlayInfoByIdentifier(android.content.om.OverlayIdentifier,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: boolean applySamsungConfigChangeOverlays(java.util.List,java.util.List,int,android.content.om.ISamsungOverlayCallback)>
+<android.content.om.IOverlayManager$Stub$Proxy: boolean applySamsungThemeOverlays(java.util.List,java.util.List,int,android.content.om.ISamsungOverlayCallback)>
+<android.content.om.IOverlayManager$Stub$Proxy: boolean getLastPalette(java.util.List,java.util.List)>
+<android.content.om.IOverlayManager$Stub$Proxy: boolean setEnabled(java.lang.String,boolean,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: boolean setEnabledExclusive(java.lang.String,boolean,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: boolean setEnabledExclusiveInCategory(java.lang.String,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: boolean setHighestPriority(java.lang.String,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: boolean setLowestPriority(java.lang.String,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: boolean setPriority(java.lang.String,java.lang.String,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.om.IOverlayManager$Stub$Proxy: java.lang.String[] getDefaultOverlayPackages()>
+<android.content.om.IOverlayManager$Stub$Proxy: java.util.List getOverlayInfosForTarget(java.lang.String,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: java.util.List getWallpaperColors()>
+<android.content.om.IOverlayManager$Stub$Proxy: java.util.List readLastPalette()>
+<android.content.om.IOverlayManager$Stub$Proxy: java.util.Map getAllOverlays(int)>
+<android.content.om.IOverlayManager$Stub$Proxy: void applyWallpaperColor(java.util.List,java.util.List,boolean)>
+<android.content.om.IOverlayManager$Stub$Proxy: void applyWallpaperColors(java.util.List,int,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: void commit(android.content.om.OverlayManagerTransaction)>
+<android.content.om.IOverlayManager$Stub$Proxy: void deleteSamsungThemeOverlays(java.util.List,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: void invalidateCachesForOverlay(java.lang.String,int)>
+<android.content.om.IOverlayManager$Stub$Proxy: void updatePackageCache(java.lang.String,int)>

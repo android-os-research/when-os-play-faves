@@ -1,0 +1,26 @@
+######################################################################
+# Propagation: com.google.android.apps.photos
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DesktopModeKillPolicyManager
+  Method:   <com.android.server.desktopmode.DesktopModeKillPolicyManager: void <clinit>()>
+  Line:     73
+  Register: v4 := "com.google.android.apps.photos"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.of()
+
+  CALLEES (what this method invokes):
+      → Set.of()
+

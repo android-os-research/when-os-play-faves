@@ -1,0 +1,39 @@
+######################################################################
+# Propagation: com.nttdocomo.android.phonemotion
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vibrator.VibratorManagerService
+  Method:   <com.android.server.vibrator.VibratorManagerService: boolean isDocomoVibrate(java.lang.String)>
+  Line:     3586
+  Register: p0 := "com.nttdocomo.android.phonemotion"
+  Usage:    [invoke] invoke-static {p1, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequ
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.text.TextUtils.equals() → [other] move-result p0 → [branch] if-eqz p0, :cond_e → [reassigned] p0 overwr
+
+  CALLERS (who invokes this method):
+      ← VibratorManagerService.vibrateInternal()
+      ← VibratorManagerService.shouldIgnoreVibrationForOngoingLocked()
+        ← <com.android.server.vibrator.VibratorManagerService: com.and
+        ← VibratorManagerService.vibrate()
+          ← VibratorManagerService$VibratorManagerShellCommand.runVibrate()
+            ← VibratorManagerService$VibratorManagerShellCommand.runMono()
+            ← VibratorManagerService$VibratorManagerShellCommand.runSequential()
+            ← VibratorManagerService$VibratorManagerShellCommand.runStereo()
+              ← VibratorManagerService$VibratorManagerShellCommand.onCommand()
+
+  CALLEES (what this method invokes):
+      → TextUtils.equals()
+        → CharSequence.charAt()
+        → CharSequence.length()
+

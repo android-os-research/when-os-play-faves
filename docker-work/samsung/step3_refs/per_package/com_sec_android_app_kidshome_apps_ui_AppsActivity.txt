@@ -1,0 +1,7 @@
+# com.sec.android.app.kidshome.apps.ui.AppsActivity [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter: boolean isKidsModeRunning()>
+<com.samsung.android.globalactions.util.PackageManagerWrapper: boolean isKidsHomeMode()>
+<com.samsung.android.globalactions.util.PackageManagerWrapper: void <init>(android.content.Context)>

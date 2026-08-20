@@ -1,0 +1,20 @@
+# persist.radio.multisim.config [NEW]
+# Refs: 16
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional multi_sim_config()>
+<android.internal.telephony.sysprop.TelephonyProperties: void multi_sim_config(java.lang.String)>
+<android.sysprop.TelephonyProperties: java.util.Optional multi_sim_config()>
+<android.sysprop.TelephonyProperties: void multi_sim_config(java.lang.String)>
+<com.android.internal.telephony.data.SemPhoneSwitcher: int getMsimSubMode()>
+<com.android.internal.telephony.data.SemPhoneSwitcher: void checkModeAndEvalForDsdaCalling()>
+<com.android.internal.telephony.dataconnection.DataConnection$DcActiveState: void enter()>
+<com.android.internal.telephony.dataconnection.DataConnection$DcActiveState: void exit()>
+<com.android.internal.telephony.dataconnection.DataConnection: boolean isCurrentDsdaMode()>
+<com.android.internal.telephony.dataconnection.DataConnection: boolean isCurrentDsdsMode()>
+<com.android.internal.telephony.dataconnection.DataConnection: boolean isDsdsModel()>
+<com.android.internal.telephony.dataconnection.DataConnection: void checkAndUpdateSuspendForDsda()>
+<com.android.internal.telephony.dataconnection.DcTracker: boolean areAllDataDisconnectedForDdsChange(java.lang.String,boolean)>
+<com.android.internal.telephony.dataconnection.DcTracker: void createAllApnList()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional multi_sim_config()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void multi_sim_config(java.lang.String)>

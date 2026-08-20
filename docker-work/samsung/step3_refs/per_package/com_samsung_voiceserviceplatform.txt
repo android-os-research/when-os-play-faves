@@ -1,0 +1,8 @@
+# com.samsung.voiceserviceplatform [NEW]
+# Refs: 4
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.restriction.RestrictionPolicy: boolean allowSVoice(com.samsung.android.knox.ContextInfo,boolean)>
+<com.android.server.wm.ActivityStarter: int checkStartActivityAllowedByEDM(android.content.Intent,android.content.pm.ActivityInfo,int,com.android.server.wm.SafeActivityOptions,android.content.ComponentName,java.lang.String)>
+<com.samsung.android.knox.application.ApplicationPolicy: void disableVoiceDialer()>
+<com.samsung.android.knox.application.ApplicationPolicy: void enableVoiceDialer()>

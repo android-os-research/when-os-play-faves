@@ -1,0 +1,11 @@
+# com.sec.android.smartfpsadjuster.IIntelligentDynamicFpsService [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.sec.android.smartfpsadjuster.IIntelligentDynamicFpsService$Stub$Proxy: int cameraPolicyChange(int)>
+<com.sec.android.smartfpsadjuster.IIntelligentDynamicFpsService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.android.smartfpsadjuster.IIntelligentDynamicFpsService$Stub$Proxy: void cameraPolicyStart()>
+<com.sec.android.smartfpsadjuster.IIntelligentDynamicFpsService$Stub$Proxy: void cameraPolicyStop()>
+<com.sec.android.smartfpsadjuster.IIntelligentDynamicFpsService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.android.smartfpsadjuster.IIntelligentDynamicFpsService$Stub: com.sec.android.smartfpsadjuster.IIntelligentDynamicFpsService asInterface(android.os.IBinder)>
+<com.sec.android.smartfpsadjuster.IIntelligentDynamicFpsService$Stub: void <init>()>

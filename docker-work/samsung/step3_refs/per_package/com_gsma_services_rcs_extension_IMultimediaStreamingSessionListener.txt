@@ -1,0 +1,10 @@
+# com.gsma.services.rcs.extension.IMultimediaStreamingSessionListener [NEW]
+# Refs: 6
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.extension.IMultimediaStreamingSessionListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.extension.IMultimediaStreamingSessionListener$Stub$Proxy: void onPayloadReceived(com.gsma.services.rcs.contact.ContactId,java.lang.String,byte[])>
+<com.gsma.services.rcs.extension.IMultimediaStreamingSessionListener$Stub$Proxy: void onStateChanged(com.gsma.services.rcs.contact.ContactId,java.lang.String,com.gsma.services.rcs.extension.MultimediaSession$State,com.gsma.services.rcs.extension.MultimediaSession$ReasonCode)>
+<com.gsma.services.rcs.extension.IMultimediaStreamingSessionListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.extension.IMultimediaStreamingSessionListener$Stub: com.gsma.services.rcs.extension.IMultimediaStreamingSessionListener asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.extension.IMultimediaStreamingSessionListener$Stub: void <init>()>

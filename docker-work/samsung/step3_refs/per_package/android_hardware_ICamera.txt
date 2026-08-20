@@ -1,0 +1,9 @@
+# android.hardware.ICamera [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.ICamera$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.ICamera$Stub$Proxy: void disconnect()>
+<android.hardware.ICamera$Stub: android.hardware.ICamera asInterface(android.os.IBinder)>
+<android.hardware.ICamera$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.ICamera$Stub: void <init>()>

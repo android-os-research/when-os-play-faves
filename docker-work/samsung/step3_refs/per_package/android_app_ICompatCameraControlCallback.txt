@@ -1,0 +1,10 @@
+# android.app.ICompatCameraControlCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.ICompatCameraControlCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.ICompatCameraControlCallback$Stub$Proxy: void applyCameraCompatTreatment()>
+<android.app.ICompatCameraControlCallback$Stub$Proxy: void revertCameraCompatTreatment()>
+<android.app.ICompatCameraControlCallback$Stub: android.app.ICompatCameraControlCallback asInterface(android.os.IBinder)>
+<android.app.ICompatCameraControlCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.ICompatCameraControlCallback$Stub: void <init>()>

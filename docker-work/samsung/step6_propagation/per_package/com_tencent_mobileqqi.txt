@@ -1,0 +1,191 @@
+######################################################################
+# Propagation: com.tencent.mobileqqi
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+  Line:     3384
+  Register: v13 := "com.tencent.mobileqqi"
+  Usage:    [] 
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.DualAppManagerService.isInstalledWhitelis → [other] move-result v2 → [branch] if-eqz v2, :co
+
+  CALLERS (who invokes this method):
+      ← DualAppManagerService.startDAChooserActivity()
+      ← ActivityStartController.startActivityInPackage()
+        ← ActivityTaskManagerService.startActivityAsUser()
+        ← ActivityTaskManagerService$LocalService.startActivityInPackage()
+        ← ActivityTaskSupervisor.startActivityFromRecents()
+        ← DexCompatController.startActivityAsToggleFreeform()
+          ← <com.android.server.wm.ActivityTaskManagerService: int -$$Ne
+          ← ActivityTaskManagerService.startActivityAsUser()
+          ← ActivityTaskManagerService.startActivityFromRecents()
+          ← AppTaskImpl.moveToFront()
+          ← <com.android.server.wm.RestartAppPolicy: void lambda$restart
+          ← <com.android.server.wm.WindowOrganizerController: int lambda
+          ← <com.android.server.wm.DexCompatController: void -$$Nest$mst
+            ← ActivityTaskManagerService$LocalService.startActivityAsUser()
+            ← ActivityManagerService.startActivityAsUserWithFeature()
+            ← ActivityTaskManagerService.startActivity()
+            ← ActivityTaskManagerServiceExt.startAppLockActivity()
+            ← AppContinuityGuideConfirmDialog$ClingWindowView.startSettingActivity()
+            ← ActivityManagerService.startActivityFromRecents()
+            ← DexController.bringTaskToForeground()
+            ← DexMetaKeyPolicy$MetaKeyBoundsProvider.applyBounds()
+            ← <com.android.server.wm.StartActivityFromRecentsInfo: void la
+            ← <com.android.server.wm.RestartAppPolicy: void $r8$lambda$VPi
+            ← <com.android.server.wm.WindowOrganizerController: int $r8$la
+            ← DexCompatController$H.handleMessage()
+              ← ActivityManagerService.startActivityAsUser()
+              ← ActivityManagerShellCommand.runStartActivity()
+              ← ActivityManagerService.startActivity()
+              ← ActivityManagerService.startActivityWithFeature()
+              ← ActivityTaskManagerService.setResumedActivityUncheckLocked()
+              ← KeyguardController.keyguardGoingAway()
+              ← <com.android.server.wm.AppContinuityGuideConfirmDialog$Cling
+              ← AppErrors.crashApplicationInner()
+              ← ActivityTaskManagerService$LocalService.bringTaskToForeground()
+              ← DexMetaKeyPolicy.handleMetaKeyEvent()
+              ← <com.android.server.wm.StartActivityFromRecentsInfo: void $r
+              ← RestartAppPolicy$$ExternalSyntheticLambda0.run()
+              ← WindowOrganizerController$$ExternalSyntheticLambda10.getAsInt()
+
+  CALLEES (what this method invokes):
+      → ComponentName.equals()
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getString()
+      → Intent.getComponent()
+      → Intent.addFlags()
+      → Intent.createChooser()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → Intent.getData()
+      → Intent.hasCategory()
+      → Intent.getAction()
+      → Intent.getDataString()
+      → Intent.getPackage()
+      → Intent.getType()
+      → <android.content.Intent: void <init>()>
+      → Uri.getScheme()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Log.d()
+      → DualAppManagerService.isInstalledWhitelistedPackageInternal()
+      → DualAppManagerService.mayForwardShare()
+      → DualAppManagerService.changeUriForDualApp()
+      → SemDualAppManager.isChinaDualApp()
+      → SemDualAppManager.isChooserRequired()
+      → SemDualAppManager.isDualAppId()
+      → Exception.printStackTrace()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+      → List.size()
+      → List.toArray()
+        → Log.println_native()
+        → Log.e()
+        → HashMap.containsKey()
+        → Intent.putExtra()
+        → Intent.setAction()
+        → Intent.getExtras()
+        → Intent.clone()
+        → Bundle.getParcelable()
+        → TextUtils.isEmpty()
+        → DualAppManagerService.hasExternalAppDirPath()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → ClipData.fixUris()
+        → ContentProvider.maybeAddUserId()
+        → Intent.getClipData()
+        → Intent.putExtra()
+        → Intent.setDataAndType()
+        → Intent.getExtra()
+        → Intent.getParcelableArrayListExtra()
+        → SemDualAppManager.shouldAddUserId()
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+          → CharSequence.length()
+          → ClipData.collectUris()
+          → Uri.getPath()
+          → List.iterator()
+          → Intent.fixUris()
+          → ArrayList.get()
+          → Uri.getAuthority()
+            → ClipData$Item.getIntent()
+            → ClipData$Item.getUri()
+            → ClipData.getItemAt()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.audio.SoundAppPolicyManager
+  Method:   <com.samsung.android.server.audio.SoundAppPolicyManager: void setDefaultAllowList()>
+  Line:     1314
+  Register: v1 := "com.tencent.mobileqqi"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/samsung/android/server/audio/AudioSettingsHelper;->putAppList(Ljav
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.audio.AudioSettingsHelper.putAppL → [other] const v1, 0x788659ac → [invoke] com.sams
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.audio.AudioService: void lambda$onCustom
+        ← <com.android.server.audio.AudioService: void $r8$lambda$zqmb
+          ← AudioService$$ExternalSyntheticLambda11.run()
+
+  CALLEES (what this method invokes):
+      → AudioSettingsHelper.putAppList()
+      → AudioSettingsHelper.resetAllowedListTable()
+      → AudioSettingsHelper.setIntValue()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → AudioCipher.encrypt()
+        → AudioSettingsHelper.add()
+        → SQLiteDatabase.execSQL()
+        → <java.util.concurrent.CopyOnWriteArrayList: void <init>()>
+        → ContentValues.put()
+        → AudioSettingsHelper.set()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → Base64.encodeToString()
+          → <com.samsung.android.server.audio.AudioCipher$KeyStoreHolder
+          → AudioCipher.getCipher()
+          → Optional.isPresent()
+          → Optional.get()
+          → Cipher.doFinal()
+          → Cipher.getIV()
+          → Cipher.init()
+          → SQLiteDatabase.insert()
+          → SQLiteDatabase.update()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → Base64.encode()
+            → <java.lang.AssertionError: void <init>(java.lang.Object)>
+            → AudioCipher$KeyStoreHolder.getKey()
+            → Optional.empty()
+            → Optional.of()
+            → Cipher.getInstance()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → Base64.encode()
+              → AudioCipher$KeyStoreHolder.generateKey()
+              → KeyStore.getKey()
+              → KeyStore.getInstance()
+              → KeyStore.load()
+

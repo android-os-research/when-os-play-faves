@@ -1,0 +1,8 @@
+# com.samsung.android.settings.wifi.mobileap.wifiapwarning.finish [NEW]
+# Refs: 5
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApAdvancedAutohotspotService: void closeWifiApWarningDialogIfOpen()>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartClient: void sendScanResultFromScanner(int,android.bluetooth.le.ScanResult)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartGattClient: void launchWiFiApWarning(java.lang.String,int)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartGattServer$BleWorkHandler: void handleMessage(android.os.Message)>

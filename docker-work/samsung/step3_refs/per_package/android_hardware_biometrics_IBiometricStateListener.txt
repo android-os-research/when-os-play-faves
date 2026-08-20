@@ -1,0 +1,10 @@
+# android.hardware.biometrics.IBiometricStateListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.hardware.biometrics.IBiometricStateListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.IBiometricStateListener$Stub$Proxy: void onEnrollmentsChanged(int,int,boolean)>
+<android.hardware.biometrics.IBiometricStateListener$Stub$Proxy: void onStateChanged(int)>
+<android.hardware.biometrics.IBiometricStateListener$Stub: android.hardware.biometrics.IBiometricStateListener asInterface(android.os.IBinder)>
+<android.hardware.biometrics.IBiometricStateListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.IBiometricStateListener$Stub: void <init>()>

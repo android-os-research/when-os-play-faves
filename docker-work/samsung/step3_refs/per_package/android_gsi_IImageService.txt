@@ -1,0 +1,21 @@
+# android.gsi.IImageService [NEW]
+# Refs: 34
+# JARs: framework, services
+
+<android.gsi.IImageService$Stub$Proxy: boolean backingImageExists(java.lang.String)>
+<android.gsi.IImageService$Stub$Proxy: boolean isImageDisabled(java.lang.String)>
+<android.gsi.IImageService$Stub$Proxy: boolean isImageMapped(java.lang.String)>
+<android.gsi.IImageService$Stub$Proxy: int getAvbPublicKey(java.lang.String,android.gsi.AvbPublicKey)>
+<android.gsi.IImageService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.gsi.IImageService$Stub$Proxy: java.lang.String getMappedImageDevice(java.lang.String)>
+<android.gsi.IImageService$Stub$Proxy: java.util.List getAllBackingImages()>
+<android.gsi.IImageService$Stub$Proxy: void createBackingImage(java.lang.String,long,int,android.gsi.IProgressCallback)>
+<android.gsi.IImageService$Stub$Proxy: void deleteBackingImage(java.lang.String)>
+<android.gsi.IImageService$Stub$Proxy: void mapImageDevice(java.lang.String,int,android.gsi.MappedImage)>
+<android.gsi.IImageService$Stub$Proxy: void removeAllImages()>
+<android.gsi.IImageService$Stub$Proxy: void removeDisabledImages()>
+<android.gsi.IImageService$Stub$Proxy: void unmapImageDevice(java.lang.String)>
+<android.gsi.IImageService$Stub$Proxy: void zeroFillNewImage(java.lang.String,long)>
+<android.gsi.IImageService$Stub: android.gsi.IImageService asInterface(android.os.IBinder)>
+<android.gsi.IImageService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.gsi.IImageService$Stub: void <init>()>

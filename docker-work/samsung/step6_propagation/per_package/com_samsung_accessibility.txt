@@ -1,0 +1,330 @@
+######################################################################
+# Propagation: com.samsung.accessibility
+######################################################################
+
+JARs:                 framework, knoxsdk, services
+Classes:              10
+Occurrences:          10
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.view.accessibility.A11yLogger
+  Method:   <android.view.accessibility.A11yLogger: void insertSALog(android.content.Context,java.lang.String,java.lang.String,long,java.lang.String)>
+  Line:     438
+  Register: v2 := "com.samsung.accessibility"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/Use → [i
+
+  CALLERS (who invokes this method):
+      ← A11yLogger.insertLog()
+        ← A11yLogger.insertLog()
+        ← A11yLogger.insertShortcutSaLog()
+        ← AccessibilityManagerService.setTalkbackMode()
+        ← TouchExplorer.onGestureCompleted()
+          ← FullScreenMagnificationGestureHandler$DetectingState.onTripleTap()
+          ← WindowMagnificationGestureHandler.onTripleTap()
+          ← AccessibilitySamsungShortcutChooserActivity.onTargetSelected()
+          ← AccessibilityManagerService.performAccessibilityShortcutInternal()
+            ← FullScreenMagnificationGestureHandler$DetectingState.onMotionEvent()
+            ← <com.android.server.accessibility.magnification.WindowMagnif
+            ← <com.android.internal.accessibility.dialog.AccessibilitySams
+            ← <com.android.server.accessibility.AccessibilityManagerServic
+              ← WindowMagnificationGestureHandler$DetectingState.onGestureCompleted()
+              ← AccessibilitySamsungShortcutChooserActivity$$ExternalSyntheticLambda2.onItemClick()
+              ← AccessibilityManagerService$$ExternalSyntheticLambda1.accept()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putLong()
+      → Bundle.putString()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.accessibility.util.AccessibilityUtils
+  Method:   <com.android.internal.accessibility.util.AccessibilityUtils: void updateProfile(android.content.Context,java.lang.String)>
+  Line:     998
+  Register: v1 := "com.samsung.accessibility"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← AccessibilitySamsungShortcutChooserActivity.onTargetSelected()
+      ← FullScreenMagnificationController.setForceShowMagnifiableBounds()
+      ← FullScreenMagnificationGestureHandler$DetectingState.onTripleTap()
+        ← <com.android.internal.accessibility.dialog.AccessibilitySams
+        ← FullScreenMagnificationGestureHandler$DetectingState.setShortcutTriggered()
+        ← FullScreenMagnificationGestureHandler.magnificationDisactivate()
+        ← FullScreenMagnificationGestureHandler$DetectingState.onMotionEvent()
+          ← AccessibilitySamsungShortcutChooserActivity$$ExternalSyntheticLambda2.onItemClick()
+          ← FullScreenMagnificationGestureHandler$DetectingState.clear()
+          ← FullScreenMagnificationGestureHandler$DetectingState.toggleShortcutTriggered()
+          ← FullScreenMagnificationGestureHandler$ScreenStateReceiver.onReceive()
+            ← FullScreenMagnificationGestureHandler$DetectingState.transitToPanningScalingStateAndClear()
+            ← FullScreenMagnificationGestureHandler$DetectingState.transitionToViewportDraggingStateAndClear()
+            ← FullScreenMagnificationGestureHandler.clearAndTransitionToStateDetecting()
+            ← FullScreenMagnificationGestureHandler.handleShortcutTriggered()
+              ← FullScreenMagnificationGestureHandler$DetectingState.handleMessage()
+              ← FullScreenMagnificationGestureHandler.clearEvents()
+              ← FullScreenMagnificationGestureHandler.onDestroy()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.accessibility.dialog.AccessibilitySamsungShortcutChooserActivity
+  Method:   <com.android.internal.accessibility.dialog.AccessibilitySamsungShortcutChooserActivity: void onEditShorcutClicked()>
+  Line:     281
+  Register: v2 := "com.samsung.accessibility"
+  Usage:    [invoke] invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [invoke] android.content.Intent.setClassName() → [invoke] android.conte
+
+  CALLERS (who invokes this method):
+      ← <com.android.internal.accessibility.dialog.AccessibilitySams
+        ← AccessibilitySamsungShortcutChooserActivity$$ExternalSyntheticLambda1.onClick()
+
+  CALLEES (what this method invokes):
+      → Intent.setClassName()
+      → Intent.setFlags()
+      → <android.content.Intent: void <init>()>
+      → AccessibilitySamsungShortcutChooserActivity.finish()
+      → AccessibilitySamsungShortcutChooserActivity.startActivity()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$1
+  Method:   <com.samsung.android.knox.EdmConstants$1: void <init>()>
+  Line:     62
+  Register: v0 := "com.samsung.accessibility"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1
+  Method:   <com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1: void <init>()>
+  Line:     35
+  Register: v0 := "com.samsung.accessibility"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.appconfig.ApplicationRestrictionsM
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.AudioService
+  Method:   <com.android.server.audio.AudioService: boolean checkPlayRingerModeEffect(java.lang.String,int,boolean)>
+  Line:     10608
+  Register: p0 := "com.samsung.accessibility"
+  Usage:    [invoke] invoke-virtual {p1, p0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result p0 → [branch] if-eqz p0, :cond_22 → [reassigned] p0 overwritt
+
+  CALLERS (who invokes this method):
+      ← AudioService.handleSetRingerMode()
+        ← AudioService.setRingerMode()
+          ← AudioService.checkForRingerModeChange()
+          ← AudioService.checkMuteInterval()
+          ← AudioService.onSetStreamVolume()
+          ← AudioService.performSoftReset()
+          ← AudioService.setRingerModeExternal()
+          ← AudioService.setRingerModeInternal()
+            ← AudioService.adjustStreamVolume()
+            ← <com.android.server.audio.AudioService: void -$$Nest$mcheckM
+            ← AudioService.disableSafeMediaVolume()
+            ← AudioService.setStreamVolumeWithAttribution()
+            ← AudioService.handleCustomMessage()
+            ← AudioService$AudioServiceInternal.setRingerModeInternal()
+            ← AudioService.silenceRingerModeInternal()
+              ← AudioService.adjustStreamVolumeForUid()
+              ← AudioService.adjustStreamVolumeWithAttribution()
+              ← AudioService.adjustSuggestedStreamVolume()
+              ← AudioService$SamsungBroadcastReceiver.handleIntent()
+              ← AudioService.bypassAdjustStreamVolume()
+              ← AudioService.setA2dpDeviceVolume()
+              ← AudioService.setFineVolume()
+              ← AudioService.setStreamVolume()
+              ← AudioService.setStreamVolumeForDeviceWithAttribution()
+              ← <com.android.server.audio.AudioService: void -$$Nest$mhandle
+              ← AudioService$AudioServiceInternal.setRingerModeDelegate()
+              ← AudioService$AudioServiceInternal.silenceRingerModeInternal()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.sepunion.SemExclusiveTaskManagerService
+  Method:   <com.android.server.sepunion.SemExclusiveTaskManagerService: void executePostProccess(com.android.server.sepunion.SemExclusiveTaskManagerService$Task,boolean,com.android.server.sepunion.SemExclusiveTaskManagerService$UserStatus)>
+  Line:     1105
+  Register: v0 := "com.samsung.accessibility"
+  Usage:    [invoke] invoke-direct {p1, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemExclusiveTaskManagerService.proccessTurningOffTask()
+      ← SemExclusiveTaskManagerService.proccessTurningOnTask()
+        ← SemExclusiveTaskManagerService.proccessExclusiveTask()
+          ← <com.android.server.sepunion.SemExclusiveTaskManagerService:
+            ← SemExclusiveTaskManagerService$2.onChange()
+
+  CALLEES (what this method invokes):
+      → ComponentName.unflattenFromString()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startServiceAsUser()
+      → Context.getContentResolver()
+      → Context.stopServiceAsUser()
+      → Context.sendBroadcast()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Settings$Secure.putIntForUser()
+      → Settings$Secure.getFloatForUser()
+      → Settings$Secure.getIntForUser()
+      → Settings$System.putIntForUser()
+      → Settings$System.getIntForUser()
+      → IWindowManager.putKeyCustomizationInfo()
+      → IWindowManager.removeKeyCustomizationInfo()
+      → IWindowManager.setAnimationScale()
+      → WindowManagerGlobal.getWindowManagerService()
+      → AccessibilityManager.getInstance()
+      → AccessibilityManager.semDisableMdnieColorFilter()
+      → AccessibilityManager.semEnableMdnieColorFilter()
+      → AccessibilityManager.semSetMdnieColorBlind()
+      → ShortcutUtils.isComponentIdExistingInSettings()
+      → ShortcutUtils.optInValueToSettings()
+      → ShortcutUtils.optOutValueFromSettings()
+      → <com.android.server.sepunion.SemExclusiveTaskManagerService$
+      → SemExclusiveTaskManagerService.setGrayScale()
+      → SemExclusiveTaskManagerService.updateA11yNotification()
+      → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+      → ArrayList.add()
+      → ArrayList.size()
+      → ArrayList.get()
+      → ArrayList.clear()
+        → Settings$Secure.getString()
+        → TextUtils$SimpleStringSplitter.hasNext()
+        → TextUtils$SimpleStringSplitter.next()
+        → TextUtils$SimpleStringSplitter.setString()
+        → TextUtils.isEmpty()
+        → ShortcutUtils.convertToKey()
+        → Settings$Secure.putString()
+        → StringJoiner.toString()
+        → StringJoiner.add()
+        → <java.util.StringJoiner: void <init>(java.lang.CharSequence)
+        → SemExclusiveTaskManagerService$Task.getName()
+        → Context.getSystemService()
+        → AccessibilityManager.semSetMdnieAccessibilityMode()
+        → Handler.postDelayed()
+        → <com.android.server.sepunion.SemExclusiveTaskManagerService$
+        → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+          → CharSequence.length()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.sepunion.SemExclusiveTaskManagerService$3
+  Method:   <com.android.server.sepunion.SemExclusiveTaskManagerService$3: void run()>
+  Line:     51
+  Register: v1 := "com.samsung.accessibility"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object v1, Landroid/os/UserHandle;->CURRENT:Landroid/os → [i
+
+  CALLEES (what this method invokes):
+      → Context.startServiceAsUser()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <com.android.server.sepunion.SemExclusiveTaskManagerService:
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.accessibility.AccessibilityManagerService
+  Method:   <com.android.server.accessibility.AccessibilityManagerService: void sendComponentForUpdateProfile(java.lang.String)>
+  Line:     19692
+  Register: v1 := "com.samsung.accessibility"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← AccessibilityManagerService.performAccessibilityShortcutInternal()
+        ← <com.android.server.accessibility.AccessibilityManagerServic
+          ← AccessibilityManagerService$$ExternalSyntheticLambda1.accept()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.accessibility.AccessibilityManagerService$FlashNoti
+  Method:   <com.android.server.accessibility.AccessibilityManagerService$FlashNoti: void <init>(com.android.server.accessibility.AccessibilityManagerService,android.os.IBinder,int,java.lang.String,java.lang.String,int)>
+  Line:     133
+  Register: p1 := "com.samsung.accessibility"
+  Usage:    [invoke] invoke-virtual {p1, p5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p1 → [branch] if-eqz p1, :cond_19 → [other] iget p1, p0, Lcom/a
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.accessibility.AccessibilityManagerServic
+        ← AccessibilityManagerService.semStartFlashNotification()
+        ← AccessibilityManagerService.semStartFlashNotificationInner()
+          ← <com.android.server.accessibility.AccessibilityManagerServic
+            ← AccessibilityManagerService$MainHandler.handleMessage()
+

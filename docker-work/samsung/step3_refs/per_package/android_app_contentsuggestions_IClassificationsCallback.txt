@@ -1,0 +1,9 @@
+# android.app.contentsuggestions.IClassificationsCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.contentsuggestions.IClassificationsCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.contentsuggestions.IClassificationsCallback$Stub$Proxy: void onContentClassificationsAvailable(int,java.util.List)>
+<android.app.contentsuggestions.IClassificationsCallback$Stub: android.app.contentsuggestions.IClassificationsCallback asInterface(android.os.IBinder)>
+<android.app.contentsuggestions.IClassificationsCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.contentsuggestions.IClassificationsCallback$Stub: void <init>()>

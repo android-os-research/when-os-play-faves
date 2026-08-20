@@ -1,0 +1,20 @@
+# android.app.people.IPeopleManager [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.app.people.IPeopleManager$Stub$Proxy: android.app.people.ConversationChannel getConversation(java.lang.String,int,java.lang.String)>
+<android.app.people.IPeopleManager$Stub$Proxy: android.content.pm.ParceledListSlice getRecentConversations()>
+<android.app.people.IPeopleManager$Stub$Proxy: android.content.pm.ParceledListSlice getStatuses(java.lang.String,int,java.lang.String)>
+<android.app.people.IPeopleManager$Stub$Proxy: boolean isConversation(java.lang.String,int,java.lang.String)>
+<android.app.people.IPeopleManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.people.IPeopleManager$Stub$Proxy: long getLastInteraction(java.lang.String,int,java.lang.String)>
+<android.app.people.IPeopleManager$Stub$Proxy: void addOrUpdateStatus(java.lang.String,int,java.lang.String,android.app.people.ConversationStatus)>
+<android.app.people.IPeopleManager$Stub$Proxy: void clearStatus(java.lang.String,int,java.lang.String,java.lang.String)>
+<android.app.people.IPeopleManager$Stub$Proxy: void clearStatuses(java.lang.String,int,java.lang.String)>
+<android.app.people.IPeopleManager$Stub$Proxy: void registerConversationListener(java.lang.String,int,java.lang.String,android.app.people.IConversationListener)>
+<android.app.people.IPeopleManager$Stub$Proxy: void removeAllRecentConversations()>
+<android.app.people.IPeopleManager$Stub$Proxy: void removeRecentConversation(java.lang.String,int,java.lang.String)>
+<android.app.people.IPeopleManager$Stub$Proxy: void unregisterConversationListener(android.app.people.IConversationListener)>
+<android.app.people.IPeopleManager$Stub: android.app.people.IPeopleManager asInterface(android.os.IBinder)>
+<android.app.people.IPeopleManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.people.IPeopleManager$Stub: void <init>()>

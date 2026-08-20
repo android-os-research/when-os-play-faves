@@ -1,0 +1,7 @@
+# vnd.android.slice [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.app.slice.SliceManager: android.net.Uri resolveStatic(android.content.Intent,android.content.ContentResolver)>
+<android.app.slice.SliceProvider: java.lang.String getType(android.net.Uri)>
+<com.android.server.slice.SliceShellCommand: int runGetPermissions(java.lang.String)>

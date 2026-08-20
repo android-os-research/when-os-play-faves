@@ -1,0 +1,8 @@
+# ro.multisim.simslotcount [NEW]
+# Refs: 4
+# JARs: framework, services, telephony-common
+
+<com.android.internal.telephony.dataconnection.DcTracker: void dumpTPData(java.io.FileDescriptor,java.lang.String[])>
+<com.android.server.content.ContentService: void semSetMasterSyncAutomaticallyAsUser(boolean,int,java.lang.String)>
+<com.android.server.location.gnss.GnssLocationProviderSec: java.util.ArrayList getCarrierFeatureString()>
+<com.samsung.android.feature.FeatureUtil: int readSimCount()>

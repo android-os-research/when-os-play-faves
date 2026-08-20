@@ -427,7 +427,13 @@ try:
     ni_promoted = 0
     if os.path.exists(ni_path):
         ni_data = json.load(open(ni_path))
-        ni_promoted = sum(1 for x in ni_data if x.get('verdict','').startswith('CONFIRMED'))
+        # phase2b writes a dict keyed by package, with the verdict in 'new_verdict'.
+        ni_records = ni_data.values() if isinstance(ni_data, dict) else ni_data
+        ni_promoted = sum(
+            1 for x in ni_records
+            if isinstance(x, dict)
+            and str(x.get('new_verdict', x.get('verdict', ''))).startswith('CONFIRMED')
+        )
 
     print("================================================================")
     print(f"  Pipeline complete: {vendor}")

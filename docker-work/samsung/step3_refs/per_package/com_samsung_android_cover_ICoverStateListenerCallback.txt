@@ -1,0 +1,11 @@
+# com.samsung.android.cover.ICoverStateListenerCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.cover.ICoverStateListenerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.cover.ICoverStateListenerCallback$Stub$Proxy: java.lang.String getListenerInfo()>
+<com.samsung.android.cover.ICoverStateListenerCallback$Stub$Proxy: void onCoverAttachStateChanged(boolean)>
+<com.samsung.android.cover.ICoverStateListenerCallback$Stub$Proxy: void onCoverSwitchStateChanged(boolean)>
+<com.samsung.android.cover.ICoverStateListenerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.cover.ICoverStateListenerCallback$Stub: com.samsung.android.cover.ICoverStateListenerCallback asInterface(android.os.IBinder)>
+<com.samsung.android.cover.ICoverStateListenerCallback$Stub: void <init>()>

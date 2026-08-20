@@ -1,0 +1,8 @@
+# android.telephony.mbms.IMbmsStreamingSessionCallback [NEW]
+# Refs: 4
+# JARs: framework
+
+<android.telephony.mbms.IMbmsStreamingSessionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.mbms.IMbmsStreamingSessionCallback$Stub$Proxy: void onError(int,java.lang.String)>
+<android.telephony.mbms.IMbmsStreamingSessionCallback$Stub$Proxy: void onMiddlewareReady()>
+<android.telephony.mbms.IMbmsStreamingSessionCallback$Stub$Proxy: void onStreamingServicesUpdated(java.util.List)>

@@ -1,0 +1,74 @@
+######################################################################
+# Propagation: com.samsung.android.inputshare
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     92
+  Register: v26 := "com.samsung.android.inputshare"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.multicontrol.MultiControlManagerService$MultiControlAppDeathChecker
+  Method:   <com.android.server.multicontrol.MultiControlManagerService$MultiControlAppDeathChecker: void resetMultiControlValue()>
+  Line:     146
+  Register: v2 := "com.samsung.android.inputshare"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← MultiControlManagerService$MultiControlAppDeathChecker.binderDied()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Log.e()
+      → Log.i()
+      → <com.android.server.multicontrol.MultiControlManagerService:
+      → <com.android.server.multicontrol.MultiControlManagerService:
+      → <com.android.server.multicontrol.MultiControlManagerService:
+      → MultiControlManagerService.forceHideCursor()
+      → MultiControlManagerService.resetInputFilter()
+      → MultiControlManagerService.setMultiControlOutOfFocus()
+        → Log.save()
+        → InputManagerInternal.forceHideCursor()
+        → Log.e()
+        → Exception.getMessage()
+        → WindowManagerInternal.setInputFilter()
+        → InputManagerInternal.setMultiControlOutOfFocus()
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+            → ArrayList.add()
+            → ArrayList.size()
+            → ArrayList.set()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+

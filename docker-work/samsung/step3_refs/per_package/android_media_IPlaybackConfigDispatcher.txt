@@ -1,0 +1,9 @@
+# android.media.IPlaybackConfigDispatcher [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.IPlaybackConfigDispatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IPlaybackConfigDispatcher$Stub$Proxy: void dispatchPlaybackConfigChange(java.util.List,boolean)>
+<android.media.IPlaybackConfigDispatcher$Stub: android.media.IPlaybackConfigDispatcher asInterface(android.os.IBinder)>
+<android.media.IPlaybackConfigDispatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IPlaybackConfigDispatcher$Stub: void <init>()>

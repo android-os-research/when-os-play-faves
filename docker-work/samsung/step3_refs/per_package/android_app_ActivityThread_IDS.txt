@@ -1,0 +1,7 @@
+# android.app.ActivityThread.IDS [NEW]
+# Refs: 3
+# JARs: framework
+
+<android.app.IdsController: android.content.SharedPreferences getIdsSharedPreference()>
+<android.app.IdsController: void closeIdsWindow()>
+<android.app.IdsController: void openIdsWindow(android.view.View,android.view.Choreographer)>

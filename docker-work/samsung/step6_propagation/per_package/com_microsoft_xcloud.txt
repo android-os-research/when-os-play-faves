@@ -1,0 +1,63 @@
+######################################################################
+# Propagation: com.microsoft.xcloud
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemWifiOptimizer
+  Method:   <com.samsung.android.server.wifi.SemWifiOptimizer: void <init>(android.content.Context,com.samsung.android.server.wifi.halclient.SemWifiNative,com.samsung.android.server.wifi.SemWifiConfigManager,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.SemWifiTrafficPoller,com.samsung.android.server.wifi.util.ScanPool,android.os.HandlerThread,com.samsung.android.server.wifi.SemWifiServiceDetector)>
+  Line:     654
+  Register: p5 := "com.microsoft.xcloud"
+  Usage:    [invoke] invoke-virtual {p1, p5, p3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put() → [reassigned] p5 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.SemWifiInjector: void <init
+        ← <com.samsung.android.server.wifi.SemWifiService: void <init>
+
+  CALLEES (what this method invokes):
+      → IUsageStatsManager$Stub.asInterface()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → <android.os.Handler: void <init>()>
+      → HandlerThread.getLooper()
+      → ServiceManager.getService()
+      → ISemInterfaceNameProvider.registerPrimaryInterfaceListener()
+      → SemWifiInjector.getInterfaceNameProvider()
+      → SemWifiInjector.getFrameworkFacade()
+      → SemWifiInjector.getWifiManagerProxy()
+      → SemWifiManagerProxy.registerListener()
+      → <com.samsung.android.server.wifi.SemWifiOptimizer$$ExternalS
+      → <com.samsung.android.server.wifi.SemWifiOptimizer$1: void <i
+      → <com.samsung.android.server.wifi.SemWifiOptimizer$2: void <i
+      → <com.samsung.android.server.wifi.SemWifiOptimizer$3: void <i
+      → <com.samsung.android.server.wifi.SemWifiOptimizer$ConnectedA
+      → <com.samsung.android.server.wifi.SemWifiOptimizer$ConnectedA
+      → <com.samsung.android.server.wifi.SemWifiOptimizer$LlHandler:
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+      → <java.util.HashSet: void <init>()>
+      → <java.util.LinkedList: void <init>()>
+        → <android.app.usage.IUsageStatsManager$Stub$Proxy: void <init
+        → IBinder.queryLocalInterface()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <com.samsung.android.server.wifi.SemWifiManagerProxy$$Extern
+        → SemWifiThreadRunner.post()
+        → SemWifiOptimizer$ConnectedApInfo.reset()
+        → <com.samsung.android.server.wifi.SemWifiOptimizer$ConnectedA
+        → <android.os.Handler: void <init>(android.os.Looper)>
+          → Handler.post()
+          → LinkedList.clear()
+

@@ -1,0 +1,14 @@
+# android.media.IRemoteDisplayProvider [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.media.IRemoteDisplayProvider$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IRemoteDisplayProvider$Stub$Proxy: void adjustVolume(java.lang.String,int)>
+<android.media.IRemoteDisplayProvider$Stub$Proxy: void connect(java.lang.String)>
+<android.media.IRemoteDisplayProvider$Stub$Proxy: void disconnect(java.lang.String)>
+<android.media.IRemoteDisplayProvider$Stub$Proxy: void setCallback(android.media.IRemoteDisplayCallback)>
+<android.media.IRemoteDisplayProvider$Stub$Proxy: void setDiscoveryMode(int)>
+<android.media.IRemoteDisplayProvider$Stub$Proxy: void setVolume(java.lang.String,int)>
+<android.media.IRemoteDisplayProvider$Stub: android.media.IRemoteDisplayProvider asInterface(android.os.IBinder)>
+<android.media.IRemoteDisplayProvider$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IRemoteDisplayProvider$Stub: void <init>()>

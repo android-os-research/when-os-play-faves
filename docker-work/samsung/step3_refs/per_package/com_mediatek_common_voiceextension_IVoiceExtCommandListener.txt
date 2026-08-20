@@ -1,0 +1,15 @@
+# com.mediatek.common.voiceextension.IVoiceExtCommandListener [NEW]
+# Refs: 11
+# JARs: mediatek-common
+
+<com.mediatek.common.voiceextension.IVoiceExtCommandListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.common.voiceextension.IVoiceExtCommandListener$Stub$Proxy: void onCommandRecognized(int,int,java.lang.String)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandListener$Stub$Proxy: void onError(int)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandListener$Stub$Proxy: void onPauseRecognition(int)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandListener$Stub$Proxy: void onResumeRecognition(int)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandListener$Stub$Proxy: void onSetCommands(int)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandListener$Stub$Proxy: void onStartRecognition(int)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandListener$Stub$Proxy: void onStopRecognition(int)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandListener$Stub: com.mediatek.common.voiceextension.IVoiceExtCommandListener asInterface(android.os.IBinder)>
+<com.mediatek.common.voiceextension.IVoiceExtCommandListener$Stub: void <init>()>

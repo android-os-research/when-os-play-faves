@@ -1,0 +1,10 @@
+# android.telephony.IBootstrapAuthenticationCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.telephony.IBootstrapAuthenticationCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.IBootstrapAuthenticationCallback$Stub$Proxy: void onAuthenticationFailure(int,int)>
+<android.telephony.IBootstrapAuthenticationCallback$Stub$Proxy: void onKeysAvailable(int,byte[],java.lang.String)>
+<android.telephony.IBootstrapAuthenticationCallback$Stub: android.telephony.IBootstrapAuthenticationCallback asInterface(android.os.IBinder)>
+<android.telephony.IBootstrapAuthenticationCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.IBootstrapAuthenticationCallback$Stub: void <init>()>

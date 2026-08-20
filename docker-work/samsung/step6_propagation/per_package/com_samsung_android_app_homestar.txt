@@ -1,0 +1,37 @@
+######################################################################
+# Propagation: com.samsung.android.app.homestar
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: (none)
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.ChooserActivity
+  Method:   <com.android.internal.app.ChooserActivity: com.android.internal.app.chooser.DisplayResolveInfo semSStarCreateSeeAllAppsResolveInfo()>
+  Line:     56287
+  Register: v4 := "com.samsung.android.app.homestar"
+  Usage:    [invoke] invoke-direct {v3, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: (none)
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v4 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → ActivityInfo.loadLabel()
+      → PackageManager$NameNotFoundException.printStackTrace()
+      → PackageManager.getActivityInfo()
+      → PackageManager.getActivityIcon()
+      → Resources.getString()
+      → ChooserActivity.getPackageManager()
+      → ChooserActivity.getResources()
+      → ChooserActivity.getDrawable()
+      → <com.android.internal.app.chooser.DisplayResolveInfo: void <
+      → CharSequence.toString()
+        → <java.util.ArrayList: void <init>()>
+

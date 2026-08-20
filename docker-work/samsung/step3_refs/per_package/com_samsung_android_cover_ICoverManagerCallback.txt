@@ -1,0 +1,10 @@
+# com.samsung.android.cover.ICoverManagerCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.cover.ICoverManagerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.cover.ICoverManagerCallback$Stub$Proxy: java.lang.String getListenerInfo()>
+<com.samsung.android.cover.ICoverManagerCallback$Stub$Proxy: void coverCallback(com.samsung.android.cover.CoverState)>
+<com.samsung.android.cover.ICoverManagerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.cover.ICoverManagerCallback$Stub: com.samsung.android.cover.ICoverManagerCallback asInterface(android.os.IBinder)>
+<com.samsung.android.cover.ICoverManagerCallback$Stub: void <init>()>

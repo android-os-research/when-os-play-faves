@@ -1,0 +1,55 @@
+.class public final Lcom/android/server/inputmethod/InputMethodManagerService$ClientDeathRecipient;
+.super Ljava/lang/Object;
+.source "InputMethodManagerService.java"
+
+# interfaces
+.implements Landroid/os/IBinder$DeathRecipient;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/inputmethod/InputMethodManagerService;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "ClientDeathRecipient"
+.end annotation
+
+
+# instance fields
+.field public final mClient:Lcom/android/internal/view/IInputMethodClient;
+
+.field public final mImms:Lcom/android/server/inputmethod/InputMethodManagerService;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService;Lcom/android/internal/view/IInputMethodClient;)V
+    .registers 3
+
+    .line 678
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 679
+    iput-object p1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$ClientDeathRecipient;->mImms:Lcom/android/server/inputmethod/InputMethodManagerService;
+
+    .line 680
+    iput-object p2, p0, Lcom/android/server/inputmethod/InputMethodManagerService$ClientDeathRecipient;->mClient:Lcom/android/internal/view/IInputMethodClient;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public binderDied()V
+    .registers 2
+
+    .line 685
+    iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$ClientDeathRecipient;->mImms:Lcom/android/server/inputmethod/InputMethodManagerService;
+
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$ClientDeathRecipient;->mClient:Lcom/android/internal/view/IInputMethodClient;
+
+    invoke-virtual {v0, p0}, Lcom/android/server/inputmethod/InputMethodManagerService;->removeClient(Lcom/android/internal/view/IInputMethodClient;)V
+
+    return-void
+.end method

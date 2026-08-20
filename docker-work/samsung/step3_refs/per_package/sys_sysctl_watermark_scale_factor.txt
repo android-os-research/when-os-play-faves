@@ -1,0 +1,6 @@
+# sys.sysctl.watermark_scale_factor [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.bgslotmanager.CustomEFKManager: void restoreWatermarkScaleFactor()>
+<com.android.server.bgslotmanager.CustomEFKManager: void setWatermarkScaleFactorDecreaseBoost()>

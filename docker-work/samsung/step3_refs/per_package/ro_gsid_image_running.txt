@@ -1,0 +1,8 @@
+# ro.gsid.image_running [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.DynamicSystemService: boolean isInUse()>
+<com.android.server.PersistentDataBlockService: void <init>(android.content.Context)>
+<com.android.server.locksettings.LockSettingsService$Injector: boolean isGsiRunning()>
+<com.android.server.locksettings.PasswordSlotManager: int getGsiImageNumber()>

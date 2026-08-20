@@ -1,0 +1,7 @@
+# persist.sys.auto_confirm [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.adb.AdbDebuggingManager$AdbDebuggingHandler: void handleMessage(android.os.Message)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.Integer lambda$setAdbState$29(boolean)>
+<com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils: void changeUsbDebuggingOption(boolean)>

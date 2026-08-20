@@ -1,0 +1,9 @@
+# android.telephony.ims.aidl.IRcsUcePublishStateCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.telephony.ims.aidl.IRcsUcePublishStateCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IRcsUcePublishStateCallback$Stub$Proxy: void onPublishStateChanged(int)>
+<android.telephony.ims.aidl.IRcsUcePublishStateCallback$Stub: android.telephony.ims.aidl.IRcsUcePublishStateCallback asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IRcsUcePublishStateCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IRcsUcePublishStateCallback$Stub: void <init>()>

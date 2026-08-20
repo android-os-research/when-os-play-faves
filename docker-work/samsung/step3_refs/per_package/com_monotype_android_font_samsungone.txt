@@ -1,0 +1,8 @@
+# com.monotype.android.font.samsungone [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<com.android.server.enterprise.general.TypefaceFinder: void getSansEntries(android.content.pm.PackageManager,java.util.Vector,java.util.Vector,java.util.Vector)>
+<com.android.server.enterprise.general.TypefaceFinder: void parseTypefaceXml(java.lang.String,java.io.InputStream,java.lang.String)>
+<com.samsung.android.fontutil.TypefaceFinder: void getSansEntries(android.content.Context,android.content.pm.PackageManager,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList)>
+<com.samsung.android.fontutil.TypefaceFinder: void parseTypefaceXml(java.lang.String,java.io.InputStream,java.lang.String)>

@@ -1,0 +1,17 @@
+# android.net.sip.ISipService [NEW]
+# Refs: 13
+# JARs: voip-common
+
+<android.net.sip.ISipService$Stub$Proxy: android.net.sip.ISipSession createSession(android.net.sip.SipProfile,android.net.sip.ISipSessionListener,java.lang.String)>
+<android.net.sip.ISipService$Stub$Proxy: android.net.sip.ISipSession getPendingSession(java.lang.String,java.lang.String)>
+<android.net.sip.ISipService$Stub$Proxy: boolean isOpened(java.lang.String,java.lang.String)>
+<android.net.sip.ISipService$Stub$Proxy: boolean isRegistered(java.lang.String,java.lang.String)>
+<android.net.sip.ISipService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.sip.ISipService$Stub$Proxy: java.util.List getProfiles(java.lang.String)>
+<android.net.sip.ISipService$Stub$Proxy: void close(java.lang.String,java.lang.String)>
+<android.net.sip.ISipService$Stub$Proxy: void open(android.net.sip.SipProfile,java.lang.String)>
+<android.net.sip.ISipService$Stub$Proxy: void open3(android.net.sip.SipProfile,android.app.PendingIntent,android.net.sip.ISipSessionListener,java.lang.String)>
+<android.net.sip.ISipService$Stub$Proxy: void setRegistrationListener(java.lang.String,android.net.sip.ISipSessionListener,java.lang.String)>
+<android.net.sip.ISipService$Stub: android.net.sip.ISipService asInterface(android.os.IBinder)>
+<android.net.sip.ISipService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.sip.ISipService$Stub: void <init>()>

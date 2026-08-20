@@ -1,0 +1,17 @@
+# android.nfc.INfcFCardEmulation [NEW]
+# Refs: 13
+# JARs: framework
+
+<android.nfc.INfcFCardEmulation$Stub$Proxy: boolean disableNfcFForegroundService()>
+<android.nfc.INfcFCardEmulation$Stub$Proxy: boolean enableNfcFForegroundService(android.content.ComponentName)>
+<android.nfc.INfcFCardEmulation$Stub$Proxy: boolean registerSystemCodeForService(int,android.content.ComponentName,java.lang.String)>
+<android.nfc.INfcFCardEmulation$Stub$Proxy: boolean removeSystemCodeForService(int,android.content.ComponentName)>
+<android.nfc.INfcFCardEmulation$Stub$Proxy: boolean setNfcid2ForService(int,android.content.ComponentName,java.lang.String)>
+<android.nfc.INfcFCardEmulation$Stub$Proxy: int getMaxNumOfRegisterableSystemCodes()>
+<android.nfc.INfcFCardEmulation$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.nfc.INfcFCardEmulation$Stub$Proxy: java.lang.String getNfcid2ForService(int,android.content.ComponentName)>
+<android.nfc.INfcFCardEmulation$Stub$Proxy: java.lang.String getSystemCodeForService(int,android.content.ComponentName)>
+<android.nfc.INfcFCardEmulation$Stub$Proxy: java.util.List getNfcFServices(int)>
+<android.nfc.INfcFCardEmulation$Stub: android.nfc.INfcFCardEmulation asInterface(android.os.IBinder)>
+<android.nfc.INfcFCardEmulation$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.nfc.INfcFCardEmulation$Stub: void <init>()>

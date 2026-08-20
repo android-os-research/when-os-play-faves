@@ -1,0 +1,8 @@
+# com.android.systemui.edgelighting.EdgeLightingService [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.notification.edgelighting.EdgeLightingClientManager$1: void handleMessage(android.os.Message)>
+<com.android.server.notification.edgelighting.EdgeLightingClientManager$EdgeLightingSettingObserver: void onChange(boolean,android.net.Uri)>
+<com.android.server.notification.edgelighting.EdgeLightingClientManager: void createEdgeLightingService(android.os.UserHandle)>
+<com.android.server.notification.edgelighting.EdgeLightingClientManager: void startTurnOverLighting(java.lang.String,int,com.samsung.android.edge.SemEdgeLightingInfo)>

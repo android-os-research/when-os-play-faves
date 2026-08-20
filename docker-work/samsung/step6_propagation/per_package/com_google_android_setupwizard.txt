@@ -1,0 +1,270 @@
+######################################################################
+# Propagation: com.google.android.setupwizard
+######################################################################
+
+JARs:                 duraspeed, semwifi-service, services
+Classes:              6
+Occurrences:          7
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PERM_CHECK, PKG_MGMT, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.collector.q
+  Method:   <com.mediatek.duraspeed.collector.q: void <clinit>()>
+  Line:     91
+  Register: v15 := "com.google.android.setupwizard"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.manager.DuraSpeedService
+  Method:   <com.mediatek.duraspeed.manager.DuraSpeedService: void onBeforeActivitySwitch(com.android.server.wm.ActivityRecord,com.android.server.wm.ActivityRecord,boolean,int)>
+  Line:     4426
+  Register: p3 := "com.google.android.setupwizard"
+  Usage:    [invoke] invoke-virtual {p3, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p3 → [branch] if-eqz p3, :cond_1f → [other] iget-object p3, p0,
+
+  CALLEES (what this method invokes):
+      → c.E()
+      → c.t()
+      → c.t()
+      → c.C()
+        → Handler.obtainMessage()
+        → Handler.sendMessage()
+        → Handler.removeMessages()
+        → Bundle.putBoolean()
+        → Bundle.putString()
+        → Handler.obtainMessage()
+        → Handler.sendMessageDelayed()
+        → Message.getData()
+        → b.a()
+        → c.e()
+        → SystemProperties.get()
+          → <android.os.Bundle: void <init>()>
+          → Context.getPackageManager()
+          → Intent.addCategory()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → PackageManager.resolveActivity()
+          → c.i()
+          → List.size()
+          → List.get()
+            → PackageManager.queryIntentActivities()
+            → <java.util.ArrayList: void <init>()>
+            → Iterator.hasNext()
+            → Iterator.next()
+            → List.add()
+            → List.iterator()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemApeController
+  Method:   <com.samsung.android.server.wifi.SemApeController: void initBlockedPackages()>
+  Line:     556
+  Register: v1 := "com.google.android.setupwizard"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashSet.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.SemApeController: void <ini
+
+  CALLEES (what this method invokes):
+      → HashSet.add()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.devicepolicy.DevicePolicyManagerService
+  Method:   <com.android.server.devicepolicy.DevicePolicyManagerService: void <clinit>()>
+  Line:     2830
+  Register: v0 := "com.google.android.setupwizard"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.util.ArraySet: void <init>()>
+      → Set.add()
+      → Set.addAll()
+      → TimeUnit.toMillis()
+        → <android.util.ArraySet: void <init>(int,boolean)>
+          → ArraySet.allocArrays()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils
+  Method:   <com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils: void skipSetupWizard()>
+  Line:     2265
+  Register: v5 := "com.google.android.setupwizard"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.pm.maintenancemode.MaintenanceMo
+        ← <com.samsung.android.server.pm.maintenancemode.MaintenanceMo
+          ← MaintenanceModeServiceUtils$$ExternalSyntheticLambda2.run()
+
+  CALLEES (what this method invokes):
+      → ActivityThread.getPackageManager()
+      → Context.getContentResolver()
+      → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+      → Settings$Secure.putIntForUser()
+      → Settings$System.putLongForUser()
+      → Exception.toString()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+  Line:     684
+  Register: v1 := "com.google.android.setupwizard"
+  Usage:    [array_init] filled-new-array {v1, v2, v3, v4}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Process.myPid()
+      → ArrayMap.size()
+      → ArrayMap.get()
+      → ArrayMap.keyAt()
+      → ArrayMap.put()
+      → ArrayMap.valueAt()
+      → <android.util.ArrayMap: void <init>()>
+      → <com.android.server.enterprise.application.ApplicationPolicy
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Collections.unmodifiableList()
+      → <java.util.HashMap: void <init>()>
+        → ArrayMap.indexOfKey()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → ArrayMap.indexOf()
+        → ArrayMap.indexOfNull()
+        → ArrayMap.allocArrays()
+        → ArrayMap.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.binarySearchHashes()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void setAndroidMarketState(com.samsung.android.knox.ContextInfo,boolean)>
+  Line:     39292
+  Register: v0 := "com.google.android.setupwizard"
+  Usage:    [invoke] invoke-virtual {p0, p1, v0, p2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setA
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.enterprise.application.ApplicationPolicy.
+
+  CALLEES (what this method invokes):
+      → UserHandle.getUserId()
+      → IPersonaManagerAdapter.isValidKnoxId()
+      → ApplicationPolicy.setApplicationState()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → AuditLog.logAsUser()
+        → PackageManagerAdapter.setApplicationEnabledSetting() [PKG_MGMT]
+        → PackageManagerAdapter.getApplicationEnabledSetting()
+        → ApplicationPolicy.getApplicationStateEnabledAsUser()
+        → ApplicationPolicy.hasKnoxInternalExceptionPermission()
+        → ApplicationPolicy.isActiveAdmin()
+        → ApplicationPolicy.isApplicationInstalled()
+        → ApplicationPolicy.setApplicationPkgNameControlState()
+        → ApplicationPolicy.enforceAppPermission()
+        → ApplicationPolicy.getValidStr()
+        → Exception.printStackTrace()
+          → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+          → IEDMProxy.RedactedAuditLoggerAsUser()
+          → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+          → IPackageManager.getApplicationEnabledSetting()
+          → ContentValues.size()
+          → ContentValues.getAsInteger()
+          → <android.content.ContentValues: void <init>()>
+          → ApplicationPolicy.getContentValues()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.isEmpty()
+          → List.iterator()
+          → Context.getPackageManager()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → EnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+          → PackageManagerAdapter.isApplicationInstalled()
+          → ApplicationPolicy.enforceAppPermissionByContext()
+          → Utils.getCallingOrCurrentUserId()
+          → ApplicationPolicy.setApplicationPkgNameControlState()
+          → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+            → ServiceManager.getService()
+            → IEDMProxy$Stub.asInterface()
+            → ArrayMap.size()
+            → ArrayMap.get()
+            → Number.intValue()
+            → <android.util.ArrayMap: void <init>()>
+            → ContentValues.put()
+            → ContentValues.put()
+            → EdmStorageProvider.getValuesList()
+            → EnterpriseDeviceManager.getService()
+            → IEnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+            → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+            → PackageManagerAdapter.getValidStr()
+            → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+            → ActivityManager.getCurrentUser()
+            → Binder.getCallingPid() [UID_CHECK]
+            → Binder.getCallingUid() [UID_CHECK]
+            → Utils.getPersonaManagerAdapter()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+            → ContentValues.putNull()
+            → TextUtils.isEmpty()
+            → ApplicationPolicy.getControlState()
+            → ApplicationPolicy.removeAppSignature()
+            → ApplicationPolicy.updateAppControlState()
+            → EdmStorageProvider.putValuesForAdminAndField()
+            → AccessController.enforceActiveAdminPermissionByContext()
+              → IBinder.queryLocalInterface()
+              → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → ArrayMap.indexOfKey()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.put()
+              → EdmStorageProviderBase.getValuesList()
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → IPackageManager.getApplicationInfo() [PKG_QUERY]
+              → Exception.getMessage()
+              → IEnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+              → AdapterRegistry.getAdapter()
+              → SemPersonaManager.isKnoxId()
+              → CharSequence.length()
+              → EdmStorageProvider.getIntByAdminAndField()
+              → Map.containsKey()
+              → Map.remove()
+              → AuditLog.logAsUser()
+              → ApplicationPolicy.createAdminMap()
+              → Map.get()
+              → Set.add()
+              → Set.remove()
+              → EdmStorageProviderBase.putValuesForAdminAndField()
+              → AccessController.getService()
+              → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+

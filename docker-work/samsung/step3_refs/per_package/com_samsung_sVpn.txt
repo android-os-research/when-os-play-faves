@@ -1,0 +1,21 @@
+# com.samsung.sVpn [NEW]
+# Refs: 17
+# JARs: services
+
+<com.android.server.VpnManagerService: void applyBlockingRulesToUidRange(java.lang.String,int,boolean,java.lang.String)>
+<com.android.server.VpnManagerService: void createEnterpriseVpnInstance(java.lang.String,java.lang.String,int,int)>
+<com.android.server.VpnManagerService: void removeEnterpriseVpnInstance(java.lang.String,java.lang.String,int)>
+<com.android.server.VpnManagerService: void resetUidListInNetworkCapabilities(java.lang.String,int,java.lang.String)>
+<com.android.server.VpnManagerService: void updateLocalProxyInfo(java.lang.String,int,java.lang.String,android.net.ProxyInfo)>
+<com.android.server.VpnManagerService: void updateUidRangesToPerAppVpn(java.lang.String,int,boolean,int[],java.lang.String)>
+<com.android.server.VpnManagerService: void updateUidRangesToUserVpn(java.lang.String,int,boolean,int,java.lang.String)>
+<com.android.server.VpnManagerService: void updateUidRangesToUserVpnWithBlackList(java.lang.String,int,int,int[],java.lang.String)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: java.util.List getDefaultRouteApps(int)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: void addInputFilterDropRulesForInterface(java.lang.String,int,java.util.List,java.lang.String)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: void addRangeRulesForFilteredPackages(java.lang.String,java.lang.String,int,java.lang.String)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: void addRulesForFilteredPackages(java.lang.String,java.lang.String,java.util.List,java.lang.String)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: void removeRangeRulesForFilteredPackages(java.lang.String,java.lang.String,int)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: void removeRulesForFilteredPackages(java.lang.String,java.lang.String,java.util.List)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnHelper: boolean isNativeVpnClient(java.lang.String)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnHelper: void addOrRemoveAppsFromBatteryOptimization(java.lang.String,java.lang.String,boolean)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnHelper: void addUidsToVpnUidRange(java.lang.String,int)>

@@ -1,0 +1,6 @@
+# persist.sys.tariffpolicy [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.dataconnection.DataAllowPopup: boolean requestDataAllowPopupIfNecessary(com.android.internal.telephony.dataconnection.ApnContext)>
+<com.android.internal.telephony.dataconnection.DataAllowPopup: void setTariffProperties(java.lang.String)>

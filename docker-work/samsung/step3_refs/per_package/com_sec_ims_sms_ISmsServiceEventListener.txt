@@ -1,0 +1,11 @@
+# com.sec.ims.sms.ISmsServiceEventListener [NEW]
+# Refs: 7
+# JARs: imsmanager
+
+<com.sec.ims.sms.ISmsServiceEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.sms.ISmsServiceEventListener$Stub$Proxy: void onReceiveIncomingSMS(int,java.lang.String,byte[])>
+<com.sec.ims.sms.ISmsServiceEventListener$Stub$Proxy: void onReceiveSMSAck(int,int,java.lang.String,byte[],int)>
+<com.sec.ims.sms.ISmsServiceEventListener$Stub$Proxy: void onReceiveSMSDeliveryReportAck(int,int,int)>
+<com.sec.ims.sms.ISmsServiceEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.sms.ISmsServiceEventListener$Stub: com.sec.ims.sms.ISmsServiceEventListener asInterface(android.os.IBinder)>
+<com.sec.ims.sms.ISmsServiceEventListener$Stub: void <init>()>

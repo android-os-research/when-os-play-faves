@@ -1,0 +1,9 @@
+# com.sec.vsim.ericssonnsds.IDeviceGetMSISDNListener [NEW]
+# Refs: 5
+# JARs: vsimmanager
+
+<com.sec.vsim.ericssonnsds.IDeviceGetMSISDNListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.vsim.ericssonnsds.IDeviceGetMSISDNListener$Stub$Proxy: void onDeviceMSISDNAvailable(com.sec.vsim.ericssonnsds.data.ResponseGetMSISDN)>
+<com.sec.vsim.ericssonnsds.IDeviceGetMSISDNListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.vsim.ericssonnsds.IDeviceGetMSISDNListener$Stub: com.sec.vsim.ericssonnsds.IDeviceGetMSISDNListener asInterface(android.os.IBinder)>
+<com.sec.vsim.ericssonnsds.IDeviceGetMSISDNListener$Stub: void <init>()>

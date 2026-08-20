@@ -1,0 +1,24 @@
+# android.companion.virtual.IVirtualDevice [NEW]
+# Refs: 20
+# JARs: framework
+
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: android.graphics.PointF getCursorPosition(android.os.IBinder)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: boolean sendButtonEvent(android.os.IBinder,android.hardware.input.VirtualMouseButtonEvent)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: boolean sendKeyEvent(android.os.IBinder,android.hardware.input.VirtualKeyEvent)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: boolean sendRelativeEvent(android.os.IBinder,android.hardware.input.VirtualMouseRelativeEvent)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: boolean sendScrollEvent(android.os.IBinder,android.hardware.input.VirtualMouseScrollEvent)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: boolean sendTouchEvent(android.os.IBinder,android.hardware.input.VirtualTouchEvent)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: int getAssociationId()>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: void close()>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: void createVirtualKeyboard(int,java.lang.String,int,int,android.os.IBinder)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: void createVirtualMouse(int,java.lang.String,int,int,android.os.IBinder)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: void createVirtualTouchscreen(int,java.lang.String,int,int,android.os.IBinder,android.graphics.Point)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: void launchPendingIntent(int,android.app.PendingIntent,android.os.ResultReceiver)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: void onAudioSessionEnded()>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: void onAudioSessionStarting(int,android.companion.virtual.audio.IAudioRoutingCallback,android.companion.virtual.audio.IAudioConfigChangedCallback)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: void setShowPointerIcon(boolean)>
+<android.companion.virtual.IVirtualDevice$Stub$Proxy: void unregisterInputDevice(android.os.IBinder)>
+<android.companion.virtual.IVirtualDevice$Stub: android.companion.virtual.IVirtualDevice asInterface(android.os.IBinder)>
+<android.companion.virtual.IVirtualDevice$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.companion.virtual.IVirtualDevice$Stub: void <init>()>

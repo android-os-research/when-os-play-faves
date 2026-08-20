@@ -1,0 +1,15 @@
+# android.hardware.camera2.extension.IRequestCallback [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.hardware.camera2.extension.IRequestCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.IRequestCallback$Stub$Proxy: void onCaptureBufferLost(int,long,int)>
+<android.hardware.camera2.extension.IRequestCallback$Stub$Proxy: void onCaptureCompleted(int,android.hardware.camera2.extension.ParcelTotalCaptureResult)>
+<android.hardware.camera2.extension.IRequestCallback$Stub$Proxy: void onCaptureFailed(int,android.hardware.camera2.extension.CaptureFailure)>
+<android.hardware.camera2.extension.IRequestCallback$Stub$Proxy: void onCaptureProgressed(int,android.hardware.camera2.extension.ParcelCaptureResult)>
+<android.hardware.camera2.extension.IRequestCallback$Stub$Proxy: void onCaptureSequenceAborted(int)>
+<android.hardware.camera2.extension.IRequestCallback$Stub$Proxy: void onCaptureSequenceCompleted(int,long)>
+<android.hardware.camera2.extension.IRequestCallback$Stub$Proxy: void onCaptureStarted(int,long,long)>
+<android.hardware.camera2.extension.IRequestCallback$Stub: android.hardware.camera2.extension.IRequestCallback asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.IRequestCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.IRequestCallback$Stub: void <init>()>

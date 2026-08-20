@@ -1,0 +1,10 @@
+# android.telephony.ims.aidl.IFeatureProvisioningCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.telephony.ims.aidl.IFeatureProvisioningCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IFeatureProvisioningCallback$Stub$Proxy: void onFeatureProvisioningChanged(int,int,boolean)>
+<android.telephony.ims.aidl.IFeatureProvisioningCallback$Stub$Proxy: void onRcsFeatureProvisioningChanged(int,int,boolean)>
+<android.telephony.ims.aidl.IFeatureProvisioningCallback$Stub: android.telephony.ims.aidl.IFeatureProvisioningCallback asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IFeatureProvisioningCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IFeatureProvisioningCallback$Stub: void <init>()>

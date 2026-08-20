@@ -1,0 +1,10 @@
+# android.view.IRemoteAnimationRunner [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.view.IRemoteAnimationRunner$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IRemoteAnimationRunner$Stub$Proxy: void onAnimationCancelled(boolean)>
+<android.view.IRemoteAnimationRunner$Stub$Proxy: void onAnimationStart(int,android.view.RemoteAnimationTarget[],android.view.RemoteAnimationTarget[],android.view.RemoteAnimationTarget[],android.view.IRemoteAnimationFinishedCallback)>
+<android.view.IRemoteAnimationRunner$Stub: android.view.IRemoteAnimationRunner asInterface(android.os.IBinder)>
+<android.view.IRemoteAnimationRunner$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IRemoteAnimationRunner$Stub: void <init>()>

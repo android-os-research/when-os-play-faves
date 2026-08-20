@@ -1,0 +1,17 @@
+# com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy [NEW]
+# Refs: 13
+# JARs: knoxsdk
+
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub$Proxy: boolean addBluetoothDevicesToWhiteList(com.samsung.android.knox.ContextInfo,java.util.List)>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub$Proxy: boolean disableSecureMode(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub$Proxy: boolean enableDeviceWhiteList(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub$Proxy: boolean enableSecureMode(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.bluetooth.BluetoothSecureModeConfig,java.util.List)>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub$Proxy: boolean isDeviceWhiteListEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub$Proxy: boolean isSecureModeEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub$Proxy: boolean removeBluetoothDevicesFromWhiteList(com.samsung.android.knox.ContextInfo,java.util.List)>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub$Proxy: com.samsung.android.knox.bluetooth.BluetoothSecureModeConfig getSecureModeConfiguration(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub$Proxy: java.util.List getBluetoothDevicesFromWhiteList(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub: com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.bluetooth.IBluetoothSecureModePolicy$Stub: void <init>()>

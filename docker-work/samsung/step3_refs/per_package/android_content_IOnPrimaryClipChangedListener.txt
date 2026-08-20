@@ -1,0 +1,9 @@
+# android.content.IOnPrimaryClipChangedListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.IOnPrimaryClipChangedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.IOnPrimaryClipChangedListener$Stub$Proxy: void dispatchPrimaryClipChanged()>
+<android.content.IOnPrimaryClipChangedListener$Stub: android.content.IOnPrimaryClipChangedListener asInterface(android.os.IBinder)>
+<android.content.IOnPrimaryClipChangedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.IOnPrimaryClipChangedListener$Stub: void <init>()>

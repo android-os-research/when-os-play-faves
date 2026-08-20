@@ -1,0 +1,14 @@
+# com.samsung.android.cover.INfcLedCoverTouchListenerCallback [NEW]
+# Refs: 10
+# JARs: framework
+
+<com.samsung.android.cover.INfcLedCoverTouchListenerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.cover.INfcLedCoverTouchListenerCallback$Stub$Proxy: void onCoverTapLeft()>
+<com.samsung.android.cover.INfcLedCoverTouchListenerCallback$Stub$Proxy: void onCoverTapMid()>
+<com.samsung.android.cover.INfcLedCoverTouchListenerCallback$Stub$Proxy: void onCoverTapRight()>
+<com.samsung.android.cover.INfcLedCoverTouchListenerCallback$Stub$Proxy: void onCoverTouchAccept()>
+<com.samsung.android.cover.INfcLedCoverTouchListenerCallback$Stub$Proxy: void onCoverTouchReject()>
+<com.samsung.android.cover.INfcLedCoverTouchListenerCallback$Stub$Proxy: void onSystemCoverEvent(int,android.os.Bundle)>
+<com.samsung.android.cover.INfcLedCoverTouchListenerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.cover.INfcLedCoverTouchListenerCallback$Stub: com.samsung.android.cover.INfcLedCoverTouchListenerCallback asInterface(android.os.IBinder)>
+<com.samsung.android.cover.INfcLedCoverTouchListenerCallback$Stub: void <init>()>

@@ -1,0 +1,11 @@
+# android.media.musicrecognition.IMusicRecognitionManagerCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.media.musicrecognition.IMusicRecognitionManagerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.musicrecognition.IMusicRecognitionManagerCallback$Stub$Proxy: void onAudioStreamClosed()>
+<android.media.musicrecognition.IMusicRecognitionManagerCallback$Stub$Proxy: void onRecognitionFailed(int)>
+<android.media.musicrecognition.IMusicRecognitionManagerCallback$Stub$Proxy: void onRecognitionSucceeded(android.media.MediaMetadata,android.os.Bundle)>
+<android.media.musicrecognition.IMusicRecognitionManagerCallback$Stub: android.media.musicrecognition.IMusicRecognitionManagerCallback asInterface(android.os.IBinder)>
+<android.media.musicrecognition.IMusicRecognitionManagerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.musicrecognition.IMusicRecognitionManagerCallback$Stub: void <init>()>

@@ -1,0 +1,68 @@
+.class public Lcom/android/server/notification/NotificationIntrusivenessExtractor$1;
+.super Lcom/android/server/notification/RankingReconsideration;
+.source "NotificationIntrusivenessExtractor.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/notification/NotificationIntrusivenessExtractor;->process(Lcom/android/server/notification/NotificationRecord;)Lcom/android/server/notification/RankingReconsideration;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic this$0:Lcom/android/server/notification/NotificationIntrusivenessExtractor;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/notification/NotificationIntrusivenessExtractor;Ljava/lang/String;J)V
+    .registers 5
+
+    .line 67
+    iput-object p1, p0, Lcom/android/server/notification/NotificationIntrusivenessExtractor$1;->this$0:Lcom/android/server/notification/NotificationIntrusivenessExtractor;
+
+    invoke-direct {p0, p2, p3, p4}, Lcom/android/server/notification/RankingReconsideration;-><init>(Ljava/lang/String;J)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public applyChangesLocked(Lcom/android/server/notification/NotificationRecord;)V
+    .registers 6
+
+    .line 77
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getLastIntrusive()J
+
+    move-result-wide v2
+
+    sub-long/2addr v0, v2
+
+    const-wide/16 v2, 0x2710
+
+    cmp-long p0, v0, v2
+
+    if-ltz p0, :cond_13
+
+    const/4 p0, 0x0
+
+    .line 78
+    invoke-virtual {p1, p0}, Lcom/android/server/notification/NotificationRecord;->setRecentlyIntrusive(Z)V
+
+    :cond_13
+    return-void
+.end method
+
+.method public work()V
+    .registers 1
+
+    return-void
+.end method

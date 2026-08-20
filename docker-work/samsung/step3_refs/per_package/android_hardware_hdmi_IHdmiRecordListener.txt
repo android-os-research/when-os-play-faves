@@ -1,0 +1,12 @@
+# android.hardware.hdmi.IHdmiRecordListener [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.hardware.hdmi.IHdmiRecordListener$Stub$Proxy: byte[] getOneTouchRecordSource(int)>
+<android.hardware.hdmi.IHdmiRecordListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.hdmi.IHdmiRecordListener$Stub$Proxy: void onClearTimerRecordingResult(int,int)>
+<android.hardware.hdmi.IHdmiRecordListener$Stub$Proxy: void onOneTouchRecordResult(int,int)>
+<android.hardware.hdmi.IHdmiRecordListener$Stub$Proxy: void onTimerRecordingResult(int,int)>
+<android.hardware.hdmi.IHdmiRecordListener$Stub: android.hardware.hdmi.IHdmiRecordListener asInterface(android.os.IBinder)>
+<android.hardware.hdmi.IHdmiRecordListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.hdmi.IHdmiRecordListener$Stub: void <init>()>

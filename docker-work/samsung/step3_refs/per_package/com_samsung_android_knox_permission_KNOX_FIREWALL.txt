@@ -1,0 +1,12 @@
+# com.samsung.android.knox.permission.KNOX_FIREWALL [NEW]
+# Refs: 8
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.browser.BrowserPolicy: com.samsung.android.knox.ContextInfo enforceFirewallPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.browser.BrowserPolicy: com.samsung.android.knox.ContextInfo enforceFirewallPermissionByContext(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.firewall.DomainFilter$DomainFilterEventListener: void onDomainFilterReportEvent(int,int,long,java.lang.String)>
+<com.android.server.enterprise.firewall.Firewall: com.samsung.android.knox.ContextInfo enforceFirewallPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.general.MiscPolicy: com.samsung.android.knox.ContextInfo enforceFirewallPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.general.MiscPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndFirewallPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

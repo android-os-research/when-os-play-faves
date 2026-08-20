@@ -1,0 +1,6 @@
+# android.app.usage.extra.TIME_USED [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.usage.UsageStatsService$2: void onLimitReached(int,int,long,long,android.app.PendingIntent)>
+<com.android.server.usage.UsageStatsService$2: void onSessionEnd(int,int,long,android.app.PendingIntent)>

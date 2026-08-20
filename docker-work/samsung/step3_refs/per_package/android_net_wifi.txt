@@ -1,0 +1,12 @@
+# android.net.wifi [NEW]
+# Refs: 8
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.bigdata.SemIwcBigDataManager: void sendBroadcastToContextFramework(java.lang.String,java.lang.String,long)>
+<com.samsung.android.server.wifi.bigdata.SemIwcBigDataManager: void sendBroadcastToContextFramework(java.lang.String[],java.lang.String[],long[])>
+<com.samsung.android.server.wifi.bigdata.SemIwcBigDataManager: void sendHWParamToHQMwithAppId(java.lang.String,java.lang.String,java.lang.String)>
+<com.samsung.android.server.wifi.bigdata.WifiBigDataLogManager: void sendHWParamToHqmWithAppId(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>
+<com.samsung.android.server.wifi.wcm.WcmBigDataManager: void <init>(android.content.Context)>
+<com.samsung.android.server.wifi.wcm.WcmBigDataManager: void sendBroadcastToContextFramework(java.lang.String,java.lang.String,long)>
+<com.samsung.android.server.wifi.wcm.WcmBigDataManager: void sendBroadcastToContextFramework(java.lang.String[],java.lang.String[],long[])>
+<com.samsung.android.server.wifi.wcm.WcmBigDataManager: void sendHWParamToHQMwithAppId(java.lang.String,java.lang.String)>

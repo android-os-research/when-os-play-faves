@@ -1,0 +1,9 @@
+# android.window.IRemoteTransitionFinishedCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.window.IRemoteTransitionFinishedCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.IRemoteTransitionFinishedCallback$Stub$Proxy: void onTransitionFinished(android.window.WindowContainerTransaction,android.view.SurfaceControl$Transaction)>
+<android.window.IRemoteTransitionFinishedCallback$Stub: android.window.IRemoteTransitionFinishedCallback asInterface(android.os.IBinder)>
+<android.window.IRemoteTransitionFinishedCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.IRemoteTransitionFinishedCallback$Stub: void <init>()>

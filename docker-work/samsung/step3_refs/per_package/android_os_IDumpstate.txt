@@ -1,0 +1,10 @@
+# android.os.IDumpstate [NEW]
+# Refs: 12
+# JARs: framework, services
+
+<android.os.IDumpstate$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IDumpstate$Stub$Proxy: void cancelBugreport(int,java.lang.String)>
+<android.os.IDumpstate$Stub$Proxy: void startBugreport(int,java.lang.String,java.io.FileDescriptor,java.io.FileDescriptor,int,android.os.IDumpstateListener,boolean)>
+<android.os.IDumpstate$Stub: android.os.IDumpstate asInterface(android.os.IBinder)>
+<android.os.IDumpstate$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IDumpstate$Stub: void <init>()>

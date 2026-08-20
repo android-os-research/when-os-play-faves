@@ -1,0 +1,10 @@
+# android.app.ISearchManagerCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.ISearchManagerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.ISearchManagerCallback$Stub$Proxy: void onCancel()>
+<android.app.ISearchManagerCallback$Stub$Proxy: void onDismiss()>
+<android.app.ISearchManagerCallback$Stub: android.app.ISearchManagerCallback asInterface(android.os.IBinder)>
+<android.app.ISearchManagerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.ISearchManagerCallback$Stub: void <init>()>

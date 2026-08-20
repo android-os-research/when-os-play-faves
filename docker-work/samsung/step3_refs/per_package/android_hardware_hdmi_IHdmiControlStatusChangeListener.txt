@@ -1,0 +1,9 @@
+# android.hardware.hdmi.IHdmiControlStatusChangeListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.hdmi.IHdmiControlStatusChangeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.hdmi.IHdmiControlStatusChangeListener$Stub$Proxy: void onStatusChange(int,boolean)>
+<android.hardware.hdmi.IHdmiControlStatusChangeListener$Stub: android.hardware.hdmi.IHdmiControlStatusChangeListener asInterface(android.os.IBinder)>
+<android.hardware.hdmi.IHdmiControlStatusChangeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.hdmi.IHdmiControlStatusChangeListener$Stub: void <init>()>

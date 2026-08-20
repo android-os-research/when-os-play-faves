@@ -1,0 +1,72 @@
+######################################################################
+# Propagation: com.samsung.android.multistar
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          array_init
+Enforcement patterns: early_return
+Security tags:        PERM_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService
+  Method:   <com.android.server.am.ActivityManagerService: void checkLongLivePermissions(java.lang.String)>
+  Line:     23637
+  Register: v0 := "com.samsung.android.multistar"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerService.addLongLiveApp()
+      ← ActivityManagerService.clearLongLiveTask()
+      ← ActivityManagerService.getAutoRemoveRecents()
+      ← ActivityManagerService.removeLongLiveApp()
+      ← ActivityManagerService.setLongLiveApp()
+      ← ActivityManagerService.setLongLiveTask()
+      ← ActivityManagerService.getMaxLongLiveApps()
+      ← ActivityManagerService.getLongLiveApp()
+      ← ActivityManagerService.getLongLiveApps()
+      ← ActivityManagerService.getLongLiveProcesses()
+      ← ActivityManagerService.getLongLiveProcessesForUser()
+      ← ActivityManagerService.getLongLiveTaskIdsForUser()
+      ← ActivityManagerService.registerDedicatedCallback()
+        ← SystemRepositoryDefault.getLongLiveProcessesForUser()
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+      → Process.myUid()
+      → ActivityManagerService.enforceCallingPermission()
+      → ActivityManagerService.ensureCallingPkg()
+        → Binder.getCallingPid() [UID_CHECK]
+        → ActivityManagerService.checkCallingPermission()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getPackagesForUid()
+          → ActivityManagerService.checkPermission() [PERM_CHECK]
+          → ActivityThread.getPackageManager()
+            → ActivityManagerService.checkComponentPermission()
+              → ActivityManager.checkComponentPermission()
+              → ASKSManager.getASKSManager()
+              → ASKSManager.isRestrictedTarget()
+              → ASKSManager.getPackageNameFromPid()
+              → IASKSManager.checkRestrictedPermission()
+              → ArraySet.contains()
+              → SparseArray.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.MultiStarController
+  Method:   <com.android.server.wm.MultiStarController: void <clinit>()>
+  Line:     57
+  Register: v0 := "com.samsung.android.multistar"
+  Usage:    [array_init] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+

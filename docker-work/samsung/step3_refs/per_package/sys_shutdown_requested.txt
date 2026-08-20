@@ -1,0 +1,9 @@
+# sys.shutdown.requested [NEW]
+# Refs: 5
+# JARs: framework, services
+
+<com.android.server.SystemServer: void performPendingShutdown()>
+<com.android.server.hdmi.HdmiControlService$HdmiControlBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.power.ShutdownThread: void run()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional shutdown_requested()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void shutdown_requested(java.lang.String)>

@@ -1,0 +1,17 @@
+# com.sec.android.app.samsungapps [NEW]
+# Refs: 14
+# JARs: framework, services
+
+<com.android.server.am.BaseRestrictionMgr: int isPolicyBlockedPackage(java.lang.String,int,android.content.ComponentName,java.lang.String,android.content.Intent,int,int)>
+<com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+<com.android.server.knox.ContainerDependencyWrapper: void setApplicationBlackList(android.content.Context,java.util.List,int)>
+<com.android.server.net.NetworkPolicyManagerService: android.content.Intent jumpToSamsungApps(java.lang.String)>
+<com.android.server.pm.BroadcastHelper: void doSendBroadcast(java.lang.String,java.lang.String,android.os.Bundle,int,java.lang.String,android.content.IIntentReceiver,int[],boolean,android.util.SparseArray,android.os.Bundle)>
+<com.android.server.pm.BroadcastHelper: void sendFirstLaunchBroadcast(java.lang.String,java.lang.String,int[],int[])>
+<com.android.server.pm.InstallPackageHelper: com.android.server.pm.PrepareResult preparePackageLI(com.android.server.pm.InstallArgs,com.android.server.pm.PackageInstalledInfo)>
+<com.android.server.pm.PackageInstallerService: void sendSessionUpdatedBroadcast(android.content.pm.PackageInstaller$SessionInfo,int)>
+<com.android.server.pm.PackageInstallerSession: void verifyNonStaged()>
+<com.android.server.pm.PackageSessionVerifier: boolean isApexUpdateAllowed(java.lang.String,java.lang.String)>
+<com.android.server.pm.Settings: void removeInstallerPackageStatus(java.lang.String)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>

@@ -1,0 +1,43 @@
+######################################################################
+# Propagation: com.sec.android.CcInfo
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.display.DisplayManagerService$3
+  Method:   <com.android.server.display.DisplayManagerService$3: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     111
+  Register: v2 := "com.sec.android.CcInfo"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → Intent.getParcelableExtra()
+      → Intent.getAction()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → NetworkInfo.getDetailedState()
+      → <com.android.server.display.DisplayManagerService: android.c
+      → Slog.d()
+        → Slog.addPMSLogList()
+          → Process.myTid()
+          → Slog$TimeUtil.getCurrentTimeToLoggingFormat()
+          → ArrayList.add()
+          → ArrayList.size()
+            → Slog$TimeUtil.now()
+            → LocalDateTime.format()
+              → LocalDateTime.now()
+

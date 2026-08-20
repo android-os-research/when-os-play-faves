@@ -1,0 +1,12 @@
+# android.app.backup.IRestoreObserver [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.app.backup.IRestoreObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.backup.IRestoreObserver$Stub$Proxy: void onUpdate(int,java.lang.String)>
+<android.app.backup.IRestoreObserver$Stub$Proxy: void restoreFinished(int)>
+<android.app.backup.IRestoreObserver$Stub$Proxy: void restoreSetsAvailable(android.app.backup.RestoreSet[])>
+<android.app.backup.IRestoreObserver$Stub$Proxy: void restoreStarting(int)>
+<android.app.backup.IRestoreObserver$Stub: android.app.backup.IRestoreObserver asInterface(android.os.IBinder)>
+<android.app.backup.IRestoreObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.backup.IRestoreObserver$Stub: void <init>()>

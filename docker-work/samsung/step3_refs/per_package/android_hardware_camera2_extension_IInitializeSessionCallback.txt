@@ -1,0 +1,10 @@
+# android.hardware.camera2.extension.IInitializeSessionCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.hardware.camera2.extension.IInitializeSessionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.IInitializeSessionCallback$Stub$Proxy: void onFailure()>
+<android.hardware.camera2.extension.IInitializeSessionCallback$Stub$Proxy: void onSuccess()>
+<android.hardware.camera2.extension.IInitializeSessionCallback$Stub: android.hardware.camera2.extension.IInitializeSessionCallback asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.IInitializeSessionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.IInitializeSessionCallback$Stub: void <init>()>

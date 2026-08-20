@@ -1,0 +1,34 @@
+.class public final synthetic Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .registers 1
+
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;
+
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->$r8$lambda$gg1nFa2GwefiYD_FG1ZYKap9pzA(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;)V
+
+    return-void
+.end method

@@ -1,0 +1,14 @@
+# com.samsung.android.smartmirroring [NEW]
+# Refs: 10
+# JARs: framework, semwifi-service, services
+
+<android.content.om.SamsungThemeConstants$1: void <init>()>
+<com.android.server.display.WifiDisplayAdapter$10: void run()>
+<com.android.server.display.WifiDisplayController$18: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.display.WifiDisplayMcfManager: void bindBleAdvertiserService()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: boolean isSupportSmartView()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.Integer lambda$setDisplayMirroringState$63(boolean)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.Integer lambda$startSmartView$51()>
+<com.samsung.android.server.wifi.SemApeController: void initBlockedPackages()>
+<com.samsung.android.server.wifi.SemApeService: void <init>(android.content.Context,android.os.HandlerThread,com.samsung.android.server.wifi.SemClientModeManager)>
+<com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl: boolean isAllowedPackageForNextAction(java.lang.String)>

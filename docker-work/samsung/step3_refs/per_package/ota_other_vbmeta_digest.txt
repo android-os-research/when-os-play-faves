@@ -1,0 +1,7 @@
+# ota.other.vbmeta_digest [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.sysprop.OtaProperties: java.util.Optional other_vbmeta_digest()>
+<android.sysprop.OtaProperties: void other_vbmeta_digest(java.lang.String)>
+<com.android.server.locksettings.RebootEscrowManager$Injector: java.lang.String getVbmetaDigest(boolean)>

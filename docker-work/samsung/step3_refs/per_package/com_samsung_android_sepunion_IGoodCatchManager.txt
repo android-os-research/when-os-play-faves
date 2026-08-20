@@ -1,0 +1,11 @@
+# com.samsung.android.sepunion.IGoodCatchManager [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.sepunion.IGoodCatchManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.sepunion.IGoodCatchManager$Stub$Proxy: java.util.List getSelectedSettingKey()>
+<com.samsung.android.sepunion.IGoodCatchManager$Stub$Proxy: void registerListener(java.lang.String,java.lang.String[],com.samsung.android.sepunion.IGoodCatchDispatcher,android.os.IBinder)>
+<com.samsung.android.sepunion.IGoodCatchManager$Stub$Proxy: void update(java.lang.String[])>
+<com.samsung.android.sepunion.IGoodCatchManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.sepunion.IGoodCatchManager$Stub: com.samsung.android.sepunion.IGoodCatchManager asInterface(android.os.IBinder)>
+<com.samsung.android.sepunion.IGoodCatchManager$Stub: void <init>()>

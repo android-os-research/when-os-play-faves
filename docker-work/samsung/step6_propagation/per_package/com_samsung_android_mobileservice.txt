@@ -1,0 +1,291 @@
+######################################################################
+# Propagation: com.samsung.android.mobileservice
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              3
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return, identity_read, string_compare
+Security tags:        DEVICE_ID, PERM_CHECK, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.SemWifiApUtils
+  Method:   <com.samsung.android.server.wifi.ap.SemWifiApUtils: boolean isGroupSharingAppDisabled(android.content.Context)>
+  Line:     745
+  Register: v0 := "com.samsung.android.mobileservice"
+  Usage:    [invoke] invoke-static {p0, v0}, Lcom/samsung/android/server/wifi/ap/SemWifiApUtils;->isPkgEnabled(Landroid/c
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.wifi.ap.SemWifiApUtils.isPkgEnabl → [other] sget-object v0, Lcom/samsung/android/ser
+
+  CALLERS (who invokes this method):
+      ← SemWifiApSmartMHS.canFamilySharingBeEnabled()
+        ← SemWifiApSmartBleScanner$SemWifiApSmartBleScannerReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → SemWifiApUtils.isPkgEnabled()
+        → Context.getPackageManager()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartBleScanner$SemWifiApSmartBleScannerReceiver
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartBleScanner$SemWifiApSmartBleScannerReceiver: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     345
+  Register: v3 := "com.samsung.android.mobileservice"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Lcom/samsung/android/server/wifi/ap/smarttethering/SemWifiApSmartUtil;->isP
+  Patterns: string_compare, early_return, identity_read
+  Flow:     [invoke] com.samsung.android.server.wifi.ap.smarttethering.SemWifiApS → [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → BluetoothAdapter.getDefaultAdapter()
+      → BluetoothAdapter.getStandAloneBleMode()
+      → Context.getContentResolver()
+      → Context.getSystemService()
+      → Intent.getBooleanExtra()
+      → Intent.getIntExtra()
+      → Intent.getAction()
+      → Intent.getLongExtra()
+      → Settings$Global.getInt()
+      → Settings$Secure.putInt()
+      → Settings$Secure.putString()
+      → Settings$Secure.getInt()
+      → TelephonyManager.getPhoneCount()
+      → TelephonyManager.getSimState()
+      → TelephonyManager.getSimState()
+      → TelephonyManager.getSimSerialNumber() [DEVICE_ID]
+      → TextUtils.isEmpty()
+      → LocalLog.log()
+      → SemWifiInjector.getInstance()
+      → SemWifiInjector.getWifiApSmartClient()
+      → SemWifiManagerProxy.getFactoryMacAddresses()
+      → SemWifiApUtils.isNearByDeviceScanningEnabled()
+      → SemWifiApUtils.sendBroadcastForMDE()
+      → SemWifiApUtils.setFamilySharingDB()
+      → SemWifiApUtils.setFamilySharingServiceRegisteredDB()
+      → SemWifiApSmartBleScanner$BleWorkHandler.sendEmptyMessage()
+      → SemWifiApSmartBleScanner$BleWorkHandler.sendEmptyMessageDelayed()
+      → SemWifiApSmartBleScanner$BleWorkHandler.removeMessages()
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → SemWifiApSmartBleScanner.setBleStandAloneModeByAutohotspot()
+      → SemWifiApSmartClient.clearLocalResults()
+      → SemWifiApSmartGattServer.removeGattServer()
+      → SemWifiApSmartMHS.canFamilySharingBeEnabled()
+      → SemWifiApSmartMHS.sendEmptyMessage()
+      → SemWifiApSmartUtil.isNearByAutohotspotEnabled()
+      → SemWifiApSmartUtil.isPackageExists()
+      → SemWifiApSmartUtil.getSamsungAccountCount()
+      → SemWifiApSmartUtil.generateHashKey()
+      → SemWifiApSmartUtil.getHashbasedonGuid()
+      → SemWifiApContentProviderHelper.get()
+      → SemWifiApContentProviderHelper.insert()
+      → SemWifiApMacInfo.getInstance()
+      → SemWifiApMacInfo.readWifiMacInfo()
+      → SemWifiApMacInfo.writeWifiMacInfo()
+      → SemWifiApSmartWhiteList.getInstance()
+      → SemWifiApSmartWhiteList.resetWhitelist()
+      → StringBuffer.toString()
+      → StringBuffer.append()
+      → <java.lang.StringBuffer: void <init>()>
+      → SimpleDateFormat.format()
+      → <java.text.SimpleDateFormat: void <init>(java.lang.String,ja
+        → CharSequence.length()
+        → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+        → List.toArray()
+        → Settings$System.getInt()
+        → <com.samsung.android.server.wifi.ap.SemWifiApUtils$2: void <
+        → <java.lang.Thread: void <init>(java.lang.Runnable)>
+        → Thread.start()
+        → SemWifiApSmartBleScanner.SetAutoHotspotSettingsDB()
+        → BluetoothAdapter.semSetStandAloneBleMode()
+        → List.clear()
+        → Set.clear()
+        → BluetoothGattServer.removeService()
+        → BluetoothGattServer.close()
+        → SemWifiApUtils.isActiveNetworkHasInternet()
+        → SemWifiApUtils.isAirplaneModeOn()
+        → SemWifiApUtils.isAutoHotspotSetOn()
+        → SemWifiApUtils.isFamilySharingServiceRegisteredOn()
+        → SemWifiApUtils.isFamilySharingSetOn()
+        → SemWifiApUtils.isGroupSharingAppDisabled()
+        → SemWifiApUtils.isSamsungAccountLoggedOut()
+        → SemWifiApUtils.isSimEnabled()
+        → SemWifiApUtils.isTetheringRestricted()
+        → SemWifiApUtils.getFamilyGroupId()
+        → Context.getPackageManager()
+        → PackageInfo.getLongVersionCode()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → ContentResolver.query()
+        → Context.checkPermission() [PERM_CHECK]
+        → Context.getPackageName()
+        → Cursor.moveToFirst()
+        → Cursor.getColumnIndex()
+        → Cursor.getString()
+        → Cursor.close()
+        → Binder.getCallingUid() [UID_CHECK]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → ContentResolver.insert()
+        → ContentResolver.update()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → SemWifiApContentProviderHelper.isKeypresent()
+        → <com.samsung.android.wifi.SemWifiApMacInfo: void <init>()>
+        → BufferedReader.readLine()
+        → <java.io.BufferedReader: void <init>(java.io.Reader,int)>
+        → BufferedReader.close()
+        → <java.io.FileInputStream: void <init>(java.lang.String)>
+        → IOException.printStackTrace()
+        → <java.io.InputStreamReader: void <init>(java.io.InputStream,
+        → SemWifiApMacInfo.isMacAddress()
+        → <java.io.FileOutputStream: void <init>(java.lang.String)>
+        → <java.io.OutputStreamWriter: void <init>(java.io.OutputStrea
+        → OutputStreamWriter.close()
+        → OutputStreamWriter.write()
+        → <com.samsung.android.wifi.SemWifiApSmartWhiteList: void <ini
+        → SemWifiApSmartWhiteList.readWhiteListFile()
+        → SemWifiApSmartWhiteList.writeWhiteListFile()
+        → Vector.clear()
+          → Context.registerReceiver()
+          → SemFrameworkFacade.isFactoryBinary()
+          → SemWifiInjector.getFrameworkFacade()
+          → SemWifiManagerProxy.isScreenOn()
+          → SemWifiManagerProxy.registerListener()
+          → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+          → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+          → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+          → <java.util.ArrayList: void <init>()>
+          → <java.util.HashMap: void <init>()>
+          → <java.util.HashSet: void <init>()>
+          → <java.util.concurrent.ConcurrentHashMap: void <init>()>
+          → SoftApConfiguration.getSecurityType()
+          → SoftApConfiguration.getPassphrase()
+          → SemWifiApSmartBleScanner.setWifiApSmartTetheringEnable()
+          → SemWifiApSmartMHS.checkPreConditions()
+          → SemWifiManager.getSoftApConfiguration()
+          → SemWifiManager.isWifiSharingLiteSupported()
+          → SemWifiManager.isWifiSharingSupported()
+          → ConnectivityManager.getActiveNetwork()
+          → ConnectivityManager.getNetworkCapabilities()
+          → NetworkCapabilities.hasCapability()
+          → NetworkCapabilities.hasTransport()
+          → SemWifiApUtils.isAutoHotspotSupported()
+          → SemWifiApUtils.isPkgEnabled()
+          → SemWifiApUtils.getSamsungAccountCount()
+          → SystemProperties.get()
+          → UserManager.hasUserRestriction()
+          → UserManager.isAdminUser()
+          → SemWifiApUtils.getSamsungAccount()
+          → AES.decrypt()
+          → PackageInfo.composeLongVersionCode()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → SemWifiApMacInfo.createOrChangePermission()
+          → Matcher.matches()
+          → Pattern.matcher()
+          → Pattern.compile()
+          → SemWifiApSmartWhiteList.createOrChangePermission()
+          → <java.util.Vector: void <init>(int)>
+          → <com.samsung.android.wifi.SemWifiApSmartWhiteList$SmartWhite
+          → BufferedReader.markSupported()
+          → BufferedReader.mark()
+          → BufferedReader.reset()
+          → NumberFormatException.printStackTrace()
+          → Vector.add()
+          → <com.samsung.android.wifi.SemWifiApSmartWhiteList$SmartWhite
+          → SemWifiApSmartWhiteList$SmartWhiteList.getMac()
+          → SemWifiApSmartWhiteList$SmartWhiteList.getName()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → Vector.iterator()
+            → SystemProperties.get()
+            → AtomicBoolean.get()
+            → <com.samsung.android.server.wifi.SemWifiManagerProxy$$Extern
+            → SemWifiThreadRunner.post()
+            → <android.bluetooth.le.AdvertiseCallback: void <init>()>
+            → <android.content.BroadcastReceiver: void <init>()>
+            → RemoteException.rethrowFromSystemServer()
+            → ISemWifiManager.getSoftApConfiguration()
+            → ISemWifiManager.isWifiSharingLiteSupported()
+            → ISemWifiManager.isWifiSharingSupported()
+            → AccountManager.getAccountsByType()
+            → AES.setKey()
+            → Exception.printStackTrace()
+            → Base64$Decoder.decode()
+            → Base64.getDecoder()
+            → Cipher.doFinal()
+            → Cipher.getInstance()
+            → Cipher.init()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → File.createNewFile()
+            → File.exists()
+            → <java.io.File: void <init>(java.lang.String)>
+            → InterruptedException.printStackTrace()
+            → Process.waitFor()
+            → Process.destroy()
+            → Runtime.exec()
+            → Runtime.getRuntime()
+              → Handler.post()
+              → <android.os.DeadSystemRuntimeException: void <init>()>
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+              → UnsupportedEncodingException.printStackTrace()
+              → MessageDigest.digest()
+              → MessageDigest.getInstance()
+              → NoSuchAlgorithmException.printStackTrace()
+              → <javax.crypto.spec.SecretKeySpec: void <init>(byte[],java.la
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartBleScanner$SemWifiApSmartBleScannerAppDisableReceiver
+  Method:   <com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartBleScanner$SemWifiApSmartBleScannerAppDisableReceiver: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     54
+  Register: v0 := "com.samsung.android.mobileservice"
+  Usage:    [invoke] invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-nez v0, :cond_17 → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Context.getPackageManager()
+      → Context.sendBroadcast()
+      → Intent.setAction()
+      → Intent.getData()
+      → <android.content.Intent: void <init>()>
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → Uri.getSchemeSpecificPart()
+      → Settings$Secure.putInt()
+      → Settings$Secure.getInt()
+      → LocalLog.log()
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+      → <com.samsung.android.server.wifi.ap.smarttethering.SemWifiAp
+

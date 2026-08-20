@@ -1,0 +1,354 @@
+######################################################################
+# Propagation: com.android.providers.settings
+######################################################################
+
+JARs:                 framework, services
+Classes:              5
+Occurrences:          5
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.LocalePicker
+  Method:   <com.android.internal.app.LocalePicker: void updateLocales(android.os.LocaleList)>
+  Line:     768
+  Register: v2 := "com.android.providers.settings"
+  Usage:    [invoke] invoke-static {v2}, Landroid/app/backup/BackupManager;->dataChanged(Ljava/lang/String;)V
+  Patterns: early_return
+  Flow:     [invoke] android.app.backup.BackupManager.dataChanged()
+
+  CALLERS (who invokes this method):
+      ← LocalePicker.updateLocale()
+      ← DeveloperModeSettings.resetRtlOptions()
+        ← DevicePolicyManagerService.setLocale()
+        ← SemLocalePicker.updateLocale()
+        ← KnoxCustomManagerService.setSystemLocale()
+        ← DeveloperModeSettings.resetDeveloperModeOptions()
+          ← DevicePolicyManagerService.provisionFullyManagedDevice()
+          ← RestrictionPolicy.allowDeveloperMode()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → ActivityThread.currentOpPackageName()
+      → IActivityManager.getGlobalConfiguration()
+      → IActivityManager.updatePersistentConfigurationAndLocaleOverlays()
+      → BackupManager.dataChanged()
+      → Configuration.setLocales()
+      → LocalePicker.removeExcludedLocales()
+        → BackupManager.checkServiceBinder()
+        → IBackupManager.dataChanged()
+        → LocaleList.size()
+        → LocaleList.get()
+        → <android.os.LocaleList: void <init>(java.util.Locale[])>
+        → LocalePicker.getLocaleFilter()
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.toArray()
+        → <java.util.ArrayList: void <init>(int)>
+        → Locale.toString()
+        → Predicate.test()
+          → IBackupManager$Stub.asInterface()
+          → ServiceManager.getService()
+          → LocalizationProperties.locale_filter()
+          → <com.android.internal.app.LocalePicker$$ExternalSyntheticLam
+          → Optional.orElse()
+          → Optional.map()
+          → PatternSyntaxException.getPattern()
+            → <android.app.backup.IBackupManager$Stub$Proxy: void <init>(a
+            → IBinder.queryLocalInterface()
+            → SystemProperties.get()
+            → LocalizationProperties.tryParseString()
+            → Optional.ofNullable()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: void <clinit>()>
+  Line:     268
+  Register: v2 := "com.android.providers.settings"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.backup.restore.PerformUnifiedRestoreTask
+  Method:   <com.android.server.backup.restore.PerformUnifiedRestoreTask: void <init>(com.android.server.backup.UserBackupManagerService,com.android.server.backup.OperationStorage,com.android.server.backup.transport.TransportConnection,android.app.backup.IRestoreObserver,android.app.backup.IBackupManagerMonitor,long,android.content.pm.PackageInfo,int,boolean,java.lang.String[],com.android.server.backup.internal.OnTaskFinishedListener,com.android.server.backup.utils.BackupEligibilityRules)>
+  Line:     389
+  Register: p7 := "com.android.providers.settings"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p7 → [branch] if-eqz p7, :cond_b3 → [invoke] android.content.pm
+
+  CALLERS (who invokes this method):
+      ← BackupHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+      → SystemClock.elapsedRealtime()
+      → PackageManagerBackupAgent.getStorableApplications()
+      → UserBackupManagerService.getPackageManager()
+      → UserBackupManagerService.getAgentTimeoutParameters()
+      → UserBackupManagerService.getTransportManager()
+      → UserBackupManagerService.generateRandomIntegerToken()
+      → UserBackupManagerService.getUserId()
+      → UserBackupManagerService.filterUserFacingPackages()
+      → PerformUnifiedRestoreTask.packagesToNames()
+      → BackupEligibilityRules.appIsEligibleForBackup()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(int)>
+      → List.add()
+      → List.add()
+      → Objects.requireNonNull()
+        → PackageManager.getInstalledPackagesAsUser()
+        → List.size()
+        → List.get()
+        → List.remove()
+        → Random.nextInt()
+        → AtomicInteger.incrementAndGet()
+        → UserBackupManagerService.shouldSkipPackage()
+        → UserBackupManagerService.shouldSkipUserFacingData()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+        → ApplicationInfo.isInstantApp()
+        → UserHandle.isCore()
+        → BackupEligibilityRules.appIsDisabled()
+        → BackupEligibilityRules.isAppBackupAllowed()
+        → Set.contains()
+          → Context.getContentResolver()
+          → Settings$Secure.getInt()
+          → PackageManagerInternal.getApplicationEnabledState()
+          → CompatChanges.isChangeEnabled()
+          → PackageManager$Property.getBoolean()
+          → PackageManager.getProperty()
+          → UserHandle.of()
+            → ChangeIdStateCache.query()
+            → ChangeIdStateQuery.byPackageName()
+            → UserHandle.getIdentifier()
+              → <android.app.compat.ChangeIdStateQuery: void <init>(int,long
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.audio.AudioSettingsHelper
+  Method:   <com.samsung.android.server.audio.AudioSettingsHelper: void initSystemVibration(java.lang.String,int)>
+  Line:     1118
+  Register: v1 := "com.android.providers.settings"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← AudioSettingsHelper.onUpgrade()
+
+  CALLEES (what this method invokes):
+      → ContentResolver.query()
+      → Context.getContentResolver()
+      → Cursor.moveToFirst()
+      → Cursor.getColumnIndex()
+      → Cursor.getCount()
+      → Cursor.getString()
+      → Cursor.close()
+      → Uri.parse()
+      → Settings$System.putIntForUser()
+      → Exception.printStackTrace()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.locksettings.LockSettingsStorage
+  Method:   <com.android.server.locksettings.LockSettingsStorage: void setString(java.lang.String,java.lang.String,int)>
+  Line:     4040
+  Register: p3 := "com.android.providers.settings"
+  Usage:    [invoke] invoke-static {p3}, Landroid/app/backup/BackupManager;->dataChanged(Ljava/lang/String;)V
+  Patterns: early_return
+  Flow:     [invoke] android.app.backup.BackupManager.dataChanged() → [other] sget-object p3, Lcom/android/server/locksettings/LockS
+
+  CALLERS (who invokes this method):
+      ← LockSettingsService.setString()
+      ← LockSettingsStorage.setBoolean()
+      ← LockSettingsStorage.setInt()
+      ← LockSettingsStorage.setLong()
+      ← RebootEscrowManager.armRebootEscrowIfNeeded()
+      ← SyntheticPasswordManager.unwrapPasswordBasedSyntheticPassword()
+      ← SyntheticPasswordManager.createPasswordBasedSyntheticPassword()
+      ← SyntheticPasswordManager.setToken()
+        ← LockSettingsService.applyRemoteLock()
+        ← LockSettingsService.migrateOldData()
+        ← LockSettingsService.migrateSecurityLog()
+        ← LockSettingsService.setSyntheticPasswordTryHandleLocked()
+        ← LockSettingsService.updatePasswordHistory()
+        ← LockSettingsService.setBoolean()
+        ← LockSettingsService.cleanupDataForReusedUserIdIfNecessary()
+        ← LockSettingsService.setKeyguardStoredQuality()
+        ← LockSettingsService.setLong()
+        ← LockSettingsService$LocalService.armRebootEscrow()
+        ← LockSettingsService$DarVirtualLock.addEscrowToken()
+        ← LockSettingsService.spBasedSetLockCredentialInternalLocked()
+        ← LockSettingsService.getHashFactor()
+        ← LockSettingsService.spBasedDoVerifyCredential()
+        ← LockSettingsService.spBasedDoVerifyCredentialForDualDarDo()
+        ← LockSettingsService.addEscrowToken()
+        ← LockSettingsService.tryDeriveAuthTokenForUnsecuredPrimaryUser()
+        ← LockSettingsService.initializeSyntheticPasswordLocked()
+        ← LockSettingsService.setLockCredentialWithAuthTokenLocked()
+          ← LockSettingsService.setKnoxGuard()
+          ← LockSettingsService.setRemoteLock()
+          ← LockSettingsService.systemReady()
+          ← LockSettingsService.migrateOldDataAfterSystemReady()
+          ← LockSettingsService.getValidSyntheticPasswordHandleLocked()
+          ← <com.android.server.locksettings.LockSettingsService: void -
+          ← <com.android.server.locksettings.LockSettingsService: void -
+          ← LockSettingsService.onPostPasswordChanged()
+          ← LockSettingsService$SdpLockSettings.migratePasswordHashForEnterpriseUser()
+          ← LockSettingsService$SdpLockSettings.shouldMigratePasswordHash()
+          ← LockSettingsService.setSeparateProfileChallengeEnabledLocked()
+          ← <com.android.server.locksettings.LockSettingsService: void -
+          ← LockSettingsService.setLockCredentialInternal()
+          ← LockSettingsService$DarLockSettings.saveEscrowDataIfNeededLocked()
+          ← LockSettingsService.getSalt()
+          ← LockSettingsService.cleanupAbnormalState()
+          ← LockSettingsService.setSyntheticPasswordHandleLocked()
+          ← <com.android.server.locksettings.LockSettingsService: boolea
+          ← <com.android.server.locksettings.LockSettingsService: com.an
+          ← LockSettingsService.doVerifyCredential()
+          ← LockSettingsService.doVerifyCredentialForDualDarDo()
+          ← <com.android.server.locksettings.LockSettingsService: long -
+          ← LockSettingsService.addWeakEscrowToken()
+          ← <com.android.server.locksettings.LockSettingsService: void -
+          ← LockSettingsService$DarVirtualLock.setLockCredentialInternal()
+          ← LockSettingsService.verifyCredential()
+          ← LockSettingsService.setLockCredentialWithTokenInternalLocked()
+          ← <com.android.server.locksettings.LockSettingsService: long -
+            ← <com.android.server.locksettings.LockSettingsService: void -
+            ← LockSettingsService$4.onFinished()
+            ← <com.android.server.locksettings.LockSettingsService$SdpLock
+            ← LockSettingsService.setLockCredentialWithIgnoreNotifyIfNeeded()
+            ← <com.android.server.locksettings.LockSettingsService: void -
+            ← LockSettingsService.setLockCredentialWithToken()
+            ← LockSettingsService.setSeparateProfileChallengeEnabled()
+            ← LockSettingsService$2.run()
+            ← LockSettingsService.synchronizeUnifiedWorkChallengeForProfiles()
+            ← LockSettingsService.tieProfileLockIfNecessary()
+            ← LockSettingsService.passwordToHashSec()
+            ← LockSettingsService.legacyPasswordToHash()
+            ← LockSettingsService$DarVirtualLock.doVerifyCredential()
+            ← LockSettingsService.tryUnlockWithCachedUnifiedChallenge()
+            ← LockSettingsService.checkCredential()
+            ← LockSettingsService.doVerifyCredentialForEnterpriseUser()
+            ← LockSettingsService.doVerifyCredentialForEnterpriseUser()
+            ← LockSettingsService.verifyCredential()
+            ← LockSettingsService.verifyTiedProfileChallenge()
+            ← LockSettingsService.unlockChildProfile()
+            ← LockSettingsService.checkCredentialForDualDarDo()
+            ← LockSettingsService$LocalService.addEscrowToken()
+            ← LockSettingsService$DarVirtualLock.setLockCredentialWithToken()
+              ← LockSettingsService$Lifecycle.onBootPhase()
+              ← <com.android.server.locksettings.LockSettingsService$SdpLock
+              ← LockSettingsService.setLockCredential()
+              ← LockSettingsService$LocalService.setLockCredentialWithToken()
+              ← <com.android.server.locksettings.LockSettingsService: boolea
+              ← LockSettingsService.checkAppLockBackupPin()
+              ← LockSettingsService.checkAppLockFingerprintPassword()
+              ← LockSettingsService.checkAppLockPassword()
+              ← LockSettingsService.checkAppLockPin()
+              ← LockSettingsService.checkCarrierPassword()
+              ← LockSettingsService.checkFMMPassword()
+              ← LockSettingsService.passwordToHash()
+              ← LockSettingsService.ensureProfileKeystoreUnlocked()
+              ← LockSettingsService.unlockUser()
+
+  CALLEES (what this method invokes):
+      → BackupManager.dataChanged()
+      → ArrayUtils.contains()
+      → ArrayUtils.indexOf()
+      → Preconditions.checkArgument()
+      → LockSettingsStorage.sendLockTypeChangedInfo()
+      → LockSettingsStorage.writeKeyValue()
+        → BackupManager.checkServiceBinder()
+        → IBackupManager.dataChanged()
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putInt()
+        → IRemoteCallback.sendResult()
+        → RemoteException.printStackTrace()
+        → SQLiteOpenHelper.getWritableDatabase()
+        → LockSettingsStorage.writeKeyValue()
+          → IBackupManager$Stub.asInterface()
+          → ServiceManager.getService()
+          → SQLiteOpenHelper.getDatabaseLocked()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → ContentValues.put()
+          → SQLiteDatabase.delete()
+          → SQLiteDatabase.insert()
+          → SQLiteDatabase.beginTransaction()
+          → SQLiteDatabase.endTransaction()
+          → SQLiteDatabase.setTransactionSuccessful()
+          → LockSettingsStorage$Cache.putKeyValue()
+          → WatchableImpl.dispatchChange()
+            → <android.app.backup.IBackupManager$Stub$Proxy: void <init>(a
+            → IBinder.queryLocalInterface()
+            → Context.getDatabasePath()
+            → SQLiteDatabase$OpenParams$Builder.build()
+            → SQLiteDatabase$OpenParams$Builder.addOpenFlags()
+            → SQLiteDatabase$OpenParams.toBuilder()
+            → SQLiteDatabase.createInMemory()
+            → SQLiteDatabase.openDatabase()
+            → SQLiteDatabase.deleteDatabase()
+            → SQLiteDatabase.isOpen()
+            → SQLiteDatabase.isReadOnly()
+            → SQLiteDatabase.getVersion()
+            → SQLiteDatabase.getPath()
+            → SQLiteDatabase.close()
+            → SQLiteDatabase.reopenReadWrite()
+            → SQLiteDatabase.setReserveSpace()
+            → SQLiteDatabase.setVersion()
+            → <android.database.sqlite.SQLiteException: void <init>(java.l
+            → SQLiteOpenHelper.onBeforeDelete()
+            → SQLiteOpenHelper.onConfigure()
+            → SQLiteOpenHelper.onCreate()
+            → SQLiteOpenHelper.onDowngrade()
+            → SQLiteOpenHelper.onOpen()
+            → SQLiteOpenHelper.onUpgrade()
+            → SQLiteOpenHelper.setFilePermissionsForDb()
+            → File.getPath()
+            → <java.io.File: void <init>(java.lang.String)>
+            → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.put()
+            → LockSettingsStorage$Cache.put()
+            → Watcher.onChange()
+            → ArrayList.size()
+            → ArrayList.get()
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: void <in
+              → <android.database.sqlite.SQLiteDatabase$OpenParams$Builder: 
+              → <android.database.SQLException: void <init>(java.lang.String
+              → FileUtils.setPermissions()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → LockSettingsStorage$Cache$CacheKey.set()
+              → <com.android.server.locksettings.LockSettingsStorage$Cache$C
+

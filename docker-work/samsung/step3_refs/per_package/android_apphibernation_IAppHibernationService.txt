@@ -1,0 +1,14 @@
+# android.apphibernation.IAppHibernationService [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.apphibernation.IAppHibernationService$Stub$Proxy: boolean isHibernatingForUser(java.lang.String,int)>
+<android.apphibernation.IAppHibernationService$Stub$Proxy: boolean isHibernatingGlobally(java.lang.String)>
+<android.apphibernation.IAppHibernationService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.apphibernation.IAppHibernationService$Stub$Proxy: java.util.List getHibernatingPackagesForUser(int)>
+<android.apphibernation.IAppHibernationService$Stub$Proxy: java.util.Map getHibernationStatsForUser(java.util.List,int)>
+<android.apphibernation.IAppHibernationService$Stub$Proxy: void setHibernatingForUser(java.lang.String,int,boolean)>
+<android.apphibernation.IAppHibernationService$Stub$Proxy: void setHibernatingGlobally(java.lang.String,boolean)>
+<android.apphibernation.IAppHibernationService$Stub: android.apphibernation.IAppHibernationService asInterface(android.os.IBinder)>
+<android.apphibernation.IAppHibernationService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.apphibernation.IAppHibernationService$Stub: void <init>()>

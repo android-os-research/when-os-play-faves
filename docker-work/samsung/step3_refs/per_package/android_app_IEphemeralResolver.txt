@@ -1,0 +1,10 @@
+# android.app.IEphemeralResolver [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.IEphemeralResolver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IEphemeralResolver$Stub$Proxy: void getEphemeralIntentFilterList(android.os.IRemoteCallback,java.lang.String,int)>
+<android.app.IEphemeralResolver$Stub$Proxy: void getEphemeralResolveInfoList(android.os.IRemoteCallback,int[],int)>
+<android.app.IEphemeralResolver$Stub: android.app.IEphemeralResolver asInterface(android.os.IBinder)>
+<android.app.IEphemeralResolver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IEphemeralResolver$Stub: void <init>()>

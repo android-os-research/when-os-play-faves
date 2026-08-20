@@ -1,0 +1,9 @@
+# com.sec.ims.IDialogEventListener [NEW]
+# Refs: 5
+# JARs: imsmanager
+
+<com.sec.ims.IDialogEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.IDialogEventListener$Stub$Proxy: void onDialogEvent(com.sec.ims.DialogEvent)>
+<com.sec.ims.IDialogEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.IDialogEventListener$Stub: com.sec.ims.IDialogEventListener asInterface(android.os.IBinder)>
+<com.sec.ims.IDialogEventListener$Stub: void <init>()>

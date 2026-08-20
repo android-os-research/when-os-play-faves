@@ -1,0 +1,21 @@
+# android.media.tv.ITvRemoteServiceInput [NEW]
+# Refs: 17
+# JARs: framework
+
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void clearInputBridge(android.os.IBinder)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void closeInputBridge(android.os.IBinder)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void openGamepadBridge(android.os.IBinder,java.lang.String)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void openInputBridge(android.os.IBinder,java.lang.String,int,int,int)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void sendGamepadAxisValue(android.os.IBinder,int,float)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void sendGamepadKeyDown(android.os.IBinder,int)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void sendGamepadKeyUp(android.os.IBinder,int)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void sendKeyDown(android.os.IBinder,int)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void sendKeyUp(android.os.IBinder,int)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void sendPointerDown(android.os.IBinder,int,int,int)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void sendPointerSync(android.os.IBinder)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void sendPointerUp(android.os.IBinder,int)>
+<android.media.tv.ITvRemoteServiceInput$Stub$Proxy: void sendTimestamp(android.os.IBinder,long)>
+<android.media.tv.ITvRemoteServiceInput$Stub: android.media.tv.ITvRemoteServiceInput asInterface(android.os.IBinder)>
+<android.media.tv.ITvRemoteServiceInput$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.tv.ITvRemoteServiceInput$Stub: void <init>()>

@@ -1,0 +1,9 @@
+# com.samsung.android.mcf.IDiscoveryResultCallback [NEW]
+# Refs: 10
+# JARs: mcfsdk, services
+
+<com.samsung.android.mcf.IDiscoveryResultCallback$Stub$a: java.lang.String b()>
+<com.samsung.android.mcf.IDiscoveryResultCallback$Stub$a: void onDeviceDiscoverd(android.os.PersistableBundle,int,int,java.lang.String)>
+<com.samsung.android.mcf.IDiscoveryResultCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.IDiscoveryResultCallback$Stub: com.samsung.android.mcf.IDiscoveryResultCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.IDiscoveryResultCallback$Stub: void <init>()>

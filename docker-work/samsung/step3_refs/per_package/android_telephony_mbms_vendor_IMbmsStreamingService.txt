@@ -1,0 +1,11 @@
+# android.telephony.mbms.vendor.IMbmsStreamingService [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.telephony.mbms.vendor.IMbmsStreamingService$Stub$Proxy: android.net.Uri getPlaybackUri(int,java.lang.String)>
+<android.telephony.mbms.vendor.IMbmsStreamingService$Stub$Proxy: int initialize(android.telephony.mbms.IMbmsStreamingSessionCallback,int)>
+<android.telephony.mbms.vendor.IMbmsStreamingService$Stub$Proxy: int requestUpdateStreamingServices(int,java.util.List)>
+<android.telephony.mbms.vendor.IMbmsStreamingService$Stub$Proxy: int startStreaming(int,java.lang.String,android.telephony.mbms.IStreamingServiceCallback)>
+<android.telephony.mbms.vendor.IMbmsStreamingService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.mbms.vendor.IMbmsStreamingService$Stub$Proxy: void dispose(int)>
+<android.telephony.mbms.vendor.IMbmsStreamingService$Stub$Proxy: void stopStreaming(int,java.lang.String)>

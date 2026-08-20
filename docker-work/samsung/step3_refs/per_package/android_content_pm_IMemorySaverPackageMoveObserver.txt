@@ -1,0 +1,10 @@
+# android.content.pm.IMemorySaverPackageMoveObserver [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.content.pm.IMemorySaverPackageMoveObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IMemorySaverPackageMoveObserver$Stub$Proxy: void onCreated(java.lang.String)>
+<android.content.pm.IMemorySaverPackageMoveObserver$Stub$Proxy: void onStatusChanged(int,int,long)>
+<android.content.pm.IMemorySaverPackageMoveObserver$Stub: android.content.pm.IMemorySaverPackageMoveObserver asInterface(android.os.IBinder)>
+<android.content.pm.IMemorySaverPackageMoveObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IMemorySaverPackageMoveObserver$Stub: void <init>()>

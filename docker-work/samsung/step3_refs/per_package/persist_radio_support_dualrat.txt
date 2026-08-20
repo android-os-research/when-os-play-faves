@@ -1,0 +1,8 @@
+# persist.radio.support.dualrat [NEW]
+# Refs: 4
+# JARs: framework, telephony-common
+
+<com.android.internal.telephony.PreferredNetworkUpdater: void <clinit>()>
+<com.android.internal.telephony.PreferredNetworkUpdater: void updateDefaultNetworkMode()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional support_dual_rat()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void support_dual_rat(java.lang.String)>

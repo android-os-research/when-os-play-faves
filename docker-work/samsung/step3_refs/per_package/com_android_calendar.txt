@@ -1,0 +1,12 @@
+# com.android.calendar [NEW]
+# Refs: 9
+# JARs: duraspeed, framework, services
+
+<android.content.pm.PackageSamsungUtils: java.util.ArrayList getCachedLiveIconPackagesLocked(android.content.Context)>
+<com.android.server.content.SyncStorageEngine: void <clinit>()>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: com.samsung.android.knox.accounts.Account fillInExchangeAccountData(int,com.android.server.enterprise.email.AccountMetaData,int)>
+<com.android.server.om.SemSamsungThemeUtils: java.lang.String getReplaceablePackageName(java.lang.String)>
+<com.android.server.om.SemSamsungThemeUtils: java.util.HashMap getChangedPackageNames()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.mediatek.duraspeed.suppress.b: void <clinit>()>
+<com.samsung.android.app.SemDualAppManager: boolean shouldAddUserId(android.net.Uri,int)>

@@ -1,0 +1,9 @@
+# android.content.res.IResourcesManager [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.res.IResourcesManager$Stub$Proxy: boolean dumpResources(java.lang.String,android.os.ParcelFileDescriptor,android.os.RemoteCallback)>
+<android.content.res.IResourcesManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.res.IResourcesManager$Stub: android.content.res.IResourcesManager asInterface(android.os.IBinder)>
+<android.content.res.IResourcesManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.res.IResourcesManager$Stub: void <init>()>

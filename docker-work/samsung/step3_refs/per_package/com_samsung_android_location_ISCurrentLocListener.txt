@@ -1,0 +1,9 @@
+# com.samsung.android.location.ISCurrentLocListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.location.ISCurrentLocListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.location.ISCurrentLocListener$Stub$Proxy: void onCurrentLocation(android.location.Location)>
+<com.samsung.android.location.ISCurrentLocListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.location.ISCurrentLocListener$Stub: com.samsung.android.location.ISCurrentLocListener asInterface(android.os.IBinder)>
+<com.samsung.android.location.ISCurrentLocListener$Stub: void <init>()>

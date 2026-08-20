@@ -1,0 +1,6 @@
+# com.verizon.directedAppSMS [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.AppDirectedSMS: boolean matchesMetaData(android.os.Bundle,java.lang.String)>
+<com.android.internal.telephony.AppDirectedSMS: void startsWithMetaData(android.os.Bundle,java.lang.String,android.content.ComponentName,com.android.internal.telephony.AppDirectedSMS$MatchInfo)>

@@ -1,0 +1,10 @@
+# android.location.IGnssNavigationMessageListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.location.IGnssNavigationMessageListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.IGnssNavigationMessageListener$Stub$Proxy: void onGnssNavigationMessageReceived(android.location.GnssNavigationMessage)>
+<android.location.IGnssNavigationMessageListener$Stub$Proxy: void onStatusChanged(int)>
+<android.location.IGnssNavigationMessageListener$Stub: android.location.IGnssNavigationMessageListener asInterface(android.os.IBinder)>
+<android.location.IGnssNavigationMessageListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.IGnssNavigationMessageListener$Stub: void <init>()>

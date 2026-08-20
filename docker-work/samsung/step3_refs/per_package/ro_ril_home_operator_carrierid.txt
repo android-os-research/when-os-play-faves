@@ -1,0 +1,7 @@
+# ro.ril.home.operator.carrierid [NEW]
+# Refs: 3
+# JARs: framework, telephony-common
+
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: void ril_home_operator_carrierid(java.lang.String)>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional ril_home_operator_carrierid()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void ril_home_operator_carrierid(java.lang.String)>

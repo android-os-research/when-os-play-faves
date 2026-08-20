@@ -1,0 +1,9 @@
+# android.view.contentcapture.IContentCaptureOptionsCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.contentcapture.IContentCaptureOptionsCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.contentcapture.IContentCaptureOptionsCallback$Stub$Proxy: void setContentCaptureOptions(android.content.ContentCaptureOptions)>
+<android.view.contentcapture.IContentCaptureOptionsCallback$Stub: android.view.contentcapture.IContentCaptureOptionsCallback asInterface(android.os.IBinder)>
+<android.view.contentcapture.IContentCaptureOptionsCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.contentcapture.IContentCaptureOptionsCallback$Stub: void <init>()>

@@ -1,0 +1,7 @@
+# android.telephony.ims.ImsService [NEW]
+# Refs: 3
+# JARs: framework, telephony-common
+
+<android.telephony.ims.ImsService: android.os.IBinder onBind(android.content.Intent)>
+<com.android.internal.telephony.ims.ImsResolver$6: java.lang.String getServiceInterface()>
+<com.android.internal.telephony.ims.ImsServiceController: java.lang.String getServiceInterface()>

@@ -1,0 +1,10 @@
+# com.google.android.apps.messaging [NEW]
+# Refs: 6
+# JARs: duraspeed, framework, services, telephony-common
+
+<com.android.internal.telephony.CarrierServicesSmsFilter: boolean filter()>
+<com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: boolean isAMInstalled()>
+<com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: void setDefaultMsgApp()>
+<com.android.server.alarm.AppSyncInfo$PackageList: void loadAppSync3PlusBlockList()>
+<com.android.server.notification.PreferencesHelper: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.notification.RankingHandler,com.android.server.notification.ZenModeHelper,com.android.server.notification.PermissionHelper,com.android.server.notification.NotificationChannelLogger,android.app.AppOpsManager,com.android.server.notification.SysUiStatsEvent$BuilderFactory,boolean)>
+<com.mediatek.duraspeed.suppress.b: void <clinit>()>

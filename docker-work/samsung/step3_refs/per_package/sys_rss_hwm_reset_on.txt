@@ -1,0 +1,5 @@
+# sys.rss_hwm_reset.on [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.stats.pull.StatsPullAtomService: int pullProcessMemoryHighWaterMarkLocked(int,java.util.List)>

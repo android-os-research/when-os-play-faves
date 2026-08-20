@@ -1,0 +1,19 @@
+# com.mediatek.ims.internal.IMtkImsUt [NEW]
+# Refs: 15
+# JARs: mediatek-ims-base
+
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: boolean isSupportCFT()>
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: com.android.ims.internal.IImsUt getUtInterface(int)>
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: int queryCFForServiceClass(int,java.lang.String,int)>
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: int queryCallForwardInTimeSlot(int)>
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: int updateCallBarringForServiceClass(java.lang.String,int,int,java.lang.String[],int)>
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: int updateCallForwardInTimeSlot(int,int,java.lang.String,int,long[])>
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: java.lang.String getUtIMPUFromNetwork()>
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: java.lang.String getXcapConflictErrorMessage()>
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: void processECT(android.os.Message,android.os.Messenger)>
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: void setListener(com.mediatek.ims.internal.IMtkImsUtListener)>
+<com.mediatek.ims.internal.IMtkImsUt$Stub$Proxy: void setupXcapUserAgentString(java.lang.String)>
+<com.mediatek.ims.internal.IMtkImsUt$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.ims.internal.IMtkImsUt$Stub: com.mediatek.ims.internal.IMtkImsUt asInterface(android.os.IBinder)>
+<com.mediatek.ims.internal.IMtkImsUt$Stub: void <init>()>

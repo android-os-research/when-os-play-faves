@@ -1,0 +1,9 @@
+# com.silead.internal.IFingerServiceReceiver [NEW]
+# Refs: 5
+# JARs: com.fingerprints.common.extension
+
+<com.silead.internal.IFingerServiceReceiver$Stub$Proxy: int onTestCmd(int,byte[])>
+<com.silead.internal.IFingerServiceReceiver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.silead.internal.IFingerServiceReceiver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.silead.internal.IFingerServiceReceiver$Stub: com.silead.internal.IFingerServiceReceiver asInterface(android.os.IBinder)>
+<com.silead.internal.IFingerServiceReceiver$Stub: void <init>()>

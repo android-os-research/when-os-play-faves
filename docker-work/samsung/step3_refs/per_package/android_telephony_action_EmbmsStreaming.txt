@@ -1,0 +1,6 @@
+# android.telephony.action.EmbmsStreaming [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.telephony.MbmsStreamingSession: int bindAndInitialize()>
+<android.telephony.mbms.MbmsUtils: android.content.ComponentName getOverrideServiceName(android.content.Context,java.lang.String)>

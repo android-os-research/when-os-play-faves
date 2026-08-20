@@ -1,0 +1,112 @@
+######################################################################
+# Propagation: com.google.android.finsky
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PERM_CHECK, PKG_MGMT, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void setAndroidMarketState(com.samsung.android.knox.ContextInfo,boolean)>
+  Line:     39238
+  Register: v0 := "com.google.android.finsky"
+  Usage:    [invoke] invoke-virtual {p0, p1, v0, p2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setA
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.enterprise.application.ApplicationPolicy.
+
+  CALLEES (what this method invokes):
+      → UserHandle.getUserId()
+      → IPersonaManagerAdapter.isValidKnoxId()
+      → ApplicationPolicy.setApplicationState()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → AuditLog.logAsUser()
+        → PackageManagerAdapter.setApplicationEnabledSetting() [PKG_MGMT]
+        → PackageManagerAdapter.getApplicationEnabledSetting()
+        → ApplicationPolicy.getApplicationStateEnabledAsUser()
+        → ApplicationPolicy.hasKnoxInternalExceptionPermission()
+        → ApplicationPolicy.isActiveAdmin()
+        → ApplicationPolicy.isApplicationInstalled()
+        → ApplicationPolicy.setApplicationPkgNameControlState()
+        → ApplicationPolicy.enforceAppPermission()
+        → ApplicationPolicy.getValidStr()
+        → Exception.printStackTrace()
+          → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+          → IEDMProxy.RedactedAuditLoggerAsUser()
+          → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+          → IPackageManager.getApplicationEnabledSetting()
+          → ContentValues.size()
+          → ContentValues.getAsInteger()
+          → <android.content.ContentValues: void <init>()>
+          → ApplicationPolicy.getContentValues()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.isEmpty()
+          → List.iterator()
+          → Context.getPackageManager()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → EnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+          → PackageManagerAdapter.isApplicationInstalled()
+          → ApplicationPolicy.enforceAppPermissionByContext()
+          → Utils.getCallingOrCurrentUserId()
+          → ApplicationPolicy.setApplicationPkgNameControlState()
+          → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+            → ServiceManager.getService()
+            → IEDMProxy$Stub.asInterface()
+            → ArrayMap.size()
+            → ArrayMap.get()
+            → Number.intValue()
+            → <android.util.ArrayMap: void <init>()>
+            → ContentValues.put()
+            → ContentValues.put()
+            → EdmStorageProvider.getValuesList()
+            → EnterpriseDeviceManager.getService()
+            → IEnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+            → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+            → PackageManagerAdapter.getValidStr()
+            → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+            → ActivityManager.getCurrentUser()
+            → Binder.getCallingPid() [UID_CHECK]
+            → Binder.getCallingUid() [UID_CHECK]
+            → Utils.getPersonaManagerAdapter()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+            → ContentValues.putNull()
+            → TextUtils.isEmpty()
+            → ApplicationPolicy.getControlState()
+            → ApplicationPolicy.removeAppSignature()
+            → ApplicationPolicy.updateAppControlState()
+            → EdmStorageProvider.putValuesForAdminAndField()
+            → AccessController.enforceActiveAdminPermissionByContext()
+              → IBinder.queryLocalInterface()
+              → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → ArrayMap.indexOfKey()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.put()
+              → EdmStorageProviderBase.getValuesList()
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → IPackageManager.getApplicationInfo() [PKG_QUERY]
+              → Exception.getMessage()
+              → IEnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+              → AdapterRegistry.getAdapter()
+              → SemPersonaManager.isKnoxId()
+              → CharSequence.length()
+              → EdmStorageProvider.getIntByAdminAndField()
+              → Map.containsKey()
+              → Map.remove()
+              → AuditLog.logAsUser()
+              → ApplicationPolicy.createAdminMap()
+              → Map.get()
+              → Set.add()
+              → Set.remove()
+              → EdmStorageProviderBase.putValuesForAdminAndField()
+              → AccessController.getService()
+              → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+

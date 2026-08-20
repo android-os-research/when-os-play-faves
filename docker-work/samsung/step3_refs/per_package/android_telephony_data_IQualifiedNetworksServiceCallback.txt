@@ -1,0 +1,10 @@
+# android.telephony.data.IQualifiedNetworksServiceCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.telephony.data.IQualifiedNetworksServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.data.IQualifiedNetworksServiceCallback$Stub$Proxy: void onHandoverEnabledChanged(int)>
+<android.telephony.data.IQualifiedNetworksServiceCallback$Stub$Proxy: void onQualifiedNetworkTypesChanged(int,int[])>
+<android.telephony.data.IQualifiedNetworksServiceCallback$Stub: android.telephony.data.IQualifiedNetworksServiceCallback asInterface(android.os.IBinder)>
+<android.telephony.data.IQualifiedNetworksServiceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.data.IQualifiedNetworksServiceCallback$Stub: void <init>()>

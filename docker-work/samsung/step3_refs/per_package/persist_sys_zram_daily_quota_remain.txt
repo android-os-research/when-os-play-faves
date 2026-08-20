@@ -1,0 +1,6 @@
+# persist.sys.zram.daily_quota_remain [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.NandswapManager$NandswapClient: int getQuotaRemainingProp(int)>
+<com.android.server.NandswapManager: void initNandswapClient()>

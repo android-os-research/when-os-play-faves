@@ -1,0 +1,387 @@
+######################################################################
+# Propagation: com.samsung.android.scloud
+######################################################################
+
+JARs:                 framework, services
+Classes:              5
+Occurrences:          9
+Usage types:          invoke
+Enforcement patterns: early_return, permission_grant, string_compare, system_property_read
+Security tags:        PERM_CHECK, PERM_FLAGS, PERM_GRANT, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     323
+  Register: v12 := "com.samsung.android.scloud"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants$1
+  Method:   <android.content.om.SamsungThemeConstants$1: void <init>()>
+  Line:     75
+  Register: v2 := "com.samsung.android.scloud"
+  Usage:    [invoke] invoke-virtual {p0, v0, v2}, Landroid/content/om/SamsungThemeConstants$1;->put(Ljava/lang/Object;Lja
+  Patterns: early_return
+  Flow:     [invoke] android.content.om.SamsungThemeConstants$1.put()
+
+  CALLERS (who invokes this method):
+      ← <android.content.om.SamsungThemeConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → SamsungThemeConstants$1.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.MaintenanceModeUtils
+  Method:   <com.android.internal.app.MaintenanceModeUtils: boolean isCloudBackupSupported(android.content.Context)>
+  Line:     704
+  Register: v0 := "com.samsung.android.scloud"
+  Usage:    [invoke] invoke-static {p0, v0}, Lcom/android/internal/app/MaintenanceModeUtils;->isPackageInstalled(Landroid
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.android.internal.app.MaintenanceModeUtils.isPackageInsta → [other] move-result v0 → [branch] if-nez v0, :co
+
+  CALLERS (who invokes this method):
+      ← MaintenanceModeUtils.checkWhetherCloudBackupIsSupported()
+        ← <com.android.internal.app.MaintenanceModeBackupActivity: voi
+        ← <com.android.internal.app.MaintenanceModeBackupActivity: voi
+        ← <com.android.internal.app.MaintenanceModeIntroActivity: void
+        ← <com.android.internal.app.MaintenanceModeIntroActivity: void
+          ← MaintenanceModeBackupActivity$$ExternalSyntheticLambda3.run()
+          ← MaintenanceModeBackupActivity$$ExternalSyntheticLambda4.run()
+          ← MaintenanceModeIntroActivity$$ExternalSyntheticLambda1.run()
+          ← MaintenanceModeIntroActivity$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → MaintenanceModeUtils.isPackageInstalled()
+      → MaintenanceModeUtils.query()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → Exception.toString()
+        → ContentResolver.query()
+        → Context.getContentResolver()
+        → Cursor.moveToFirst()
+        → Cursor.getString()
+        → Cursor.close()
+        → Uri.parse()
+        → Throwable.addSuppressed()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+            → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+              → <java.lang.NullPointerException: void <init>(java.lang.Strin
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.MaintenanceModeUtils
+  Method:   <com.android.internal.app.MaintenanceModeUtils: void startActivityToBackup(android.content.Context,java.lang.String)>
+  Line:     1426
+  Register: v1 := "com.samsung.android.scloud"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.internal.app.MaintenanceModeBackupActivity: voi
+      ← MaintenanceModeUtils.startCloudActivityAsBackupStatus()
+        ← MaintenanceModeBackupActivity$$ExternalSyntheticLambda1.onItemClick()
+        ← <com.android.internal.app.MaintenanceModeIntroActivity: void
+          ← MaintenanceModeIntroActivity$$ExternalSyntheticLambda6.run()
+
+  CALLEES (what this method invokes):
+      → Context.startActivity()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → Intent.setFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Exception.toString()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.continuity.AbstractPreconditionObserver
+  Method:   <com.samsung.android.server.continuity.AbstractPreconditionObserver: void registerPackageObserver()>
+  Line:     1130
+  Register: v2 := "com.samsung.android.scloud"
+  Usage:    [invoke] invoke-virtual {v0, v2, v3}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [invoke] android.content.IntentFilter.addDataSchemeS
+
+  CALLERS (who invokes this method):
+      ← AbstractPreconditionObserver.start()
+        ← McfDeviceSyncManager.start()
+          ← McfDeviceSyncManager.handleMessageWhat()
+            ← <com.samsung.android.server.continuity.McfDeviceSyncManager:
+              ← McfDeviceSyncManager$1.handleMessage()
+
+  CALLEES (what this method invokes):
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → AbstractPreconditionObserver.registerReceiver()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.continuity.AbstractPreconditionObserver
+  Method:   <com.samsung.android.server.continuity.AbstractPreconditionObserver: void setInstalledFlag(java.lang.String)>
+  Line:     1374
+  Register: v0 := "com.samsung.android.scloud"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.continuity.AbstractPreconditionO
+        ← AbstractPreconditionObserver$2.handlePackageAdded()
+        ← AbstractPreconditionObserver$2.handlePackageReplaced()
+          ← AbstractPreconditionObserver$2.onReceive()
+
+  CALLEES (what this method invokes):
+      → AbstractPreconditionObserver.setFlag()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.continuity.AbstractPreconditionObserver
+  Method:   <com.samsung.android.server.continuity.AbstractPreconditionObserver: void start(int,com.samsung.android.server.continuity.AbstractPreconditionObserver$StateChangedListener)>
+  Line:     1437
+  Register: p2 := "com.samsung.android.scloud"
+  Usage:    [invoke] invoke-static {p1, p2}, Lcom/samsung/android/server/continuity/common/Utils;->isPackageInstalled(Lan
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.continuity.common.Utils.isPackage
+
+  CALLERS (who invokes this method):
+      ← McfDeviceSyncManager.start()
+        ← McfDeviceSyncManager.handleMessageWhat()
+          ← <com.samsung.android.server.continuity.McfDeviceSyncManager:
+            ← McfDeviceSyncManager$1.handleMessage()
+
+  CALLEES (what this method invokes):
+      → AbstractPreconditionObserver.getSamsungAccount()
+      → AbstractPreconditionObserver.isEnableSettings()
+      → AbstractPreconditionObserver.addOnAccountsUpdatedListener()
+      → AbstractPreconditionObserver.initContinuitySetting()
+      → AbstractPreconditionObserver.registerPackageObserver()
+      → AbstractPreconditionObserver.registerSettingsObserver()
+      → AbstractPreconditionObserver.setFlag()
+      → AbstractPreconditionObserver.updateSettings()
+      → Utils.isPackageInstalled()
+        → Account.toString()
+        → AbstractPreconditionObserver.getAccountsByType()
+        → AbstractPreconditionObserver.isAutoSwitchOn()
+        → AbstractPreconditionObserver.isEnableSettings()
+        → AbstractPreconditionObserver.isSupported()
+        → AbstractPreconditionObserver.isSupportedContinuity()
+        → AccountManager.get()
+        → AccountManager.addOnAccountsUpdatedListener()
+        → Context.semRegisterReceiverAsUser()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → <android.os.UserHandle: void <init>(int)>
+        → IntentFilter.addDataScheme()
+        → IntentFilter.addDataSchemeSpecificPart()
+        → AbstractPreconditionObserver.registerReceiver()
+        → AbstractPreconditionObserver.registerContinuityObserver()
+        → AbstractPreconditionObserver.registerMultiControlObserver()
+        → AbstractPreconditionObserver.registerVideoCallContinuityObserver()
+        → AutoSwitchSettingHelper.start()
+        → AbstractPreconditionObserver.unsetFlag()
+        → Context.getPackageManager()
+        → PackageManager.getInstalledApplications()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+          → AutoSwitchSettingHelper.isAutoSwitchModeEnabled()
+          → BluetoothAdapter.getDefaultAdapter()
+          → BluetoothAdapter.semIsBleEnabled()
+          → AutoSwitchSettingHelper.checkAutoSwitchEnabled()
+          → AutoSwitchSettingHelper.registerBtStateReceiver()
+          → AutoSwitchSettingHelper.registerObserver()
+          → AutoSwitchSettingHelper.setStandAloneBleMode()
+            → <com.samsung.android.server.continuity.autoswitch.AutoSwitch
+            → AutoSwitchSettingHelper.unregisterBtStateReceiver()
+            → ExecutorUtil.executeOnIO()
+            → Context.registerReceiver()
+            → Context.registerReceiver()
+            → BluetoothAdapter.semSetStandAloneBleMode()
+            → SystemProperties.get()
+            → SecurityException.getMessage()
+              → Context.unregisterReceiver()
+              → ExecutorUtil.wrapRunnable()
+              → ThreadPoolExecutor.execute()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.continuity.AbstractPreconditionObserver
+  Method:   <com.samsung.android.server.continuity.AbstractPreconditionObserver: void unsetInstalledFlag(java.lang.String)>
+  Line:     1630
+  Register: v0 := "com.samsung.android.scloud"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.continuity.AbstractPreconditionO
+        ← AbstractPreconditionObserver$2.handlePackageRemoved()
+          ← AbstractPreconditionObserver$2.onReceive()
+
+  CALLEES (what this method invokes):
+      → AbstractPreconditionObserver.unsetFlag()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.permission.DefaultPermissionGrantPolicy
+  Method:   <com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantPermissionsToSysComponentsAndPrivApps(com.android.server.pm.permission.DefaultPermissionGrantPolicy$DelayingPackageManagerCache,int)>
+  Line:     12000
+  Register: v1 := "com.samsung.android.scloud"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return, permission_grant, system_property_read
+  Flow:     [invoke] java.lang.String.equals() → [other] move-object/from16 v1, p1 → [other] move-object/from16 v1, p1 → [other] mov
+
+  CALLERS (who invokes this method):
+      ← DefaultPermissionGrantPolicy.grantDefaultPermissions() [PERM_GRANT]
+        ← LegacyPermissionManagerService$Internal.grantDefaultPermissions() [PERM_GRANT]
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getInstalledPackagesAsUser()
+      → PermissionInfo.isRuntime()
+      → SystemProperties.getInt()
+      → UserHandle.of()
+      → ArrayUtils.isEmpty()
+      → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.getPermissionInfo()
+      → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.isGranted()
+      → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.addPackageInfo()
+      → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.updatePermissionFlags() [PERM_FLAGS]
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.getSystemPackageInfo()
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.isSysComponentOrPersistentPlatformSignedPrivApp()
+      → DefaultPermissionGrantPolicy.doesPackageSupportRuntimePermissions()
+      → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+      → DefaultPermissionGrantPolicy.grantRuntimePermissionsForSystemPackage() [PERM_GRANT]
+      → Collections.singleton()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → ArrayMap.indexOfKey()
+        → ArrayMap.put()
+        → ArrayMap.valueAt()
+        → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionInfo()
+        → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+        → DefaultPermissionGrantPolicy$DelayingPackageManagerCache$PermissionState.initGranted()
+        → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.getPermissionState()
+        → DefaultPermissionGrantPolicy$DelayingPackageManagerCache$PermissionState.initFlags()
+        → ApplicationInfo.isSystemApp()
+        → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPackageInfo() [PKG_QUERY]
+        → ApplicationInfo.isPrivilegedApp()
+        → PackageManagerInternal.isPlatformSigned()
+        → PackageManagerInternal.getDisabledSystemPackageName()
+        → UserHandle.getAppId()
+        → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+        → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+        → DefaultPermissionGrantPolicy.grantRuntimePermissionsForSystemPackage() [PERM_GRANT]
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+          → UserHandle.getIdentifier()
+          → UserHandle.getUid()
+          → <android.util.ArrayMap: void <init>()>
+          → SparseArray.indexOfKey()
+          → SparseArray.valueAt()
+          → SparseArray.put()
+          → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionFlags()
+          → Context.getSystemService()
+          → ApplicationInfo.isUpdatedSystemApp()
+          → Bundle.getBoolean()
+          → PermissionManager$SplitPermissionInfo.getTargetSdk()
+          → PermissionManager$SplitPermissionInfo.getSplitPermission()
+          → PermissionManager$SplitPermissionInfo.getNewPermissions()
+          → PermissionManager.getSplitPermissions()
+          → ArraySet.addAll()
+          → ArraySet.contains()
+          → <android.util.ArraySet: void <init>(java.util.Collection)>
+          → ArrayUtils.contains()
+          → ArrayUtils.filterNotNull()
+          → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isGranted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isPermissionRestricted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getBackgroundPermission()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.grantPermission() [PERM_GRANT]
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.updatePermissionFlags() [PERM_FLAGS]
+          → DefaultPermissionGrantPolicy.isFixedOrUserSet()
+          → List.size()
+          → List.get()
+          → Map.get()
+          → Map.put()
+          → Set.contains()
+          → <android.util.ArraySet: void <init>()>
+          → Set.add()
+          → Set.isEmpty()
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → DefaultPermissionGrantPolicy$DelayingPackageManagerCache.createContextAsUser()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ContainerHelpers.binarySearch()
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+            → SplitPermissionInfoParcelable.getTargetSdk()
+            → SplitPermissionInfoParcelable.getSplitPermission()
+            → SplitPermissionInfoParcelable.getNewPermissions()
+            → ActivityThread.getPermissionManager()
+            → IPermissionManager.getSplitPermissions()
+            → PermissionManager.splitPermissionInfoListToNonParcelableList()
+            → Collections.emptyList()
+            → ArraySet.add()
+            → ArraySet.ensureCapacity()
+            → Collection.size()
+            → Collection.iterator()
+            → ArraySet.indexOf()
+            → PermissionInfo.isRestricted()
+            → <android.util.ArraySet: void <init>(int,boolean)>
+              → Context.createContextAsUser()
+              → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+              → <android.permission.PermissionManager$SplitPermissionInfo: v
+              → <java.util.ArrayList: void <init>(int)>
+              → List.add()
+              → ArraySet.indexOf()
+              → ArraySet.indexOfNull()
+              → ArraySet.allocArrays()
+              → ArraySet.freeArrays()
+

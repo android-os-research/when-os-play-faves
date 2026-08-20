@@ -1,0 +1,32 @@
+# android.view.IWindow [NEW]
+# Refs: 28
+# JARs: framework, services
+
+<android.view.IWindow$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IWindow$Stub$Proxy: void closeSystemDialogs(java.lang.String)>
+<android.view.IWindow$Stub$Proxy: void dispatchAppVisibility(boolean)>
+<android.view.IWindow$Stub$Proxy: void dispatchDragEvent(android.view.DragEvent)>
+<android.view.IWindow$Stub$Proxy: void dispatchFinishMovingTask()>
+<android.view.IWindow$Stub$Proxy: void dispatchGetNewSurface()>
+<android.view.IWindow$Stub$Proxy: void dispatchLetterboxDirectionChanged(int)>
+<android.view.IWindow$Stub$Proxy: void dispatchSPenGestureEvent(android.view.InputEvent[])>
+<android.view.IWindow$Stub$Proxy: void dispatchSmartClipRemoteRequest(com.samsung.android.content.smartclip.SmartClipRemoteRequestInfo)>
+<android.view.IWindow$Stub$Proxy: void dispatchWallpaperCommand(java.lang.String,int,int,int,android.os.Bundle,boolean)>
+<android.view.IWindow$Stub$Proxy: void dispatchWallpaperOffsets(float,float,float,float,float,boolean)>
+<android.view.IWindow$Stub$Proxy: void dispatchWindowShown()>
+<android.view.IWindow$Stub$Proxy: void executeCommand(java.lang.String,java.lang.String,android.os.ParcelFileDescriptor)>
+<android.view.IWindow$Stub$Proxy: void freeformResizeGuideViewChanged(boolean)>
+<android.view.IWindow$Stub$Proxy: void hideInsets(int,boolean)>
+<android.view.IWindow$Stub$Proxy: void insetsControlChanged(android.view.InsetsState,android.view.InsetsSourceControl[])>
+<android.view.IWindow$Stub$Proxy: void moved(int,int)>
+<android.view.IWindow$Stub$Proxy: void requestAppKeyboardShortcuts(com.android.internal.os.IResultReceiver,int)>
+<android.view.IWindow$Stub$Proxy: void requestScrollCapture(android.view.IScrollCaptureResponseListener)>
+<android.view.IWindow$Stub$Proxy: void resized(android.window.ClientWindowFrames,boolean,android.util.MergedConfiguration,android.view.InsetsState,boolean,boolean,int,int,int)>
+<android.view.IWindow$Stub$Proxy: void showInsets(int,boolean)>
+<android.view.IWindow$Stub$Proxy: void updatePointerIcon(float,float)>
+<android.view.IWindow$Stub$Proxy: void windowFocusChanged(boolean,boolean)>
+<android.view.IWindow$Stub$Proxy: void windowFocusInTaskChanged(boolean)>
+<android.view.IWindow$Stub: android.view.IWindow asInterface(android.os.IBinder)>
+<android.view.IWindow$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IWindow$Stub: void <init>()>
+<com.android.server.wm.WindowManagerService: boolean viewServerWindowCommand(java.net.Socket,java.lang.String,java.lang.String)>

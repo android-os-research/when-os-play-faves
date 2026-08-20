@@ -1,0 +1,6 @@
+# com.samsung.android.cocktailbar.intent.action.EDGE_APP_START [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.cocktailbar.CocktailBarManagerServiceContainer: void onUnlockUserImpl(int)>
+<com.android.server.cocktailbar.CocktailBarManagerServiceImpl$EdgeStartHandler: void handleMessage(android.os.Message)>

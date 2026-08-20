@@ -1,0 +1,9 @@
+# android.app.ILocalWallpaperColorConsumer [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.ILocalWallpaperColorConsumer$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.ILocalWallpaperColorConsumer$Stub$Proxy: void onColorsChanged(android.graphics.RectF,android.app.WallpaperColors)>
+<android.app.ILocalWallpaperColorConsumer$Stub: android.app.ILocalWallpaperColorConsumer asInterface(android.os.IBinder)>
+<android.app.ILocalWallpaperColorConsumer$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.ILocalWallpaperColorConsumer$Stub: void <init>()>

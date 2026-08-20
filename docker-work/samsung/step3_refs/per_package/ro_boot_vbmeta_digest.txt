@@ -1,0 +1,6 @@
+# ro.boot.vbmeta.digest [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.BinaryTransparencyService: void getVBMetaDigestInformation()>
+<com.android.server.locksettings.RebootEscrowManager$Injector: java.lang.String getVbmetaDigest(boolean)>

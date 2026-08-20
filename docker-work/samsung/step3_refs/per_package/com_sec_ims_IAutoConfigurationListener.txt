@@ -1,0 +1,12 @@
+# com.sec.ims.IAutoConfigurationListener [NEW]
+# Refs: 8
+# JARs: imsmanager
+
+<com.sec.ims.IAutoConfigurationListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.IAutoConfigurationListener$Stub$Proxy: void onAutoConfigurationCompleted(boolean)>
+<com.sec.ims.IAutoConfigurationListener$Stub$Proxy: void onIidTokenNeeded()>
+<com.sec.ims.IAutoConfigurationListener$Stub$Proxy: void onMsisdnNumberNeeded()>
+<com.sec.ims.IAutoConfigurationListener$Stub$Proxy: void onVerificationCodeNeeded()>
+<com.sec.ims.IAutoConfigurationListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.IAutoConfigurationListener$Stub: com.sec.ims.IAutoConfigurationListener asInterface(android.os.IBinder)>
+<com.sec.ims.IAutoConfigurationListener$Stub: void <init>()>

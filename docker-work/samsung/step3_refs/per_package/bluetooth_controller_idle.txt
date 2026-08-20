@@ -1,0 +1,7 @@
+# bluetooth.controller.idle [NEW]
+# Refs: 3
+# JARs: framework
+
+<com.android.internal.os.BluetoothPowerCalculator: void <init>(com.android.internal.os.PowerProfile)>
+<com.android.internal.os.PowerProfile: void dumpDebug(android.util.proto.ProtoOutputStream)>
+<com.android.internal.os.PowerProfile: void readPowerValuesFromXml(android.content.Context,int)>

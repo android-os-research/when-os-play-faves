@@ -1,0 +1,10 @@
+# com.sec.rll.IExtControlDeviceService [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.sec.rll.IExtControlDeviceService$Stub$Proxy: int getStatus(int)>
+<com.sec.rll.IExtControlDeviceService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.rll.IExtControlDeviceService$Stub$Proxy: void setStatus(int,int)>
+<com.sec.rll.IExtControlDeviceService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.rll.IExtControlDeviceService$Stub: com.sec.rll.IExtControlDeviceService asInterface(android.os.IBinder)>
+<com.sec.rll.IExtControlDeviceService$Stub: void <init>()>

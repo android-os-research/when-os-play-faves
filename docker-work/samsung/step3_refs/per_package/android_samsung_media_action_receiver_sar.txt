@@ -1,0 +1,11 @@
+# android.samsung.media.action.receiver_sar [NEW]
+# Refs: 7
+# JARs: motionrecognitionservice, semwifi-service, services, telephony-common
+
+<com.android.internal.telephony.SemDeviceStateMonitor$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.SemDeviceStateMonitor: void <init>(com.android.internal.telephony.Phone)>
+<com.android.server.audio.AudioDeviceBroker: void checkRCVStateForSARTest()>
+<com.samsung.android.gesture.MotionRecognitionSAR$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.gesture.MotionRecognitionSAR: void setupIntentFilter()>
+<com.samsung.android.server.wifi.backoff.SemSarManager$BaseHeadSarManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.backoff.SemSarManager$BaseHeadSarManager: void <init>(com.samsung.android.server.wifi.backoff.SemSarManager,com.samsung.android.server.wifi.backoff.SemSarManager$Observable)>

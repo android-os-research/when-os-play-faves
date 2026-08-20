@@ -1,0 +1,6 @@
+# sec.app.policy.UPDATE.HmtThridPartyDevicePolicy [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.vr.XrManagerService$2: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.vr.XrManagerService: void onBootPhase(int)>

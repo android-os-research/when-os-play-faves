@@ -1,0 +1,10 @@
+# com.samsung.android.multicontrol.IInputFilterInstallListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.multicontrol.IInputFilterInstallListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.multicontrol.IInputFilterInstallListener$Stub$Proxy: void onInstalled()>
+<com.samsung.android.multicontrol.IInputFilterInstallListener$Stub$Proxy: void onUninstalled()>
+<com.samsung.android.multicontrol.IInputFilterInstallListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.multicontrol.IInputFilterInstallListener$Stub: com.samsung.android.multicontrol.IInputFilterInstallListener asInterface(android.os.IBinder)>
+<com.samsung.android.multicontrol.IInputFilterInstallListener$Stub: void <init>()>

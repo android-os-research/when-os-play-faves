@@ -1,0 +1,9 @@
+# ro.product.vendor.device [NEW]
+# Refs: 5
+# JARs: framework, hqm, semwifi-service, services
+
+<com.android.internal.os.PowerProfile: double getBatteryTypicalCapacity()>
+<com.android.server.power.PowerManagerUtil: void <clinit>()>
+<com.samsung.accessory.manager.authentication.cover.CoverAuthenticator: void initialize()>
+<com.samsung.android.server.wifi.SemWifiInjector: void <init>(android.content.Context)>
+<d.a: void <init>()>

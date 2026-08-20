@@ -1,0 +1,5 @@
+# ro.zygote.disable_gl_preload [NEW]
+# Refs: 1
+# JARs: framework
+
+<com.android.internal.os.ZygoteInit: void maybePreloadGraphicsDriver()>

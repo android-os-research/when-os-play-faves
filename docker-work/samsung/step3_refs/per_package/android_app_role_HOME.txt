@@ -1,0 +1,15 @@
+# android.app.role.HOME [NEW]
+# Refs: 12
+# JARs: services
+
+<com.android.server.desktopmode.StandaloneModeChanger: java.lang.String getDefaultHomePackageName(android.app.role.RoleManager)>
+<com.android.server.desktopmode.StandaloneModeChanger: void storeDefaultHomePackageName(boolean,java.util.function.Consumer)>
+<com.android.server.pm.DefaultAppProvider: boolean setDefaultHome(java.lang.String,int,java.util.concurrent.Executor,java.util.function.Consumer)>
+<com.android.server.pm.DefaultAppProvider: java.lang.String getDefaultHome(int)>
+<com.android.server.pm.PackageManagerShellCommand: int runSetHomeActivity()>
+<com.android.server.pm.ShortcutService$3: void onRoleHoldersChanged(java.lang.String,android.os.UserHandle)>
+<com.android.server.pm.ShortcutService: java.lang.String injectGetHomeRoleHolderAsUser(int)>
+<com.android.server.policy.role.RoleServicePlatformHelperImpl: java.util.Map readFromLegacySettings(int)>
+<com.android.server.slice.SliceManagerService$RoleObserver: void onRoleHoldersChanged(java.lang.String,android.os.UserHandle)>
+<com.android.server.wm.ActivityTaskManagerServiceExt: java.lang.String getDefaultHomePackageName()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void lambda$stopProKioskModeInternal$137()>

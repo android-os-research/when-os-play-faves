@@ -1,0 +1,8 @@
+# com.samsung.android.bio.face.intent.action.FACE_ADDED [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.biometrics.sensors.face.aidl.SemFaceServiceExImpl: void lambda$doTemplateSyncForUser$4(android.hardware.face.Face,int)>
+<com.android.server.biometrics.sensors.face.aidl.SemFaceServiceExImpl: void onEnrollResult(int,int)>
+<com.android.server.biometrics.sensors.face.hidl.Face10$ProviderExtensionImpl: void lambda$doTemplateSyncForUser$4(android.hardware.face.Face,int)>
+<com.android.server.biometrics.sensors.face.hidl.Face10$ProviderExtensionImpl: void onEnrollResultExt(java.lang.String,int,int)>

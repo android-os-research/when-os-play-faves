@@ -1,0 +1,187 @@
+######################################################################
+# Propagation: com.google.android.gsf
+######################################################################
+
+JARs:                 duraspeed, services
+Classes:              5
+Occurrences:          5
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PERM_CHECK, PKG_MGMT, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.collector.q
+  Method:   <com.mediatek.duraspeed.collector.q: void <clinit>()>
+  Line:     83
+  Register: v13 := "com.google.android.gsf"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.suppress.SuppressAction
+  Method:   <com.mediatek.duraspeed.suppress.SuppressAction: java.lang.String onReadyToStartComponent(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String)>
+  Line:     2739
+  Register: v0 := "com.google.android.gsf"
+  Usage:    [invoke] invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_2e → [other] sget-object v0, Lco
+
+  CALLEES (what this method invokes):
+      → SuppressAction.a()
+      → b.f()
+      → b.d()
+      → b.h()
+      → c.t()
+      → c.f()
+        → b.a()
+        → List.contains()
+        → List.remove()
+        → SystemProperties.get()
+        → Context.getContentResolver()
+        → Settings$Secure.getString()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: void <clinit>()>
+  Line:     237
+  Register: v1 := "com.google.android.gsf"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$3
+  Method:   <com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+  Line:     72
+  Register: v2 := "com.google.android.gsf"
+  Usage:    [invoke] invoke-virtual {p0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void setAndroidMarketState(com.samsung.android.knox.ContextInfo,boolean)>
+  Line:     39297
+  Register: v0 := "com.google.android.gsf"
+  Usage:    [invoke] invoke-virtual {p0, p1, v0, p2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setA
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.enterprise.application.ApplicationPolicy.
+
+  CALLEES (what this method invokes):
+      → UserHandle.getUserId()
+      → IPersonaManagerAdapter.isValidKnoxId()
+      → ApplicationPolicy.setApplicationState()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → AuditLog.logAsUser()
+        → PackageManagerAdapter.setApplicationEnabledSetting() [PKG_MGMT]
+        → PackageManagerAdapter.getApplicationEnabledSetting()
+        → ApplicationPolicy.getApplicationStateEnabledAsUser()
+        → ApplicationPolicy.hasKnoxInternalExceptionPermission()
+        → ApplicationPolicy.isActiveAdmin()
+        → ApplicationPolicy.isApplicationInstalled()
+        → ApplicationPolicy.setApplicationPkgNameControlState()
+        → ApplicationPolicy.enforceAppPermission()
+        → ApplicationPolicy.getValidStr()
+        → Exception.printStackTrace()
+          → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+          → IEDMProxy.RedactedAuditLoggerAsUser()
+          → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+          → IPackageManager.getApplicationEnabledSetting()
+          → ContentValues.size()
+          → ContentValues.getAsInteger()
+          → <android.content.ContentValues: void <init>()>
+          → ApplicationPolicy.getContentValues()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.isEmpty()
+          → List.iterator()
+          → Context.getPackageManager()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → EnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+          → PackageManagerAdapter.isApplicationInstalled()
+          → ApplicationPolicy.enforceAppPermissionByContext()
+          → Utils.getCallingOrCurrentUserId()
+          → ApplicationPolicy.setApplicationPkgNameControlState()
+          → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+            → ServiceManager.getService()
+            → IEDMProxy$Stub.asInterface()
+            → ArrayMap.size()
+            → ArrayMap.get()
+            → Number.intValue()
+            → <android.util.ArrayMap: void <init>()>
+            → ContentValues.put()
+            → ContentValues.put()
+            → EdmStorageProvider.getValuesList()
+            → EnterpriseDeviceManager.getService()
+            → IEnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+            → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+            → PackageManagerAdapter.getValidStr()
+            → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+            → ActivityManager.getCurrentUser()
+            → Binder.getCallingPid() [UID_CHECK]
+            → Binder.getCallingUid() [UID_CHECK]
+            → Utils.getPersonaManagerAdapter()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+            → ContentValues.putNull()
+            → TextUtils.isEmpty()
+            → ApplicationPolicy.getControlState()
+            → ApplicationPolicy.removeAppSignature()
+            → ApplicationPolicy.updateAppControlState()
+            → EdmStorageProvider.putValuesForAdminAndField()
+            → AccessController.enforceActiveAdminPermissionByContext()
+              → IBinder.queryLocalInterface()
+              → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → ArrayMap.indexOfKey()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.put()
+              → EdmStorageProviderBase.getValuesList()
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → IPackageManager.getApplicationInfo() [PKG_QUERY]
+              → Exception.getMessage()
+              → IEnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+              → AdapterRegistry.getAdapter()
+              → SemPersonaManager.isKnoxId()
+              → CharSequence.length()
+              → EdmStorageProvider.getIntByAdminAndField()
+              → Map.containsKey()
+              → Map.remove()
+              → AuditLog.logAsUser()
+              → ApplicationPolicy.createAdminMap()
+              → Map.get()
+              → Set.add()
+              → Set.remove()
+              → EdmStorageProviderBase.putValuesForAdminAndField()
+              → AccessController.getService()
+              → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+

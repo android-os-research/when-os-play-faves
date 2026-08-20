@@ -1,0 +1,19 @@
+# android.net.INetworkManagementEventObserver [NEW]
+# Refs: 15
+# JARs: framework
+
+<android.net.INetworkManagementEventObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.INetworkManagementEventObserver$Stub$Proxy: void addressRemoved(java.lang.String,android.net.LinkAddress)>
+<android.net.INetworkManagementEventObserver$Stub$Proxy: void addressUpdated(java.lang.String,android.net.LinkAddress)>
+<android.net.INetworkManagementEventObserver$Stub$Proxy: void interfaceAdded(java.lang.String)>
+<android.net.INetworkManagementEventObserver$Stub$Proxy: void interfaceClassDataActivityChanged(int,boolean,long,int)>
+<android.net.INetworkManagementEventObserver$Stub$Proxy: void interfaceDnsServerInfo(java.lang.String,long,java.lang.String[])>
+<android.net.INetworkManagementEventObserver$Stub$Proxy: void interfaceLinkStateChanged(java.lang.String,boolean)>
+<android.net.INetworkManagementEventObserver$Stub$Proxy: void interfaceRemoved(java.lang.String)>
+<android.net.INetworkManagementEventObserver$Stub$Proxy: void interfaceStatusChanged(java.lang.String,boolean)>
+<android.net.INetworkManagementEventObserver$Stub$Proxy: void limitReached(java.lang.String,java.lang.String)>
+<android.net.INetworkManagementEventObserver$Stub$Proxy: void routeRemoved(android.net.RouteInfo)>
+<android.net.INetworkManagementEventObserver$Stub$Proxy: void routeUpdated(android.net.RouteInfo)>
+<android.net.INetworkManagementEventObserver$Stub: android.net.INetworkManagementEventObserver asInterface(android.os.IBinder)>
+<android.net.INetworkManagementEventObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.INetworkManagementEventObserver$Stub: void <init>()>

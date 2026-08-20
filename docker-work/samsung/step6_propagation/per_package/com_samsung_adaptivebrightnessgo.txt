@@ -1,0 +1,231 @@
+######################################################################
+# Propagation: com.samsung.adaptivebrightnessgo
+######################################################################
+
+JARs:                 framework, motionrecognitionservice, services
+Classes:              6
+Occurrences:          7
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.hardware.CameraLightSensorManager$ResponseHandler
+  Method:   <android.hardware.CameraLightSensorManager$ResponseHandler: void handleMessage(android.os.Message)>
+  Line:     932
+  Register: v3 := "com.samsung.adaptivebrightnessgo"
+  Usage:    [invoke] invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.bindServiceAsUser()
+      → Intent.getComponent()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → CameraLightSensorManager$ResponseHandler.sendEmptyMessage()
+      → CameraLightSensorManager$ResponseHandler.sendEmptyMessageDelayed()
+      → CameraLightSensorManager$ResponseHandler.removeMessages()
+      → <android.hardware.CameraLightSensorManager: android.content.
+      → <android.hardware.CameraLightSensorManager: android.content.
+      → <android.hardware.CameraLightSensorManager: android.hardware
+      → <android.hardware.CameraLightSensorManager: android.hardware
+      → <android.hardware.CameraLightSensorManager: android.os.Messe
+      → <android.hardware.CameraLightSensorManager: android.os.Messe
+      → <android.hardware.CameraLightSensorManager: boolean -$$Nest$
+      → <android.hardware.CameraLightSensorManager: boolean -$$Nest$
+      → <android.hardware.CameraLightSensorManager: com.samsung.andr
+      → <android.hardware.CameraLightSensorManager: java.lang.Object
+      → <android.hardware.CameraLightSensorManager: java.util.List -
+      → <android.hardware.CameraLightSensorManager: short -$$Nest$fg
+      → <android.hardware.CameraLightSensorManager: void -$$Nest$fpu
+      → <android.hardware.CameraLightSensorManager: void -$$Nest$fpu
+      → <android.hardware.SensorEvent: void <init>(int)>
+      → SensorEventListener.onSensorChanged()
+      → Bundle.getFloatArray()
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putShort()
+      → Handler.handleMessage()
+      → Message.getData()
+      → Message.obtain()
+      → Message.setData()
+      → Messenger.send()
+      → SystemClock.elapsedRealtimeNanos()
+      → SemMotionRecognitionManager.getEvToLux()
+      → Exception.printStackTrace()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.size()
+      → List.iterator()
+        → Message.obtain()
+        → IMessenger.send()
+        → IMotionRecognitionService.getEvToLux()
+          → <android.os.Message: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.hardware.CameraLightSensorManager
+  Method:   <android.hardware.CameraLightSensorManager: void initAllowListListenerList()>
+  Line:     384
+  Register: v1 := "com.samsung.adaptivebrightnessgo"
+  Usage:    [invoke] invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.List.add() → [invoke] java.util.List.add()
+
+  CALLERS (who invokes this method):
+      ← <android.hardware.CameraLightSensorManager: void <init>(andr
+        ← SystemSensorManager.requestCameraLightSensor()
+          ← SystemSensorManager.registerListenerImpl()
+          ← SystemSensorManager.unregisterListenerImpl()
+            ← SystemSensorManager.cleanupSensorConnection()
+              ← SystemSensorManager.updateDynamicSensorList()
+
+  CALLEES (what this method invokes):
+      → List.add()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.hardware.CameraLightSensorManager
+  Method:   <android.hardware.CameraLightSensorManager: void initLocked(android.os.Looper)>
+  Line:     633
+  Register: v3 := "com.samsung.adaptivebrightnessgo"
+  Usage:    [invoke] invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] iget-object v3, p0, Landroid/hardware/CameraLightSensorManag →
+
+  CALLERS (who invokes this method):
+      ← CameraLightSensorManager.registerCameraLightSensor()
+        ← SystemSensorManager.requestCameraLightSensor()
+          ← SystemSensorManager.registerListenerImpl()
+          ← SystemSensorManager.unregisterListenerImpl()
+            ← SystemSensorManager.cleanupSensorConnection()
+              ← SystemSensorManager.updateDynamicSensorList()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.bindServiceAsUser()
+      → Context.getSystemService()
+      → Intent.getComponent()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → <android.hardware.CameraLightSensorManager$1: void <init>(an
+      → <android.hardware.CameraLightSensorManager$ResponseHandler: 
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String,int)
+      → HandlerThread.start()
+      → <android.os.Messenger: void <init>(android.os.Handler)>
+      → Exception.printStackTrace()
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → Handler.getIMessenger()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      motionrecognitionservice
+  Class:    com.samsung.android.gesture.AdaptiveBrightnessController$2
+  Method:   <com.samsung.android.gesture.AdaptiveBrightnessController$2: void run()>
+  Line:     70
+  Register: v3 := "com.samsung.adaptivebrightnessgo"
+  Usage:    [invoke] invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startServiceAsUser()
+      → Context.getContentResolver()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → Settings$Secure.putInt()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.camera.CameraServiceProxy
+  Method:   <com.android.server.camera.CameraServiceProxy: void <clinit>()>
+  Line:     279
+  Register: v1 := "com.samsung.adaptivebrightnessgo"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String; → [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.os.Binder: void <init>()>
+        → <android.os.Binder: void <init>(java.lang.String)>
+          → Binder.getNativeBBinderHolder()
+          → NativeAllocationRegistry.registerNativeAllocation()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.camera.CameraServiceWorker
+  Method:   <com.samsung.android.camera.CameraServiceWorker: void <clinit>()>
+  Line:     363
+  Register: v2 := "com.samsung.adaptivebrightnessgo"
+  Usage:    [array_init] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+  Patterns: string_compare, early_return
+  Flow:     [other] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Debug.semIsProductDev()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.display.AutomaticBrightnessController
+  Method:   <com.android.server.display.AutomaticBrightnessController: void setCameraSensorEnabled(boolean)>
+  Line:     4859
+  Register: v2 := "com.samsung.adaptivebrightnessgo"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← AutomaticBrightnessController.setLightSensorEnabledForCAB()
+        ← AutomaticBrightnessController.configure()
+          ← DisplayPowerController.updatePowerState()
+            ← <com.android.server.display.DisplayPowerController: void -$$
+            ← DisplayPowerController.debounceProximitySensor()
+            ← DisplayPowerController.ignoreProximitySensorUntilChangedInternal()
+            ← <com.android.server.display.DisplayPowerController: void lam
+              ← DisplayPowerController$DisplayControllerHandler.handleMessage()
+              ← <com.android.server.display.DisplayPowerController: void -$$
+              ← DisplayPowerController.handleProximitySensorEvent()
+              ← <com.android.server.display.DisplayPowerController: void -$$
+              ← <com.android.server.display.DisplayPowerController: void $r8
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startService()
+      → Context.stopService()
+      → Intent.setAction()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → Slog.d()
+      → Slog.e()
+        → Slog.addPMSLogList()
+          → Process.myTid()
+          → Slog$TimeUtil.getCurrentTimeToLoggingFormat()
+          → ArrayList.add()
+          → ArrayList.size()
+            → Slog$TimeUtil.now()
+            → LocalDateTime.format()
+              → LocalDateTime.now()
+

@@ -1,0 +1,10 @@
+# android.net.INetworkScoreCache [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.net.INetworkScoreCache$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.INetworkScoreCache$Stub$Proxy: void clearScores()>
+<android.net.INetworkScoreCache$Stub$Proxy: void updateScores(java.util.List)>
+<android.net.INetworkScoreCache$Stub: android.net.INetworkScoreCache asInterface(android.os.IBinder)>
+<android.net.INetworkScoreCache$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.INetworkScoreCache$Stub: void <init>()>

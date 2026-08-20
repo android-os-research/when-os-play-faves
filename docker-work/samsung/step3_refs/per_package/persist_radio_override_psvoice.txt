@@ -1,0 +1,6 @@
+# persist.radio.override_psvoice [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional override_ps_voice()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void override_ps_voice(java.lang.Boolean)>

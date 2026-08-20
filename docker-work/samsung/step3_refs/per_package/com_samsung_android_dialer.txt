@@ -1,0 +1,14 @@
+# com.samsung.android.dialer [NEW]
+# Refs: 10
+# JARs: framework, services
+
+<android.content.pm.ASKSManager: boolean isBlockTarget(int,java.lang.String)>
+<com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+<com.android.server.devicepolicy.KnoxUtils: void installLegacyKnoxApps(android.content.Context,int)>
+<com.android.server.devicepolicy.KnoxUtils: void setNonRequiredApps(java.util.Set,android.content.Context)>
+<com.android.server.enterprise.application.ApplicationPolicy: java.lang.String[] getConcentrationModeSuspendPackages(java.util.List,java.util.List,java.lang.String)>
+<com.android.server.notification.NotificationReminder: java.lang.String getCallAndMsgPackage(android.content.Context)>
+<com.android.server.pm.DexOptHelper: void <init>(com.android.server.pm.PackageManagerService)>
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxPhoneOrMessageIcon(java.lang.String)>
+<com.android.server.pm.PersonaManagerService: java.util.ArrayList getMoveToKnoxMenuList(int)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>

@@ -1,0 +1,16 @@
+# android.media.projection.IMediaProjectionManager [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.media.projection.IMediaProjectionManager$Stub$Proxy: android.media.projection.IMediaProjection createProjection(int,java.lang.String,int,boolean)>
+<android.media.projection.IMediaProjectionManager$Stub$Proxy: android.media.projection.MediaProjectionInfo getActiveProjectionInfo()>
+<android.media.projection.IMediaProjectionManager$Stub$Proxy: boolean hasProjectionPermission(int,java.lang.String)>
+<android.media.projection.IMediaProjectionManager$Stub$Proxy: boolean isValidMediaProjection(android.media.projection.IMediaProjection)>
+<android.media.projection.IMediaProjectionManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.projection.IMediaProjectionManager$Stub$Proxy: void addCallback(android.media.projection.IMediaProjectionWatcherCallback)>
+<android.media.projection.IMediaProjectionManager$Stub$Proxy: void removeCallback(android.media.projection.IMediaProjectionWatcherCallback)>
+<android.media.projection.IMediaProjectionManager$Stub$Proxy: void setContentRecordingSession(android.view.ContentRecordingSession,android.media.projection.IMediaProjection)>
+<android.media.projection.IMediaProjectionManager$Stub$Proxy: void stopActiveProjection()>
+<android.media.projection.IMediaProjectionManager$Stub: android.media.projection.IMediaProjectionManager asInterface(android.os.IBinder)>
+<android.media.projection.IMediaProjectionManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.projection.IMediaProjectionManager$Stub: void <init>()>

@@ -1,0 +1,9 @@
+# com.samsung.server.PowerManagerService.action.USER_ACTIVITY [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.ibs.sqd.IbsQuickDim$IntentReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.ibs.sqd.IbsQuickDim: void initFilter()>
+<com.android.server.power.PowerManagerService: void sendUserActivityIntentLocked(int,long,int)>
+<com.samsung.android.displaysolution.MdnieScenarioControlService$ScreenWatchingReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.displaysolution.MdnieScenarioControlService: void <init>(android.content.Context)>

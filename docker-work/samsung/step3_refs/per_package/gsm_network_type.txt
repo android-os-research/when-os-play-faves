@@ -1,0 +1,9 @@
+# gsm.network.type [NEW]
+# Refs: 5
+# JARs: framework, services, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.List data_network_type()>
+<android.internal.telephony.sysprop.TelephonyProperties: void data_network_type(java.util.List)>
+<android.sysprop.TelephonyProperties: java.util.List data_network_type()>
+<android.sysprop.TelephonyProperties: void data_network_type(java.util.List)>
+<com.android.server.location.gnss.GnssLocationProviderSec: int getPositionModeForCTC()>

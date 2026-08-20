@@ -1,0 +1,17 @@
+# android.media.IMediaRoute2ProviderService [NEW]
+# Refs: 13
+# JARs: framework
+
+<android.media.IMediaRoute2ProviderService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IMediaRoute2ProviderService$Stub$Proxy: void deselectRoute(long,java.lang.String,java.lang.String)>
+<android.media.IMediaRoute2ProviderService$Stub$Proxy: void releaseSession(long,java.lang.String)>
+<android.media.IMediaRoute2ProviderService$Stub$Proxy: void requestCreateSession(long,java.lang.String,java.lang.String,android.os.Bundle)>
+<android.media.IMediaRoute2ProviderService$Stub$Proxy: void selectRoute(long,java.lang.String,java.lang.String)>
+<android.media.IMediaRoute2ProviderService$Stub$Proxy: void setCallback(android.media.IMediaRoute2ProviderServiceCallback)>
+<android.media.IMediaRoute2ProviderService$Stub$Proxy: void setRouteVolume(long,java.lang.String,int)>
+<android.media.IMediaRoute2ProviderService$Stub$Proxy: void setSessionVolume(long,java.lang.String,int)>
+<android.media.IMediaRoute2ProviderService$Stub$Proxy: void transferToRoute(long,java.lang.String,java.lang.String)>
+<android.media.IMediaRoute2ProviderService$Stub$Proxy: void updateDiscoveryPreference(android.media.RouteDiscoveryPreference)>
+<android.media.IMediaRoute2ProviderService$Stub: android.media.IMediaRoute2ProviderService asInterface(android.os.IBinder)>
+<android.media.IMediaRoute2ProviderService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IMediaRoute2ProviderService$Stub: void <init>()>

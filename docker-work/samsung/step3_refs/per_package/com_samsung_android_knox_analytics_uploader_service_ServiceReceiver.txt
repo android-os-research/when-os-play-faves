@@ -1,0 +1,6 @@
+# com.samsung.android.knox.analytics.uploader.service.ServiceReceiver [NEW]
+# Refs: 2
+# JARs: services
+
+<com.samsung.android.knox.analytics.util.UploaderBroadcaster: void broadcastAnalyticsStatus(android.content.Context,boolean,boolean)>
+<com.samsung.android.knox.analytics.util.UploaderBroadcaster: void broadcastDbSizeWarning(android.content.Context)>

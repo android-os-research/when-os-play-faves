@@ -1,0 +1,14 @@
+# com.samsung.android.knox.net.apn.IApnSettingsPolicy [NEW]
+# Refs: 10
+# JARs: knoxsdk
+
+<com.samsung.android.knox.net.apn.IApnSettingsPolicy$Stub$Proxy: boolean deleteApn(com.samsung.android.knox.ContextInfo,long)>
+<com.samsung.android.knox.net.apn.IApnSettingsPolicy$Stub$Proxy: boolean setPreferredApn(com.samsung.android.knox.ContextInfo,long)>
+<com.samsung.android.knox.net.apn.IApnSettingsPolicy$Stub$Proxy: com.samsung.android.knox.net.apn.ApnSettings getApnSettings(com.samsung.android.knox.ContextInfo,long)>
+<com.samsung.android.knox.net.apn.IApnSettingsPolicy$Stub$Proxy: com.samsung.android.knox.net.apn.ApnSettings getPreferredApn(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.net.apn.IApnSettingsPolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.net.apn.IApnSettingsPolicy$Stub$Proxy: java.util.List getApnList(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.net.apn.IApnSettingsPolicy$Stub$Proxy: long addUpdateApn(com.samsung.android.knox.ContextInfo,boolean,com.samsung.android.knox.net.apn.ApnSettings)>
+<com.samsung.android.knox.net.apn.IApnSettingsPolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.net.apn.IApnSettingsPolicy$Stub: com.samsung.android.knox.net.apn.IApnSettingsPolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.net.apn.IApnSettingsPolicy$Stub: void <init>()>

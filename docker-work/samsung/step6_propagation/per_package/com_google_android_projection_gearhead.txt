@@ -1,0 +1,2092 @@
+######################################################################
+# Propagation: com.google.android.projection.gearhead
+######################################################################
+
+JARs:                 semwifi-service, services
+Classes:              7
+Occurrences:          10
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        APPOPS, PKG_MGMT, PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemWifiConnectivityMonitor
+  Method:   <com.samsung.android.server.wifi.SemWifiConnectivityMonitor: void <init>(android.content.Context,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.ISemInterfaceNameProvider,com.samsung.android.server.wifi.tcp.SemWifiSwitchForIndividualAppsService)>
+  Line:     2810
+  Register: v13 := "com.google.android.projection.gearhead"
+  Usage:    [array_init] filled-new-array {v10, v11, v12, v13}, [Ljava/lang/String;
+  Patterns: string_compare, early_return
+  Flow:     [other] filled-new-array/range {v11 .. v21}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← SemWifiConnectivityMonitor.makeWifiConnectivityMonitor()
+        ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void <i
+          ← <com.samsung.android.server.wifi.SemWifiService: void <init>
+
+  CALLEES (what this method invokes):
+      → IUsageStatsManager$Stub.asInterface()
+      → IUsageStatsManager.registerUsageStatsWatcher()
+      → Context.getContentResolver()
+      → Context.getSystemService()
+      → IOverlayManager$Stub.asInterface()
+      → <android.net.wifi.WifiInfo: void <init>()>
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → ServiceManager.getService()
+      → <android.util.LruCache: void <init>(int)>
+      → <com.android.internal.util.StateMachine: void <init>(java.la
+      → SemFrameworkFacade.isComcastVendor()
+      → SemFrameworkFacade.isFactoryBinary()
+      → SemFrameworkFacade.isSetupwizardFinished()
+      → SemFrameworkFacade.isShowDataSelectPopupOnBootup()
+      → SemFrameworkFacade.isSnsDefaultOn()
+      → SemFrameworkFacade.setIntegerSetting()
+      → SemFrameworkFacade.getOpBranding()
+      → SemFrameworkFacade.getIntegerSetting()
+      → SemFrameworkFacade.getStringCscFeature()
+      → SemFrameworkFacade.getSystemProperties()
+      → SemWifiConfigManager.registerNetworkRemovedListener()
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → SemWifiConnectivityMonitor.isIndividualAppSupported()
+      → SemWifiConnectivityMonitor.getNetworkRemovedListener()
+      → SemWifiConnectivityMonitor.addState()
+      → SemWifiConnectivityMonitor.addState()
+      → SemWifiConnectivityMonitor.setInitialState()
+      → SemWifiConnectivityMonitor.setLogRecSize()
+      → SemWifiConnectivityMonitor.setResourceOverlayForChina()
+      → SemWifiConnectivityMonitor.updateCountryIsoCode()
+      → SemWifiInjector.getFrameworkFacade()
+      → SemWifiInjector.getWifiConfigManager()
+      → SemWifiInjector.getWifiLinkInfoCollector()
+      → SemWifiInjector.getWifiManagerProxy()
+      → SemWifiInjector.getWifiTrafficPoller()
+      → SemWifiInjector.getWifiBackOffController()
+      → SemWifiInjector.getWifiIssueDetector()
+      → SemWifiInjector.getWifiNative()
+      → SemWifiInjector.getMobileWipsFrameworkService()
+      → SemWifiInjector.getScanPoll()
+      → SemWifiManagerProxy.setWifiConnectedNetworkScorer()
+      → SemWifiManagerProxy.registerListener()
+      → <com.samsung.android.server.wifi.util.LogUtils: void <init>(
+      → ScanPool.registerScanResultUpdatedListener()
+      → <com.samsung.android.server.wifi.wcm.BssidStatistics: void <
+      → <com.samsung.android.server.wifi.wcm.NetworkStatsAnalyzer: v
+      → NetworkStatsAnalyzer.setCurrentWCMMode()
+      → NetworkStatsAnalyzer.setNetworkStatsAnalyzerCallBack()
+      → <com.samsung.android.server.wifi.wcm.QcFailHistory: void <in
+      → <com.samsung.android.server.wifi.wcm.ScoreQC: void <init>()>
+      → <com.samsung.android.server.wifi.wcm.SemWifiRssiBasePoller: 
+      → SemWifiRssiBasePoller.setSemWifiRssiBasePollerCallBack()
+      → WcmBigDataManager.getBigDataFeature()
+      → <com.samsung.android.server.wifi.wcm.WcmBigDataManager: void
+      → <com.samsung.android.server.wifi.wcm.WifiScoreMediator: void
+      → Exception.printStackTrace()
+      → Executors.newSingleThreadExecutor()
+      → <java.util.concurrent.atomic.AtomicBoolean: void <init>(bool
+        → <android.app.usage.IUsageStatsManager$Stub$Proxy: void <init
+        → IBinder.queryLocalInterface()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <java.util.LinkedHashMap: void <init>(int,float,boolean)>
+        → SemCscFeature.getBoolean()
+        → SemCscFeature.getInstance()
+        → SystemProperties.get()
+        → SemCscFeature.getString()
+        → Settings$Global.putInt()
+        → SemOpBrandingLoader.getInstance()
+        → SemOpBrandingLoader.getOpBranding()
+        → Settings$Global.getInt()
+        → Set.add()
+        → <com.samsung.android.app.usage.IUsageStatsWatcher$Stub: void
+        → <com.android.internal.util.State: void <init>()>
+        → SemWifiConnectivityMonitor$NetworkCallbackController.init()
+        → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+        → IOverlayManager.setEnabled()
+        → TelephonyManager.getNetworkCountryIso()
+        → SemWifiConnectivityMonitor.isChineseIso()
+        → SemWifiConnectivityMonitor.getCurrentTimeSimpleDateFormat()
+        → SemFrameworkFacade.isHotspotDongleProduct()
+        → SemWifiInjector.getBigDataLogManager()
+        → <com.samsung.android.server.wifi.diagnostics.WifiIssueDetect
+        → ScanPool.getInstance()
+        → WifiManager.setWifiConnectedNetworkScorer()
+        → <com.samsung.android.server.wifi.SemWifiManagerProxy$$Extern
+        → SemWifiThreadRunner.post()
+        → Debug.semIsProductDev()
+        → Pattern.compile()
+        → <com.samsung.android.server.wifi.wcm.BssidStatistics: void <
+        → <com.samsung.android.server.wifi.wcm.OpenNetworkQos: void <i
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → <java.util.ArrayList: void <init>()>
+        → HashMap.containsKey()
+        → HashMap.get()
+        → SemWifiInjector.getInstance()
+        → SemWifiInjector.getWifiVersionProvider()
+        → WcmBigDataManager.initialize()
+        → <java.util.HashMap: void <init>()>
+          → Hashtable.get()
+          → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → <com.samsung.android.wifi.SemOpBrandingLoader: void <init>()
+          → SemOpBrandingLoader.updateFromFile()
+          → <android.os.Binder: void <init>()>
+          → IUsageStatsWatcher$Stub.attachInterface()
+          → SemWifiConnectivityMonitor$NetworkCallbackController.registerConnectionNetworkCallback()
+          → SemWifiConnectivityMonitor$NetworkCallbackController.registerDefaultNetworkCallback()
+          → SimpleDateFormat.format()
+          → <android.icu.text.SimpleDateFormat: void <init>(java.lang.St
+          → <java.util.Date: void <init>()>
+          → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternApProble
+          → <com.samsung.android.server.wifi.diagnostics.PatternDhcpFail
+          → <com.samsung.android.server.wifi.diagnostics.PatternScanProb
+          → <com.samsung.android.server.wifi.diagnostics.PatternSystemPr
+          → <com.samsung.android.server.wifi.diagnostics.PatternWifiAppP
+          → <com.samsung.android.server.wifi.diagnostics.PatternWipsDisc
+          → WifiIssueDetector.loadHistory()
+          → WifiIssueDetector.registerIssuePattern()
+          → <java.util.HashSet: void <init>()>
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.add()
+          → List.addAll()
+          → List.iterator()
+          → <com.samsung.android.server.wifi.util.ScanPool: void <init>(
+          → Handler.post()
+          → <com.samsung.android.server.wifi.wcm.BssidStatistics$VolumeW
+          → <com.samsung.android.server.wifi.wcm.Constant: void <init>()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSCNT: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSSIV: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSSVI: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataTCPE: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataWFSN: void <i
+          → HashMap.put()
+          → HashMap.clear()
+            → SemCscFeature.loadFeatureFile()
+            → Exception.toString()
+            → <java.util.Hashtable: void <init>()>
+            → Environment.getLegacyExternalStorageDirectory()
+            → SemOpBrandingLoader.getVendorFromCsc()
+            → File.getPath()
+            → SemOpBrandingLoader$SemVendor.ordinal()
+            → SemOpBrandingLoader$SemVendor.name()
+            → SemOpBrandingLoader.getVendorFromFile()
+            → <android.os.Binder: void <init>(java.lang.String)>
+            → ConnectivityManager.registerNetworkCallback()
+            → NetworkRequest$Builder.build()
+            → NetworkRequest$Builder.addTransportType()
+            → NetworkRequest$Builder.removeCapability()
+            → <android.net.NetworkRequest$Builder: void <init>()>
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor:
+            → ConnectivityManager.registerDefaultNetworkCallback()
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+            → SemFrameworkFacade.isSupportedBigdataHqmService()
+            → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+            → WifiBigDataLogManager.isSupported()
+            → WifiBigDataLogManager.initialize()
+            → <com.samsung.android.server.wifi.diagnostics.WifiIssuePatter
+            → WifiIssueDetector.readFromFile()
+            → File.delete()
+            → File.exists()
+            → File.length()
+            → <java.io.File: void <init>(java.lang.String)>
+            → Collections.emptyList()
+            → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+            → <com.samsung.android.server.wifi.wcm.WcmBigDataFeature: void
+            → WcmBigDataSCNT.initialize()
+            → WcmBigDataSSVI.initialize()
+            → WcmBigDataTCPE.initialize()
+              → SemCscFeature.loadFeatureFile()
+              → SemOpBrandingLoader.getVendor()
+              → BufferedReader.readLine()
+              → <java.io.BufferedReader: void <init>(java.io.Reader)>
+              → BufferedReader.close()
+              → File.lastModified()
+              → <java.io.FileReader: void <init>(java.io.File)>
+              → IOException.printStackTrace()
+              → Throwable.addSuppressed()
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+              → <android.net.ConnectivityManager$NetworkCallback: void <init
+              → SemWifiConnectivityMonitor.getCm()
+              → SemFrameworkFacade.isSupportedBigdataSurveyMode()
+              → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+              → WifiBigDataLogManager.getSupportedBigDataFeatures()
+              → List.forEach()
+              → RandomAccessFile.readLine()
+              → <java.io.RandomAccessFile: void <init>(java.lang.String,java
+              → RandomAccessFile.close()
+              → List.size()
+              → List.remove()
+              → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemClientModeImpl$ConnectedState
+  Method:   <com.samsung.android.server.wifi.SemClientModeImpl$ConnectedState: void enter()>
+  Line:     631
+  Register: v2 := "com.google.android.projection.gearhead"
+  Usage:    [invoke] invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → ClientModeImplStateListener.onNetworkStateChanged()
+      → SemCellularStateManager.handleWifiStateChanged()
+      → <com.samsung.android.server.wifi.SemClientModeImpl$Connected
+      → SemClientModeImpl$ConnectedState.checkAndUpdateHiddenNetwork()
+      → SemClientModeImpl$ConnectedState.updateBigDataApInfo()
+      → <com.samsung.android.server.wifi.SemClientModeImpl: android.
+      → SemClientModeImpl.setNCHOModeEnabled()
+      → SemClientModeImpl.setRoamTrigger()
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+      → <com.samsung.android.server.wifi.SemClientModeImpl: java.lan
+      → <com.samsung.android.server.wifi.SemClientModeImpl: void -$$
+      → <com.samsung.android.server.wifi.SemClientModeImpl: void -$$
+      → <com.samsung.android.server.wifi.SemClientModeImpl: void -$$
+      → SemClientModeImpl.log()
+      → SemFrameworkFacade.isMBOSupported()
+      → SemRoamingAssistant.wifiStateChangeEvent()
+      → SemWifiCoexManager.handleWifiStateChanged()
+      → SemWifiConfigManager.getSavedNetworks()
+      → WifiConnectionInfo.hasConfigKey()
+      → WifiConnectionInfo.getNetworkType()
+      → WifiConnectionInfo.getFrequency()
+      → WifiConnectionInfo.getConfigKey()
+      → WifiConnectionInfo.getPrintableSsid()
+      → WifiConnectionInfo.setWifiInfo()
+      → WifiB2bPolicyManager.applyWiFiB2BPolicy()
+      → WifiBackOffController.notifyWifiConnection()
+      → ReportUtil.getReportDataForConnectTransition()
+      → ReportUtil.startTimerDuringConnection()
+      → SemStrongRssiRoaming.wifiStateChangeEvent()
+      → SemWifiNotificationController.clearPendingNotification()
+      → ScanPool.setManagedConfigKeys()
+      → Enum.ordinal()
+      → List.stream()
+      → Collectors.toSet()
+      → Stream.collect()
+      → Stream.map()
+        → SemCellularStateManager.notifyWifiStateChanged()
+        → WifiConfiguration.getKey()
+        → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+        → SemWifiConfigManager.isHiddenSsid()
+        → SemWifiManagerProxy.updateNetwork()
+        → WifiConnectionInfo.getLastWifiConfig()
+        → <com.samsung.android.server.wifi.SemClientModeImpl: com.sams
+        → <com.samsung.android.server.wifi.SemClientModeImpl: java.uti
+        → WifiBigDataLogManager.addOrUpdateValue()
+        → AtomicBoolean.get()
+        → SemClientModeImpl.getWifiInfo()
+        → SemClientModeImpl.isActive()
+        → WifiB2bPolicyManager.setNCHOModeEnabled()
+        → WifiB2bPolicyManager.resetNCHOMode()
+        → WifiB2bPolicyManager.setRoamTrigger()
+        → SemClientModeImpl.report()
+        → SemClientModeImpl.getName()
+        → TextUtils.isEmpty()
+        → <com.samsung.android.server.wifi.SemRoamingAssistant$Connect
+        → <com.samsung.android.server.wifi.SemRoamingAssistant$Connect
+        → SemRoamingAssistant$ConnectionInfo.updateConnectionInfo()
+        → SemRoamingAssistant.isExceptionalNetwork()
+        → SemRoamingAssistant.updateDriverRcl()
+        → SemRoamingAssistant.updateRcl()
+        → SemRoamingAssistant.writeFile()
+        → SemClock.getWallClockMillis()
+        → ArrayList.add()
+        → ConcurrentHashMap.containsKey()
+        → ConcurrentHashMap.get()
+        → ConcurrentHashMap.put()
+        → ConcurrentHashMap.remove()
+        → WifiInfo.getFrequency()
+        → SemWifiCoexManager.setWifiCustomBackoff()
+        → SemWifiCoexManager.setWifiUwbCoexEnabled()
+        → SemWifiCoexManager.sendIpcMessageToRilForLteu()
+        → SemWifiManagerProxy.getConnectionInfo()
+        → <java.util.ArrayList: void <init>()>
+        → Collection.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.addAll()
+        → Map.values()
+        → WifiConfiguration.isEphemeral()
+        → WifiConfiguration.isPasspoint()
+        → FavoriteNetworkEvaluator.isFavoriteNetwork()
+        → WifiUtils.isAndroidHotspot()
+        → WifiConfiguration.getPrintableSsid()
+        → WifiB2bPolicy.hasRoamSettings()
+        → WifiB2bPolicy.noDHCPRenewalAfterRoam()
+        → WifiB2bPolicy.getRoamBand()
+        → WifiB2bPolicy.getRoamDelta()
+        → WifiB2bPolicy.getRoamScanPeriod()
+        → WifiB2bPolicy.getRoamTrigger()
+        → WifiB2bPolicyManager.setRoamBand()
+        → WifiB2bPolicyManager.setRoamDelta()
+        → WifiB2bPolicyManager.setRoamScanPeriod()
+        → WifiB2bPolicyManager.getPolicy()
+        → WifiB2bPolicyManager.getVendorVersion()
+        → WifiB2bPolicyManager.clearWiFiB2BPolicy()
+        → WifiB2bPolicyManager.setPolicyApplied()
+        → WifiB2bPolicyManager.setRoamDhcpEnabled()
+        → Map.getOrDefault()
+        → BackOffStats.stopGathering()
+        → <com.samsung.android.server.wifi.backoff.BackOffStats: void 
+        → BackOffStats.startGathering()
+        → WifiBackOffController.getCurrentBackOffType()
+        → Map.put()
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putInt()
+        → Bundle.putString()
+        → ReportUtil.appendLinkPropertiesInfo()
+        → ReportUtil.appendWifiInfo()
+        → ReportUtil$ReportStore.getInstance()
+        → ReportUtil$ReportStore.startTimerDuringConnection()
+        → Message.sendToTarget()
+        → SemStrongRssiRoaming$StrongRssiRoamingHandler.obtainMessage()
+        → SemWifiNotificationController.clearRepeatTime()
+        → SemWifiNotificationController.hideNotification()
+        → Set.addAll()
+        → Set.clear()
+          → SemCellularStateManager.sendCommandSetWiFiToCellular()
+          → SemCellularStateManager.sendCommandUpdateCellularCapabilities()
+          → SemCellularStateManager.updateCellularCapaState()
+          → SemCellularStateManager.updateWifiToCellular()
+          → SemFrameworkFacade.isWifiToCellularSupported()
+          → Set.contains()
+          → WifiManager.updateNetwork()
+          → WifiBigDataLogManager.addOrUpdateValueInternal()
+          → WifiBigDataLogManager.updateTime()
+          → SemWifiManagerProxy.getConnectionInfo()
+          → ReportUtil.updateWifiInfo()
+          → NativeB2bRoamCommand.setNCHOModeEnabled()
+          → WifiB2bPolicyManager.isPolicyApplied()
+          → NativeB2bRoamCommand.setRoamTrigger()
+          → NativeB2bRoamCommand.setRoamTriggerLegacy()
+          → SemWifiConnectivityMonitor.getInstance()
+          → SemWifiConnectivityMonitor.setCaptivePortalMode()
+          → WifiIssueDetector.report()
+          → CharSequence.length()
+          → ArrayList.iterator()
+          → SemRoamingAssistant.ieee80211_frequency_to_channel()
+          → SemRoamingAssistant.getNetworkFrequencyList()
+          → SemRoamingAssistant.sendDriverRclCommand()
+          → StringBuffer.append()
+          → StringBuffer.append()
+          → StringBuffer.append()
+          → <java.lang.StringBuffer: void <init>()>
+          → List.isEmpty()
+          → List.size()
+          → List.get()
+          → <com.samsung.android.server.wifi.SemRoamingAssistant$Connect
+          → <com.samsung.android.server.wifi.SemRoamingAssistant$Connect
+          → SemRoamingAssistant.updateHash()
+          → <com.samsung.android.server.wifi.SemRoamingChannelList: void
+          → SemRoamingChannelList.update()
+          → SemRoamingChannelList.toJson()
+          → <java.io.BufferedWriter: void <init>(java.io.Writer)>
+          → BufferedWriter.close()
+          → BufferedWriter.write()
+          → File.delete()
+          → File.exists()
+          → <java.io.FileOutputStream: void <init>(java.io.File)>
+          → <java.io.OutputStreamWriter: void <init>(java.io.OutputStrea
+          → Throwable.addSuppressed()
+          → ConcurrentHashMap.size()
+          → ConcurrentHashMap.values()
+          → JSONArray.put()
+          → <org.json.JSONArray: void <init>()>
+          → JSONObject.toString()
+          → JSONObject.put()
+          → <org.json.JSONObject: void <init>()>
+          → TextUtils.equals()
+          → ISemInterfaceNameProvider.getPrimaryInterfaceName()
+          → SemWifiCoexManager.addBackoff()
+          → SemSoftApManager.setHotspotCustomBackOff()
+          → SemWifiNative.setWifiCustomBackoff()
+          → ServiceManager.checkService()
+          → ITelephony$Stub.asInterface()
+          → ITelephony.invokeOemRilRequestRaw()
+          → ByteArrayOutputStream.toByteArray()
+          → <java.io.ByteArrayOutputStream: void <init>()>
+          → <java.io.DataOutputStream: void <init>(java.io.OutputStream)
+          → DataOutputStream.close()
+          → DataOutputStream.writeByte()
+          → DataOutputStream.writeShort()
+          → WifiInfo.getMeteredHint()
+          → WifiB2bPolicy.hasRoamBandSetting()
+          → WifiB2bPolicy.hasRoamDeltaSetting()
+          → WifiB2bPolicy.hasRoamScanPeriodSetting()
+          → WifiB2bPolicy.hasRoamTriggerSetting()
+          → NativeB2bRoamCommand.setRoamBand()
+          → NativeB2bRoamCommand.setRoamDelta()
+          → NativeB2bRoamCommand.setRoamScanPeriod()
+          → HashMap.get()
+          → SystemProperties.get()
+          → BackOffStats.clearAll()
+          → BackOffMode.toInt()
+          → SemSarManager.getCurrentSarBackOffMode()
+          → WifiBackOffController$MWaveSub6TxBackOffController.getCurrentBackOffMode()
+          → LinkAddress.getPrefixLength()
+          → LinkAddress.getAddress()
+          → LinkProperties.getMtu()
+          → LinkProperties.getDnsServers()
+          → LinkProperties.getLinkAddresses()
+          → LinkProperties.getRoutes()
+          → RouteInfo.getGateway()
+          → ReportUtil$ReportStore.getLastLinkProperties()
+          → ReportUtil.filterIpAddress()
+          → InetAddress.getHostAddress()
+          → List.iterator()
+          → WifiInfo.isEphemeral()
+          → WifiInfo.isOsuAp()
+          → WifiInfo.isPasspointAp()
+          → WifiInfo.getNetworkId()
+          → WifiInfo.getBSSID()
+          → WifiInfo.getMacAddress()
+          → WifiInfo.getPasspointFqdn()
+          → WifiInfo.getSSID()
+          → ReportUtil$ReportStore.getLastWifiInfo()
+          → <com.samsung.android.server.wifi.diagnostics.ReportUtil$Repo
+          → HashMap.containsKey()
+          → HashMap.put()
+          → Handler.sendMessage()
+          → NotificationManager.cancel()
+            → SemWifiNative.setWifiToCellular()
+            → SemWifiNative.updateCellularCapabilities()
+            → SemCellularStateManager.isCellularDataAvailable()
+            → SemCellularStateManager.isNetworkClassValid()
+            → SemCellularStateManager.initCellInfoAndSignalStrengths()
+            → SemCellularStateManager.convertCellularCapaToWifiToCellularState()
+            → BaseBigDataItem.addOrUpdateValue()
+            → WifiBigDataLogManager.getBigDataItem()
+            → BaseBigDataItem.updateTime()
+            → WifiManager.getConnectionInfo()
+            → SemWifiManagerProxy.isVerboseLoggingEnabled()
+            → ReportUtil$ReportStore.updateWifiInfo()
+            → Bundle.getInt()
+            → Bundle.getString()
+            → DeviceConfig.setProperty()
+            → SemWifiConnectivityMonitor.isCaptivePortalExceptionOnly()
+            → SemWifiConnectivityMonitor.isIgnorableNetwork()
+            → SemWifiConnectivityMonitor.checkReportId()
+            → SemWifiConnectivityMonitor.getCaptivePortalMode()
+            → SemWifiConnectivityMonitor.removeMessages()
+            → SemWifiConnectivityMonitor.sendMessageDelayed()
+            → SemWifiConnectivityMonitor.setCaptivePortalMode()
+            → WifiIssueDetector.obtainMessage()
+            → WifiIssueDetector.sendMessage()
+            → SemRoamingChannelList.getFrequentlyUsedList()
+            → SemWifiNative.getRoamBand()
+            → SemWifiNative.isNCHOModeEnabled()
+            → SemWifiNative.addRoamScanChannels()
+            → SemWifiNative.addRoamScanChannelsLegacy()
+            → SemWifiNative.addRoamScanFrequencies()
+            → SemWifiNative.addRoamScanFrequenciesLegacy()
+            → StringBuffer.toString()
+            → SemRoamingChannelList.getNetworkKey()
+            → SemRoamingChannelList.getLastUpdatedTime()
+            → Map$Entry.getValue()
+            → Set.iterator()
+            → ConcurrentHashMap.entrySet()
+            → <com.samsung.android.server.wifi.SemRoamingChannelList$1: vo
+            → SemWifiInjector.getWifiManagerProxy()
+            → <java.util.concurrent.ConcurrentHashMap: void <init>()>
+            → SemRoamingChannelList.increaseHitCount()
+            → SemRoamingChannelList.moveCurSlot()
+            → SemRoamingChannelList.getHitMap()
+            → JSONException.getMessage()
+            → JSONObject.put()
+            → JSONObject.put()
+            → CharSequence.charAt()
+            → SemSoftApManager.sendHostapdCommandToHandler()
+            → SemSupplicantStaIfaceHal.setWifiCustomBackoff()
+            → BackOffMode.clone()
+            → InetAddress.isAnyLocalAddress()
+            → InetAddress.isLinkLocalAddress()
+            → InetAddress.isLoopbackAddress()
+              → SemSupplicantStaIfaceHal.setWifiToCellular()
+              → SemSupplicantStaIfaceHal.updateCellularCapabilities()
+              → SemWifiNative.toBytes()
+              → TelephonyManager.isNetworkRoaming()
+              → SystemClock.elapsedRealtime()
+              → ActivityThread.currentApplication()
+              → Application.getContentResolver()
+              → Settings$Config.putString()
+              → SemFrameworkFacade.isSetupwizardFinished()
+              → SemWifiConnectivityMonitor.syncGetCurrentWifiInfo()
+              → SemWifiConnectivityMonitor.isComcastSsid()
+              → SemWifiConnectivityMonitor.isPackageExists()
+              → SemWifiConnectivityMonitor.logd()
+              → SemWifiConnectivityMonitor.isPackageRunning()
+              → WcmUtil.getWifiConfiguration()
+              → WcmUtil.getWifiConfiguration()
+              → WcmUtil.getInstance()
+              → WcmUtil.getSavedNetworks()
+              → BitSet.get()
+              → Context.getContentResolver()
+              → Settings$Global.getInt()
+              → Settings$Global.putInt()
+              → WifiScanner.getAvailableChannels()
+              → <com.samsung.android.server.wifi.SemRoamingChannelList$$Exte
+              → <com.samsung.android.server.wifi.SemRoamingChannelList$Chann
+              → SemRoamingChannelList.convertBand()
+              → SemWifiInjector.getWifiScanner()
+              → SemWifiManagerProxy.getCountryCode()
+              → ArrayList.size()
+              → ArrayList.get()
+              → ArrayList.remove()
+              → ArrayList.stream()
+              → <java.util.ArrayList: void <init>(int)>
+              → Collections.sort()
+              → List.contains()
+              → Map$Entry.getKey()
+              → ConcurrentHashMap.isEmpty()
+              → Collectors.toList()
+              → Stream.limit()
+              → SemSupplicantStaIfaceHal.getRoamBand()
+              → SemSupplicantStaIfaceHal.isNCHOModeEnabled()
+              → SemSupplicantStaIfaceHal.addRoamScanChannels()
+              → SemSupplicantStaIfaceHal.addRoamScanChannelsLegacy()
+              → SemSupplicantStaIfaceHal.addRoamScanFrequencies()
+              → SemSupplicantStaIfaceHal.addRoamScanFrequenciesLegacy()
+              → <com.samsung.android.server.wifi.SemRoamingChannelList$HitAr
+              → SemRoamingChannelList$HitArray.toJson()
+              → <com.samsung.android.server.wifi.ap.SemSoftApManager$6: void
+              → SemSoftApManager$SemSoftApHandler.post()
+              → SemSoftApManager.isLohsOn()
+              → SemSoftApManager.isSoftApOn()
+              → SemSoftApManager.addSemSoftApDumpLog()
+              → ISemSupplicantStaIfaceHal.setWifiCustomBackoff()
+              → SemSupplicantStaIfaceHal.handleNullHal()
+              → <java.lang.AssertionError: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.diagnostics.PatternAbnormalAndroidAuto
+  Method:   <com.samsung.android.server.wifi.diagnostics.PatternAbnormalAndroidAuto: boolean isAndroidAuto(com.samsung.android.server.wifi.diagnostics.ReportData)>
+  Line:     119
+  Register: p0 := "com.google.android.projection.gearhead"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-nez p0, :cond_28 → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← PatternAbnormalAndroidAuto.isAssociated()
+
+  CALLEES (what this method invokes):
+      → PatternAbnormalAndroidAuto.getNetworkType()
+      → PatternAbnormalAndroidAuto.getCreatorName()
+      → Enum.ordinal()
+        → WifiIssuePattern.getValue()
+          → WifiIssuePattern.getValue()
+            → Bundle.containsKey()
+            → Bundle.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.diagnostics.PatternAbnormalAndroidAuto
+  Method:   <com.samsung.android.server.wifi.diagnostics.PatternAbnormalAndroidAuto: boolean pdc1Matches()>
+  Line:     457
+  Register: v3 := "com.google.android.projection.gearhead"
+  Usage:    [invoke] invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] iget-object v3, p0, Lcom/samsung/android/server/wifi/diagnos → [invoke] com
+
+  CALLERS (who invokes this method):
+      ← PatternAbnormalAndroidAuto.matches()
+
+  CALLEES (what this method invokes):
+      → <com.samsung.android.server.wifi.diagnostics.DisconnectInfo:
+      → DisconnectInfo.updateIpReport()
+      → PatternAbnormalAndroidAuto.getCreatorName()
+      → WifiIssuePattern.getLastIndexOfData()
+        → DisconnectInfo.setupBigDataDiscReport()
+        → DisconnectInfo.setupDisconnectReport()
+        → DisconnectInfo.setupIpReport()
+        → DisconnectInfo.setupTryingToAssocReport()
+        → DisconnectInfo.getUpdatedValue()
+        → DisconnectInfo.getUpdatedValue()
+        → WifiIssuePattern.getValue()
+        → WifiIssuePattern.getLastIndexOfData()
+          → TextUtils.equals()
+          → TextUtils.isEmpty()
+          → WifiIssuePattern.getValue()
+          → List.isEmpty()
+          → List.size()
+          → List.get()
+            → CharSequence.charAt()
+            → CharSequence.length()
+            → Bundle.containsKey()
+            → Bundle.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.silentroaming.SilentRoamingManager
+  Method:   <com.samsung.android.server.wifi.silentroaming.SilentRoamingManager: void <init>(android.content.Context,com.samsung.android.server.wifi.util.SemClock,android.os.Looper,com.samsung.android.server.wifi.halclient.SemWifiNative,com.samsung.android.server.wifi.SemWifiManagerProxy,com.samsung.android.server.wifi.SemWifiConfigManager,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.SemFrameworkFacade,android.util.LocalLog,com.samsung.android.server.wifi.silentroaming.SilentRoamingWifiInfo,com.samsung.android.server.wifi.silentroaming.SilentRoamingPnoScanner,com.samsung.android.server.wifi.silentroaming.SemThroughputPredictor,com.samsung.android.server.wifi.silentroaming.SemThroughputScorer)>
+  Line:     1404
+  Register: v9 := "com.google.android.projection.gearhead"
+  Usage:    [array_init] filled-new-array {v3, v7, v8, v9}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v7 .. v17}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+        ← <com.samsung.android.server.wifi.SemWifiInjector: void <init
+          ← <com.samsung.android.server.wifi.SemWifiService: void <init>
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → <android.util.ArraySet: void <init>()>
+      → MessageUtils.findMessageNames()
+      → <com.android.internal.util.StateMachine: void <init>(java.la
+      → SemWifiInjector.getInterfaceNameProvider()
+      → SemWifiInjector.getWifiFeatureController()
+      → SemWifiInjector.getWifiIssueDetector()
+      → SemWifiInjector.getScanPoll()
+      → SemWifiInjector.getWifiNl80211Util()
+      → <com.samsung.android.server.wifi.silentroaming.SemScoringPar
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → SilentRoamingManager.addState()
+      → SilentRoamingManager.addState()
+      → SilentRoamingManager.registerForSettingsChanges()
+      → SilentRoamingManager.setInitialState()
+      → SilentRoamingManager.setLogRecSize()
+      → SilentRoamingManager.start()
+      → <com.samsung.android.server.wifi.util.LogUtils: void <init>(
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.HashSet: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → MessageUtils.findMessageNames()
+        → HandlerThread.getLooper()
+        → <android.os.HandlerThread: void <init>(java.lang.String)>
+        → HandlerThread.start()
+        → SemFrameworkFacade.isHotspotDongleProduct()
+        → SemWifiInjector.getBigDataLogManager()
+        → <com.samsung.android.server.wifi.diagnostics.WifiIssueDetect
+        → ScanPool.getInstance()
+        → <com.samsung.android.server.wifi.util.WifiNl80211Util: void 
+        → <com.android.internal.util.State: void <init>()>
+        → ContentResolver.registerContentObserver()
+        → Context.getContentResolver()
+        → SemFrameworkFacade.getUriFor()
+        → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+        → SilentRoamingManager.getHandler()
+        → Debug.semIsProductDev()
+        → Pattern.compile()
+          → ArraySet.allocArrays()
+          → SparseArray.get()
+          → <android.util.SparseArray: void <init>()>
+          → SparseArray.put()
+          → <com.android.internal.util.MessageUtils$DuplicateConstantErr
+          → Field.getInt()
+          → Field.getModifiers()
+          → Field.getName()
+          → Field.setAccessible()
+          → Modifier.isFinal()
+          → Modifier.isStatic()
+          → HandlerThread.isAlive()
+          → Thread.currentThread()
+          → Thread.interrupt()
+          → <java.lang.Thread: void <init>(java.lang.String)>
+          → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+          → <android.os.Handler: void <init>(android.os.Looper)>
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternApProble
+          → <com.samsung.android.server.wifi.diagnostics.PatternDhcpFail
+          → <com.samsung.android.server.wifi.diagnostics.PatternScanProb
+          → <com.samsung.android.server.wifi.diagnostics.PatternSystemPr
+          → <com.samsung.android.server.wifi.diagnostics.PatternWifiAppP
+          → <com.samsung.android.server.wifi.diagnostics.PatternWipsDisc
+          → WifiIssueDetector.loadHistory()
+          → WifiIssueDetector.registerIssuePattern()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.add()
+          → List.addAll()
+          → List.iterator()
+          → Set.add()
+          → <com.samsung.android.server.wifi.util.ScanPool: void <init>(
+          → Settings$Global.getUriFor()
+          → <android.database.ContentObserver: void <init>(android.os.Ha
+            → SparseArray.get()
+            → <android.util.SparseArray: void <init>(int)>
+            → ContainerHelpers.binarySearch()
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → <java.lang.Error: void <init>(java.lang.String)>
+            → SemFrameworkFacade.isSupportedBigdataHqmService()
+            → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+            → WifiBigDataLogManager.isSupported()
+            → WifiBigDataLogManager.initialize()
+            → <com.samsung.android.server.wifi.diagnostics.WifiIssuePatter
+            → WifiIssueDetector.readFromFile()
+            → File.delete()
+            → File.exists()
+            → File.length()
+            → <java.io.File: void <init>(java.lang.String)>
+            → Collections.emptyList()
+            → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+              → ArrayUtils.newUnpaddedObjectArray()
+              → SemFrameworkFacade.isSupportedBigdataSurveyMode()
+              → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+              → WifiBigDataLogManager.getSupportedBigDataFeatures()
+              → HashMap.clear()
+              → List.forEach()
+              → RandomAccessFile.readLine()
+              → <java.io.RandomAccessFile: void <init>(java.lang.String,java
+              → RandomAccessFile.close()
+              → Exception.printStackTrace()
+              → Throwable.addSuppressed()
+              → List.size()
+              → List.remove()
+              → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.BaseRestrictionMgr
+  Method:   <com.android.server.am.BaseRestrictionMgr: boolean isRestrictedPackage(android.content.ComponentName,java.lang.String,int,java.lang.String,android.content.Intent,java.lang.String,int,boolean,boolean,android.content.pm.ActivityInfo)>
+  Line:     1527
+  Register: v1 := "com.google.android.projection.gearhead"
+  Usage:    [invoke] invoke-virtual {v1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-eqz v1, :cond_2f → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← BaseRestrictionMgr.isRestrictedPackage()
+      ← BaseRestrictionMgr.isRestrictedPackage()
+      ← BaseRestrictionMgr.isRestrictedPackage()
+      ← BaseRestrictionMgr.isRestrictedPackage()
+        ← ActiveServices.startServiceLocked()
+        ← ActiveServices.bindServiceLocked()
+        ← ActivityManagerService$LocalService.isRestrictedPackage()
+        ← ContentProviderHelper.getContentProviderImpl()
+        ← ActivityStarter.execute()
+        ← ActivityStarter.executeRequest()
+        ← BroadcastQueue.deliverToRegisteredReceiverLocked()
+        ← BroadcastQueue.processNextBroadcastLocked()
+          ← ActiveServices.startServiceLocked()
+          ← ActivityManagerService$LocalService.startServiceInPackage()
+          ← ActivityManagerService.bindServiceInstance()
+          ← ContentProviderHelper.getContentProviderImpl()
+          ← ContentProviderHelper.getProviderMimeType()
+          ← ContentProviderHelper.getProviderMimeTypeAsync()
+          ← ActivityStartController.startActivities()
+          ← ActivityStartController.startActivityInPackage()
+          ← ActivityStartController.startActivityInTaskFragment()
+          ← ActivityStartController.startHomeActivity()
+          ← ActivityStartController.startSetupActivity()
+          ← ActivityTaskManagerService.startActivityAndWait()
+          ← ActivityTaskManagerService.startDreamActivity()
+          ← ActivityTaskManagerService.startNextMatchingActivity()
+          ← ActivityTaskManagerService.startActivityAsCaller()
+          ← ActivityTaskManagerService.startActivityAsUser()
+          ← ActivityTaskManagerService.startActivityFromGameSession()
+          ← ActivityTaskManagerService.startActivityWithConfig()
+          ← ActivityTaskManagerService.startAssistantActivity()
+          ← ActivityTaskManagerService.startVoiceActivity()
+          ← AppTaskImpl.startActivity()
+          ← RecentsAnimation.startRecentsActivityInBackground()
+          ← RemoteAppController.startActivityAsCaller()
+          ← Task.navigateUpTo()
+          ← ActivityManagerService.finishReceiver()
+          ← ActivityManagerService.unregisterReceiver()
+          ← BroadcastQueue.backgroundServicesFinishedLocked()
+          ← BroadcastQueue.broadcastTimeoutLocked()
+          ← BroadcastQueue.processNextBroadcast()
+            ← ActivityManagerService.startService()
+            ← <com.android.server.am.ActivityManagerService: int -$$Nest$m
+            ← ActivityManagerService.bindServiceInstance()
+            ← ContentProviderHelper.getContentProvider()
+            ← ContentProviderHelper.getContentProviderExternalUnchecked()
+            ← ActivityManagerService.getProviderMimeType()
+            ← ActivityManagerService.getProviderMimeTypeAsync()
+            ← ActivityStartController.startActivitiesInPackage()
+            ← ActivityTaskManagerService.startActivities()
+            ← ActivityTaskManagerService$LocalService.startActivityInPackage()
+            ← ActivityTaskSupervisor.startActivityFromRecents()
+            ← DexCompatController.startActivityAsToggleFreeform()
+            ← WindowOrganizerController.applyHierarchyOp()
+            ← RootWindowContainer.startHomeOnTaskDisplayArea()
+            ← ActivityTaskSupervisor.realStartActivityLocked()
+            ← ActivityManagerService.startActivityAndWait()
+            ← AppPrelaunchService.prelaunchAppTillStage()
+            ← <com.android.server.wm.ActivityTaskManagerService: int -$$Ne
+            ← ActivityTaskManagerService.startActivityAsUser()
+            ← RecentsAnimation.preloadRecentsActivity()
+            ← RecentsAnimation.startRecentsActivity()
+            ← ActivityClientController.navigateUpTo()
+            ← ReceiverList.binderDied()
+            ← ActivityManagerService.backgroundServicesFinishedLocked()
+            ← BroadcastQueue$BroadcastHandler.handleMessage()
+            ← <com.android.server.am.BroadcastQueue: void -$$Nest$mprocess
+              ← ActivityManagerService$LocalService.bindSdkSandboxService()
+              ← ActivityManagerService.bindService()
+              ← ActivityManagerService.getContentProvider()
+              ← ActivityManagerService.openContentUri()
+              ← ContentProviderHelper.getContentProviderExternal()
+              ← ContentProviderHelper.checkContentProviderUriPermission()
+              ← ActivityStartController.startActivitiesInPackage()
+              ← ActivityTaskManagerService$LocalService.startActivitiesInPackage()
+              ← ActivityTaskManagerService.startActivityFromRecents()
+              ← AppTaskImpl.moveToFront()
+              ← <com.android.server.wm.RestartAppPolicy: void lambda$restart
+              ← <com.android.server.wm.WindowOrganizerController: int lambda
+              ← <com.android.server.wm.DexCompatController: void -$$Nest$mst
+              ← WindowOrganizerController.applyTransaction()
+              ← RootWindowContainer.startHomeOnTaskDisplayArea()
+              ← <com.android.server.wm.RootWindowContainer: java.lang.Boolea
+              ← ActivityTaskSupervisor.startSpecificActivity()
+              ← RootWindowContainer$AttachApplicationHelper.test()
+              ← ActivityManagerShellCommand.runStartActivity()
+              ← AppPrelaunchService.prelaunchApp()
+              ← AppPrelaunchShellCommand.prelaunch()
+              ← ActivityTaskManagerService$LocalService.startActivityAsUser()
+              ← ActivityManagerService.startActivityAsUserWithFeature()
+              ← ActivityTaskManagerService.startActivity()
+              ← ActivityTaskManagerServiceExt.startAppLockActivity()
+              ← AppContinuityGuideConfirmDialog$ClingWindowView.startSettingActivity()
+              ← ActivityTaskManagerService.startRecentsActivity()
+              ← ActiveServices$ServiceMap.rescheduleDelayedStartsLocked()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → Context.getUserId()
+      → Intent.getAction()
+      → ActivityInfo.toString()
+      → ArrayMap.get()
+      → SparseArray.size()
+      → SparseArray.valueAt()
+      → BaseRestrictionMgr.isBlockAssociatedActivity()
+      → BaseRestrictionMgr.isCurrentLauncherApp()
+      → BaseRestrictionMgr.isEssentialIntent()
+      → BaseRestrictionMgr.isSelfIntent()
+      → BaseRestrictionMgr.isSystemPackage()
+      → BaseRestrictionMgr.getRestrictionsByCurrentLevel()
+      → BaseRestrictionMgr.isPolicyBlockedPackage()
+      → FreecessController.getFreecessEnabled()
+      → FreecessController.isFreezedPackage()
+      → FreecessController.isPendingIntent()
+      → FreecessController.getInstance()
+      → FreecessController.unFreezePackage()
+      → FreecessPkgMap.getUserIdMap()
+      → MARsPackageInfo.getFASEnabled()
+      → MARsPackageInfo.getAppliedPolicy()
+      → MARsPackageInfo.getCurLevel()
+      → MARsPackageInfo.getUid()
+      → MARsPackageInfo.getUserId()
+      → MARsPackageInfo.getName()
+      → MARsPkgMap.getMap()
+      → MARsPkgMap.size()
+      → MARsPolicyManager.getCarModeOnState()
+      → MARsPolicyManager.getScreenOnState()
+      → MARsPolicyManager.isForegroundPackage()
+      → MARsPolicyManager.isIntentProhibited()
+      → MARsPolicyManager.levelChange()
+      → MARsPolicyManager.getMARsPackageInfo()
+      → MARsPolicyManager.getInstance()
+      → MARsPolicyManager.getAutorunForFreezedPackage()
+      → MARsPolicyManager.cancelPolicy()
+      → MARsPolicyManager.onAppUsed()
+      → MARsPolicyManager.onAppUsedForSpecificCase()
+      → MARsComponentTracker.getEnabled()
+      → MARsComponentTracker.getInstance()
+      → MARsComponentTracker.sendCTInfo()
+      → MARsComponentTracker.trackComponent()
+      → MARsVersionManager.isAdjustRestrictionMatch()
+      → MARsVersionManager.getInstance()
+        → ArrayMap.indexOfKey()
+        → SparseArray.gc()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → MARsPolicyManager.checkIsChinaModel()
+        → ArrayList.contains()
+        → HomeFilter.getInstance()
+        → HomeFilter.getHomePackage()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfoAsUser() [PKG_QUERY]
+        → PackageManager.checkSignatures() [SIG_CHECK]
+        → FreecessController.getAngryBirdEnabled()
+        → MARsPolicyManager.isChinaPolicyEnabled()
+        → UserHandle.getUserId()
+        → BaseRestrictionMgr.isBindNotificationListenerPackage()
+        → BaseRestrictionMgr.isJobSchedulerPackage()
+        → BaseRestrictionMgr.isLauncherableApp()
+        → BaseRestrictionMgr.isSamsungService()
+        → BaseRestrictionMgr.isShouldBlockCase()
+        → BaseRestrictionMgr.isShouldSkipCaseForPolicy()
+        → BaseRestrictionMgr.isSyncManagerPackage()
+        → FreecessController.isCalmModeOnoff()
+        → UidStateMgr.isUidRunning()
+        → UidStateMgr.getInstance()
+        → FreecessController.getFrozenPackageStatus()
+        → FreecessController.getFreezedPackage()
+        → MARsPolicyManager.isAutoRunOn()
+        → <com.android.server.am.FreecessController$FreecessController
+        → FreecessController.unFreezeAction()
+        → MARsPolicyManager.reportStatusWithMARs()
+        → ArrayMap.size()
+        → MARsPolicyManager.isMARsTarget()
+        → TopPackageFilter.isInTopPkgList()
+        → TopPackageFilter.getInstance()
+        → MARsHandler.getInstance()
+        → MARsHandler.sendCallSetAppStandbyBucketMsgToMainHandler()
+        → MARsHandler.sendCallSetModeMsgToMainHandler() [APPOPS]
+        → MARsHandler.sendNotifyDeviceCareMsgToMainHandler()
+        → MARsPackageInfo.getHasAppIcon()
+        → MARsPackageInfo.getDisableReason()
+        → MARsPackageInfo.getFasType()
+        → MARsPackageInfo.getState()
+        → MARsPackageInfo.getSharedUidName()
+        → MARsPackageInfo.setCurLevel()
+        → MARsPackageInfo.setDisableReason()
+        → MARsPackageInfo.setFASEnabled()
+        → MARsPackageInfo.setFasReason()
+        → MARsPackageInfo.setFasType()
+        → MARsPackageInfo.setIsInRestrictedBucket()
+        → MARsPackageInfo.setIsInUsageStats()
+        → MARsPackageInfo.setMaxLevel()
+        → MARsPackageInfo.setResetTime()
+        → MARsPackageInfo.setState()
+        → FASTableContract.convertFASTypeToReason()
+        → AllowListFilter.isInDefaultAllowList()
+        → AllowListFilter.getInstance()
+        → MARsPkgMap.totalSize()
+        → MARsPkgMap.get()
+        → <com.android.server.am.MARsPolicyManager$MARsPolicyManagerHo
+        → FreecessController.protectFreezePackage()
+        → MARsPackageInfo.getDisabled()
+        → MARsPackageInfo.setAppliedPolicy()
+        → MARsPackageInfo.setMpsm()
+        → MARsPackageInfo.setSBike()
+        → MARsPackageInfo.setUds()
+        → MARsPkgMap.remove()
+        → MARsPolicyManager.cancelDisablePolicy()
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.get()
+        → <java.util.ArrayList: void <init>()>
+        → SystemClock.elapsedRealtime()
+        → MARsPackageInfo.setDisableResetTime()
+        → MARsPackageInfo.setLastUsedTime()
+        → MARsPolicyManager.onAppUsed()
+        → LatestProtectedPackageFilter.getInstance()
+        → LatestProtectedPackageFilter.setLatestProtectedPkg()
+        → <com.android.server.am.mars.database.MARsComponentTracker$MA
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putInt()
+        → Bundle.putLong()
+        → Bundle.putString()
+        → Handler.obtainMessage()
+        → Handler.sendMessage()
+        → Message.setData()
+        → ConcurrentHashMap.size()
+        → MARsDBManager.getInstance()
+        → MARsDBManager.sendUpdateAppStartUpInfoMsgToDBHandler()
+        → MARsVersionManager.isAdjustRestrictionMatchInternal()
+        → MARsVersionManager.isRestrictionTypeAllowed()
+        → MARsVersionManager.convertRestrictionTypeToName()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → <com.android.server.am.mars.database.MARsVersionManager$MARs
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → <com.android.server.am.mars.filter.filter.HomeFilter$HomeFil
+          → AppGlobals.getPackageManager()
+          → IPackageManager.getServiceInfo()
+          → BaseRestrictionMgr.getLaunchIntentForPackage()
+          → Intent.getIntExtra()
+          → AccessibilityAppFilter.isEnabledAccessibilityApp()
+          → AccessibilityAppFilter.getInstance()
+          → ConcurrentList.contains()
+          → <com.android.server.am.mars.util.UidStateMgr$UidStateMgrHold
+          → FreecessPkgMap.sizeByUserId()
+          → FreecessPkgMap.getByUserId()
+          → FreecessController.sendFreecessSignal()
+          → FreecessController.onUnfreeze()
+          → FreecessController.stepLcdOnFreezedState()
+          → FreecessController.unfreezePackageForOLAF()
+          → FreecessController.updateFreezedStatusByFreezeType()
+          → FreecessHandler.getInstance()
+          → FreecessHandler.sendCalmModeRepeatMsg()
+          → FreecessHandler.sendFreecessSettlementMsg()
+          → FreecessHandler.sendPendingBroadcastMsg()
+          → FreecessPkgMap.remove()
+          → MARsPolicyManager.formatDateTimeWithoutYear()
+          → MARsPolicyManager.addDebugInfoToHistory()
+          → SystemClock.uptimeMillis()
+          → MARsPackageInfo.getMaxLevel()
+          → MARsPackageInfo.getunfreezedCount()
+          → MARsPackageInfo.setCheckJobRunningCount()
+          → MARsPackageInfo.setunfreezedCount()
+          → MARsPolicyManager.isNeedOptimizedApp()
+          → MARsPolicyManager.getLastUsedTime()
+          → ArraySet.contains()
+          → <com.android.server.am.mars.filter.filter.TopPackageFilter$T
+          → <com.android.server.am.MARsHandler$MARsHandlerHolder: com.an
+          → Bundle.putBoolean()
+          → Handler.sendMessageAtFrontOfQueue()
+          → List.contains()
+          → <com.android.server.am.mars.filter.filter.AllowListFilter$Al
+          → ArrayMap.valueAt()
+          → SparseArray.get()
+          → FreecessController.getPackageStatus()
+          → FreecessPkgStatus.updateProtectionTime()
+          → ArrayMap.remove()
+          → SparseArray.removeReturnOld()
+          → MARsPackageInfo.getDisableType()
+          → MARsPolicyManager.setEnabledSetting()
+          → MARsPolicyManager.changeAutoDisabledAppState()
+          → MARsPackageInfo.getDisableResetTime()
+          → MARsPackageInfo.getResetTime()
+          → FASEntityBuilder.build()
+          → FASEntityBuilder.setStrDisableReason()
+          → FASEntityBuilder.setStrDisableResetTime()
+          → FASEntityBuilder.setStrExtras()
+          → FASEntityBuilder.setStrFasReason()
+          → FASEntityBuilder.setStrLevel()
+          → FASEntityBuilder.setStrMode()
+          → FASEntityBuilder.setStrPkgName()
+          → FASEntityBuilder.setStrResetTime()
+          → FASEntityBuilder.setStrUid()
+          → <com.android.server.am.mars.database.FASEntityBuilder: void 
+          → FASTableContract.convertDisableReasonToDBValue()
+          → FASTableContract.convertStateToDBExtrasValue()
+          → MARsDBManager.sendUpdateResetTimeSpecificMsgToDBHandler()
+          → <com.android.server.am.mars.filter.filter.LatestProtectedPac
+          → ArrayMap.put()
+          → ArrayList.remove()
+          → ArrayList.remove()
+          → <com.android.server.am.mars.database.MARsDBManager$MARsDBMan
+          → MARsVersionManager.isActionMatch()
+            → ArrayMap.binarySearchHashes()
+            → ActivityThread.getPackageManager()
+            → Intent.addCategory()
+            → Intent.setClassName()
+            → Intent.setFlags()
+            → Intent.setPackage()
+            → <android.content.Intent: void <init>(android.content.Intent)
+            → <android.content.Intent: void <init>(java.lang.String)>
+            → Intent.removeCategory()
+            → PackageManager.queryIntentActivitiesAsUser()
+            → List.isEmpty()
+            → List.get()
+            → <com.android.server.am.mars.filter.filter.AccessibilityAppFi
+            → Lock.lock()
+            → Lock.unlock()
+            → ReadWriteLock.readLock()
+            → FreecessController.sendFreecessSignal()
+            → Binder.clearCallingIdentity()
+            → Binder.restoreCallingIdentity()
+            → FreecessController.updateFreezedUidFirewall()
+            → FreecessHandler.sendUpdateBTMsg()
+            → FreecessController.checkImportantPackage()
+            → FreecessController.covertLcdOnFreezedState()
+            → FreecessHandler.sendChangeToFreezeableMsg()
+            → FreecessHandler.sendChangeToFrozenMsg()
+            → FreecessHandler.sendLcdOnFreezeTriggerMsg()
+            → <com.android.server.am.FreecessHandler$FreecessHandlerHolder
+            → Handler.obtainMessage()
+            → Handler.sendMessageDelayed()
+            → SparseArray.remove()
+            → SimpleDateFormat.format()
+            → <java.text.SimpleDateFormat: void <init>(java.lang.String)>
+            → <java.util.Date: void <init>(long)>
+            → MARsPolicyManager$HistoryBuffer.put()
+            → MARsPackageInfo.getLastUsedTime()
+            → ArraySet.indexOf()
+            → SparseArray.get()
+            → IPackageManager.getPackageInfo() [PKG_QUERY]
+            → FreecessController.updateAllowListForFreecess()
+            → FreecessPkgMap.put()
+            → <com.android.server.am.FreecessPkgStatus: void <init>(java.l
+            → ArrayMap.removeAt()
+            → ContainerHelpers.binarySearch()
+            → IPackageManager$Stub.asInterface()
+            → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+            → ServiceManager.getService()
+            → MARsPackageInfo.setDisableType()
+            → MARsPackageInfo.setDisabled()
+            → FASEntityBuilder.setStrDisableType()
+            → FASEntityBuilder.setStrNew()
+            → <com.android.server.am.mars.database.FASEntity: void <init>(
+            → Bundle.putSerializable()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+              → FreecessController.writeDevFile()
+              → FreecessController.releaseRestriction()
+              → INetworkManagementService$Stub.asInterface()
+              → INetworkManagementService.setFirewallUidRule()
+              → MARsPolicyManager.addNetDebugInfoToHistory()
+              → Handler.hasMessages()
+              → FreecessController.isInFreecessExcludeList()
+              → FilterManager.getInstance()
+              → FilterManager.filterForSpecificPolicy()
+              → Handler.hasMessages()
+              → SparseArray.delete()
+              → ArraySet.indexOf()
+              → ArraySet.indexOfNull()
+              → <android.util.SparseArray: void <init>(int)>
+              → SparseArray.put()
+              → FASEntityBuilder.getStrDisableReason()
+              → FASEntityBuilder.getStrDisableResetTime()
+              → FASEntityBuilder.getStrDisableType()
+              → FASEntityBuilder.getStrExtras()
+              → FASEntityBuilder.getStrFasReason()
+              → FASEntityBuilder.getStrLevel()
+              → FASEntityBuilder.getStrMode()
+              → FASEntityBuilder.getStrNew()
+              → FASEntityBuilder.getStrPackageType()
+              → FASEntityBuilder.getStrPkgName()
+              → FASEntityBuilder.getStrPreBatteryUsage()
+              → FASEntityBuilder.getStrResetTime()
+              → FASEntityBuilder.getStrUid()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     97
+  Register: v0 := "com.google.android.projection.gearhead"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.MediaFocusControl
+  Method:   <com.android.server.audio.MediaFocusControl: int requestAudioFocus(android.media.AudioAttributes,int,android.os.IBinder,android.media.IAudioFocusDispatcher,java.lang.String,java.lang.String,java.lang.String,int,int,boolean,int)>
+  Line:     6195
+  Register: v2 := "com.google.android.projection.gearhead"
+  Usage:    [invoke] invoke-virtual {v2, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v2 → [branch] if-eqz v2, :cond_349 → [other] iget-object v2, v0
+
+  CALLERS (who invokes this method):
+      ← AudioService.requestAudioFocus()
+      ← AudioService.requestAudioFocusForTest()
+      ← MediaFocusControl.checkSplitSoundAudioFocus()
+        ← ScreenSharingHelper$1.onScreenSharingStatusChanged()
+
+  CALLEES (what this method invokes):
+      → AppOpsManager.noteOp() [APPOPS]
+      → AudioAttributes.getContentType()
+      → AudioAttributes.toLegacyStreamType()
+      → AudioAttributes.contentTypeToString()
+      → AudioAttributes.usageToString()
+      → <android.media.AudioFocusInfo: void <init>(android.media.Aud
+      → AudioManager.audioFocusToString()
+      → MediaMetrics$Item.set()
+      → MediaMetrics$Item.setUid()
+      → MediaMetrics$Item.record()
+      → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → IBinder.pingBinder()
+      → IBinder.unlinkToDeath()
+      → IBinder.linkToDeath()
+      → TextUtils.equals()
+      → AudioEventLogger$Event.printLog()
+      → <com.android.server.audio.AudioEventLogger$StringEvent: void
+      → AudioEventLogger.log()
+      → AudioService.isPlaybackActiveForUid()
+      → AudioService.isWiredHeadsetOrHeadphonePlugged()
+      → AudioService.getStreamVolume()
+      → FocusRequester.toAudioFocusInfo()
+      → FocusRequester.handleFocusLossFromGain()
+      → FocusRequester.hasSameClient()
+      → FocusRequester.getCallingUid() [UID_CHECK]
+      → FocusRequester.getClientUid()
+      → FocusRequester.getDevice()
+      → FocusRequester.getGainRequest()
+      → FocusRequester.getGrantFlags()
+      → FocusRequester.getPackageName()
+      → <com.android.server.audio.FocusRequester: void <init>(androi
+      → FocusRequester.handleFocusGainFromRequest()
+      → FocusRequester.handleFocusLoss()
+      → FocusRequester.release()
+      → FocusRequester.resetFocusLossReceived()
+      → FocusRequester.setDevice()
+      → <com.android.server.audio.MediaFocusControl$AudioFocusDeathH
+      → MediaFocusControl.canReassignAudioFocus()
+      → MediaFocusControl.fromPhoneCall()
+      → MediaFocusControl.isRemoteMicState()
+      → MediaFocusControl.notifyExtFocusPolicyFocusRequest_syncAf()
+      → MediaFocusControl.getAppDevice()
+      → MediaFocusControl.pushBelowLockedFocusOwnersAndPropagate()
+      → MediaFocusControl.selectFocusList()
+      → MediaFocusControl.selectFocusStack()
+      → MediaFocusControl.addMySpaceEffectDelayLocked()
+      → MediaFocusControl.notifyExtPolicyFocusGrant_syncAf()
+      → MediaFocusControl.propagateFocusLossFromGainToAll()
+      → MediaFocusControl.propagateFocusLossFromGain_syncAf()
+      → MediaFocusControl.removeFocusStackEntry()
+      → MediaFocusControl.resetFocusLossReceived()
+      → MediaFocusControl.runAudioCheckerForRingOrCallAsync()
+      → MultiFocusStack.getFocusRequester()
+      → MultiFocusStack.pushFocusRequester()
+      → AudioManagerHelper.isFMPlayerActive()
+      → MySpaceManager.playMySpaceEffect()
+      → ScreenSharingHelper.isAllowed()
+      → ScreenSharingHelper.isSplitSoundEnabled()
+      → ArrayList.add()
+      → ArrayList.isEmpty()
+      → ArrayList.iterator()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Stack.empty()
+      → Stack.size()
+      → Stack.peek()
+      → Stack.pop()
+      → Stack.push()
+        → AudioAttributes$Builder.build()
+        → <android.media.AudioAttributes$Builder: void <init>()>
+        → MediaMetrics$Item.putDouble()
+        → MediaMetrics$Item.putInt()
+        → MediaMetrics$Item.putLong()
+        → MediaMetrics$Item.putString()
+        → MediaMetrics$Key.getName()
+        → ByteBuffer.putInt()
+        → MediaMetrics$Item.updateHeader()
+        → <android.media.MediaMetrics: int -$$Nest$smnative_submit_byt
+        → ByteBuffer.limit()
+        → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+        → CharSequence.charAt()
+        → CharSequence.length()
+        → AudioEventLogger$Event.printLog()
+        → <com.android.server.audio.AudioEventLogger$Event: void <init
+        → LinkedList.add()
+        → LinkedList.size()
+        → LinkedList.removeFirst()
+        → PlaybackActivityMonitor.isPlaybackActiveForUid()
+        → AudioService.getObservedDevicesForMedia()
+        → AudioService.getStreamVolume()
+        → FocusRequester.focusLossForGainRequest()
+        → MediaFocusControl.isDelayLossApp()
+        → MediaFocusControl.postDelayedForLossAudioFocus()
+        → MediaFocusControl.restoreVShapedPlayers()
+        → IAudioFocusDispatcher.dispatchAudioFocusChange()
+        → FocusRequester.frameworkHandleFocusLoss()
+        → MediaFocusControl.mustNotifyFocusOwnerOnDuck()
+        → MediaFocusControl.notifyExtPolicyFocusLoss_syncAf()
+        → MediaFocusControl.isLockedFocusOwner()
+        → Stack.isEmpty()
+        → AudioAttributes.getTags()
+        → AudioService.getRemoteMic()
+        → Set.contains()
+        → AudioFocusInfo.getClientId()
+        → AudioFocusInfo.setGen()
+        → IAudioPolicyCallback.asBinder()
+        → IAudioPolicyCallback.notifyAudioFocusRequest()
+        → FocusRequester.hasSameDispatcher()
+        → <com.android.server.audio.FocusRequester: void <init>(androi
+        → HashMap.get()
+        → HashMap.put()
+        → AudioService.getAppDevice()
+        → AudioHelper.isWiredDeviceType()
+        → FocusRequester.getClientId()
+        → <java.lang.Exception: void <init>()>
+        → <java.util.LinkedList: void <init>()>
+        → List.add()
+        → List.iterator()
+        → Stack.elementAt()
+        → Stack.insertElementAt()
+        → MultiFocusStack.getFocusList()
+        → MultiFocusStack.getFocusStack()
+        → Handler.postDelayed()
+        → Handler.removeCallbacks()
+        → AudioFocusInfo.getGainRequest()
+        → AudioFocusInfo.getPackageName()
+        → IAudioPolicyCallback.notifyAudioFocusGrant()
+        → AudioService.notifyCarLifeEvent()
+        → SparseArray.size()
+        → SparseArray.valueAt()
+        → Stack.iterator()
+        → AudioFocusInfo.clearLossReceived()
+        → FocusRequester.maybeRelease()
+        → MediaFocusControl.notifyTopOfAudioFocusStack()
+        → Iterator.remove()
+        → <com.android.server.audio.MediaFocusControl$2: void <init>(c
+        → Thread.start()
+        → MultiFocusStack.findFocusRequester()
+        → Stack.remove()
+        → MultiFocusStack.getStackForDevice()
+        → SystemProperties.get()
+        → AudioSystem.isStreamActive()
+        → MySpaceManager.setParameter()
+        → AudioAttributes.getUsage()
+          → <android.media.AudioAttributes: int -$$Nest$fgetmFlags(andro
+          → <android.media.AudioAttributes: int -$$Nest$fgetmUsage(andro
+          → <android.media.AudioAttributes: void -$$Nest$fputmBundle(and
+          → <android.media.AudioAttributes: void -$$Nest$fputmContentTyp
+          → <android.media.AudioAttributes: void -$$Nest$fputmFlags(andr
+          → <android.media.AudioAttributes: void -$$Nest$fputmFormattedT
+          → <android.media.AudioAttributes: void -$$Nest$fputmSource(and
+          → <android.media.AudioAttributes: void -$$Nest$fputmTags(andro
+          → <android.media.AudioAttributes: void -$$Nest$fputmUsage(andr
+          → <android.media.AudioAttributes: void <init>(android.media.Au
+          → <android.os.Bundle: void <init>(android.os.Bundle)>
+          → TextUtils.join()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → HashSet.clone()
+          → <java.util.HashSet: void <init>()>
+          → MediaMetrics$Item.reserveProperty()
+          → <android.media.MediaMetrics: java.nio.charset.Charset -$$Nes
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → ByteBuffer.position()
+          → ByteBuffer.put()
+          → ByteBuffer.put()
+          → ByteBuffer.putChar()
+          → ByteBuffer.putDouble()
+          → ByteBuffer.putInt()
+          → ByteBuffer.putLong()
+          → MediaMetrics.native_submit_bytebuffer()
+          → ByteBuffer.allocateDirect()
+          → ByteBuffer.order()
+          → ByteOrder.nativeOrder()
+          → AudioEventLogger$Event.eventToString()
+          → AudioPlaybackConfiguration.isActive()
+          → AudioPlaybackConfiguration.getClientUid()
+          → Collection.iterator()
+          → HashMap.values()
+          → AudioSystem.getDeviceMaskFromSet()
+          → <com.android.server.audio.AudioService$VolumeStreamState: ja
+          → <com.android.server.audio.AudioService$VolumeStreamState: bo
+          → AudioService$VolumeStreamState.getIndex()
+          → AudioService$VolumeStreamState.getMaxIndex()
+          → AudioService.isFixedVolumeDevice()
+          → AudioService.isMultiSoundOn()
+          → AudioService.getDeviceForStream()
+          → AudioService.getIndexDividedBy10()
+          → AudioService.ensureValidStreamType()
+          → AudioSettingsHelper.checkAppCategory()
+          → Handler.obtainMessage()
+          → Handler.sendMessageDelayed()
+          → Handler.removeMessages()
+          → Handler.removeEqualMessages()
+          → <com.android.server.audio.MediaFocusControl$ForgetFadeUidInf
+          → PlayerFocusEnforcer.restoreVShapedPlayers()
+          → FocusRequester.getSdkTarget()
+          → MediaFocusControl.duckPlayers()
+          → IAudioPolicyCallback.notifyAudioFocusLoss()
+          → FocusRequester.isLockedFocusOwner()
+          → AudioFocusInfo.getAttributes()
+          → AudioFocusInfo.getClientUid()
+          → AudioFocusInfo.getFlags()
+          → AudioFocusInfo.getSdkTarget()
+          → MultiSoundManager.getAppDevice()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+          → AudioService.sendBroadcastToSoundEventReceiver()
+          → SparseArray.gc()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → FocusRequester.handleFocusGain()
+          → <java.lang.Thread: void <init>()>
+          → <com.android.server.audio.MultiFocusStack$$ExternalSynthetic
+          → Optional.orElse()
+          → Stack.stream()
+          → Stream.findFirst()
+          → Stream.filter()
+          → SparseArray.get()
+          → SparseArray.append()
+          → <java.util.Stack: void <init>()>
+          → SemAudioSystem.setEffectParameters()
+            → Iterable.iterator()
+            → ByteBuffer.remaining()
+            → ByteBuffer.flip()
+            → ByteBuffer.put()
+            → SparseIntArray.get()
+            → SparseIntArray.get()
+            → RecordingActivityMonitor.isLegacyRemoteSubmixActive()
+            → MultiSoundManager.isEnabled()
+            → AudioService.selectOneAudioDevice()
+            → AudioService.getDeviceSetForStream()
+            → Set.iterator()
+            → AtomicInteger.get()
+            → <com.samsung.android.server.audio.AudioSettingsHelper$$Exter
+            → CopyOnWriteArrayList.isEmpty()
+            → CopyOnWriteArrayList.stream()
+            → Stream.anyMatch()
+            → PlayerFocusEnforcer.duckPlayers()
+            → MultiSoundManager$MultiSoundInterface.getConnectedDevice()
+            → MultiSoundManager$MultiSoundItem.getAppDevice()
+            → MultiSoundManager.isDeviceConnected()
+            → MultiSoundManager.getCurrentMediaDevice()
+            → Intent.putExtra()
+            → Intent.putExtra()
+            → Intent.setComponent()
+            → <android.content.Intent: void <init>(java.lang.String)>
+            → AudioService$SoundEventReceiver.hasEventType()
+            → AudioService.sendMsg()
+            → SparseArray.get()
+            → SparseArray.put()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → AudioSystem.setParameters()
+              → ContainerHelpers.binarySearch()
+              → AtomicBoolean.get()
+              → AudioSystem.deviceSetToString()
+              → Set.isEmpty()
+              → Set.size()
+              → AudioService$VolumeStreamState.observeDevicesForStream_syncVSS()
+              → AudioSystemAdapter.getDeviceConnectionState()
+              → MultiSoundManager$MultiSoundInterface.getCurrentMediaDevice()
+              → Handler.obtainMessage()
+              → Handler.hasMessages()
+              → Handler.sendMessageAtTime()
+              → Handler.removeMessages()
+              → SystemClock.uptimeMillis()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.MediaFocusControl
+  Method:   <com.android.server.audio.MediaFocusControl: int requestAudioFocus(android.media.AudioAttributes,int,android.os.IBinder,android.media.IAudioFocusDispatcher,java.lang.String,java.lang.String,java.lang.String,int,int,boolean,int)>
+  Line:     6321
+  Register: v8 := "com.google.android.projection.gearhead"
+  Usage:    [invoke] invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v2 → [branch] if-eqz v2, :cond_349 → [other] iget-object v2, v0
+
+  CALLERS (who invokes this method):
+      ← AudioService.requestAudioFocus()
+      ← AudioService.requestAudioFocusForTest()
+      ← MediaFocusControl.checkSplitSoundAudioFocus()
+        ← ScreenSharingHelper$1.onScreenSharingStatusChanged()
+
+  CALLEES (what this method invokes):
+      → AppOpsManager.noteOp() [APPOPS]
+      → AudioAttributes.getContentType()
+      → AudioAttributes.toLegacyStreamType()
+      → AudioAttributes.contentTypeToString()
+      → AudioAttributes.usageToString()
+      → <android.media.AudioFocusInfo: void <init>(android.media.Aud
+      → AudioManager.audioFocusToString()
+      → MediaMetrics$Item.set()
+      → MediaMetrics$Item.setUid()
+      → MediaMetrics$Item.record()
+      → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → IBinder.pingBinder()
+      → IBinder.unlinkToDeath()
+      → IBinder.linkToDeath()
+      → TextUtils.equals()
+      → AudioEventLogger$Event.printLog()
+      → <com.android.server.audio.AudioEventLogger$StringEvent: void
+      → AudioEventLogger.log()
+      → AudioService.isPlaybackActiveForUid()
+      → AudioService.isWiredHeadsetOrHeadphonePlugged()
+      → AudioService.getStreamVolume()
+      → FocusRequester.toAudioFocusInfo()
+      → FocusRequester.handleFocusLossFromGain()
+      → FocusRequester.hasSameClient()
+      → FocusRequester.getCallingUid() [UID_CHECK]
+      → FocusRequester.getClientUid()
+      → FocusRequester.getDevice()
+      → FocusRequester.getGainRequest()
+      → FocusRequester.getGrantFlags()
+      → FocusRequester.getPackageName()
+      → <com.android.server.audio.FocusRequester: void <init>(androi
+      → FocusRequester.handleFocusGainFromRequest()
+      → FocusRequester.handleFocusLoss()
+      → FocusRequester.release()
+      → FocusRequester.resetFocusLossReceived()
+      → FocusRequester.setDevice()
+      → <com.android.server.audio.MediaFocusControl$AudioFocusDeathH
+      → MediaFocusControl.canReassignAudioFocus()
+      → MediaFocusControl.fromPhoneCall()
+      → MediaFocusControl.isRemoteMicState()
+      → MediaFocusControl.notifyExtFocusPolicyFocusRequest_syncAf()
+      → MediaFocusControl.getAppDevice()
+      → MediaFocusControl.pushBelowLockedFocusOwnersAndPropagate()
+      → MediaFocusControl.selectFocusList()
+      → MediaFocusControl.selectFocusStack()
+      → MediaFocusControl.addMySpaceEffectDelayLocked()
+      → MediaFocusControl.notifyExtPolicyFocusGrant_syncAf()
+      → MediaFocusControl.propagateFocusLossFromGainToAll()
+      → MediaFocusControl.propagateFocusLossFromGain_syncAf()
+      → MediaFocusControl.removeFocusStackEntry()
+      → MediaFocusControl.resetFocusLossReceived()
+      → MediaFocusControl.runAudioCheckerForRingOrCallAsync()
+      → MultiFocusStack.getFocusRequester()
+      → MultiFocusStack.pushFocusRequester()
+      → AudioManagerHelper.isFMPlayerActive()
+      → MySpaceManager.playMySpaceEffect()
+      → ScreenSharingHelper.isAllowed()
+      → ScreenSharingHelper.isSplitSoundEnabled()
+      → ArrayList.add()
+      → ArrayList.isEmpty()
+      → ArrayList.iterator()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Stack.empty()
+      → Stack.size()
+      → Stack.peek()
+      → Stack.pop()
+      → Stack.push()
+        → AudioAttributes$Builder.build()
+        → <android.media.AudioAttributes$Builder: void <init>()>
+        → MediaMetrics$Item.putDouble()
+        → MediaMetrics$Item.putInt()
+        → MediaMetrics$Item.putLong()
+        → MediaMetrics$Item.putString()
+        → MediaMetrics$Key.getName()
+        → ByteBuffer.putInt()
+        → MediaMetrics$Item.updateHeader()
+        → <android.media.MediaMetrics: int -$$Nest$smnative_submit_byt
+        → ByteBuffer.limit()
+        → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+        → CharSequence.charAt()
+        → CharSequence.length()
+        → AudioEventLogger$Event.printLog()
+        → <com.android.server.audio.AudioEventLogger$Event: void <init
+        → LinkedList.add()
+        → LinkedList.size()
+        → LinkedList.removeFirst()
+        → PlaybackActivityMonitor.isPlaybackActiveForUid()
+        → AudioService.getObservedDevicesForMedia()
+        → AudioService.getStreamVolume()
+        → FocusRequester.focusLossForGainRequest()
+        → MediaFocusControl.isDelayLossApp()
+        → MediaFocusControl.postDelayedForLossAudioFocus()
+        → MediaFocusControl.restoreVShapedPlayers()
+        → IAudioFocusDispatcher.dispatchAudioFocusChange()
+        → FocusRequester.frameworkHandleFocusLoss()
+        → MediaFocusControl.mustNotifyFocusOwnerOnDuck()
+        → MediaFocusControl.notifyExtPolicyFocusLoss_syncAf()
+        → MediaFocusControl.isLockedFocusOwner()
+        → Stack.isEmpty()
+        → AudioAttributes.getTags()
+        → AudioService.getRemoteMic()
+        → Set.contains()
+        → AudioFocusInfo.getClientId()
+        → AudioFocusInfo.setGen()
+        → IAudioPolicyCallback.asBinder()
+        → IAudioPolicyCallback.notifyAudioFocusRequest()
+        → FocusRequester.hasSameDispatcher()
+        → <com.android.server.audio.FocusRequester: void <init>(androi
+        → HashMap.get()
+        → HashMap.put()
+        → AudioService.getAppDevice()
+        → AudioHelper.isWiredDeviceType()
+        → FocusRequester.getClientId()
+        → <java.lang.Exception: void <init>()>
+        → <java.util.LinkedList: void <init>()>
+        → List.add()
+        → List.iterator()
+        → Stack.elementAt()
+        → Stack.insertElementAt()
+        → MultiFocusStack.getFocusList()
+        → MultiFocusStack.getFocusStack()
+        → Handler.postDelayed()
+        → Handler.removeCallbacks()
+        → AudioFocusInfo.getGainRequest()
+        → AudioFocusInfo.getPackageName()
+        → IAudioPolicyCallback.notifyAudioFocusGrant()
+        → AudioService.notifyCarLifeEvent()
+        → SparseArray.size()
+        → SparseArray.valueAt()
+        → Stack.iterator()
+        → AudioFocusInfo.clearLossReceived()
+        → FocusRequester.maybeRelease()
+        → MediaFocusControl.notifyTopOfAudioFocusStack()
+        → Iterator.remove()
+        → <com.android.server.audio.MediaFocusControl$2: void <init>(c
+        → Thread.start()
+        → MultiFocusStack.findFocusRequester()
+        → Stack.remove()
+        → MultiFocusStack.getStackForDevice()
+        → SystemProperties.get()
+        → AudioSystem.isStreamActive()
+        → MySpaceManager.setParameter()
+        → AudioAttributes.getUsage()
+          → <android.media.AudioAttributes: int -$$Nest$fgetmFlags(andro
+          → <android.media.AudioAttributes: int -$$Nest$fgetmUsage(andro
+          → <android.media.AudioAttributes: void -$$Nest$fputmBundle(and
+          → <android.media.AudioAttributes: void -$$Nest$fputmContentTyp
+          → <android.media.AudioAttributes: void -$$Nest$fputmFlags(andr
+          → <android.media.AudioAttributes: void -$$Nest$fputmFormattedT
+          → <android.media.AudioAttributes: void -$$Nest$fputmSource(and
+          → <android.media.AudioAttributes: void -$$Nest$fputmTags(andro
+          → <android.media.AudioAttributes: void -$$Nest$fputmUsage(andr
+          → <android.media.AudioAttributes: void <init>(android.media.Au
+          → <android.os.Bundle: void <init>(android.os.Bundle)>
+          → TextUtils.join()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → HashSet.clone()
+          → <java.util.HashSet: void <init>()>
+          → MediaMetrics$Item.reserveProperty()
+          → <android.media.MediaMetrics: java.nio.charset.Charset -$$Nes
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → ByteBuffer.position()
+          → ByteBuffer.put()
+          → ByteBuffer.put()
+          → ByteBuffer.putChar()
+          → ByteBuffer.putDouble()
+          → ByteBuffer.putInt()
+          → ByteBuffer.putLong()
+          → MediaMetrics.native_submit_bytebuffer()
+          → ByteBuffer.allocateDirect()
+          → ByteBuffer.order()
+          → ByteOrder.nativeOrder()
+          → AudioEventLogger$Event.eventToString()
+          → AudioPlaybackConfiguration.isActive()
+          → AudioPlaybackConfiguration.getClientUid()
+          → Collection.iterator()
+          → HashMap.values()
+          → AudioSystem.getDeviceMaskFromSet()
+          → <com.android.server.audio.AudioService$VolumeStreamState: ja
+          → <com.android.server.audio.AudioService$VolumeStreamState: bo
+          → AudioService$VolumeStreamState.getIndex()
+          → AudioService$VolumeStreamState.getMaxIndex()
+          → AudioService.isFixedVolumeDevice()
+          → AudioService.isMultiSoundOn()
+          → AudioService.getDeviceForStream()
+          → AudioService.getIndexDividedBy10()
+          → AudioService.ensureValidStreamType()
+          → AudioSettingsHelper.checkAppCategory()
+          → Handler.obtainMessage()
+          → Handler.sendMessageDelayed()
+          → Handler.removeMessages()
+          → Handler.removeEqualMessages()
+          → <com.android.server.audio.MediaFocusControl$ForgetFadeUidInf
+          → PlayerFocusEnforcer.restoreVShapedPlayers()
+          → FocusRequester.getSdkTarget()
+          → MediaFocusControl.duckPlayers()
+          → IAudioPolicyCallback.notifyAudioFocusLoss()
+          → FocusRequester.isLockedFocusOwner()
+          → AudioFocusInfo.getAttributes()
+          → AudioFocusInfo.getClientUid()
+          → AudioFocusInfo.getFlags()
+          → AudioFocusInfo.getSdkTarget()
+          → MultiSoundManager.getAppDevice()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+          → AudioService.sendBroadcastToSoundEventReceiver()
+          → SparseArray.gc()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → FocusRequester.handleFocusGain()
+          → <java.lang.Thread: void <init>()>
+          → <com.android.server.audio.MultiFocusStack$$ExternalSynthetic
+          → Optional.orElse()
+          → Stack.stream()
+          → Stream.findFirst()
+          → Stream.filter()
+          → SparseArray.get()
+          → SparseArray.append()
+          → <java.util.Stack: void <init>()>
+          → SemAudioSystem.setEffectParameters()
+            → Iterable.iterator()
+            → ByteBuffer.remaining()
+            → ByteBuffer.flip()
+            → ByteBuffer.put()
+            → SparseIntArray.get()
+            → SparseIntArray.get()
+            → RecordingActivityMonitor.isLegacyRemoteSubmixActive()
+            → MultiSoundManager.isEnabled()
+            → AudioService.selectOneAudioDevice()
+            → AudioService.getDeviceSetForStream()
+            → Set.iterator()
+            → AtomicInteger.get()
+            → <com.samsung.android.server.audio.AudioSettingsHelper$$Exter
+            → CopyOnWriteArrayList.isEmpty()
+            → CopyOnWriteArrayList.stream()
+            → Stream.anyMatch()
+            → PlayerFocusEnforcer.duckPlayers()
+            → MultiSoundManager$MultiSoundInterface.getConnectedDevice()
+            → MultiSoundManager$MultiSoundItem.getAppDevice()
+            → MultiSoundManager.isDeviceConnected()
+            → MultiSoundManager.getCurrentMediaDevice()
+            → Intent.putExtra()
+            → Intent.putExtra()
+            → Intent.setComponent()
+            → <android.content.Intent: void <init>(java.lang.String)>
+            → AudioService$SoundEventReceiver.hasEventType()
+            → AudioService.sendMsg()
+            → SparseArray.get()
+            → SparseArray.put()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → AudioSystem.setParameters()
+              → ContainerHelpers.binarySearch()
+              → AtomicBoolean.get()
+              → AudioSystem.deviceSetToString()
+              → Set.isEmpty()
+              → Set.size()
+              → AudioService$VolumeStreamState.observeDevicesForStream_syncVSS()
+              → AudioSystemAdapter.getDeviceConnectionState()
+              → MultiSoundManager$MultiSoundInterface.getCurrentMediaDevice()
+              → Handler.obtainMessage()
+              → Handler.hasMessages()
+              → Handler.sendMessageAtTime()
+              → Handler.removeMessages()
+              → SystemClock.uptimeMillis()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.MediaFocusControl
+  Method:   <com.android.server.audio.MediaFocusControl: int requestAudioFocus(android.media.AudioAttributes,int,android.os.IBinder,android.media.IAudioFocusDispatcher,java.lang.String,java.lang.String,java.lang.String,int,int,boolean,int)>
+  Line:     6449
+  Register: v2 := "com.google.android.projection.gearhead"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v2 → [branch] if-eqz v2, :cond_349 → [other] iget-object v2, v0
+
+  CALLERS (who invokes this method):
+      ← AudioService.requestAudioFocus()
+      ← AudioService.requestAudioFocusForTest()
+      ← MediaFocusControl.checkSplitSoundAudioFocus()
+        ← ScreenSharingHelper$1.onScreenSharingStatusChanged()
+
+  CALLEES (what this method invokes):
+      → AppOpsManager.noteOp() [APPOPS]
+      → AudioAttributes.getContentType()
+      → AudioAttributes.toLegacyStreamType()
+      → AudioAttributes.contentTypeToString()
+      → AudioAttributes.usageToString()
+      → <android.media.AudioFocusInfo: void <init>(android.media.Aud
+      → AudioManager.audioFocusToString()
+      → MediaMetrics$Item.set()
+      → MediaMetrics$Item.setUid()
+      → MediaMetrics$Item.record()
+      → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → IBinder.pingBinder()
+      → IBinder.unlinkToDeath()
+      → IBinder.linkToDeath()
+      → TextUtils.equals()
+      → AudioEventLogger$Event.printLog()
+      → <com.android.server.audio.AudioEventLogger$StringEvent: void
+      → AudioEventLogger.log()
+      → AudioService.isPlaybackActiveForUid()
+      → AudioService.isWiredHeadsetOrHeadphonePlugged()
+      → AudioService.getStreamVolume()
+      → FocusRequester.toAudioFocusInfo()
+      → FocusRequester.handleFocusLossFromGain()
+      → FocusRequester.hasSameClient()
+      → FocusRequester.getCallingUid() [UID_CHECK]
+      → FocusRequester.getClientUid()
+      → FocusRequester.getDevice()
+      → FocusRequester.getGainRequest()
+      → FocusRequester.getGrantFlags()
+      → FocusRequester.getPackageName()
+      → <com.android.server.audio.FocusRequester: void <init>(androi
+      → FocusRequester.handleFocusGainFromRequest()
+      → FocusRequester.handleFocusLoss()
+      → FocusRequester.release()
+      → FocusRequester.resetFocusLossReceived()
+      → FocusRequester.setDevice()
+      → <com.android.server.audio.MediaFocusControl$AudioFocusDeathH
+      → MediaFocusControl.canReassignAudioFocus()
+      → MediaFocusControl.fromPhoneCall()
+      → MediaFocusControl.isRemoteMicState()
+      → MediaFocusControl.notifyExtFocusPolicyFocusRequest_syncAf()
+      → MediaFocusControl.getAppDevice()
+      → MediaFocusControl.pushBelowLockedFocusOwnersAndPropagate()
+      → MediaFocusControl.selectFocusList()
+      → MediaFocusControl.selectFocusStack()
+      → MediaFocusControl.addMySpaceEffectDelayLocked()
+      → MediaFocusControl.notifyExtPolicyFocusGrant_syncAf()
+      → MediaFocusControl.propagateFocusLossFromGainToAll()
+      → MediaFocusControl.propagateFocusLossFromGain_syncAf()
+      → MediaFocusControl.removeFocusStackEntry()
+      → MediaFocusControl.resetFocusLossReceived()
+      → MediaFocusControl.runAudioCheckerForRingOrCallAsync()
+      → MultiFocusStack.getFocusRequester()
+      → MultiFocusStack.pushFocusRequester()
+      → AudioManagerHelper.isFMPlayerActive()
+      → MySpaceManager.playMySpaceEffect()
+      → ScreenSharingHelper.isAllowed()
+      → ScreenSharingHelper.isSplitSoundEnabled()
+      → ArrayList.add()
+      → ArrayList.isEmpty()
+      → ArrayList.iterator()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Stack.empty()
+      → Stack.size()
+      → Stack.peek()
+      → Stack.pop()
+      → Stack.push()
+        → AudioAttributes$Builder.build()
+        → <android.media.AudioAttributes$Builder: void <init>()>
+        → MediaMetrics$Item.putDouble()
+        → MediaMetrics$Item.putInt()
+        → MediaMetrics$Item.putLong()
+        → MediaMetrics$Item.putString()
+        → MediaMetrics$Key.getName()
+        → ByteBuffer.putInt()
+        → MediaMetrics$Item.updateHeader()
+        → <android.media.MediaMetrics: int -$$Nest$smnative_submit_byt
+        → ByteBuffer.limit()
+        → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+        → CharSequence.charAt()
+        → CharSequence.length()
+        → AudioEventLogger$Event.printLog()
+        → <com.android.server.audio.AudioEventLogger$Event: void <init
+        → LinkedList.add()
+        → LinkedList.size()
+        → LinkedList.removeFirst()
+        → PlaybackActivityMonitor.isPlaybackActiveForUid()
+        → AudioService.getObservedDevicesForMedia()
+        → AudioService.getStreamVolume()
+        → FocusRequester.focusLossForGainRequest()
+        → MediaFocusControl.isDelayLossApp()
+        → MediaFocusControl.postDelayedForLossAudioFocus()
+        → MediaFocusControl.restoreVShapedPlayers()
+        → IAudioFocusDispatcher.dispatchAudioFocusChange()
+        → FocusRequester.frameworkHandleFocusLoss()
+        → MediaFocusControl.mustNotifyFocusOwnerOnDuck()
+        → MediaFocusControl.notifyExtPolicyFocusLoss_syncAf()
+        → MediaFocusControl.isLockedFocusOwner()
+        → Stack.isEmpty()
+        → AudioAttributes.getTags()
+        → AudioService.getRemoteMic()
+        → Set.contains()
+        → AudioFocusInfo.getClientId()
+        → AudioFocusInfo.setGen()
+        → IAudioPolicyCallback.asBinder()
+        → IAudioPolicyCallback.notifyAudioFocusRequest()
+        → FocusRequester.hasSameDispatcher()
+        → <com.android.server.audio.FocusRequester: void <init>(androi
+        → HashMap.get()
+        → HashMap.put()
+        → AudioService.getAppDevice()
+        → AudioHelper.isWiredDeviceType()
+        → FocusRequester.getClientId()
+        → <java.lang.Exception: void <init>()>
+        → <java.util.LinkedList: void <init>()>
+        → List.add()
+        → List.iterator()
+        → Stack.elementAt()
+        → Stack.insertElementAt()
+        → MultiFocusStack.getFocusList()
+        → MultiFocusStack.getFocusStack()
+        → Handler.postDelayed()
+        → Handler.removeCallbacks()
+        → AudioFocusInfo.getGainRequest()
+        → AudioFocusInfo.getPackageName()
+        → IAudioPolicyCallback.notifyAudioFocusGrant()
+        → AudioService.notifyCarLifeEvent()
+        → SparseArray.size()
+        → SparseArray.valueAt()
+        → Stack.iterator()
+        → AudioFocusInfo.clearLossReceived()
+        → FocusRequester.maybeRelease()
+        → MediaFocusControl.notifyTopOfAudioFocusStack()
+        → Iterator.remove()
+        → <com.android.server.audio.MediaFocusControl$2: void <init>(c
+        → Thread.start()
+        → MultiFocusStack.findFocusRequester()
+        → Stack.remove()
+        → MultiFocusStack.getStackForDevice()
+        → SystemProperties.get()
+        → AudioSystem.isStreamActive()
+        → MySpaceManager.setParameter()
+        → AudioAttributes.getUsage()
+          → <android.media.AudioAttributes: int -$$Nest$fgetmFlags(andro
+          → <android.media.AudioAttributes: int -$$Nest$fgetmUsage(andro
+          → <android.media.AudioAttributes: void -$$Nest$fputmBundle(and
+          → <android.media.AudioAttributes: void -$$Nest$fputmContentTyp
+          → <android.media.AudioAttributes: void -$$Nest$fputmFlags(andr
+          → <android.media.AudioAttributes: void -$$Nest$fputmFormattedT
+          → <android.media.AudioAttributes: void -$$Nest$fputmSource(and
+          → <android.media.AudioAttributes: void -$$Nest$fputmTags(andro
+          → <android.media.AudioAttributes: void -$$Nest$fputmUsage(andr
+          → <android.media.AudioAttributes: void <init>(android.media.Au
+          → <android.os.Bundle: void <init>(android.os.Bundle)>
+          → TextUtils.join()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → HashSet.clone()
+          → <java.util.HashSet: void <init>()>
+          → MediaMetrics$Item.reserveProperty()
+          → <android.media.MediaMetrics: java.nio.charset.Charset -$$Nes
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → ByteBuffer.position()
+          → ByteBuffer.put()
+          → ByteBuffer.put()
+          → ByteBuffer.putChar()
+          → ByteBuffer.putDouble()
+          → ByteBuffer.putInt()
+          → ByteBuffer.putLong()
+          → MediaMetrics.native_submit_bytebuffer()
+          → ByteBuffer.allocateDirect()
+          → ByteBuffer.order()
+          → ByteOrder.nativeOrder()
+          → AudioEventLogger$Event.eventToString()
+          → AudioPlaybackConfiguration.isActive()
+          → AudioPlaybackConfiguration.getClientUid()
+          → Collection.iterator()
+          → HashMap.values()
+          → AudioSystem.getDeviceMaskFromSet()
+          → <com.android.server.audio.AudioService$VolumeStreamState: ja
+          → <com.android.server.audio.AudioService$VolumeStreamState: bo
+          → AudioService$VolumeStreamState.getIndex()
+          → AudioService$VolumeStreamState.getMaxIndex()
+          → AudioService.isFixedVolumeDevice()
+          → AudioService.isMultiSoundOn()
+          → AudioService.getDeviceForStream()
+          → AudioService.getIndexDividedBy10()
+          → AudioService.ensureValidStreamType()
+          → AudioSettingsHelper.checkAppCategory()
+          → Handler.obtainMessage()
+          → Handler.sendMessageDelayed()
+          → Handler.removeMessages()
+          → Handler.removeEqualMessages()
+          → <com.android.server.audio.MediaFocusControl$ForgetFadeUidInf
+          → PlayerFocusEnforcer.restoreVShapedPlayers()
+          → FocusRequester.getSdkTarget()
+          → MediaFocusControl.duckPlayers()
+          → IAudioPolicyCallback.notifyAudioFocusLoss()
+          → FocusRequester.isLockedFocusOwner()
+          → AudioFocusInfo.getAttributes()
+          → AudioFocusInfo.getClientUid()
+          → AudioFocusInfo.getFlags()
+          → AudioFocusInfo.getSdkTarget()
+          → MultiSoundManager.getAppDevice()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+          → AudioService.sendBroadcastToSoundEventReceiver()
+          → SparseArray.gc()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → FocusRequester.handleFocusGain()
+          → <java.lang.Thread: void <init>()>
+          → <com.android.server.audio.MultiFocusStack$$ExternalSynthetic
+          → Optional.orElse()
+          → Stack.stream()
+          → Stream.findFirst()
+          → Stream.filter()
+          → SparseArray.get()
+          → SparseArray.append()
+          → <java.util.Stack: void <init>()>
+          → SemAudioSystem.setEffectParameters()
+            → Iterable.iterator()
+            → ByteBuffer.remaining()
+            → ByteBuffer.flip()
+            → ByteBuffer.put()
+            → SparseIntArray.get()
+            → SparseIntArray.get()
+            → RecordingActivityMonitor.isLegacyRemoteSubmixActive()
+            → MultiSoundManager.isEnabled()
+            → AudioService.selectOneAudioDevice()
+            → AudioService.getDeviceSetForStream()
+            → Set.iterator()
+            → AtomicInteger.get()
+            → <com.samsung.android.server.audio.AudioSettingsHelper$$Exter
+            → CopyOnWriteArrayList.isEmpty()
+            → CopyOnWriteArrayList.stream()
+            → Stream.anyMatch()
+            → PlayerFocusEnforcer.duckPlayers()
+            → MultiSoundManager$MultiSoundInterface.getConnectedDevice()
+            → MultiSoundManager$MultiSoundItem.getAppDevice()
+            → MultiSoundManager.isDeviceConnected()
+            → MultiSoundManager.getCurrentMediaDevice()
+            → Intent.putExtra()
+            → Intent.putExtra()
+            → Intent.setComponent()
+            → <android.content.Intent: void <init>(java.lang.String)>
+            → AudioService$SoundEventReceiver.hasEventType()
+            → AudioService.sendMsg()
+            → SparseArray.get()
+            → SparseArray.put()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → AudioSystem.setParameters()
+              → ContainerHelpers.binarySearch()
+              → AtomicBoolean.get()
+              → AudioSystem.deviceSetToString()
+              → Set.isEmpty()
+              → Set.size()
+              → AudioService$VolumeStreamState.observeDevicesForStream_syncVSS()
+              → AudioSystemAdapter.getDeviceConnectionState()
+              → MultiSoundManager$MultiSoundInterface.getCurrentMediaDevice()
+              → Handler.obtainMessage()
+              → Handler.hasMessages()
+              → Handler.sendMessageAtTime()
+              → Handler.removeMessages()
+              → SystemClock.uptimeMillis()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+

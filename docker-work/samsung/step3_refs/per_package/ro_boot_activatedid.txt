@@ -1,0 +1,8 @@
+# ro.boot.activatedid [NEW]
+# Refs: 4
+# JARs: framework, semwifi-service, services
+
+<com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: java.lang.String getActiveOperatorId()>
+<com.samsung.android.server.pm.install.SkippingApks: void initSkippingApkList(java.io.File)>
+<com.samsung.android.server.pm.permission.OmcPermissionPolicy: android.util.ArrayMap readDefaultPermissionXML(java.lang.String,boolean)>
+<com.samsung.android.server.wifi.ap.SemWifiApBroadcastReceiver$4: void onReceive(android.content.Context,android.content.Intent)>

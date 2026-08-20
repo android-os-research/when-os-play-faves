@@ -1,0 +1,584 @@
+######################################################################
+# Propagation: com.android.theme.color.green
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.om.OverlayManagerService
+  Method:   <com.android.server.om.OverlayManagerService: void <init>(android.content.Context)>
+  Line:     339
+  Register: v9 := "com.android.theme.color.green"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v7 .. v18}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← SystemServer.startBootstrapServices()
+        ← SystemServer.run()
+          ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiverAsUser()
+      → Context.getPackageManager()
+      → Context.getString()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IOverlayManager$Stub.asInterface()
+      → IOverlayManager.commit()
+      → OverlayIdentifier.getOverlayName()
+      → <android.content.om.OverlayIdentifier: void <init>(java.lang
+      → <android.content.om.OverlayIdentifier: void <init>(java.lang
+      → OverlayManagerTransaction$Builder.build()
+      → <android.content.om.OverlayManagerTransaction$Builder: void 
+      → PackageManager.isDeviceUpgrading()
+      → Environment.getDataSystemDirectory()
+      → HandlerThread.getThreadHandler()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → SystemClock.uptimeMillis()
+      → Trace.traceBegin()
+      → Trace.traceEnd()
+      → TextUtils.emptyIfNull()
+      → <android.util.AtomicFile: void <init>(java.io.File,java.lang
+      → OverlayConfig.getSystemInstance()
+      → ConcurrentUtils.newFixedThreadPool()
+      → SystemService.getContext()
+      → <com.android.server.SystemService: void <init>(android.conte
+      → SystemService.publishBinderService()
+      → SystemService.publishLocalService()
+      → IdmapDaemon.getInstance()
+      → <com.android.server.om.IdmapManager: void <init>(com.android
+      → <com.android.server.om.OverlayActorEnforcer: void <init>(com
+      → <com.android.server.om.OverlayManagerService$$ExternalSynthe
+      → <com.android.server.om.OverlayManagerService$1: void <init>(
+      → <com.android.server.om.OverlayManagerService$PackageManagerH
+      → <com.android.server.om.OverlayManagerService$PackageReceiver
+      → <com.android.server.om.OverlayManagerService$SamsungOverlayC
+      → <com.android.server.om.OverlayManagerService$ThemeAppliedRec
+      → <com.android.server.om.OverlayManagerService$UserReceiver: v
+      → OverlayManagerService.getColorThemeState()
+      → OverlayManagerService.getDefaultOverlayPackages()
+      → OverlayManagerService.initIfNeeded()
+      → OverlayManagerService.onSwitchUser()
+      → OverlayManagerService.restoreSettings()
+      → OverlayManagerServiceImpl.setEnabled()
+      → <com.android.server.om.OverlayManagerServiceImpl: void <init
+      → OverlayManagerSettings.getNullableOverlayInfo()
+      → OverlayManagerSettings.removeIf()
+      → OverlayManagerSettings.getAllIdentifiersAndBaseCodePaths()
+      → <com.android.server.om.OverlayManagerSettings: void <init>()
+      → SemWallpaperThemeManager.splitPalette()
+      → SemWallpaperThemeManager.getInstance()
+      → SemWallpaperThemeManager.readLastPalette()
+      → SemWallpaperThemeManager.enableThemeOverlay()
+      → SemWallpaperThemeManager.initInstalledPackageMetadata()
+      → SemWallpaperThemeManager.initTemplateAndMetadata()
+      → SemWallpaperThemeManager.registerThemeOverlay()
+      → SemWallpaperThemeManager.restoreMonetOverlay()
+      → SemWallpaperThemeManager.setPalette()
+      → SemWallpaperThemeManager.setPermissionsDirIfExisted()
+      → SemWallpaperThemeManager.unregisterNotExistedOverlay()
+      → UserManagerService.getInstance()
+      → UserManagerService.getUserIds()
+      → <java.io.File: void <init>(java.io.File,java.lang.String)>
+      → Runtime.availableProcessors()
+      → Runtime.getRuntime()
+      → LocalDateTime.format()
+      → LocalDateTime.now()
+      → ArrayList.add()
+      → ArrayList.isEmpty()
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.isEmpty()
+      → Set.iterator()
+        → <android.content.om.OverlayManagerTransaction: void <init>(j
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → HandlerThread.getLooper()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <android.util.AtomicFile: void <init>(java.io.File,android.u
+        → <android.util.SystemConfigFileCommitEventLogger: void <init>
+        → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → <com.android.internal.util.ConcurrentUtils$1: void <init>(ja
+        → Executors.newFixedThreadPool()
+        → SystemService.publishBinderService()
+        → LocalServices.addService()
+        → <com.android.server.om.IdmapDaemon: void <init>()>
+        → PackageManagerHelper.getConfigSignaturePackage()
+        → <android.content.om.IOverlayManager$Stub: void <init>()>
+        → AppGlobals.getPackageManager()
+        → <android.util.ArrayMap: void <init>()>
+        → <android.util.ArraySet: void <init>()>
+        → LocalServices.getService()
+        → <com.android.server.om.OverlayManagerService$PackageReceiver
+        → <com.android.server.om.OverlayManagerService$SamsungOverlayC
+        → <com.android.server.om.OverlayManagerService$ThemeAppliedRec
+        → <com.android.server.om.OverlayManagerService$UserReceiver: v
+        → OverlayInfo.isEnabled()
+        → SystemProperties.get()
+        → TextUtils.isEmpty()
+        → ArraySet.add()
+        → ArraySet.size()
+        → ArraySet.toArray()
+        → Context.getSystemService()
+        → UserInfo.supportsSwitchTo()
+        → UserManager.getAliveUsers()
+        → OverlayManagerService.updatePackageManagerLocked()
+        → OverlayManagerServiceImpl.updateOverlaysForUser()
+        → SemDualAppManager.isDualAppId()
+        → SemPersonaManager.isKnoxId()
+        → List.size()
+        → List.get()
+        → UiModeManagerInternal.onEarlySwitchUser()
+        → OverlayManagerService.updateTargetPackagesLocked()
+        → UserInfo.getUserHandle()
+        → UserHandle.getIdentifier()
+        → AtomicFile.getBaseFile()
+        → AtomicFile.openRead()
+        → OverlayManagerSettings.removeUser()
+        → OverlayManagerSettings.getUsers()
+        → OverlayManagerSettings.restore()
+        → UserManagerService.getUsers()
+        → File.exists()
+        → FileInputStream.close()
+        → Throwable.addSuppressed()
+        → <com.android.server.om.OverlayManagerServiceImpl$OperationFa
+        → <com.android.server.om.OverlayManagerServiceImpl$OperationFa
+        → OverlayManagerServiceImpl.updateState()
+        → OverlayManagerSettings.getOverlayInfo()
+        → OverlayManagerSettings.setEnabled()
+        → <com.android.server.om.PackageAndUser: void <init>(java.lang
+        → Set.of()
+        → Set.of()
+        → <com.android.server.om.OverlayManagerServiceImpl$ReapplyDisa
+        → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+        → OverlayManagerSettings.select()
+        → ArrayList.get()
+        → CollectionUtils.add()
+        → CollectionUtils.emptyIfNull()
+        → ArrayList.size()
+        → ArrayList.remove()
+        → Predicate.test()
+        → <com.android.server.om.OverlayManagerSettings$$ExternalSynth
+        → ArrayList.forEach()
+        → List.addAll()
+        → List.subList()
+        → <com.android.server.om.wallpapertheme.SemWallpaperThemeManag
+        → BufferedReader.readLine()
+        → <java.io.BufferedReader: void <init>(java.io.Reader)>
+        → BufferedReader.close()
+        → <java.io.File: void <init>(java.lang.String)>
+        → <java.io.FileInputStream: void <init>(java.io.File)>
+        → <java.io.InputStreamReader: void <init>(java.io.InputStream,
+        → Exception.printStackTrace()
+        → List.add()
+        → FabricatedOverlay.getIdentifier()
+        → OverlayManagerTransaction$Builder.setEnabled()
+        → SemWallpaperThemeManager.generateThemeOverlay()
+        → IPackageManager.getAllPackages()
+        → PackageManagerInternal.getPackage()
+        → MetaDataManager.update()
+        → SemWallpaperThemeManager.updateTemplateFromPkg()
+        → SemWallpaperThemeUtils.hasWallpaperThemeMeta()
+        → SemWallpaperThemeUtils.hasWallpaperThemeTemplate()
+        → List.iterator()
+        → Context.getResources()
+        → Resources.openRawResource()
+        → MetaDataManager.getPackageList()
+        → <com.android.server.om.wallpapertheme.MetaDataManager: void 
+        → MetaDataManager.load()
+        → SemWallpaperThemeManager.readFromInputStream()
+        → SemWallpaperThemeManager.parseJsonObject()
+        → SemWallpaperThemeManager.writeResIdTable()
+        → InputStream.close()
+        → OverlayManagerTransaction$Builder.registerFabricatedOverlay()
+        → OverlayManagerTransaction$Builder.unregisterFabricatedOverlay()
+        → OverlayGenerator.createMonetOverlay()
+        → ThemePalette.setPalette()
+        → FileUtils.setPermissions()
+        → OverlayIdentifier.equals()
+          → Preconditions.checkNotNull()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → List.contains()
+          → HandlerThread.isAlive()
+          → Thread.currentThread()
+          → Thread.interrupt()
+          → File.getPath()
+          → <java.util.concurrent.atomic.AtomicInteger: void <init>(int)
+          → SystemService.publishBinderService()
+          → ArrayMap.containsKey()
+          → ArrayMap.put()
+          → <java.util.concurrent.atomic.AtomicInteger: void <init>()>
+          → ActivityThread.getPackageManager()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → <android.util.ArraySet: void <init>(int,boolean)>
+          → ArrayMap.get()
+          → <android.content.BroadcastReceiver: void <init>()>
+          → CharSequence.length()
+          → ArraySet.indexOf()
+          → ArraySet.indexOfNull()
+          → ArraySet.allocArrays()
+          → ArraySet.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → Array.newInstance()
+          → UserInfo.isEnabled()
+          → UserInfo.isProfile()
+          → SparseArray.keyAt()
+          → SparseArray.size()
+          → SparseArray.valueAt()
+          → <android.util.SparseArray: void <init>()>
+          → SparseArray.put()
+          → CollectionUtils.isEmpty()
+          → OverlayManagerService.groupTargetsByUserId()
+          → OverlayManagerService.updatePackageManagerLocked()
+          → ArrayMap.size()
+          → ArrayMap.keyAt()
+          → ArrayMap.valueAt()
+          → ArraySet.contains()
+          → CollectionUtils.add()
+          → CollectionUtils.addAll()
+          → <com.android.server.om.OverlayManagerServiceImpl$$ExternalSy
+          → OverlayManagerServiceImpl.updateState()
+          → OverlayManagerServiceImpl.getFabricatedOverlayInfos()
+          → OverlayManagerServiceImpl.registerFabricatedOverlay()
+          → OverlayManagerServiceImpl.removeOverlaysForUser()
+          → OverlayManagerServiceImpl.updatePackageOverlays()
+          → OverlayManagerServiceImpl.cleanStaleResourceCache()
+          → OverlayManagerSettings.getOverlaysForUser()
+          → PackageManagerHelper.initializeForUser()
+          → SemSamsungThemeUtils.isZippedLocaleOverlay()
+          → PkgWithoutStatePackageInfo.getPackageName()
+          → SemPersonaManager.checkContainerType()
+          → SemPersonaManager.isDualAppId()
+          → Handler.post()
+          → FgThread.getHandler()
+          → <com.android.server.om.OverlayManagerService$$ExternalSynthe
+          → OverlayManagerService.persistSettingsLocked()
+          → UserHandle.of()
+          → AtomicFile.rename()
+          → File.delete()
+          → <com.android.server.om.OverlayManagerSettings$$ExternalSynth
+          → ArrayList.removeIf()
+          → <com.android.server.om.OverlayManagerSettings$$ExternalSynth
+          → ArrayList.stream()
+          → IntStream.toArray()
+          → IntStream.distinct()
+          → Stream.mapToInt()
+          → OverlayManagerSettings$Serializer.restore()
+          → UserManagerService.getUsers()
+          → <java.lang.Exception: void <init>(java.lang.String)>
+          → <java.lang.Exception: void <init>(java.lang.String,java.lang
+          → <com.android.server.om.OverlayManagerSettings$BadKeyExceptio
+          → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+          → <com.android.server.om.OverlayManagerServiceImpl$ReapplyDisa
+          → OverlayManagerSettings$SettingsItem.getOverlayInfo()
+          → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+          → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+          → Collections.emptyList()
+          → <android.os.Handler: void <init>()>
+          → <com.android.server.om.wallpapertheme.OverlayGenerator: void
+          → <com.android.server.om.wallpapertheme.ThemePalette: void <in
+          → TextUtils.nullIfEmpty()
+          → <android.content.om.OverlayManagerTransaction$Request: void 
+          → OverlayGenerator.createThemeOverlays()
+          → Resources.getXml()
+          → Resources.getIdentifier()
+          → Bundle.getInt()
+          → Bundle.getString()
+          → MetaData.getCurrentPackage()
+          → MetaData.getRpUID()
+          → <com.android.server.om.wallpapertheme.MetaData: void <init>(
+          → MetaDataManager.removePackageList()
+          → MetaDataManager.removeUidMap()
+          → Package.getUidList()
+          → SemWallpaperThemeUtils.getPackageResources()
+          → Uid.getUidValue()
+          → ParsingPackageRead.getMetaData()
+          → HashMap.put()
+          → SemWallpaperThemeManager.updateJsonObject()
+          → Bundle.containsKey()
+          → SemWallpaperThemeUtils.hasWallpaperThemeNotSupport()
+          → HashMap.size()
+          → <java.util.HashMap: void <init>()>
+          → ByteArrayOutputStream.toString()
+          → <java.io.ByteArrayOutputStream: void <init>()>
+          → ByteArrayOutputStream.write()
+          → InputStream.read()
+          → <com.android.server.om.wallpapertheme.SemWallpaperThemeManag
+          → List.clear()
+          → JSONArray.length()
+          → JSONArray.getJSONObject()
+          → JSONObject.isNull()
+          → JSONObject.getInt()
+          → JSONObject.getString()
+          → JSONObject.getJSONArray()
+          → <org.json.JSONObject: void <init>(java.lang.String)>
+          → ThemePalette$ColorType.values()
+          → ThemePalette.getResIdByName()
+          → File.mkdir()
+          → File.setReadable()
+          → <java.io.FileOutputStream: void <init>(java.io.File)>
+          → <java.io.OutputStreamWriter: void <init>(java.io.OutputStrea
+          → OutputStreamWriter.close()
+          → OutputStreamWriter.write()
+          → StringBuffer.toString()
+          → StringBuffer.append()
+          → <java.lang.StringBuffer: void <init>()>
+          → <android.content.om.OverlayManagerTransaction$Request: void 
+          → <android.os.Bundle: void <init>()>
+          → Bundle.putParcelable()
+          → FabricatedOverlay$Builder.build()
+          → FabricatedOverlay$Builder.setResourceValue()
+          → <android.content.om.FabricatedOverlay$Builder: void <init>(j
+          → Color.parseColor()
+          → OverlayGenerator.setResValuesForOpacity()
+          → OverlayGenerator.writeModular()
+          → Package.getPackageName()
+          → SemWallpaperThemeManager.getPackageList()
+          → ThemePalette.getMonetColorGG()
+          → ThemePalette.getMonetColorGG()
+          → ThemePalette.getMonetColorSS()
+          → ThemePalette.getMonetColorSS()
+          → Objects.equals()
+            → ServiceManager.addService()
+            → ArrayMap.indexOfKey()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → ArraySet.binarySearch()
+            → SparseArray.gc()
+            → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+            → <android.util.SparseArray: void <init>(int)>
+            → ContainerHelpers.binarySearch()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → CollectionUtils.size()
+            → CollectionUtils.forEach()
+            → <com.android.server.om.OverlayManagerService$$ExternalSynthe
+            → OverlayManagerService.updatePackageManagerLocked()
+            → ArraySet.indexOf()
+            → Collections.emptySet()
+            → Set.add()
+            → Set.addAll()
+            → CriticalOverlayInfo.getOverlayIdentifier()
+            → CriticalOverlayInfo.isFabricated()
+            → CriticalOverlayInfo.getPackageName()
+            → CriticalOverlayInfo.getTargetPackageName()
+            → OverlayInfo.getCategory()
+            → OverlayInfo.stateToString()
+            → IdmapManager.createIdmap()
+            → IdmapManager.idmapExists()
+            → OverlayManagerServiceImpl.isPackageConfiguredMutable()
+            → OverlayManagerServiceImpl.calculateNewState()
+            → OverlayManagerServiceImpl.removeIdmapIfPossible()
+            → OverlayManagerSettings.remove()
+            → OverlayManagerSettings.setBaseCodePath()
+            → OverlayManagerSettings.setCategory()
+            → OverlayManagerSettings.setState()
+            → OverlayManagerSettings.getState()
+            → PackageManagerHelper.getPackageInfo() [PKG_QUERY]
+            → PackageManagerHelper.getPackageForUser()
+            → SemSamsungThemeUtils.deleteResourceMapFile()
+            → ParsingPackageInternal.getOverlayCategory()
+            → ParsingPackageRead.isSamsungThemeOverlay()
+            → PkgWithoutStateAppInfo.getBaseApkPath()
+            → IdmapManager.getFabricatedOverlayInfos()
+            → <com.android.server.om.OverlayManagerServiceImpl$$ExternalSy
+            → OverlayManagerSettings.getAllBaseCodePaths()
+            → OverlayManagerServiceImpl.mustReinitializeOverlay()
+            → OverlayManagerSettings.init()
+            → <com.android.server.om.OverlayManagerServiceImpl$$ExternalSy
+            → OverlayManagerServiceImpl.isPackageConfiguredEnabled()
+            → OverlayManagerServiceImpl.mustReinitializeOverlay()
+            → OverlayManagerServiceImpl.getPackageConfiguredPriority()
+            → OverlayManagerSettings.init()
+            → OverlayManagerSettings.setPriority()
+            → ParsingPackageInternal.getOverlayTarget()
+            → ParsingPackageInternal.getOverlayTargetOverlayableName()
+            → IdmapManager.deleteFabricatedOverlay()
+            → Set.contains()
+            → ArrayMap.computeIfAbsent()
+            → <com.android.server.om.OverlayManagerSettings$$ExternalSynth
+            → <com.android.server.om.OverlayManagerSettings$$ExternalSynth
+            → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+            → OverlayManagerSettings.selectWhereUser()
+            → List.removeIf()
+            → Bundle.getBoolean()
+            → FgThread.ensureThreadLocked()
+            → AtomicFile.startWrite()
+            → AtomicFile.failWrite()
+            → AtomicFile.finishWrite()
+            → OverlayManagerSettings.persist()
+            → File.isDirectory()
+            → File.renameTo()
+            → TypedXmlPullParser.getAttributeInt()
+            → TypedXmlPullParser.getDepth()
+            → TypedXmlPullParser.getName()
+            → Xml.resolvePullParser()
+            → XmlUtils.nextElementWithin()
+            → XmlUtils.beginDocument()
+            → OverlayManagerSettings$Serializer.restoreRow()
+            → OverlayManagerSettings$Serializer.upgrade()
+            → ArrayList.clear()
+            → UserManagerService.getUsersInternal()
+            → UserManagerService.checkCreateUsersPermission()
+            → OverlayManagerSettings$SettingsItem.setEnabled()
+            → <android.content.om.ISamsungOverlayCallback$Stub: void <init
+            → OverlayIdentifier.getPackageName()
+            → <android.content.om.OverlayInfo: void <init>(java.lang.Strin
+            → OverlayGenerator.writeResources()
+            → XmlResourceParser.getEventType()
+            → XmlResourceParser.next()
+            → MetaData.parseStartTag()
+            → Iterator.remove()
+            → HashMap.remove()
+            → HashMap.entrySet()
+            → Map$Entry.getKey()
+            → Map$Entry.getValue()
+            → Map.put()
+            → Map.entrySet()
+            → AssetManager.addAssetPath()
+            → <android.content.res.AssetManager: void <init>()>
+            → AssetManager.setConfiguration()
+            → <android.content.res.Resources: void <init>(android.content.
+            → <android.util.DisplayMetrics: void <init>()>
+            → DisplayMetrics.setToDefaults()
+            → List.remove()
+            → ThemePalette.getResIdByName()
+            → <android.content.om.FabricatedOverlay: void <init>(android.o
+            → <android.os.FabricatedOverlayInternal: void <init>()>
+            → <android.os.FabricatedOverlayInternalEntry: void <init>()>
+            → Preconditions.checkStringNotEmpty()
+            → HashMap.get()
+            → ThemeUtil.adjustAlpha()
+            → SemWallpaperThemeManager.getBoolean()
+            → SemWallpaperThemeManager.getColor()
+            → SemWallpaperThemeManager.getColorResId()
+            → SemWallpaperThemeManager.getColorResIdForMW()
+            → SemWallpaperThemeManager.getInteger()
+            → Uid.getType()
+            → Uid.getDestAttribName()
+            → Uid.getOpacity()
+            → Enum.ordinal()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ArrayUtils.newUnpaddedObjectArray()
+              → Collection.size()
+              → ArraySet.valueAt()
+              → ExceptionUtils.propagate()
+              → FunctionalUtils$ThrowingConsumer.acceptOrThrow()
+              → Set.size()
+              → PackageManagerInternal.setEnabledOverlayPackages()
+              → PackageManagerInternal.getSamsungThemeTargetPackageNames()
+              → PackageManagerInternal.getTargetPackageNames()
+              → OverlayPaths$Builder.build()
+              → OverlayPaths$Builder.addAll()
+              → <android.content.pm.overlay.OverlayPaths$Builder: void <init
+              → OverlayPaths.getResourceDirs()
+              → <android.util.ArrayMap: void <init>(int)>
+              → OverlayManagerServiceImpl.getEnabledOverlayPaths()
+              → OverlayManagerServiceImpl.getEnabledOverlayPaths()
+              → SemWallpaperThemeManager.getPackageNameList()
+              → ArrayList.contains()
+              → Collection.add()
+              → Collection.contains()
+              → Collection.iterator()
+              → HashSet.contains()
+              → HashSet.size()
+              → <java.util.HashSet: void <init>()>
+              → Map.get()
+              → IdmapDaemon.verifyIdmap()
+              → IdmapDaemon.createIdmap()
+              → IdmapManager.enforceOverlayable()
+              → IdmapManager.calculateFulfilledPolicies()
+              → IdmapManager.checkForResourceMapping()
+              → OverlayManagerServiceImpl.logCriticalInfo()
+              → Exception.getMessage()
+              → IdmapDaemon.idmapExists()
+              → OverlayConfig.isMutable()
+              → OverlayInfo.getOverlayIdentifier()
+              → OverlayManagerSettings.getEnabled()
+              → IdmapManager.removeIdmap()
+              → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+              → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+              → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+              → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+              → IdmapDaemon.getFabricatedOverlayInfos()
+              → <com.android.server.om.OverlayManagerSettings$$ExternalSynth
+              → OverlayConfig.isEnabled()
+              → OverlayConfig.getPriority()
+              → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+              → OverlayManagerSettings.insert()
+              → <com.android.server.om.OverlayManagerSettings$SettingsItem: 
+              → IdmapDaemon.deleteFabricatedOverlay()
+              → CollectionUtils.addIf()
+              → <com.android.server.om.OverlayManagerSettings$$ExternalSynth
+              → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+              → Looper.setSlowLogThresholdMs()
+              → Looper.setTraceTag()
+              → <com.android.server.FgThread: void <init>()>
+              → AtomicFile.startWrite()
+              → FileUtils.sync()
+              → FileOutputStream.close()
+              → SystemConfigFileCommitEventLogger.onFinishWrite()
+              → OverlayManagerSettings$Serializer.persist()
+              → TypedXmlPullParser.getAttributeIndexOrThrow()
+              → TypedXmlPullParser.getAttributeInt()
+              → ErrnoException.rethrowAsIOException()
+              → Os.pread()
+              → TypedXmlPullParser.setInput()
+              → Xml.newBinaryPullParser()
+              → Xml.newFastPullParser()
+              → <java.io.BufferedInputStream: void <init>(java.io.InputStrea
+              → FileInputStream.getFD()
+              → <java.io.IOException: void <init>(java.lang.Throwable)>
+              → InputStream.markSupported()
+              → InputStream.mark()
+              → InputStream.reset()
+              → Charset.name()
+              → XmlPullParser.getDepth()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → <org.xmlpull.v1.XmlPullParserException: void <init>(java.lan
+              → TypedXmlPullParser.getAttributeBoolean()
+              → XmlUtils.readBooleanAttribute()
+              → XmlUtils.readStringAttribute()
+              → SparseBooleanArray.get()
+              → UserManagerService.userWithName()
+              → <java.util.ArrayList: void <init>(int)>
+              → UserManagerService.hasCreateUsersPermission()
+              → <java.lang.SecurityException: void <init>(java.lang.String)>
+              → OverlayManagerSettings$SettingsItem.invalidateCache()
+              → ISamsungOverlayCallback$Stub.attachInterface()
+              → <android.os.Binder: void <init>()>
+              → OverlayGenerator.writeModular()
+              → MetaData.getPackage()
+              → MetaData.addMetaData()
+              → MetaData.addUID()
+              → XmlPullParser.getAttributeValue()
+              → <android.content.om.FabricatedOverlay: void <init>(android.o
+              → Color.alpha()
+              → Color.argb()
+              → Color.blue()
+              → Color.green()
+              → Color.red()
+              → <com.android.server.om.wallpapertheme.SemWallpaperThemeManag
+              → SemWallpaperThemeManager.search()
+              → <com.android.server.om.wallpapertheme.SemWallpaperThemeManag
+              → <com.android.server.om.wallpapertheme.SemWallpaperThemeManag
+              → <com.android.server.om.wallpapertheme.SemWallpaperThemeManag
+              → <com.android.server.om.wallpapertheme.SemWallpaperThemeManag
+

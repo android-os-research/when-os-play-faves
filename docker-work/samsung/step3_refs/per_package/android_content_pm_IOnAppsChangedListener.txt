@@ -1,0 +1,17 @@
+# android.content.pm.IOnAppsChangedListener [NEW]
+# Refs: 13
+# JARs: framework
+
+<android.content.pm.IOnAppsChangedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IOnAppsChangedListener$Stub$Proxy: void onPackageAdded(android.os.UserHandle,java.lang.String)>
+<android.content.pm.IOnAppsChangedListener$Stub$Proxy: void onPackageChanged(android.os.UserHandle,java.lang.String)>
+<android.content.pm.IOnAppsChangedListener$Stub$Proxy: void onPackageLoadingProgressChanged(android.os.UserHandle,java.lang.String,float)>
+<android.content.pm.IOnAppsChangedListener$Stub$Proxy: void onPackageRemoved(android.os.UserHandle,java.lang.String)>
+<android.content.pm.IOnAppsChangedListener$Stub$Proxy: void onPackagesAvailable(android.os.UserHandle,java.lang.String[],boolean)>
+<android.content.pm.IOnAppsChangedListener$Stub$Proxy: void onPackagesSuspended(android.os.UserHandle,java.lang.String[],android.os.Bundle)>
+<android.content.pm.IOnAppsChangedListener$Stub$Proxy: void onPackagesUnavailable(android.os.UserHandle,java.lang.String[],boolean)>
+<android.content.pm.IOnAppsChangedListener$Stub$Proxy: void onPackagesUnsuspended(android.os.UserHandle,java.lang.String[])>
+<android.content.pm.IOnAppsChangedListener$Stub$Proxy: void onShortcutChanged(android.os.UserHandle,java.lang.String,android.content.pm.ParceledListSlice)>
+<android.content.pm.IOnAppsChangedListener$Stub: android.content.pm.IOnAppsChangedListener asInterface(android.os.IBinder)>
+<android.content.pm.IOnAppsChangedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IOnAppsChangedListener$Stub: void <init>()>

@@ -1,0 +1,25 @@
+# com.android.net.IProxyService [NEW]
+# Refs: 21
+# JARs: framework, services
+
+<android.net.PacProxySelector: java.util.List select(java.net.URI)>
+<android.net.PacProxySelector: void <init>()>
+<com.android.net.IProxyService$Stub$Proxy: boolean isProxyThreadAlive(java.lang.String)>
+<com.android.net.IProxyService$Stub$Proxy: boolean isProxyThreadRunning(java.lang.String)>
+<com.android.net.IProxyService$Stub$Proxy: boolean setMiscValueForPacProfile(int,java.lang.String,java.lang.String,int)>
+<com.android.net.IProxyService$Stub$Proxy: boolean setPacFileForKnoxProfile(java.lang.String,java.lang.String)>
+<com.android.net.IProxyService$Stub$Proxy: boolean startPacSystemForKnoxProfile(java.lang.String)>
+<com.android.net.IProxyService$Stub$Proxy: boolean stopPacSystemForKnoxProfile(java.lang.String)>
+<com.android.net.IProxyService$Stub$Proxy: int getProxyPortForProfile(java.lang.String)>
+<com.android.net.IProxyService$Stub$Proxy: int startProxyServerForKnoxProfile(java.lang.String,int,java.lang.String,java.lang.String,boolean,java.lang.String,int)>
+<com.android.net.IProxyService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.net.IProxyService$Stub$Proxy: java.lang.String getProxythreadStatus(java.lang.String)>
+<com.android.net.IProxyService$Stub$Proxy: java.lang.String resolvePacFile(java.lang.String,java.lang.String)>
+<com.android.net.IProxyService$Stub$Proxy: void handleScreenunlock()>
+<com.android.net.IProxyService$Stub$Proxy: void resetInterface(java.lang.String)>
+<com.android.net.IProxyService$Stub$Proxy: void setPacFile(java.lang.String)>
+<com.android.net.IProxyService$Stub$Proxy: void stopProxyServerForKnoxProfile(java.lang.String)>
+<com.android.net.IProxyService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.net.IProxyService$Stub: com.android.net.IProxyService asInterface(android.os.IBinder)>
+<com.android.net.IProxyService$Stub: void <init>()>
+<com.android.server.connectivity.PacProxyService$2: void onServiceConnected(android.content.ComponentName,android.os.IBinder)>

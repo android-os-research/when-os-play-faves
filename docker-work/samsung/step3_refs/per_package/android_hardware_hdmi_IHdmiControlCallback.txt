@@ -1,0 +1,9 @@
+# android.hardware.hdmi.IHdmiControlCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.hdmi.IHdmiControlCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.hdmi.IHdmiControlCallback$Stub$Proxy: void onComplete(int)>
+<android.hardware.hdmi.IHdmiControlCallback$Stub: android.hardware.hdmi.IHdmiControlCallback asInterface(android.os.IBinder)>
+<android.hardware.hdmi.IHdmiControlCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.hdmi.IHdmiControlCallback$Stub: void <init>()>

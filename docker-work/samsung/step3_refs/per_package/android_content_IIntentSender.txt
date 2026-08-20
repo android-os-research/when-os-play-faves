@@ -1,0 +1,9 @@
+# android.content.IIntentSender [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.IIntentSender$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.IIntentSender$Stub$Proxy: void send(int,android.content.Intent,java.lang.String,android.os.IBinder,android.content.IIntentReceiver,java.lang.String,android.os.Bundle)>
+<android.content.IIntentSender$Stub: android.content.IIntentSender asInterface(android.os.IBinder)>
+<android.content.IIntentSender$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.IIntentSender$Stub: void <init>()>

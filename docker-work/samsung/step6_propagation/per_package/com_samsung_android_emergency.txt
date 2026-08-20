@@ -1,0 +1,35 @@
+######################################################################
+# Propagation: com.samsung.android.emergency
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.policy.PhoneWindowManagerExt
+  Method:   <com.android.server.policy.PhoneWindowManagerExt: android.content.pm.ResolveInfo getTopEmergencySosResolveInfo(java.util.List)>
+  Line:     6104
+  Register: v2 := "com.samsung.android.emergency"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← PhoneWindowManagerExt.getEmergencySosIntent()
+        ← PhoneWindowManagerExt.initIntent()
+          ← PhoneWindowManagerExt.init()
+
+  CALLEES (what this method invokes):
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.isEmpty()
+      → List.get()
+      → List.iterator()
+

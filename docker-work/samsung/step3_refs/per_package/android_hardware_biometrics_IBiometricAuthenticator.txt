@@ -1,0 +1,21 @@
+# android.hardware.biometrics.IBiometricAuthenticator [NEW]
+# Refs: 17
+# JARs: framework
+
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: android.hardware.biometrics.ITestSession createTestSession(android.hardware.biometrics.ITestSessionCallback,java.lang.String)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: android.hardware.biometrics.SensorPropertiesInternal getSensorProperties(java.lang.String)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: boolean hasEnrolledTemplates(int,java.lang.String)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: boolean isHardwareDetected(java.lang.String)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: byte[] dumpSensorServiceStateProto(boolean)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: int getLockoutModeForUser(int)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: int semGetSecurityLevel()>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: long getAuthenticatorId(int)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: void cancelAuthenticationFromService(android.os.IBinder,java.lang.String,long)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: void invalidateAuthenticatorId(int,android.hardware.biometrics.IInvalidationCallback)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: void prepareForAuthentication(boolean,android.os.IBinder,long,int,android.hardware.biometrics.IBiometricSensorReceiver,java.lang.String,long,int,boolean)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: void resetLockout(android.os.IBinder,java.lang.String,int,byte[])>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub$Proxy: void startPreparedClient(int)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub: android.hardware.biometrics.IBiometricAuthenticator asInterface(android.os.IBinder)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.IBiometricAuthenticator$Stub: void <init>()>

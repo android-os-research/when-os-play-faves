@@ -1,0 +1,6 @@
+# com.samsung.android.SwitchBoard.SET_POLICY [NEW]
+# Refs: 2
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.SemSwitchBoardService$SwitchBoardReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.SemSwitchBoardService: android.content.IntentFilter getSwitchBoardIntentFilter()>

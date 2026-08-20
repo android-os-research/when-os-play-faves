@@ -1,0 +1,6 @@
+# com.microsoft.appmanager [NEW]
+# Refs: 2
+# JARs: semwifi-service, services
+
+<com.android.server.semclipboard.SemClipboardService: android.net.Uri insertToClipboard(android.content.ClipData,int)>
+<com.samsung.android.server.wifi.SemApeService: void <init>(android.content.Context,android.os.HandlerThread,com.samsung.android.server.wifi.SemClientModeManager)>

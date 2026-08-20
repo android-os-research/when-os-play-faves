@@ -1,0 +1,128 @@
+######################################################################
+# Propagation: com.google.android.apps.turbo
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.display.DisplayManagerService$BinderService
+  Method:   <com.android.server.display.DisplayManagerService$BinderService: void setBackupBrightnessConfiguration(android.hardware.display.BrightnessConfiguration,int,java.lang.String)>
+  Line:     4081
+  Register: v6 := "com.google.android.apps.turbo"
+  Usage:    [invoke] invoke-virtual {v5, v6, v2}, Landroid/content/pm/PackageManager;->clearApplicationUserData(Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.clearApplicationUserData()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Context.enforceCallingOrSelfPermission()
+      → PackageManager.clearApplicationUserData()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → SparseArray.get()
+      → <com.android.server.display.DisplayManagerService$BinderServ
+      → <com.android.server.display.DisplayManagerService: android.c
+      → <com.android.server.display.DisplayManagerService: android.u
+      → <com.android.server.display.DisplayManagerService: com.andro
+      → <com.android.server.display.DisplayManagerService: com.andro
+      → DisplayManagerService.resetBrightnessConfigurations()
+      → DisplayPowerController.getAppliedBackupConfiguration()
+      → DisplayPowerController.clearAdaptiveBrightnessLongtermModelBuilder()
+      → DisplayPowerController.restartAdaptiveBrightnessLongtermModelBuilderFromBnr()
+      → LogicalDisplayMapper.forEachLocked()
+      → PowerManagerUtil.callerInfoToString()
+      → Slog.d()
+        → SparseArray.get()
+        → Context.getUserId()
+        → Context.getPackageName()
+        → <com.android.server.display.DisplayManagerService$$ExternalS
+        → PersistentDataStore.setBrightnessConfigurationForUser()
+        → AutomaticBrightnessController.getAppliedBackupConfig()
+        → AdaptiveBrightnessLongtermModelBuilder.clearBrightnessEvents()
+        → Handler.obtainMessage()
+        → Message.sendToTarget()
+        → SparseArray.size()
+        → SparseArray.valueAt()
+        → LogicalDisplay.isEnabled()
+        → Consumer.accept()
+        → PowerManagerUtil.callerInfoToString()
+        → Slog.addPMSLogList()
+          → ContainerHelpers.binarySearch()
+          → <com.android.server.display.PersistentDataStore$BrightnessCo
+          → PersistentDataStore$BrightnessConfigurations.saveHistory()
+          → PersistentDataStore.loadIfNeeded()
+          → PersistentDataStore.setDirty()
+          → BrightnessMappingStrategy.getAppliedBackupConfig()
+          → AtomicFile.exists()
+          → AtomicFile.delete()
+          → RingBuffer.clear()
+          → AdaptiveBrightnessLongtermModelBuilder$Injector.getFile()
+          → Handler.sendMessage()
+          → SparseArray.gc()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → Binder.getCallingPid() [UID_CHECK]
+          → Binder.getCallingUid() [UID_CHECK]
+          → Process.myPid()
+          → StackTraceElement.getLineNumber()
+          → StackTraceElement.getClassName()
+          → StackTraceElement.getMethodName()
+          → Thread.getStackTrace()
+          → Thread.currentThread()
+          → Process.myTid()
+          → Slog$TimeUtil.getCurrentTimeToLoggingFormat()
+          → ArrayList.add()
+          → ArrayList.size()
+            → PersistentDataStore$BrightnessConfigurations.setBrightnessConfigurationForUser()
+            → SparseArray.keyAt()
+            → SparseLongArray.size()
+            → SparseLongArray.get()
+            → TimeUtils.formatForLogging()
+            → PersistentDataStore$BrightnessConfigurations.readFilePosition()
+            → PersistentDataStore$BrightnessConfigurations.fileWriteInt()
+            → <java.io.File: void <init>(java.lang.String)>
+            → FileInputStream.available()
+            → <java.io.FileInputStream: void <init>(java.io.File)>
+            → FileInputStream.close()
+            → <java.io.FileOutputStream: void <init>(java.io.File)>
+            → <java.io.FileOutputStream: void <init>(java.io.File,boolean)
+            → FileOutputStream.close()
+            → FileOutputStream.write()
+            → IOException.printStackTrace()
+            → Exception.printStackTrace()
+            → Iterator.hasNext()
+            → Iterator.next()
+            → List.size()
+            → List.iterator()
+            → TimeZone.getOffset()
+            → TimeZone.getDefault()
+            → PersistentDataStore.load()
+            → File.exists()
+            → File.delete()
+            → RingBuffer.size()
+            → Environment.getDataSystemDeDirectory()
+            → <android.util.AtomicFile: void <init>(java.io.File)>
+            → <java.io.File: void <init>(java.io.File,java.lang.String)>
+            → Slog$TimeUtil.now()
+            → LocalDateTime.format()
+              → BrightnessConfiguration.equals()
+              → SparseArray.put()
+              → SparseArray.remove()
+              → SparseLongArray.delete()
+              → SparseLongArray.put()
+              → PersistentDataStore$BrightnessConfigurations.readFromFile()
+              → Xml.resolvePullParser()
+              → PersistentDataStore$Injector.openRead()
+              → PersistentDataStore.clearState()
+              → PersistentDataStore.loadFromXml()
+              → IoUtils.closeQuietly()
+              → <android.util.AtomicFile: void <init>(java.io.File,android.u
+              → LocalDateTime.now()
+

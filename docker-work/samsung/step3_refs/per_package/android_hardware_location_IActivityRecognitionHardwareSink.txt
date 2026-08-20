@@ -1,0 +1,9 @@
+# android.hardware.location.IActivityRecognitionHardwareSink [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.location.IActivityRecognitionHardwareSink$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.location.IActivityRecognitionHardwareSink$Stub$Proxy: void onActivityChanged(android.hardware.location.ActivityChangedEvent)>
+<android.hardware.location.IActivityRecognitionHardwareSink$Stub: android.hardware.location.IActivityRecognitionHardwareSink asInterface(android.os.IBinder)>
+<android.hardware.location.IActivityRecognitionHardwareSink$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.location.IActivityRecognitionHardwareSink$Stub: void <init>()>

@@ -1,0 +1,13 @@
+# android.content.pm.IPinItemRequest [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.content.pm.IPinItemRequest$Stub$Proxy: android.appwidget.AppWidgetProviderInfo getAppWidgetProviderInfo()>
+<android.content.pm.IPinItemRequest$Stub$Proxy: android.content.pm.ShortcutInfo getShortcutInfo()>
+<android.content.pm.IPinItemRequest$Stub$Proxy: android.os.Bundle getExtras()>
+<android.content.pm.IPinItemRequest$Stub$Proxy: boolean accept(android.os.Bundle)>
+<android.content.pm.IPinItemRequest$Stub$Proxy: boolean isValid()>
+<android.content.pm.IPinItemRequest$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IPinItemRequest$Stub: android.content.pm.IPinItemRequest asInterface(android.os.IBinder)>
+<android.content.pm.IPinItemRequest$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IPinItemRequest$Stub: void <init>()>

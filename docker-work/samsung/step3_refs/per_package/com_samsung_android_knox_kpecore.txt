@@ -1,0 +1,18 @@
+# com.samsung.android.knox.kpecore [NEW]
+# Refs: 14
+# JARs: knoxsdk, services
+
+<com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: boolean checkCallerIsKPECore(java.lang.String)>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+<com.samsung.android.knox.EdmConstants$2: void <init>()>
+<com.samsung.android.knox.EnterpriseDeviceManager: com.samsung.android.knox.EnterpriseDeviceManager getInstance(android.content.Context,int)>
+<com.samsung.android.knox.EnterpriseDeviceManager: com.samsung.android.knox.EnterpriseDeviceManager getParentInstance(android.content.Context,int)>
+<com.samsung.android.knox.appconfig.ApplicationRestrictionsManager: android.os.Bundle setApplicationRestrictions(java.lang.String,java.lang.String,android.os.Bundle,int)>
+<com.samsung.android.knox.appconfig.ApplicationRestrictionsManager: com.samsung.android.knox.appconfig.ApplicationRestrictionsManager getInstance(android.content.Context,int)>
+<com.samsung.android.knox.custom.CustomDeviceManager: com.samsung.android.knox.custom.CustomDeviceManager getInstance(android.content.Context,int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: android.os.Bundle setApplicationRestrictionsInternal(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String,android.os.Bundle,int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: android.os.ParcelFileDescriptor getTcpDump()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int setHardKeyIntentBroadcastInternal(java.lang.String,boolean,int,int,android.content.Intent,java.lang.String,boolean)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int startTcpDump(java.lang.String,int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: int stopTcpDump()>

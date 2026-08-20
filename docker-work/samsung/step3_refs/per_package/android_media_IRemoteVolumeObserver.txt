@@ -1,0 +1,9 @@
+# android.media.IRemoteVolumeObserver [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.IRemoteVolumeObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IRemoteVolumeObserver$Stub$Proxy: void dispatchRemoteVolumeUpdate(int,int)>
+<android.media.IRemoteVolumeObserver$Stub: android.media.IRemoteVolumeObserver asInterface(android.os.IBinder)>
+<android.media.IRemoteVolumeObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IRemoteVolumeObserver$Stub: void <init>()>

@@ -1,0 +1,10 @@
+# android.database.IContentObserver [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.database.IContentObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.database.IContentObserver$Stub$Proxy: void onChange(boolean,android.net.Uri,int)>
+<android.database.IContentObserver$Stub$Proxy: void onChangeEtc(boolean,android.net.Uri[],int,int)>
+<android.database.IContentObserver$Stub: android.database.IContentObserver asInterface(android.os.IBinder)>
+<android.database.IContentObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.database.IContentObserver$Stub: void <init>()>

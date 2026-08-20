@@ -1,0 +1,9 @@
+# ro.vendor.build.version.release [NEW]
+# Refs: 5
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.SemRoamingAssistant: int getVendorVersion()>
+<com.samsung.android.server.wifi.b2b.WifiB2bPolicyManager: int getVendorVersion()>
+<com.samsung.android.server.wifi.driver.WifiDriverFeatureProvider: int getVendorVersion()>
+<com.samsung.android.server.wifi.halclient.SemSupplicantStaIfaceHalAidlImpl: int getVendorVersion()>
+<com.samsung.android.server.wifi.halclient.SemSupplicantStaIfaceHalHidlImpl: int getVendorVersion()>

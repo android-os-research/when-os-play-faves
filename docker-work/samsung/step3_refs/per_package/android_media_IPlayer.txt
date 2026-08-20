@@ -1,0 +1,15 @@
+# android.media.IPlayer [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.media.IPlayer$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IPlayer$Stub$Proxy: void applyVolumeShaper(android.media.VolumeShaperConfiguration,android.media.VolumeShaperOperation)>
+<android.media.IPlayer$Stub$Proxy: void pause()>
+<android.media.IPlayer$Stub$Proxy: void setPan(float)>
+<android.media.IPlayer$Stub$Proxy: void setStartDelayMs(int)>
+<android.media.IPlayer$Stub$Proxy: void setVolume(float)>
+<android.media.IPlayer$Stub$Proxy: void start()>
+<android.media.IPlayer$Stub$Proxy: void stop()>
+<android.media.IPlayer$Stub: android.media.IPlayer asInterface(android.os.IBinder)>
+<android.media.IPlayer$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IPlayer$Stub: void <init>()>

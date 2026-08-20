@@ -1,0 +1,102 @@
+######################################################################
+# Propagation: com.sec.sve
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService
+  Method:   <com.android.server.am.ActivityManagerService: boolean isImsProcess(java.lang.String)>
+  Line:     58754
+  Register: p0 := "com.sec.sve"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-eqz p0, :cond_a → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerService.needToBlockImsRequest()
+      ← ProcessList.startProcessLocked()
+        ← ActiveServices.bringUpServiceLocked()
+        ← ActivityManagerService.cleanUpApplicationRecordLocked()
+        ← ActivityManagerService.startProcessLocked()
+        ← ProcessList.startProcessLocked()
+        ← ActivityManagerService.startProcessLocked()
+        ← ProcessList.startProcessLocked()
+          ← ActiveServices.startServiceInnerLocked()
+          ← ActiveServices.bindServiceLocked()
+          ← <com.android.server.am.ActiveServices: java.lang.String -$$N
+          ← ActiveServices.performServiceRestartLocked()
+          ← ActivityManagerService.attachApplicationLocked()
+          ← ActivityManagerService.handleAppDiedLocked()
+          ← ActivityManagerService.trimApplicationsLocked()
+          ← ProcessList.handleProcessStartedLocked()
+          ← ActivityManagerService$LocalService.startProcess()
+          ← ActivityManagerService.bindBackupAgent()
+          ← BroadcastQueue.processNextBroadcastLocked()
+          ← ContentProviderHelper.getContentProviderImpl()
+          ← ActivityManagerService.addAppLocked()
+          ← ProcessList.startProcessLocked()
+          ← ActivityManagerService$LocalService.startProcess()
+          ← ActivityManagerService.startIsolatedProcess()
+          ← ActivityManagerService.startSdkSandboxProcessLocked()
+            ← ActiveServices$ServiceMap.rescheduleDelayedStartsLocked()
+            ← ActiveServices.startServiceInnerLocked()
+            ← ActivityManagerService.bindServiceInstance()
+            ← ActiveServices$2.onResult()
+            ← ActiveServices$4.run()
+            ← ActiveServices$ServiceRestarter.run()
+            ← ActivityManagerService.attachApplication()
+            ← ActivityManagerService.appDiedLocked()
+            ← ProcessList.removeProcessLocked()
+            ← ActivityManagerService.finishReceiver()
+            ← ActivityManagerService.setProcessLimit()
+            ← ActivityManagerService.trimApplications()
+            ← ActivityManagerService.unregisterReceiver()
+            ← ProcessList.handleProcessStartedLocked()
+            ← ProcessList.startProcessLocked()
+            ← ActivityManagerService$LocalService.startProcess()
+            ← BroadcastQueue.backgroundServicesFinishedLocked()
+            ← BroadcastQueue.broadcastTimeoutLocked()
+            ← BroadcastQueue.processNextBroadcast()
+            ← ContentProviderHelper.getContentProviderImpl()
+            ← ContentProviderHelper.getProviderMimeType()
+            ← ContentProviderHelper.getProviderMimeTypeAsync()
+            ← ActivityManagerService.startInstrumentationOfSdkSandbox()
+            ← ActivityManagerService.addAppLocked()
+            ← ProcessList.startProcessLocked()
+            ← ActivityManagerService$LocalService.startIsolatedProcess()
+              ← ActiveServices$ServiceMap.handleMessage()
+              ← <com.android.server.am.ActiveServices: android.content.Compo
+              ← ActiveServices.startServiceLocked()
+              ← <com.android.server.am.ActivityManagerService: int -$$Nest$m
+              ← ActivityManagerService.bindServiceInstance()
+              ← ActivityManagerService$AppDeathRecipient.binderDied()
+              ← ActivityManagerService.appDiedLocked()
+              ← ActivityManagerService$LocalService.killForegroundAppsForUser()
+              ← ActivityManagerService.systemReady()
+              ← ContentProviderHelper.processContentProviderPublishTimedOutLocked()
+              ← ProcessList.killPackageProcessesLSP()
+              ← ProcessList.removeProcessLocked()
+              ← ProcessList.killAllBackgroundProcessesExceptLSP()
+              ← <com.android.server.am.ActivityManagerService: void -$$Nest$
+              ← ReceiverList.binderDied()
+              ← <com.android.server.am.ProcessList: void lambda$handleProces
+              ← ActivityManagerService.backgroundServicesFinishedLocked()
+              ← BroadcastQueue$BroadcastHandler.handleMessage()
+              ← <com.android.server.am.BroadcastQueue: void -$$Nest$mprocess
+              ← ContentProviderHelper.getContentProvider()
+              ← ContentProviderHelper.getContentProviderExternalUnchecked()
+              ← ActivityManagerService.getProviderMimeType()
+              ← ActivityManagerService.getProviderMimeTypeAsync()
+              ← ActivityManagerService.startInstrumentation()
+              ← ActivityManagerService.addAppLocked()
+              ← ActivityManagerService.finishBooting()
+

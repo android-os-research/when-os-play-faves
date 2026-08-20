@@ -1,0 +1,9 @@
+# android.media.IRemoteDisplayCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.IRemoteDisplayCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IRemoteDisplayCallback$Stub$Proxy: void onStateChanged(android.media.RemoteDisplayState)>
+<android.media.IRemoteDisplayCallback$Stub: android.media.IRemoteDisplayCallback asInterface(android.os.IBinder)>
+<android.media.IRemoteDisplayCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IRemoteDisplayCallback$Stub: void <init>()>

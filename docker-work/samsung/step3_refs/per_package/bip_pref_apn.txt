@@ -1,0 +1,6 @@
+# bip.pref.apn [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.cat.CatBIPManager: void setBipApn(com.android.internal.telephony.cat.CatBIPClientConnection)>
+<com.android.internal.telephony.dataconnection.DcTracker: android.telephony.data.ApnSetting fetchBipApn()>

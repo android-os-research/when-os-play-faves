@@ -1,0 +1,72 @@
+######################################################################
+# Propagation: com.samsung.android.biometrics.app.setting
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.biometrics.SemBiometricSysUiManager
+  Method:   <com.android.server.biometrics.SemBiometricSysUiManager: void bind()>
+  Line:     1189
+  Register: v2 := "com.samsung.android.biometrics.app.setting"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemBiometricSysUiManager.openSession()
+        ← <com.android.server.biometrics.SemAuthSessionExt: void <init
+        ← SemFpGestureCalibrator.start()
+        ← <com.android.server.biometrics.sensors.fingerprint.SemUdfpsH
+        ← SemUdfpsSysUiImpl.setSysUiListener()
+          ← BiometricService$Injector.createAuthSessionExt()
+          ← SemFpGestureManager.startCalibration()
+          ← SemUdfpsHelper$OpticalSensorHelper.addMaskView()
+          ← SemUdfpsHelper$OpticalSensorHelper.handleCalibrationMode()
+          ← SemFpBaseAuthenticationClient.initForUdfps()
+          ← SemFpBaseEnrollClient.initForUdfps()
+            ← BiometricService.authenticateInternal()
+            ← SemFpGestureManager.handleOnChangeSettingValue()
+            ← SemUdfpsHelper.addMaskView()
+            ← <com.android.server.biometrics.sensors.fingerprint.SemFinger
+            ← <com.android.server.biometrics.sensors.fingerprint.SemUdfpsH
+            ← SemFpBaseAuthenticationClient.setExtraAttribute()
+            ← <com.android.server.biometrics.sensors.fingerprint.aidl.Fing
+            ← <com.android.server.biometrics.sensors.fingerprint.hidl.Fing
+              ← <com.android.server.biometrics.BiometricService: void lambda
+              ← <com.android.server.biometrics.sensors.fingerprint.SemFpGest
+              ← <com.android.server.biometrics.sensors.fingerprint.SemFinger
+              ← <com.android.server.biometrics.sensors.fingerprint.SemFinger
+              ← <com.android.server.biometrics.sensors.fingerprint.SemUdfpsH
+              ← <com.android.server.biometrics.sensors.fingerprint.aidl.Fing
+              ← <com.android.server.biometrics.sensors.fingerprint.aidl.Fing
+              ← <com.android.server.biometrics.sensors.fingerprint.hidl.Fing
+              ← <com.android.server.biometrics.sensors.fingerprint.hidl.Fing
+              ← <com.android.server.biometrics.sensors.fingerprint.aidl.Fing
+              ← <com.android.server.biometrics.sensors.fingerprint.hidl.Fing
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.bindService()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → Handler.postDelayed()
+      → SemBioFgThread.get()
+      → SemBiometricSysUiManager.sendConnectionError()
+      → Exception.getMessage()
+        → HandlerThread.start()
+        → <com.android.server.biometrics.SemBioFgThread: void <init>()
+        → Handler.post()
+        → <com.android.server.biometrics.SemBiometricSysUiManager$$Ext
+          → <com.android.server.ServiceThread: void <init>(java.lang.Str
+            → <android.os.HandlerThread: void <init>(java.lang.String,int)
+              → <java.lang.Thread: void <init>(java.lang.String)>
+

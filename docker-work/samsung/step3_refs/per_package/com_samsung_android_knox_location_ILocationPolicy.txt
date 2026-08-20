@@ -1,0 +1,17 @@
+# com.samsung.android.knox.location.ILocationPolicy [NEW]
+# Refs: 13
+# JARs: knoxsdk
+
+<com.samsung.android.knox.location.ILocationPolicy$Stub$Proxy: boolean getIndividualLocationProvider(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.location.ILocationPolicy$Stub$Proxy: boolean isGPSOn(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.location.ILocationPolicy$Stub$Proxy: boolean isGPSStateChangeAllowed(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.location.ILocationPolicy$Stub$Proxy: boolean isLocationProviderBlocked(java.lang.String)>
+<com.samsung.android.knox.location.ILocationPolicy$Stub$Proxy: boolean isLocationProviderBlockedAsUser(java.lang.String,int)>
+<com.samsung.android.knox.location.ILocationPolicy$Stub$Proxy: boolean setGPSStateChangeAllowed(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.location.ILocationPolicy$Stub$Proxy: boolean setIndividualLocationProvider(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+<com.samsung.android.knox.location.ILocationPolicy$Stub$Proxy: boolean startGPS(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.location.ILocationPolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.location.ILocationPolicy$Stub$Proxy: java.util.List getAllLocationProviders(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.location.ILocationPolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.location.ILocationPolicy$Stub: com.samsung.android.knox.location.ILocationPolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.location.ILocationPolicy$Stub: void <init>()>

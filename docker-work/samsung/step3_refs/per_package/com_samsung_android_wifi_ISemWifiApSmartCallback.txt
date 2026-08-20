@@ -1,0 +1,9 @@
+# com.samsung.android.wifi.ISemWifiApSmartCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.wifi.ISemWifiApSmartCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.wifi.ISemWifiApSmartCallback$Stub$Proxy: void onStateChanged(int,java.lang.String)>
+<com.samsung.android.wifi.ISemWifiApSmartCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.wifi.ISemWifiApSmartCallback$Stub: com.samsung.android.wifi.ISemWifiApSmartCallback asInterface(android.os.IBinder)>
+<com.samsung.android.wifi.ISemWifiApSmartCallback$Stub: void <init>()>

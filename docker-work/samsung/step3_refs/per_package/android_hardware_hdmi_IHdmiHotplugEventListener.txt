@@ -1,0 +1,9 @@
+# android.hardware.hdmi.IHdmiHotplugEventListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.hdmi.IHdmiHotplugEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.hdmi.IHdmiHotplugEventListener$Stub$Proxy: void onReceived(android.hardware.hdmi.HdmiHotplugEvent)>
+<android.hardware.hdmi.IHdmiHotplugEventListener$Stub: android.hardware.hdmi.IHdmiHotplugEventListener asInterface(android.os.IBinder)>
+<android.hardware.hdmi.IHdmiHotplugEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.hdmi.IHdmiHotplugEventListener$Stub: void <init>()>

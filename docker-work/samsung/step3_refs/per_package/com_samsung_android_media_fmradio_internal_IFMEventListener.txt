@@ -1,0 +1,26 @@
+# com.samsung.android.media.fmradio.internal.IFMEventListener [NEW]
+# Refs: 22
+# JARs: framework
+
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onAlternateFrequencyReceived(long)>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onAlternateFrequencyStarted()>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onChannelFound(long)>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onHeadsetConnected()>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onHeadsetDisconnected()>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onProgrammeIdentificationExtendedCountryCodesReceived(int,int)>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onRadioDataSystemDisabled()>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onRadioDataSystemEnabled()>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onRadioDataSystemReceived(long,java.lang.String,java.lang.String)>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onRadioDisabled(int)>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onRadioEnabled()>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onRadioTextPlusReceived(int,int,int,int,int,int)>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onRecordingFinished()>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onScanFinished(long[])>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onScanStarted()>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onScanStopped(long[])>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onTuned(long)>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub$Proxy: void onVolumeLocked()>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub: com.samsung.android.media.fmradio.internal.IFMEventListener asInterface(android.os.IBinder)>
+<com.samsung.android.media.fmradio.internal.IFMEventListener$Stub: void <init>()>

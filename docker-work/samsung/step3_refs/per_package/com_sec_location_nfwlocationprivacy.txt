@@ -1,0 +1,7 @@
+# com.sec.location.nfwlocationprivacy [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.telephony.CarrierConfigManager$Gps: android.os.PersistableBundle getDefaults()>
+<com.android.server.location.gnss.GnssVisibilityControl: void setNfwLocationAccessProxyAppsInGnssHal(java.lang.String[])>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>

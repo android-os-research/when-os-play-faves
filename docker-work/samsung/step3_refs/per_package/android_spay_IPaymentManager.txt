@@ -1,0 +1,10 @@
+# android.spay.IPaymentManager [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.spay.IPaymentManager$Stub$Proxy: android.spay.PaymentTZServiceCommnInfo registerSPayFW(android.spay.PaymentTZServiceConfig)>
+<android.spay.IPaymentManager$Stub$Proxy: byte[] getMeasurementFile()>
+<android.spay.IPaymentManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.spay.IPaymentManager$Stub: android.spay.IPaymentManager asInterface(android.os.IBinder)>
+<android.spay.IPaymentManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.spay.IPaymentManager$Stub: void <init>()>

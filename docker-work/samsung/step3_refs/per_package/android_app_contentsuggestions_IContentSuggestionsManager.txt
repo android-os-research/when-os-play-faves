@@ -1,0 +1,17 @@
+# android.app.contentsuggestions.IContentSuggestionsManager [NEW]
+# Refs: 13
+# JARs: framework
+
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub$Proxy: void classifyContentSelections(int,android.app.contentsuggestions.ClassificationsRequest,android.app.contentsuggestions.IClassificationsCallback)>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub$Proxy: void isEnabled(int,com.android.internal.os.IResultReceiver)>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub$Proxy: void notifyInteraction(int,java.lang.String,android.os.Bundle)>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub$Proxy: void provideContextBitmap(int,android.graphics.Bitmap,android.os.Bundle)>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub$Proxy: void provideContextImage(int,int,android.os.Bundle)>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub$Proxy: void resetTemporaryService(int)>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub$Proxy: void setDefaultServiceEnabled(int,boolean)>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub$Proxy: void setTemporaryService(int,java.lang.String,int)>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub$Proxy: void suggestContentSelections(int,android.app.contentsuggestions.SelectionsRequest,android.app.contentsuggestions.ISelectionsCallback)>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub: android.app.contentsuggestions.IContentSuggestionsManager asInterface(android.os.IBinder)>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.contentsuggestions.IContentSuggestionsManager$Stub: void <init>()>

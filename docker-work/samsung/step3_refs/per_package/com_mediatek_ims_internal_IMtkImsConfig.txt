@@ -1,0 +1,24 @@
+# com.mediatek.ims.internal.IMtkImsConfig [NEW]
+# Refs: 20
+# JARs: mediatek-ims-base
+
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: int getImsResCapability(int)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: int getProvisionedValue(int)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: int setProvisionedStringValue(int,java.lang.String)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: int setProvisionedValue(int,int)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: int[] setModemImsCfg(java.lang.String[],java.lang.String[],int)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: int[] setModemImsIwlanCfg(java.lang.String[],java.lang.String[],int)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: int[] setModemImsWoCfg(java.lang.String[],java.lang.String[],int)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: java.lang.String getProvisionedStringValue(int)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: void getFeatureValue(int,int,com.android.ims.ImsConfigListener)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: void getVideoQuality(com.android.ims.ImsConfigListener)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: void setFeatureValue(int,int,int,com.android.ims.ImsConfigListener)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: void setImsResCapability(int,int)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: void setMultiFeatureValues(int[],int[],int[],com.android.ims.ImsConfigListener)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: void setVideoQuality(int,com.android.ims.ImsConfigListener)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: void setVoltePreference(int)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub$Proxy: void setWfcMode(int)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub: com.mediatek.ims.internal.IMtkImsConfig asInterface(android.os.IBinder)>
+<com.mediatek.ims.internal.IMtkImsConfig$Stub: void <init>()>

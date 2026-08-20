@@ -1,0 +1,6 @@
+# com.samsung.android.service.wallpaper.CoverWallpaperService [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.am.MARsPolicyManager: void onSpecialBindServiceActions(java.lang.String,java.lang.String,int,java.lang.String)>
+<com.android.server.wallpaper.WallpaperManagerService: android.app.WallpaperInfo getCoverWallpaperInfo(android.content.ComponentName,int)>

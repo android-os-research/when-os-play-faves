@@ -1,0 +1,9 @@
+# android.printservice.recommendation.IRecommendationServiceCallbacks [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.printservice.recommendation.IRecommendationServiceCallbacks$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.printservice.recommendation.IRecommendationServiceCallbacks$Stub$Proxy: void onRecommendationsUpdated(java.util.List)>
+<android.printservice.recommendation.IRecommendationServiceCallbacks$Stub: android.printservice.recommendation.IRecommendationServiceCallbacks asInterface(android.os.IBinder)>
+<android.printservice.recommendation.IRecommendationServiceCallbacks$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.printservice.recommendation.IRecommendationServiceCallbacks$Stub: void <init>()>

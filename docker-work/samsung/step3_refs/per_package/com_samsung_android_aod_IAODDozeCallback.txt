@@ -1,0 +1,11 @@
+# com.samsung.android.aod.IAODDozeCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.aod.IAODDozeCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.aod.IAODDozeCallback$Stub$Proxy: void onAODToastRequested(com.samsung.android.aod.AODToast)>
+<com.samsung.android.aod.IAODDozeCallback$Stub$Proxy: void onDozeAcquired()>
+<com.samsung.android.aod.IAODDozeCallback$Stub$Proxy: void onDozeReleased()>
+<com.samsung.android.aod.IAODDozeCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.aod.IAODDozeCallback$Stub: com.samsung.android.aod.IAODDozeCallback asInterface(android.os.IBinder)>
+<com.samsung.android.aod.IAODDozeCallback$Stub: void <init>()>

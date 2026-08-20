@@ -1,0 +1,6 @@
+# com.android.app.abusive_bg_apps [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.am.AppRestrictionController$NotificationHelper: void postNotification(int,java.lang.String,int,java.lang.String,java.lang.String,android.graphics.drawable.Icon,android.app.PendingIntent,android.app.Notification$Action[])>
+<com.android.server.am.AppRestrictionController$NotificationHelper: void postSummaryNotification(android.os.UserHandle)>

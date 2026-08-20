@@ -1,0 +1,486 @@
+######################################################################
+# Propagation: com.samsung.controlpanel
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          array_init
+Enforcement patterns: early_return
+Security tags:        PERM_CHECK, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.MultiTaskingBinder
+  Method:   <com.android.server.wm.MultiTaskingBinder: void dismissSplitTask(android.os.IBinder,boolean)>
+  Line:     741
+  Register: v2 := "com.samsung.controlpanel"
+  Usage:    [array_init] filled-new-array {v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v2}, [Ljava/lang/String; → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → ActivityRecord.isInRootTaskLocked()
+      → ActivityRecord.getTask()
+      → ConfigurationContainer.getStageType()
+      → MultiStarController.checkMultiStarPackageAndPermission()
+      → <com.android.server.wm.MultiTaskingBinder$$ExternalSynthetic
+      → Task.getCreatedByOrganizerTask()
+      → Task.getTopLeafTask()
+      → TaskDisplayArea.getOrCreateRootHomeTask()
+      → TaskDisplayArea.getRootMainStageTask()
+      → TaskDisplayArea.getRootSideStageTask()
+      → TaskDisplayArea.getDisplayId()
+      → TaskDisplayArea.onStageSplitScreenDismissed()
+      → TaskFragment.getDisplayArea()
+      → WindowContainer.forAllLeafTasks()
+      → WindowContainer.getTopMostTask()
+      → WindowContainer.getTopChild()
+      → WindowContainer.compareTo()
+      → WindowManagerService.boostPriorityForLockedSection()
+      → WindowManagerService.resetPriorityAfterLockedSection()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → ActivityRecord.forTokenLocked()
+        → ActivityRecord.getRootTask()
+        → Task.isInTask()
+        → WindowConfiguration.getStageType()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → ActivityTaskManagerService.enforceTaskPermission()
+        → MultiStarController.ensureCallingPkg()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → <java.util.ArrayList: void <init>()>
+        → List.addAll()
+        → WindowContainer.asTask()
+        → WindowContainer.getParent()
+        → ArrayList.size()
+        → ArrayList.get()
+        → TaskDisplayArea.getOrCreateRootHomeTask()
+        → DisplayContent.getDisplayId()
+        → WindowContainerTransaction.reparent()
+        → WindowContainerTransaction.setBounds()
+        → <android.window.WindowContainerTransaction: void <init>()>
+        → WindowContainerTransaction.freezeDisplayInTransaction()
+        → ActivityTaskManagerService.continueWindowLayout()
+        → ActivityTaskManagerService.deferWindowLayout()
+        → Task.moveToFront()
+        → <com.android.server.wm.TaskDisplayArea$$ExternalSyntheticLam
+        → <com.android.server.wm.TaskDisplayArea$$ExternalSyntheticLam
+        → TaskDisplayArea.isTopRootTask()
+        → TaskDisplayArea.getTopRootTaskInWindowingMode()
+        → WindowContainer$RemoteToken.toWindowContainerToken()
+        → WindowContainer.getChildAt()
+        → WindowContainer.getChildCount()
+        → WindowContainer.forAllActivities()
+        → WindowContainer.forAllTasks()
+        → WindowOrganizerController.applyTransaction()
+        → ArrayList.clear()
+        → WindowContainer.getDisplayArea()
+        → <com.android.server.wm.WindowContainer$$ExternalSyntheticLam
+        → WindowContainer.getTask()
+        → WindowList.peekLast()
+        → WindowContainer.getParents()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → ArrayList.indexOf()
+        → LinkedList.peekLast()
+        → LinkedList.removeLast()
+        → LinkedList.clear()
+        → WindowManagerThreadPriorityBooster.boost()
+        → WindowManagerThreadPriorityBooster.reset()
+          → WeakReference.get()
+          → TaskFragment.getRootTask()
+          → WindowContainer.isDescendantOf()
+          → ActivityTaskManagerService.checkCallingPermission()
+          → AppGlobals.getPackageManager()
+          → IPackageManager.getPackagesForUid()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.iterator()
+          → TaskDisplayArea.canHostHomeTask()
+          → TaskDisplayArea.createRootTask()
+          → TaskDisplayArea.getRootHomeTask()
+          → WindowContainerToken.asBinder()
+          → WindowContainerTransaction$HierarchyOp.createForReparent()
+          → ArrayList.add()
+          → WindowConfiguration.setBounds()
+          → <android.window.WindowContainerTransaction$Change: android.c
+          → <android.window.WindowContainerTransaction$Change: int -$$Ne
+          → <android.window.WindowContainerTransaction$Change: int -$$Ne
+          → <android.window.WindowContainerTransaction$Change: void -$$N
+          → <android.window.WindowContainerTransaction$Change: void -$$N
+          → WindowContainerTransaction.getOrCreateChange()
+          → <android.util.ArrayMap: void <init>()>
+          → WindowSurfacePlacer.continueLayout()
+          → WindowSurfacePlacer.isLayoutDeferred()
+          → WindowSurfacePlacer.deferLayout()
+          → Task.moveToFront()
+          → TaskDisplayArea.getTopRootTask()
+          → TaskDisplayArea.getRootTask()
+          → <android.window.WindowContainerToken: void <init>(android.wi
+          → WindowContainer.forAllActivities()
+          → WindowContainer.forAllTasks()
+          → WindowContainerTransaction.isStartIntentsType()
+          → WindowContainerTransaction.isStartTaskAndIntentType()
+          → AppPairController.adjustStartIntents()
+          → AppPairController.adjustStartIntentsForSingleInstancePerTask()
+          → AppPairController.adjustStartTaskAndIntent()
+          → <com.android.server.wm.WindowOrganizerController$CallerInfo:
+          → WindowOrganizerController.applyTransaction()
+          → WindowOrganizerController.enforceTaskPermission()
+          → LinkedList.addLast()
+          → Process.myTid()
+          → ThreadPriorityBooster.boost()
+          → ThreadPriorityBooster.reset()
+            → TaskFragment.getRootTaskFragment()
+            → ActivityTaskManagerService.checkPermission() [PERM_CHECK]
+            → ActivityThread.getPackageManager()
+            → DisplayContent.supportsSystemDecorations()
+            → TaskDisplayArea.createRootTask()
+            → IWindowContainerToken.asBinder()
+            → WindowContainerTransaction$HierarchyOp$Builder.build()
+            → WindowContainerTransaction$HierarchyOp$Builder.setContainer()
+            → WindowContainerTransaction$HierarchyOp$Builder.setReparentContainer()
+            → WindowContainerTransaction$HierarchyOp$Builder.setToTop()
+            → <android.window.WindowContainerTransaction$HierarchyOp$Build
+            → Rect.set()
+            → Rect.setEmpty()
+            → ArrayMap.get()
+            → ArrayMap.put()
+            → <android.window.WindowContainerTransaction$Change: void <ini
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → Debug.getCallers()
+            → WindowSurfacePlacer.performSurfacePlacement()
+            → ConfigurationContainer.isAlwaysOnTopFreeform()
+            → ConfigurationContainer.getWindowingMode()
+            → ConfigurationContainer.setAlwaysOnTop()
+            → DexDockingController.moveTaskToFrontIfNeeded()
+            → FreeformController.useAlwaysOnTopFreeform()
+            → Task.isDexTaskDocked()
+            → Task.moveToFrontInner()
+            → TaskFragment.getAdjacentTaskFragment()
+            → <com.android.server.wm.TaskDisplayArea$$ExternalSyntheticLam
+            → WindowContainer.getRootTask()
+            → <com.android.server.wm.TaskDisplayArea$$ExternalSyntheticLam
+            → ActivityOptions.getLaunchRootTask()
+            → <android.app.ActivityOptions: void <init>(android.os.Bundle)
+            → PendingIntent.getTarget()
+            → Context.getPackageManager()
+            → Intent.getComponent()
+            → Intent.setComponent()
+            → Intent.setLaunchTaskIdForAliasManagedTarget()
+            → Intent.setStartedAsWindowTypeLauncher()
+            → PackageManager.getApplicationInfo() [PKG_QUERY]
+            → Bundle.getBoolean()
+            → Bundle.getString()
+            → Handler.obtainMessage()
+            → Handler.sendMessage()
+            → TextUtils.isEmpty()
+            → WindowContainerTransaction$HierarchyOp.getPendingIntent()
+            → WindowContainerTransaction$HierarchyOp.getActivityIntent()
+            → WindowContainerTransaction$HierarchyOp.getLaunchOptions()
+            → WindowContainerTransaction$HierarchyOp.getType()
+            → WindowContainerTransaction.getHierarchyOps()
+            → PendingIntentRecord.getUserId()
+            → ActivityTaskSupervisor.resolveIntent()
+            → <com.android.server.wm.AppPairController$$ExternalSyntheticL
+            → ConfigurationContainer.getWindowConfiguration()
+            → ConfigurationContainer.inSplitScreenWindowingMode()
+            → MultiTaskingController.findAliasManagedTaskInPackage()
+            → RootWindowContainer.getDefaultTaskDisplayArea()
+            → Task.getBaseIntent()
+            → Task.getRootActivity()
+            → Task.fromWindowContainerToken()
+            → TaskDisplayArea.getTopRootTaskInStageType()
+            → TaskFragment.shouldBeVisible()
+            → WindowContainer.isVisible()
+            → ArrayList.contains()
+            → ArrayList.remove()
+            → ArrayList.sort()
+            → List.remove()
+            → WindowConfiguration.isSplitScreenWindowingMode()
+            → ComponentName.flattenToShortString()
+            → Intent.addFlags()
+            → Intent.setLaunchTaskIdForSingleInstancePerTask()
+            → <com.android.server.wm.ActivityRecord: void <init>(com.andro
+            → ActivityTaskManagerService.getGlobalConfiguration()
+            → MultiTaskingController.getLaunchModeSingleInstancePerTask()
+            → MultiTaskingController.hasMatchedActivity()
+            → MultiTaskingController.findTasks()
+            → ActivityOptions.getLaunchTaskId()
+            → <com.android.server.wm.AppPairController$$ExternalSyntheticL
+            → ConfigurationContainer.inFreeformWindowingMode()
+            → WindowOrganizerController.applyTransaction()
+            → WindowContainerTransaction.getTaskFragmentOrganizer()
+            → WindowOrganizerController.enforceOperationsAllowedForTaskFragmentOrganizer()
+            → WindowOrganizerController.enforceTaskPermission()
+            → Process.getThreadPriority()
+            → Process.setThreadPriority()
+            → ThreadLocal.get()
+              → WindowContainer.asTaskFragment()
+              → ActivityTaskManagerService.checkComponentPermission()
+              → Display.getFlags()
+              → DisplayContent.forceDesktopMode()
+              → DisplayContent.isTrusted()
+              → DisplayWindowSettings.shouldShowSystemDecorsLocked()
+              → Task$Builder.build()
+              → Task$Builder.setActivityOptions()
+              → Task$Builder.setActivityType()
+              → Task$Builder.setOnTop()
+              → Task$Builder.setParent()
+              → Task$Builder.setWindowingMode()
+              → <com.android.server.wm.Task$Builder: void <init>(com.android
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → <android.window.WindowContainerTransaction$HierarchyOp: void
+              → ArrayMap.indexOfKey()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → <android.content.res.Configuration: void <init>()>
+              → WindowSurfacePlacer.performSurfacePlacement()
+              → WindowConfiguration.isAlwaysOnTop()
+              → WindowConfiguration.getWindowingMode()
+              → WindowConfiguration.setAlwaysOnTop()
+              → Configuration.setTo()
+              → ConfigurationContainer.getRequestedOverrideConfiguration()
+              → ConfigurationContainer.onRequestedOverrideConfigurationChanged()
+              → <com.android.server.wm.DexDockingController$$ExternalSynthet
+              → DexDockingController.getOtherPosition()
+              → Task.getDexTaskDockingState()
+              → WindowConfiguration.getDexTaskDockingState()
+              → ConfigurationContainer.getConfiguration()
+              → ConfigurationContainer.isActivityTypeHome()
+              → Task.isRootTask()
+              → Task.returnsToHomeRootTask()
+              → Task.setUnminimizedWhenRestored()
+              → Task.spegDisplayChecker()
+              → TaskDisplayArea.getFocusedRootTask()
+              → TaskDisplayArea.moveHomeRootTaskToFront()
+              → TaskDisplayArea.updateLastFocusedRootTask()
+              → TaskFragment.isAttached()
+              → WindowContainer.positionChildAt()
+              → WindowContainer.getRootTask()
+              → <android.app.ComponentOptions: void <init>(android.os.Bundle
+              → Bitmap.wrapHardwareBuffer()
+              → Bundle.getBundle()
+              → Bundle.getBinder()
+              → Bundle.getParcelable()
+              → Bundle.getParcelableArray()
+              → Bundle.containsKey()
+              → Bundle.getBoolean()
+              → Bundle.getFloatArray()
+              → Bundle.getInt()
+              → Bundle.getInt()
+              → Bundle.getIntArray()
+              → Bundle.getParcelable()
+              → Bundle.getStringArrayList()
+              → IRemoteCallback$Stub.asInterface()
+              → IAppTransitionAnimationSpecsFuture$Stub.asInterface()
+              → CharSequence.length()
+              → Intent.isWebIntent()
+              → Intent.getFlags()
+              → PackageManagerInternal.resolveIntent()
+              → Trace.traceBegin()
+              → Trace.traceEnd()
+              → ActivityTaskManagerService.getPackageManagerInternalLocked()
+              → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+              → WindowContainer.forAllLeafTasks()
+              → DisplayContent.getDefaultTaskDisplayArea()
+              → Task.getRootActivity()
+              → WindowContainer.fromBinder()
+              → TaskFragment.getVisibility()
+              → ActivityOptions.makeBasic()
+              → ActivityOptions.getUsageTimeReport()
+              → ActivityOptions.getLaunchIntoPipParams()
+              → ActivityOptions.getLaunchCookie()
+              → ActivityOptions.getLaunchTaskDisplayArea()
+              → ActivityOptions.getDismissKeyguardIfInsecure()
+              → ActivityOptions.getLaunchTaskBehind()
+              → ActivityOptions.getOverrideTaskTransition()
+              → ActivityOptions.getLaunchDisplayId()
+              → ActivityOptions.getRotationAnimationHint()
+              → PictureInPictureParams$Builder.build()
+              → <android.app.PictureInPictureParams$Builder: void <init>()>
+              → ComponentName.unflattenFromString()
+              → ComponentName.getClassName()
+              → <android.content.ComponentName: void <init>(java.lang.String
+              → Context.getResources()
+              → ActivityInfo.isTranslucentOrFloating()
+              → ActivityInfo.getIconResource()
+              → ActivityInfo.getThemeResource()
+              → <android.content.pm.ConstrainDisplayApisConfig: void <init>(
+              → Resources.getBoolean()
+              → TypedArray.getBoolean()
+              → <android.graphics.Rect: void <init>()>
+              → <android.os.Binder: void <init>()>
+              → UserHandle.getUserId()
+              → <android.util.MergedConfiguration: void <init>(android.conte
+              → AttributeCache.instance()
+              → AttributeCache.get()
+              → LocalServices.getService()
+              → <com.android.server.am.AppTimeTracker: void <init>(android.a
+              → ColorDisplayService$ColorDisplayServiceInternal.attachColorTransformController()
+              → <com.android.server.wm.ActivityRecord$$ExternalSyntheticLamb
+              → <com.android.server.wm.ActivityRecord$1: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$2: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$3: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$4: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$5: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$6: void <init>(com.and
+              → <com.android.server.wm.ActivityRecord$AddStartingWindow: voi
+              → <com.android.server.wm.ActivityRecord$Token: void <init>()>
+              → ActivityRecord.determineLaunchSourceType()
+              → ActivityRecord.getLockTaskLaunchMode()
+              → ActivityRecord.computeTaskAffinity()
+              → ActivityRecord.setActivityType()
+              → ActivityRecord.setOptions()
+              → ActivityRecord.setState()
+              → ActivityRecord.updateEnterpriseThumbnailDrawable()
+              → <com.android.server.wm.ActivityRecordInputSink: void <init>(
+              → <com.android.server.wm.BoundsCompatRecord: void <init>(com.a
+              → <com.android.server.wm.LetterboxUiController: void <init>(co
+              → MultiWindowSupportPolicyController.updateSupportPolicyLocked()
+              → PackageConfigPersister.updateConfigIfNeeded()
+              → <com.android.server.wm.PopOverState: void <init>(com.android
+              → PopOverState.setLastOccludesParent()
+              → PopOverState.setupOptions()
+              → UdcCutoutPolicy.updateUseLayoutInUdcCutoutIfNeeded()
+              → WindowContainer.setOrientation()
+              → <com.android.server.wm.WindowState$UpdateReportedVisibilityR
+              → <com.android.server.wm.WindowToken: void <init>(com.android.
+              → WindowToken.setClientVisible()
+              → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+              → PackageManager$ResolveInfoFlags.of()
+              → PackageManager.queryIntentActivities()
+              → MultiTaskingController$FindTasksResult.process()
+              → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+              → Rect.isEmpty()
+              → Rect.height()
+              → Rect.width()
+              → ArraySet.add()
+              → ArraySet.size()
+              → ArraySet.valueAt()
+              → <android.util.ArraySet: void <init>()>
+              → SurfaceControl$Transaction.setPosition()
+              → SurfaceControl$Transaction.setWindowCrop()
+              → SurfaceControl$Transaction.setWindowCrop()
+              → <android.view.SurfaceControl$Transaction: void <init>()>
+              → WindowContainerTransaction$Change.getBoundsChangeSurfaceBounds()
+              → WindowContainerTransaction$Change.getChangeMask()
+              → WindowContainerTransaction$Change.getConfigSetMask()
+              → WindowContainerTransaction.getErrorCallbackToken()
+              → WindowContainerTransaction.isDismissSplit()
+              → WindowContainerTransaction.isStagePositionChanged()
+              → WindowContainerTransaction.isStartTasksType()
+              → WindowContainerTransaction.getChanges()
+              → ProtoLogImpl.v()
+              → PooledConsumer.recycle()
+              → PooledLambda.__()
+              → PooledLambda.obtainConsumer()
+              → ActivityManagerPerformance.onActivityRelaunchLocked()
+              → ActivityTaskManagerService.isInLockTaskMode()
+              → ActivityTaskManagerService.addWindowLayoutReasons()
+              → ActivityTaskSupervisor.setDeferRootVisibilityUpdate()
+              → AppPairController.handleAutoPipIfNeededLocked()
+              → AppPairController.setEvictChildTasksRunnable()
+              → ChangeTransitionController.applySyncStagingTypesIfNeeded()
+              → DisplayContent.sendNewConfiguration()
+              → DisplayRotation.getDisplayFromTransition()
+              → MultiTaskingController.continueEnsureConfig()
+              → MultiTaskingController.deferEnsureConfig()
+              → MultiTaskingTransitionController.startFreezingDefaultDisplayIfNeeded()
+              → MultiTaskingTransitionController.stopFreezingDefaultDisplayIfNeeded()
+              → RootWindowContainer.resumeFocusedTasksTopActivities()
+              → RootWindowContainer.ensureActivitiesVisible()
+              → Task.isOrganized()
+              → Task.ensureActivitiesVisible()
+              → Task.setMainWindowSizeChangeTransaction()
+              → TaskDisplayArea.hasChildTaskInSideStage()
+              → TaskDisplayArea.isSplitScreenModeActivated()
+              → Transition$ChangeInfo.hasChanged()
+              → Transition.collect()
+              → Transition.setCanPipOnFinish()
+              → TransitionController.collectForDisplayChange()
+              → WindowContainer.getSurfaceControl()
+              → WindowContainer.isAttached()
+              → <com.android.server.wm.WindowOrganizerController$$ExternalSy
+              → WindowOrganizerController.isEnterSplitWithSingleStage()
+              → WindowOrganizerController.whileEnterSplitWithSingleStage()
+              → WindowOrganizerController.applyHierarchyOp()
+              → WindowOrganizerController.applyWindowContainerChange()
+              → WindowOrganizerController.addToSyncSet()
+              → WindowOrganizerController.onEnterSplitWithSingleStageFinished()
+              → WindowOrganizerController.onEnterSplitWithSingleStageStarted()
+              → List.size()
+              → List.get()
+              → Map$Entry.getKey()
+              → Map$Entry.getValue()
+              → Map.entrySet()
+              → Set.iterator()
+              → WindowContainerTransaction$HierarchyOp.getAdjacentRoot()
+              → WindowContainerTransaction$HierarchyOp.getContainer()
+              → WindowContainerTransaction$HierarchyOp.getNewParent()
+              → WindowOrganizerController.enforceTaskFragmentConfigChangeAllowed()
+              → WindowOrganizerController.enforceTaskFragmentOrganized()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.MultiTaskingController
+  Method:   <com.android.server.wm.MultiTaskingController: void <init>(com.android.server.wm.ActivityTaskManagerService)>
+  Line:     505
+  Register: v1 := "com.samsung.controlpanel"
+  Usage:    [array_init] filled-new-array {v0, v1}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1}, [Ljava/lang/String; → [other] new-instance v1, Landroid/os/RemoteCallbackList; → [inv
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.wm.ActivityTaskManagerService: void <ini
+        ← <com.android.server.wm.ActivityTaskManagerService$Lifecycle:
+
+  CALLEES (what this method invokes):
+      → <android.content.res.Configuration: void <init>()>
+      → <android.graphics.Rect: void <init>()>
+      → <android.os.RemoteCallbackList: void <init>()>
+      → <com.android.server.wm.ActivityEmbeddedPackageRepository: vo
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$$ExternalSynth
+      → <com.android.server.wm.MultiTaskingController$1: void <init>
+      → <com.android.server.wm.MultiTaskingController$2: void <init>
+      → <com.android.server.wm.MultiTaskingController$FindTasksResul
+      → <com.android.server.wm.SplitActivityInfoRepository: void <in
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArrayMap: void <init>()>
+        → <com.android.server.wm.ActivityEmbeddedPackageRepository$1: 
+        → <android.content.BroadcastReceiver: void <init>()>
+        → PackageFeature.registerCallback()
+        → <java.util.HashMap: void <init>()>
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → PackageFeatureController.registerCallback()
+          → List.add()
+            → ArrayMap.allocArrays()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+

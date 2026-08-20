@@ -1,0 +1,361 @@
+######################################################################
+# Propagation: com.sec.android.gallery3d
+######################################################################
+
+JARs:                 framework, motionrecognitionservice, services
+Classes:              8
+Occurrences:          8
+Usage types:          array_init, field_store, invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1324
+  Register: v37 := "com.sec.android.gallery3d"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.util.DumpUtils
+  Method:   <com.android.internal.util.DumpUtils: boolean isSecMediaPackage(java.lang.String)>
+  Line:     1052
+  Register: v0 := "com.sec.android.gallery3d"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_24 → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isSecMediaPackage()
+        ← DumpUtils.isNonPlatformPackage()
+        ← DumpUtils.isSecMediaPackage()
+          ← DumpUtils$$ExternalSyntheticLambda3.test()
+          ← <com.android.internal.util.DumpUtils: boolean $r8$lambda$DiT
+            ← DumpUtils$$ExternalSyntheticLambda6.test()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      motionrecognitionservice
+  Class:    com.samsung.android.gesture.AutoRotationHandler
+  Method:   <com.samsung.android.gesture.AutoRotationHandler: void <init>(android.content.Context)>
+  Line:     218
+  Register: v6 := "com.sec.android.gallery3d"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v4 .. v30}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← MotionRecognitionService.startMotions()
+        ← <com.samsung.android.gesture.MotionRecognitionService: void 
+          ← MotionRecognitionService$ServiceHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → Sensor.getVersion()
+      → SensorManager.getDefaultSensor()
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+      → AutoRotationHandler$CameraStateMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$ForegroundA
+      → AutoRotationHandler$ForegroundAppWatcher.init()
+      → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+      → AutoRotationHandler$MediaSessionMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+      → AutoRotationHandler$MultimediaMonitor.start()
+      → <com.samsung.android.gesture.AutoRotationHandler$ServiceHand
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → Sensor.isWakeUpSensor()
+        → SensorManager.getSensorList()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.size()
+        → List.get()
+        → List.iterator()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+        → <com.samsung.android.gesture.AutoRotationHandler$CameraState
+        → <java.util.HashMap: void <init>()>
+        → AutoRotationHandler$CameraStateMonitor$CameraStateHandler.sendEmptyMessage()
+        → <com.samsung.android.gesture.AutoRotationHandler$ForegroundA
+        → <android.util.ArraySet: void <init>()>
+        → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+        → <com.samsung.android.gesture.AutoRotationHandler$MediaSessio
+        → AutoRotationHandler$MediaSessionMonitor$MediaSessionMonitorHandler.sendEmptyMessage()
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → <com.samsung.android.gesture.AutoRotationHandler$MultimediaM
+        → SemMediaResourceHelper.createInstance()
+        → <java.util.HashSet: void <init>()>
+        → AutoRotationHandler$MultimediaMonitor$MultimediaHandler.sendEmptyMessage()
+        → <android.os.Handler: void <init>(android.os.Looper)>
+          → Sensor.getType()
+          → SensorManager.getFullSensorList()
+          → SparseArray.get()
+          → SparseArray.append()
+          → <java.util.ArrayList: void <init>()>
+          → Collections.unmodifiableList()
+          → List.add()
+          → <android.hardware.camera2.CameraManager$SemCameraDeviceState
+          → <com.samsung.android.app.usage.IUsageStatsWatcher$Stub: void
+          → <android.util.ArraySet: void <init>(int,boolean)>
+          → <android.media.AudioManager$AudioPlaybackCallback: void <ini
+          → <com.samsung.android.media.SemMediaResourceHelper: void <ini
+            → SparseArray.get()
+            → SparseArray.gc()
+            → SparseArray.put()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → <android.os.Binder: void <init>()>
+            → IUsageStatsWatcher$Stub.attachInterface()
+            → ArraySet.allocArrays()
+            → Looper.getMainLooper()
+            → Looper.myLooper()
+            → Process.myPid()
+            → <com.samsung.android.media.SemMediaResourceHelper$EventHandl
+            → SemMediaResourceHelper.native_setup()
+            → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+              → ContainerHelpers.binarySearch()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+              → <android.os.Binder: void <init>(java.lang.String)>
+              → ThreadLocal.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.internal.util.jobs.DumpUtils
+  Method:   <com.android.internal.util.jobs.DumpUtils: boolean isSecMediaPackage(java.lang.String)>
+  Line:     973
+  Register: v0 := "com.sec.android.gallery3d"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isSecMediaPackage()
+        ← DumpUtils.isNonPlatformPackage()
+        ← DumpUtils.isSecMediaPackage()
+          ← DumpUtils$$ExternalSyntheticLambda3.test()
+          ← <com.android.internal.util.jobs.DumpUtils: boolean $r8$lambd
+            ← DumpUtils$$ExternalSyntheticLambda6.test()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.PerProcessNandswap
+  Method:   <com.android.server.am.PerProcessNandswap: void <clinit>()>
+  Line:     585
+  Register: v2 := "com.sec.android.gallery3d"
+  Usage:    [array_init] filled-new-array {v1, v2, v3}, [Ljava/lang/String;
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [other] filled-new-array {v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → SystemProperties.get()
+      → PerProcessNandswap.staticInitialize()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     130
+  Register: v45 := "com.sec.android.gallery3d"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.displaysolution.MdnieScenarioControlService
+  Method:   <com.samsung.android.displaysolution.MdnieScenarioControlService: void <init>(android.content.Context)>
+  Line:     1350
+  Register: v6 := "com.sec.android.gallery3d"
+  Usage:    [field_store] iput-object v6, v0, Lcom/samsung/android/displaysolution/MdnieScenarioControlService;->GALLERY_APP_P
+  Patterns: string_compare, early_return
+  Flow:     [field_store] com.samsung.android.displaysolution.MdnieScenarioControlServ → [reassigned] v6 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.displaysolution.SemDisplaySolutionManag
+
+  CALLEES (what this method invokes):
+      → ContentResolver.registerContentObserver()
+      → ContentResolver.registerContentObserver()
+      → Context.getContentResolver()
+      → Context.registerReceiverAsUser()
+      → Context.getResources()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → Resources.getBoolean()
+      → Resources.getInteger()
+      → Resources.getStringArray()
+      → SQLiteOpenHelper.getWritableDatabase()
+      → Handler.sendEmptyMessage()
+      → Handler.sendEmptyMessageAtTime()
+      → Handler.removeMessages()
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → SemSystemProperties.get()
+      → SemSystemProperties.set()
+      → SystemClock.uptimeMillis()
+      → Settings$Global.getUriFor()
+      → Settings$System.getUriFor()
+      → <com.samsung.android.app.SemMultiWindowManager: void <init>(
+      → <com.samsung.android.displaysolution.DisplaySolutionDataBase
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getInt()
+      → File.exists()
+      → <java.io.File: void <init>(java.lang.String)>
+        → SQLiteOpenHelper.getDatabaseLocked()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → SystemProperties.get()
+        → SystemProperties.set()
+        → <com.samsung.android.multiwindow.MultiWindowManager: void <i
+        → <android.database.sqlite.SQLiteOpenHelper: void <init>(andro
+        → <android.app.IProcessObserver$Stub: void <init>()>
+        → <android.os.Handler: void <init>(android.os.Looper,android.o
+        → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+        → <android.database.ContentObserver: void <init>(android.os.Ha
+        → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+          → Context.getDatabasePath()
+          → SQLiteDatabase$OpenParams$Builder.build()
+          → SQLiteDatabase$OpenParams$Builder.addOpenFlags()
+          → SQLiteDatabase$OpenParams.toBuilder()
+          → SQLiteDatabase.createInMemory()
+          → SQLiteDatabase.openDatabase()
+          → SQLiteDatabase.deleteDatabase()
+          → SQLiteDatabase.isOpen()
+          → SQLiteDatabase.isReadOnly()
+          → SQLiteDatabase.getVersion()
+          → SQLiteDatabase.getPath()
+          → SQLiteDatabase.beginTransaction()
+          → SQLiteDatabase.close()
+          → SQLiteDatabase.endTransaction()
+          → SQLiteDatabase.reopenReadWrite()
+          → SQLiteDatabase.setReserveSpace()
+          → SQLiteDatabase.setTransactionSuccessful()
+          → SQLiteDatabase.setVersion()
+          → <android.database.sqlite.SQLiteException: void <init>(java.l
+          → SQLiteOpenHelper.onBeforeDelete()
+          → SQLiteOpenHelper.onConfigure()
+          → SQLiteOpenHelper.onCreate()
+          → SQLiteOpenHelper.onDowngrade()
+          → SQLiteOpenHelper.onOpen()
+          → SQLiteOpenHelper.onUpgrade()
+          → SQLiteOpenHelper.setFilePermissionsForDb()
+          → File.getPath()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → <android.database.sqlite.SQLiteOpenHelper: void <init>(andro
+          → IProcessObserver$Stub.attachInterface()
+          → <android.os.Binder: void <init>()>
+          → <android.content.BroadcastReceiver: void <init>()>
+            → <android.database.sqlite.SQLiteDatabase$OpenParams: void <in
+            → <android.database.sqlite.SQLiteDatabase$OpenParams$Builder: 
+            → <android.database.SQLException: void <init>(java.lang.String
+            → FileUtils.setPermissions()
+            → <android.database.sqlite.SQLiteOpenHelper: void <init>(andro
+            → <android.os.Binder: void <init>(java.lang.String)>
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: void <in
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: android.
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: android.
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: boolean 
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: int -$$N
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: int -$$N
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: int -$$N
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: int -$$N
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: java.lan
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: java.lan
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: long -$$
+              → <android.database.sqlite.SQLiteDatabase$OpenParams: long -$$
+              → <java.lang.RuntimeException: void <init>(java.lang.String)>
+              → SQLiteDatabase$OpenParams$Builder.setCursorFactory()
+              → SQLiteDatabase$OpenParams$Builder.setErrorHandler()
+              → <android.database.sqlite.SQLiteDatabase$OpenParams$Builder: 
+              → <android.database.sqlite.SQLiteOpenHelper: void <init>(andro
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.DexOptHelper
+  Method:   <com.android.server.pm.DexOptHelper: void <init>(com.android.server.pm.PackageManagerService)>
+  Line:     152
+  Register: v4 := "com.sec.android.gallery3d"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v6}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← BackgroundDexOptService$Injector.getDexOptHelper()
+      ← <com.android.server.pm.PackageManagerService: void <init>(co
+        ← <com.android.server.pm.BackgroundDexOptService: void <init>(
+        ← PackageManagerService.main()
+          ← <com.android.server.pm.BackgroundDexOptService: void <init>(
+          ← SystemServer.startBootstrapServices()
+            ← <com.android.server.pm.PackageManagerService: com.android.se
+            ← SystemServer.run()
+              ← <com.android.server.pm.PackageManagerService: com.android.se
+              ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+

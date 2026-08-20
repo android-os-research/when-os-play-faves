@@ -1,0 +1,11 @@
+# com.samsung.android.knox.mpos.IMPOSService [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.knox.mpos.IMPOSService$Stub$Proxy: boolean loadTa(int,android.os.ParcelFileDescriptor,long,long,com.samsung.android.knox.mpos.MposTZServiceConfig)>
+<com.samsung.android.knox.mpos.IMPOSService$Stub$Proxy: boolean unloadTa(int)>
+<com.samsung.android.knox.mpos.IMPOSService$Stub$Proxy: com.samsung.android.knox.mpos.TACommandResponse processTACommand(int,com.samsung.android.knox.mpos.TACommandRequest)>
+<com.samsung.android.knox.mpos.IMPOSService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.mpos.IMPOSService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.mpos.IMPOSService$Stub: com.samsung.android.knox.mpos.IMPOSService asInterface(android.os.IBinder)>
+<com.samsung.android.knox.mpos.IMPOSService$Stub: void <init>()>

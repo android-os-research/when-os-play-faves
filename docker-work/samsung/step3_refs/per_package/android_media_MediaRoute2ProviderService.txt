@@ -1,0 +1,7 @@
+# android.media.MediaRoute2ProviderService [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.media.MediaRoute2ProviderService: android.os.IBinder onBind(android.content.Intent)>
+<com.android.server.media.MediaRoute2ProviderServiceProxy: void bind()>
+<com.android.server.media.MediaRoute2ProviderWatcher: void scanPackages()>

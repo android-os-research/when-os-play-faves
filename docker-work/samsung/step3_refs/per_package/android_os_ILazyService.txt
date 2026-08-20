@@ -1,0 +1,9 @@
+# android.os.ILazyService [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.ILazyService$Stub$Proxy: android.os.IBinder getService(java.lang.String)>
+<android.os.ILazyService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.ILazyService$Stub: android.os.ILazyService asInterface(android.os.IBinder)>
+<android.os.ILazyService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.ILazyService$Stub: void <init>()>

@@ -1,0 +1,25 @@
+# com.sec.vsim.attsoftphone.ISoftphoneService [NEW]
+# Refs: 21
+# JARs: vsimmanager
+
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: int getClientId(java.lang.String)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: java.util.List getDeviceList(int)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void deregisterProgressListener(int,com.sec.vsim.attsoftphone.IProgressListener)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void deregisterSupplementaryServiceListener(int,com.sec.vsim.attsoftphone.ISupplementaryServiceListener)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void exchangeForAccessToken(int,java.lang.String,java.lang.String,java.lang.String,int)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void getCallForwardingInfo(int)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void getCallWaitingInfo(int)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void getTermsConditions(int)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void logOut(int)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void provisionAccount(int)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void registerProgressListener(int,com.sec.vsim.attsoftphone.IProgressListener)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void registerSupplementaryServiceListener(int,com.sec.vsim.attsoftphone.ISupplementaryServiceListener)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void setCallForwardingInfo(int,com.sec.vsim.attsoftphone.data.CallForwardingInfo)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void setCallWaitingInfo(int,com.sec.vsim.attsoftphone.data.CallWaitingInfo)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void tryDeregister(int)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void tryRegister(int)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub$Proxy: void validateE911Address(int,int,boolean,com.sec.vsim.attsoftphone.IEmergencyServiceListener)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub: com.sec.vsim.attsoftphone.ISoftphoneService asInterface(android.os.IBinder)>
+<com.sec.vsim.attsoftphone.ISoftphoneService$Stub: void <init>()>

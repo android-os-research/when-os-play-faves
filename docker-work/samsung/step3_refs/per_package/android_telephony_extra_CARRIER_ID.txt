@@ -1,0 +1,6 @@
+# android.telephony.extra.CARRIER_ID [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.CarrierResolver: void updateCarrierIdAndName(int,java.lang.String,int,java.lang.String,int,boolean)>
+<com.android.internal.telephony.SemServiceStateTracker$1: void onReceive(android.content.Context,android.content.Intent)>

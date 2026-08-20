@@ -1,0 +1,30 @@
+# ro.boot.hardware [NEW]
+# Refs: 26
+# JARs: framework, services, telephony-common
+
+<android.telephony.PhysicalChannelConfig: void <init>(android.telephony.PhysicalChannelConfig$Builder)>
+<com.android.internal.telephony.NetworkTypeController: void <init>(com.android.internal.telephony.Phone,com.android.internal.telephony.DisplayInfoController)>
+<com.android.internal.telephony.SemGsmCdmaPhone: void handleMessage(android.os.Message)>
+<com.android.internal.telephony.SemTelephonyUtils: void <clinit>()>
+<com.android.internal.telephony.TelephonyLogger: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>
+<com.android.internal.telephony.data.DataProfileManager: boolean isAlwaysOnPdnRequiredByModem()>
+<com.android.internal.telephony.data.SemPhoneSwitcher: void <init>(int,android.content.Context,android.os.Looper)>
+<com.android.internal.telephony.data.SemPhoneSwitcher: void setMobileDataSetting()>
+<com.android.internal.telephony.data.TelephonyNetworkFactory: void onNeedNetworkFor(android.os.Message)>
+<com.android.internal.telephony.dataconnection.AlwaysOnPdn: boolean isAlwaysOnPdnRequiredByModem()>
+<com.android.internal.telephony.dataconnection.DataConnection$DcActiveState: boolean processMessage(android.os.Message)>
+<com.android.internal.telephony.dataconnection.DataConnection: boolean isSuspended()>
+<com.android.internal.telephony.dataconnection.DcTracker: boolean allowInternetCapability(java.lang.String)>
+<com.android.internal.telephony.dataconnection.DcTracker: boolean getAttachedStatus()>
+<com.android.internal.telephony.dataconnection.DcTracker: boolean isDataAllowedForDualLte(com.android.internal.telephony.dataconnection.ApnContext)>
+<com.android.internal.telephony.dataconnection.DcTracker: boolean isNeedSetDataProfileForEUR()>
+<com.android.internal.telephony.dataconnection.DcTracker: void doActionByDataRoamingSettingsChanged()>
+<com.android.internal.telephony.dataconnection.DcTracker: void onDataEnabledChanged(boolean,int)>
+<com.android.internal.telephony.dataconnection.DcTracker: void setMobileDataSetting(boolean,boolean)>
+<com.android.internal.telephony.uicc.UiccProfile: void changeIccSimPersoPassword(java.lang.String,java.lang.String,android.os.Message)>
+<com.android.internal.telephony.uicc.UiccProfile: void getIccUsimPersoStatus()>
+<com.android.internal.telephony.uicc.UiccProfile: void setIccSimPersoEnabled(boolean,java.lang.String,android.os.Message)>
+<com.android.internal.telephony.uicc.UiccProfile: void supplyPerso(java.lang.String,android.os.Message)>
+<com.android.internal.telephony.uicc.UiccProfile: void update(android.content.Context,com.android.internal.telephony.CommandsInterface,com.android.internal.telephony.uicc.IccCardStatus)>
+<com.android.server.BootReceiver$SaveLastkmsg: void logLastKmsg()>
+<com.android.server.BootReceiver: void logBootEvents(android.content.Context)>

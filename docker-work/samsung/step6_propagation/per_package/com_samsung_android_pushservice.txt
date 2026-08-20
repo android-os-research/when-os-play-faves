@@ -1,0 +1,33 @@
+######################################################################
+# Propagation: com.samsung.android.pushservice
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.notification.NotificationManagerService
+  Method:   <com.android.server.notification.NotificationManagerService: boolean checkCallerIsPushService(java.lang.String,java.lang.String)>
+  Line:     7717
+  Register: p0 := "com.samsung.android.pushservice"
+  Usage:    [invoke] invoke-virtual {p0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-eqz p0, :cond_18 → [other] move-result p0 → [b
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.notification.NotificationManagerService:
+        ← NotificationManagerService$12.enqueueNotificationWithTag()
+
+  CALLEES (what this method invokes):
+      → NotificationManagerService.isCallerSystemOrPhone()
+        → Binder.getCallingUid() [UID_CHECK]
+        → NotificationManagerService.isUidSystemOrPhone()
+          → UserHandle.getAppId()
+

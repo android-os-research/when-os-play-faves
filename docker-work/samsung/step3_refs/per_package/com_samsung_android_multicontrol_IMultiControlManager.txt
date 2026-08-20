@@ -1,0 +1,19 @@
+# com.samsung.android.multicontrol.IMultiControlManager [NEW]
+# Refs: 15
+# JARs: framework
+
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: boolean isAllowed()>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: int getProtocolVersion()>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: void forceHideCursor(boolean)>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: void resetInputFilter()>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: void setCursorPosition(int,int,int)>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: void setInputFilter(android.view.IInputFilter,com.samsung.android.multicontrol.IInputFilterInstallListener)>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: void setInteractive(boolean)>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: void setMultiControlOutOfFocus(boolean)>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: void setProtocolVersion(int)>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: void startDeathChecker(com.samsung.android.multicontrol.IMultiControlDeathChecker)>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub$Proxy: void stopDeathChecker()>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub: com.samsung.android.multicontrol.IMultiControlManager asInterface(android.os.IBinder)>
+<com.samsung.android.multicontrol.IMultiControlManager$Stub: void <init>()>

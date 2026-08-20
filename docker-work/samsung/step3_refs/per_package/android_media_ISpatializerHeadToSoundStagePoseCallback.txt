@@ -1,0 +1,9 @@
+# android.media.ISpatializerHeadToSoundStagePoseCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.ISpatializerHeadToSoundStagePoseCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.ISpatializerHeadToSoundStagePoseCallback$Stub$Proxy: void dispatchPoseChanged(float[])>
+<android.media.ISpatializerHeadToSoundStagePoseCallback$Stub: android.media.ISpatializerHeadToSoundStagePoseCallback asInterface(android.os.IBinder)>
+<android.media.ISpatializerHeadToSoundStagePoseCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.ISpatializerHeadToSoundStagePoseCallback$Stub: void <init>()>

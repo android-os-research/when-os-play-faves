@@ -1,0 +1,5 @@
+# ro.sys.kernelmemory.nandswap.psi_high_stall_us [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.am.PerProcessNandswap: int getPsiHighStallUS()>

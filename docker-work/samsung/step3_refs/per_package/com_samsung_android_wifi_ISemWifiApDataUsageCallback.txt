@@ -1,0 +1,9 @@
+# com.samsung.android.wifi.ISemWifiApDataUsageCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.wifi.ISemWifiApDataUsageCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.wifi.ISemWifiApDataUsageCallback$Stub$Proxy: void onDataUsageChanged(java.lang.String)>
+<com.samsung.android.wifi.ISemWifiApDataUsageCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.wifi.ISemWifiApDataUsageCallback$Stub: com.samsung.android.wifi.ISemWifiApDataUsageCallback asInterface(android.os.IBinder)>
+<com.samsung.android.wifi.ISemWifiApDataUsageCallback$Stub: void <init>()>

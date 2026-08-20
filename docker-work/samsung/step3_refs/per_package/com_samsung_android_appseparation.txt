@@ -1,0 +1,12 @@
+# com.samsung.android.appseparation [NEW]
+# Refs: 9
+# JARs: services
+
+<com.android.server.knox.ContainerDependencyWrapper: void setOwnership(android.content.Context,int)>
+<com.android.server.pm.PersonaManagerService$PersonaHandler: void handleMessage(android.os.Message)>
+<com.android.server.pm.PersonaManagerService: boolean enforceSeparatedAppsRemoveInternal()>
+<com.android.server.pm.PersonaManagerService: boolean isContainerService(int)>
+<com.android.server.pm.PersonaManagerService: void enforceAppSeparationAllowListUpdateInternal()>
+<com.android.server.pm.PersonaManagerService: void enforceAppSeparationDeletionInternal()>
+<com.android.server.pm.PersonaManagerService: void processAppSeparationCreation()>
+<com.android.server.pm.PersonaManagerService: void systemReady()>

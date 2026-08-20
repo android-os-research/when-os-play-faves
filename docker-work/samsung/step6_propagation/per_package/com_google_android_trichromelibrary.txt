@@ -1,0 +1,107 @@
+######################################################################
+# Propagation: com.google.android.trichromelibrary
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          2
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDHCDatabase
+  Method:   <com.sec.android.iaft.IAFDHCDatabase: void init(android.content.Context,java.lang.String,boolean)>
+  Line:     1268
+  Register: v5 := "com.google.android.trichromelibrary"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [reassigned] v5 overwritten
+
+  CALLERS (who invokes this method):
+      ← IAFDDBManager.init()
+      ← IAFDDBManager.initTBs()
+        ← IAFDDiagnosis.initData()
+        ← <com.sec.android.iaft.IAFDDBManager: void -$$Nest$minitTBs(c
+          ← IAFDDiagnosis.parseExpTypeInternal()
+          ← IAFDDiagnosis.init()
+          ← IAFDDBManager$IAFDDBManagerHandler.handleMessage()
+            ← IAFDDiagnosis.parseExpType()
+            ← <com.android.server.am.AppErrors: void <init>(android.conten
+            ← IAFDService.IAFDServiceInit()
+              ← AppErrors.handleShowAppErrorUi()
+              ← IAFDService$IAFDBinder.IAFDParse()
+              ← <com.android.server.am.ActivityManagerService: void <init>(a
+              ← IAFDService.onCreate()
+
+  CALLEES (what this method invokes):
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: void <
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setCSCFilter()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setDBVersion()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setIAFDDBControlFeature()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setWhiteList()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setenableDetectAll32bitApp()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocApp()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocAppOnlyShow()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setreMovableAppPaths()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setwebView_pkgName()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_DATA: void <init>()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+      → <java.util.HashMap: void <init>()>
+        → IAFDDiagnosis$IAFD_CONTROLINFO.setSupportRepair()
+        → IAFDDiagnosis$IAFD_CONTROLINFO.inithashMapValues()
+        → IAFDDiagnosis$IAFD_ENTITY.initENTITY()
+        → HashMap.putIfAbsent()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDHCDatabase
+  Method:   <com.sec.android.iaft.IAFDHCDatabase: void init(android.content.Context,java.lang.String,boolean)>
+  Line:     1430
+  Register: v5 := "com.google.android.trichromelibrary"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [reassigned] v5 overwritten
+
+  CALLERS (who invokes this method):
+      ← IAFDDBManager.init()
+      ← IAFDDBManager.initTBs()
+        ← IAFDDiagnosis.initData()
+        ← <com.sec.android.iaft.IAFDDBManager: void -$$Nest$minitTBs(c
+          ← IAFDDiagnosis.parseExpTypeInternal()
+          ← IAFDDiagnosis.init()
+          ← IAFDDBManager$IAFDDBManagerHandler.handleMessage()
+            ← IAFDDiagnosis.parseExpType()
+            ← <com.android.server.am.AppErrors: void <init>(android.conten
+            ← IAFDService.IAFDServiceInit()
+              ← AppErrors.handleShowAppErrorUi()
+              ← IAFDService$IAFDBinder.IAFDParse()
+              ← <com.android.server.am.ActivityManagerService: void <init>(a
+              ← IAFDService.onCreate()
+
+  CALLEES (what this method invokes):
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: void <
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setCSCFilter()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setDBVersion()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setIAFDDBControlFeature()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setWhiteList()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setenableDetectAll32bitApp()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocApp()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocAppOnlyShow()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setreMovableAppPaths()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setwebView_pkgName()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_DATA: void <init>()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+      → <java.util.HashMap: void <init>()>
+        → IAFDDiagnosis$IAFD_CONTROLINFO.setSupportRepair()
+        → IAFDDiagnosis$IAFD_CONTROLINFO.inithashMapValues()
+        → IAFDDiagnosis$IAFD_ENTITY.initENTITY()
+        → HashMap.putIfAbsent()
+

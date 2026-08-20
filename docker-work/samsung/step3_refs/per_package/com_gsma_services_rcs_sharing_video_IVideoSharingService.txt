@@ -1,0 +1,20 @@
+# com.gsma.services.rcs.sharing.video.IVideoSharingService [NEW]
+# Refs: 16
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: boolean isServiceRegistered()>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: com.gsma.services.rcs.sharing.video.IVideoSharing getVideoSharing(java.lang.String)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: com.gsma.services.rcs.sharing.video.IVideoSharing shareVideo(com.gsma.services.rcs.contact.ContactId,com.gsma.services.rcs.sharing.video.IVideoPlayer)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: com.gsma.services.rcs.sharing.video.VideoSharingServiceConfiguration getConfiguration()>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: java.util.List getVideoSharings()>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: void addEventListener(com.gsma.services.rcs.sharing.video.IVideoSharingListener)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: void addServiceRegistrationListener(com.gsma.services.rcs.IRcsServiceRegistrationListener)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: void deleteVideoSharing(java.lang.String)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: void deleteVideoSharings()>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: void deleteVideoSharingsByContactId(com.gsma.services.rcs.contact.ContactId)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: void removeEventListener(com.gsma.services.rcs.sharing.video.IVideoSharingListener)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub$Proxy: void removeServiceRegistrationListener(com.gsma.services.rcs.IRcsServiceRegistrationListener)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub: com.gsma.services.rcs.sharing.video.IVideoSharingService asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.sharing.video.IVideoSharingService$Stub: void <init>()>

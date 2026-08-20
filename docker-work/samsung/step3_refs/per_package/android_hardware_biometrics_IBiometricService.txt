@@ -1,0 +1,27 @@
+# android.hardware.biometrics.IBiometricService [NEW]
+# Refs: 23
+# JARs: framework
+
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: android.hardware.biometrics.ITestSession createTestSession(int,android.hardware.biometrics.ITestSessionCallback,java.lang.String)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: android.hardware.biometrics.PromptInfo semGetPromptInfo(int)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: boolean hasEnrolledBiometrics(int,java.lang.String)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: int canAuthenticate(java.lang.String,int,int,int)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: int getCurrentModality(java.lang.String,int,int,int)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: int getCurrentStrength(int)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: int getSupportedModalities(int)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: int semGetFailedAttempts(int)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: java.util.List getSensorProperties(java.lang.String)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: long authenticate(android.os.IBinder,long,int,android.hardware.biometrics.IBiometricServiceReceiver,java.lang.String,android.hardware.biometrics.PromptInfo)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: long[] getAuthenticatorIds(int)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: void cancelAuthentication(android.os.IBinder,java.lang.String,long)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: void invalidateAuthenticatorIds(int,int,android.hardware.biometrics.IInvalidationCallback)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: void onReadyForAuthentication(long,int)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: void registerAuthenticator(int,int,int,android.hardware.biometrics.IBiometricAuthenticator)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: void registerEnabledOnKeyguardCallback(android.hardware.biometrics.IBiometricEnabledOnKeyguardCallback,int)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: void resetLockoutTimeBound(android.os.IBinder,java.lang.String,int,int,byte[])>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: void semAddFailedAttempt(int,int)>
+<android.hardware.biometrics.IBiometricService$Stub$Proxy: void semResetFailedAttempts(int,int)>
+<android.hardware.biometrics.IBiometricService$Stub: android.hardware.biometrics.IBiometricService asInterface(android.os.IBinder)>
+<android.hardware.biometrics.IBiometricService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.IBiometricService$Stub: void <init>()>

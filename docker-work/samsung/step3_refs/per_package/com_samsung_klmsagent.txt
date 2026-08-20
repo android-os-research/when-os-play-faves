@@ -1,0 +1,9 @@
+# com.samsung.klmsagent [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.am.ActivityManagerService: void doDump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[],boolean)>
+<com.android.server.enterprise.application.ApplicationPolicy: void onAdminRemoved(int)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: void sendIntentBroadcastForContainer(int,java.lang.String)>
+<com.android.server.enterprise.restriction.RestrictionPolicy: void <clinit>()>
+<com.android.server.pm.PersonaManagerService: void sendRequestKeyStatus(int)>

@@ -1,0 +1,118 @@
+######################################################################
+# Propagation: com.android.keychain
+######################################################################
+
+JARs:                 duraspeed, framework, services
+Classes:              4
+Occurrences:          5
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.collector.q
+  Method:   <com.mediatek.duraspeed.collector.q: void <clinit>()>
+  Line:     43
+  Register: v3 := "com.android.keychain"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.security.KeyChain
+  Method:   <android.security.KeyChain: void choosePrivateKeyAlias(android.app.Activity,android.security.KeyChainAliasCallback,java.lang.String[],java.security.Principal[],android.net.Uri,java.lang.String)>
+  Line:     376
+  Register: v1 := "com.android.keychain"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] new-instance v1, Landroid/security/KeyChain$AliasResponse; → [inv
+
+  CALLERS (who invokes this method):
+      ← KeyChain.choosePrivateKeyAlias()
+
+  CALLEES (what this method invokes):
+      → Activity.startActivity()
+      → PendingIntent.getActivity()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.security.KeyChain$AliasResponse: void <init>(androi
+      → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+      → <java.lang.NullPointerException: void <init>(java.lang.Strin
+      → Principal.toString()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → X500Principal.getEncoded()
+        → <android.security.KeyChain$AliasResponse: void <init>(androi
+          → <android.security.IKeyChainAliasCallback$Stub: void <init>()
+            → <android.os.Binder: void <init>()>
+            → IKeyChainAliasCallback$Stub.attachInterface()
+              → <android.os.Binder: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     250
+  Register: v51 := "com.android.keychain"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     270
+  Register: v61 := "com.android.keychain"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: void <clinit>()>
+  Line:     272
+  Register: v4 := "com.android.keychain"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+

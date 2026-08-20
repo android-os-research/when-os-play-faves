@@ -1,0 +1,14 @@
+# android.net.lowpan.ILowpanManager [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.net.lowpan.ILowpanManager$Stub$Proxy: android.net.lowpan.ILowpanInterface getInterface(java.lang.String)>
+<android.net.lowpan.ILowpanManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.lowpan.ILowpanManager$Stub$Proxy: java.lang.String[] getInterfaceList()>
+<android.net.lowpan.ILowpanManager$Stub$Proxy: void addInterface(android.net.lowpan.ILowpanInterface)>
+<android.net.lowpan.ILowpanManager$Stub$Proxy: void addListener(android.net.lowpan.ILowpanManagerListener)>
+<android.net.lowpan.ILowpanManager$Stub$Proxy: void removeInterface(android.net.lowpan.ILowpanInterface)>
+<android.net.lowpan.ILowpanManager$Stub$Proxy: void removeListener(android.net.lowpan.ILowpanManagerListener)>
+<android.net.lowpan.ILowpanManager$Stub: android.net.lowpan.ILowpanManager asInterface(android.os.IBinder)>
+<android.net.lowpan.ILowpanManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.lowpan.ILowpanManager$Stub: void <init>()>

@@ -1,0 +1,34 @@
+.class public final synthetic Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda11;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/WindowProcessController;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowProcessController;)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/WindowProcessController;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .registers 1
+
+    iget-object p0, p0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/WindowProcessController;
+
+    invoke-static {p0}, Lcom/android/server/wm/WindowProcessController;->$r8$lambda$sN1HOZPmTeBktn04E6BaLOdZ1SY(Lcom/android/server/wm/WindowProcessController;)V
+
+    return-void
+.end method

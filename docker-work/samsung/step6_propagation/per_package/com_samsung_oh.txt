@@ -1,0 +1,51 @@
+######################################################################
+# Propagation: com.samsung.oh
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: installer_check, string_compare, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.app.ApplicationErrorReport
+  Method:   <android.app.ApplicationErrorReport: android.content.ComponentName getErrorReportReceiver(android.content.Context,java.lang.String,int)>
+  Line:     231
+  Register: v8 := "com.samsung.oh"
+  Usage:    [invoke] invoke-static {v4, p1, v8}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/co
+  Patterns: string_compare, system_property_read, installer_check
+  Flow:     [invoke] android.app.ApplicationErrorReport.getErrorReportReceiver()
+
+  CALLERS (who invokes this method):
+      ← ProcessErrorStateRecord.startAppProblemLSP()
+        ← AppErrors.makeAppCrashingLocked()
+        ← ProcessErrorStateRecord.makeAppNotRespondingLSP()
+          ← AppErrors.crashApplicationInner()
+          ← <com.android.server.am.AppErrors: void lambda$handleAppCrash
+          ← ProcessErrorStateRecord.appNotResponding()
+            ← AppErrors.crashApplication()
+            ← <com.android.server.am.AppErrors: void $r8$lambda$9N5lCaniJT
+            ← AnrHelper$AnrRecord.appNotResponding()
+              ← ActivityManagerService.handleApplicationWtf()
+              ← ActivityManagerService.handleApplicationCrashInner()
+              ← AppErrors$$ExternalSyntheticLambda0.run()
+              ← AnrHelper$AnrConsumerThread.run()
+
+  CALLEES (what this method invokes):
+      → ApplicationErrorReport.getErrorReportReceiver()
+      → ApplicationErrorReport.isSamsungPackage()
+      → Context.getContentResolver()
+      → Context.getPackageManager()
+      → PackageManager.getInstallerPackageName()
+      → SystemProperties.get()
+      → Settings$Global.getInt()
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → Intent.setPackage()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → PackageManager.resolveActivity()
+

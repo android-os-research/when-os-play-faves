@@ -1,0 +1,19 @@
+# com.samsung.android.mcf.ISubscribeCallback [NEW]
+# Refs: 30
+# JARs: mcfsdk, services
+
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: java.lang.String b()>
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: void onConnectionFailed(android.os.PersistableBundle,int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: void onConnectionStateChanged(android.os.PersistableBundle,int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: void onDiscoveryStarted(int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: void onDiscoveryStopped(int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: void onHandoverResult(android.os.PersistableBundle,int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: void onHandoverStarted(int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: void onHandoverStopped(int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: void onMcfServiceStateChanged(int,int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: void onPilotAdvertiseStarted(int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: void onPilotAdvertiseStopped(int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub$a: void onReceiveHandoverResponse(android.os.PersistableBundle,int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub: com.samsung.android.mcf.ISubscribeCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.ISubscribeCallback$Stub: void <init>()>

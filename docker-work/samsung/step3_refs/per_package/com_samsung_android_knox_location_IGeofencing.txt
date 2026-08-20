@@ -1,0 +1,19 @@
+# com.samsung.android.knox.location.IGeofencing [NEW]
+# Refs: 15
+# JARs: knoxsdk
+
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: boolean destroyGeofence(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: boolean isGeofencingEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: boolean setMinDistanceParameter(com.samsung.android.knox.ContextInfo,float)>
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: boolean setMinTimeParameter(com.samsung.android.knox.ContextInfo,long)>
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: boolean startGeofencing(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: boolean stopGeofencing(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: float getMinDistanceParameter(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: int createGeofence(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.location.Geofence)>
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: java.util.List getGeofences(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: java.util.List isDeviceInsideGeofence(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.location.IGeofencing$Stub$Proxy: long getMinTimeParameter(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.location.IGeofencing$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.location.IGeofencing$Stub: com.samsung.android.knox.location.IGeofencing asInterface(android.os.IBinder)>
+<com.samsung.android.knox.location.IGeofencing$Stub: void <init>()>

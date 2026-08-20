@@ -1,0 +1,12 @@
+# android.view.InputMethod [NEW]
+# Refs: 8
+# JARs: framework, services
+
+<android.content.pm.AppsQueryHelper: java.util.List queryApps(int,boolean,android.os.UserHandle)>
+<com.android.server.am.MARsPolicyManager: void onSpecialBindServiceActions(java.lang.String,java.lang.String,int,java.lang.String)>
+<com.android.server.inputmethod.InputMethodBindingController: android.content.Intent createImeBindingIntent(android.content.ComponentName)>
+<com.android.server.inputmethod.InputMethodManagerService$MyPackageMonitor: void onPackageAppeared(java.lang.String,int)>
+<com.android.server.inputmethod.InputMethodManagerService: void buildInputMethodListLocked(boolean)>
+<com.android.server.inputmethod.InputMethodManagerService: void queryInputMethodServicesInternal(android.content.Context,int,android.util.ArrayMap,android.util.ArrayMap,java.util.ArrayList,int)>
+<com.android.server.knox.IKnoxAnalyticsContainerImpl: int isIMPackage(java.lang.String,int)>
+<com.android.server.pm.PersonaManagerService: void getIMEPackagesAsUser(int,java.util.Set)>

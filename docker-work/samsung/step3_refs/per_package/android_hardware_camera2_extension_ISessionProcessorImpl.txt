@@ -1,0 +1,17 @@
+# android.hardware.camera2.extension.ISessionProcessorImpl [NEW]
+# Refs: 13
+# JARs: framework
+
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub$Proxy: android.hardware.camera2.extension.CameraSessionConfig initSession(java.lang.String,android.hardware.camera2.extension.OutputSurface,android.hardware.camera2.extension.OutputSurface)>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub$Proxy: int startCapture(android.hardware.camera2.extension.ICaptureCallback)>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub$Proxy: int startRepeating(android.hardware.camera2.extension.ICaptureCallback)>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub$Proxy: int startTrigger(android.hardware.camera2.CaptureRequest,android.hardware.camera2.extension.ICaptureCallback)>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub$Proxy: void deInitSession()>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub$Proxy: void onCaptureSessionEnd()>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub$Proxy: void onCaptureSessionStart(android.hardware.camera2.extension.IRequestProcessorImpl)>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub$Proxy: void setParameters(android.hardware.camera2.CaptureRequest)>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub$Proxy: void stopRepeating()>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub: android.hardware.camera2.extension.ISessionProcessorImpl asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.ISessionProcessorImpl$Stub: void <init>()>

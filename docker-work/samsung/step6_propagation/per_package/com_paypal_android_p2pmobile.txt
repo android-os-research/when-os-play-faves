@@ -1,0 +1,36 @@
+######################################################################
+# Propagation: com.paypal.android.p2pmobile
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.biometrics.Utils
+  Method:   <com.android.server.biometrics.Utils: boolean isRuneStoneApp(android.content.Context,java.lang.String)>
+  Line:     2416
+  Register: p0 := "com.paypal.android.p2pmobile"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-eqz p0, :cond_2d → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemBioAnalyticsManager.fpHandleData()
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+          ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+          ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+            ← SemBioAnalyticsManager$$ExternalSyntheticLambda1.run()
+            ← SemBioAnalyticsManager$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → Utils.hasInternalPermission()
+        → Context.checkCallingOrSelfPermission()
+

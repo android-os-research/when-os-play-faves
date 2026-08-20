@@ -1,0 +1,389 @@
+######################################################################
+# Propagation: com.samsung.android.privateshare
+######################################################################
+
+JARs:                 framework
+Classes:              2
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: allowlist_check, early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.ChooserListAdapter
+  Method:   <com.android.internal.app.ChooserListAdapter: void addServiceResults(com.android.internal.app.chooser.DisplayResolveInfo,java.util.List,int,java.util.Map)>
+  Line:     1960
+  Register: v7 := "com.samsung.android.privateshare"
+  Usage:    [invoke] invoke-virtual {v7, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [invoke] java.lang.String.equals() → [other] move-object/from16 v30, v7 → [other] m
+
+  CALLERS (who invokes this method):
+      ← ChooserActivity$ChooserHandler.handleMessage()
+      ← ChooserActivity.addUseDifferentAppLabelIfNecessary()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getPackageName()
+      → Context.createContextAsUser()
+      → ShortcutInfo.isPinned()
+      → UserHandle.getIdentifier()
+      → ChooserTarget.getComponentName()
+      → ChooserTarget.getScore()
+      → ChooserTarget.getTitle()
+      → <com.android.internal.app.ChooserListAdapter$$ExternalSynthe
+      → <com.android.internal.app.ChooserListAdapter$$ExternalSynthe
+      → ChooserListAdapter$ChooserListCommunicator.semSStarGetFavoriteDirectInfos()
+      → ChooserListAdapter.getUserHandle()
+      → ChooserListAdapter.insertServiceTarget()
+      → ChooserListAdapter.semIsSupportDirectShare()
+      → ChooserListAdapter.getBaseScore()
+      → ChooserListAdapter.getSelectableServiceTargetCount()
+      → ChooserListAdapter.notifyDataSetChanged()
+      → <com.android.internal.app.ResolverActivity$ShareStarTarget: 
+      → DisplayResolveInfo.getResolvedComponentName()
+      → DisplayResolveInfo.getResolveInfo()
+      → <com.android.internal.app.chooser.SelectableTargetInfo: void
+      → SemPersonaManager.isSecureFolderId()
+      → ArrayList.size()
+      → ArrayList.get()
+      → <java.util.ArrayList: void <init>(int)>
+      → Collections.sort()
+      → List.add()
+      → List.removeIf()
+      → List.size()
+      → List.get()
+      → Map.get()
+        → ShortcutInfo.hasFlags()
+        → ChooserTargetInfo.isSimilar()
+        → ChooserTargetInfo.getModifiedScore()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.set()
+        → List.iterator()
+        → List.add()
+        → Context.getContentResolver()
+        → Settings$System.getInt()
+        → ResolverListAdapter.getScore()
+        → ChooserListAdapter$ChooserListCommunicator.sendListViewUpdateMessage()
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → Context.getPackageManager()
+        → PackageManager.resolveActivity()
+        → PackageManager.getApplicationIcon()
+        → PackageManager.getApplicationLabel()
+        → Bundle.getBoolean()
+        → Bundle.getDouble()
+        → Bundle.getInt()
+        → Bundle.getCharSequence()
+        → Bundle.getString()
+        → ChooserTarget.getIntentExtras()
+        → SelectableTargetInfo$SelectableTargetInfoCommunicator.semIsDeviceInLandscape()
+        → SelectableTargetInfo$SelectableTargetInfoCommunicator.semIsDeviceTargetComponent()
+        → SelectableTargetInfo$SelectableTargetInfoCommunicator.semGetNearbyShareUwbDefaultAngle()
+        → SelectableTargetInfo$SelectableTargetInfoCommunicator.semGetNearbyShareUwbLeftBoundAngle()
+        → SelectableTargetInfo$SelectableTargetInfoCommunicator.semGetNearbyShareUwbRightBoundAngle()
+        → SelectableTargetInfo.getResolvedIntent()
+        → SelectableTargetInfo.getChooserTargetIconDrawable()
+        → SelectableTargetInfo.sanitizeDisplayLabel()
+        → SemPersonaManager.checkContainerType()
+          → ComponentName.equals()
+          → TextUtils.equals()
+          → ChooserTargetInfo.getChooserTarget()
+          → ChooserTargetInfo.getDisplayLabel()
+          → ChooserTargetInfo.getExtendedInfo()
+          → ResolverListController.getScore()
+          → Intent.putExtras()
+          → Intent.setComponent()
+          → <android.content.Intent: void <init>(android.content.Intent)
+          → DisplayResolveInfo.getResolvedIntent()
+          → SelectableTargetInfo$SelectableTargetInfoCommunicator.getTargetIntent()
+          → Context.getSystemService()
+          → LauncherApps.getShortcutIconDrawable()
+          → PackageManager.getActivityInfo()
+          → Icon.loadDrawable()
+          → ChooserTarget.getIcon()
+          → SpannableStringBuilder.toString()
+          → <android.text.SpannableStringBuilder: void <init>(java.lang.
+          → SpannableStringBuilder.clearSpans()
+          → SystemProperties.get()
+            → CharSequence.charAt()
+            → CharSequence.length()
+            → AbstractResolverComparator.getScore()
+            → LauncherApps.loadDrawableFromFileDescriptor()
+            → LauncherApps.loadDrawableResourceFromPackage()
+            → LauncherApps.getShortcutIconFd()
+            → LauncherApps.getUriShortcutIconFd()
+            → ShortcutInfo.getIcon()
+            → ShortcutInfo.getUserHandle()
+            → ShortcutInfo.hasAdaptiveBitmap()
+            → ShortcutInfo.hasIconFile()
+            → ShortcutInfo.hasIconResource()
+            → ShortcutInfo.hasIconUri()
+            → ShortcutInfo.getIconResourceId()
+            → ShortcutInfo.getPackage()
+            → Icon.getResId()
+            → Icon.getType()
+              → Context.getResources()
+              → BitmapFactory.decodeFileDescriptor()
+              → <android.graphics.drawable.AdaptiveIconDrawable: void <init>
+              → <android.graphics.drawable.BitmapDrawable: void <init>(andro
+              → ParcelFileDescriptor.getFileDescriptor()
+              → ParcelFileDescriptor.close()
+              → LauncherApps.getApplicationInfo() [PKG_QUERY]
+              → PackageManager.getResourcesForApplication()
+              → Resources.getDrawableForDensity()
+              → LauncherApps.getShortcutIconFd()
+              → ShortcutInfo.getUserId()
+              → ShortcutInfo.getId()
+              → LauncherApps.getUriShortcutIconFd()
+              → UserHandle.of()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.ChooserActivity
+  Method:   <com.android.internal.app.ChooserActivity: void semCheckToShowCreateTipPoup(com.android.internal.app.ChooserListAdapter,com.android.internal.app.ChooserActivity$ItemViewHolder,int)>
+  Line:     19863
+  Register: v1 := "com.samsung.android.privateshare"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] new-instance v1, Lcom/android/internal/app/ChooserActivity$2 → [invoke] com
+
+  CALLERS (who invokes this method):
+      ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← ChooserActivity$SemChooserRankedAppAdapter.bindItemViewHolder()
+          ← ChooserActivity$SemChooserRankedAppAdapter.onBindViewHolder()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getPackageName()
+      → UserHandle.of()
+      → UserHandle.getIdentifier()
+      → UserHandle.myUserId()
+      → View.getViewTreeObserver()
+      → ViewTreeObserver.addOnGlobalLayoutListener()
+      → <com.android.internal.app.ChooserActivity$23: void <init>(co
+      → <com.android.internal.app.ChooserActivity$24: void <init>(co
+      → ChooserActivity$ItemViewHolder.getAdapterPosition()
+      → ChooserListAdapter.semGetShareLiveDri()
+      → ChooserListAdapter.getItem()
+      → TargetInfo.getResolvedComponentName()
+      → SemPersonaManager.isSecureFolderId()
+      → SemTipPopup.isShowing()
+        → ChooserListAdapter.targetInfoForPosition()
+        → SemPersonaManager.checkContainerType()
+        → SemTipPopup$TipWindow.isShowing()
+          → ChooserListAdapter.getCallerTargetCount()
+          → ChooserListAdapter.getRankedTargetCount()
+          → ChooserListAdapter.getSelectableServiceTargetCount()
+          → ChooserListAdapter.getServiceTargetCount()
+          → ChooserListAdapter.semGetDeviceTargetCount()
+          → ResolverListAdapter.getItem()
+          → List.isEmpty()
+          → List.size()
+          → List.get()
+          → SystemProperties.get()
+            → ResolverListAdapter.getCount()
+            → Iterator.hasNext()
+            → Iterator.next()
+            → List.iterator()
+            → ActivityManager.isLowRamDeviceStatic()
+            → ChooserListAdapter$ChooserListCommunicator.getTargetIntent()
+            → ChooserListAdapter$ChooserListCommunicator.isSendAction()
+            → ChooserListAdapter.semDeviceTargetIsEmpty()
+              → ChooserListAdapter.semGetDeviceTargets()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.ChooserActivity
+  Method:   <com.android.internal.app.ChooserActivity: void semShareEnhancedImage(com.android.internal.app.chooser.TargetInfo,com.android.internal.app.ChooserListAdapter,int)>
+  Line:     31646
+  Register: v2 := "com.samsung.android.privateshare"
+  Usage:    [invoke] invoke-virtual {v2, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← ChooserActivity.semReplaceTargetInfoWithNewIntent()
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$msem
+        ← ChooserActivity.startSelected()
+          ← <com.android.internal.app.ChooserActivity$SemChooserChipButt
+          ← ChooserActivity$ChooserGridAdapter$2.onClick()
+          ← <com.android.internal.app.ChooserActivity$ChooserGridAdapter
+          ← <com.android.internal.app.ChooserActivity$ItemViewHolder: vo
+          ← <com.android.internal.app.ChooserActivity$SemDeviceItemViewH
+          ← ChooserActivity.onContextItemSelected()
+          ← ChooserStackedAppDialogFragment.onClick()
+          ← <com.samsung.android.share.SemShareMoreAppsFragment$SemChoos
+            ← ChooserActivity$SemChooserChipButtonViewHolder$$ExternalSyntheticLambda0.onClick()
+            ← ChooserActivity$ChooserGridAdapter$$ExternalSyntheticLambda2.onClick()
+            ← ChooserActivity$ItemViewHolder$$ExternalSyntheticLambda0.onClick()
+            ← ChooserActivity$SemDeviceItemViewHolder$$ExternalSyntheticLambda0.onClick()
+            ← SemShareMoreAppsFragment$SemChooserItemViewHolder$$ExternalSyntheticLambda0.onClick()
+
+  CALLEES (what this method invokes):
+      → <android.content.ClipData$Item: void <init>(android.net.Uri)
+      → ClipData.newUri()
+      → <android.content.ClipData: void <init>(android.content.ClipD
+      → ClipData.addItem()
+      → Intent.getClipData()
+      → Intent.getParcelableExtra()
+      → Intent.getAction()
+      → Intent.getParcelableArrayListExtra()
+      → ChooserActivity.getContentResolver()
+      → ChooserActivity.isDeviceTargetNoNeedFinish()
+      → ChooserActivity.semIsImageType()
+      → ChooserActivity.getCalleePkg()
+      → ChooserActivity.getEnhancementDetails()
+      → ChooserActivity.semDeleteUnusedEnhancedImages()
+      → ChooserActivity.semInsertLogForPrivacyShare()
+      → ChooserActivity.semInsertLogForSmartShareApply()
+      → ChooserActivity.updateTargetInfoWithEnhancedInfo()
+      → ChooserListAdapter.getPositionTargetType()
+      → MultiDisplayResolveInfo.getTargets()
+      → TargetInfo.getResolvedIntent()
+      → TargetInfo.getResolveInfo()
+      → ArrayList.add()
+      → ArrayList.addAll()
+      → ArrayList.indexOf()
+      → ArrayList.size()
+      → ArrayList.get()
+      → <java.util.ArrayList: void <init>()>
+      → ArrayList.clear()
+      → HashMap.get()
+      → HashMap.getOrDefault()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → ClipData.getMimeTypes()
+        → <android.content.ClipData: void <init>(java.lang.CharSequenc
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → ClipData.isStyledText()
+        → ClipDescription.setIsStyledText()
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+        → ComponentName.flattenToString()
+        → ChooserTarget.getComponentName()
+        → ChooserListAdapter.targetInfoForPosition()
+        → ChooserTargetInfo.getChooserTarget()
+        → ChooserActivity.getAppName()
+        → ChooserActivity.semGetFileName()
+        → <com.android.internal.app.ChooserActivity$$ExternalSynthetic
+        → Executor.execute()
+        → TextUtils.isEmpty()
+        → SemShareLogging.insertLog()
+        → Map.get()
+        → SemShareLogging.insertLogWithDimension()
+        → HashMap.put()
+        → <java.util.HashMap: void <init>()>
+        → Intent.addFlags()
+        → Intent.putExtra()
+        → Intent.putParcelableArrayListExtra()
+        → Intent.setClipData()
+        → TargetInfo.getAllSourceIntents()
+        → List.size()
+        → List.get()
+        → ChooserListAdapter.getCallerTargetCount()
+        → ChooserListAdapter.getRankedTargetCount()
+        → ChooserListAdapter.getServiceTargetCount()
+        → ChooserListAdapter.semGetDeviceTargetCount()
+        → ChooserListAdapter.semGetSortedTargetCount()
+          → ContentResolver.getType()
+          → ContentResolver.getStreamTypes()
+          → Uri.getScheme()
+          → ArrayUtils.contains()
+          → <android.content.ClipDescription: void <init>(java.lang.Char
+          → ClipData$Item.getText()
+          → TextUtils.hasStyleSpan()
+          → ArrayList.isEmpty()
+          → ChooserListAdapter.getSelectableServiceTargetCount()
+          → ResolverListAdapter.getItem()
+          → List.isEmpty()
+          → ChooserActivity.extractFileInfo()
+          → CharSequence.length()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → Context.checkCallingOrSelfPermission()
+          → Context.sendBroadcast()
+          → Intent.putExtras()
+          → Intent.setAction()
+          → Intent.setPackage()
+          → <android.content.Intent: void <init>()>
+          → <android.os.Bundle: void <init>()>
+          → Bundle.putString()
+          → SemShareLogging.checkSurveyCondition()
+          → SemShareLogging.isSupportDMA()
+          → Bundle.putSerializable()
+          → ResolverListAdapter.getCount()
+          → ActivityManager.isLowRamDeviceStatic()
+          → ChooserListAdapter$ChooserListCommunicator.getTargetIntent()
+          → ChooserListAdapter$ChooserListCommunicator.isSendAction()
+          → ChooserListAdapter.semDeviceTargetIsEmpty()
+            → <android.util.ArrayMap: void <init>()>
+            → Spanned.length()
+            → Spanned.nextSpanTransition()
+            → Preconditions.checkArgument()
+            → Cursor.moveToFirst()
+            → Cursor.getColumnIndex()
+            → Cursor.getCount()
+            → Cursor.getInt()
+            → Cursor.getString()
+            → Cursor.close()
+            → Uri.getPath()
+            → <com.android.internal.app.ChooserActivity$FileInfo: void <in
+            → ChooserActivity.queryResolver()
+            → ChooserActivity.logContentPreviewWarning()
+            → Throwable.addSuppressed()
+            → ArrayMap.put()
+            → ChooserListAdapter.semGetDeviceTargets()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ContentResolver.query()
+              → Uri.toString()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.app.ChooserActivity
+  Method:   <com.android.internal.app.ChooserActivity: com.android.internal.app.chooser.DisplayResolveInfo getPrivateShareTargetInfo(android.content.Intent)>
+  Line:     40335
+  Register: v2 := "com.samsung.android.privateshare"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: (none)
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← ChooserActivity.checkAndEnablePrivateShare()
+        ← <com.android.internal.app.ChooserActivity: void -$$Nest$mche
+        ← ChooserActivity.onListRebuilt()
+          ← ChooserActivity$ChooserHandler.handleMessage()
+          ← ChooserActivity$GalleryAdapter$GalleryViewHolder$4.onClick()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>(android.content.Intent)
+      → PackageManager.resolveActivity()
+      → PackageManager.getResourcesForActivity()
+      → ResolveInfo.loadIcon()
+      → ResolveInfo.loadLabel()
+      → Resources.getDrawable()
+      → Resources.getString()
+      → Bundle.getInt()
+      → TextUtils.isEmpty()
+      → ChooserActivity.getPackageManager()
+      → <com.android.internal.app.chooser.DisplayResolveInfo: void <
+      → DisplayResolveInfo.setDisplayIcon()
+        → CharSequence.length()
+        → Intent.addFlags()
+        → <java.util.ArrayList: void <init>()>
+        → List.add()
+

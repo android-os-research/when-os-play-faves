@@ -1,0 +1,6 @@
+# persist.sys.gps.lpp [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.location.gnss.GnssConfiguration: void reloadGpsProperties()>
+<com.android.server.location.gnss.GnssLocationProvider: void subscriptionOrCarrierConfigChanged()>

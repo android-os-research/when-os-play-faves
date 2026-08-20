@@ -1,0 +1,14 @@
+# com.android.ims.internal.IImsServiceController [NEW]
+# Refs: 10
+# JARs: framework
+
+<com.android.ims.internal.IImsServiceController$Stub$Proxy: com.android.ims.internal.IImsMMTelFeature createEmergencyMMTelFeature(int)>
+<com.android.ims.internal.IImsServiceController$Stub$Proxy: com.android.ims.internal.IImsMMTelFeature createMMTelFeature(int)>
+<com.android.ims.internal.IImsServiceController$Stub$Proxy: com.android.ims.internal.IImsRcsFeature createRcsFeature(int)>
+<com.android.ims.internal.IImsServiceController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsServiceController$Stub$Proxy: void addFeatureStatusCallback(int,int,com.android.ims.internal.IImsFeatureStatusCallback)>
+<com.android.ims.internal.IImsServiceController$Stub$Proxy: void removeFeatureStatusCallback(int,int,com.android.ims.internal.IImsFeatureStatusCallback)>
+<com.android.ims.internal.IImsServiceController$Stub$Proxy: void removeImsFeature(int,int)>
+<com.android.ims.internal.IImsServiceController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.IImsServiceController$Stub: com.android.ims.internal.IImsServiceController asInterface(android.os.IBinder)>
+<com.android.ims.internal.IImsServiceController$Stub: void <init>()>

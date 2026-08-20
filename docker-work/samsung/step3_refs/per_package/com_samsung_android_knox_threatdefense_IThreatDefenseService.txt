@@ -1,0 +1,13 @@
+# com.samsung.android.knox.threatdefense.IThreatDefenseService [NEW]
+# Refs: 9
+# JARs: knoxsdk
+
+<com.samsung.android.knox.threatdefense.IThreatDefenseService$Stub$Proxy: boolean hasPackageRules(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.threatdefense.IThreatDefenseService$Stub$Proxy: int setPackageRules(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.threatdefense.IThreatDefenseService$Stub$Proxy: int[] getProcessId(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.threatdefense.IThreatDefenseService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.threatdefense.IThreatDefenseService$Stub$Proxy: java.lang.String procReader(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.threatdefense.IThreatDefenseService$Stub$Proxy: java.lang.String processProcReader(com.samsung.android.knox.ContextInfo,java.lang.String,int)>
+<com.samsung.android.knox.threatdefense.IThreatDefenseService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.threatdefense.IThreatDefenseService$Stub: com.samsung.android.knox.threatdefense.IThreatDefenseService asInterface(android.os.IBinder)>
+<com.samsung.android.knox.threatdefense.IThreatDefenseService$Stub: void <init>()>

@@ -1,0 +1,421 @@
+######################################################################
+# Propagation: com.android.providers.downloads
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnConstants
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnConstants: void <clinit>()>
+  Line:     454
+  Register: v0 := "com.android.providers.downloads"
+  Usage:    [array_init] filled-new-array {v0}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v2, v4, v6, v7}, [Ljava/lang/String;
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.notification.NotificationManagerService$EnqueueNotificationRunnable
+  Method:   <com.android.server.notification.NotificationManagerService$EnqueueNotificationRunnable: void run()>
+  Line:     537
+  Register: v1 := "com.android.providers.downloads"
+  Usage:    [invoke] invoke-virtual {v5, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-eqz v1, :cond_1b8 → [reassigned] v1 overwritte
+
+  CALLEES (what this method invokes):
+      → Notification.isGroupChild()
+      → Notification.isMediaNotification()
+      → Notification.toString()
+      → PendingIntent.toString()
+      → Context.getSystemService()
+      → Handler.post()
+      → Handler.postDelayed()
+      → PowerManager$WakeLock.isHeld()
+      → PowerManager$WakeLock.acquire()
+      → PowerManager$WakeLock.release()
+      → PowerManager.newWakeLock()
+      → UserHandle.getIdentifier()
+      → StatusBarNotification.getNotification()
+      → StatusBarNotification.isGroup()
+      → StatusBarNotification.getId()
+      → StatusBarNotification.getInitialPid()
+      → StatusBarNotification.getUid()
+      → StatusBarNotification.getGroupKey()
+      → StatusBarNotification.getKey()
+      → StatusBarNotification.getOverrideGroupKey()
+      → StatusBarNotification.getPackageName()
+      → StatusBarNotification.getTag()
+      → ArrayMap.get()
+      → EventLogTags.writeNotificationEnqueue()
+      → SystemService.getContext()
+      → NotificationManagerService$NotificationAssistants.isEnabled()
+      → <com.android.server.notification.NotificationManagerService$
+      → <com.android.server.notification.NotificationManagerService$
+      → <com.android.server.notification.NotificationManagerService$
+      → NotificationManagerService$SnoozeNotificationRunnable.snoozeLocked()
+      → NotificationManagerService.checkDisqualifyingFeatures()
+      → <com.android.server.notification.NotificationManagerService:
+      → <com.android.server.notification.NotificationManagerService:
+      → <com.android.server.notification.NotificationManagerService:
+      → <com.android.server.notification.NotificationManagerService:
+      → NotificationManagerService.scheduleTimeoutLocked()
+      → NotificationRecord.getUser()
+      → NotificationRecord.getSbn()
+      → NotificationRecord.getUid()
+      → NotificationRecord.getUserId()
+      → NotificationRecord.getKey()
+      → NotificationRecord.copyRankingInformation()
+      → SnoozeHelper.getSnoozeTimeForUnpostedNotification()
+      → SnoozeHelper.getSnoozeContextForUnpostedNotification()
+      → SnoozeHelper.repostGroupSummary()
+      → ArrayList.add()
+        → Notification.getNotificationStyle()
+        → Bundle.getParcelable()
+        → Notification.getChannelId()
+        → Notification.getShortcutId()
+        → Notification.visibilityToString()
+        → ComponentName.toShortString()
+        → Uri.toString()
+        → RemoteViews.getLayoutId()
+        → RemoteViews.getPackage()
+        → PowerManager$WakeLock.acquireLocked()
+        → PowerManager$WakeLock.release()
+        → ArrayMap.indexOfKey()
+        → EventLog.writeEvent()
+        → ManagedServices.getServices()
+        → List.isEmpty()
+        → NotificationManagerService$NotificationAssistants.onNotificationEnqueuedLocked()
+        → Notification.isGroupSummary()
+        → StatusBarNotification.getUserId()
+        → ArrayMap.containsKey()
+        → NotificationManagerService$SnoozeNotificationRunnable.snoozeNotificationLocked()
+        → NotificationManagerService.findCurrentAndSnoozedGroupNotificationsLocked()
+        → NotificationRecord.getNotification()
+        → SnoozeHelper.canSnooze()
+        → <java.util.ArrayList: void <init>()>
+        → List.add()
+        → List.size()
+        → List.get()
+        → ActivityManagerInternal.getPendingIntentFlags()
+        → Notification$Action.getDataOnlyRemoteInputs()
+        → Notification$Action.getRemoteInputs()
+        → Notification$BubbleMetadata.getIntent()
+        → Notification$BubbleMetadata.isNotificationSuppressed()
+        → Notification.getBubbleMetadata()
+        → Notification.hasCompletedProgress()
+        → Notification.isForegroundService()
+        → Notification.isStyle()
+        → PendingIntent.getTarget()
+        → LogMaker.setCategory()
+        → LogMaker.setType()
+        → Binder.getCallingUid() [UID_CHECK]
+        → SystemClock.elapsedRealtime()
+        → MetricsLogger.action()
+        → NotificationManagerService$NotificationListeners.isSystemListenerPackage()
+        → NotificationManagerService.areNotificationsEnabledForPackageInt()
+        → NotificationManagerService.hasFlag()
+        → NotificationManagerService.isCallNotification()
+        → NotificationManagerService.isCallerInstantApp()
+        → NotificationManagerService.isRecordBlockedLocked()
+        → NotificationManagerService.isUidSystemOrPhone()
+        → NotificationManagerService.getNotificationCount()
+        → NotificationManagerService.handleSavePolicyFile()
+        → NotificationRecord.getLogMaker()
+        → NotificationRecord.getSystemGeneratedSmartActions()
+        → NotificationRecordLogger.log()
+        → NotificationUsageStats.getAppEnqueueRate()
+        → NotificationUsageStats.registerBlocked()
+        → NotificationUsageStats.registerOverCountQuota()
+        → NotificationUsageStats.registerOverRateQuota()
+        → SnoozeHelper.isSnoozed()
+        → SnoozeHelper.update()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → NotificationManagerService.handleGroupedNotificationLocked()
+        → NotificationManagerService.updateNotificationBubbleFlags()
+        → AlarmManager.cancel()
+        → AlarmManager.setExactAndAllowWhileIdle()
+        → Notification.getTimeoutAfter()
+        → PendingIntent.getBroadcast()
+        → Intent.addFlags()
+        → Intent.putExtra()
+        → Intent.setData()
+        → Intent.setPackage()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → Uri$Builder.build()
+        → Uri$Builder.appendPath()
+        → Uri$Builder.scheme()
+        → <android.net.Uri$Builder: void <init>()>
+        → ArrayMap.put()
+        → ArrayMap.remove()
+        → StatusBarNotification.getUser()
+        → StatusBarNotification.isAppGroup()
+        → StatusBarNotification.setOverrideGroupKey()
+        → NotificationRecord.calculateRankingTimeMs()
+        → NotificationRecord.getRankingTimeMs()
+        → SnoozeHelper.getPkgKey()
+        → SnoozeHelper.getTrimmedString()
+        → ArrayMap.size()
+        → ArrayMap.valueAt()
+        → NotificationRecord.getGroupKey()
+        → <com.android.server.notification.SnoozeHelper$$ExternalSynth
+        → Runnable.run()
+          → Notification.getNotificationStyleClass()
+          → Bundle.getString()
+          → TextUtils.isEmpty()
+          → Handler.removeCallbacks()
+          → IPowerManager.acquireWakeLock()
+          → RemoteException.rethrowFromSystemServer()
+          → Trace.asyncTraceBegin()
+          → IPowerManager.releaseWakeLock()
+          → Trace.asyncTraceEnd()
+          → <java.lang.RuntimeException: void <init>(java.lang.String)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+          → INotificationListener.onNotificationEnqueuedWithChannel()
+          → ManagedServices$ManagedServiceInfo.isSameUser()
+          → NotificationManagerService$NotificationAssistants.isVerboseLogEnabled()
+          → <com.android.server.notification.NotificationManagerService$
+          → NotificationManagerService$TrimCache.ForListener()
+          → <com.android.server.notification.NotificationManagerService$
+          → <com.android.server.notification.NotificationManagerService:
+          → NotificationManagerService.isVisibleToListener()
+          → NotificationRecord.getChannel()
+          → NotificationRecord.getNotificationType()
+          → List.iterator()
+          → LogMaker.addTaggedData()
+          → <com.android.server.notification.NotificationManagerService$
+          → <com.android.server.notification.NotificationManagerService:
+          → <com.android.server.notification.NotificationManagerService:
+          → <com.android.server.notification.NotificationManagerService:
+          → NotificationManagerService.reportUserInteraction()
+          → NotificationManagerService.updateLightsLocked()
+          → NotificationRecord.recordSnoozed()
+          → SnoozeHelper.snooze()
+          → SnoozeHelper.snooze()
+          → NotificationManagerService.findGroupNotificationsLocked()
+          → SnoozeHelper.getNotifications()
+          → List.addAll()
+          → <android.app.Notification: android.os.Parcelable[] -$$Nest$s
+          → Bundle.containsKey()
+          → Bundle.getInt()
+          → Objects.equals()
+          → SparseArray.put()
+          → ComponentName.getPackageName()
+          → PermissionHelper.hasPermission()
+          → NotificationManagerService.isCallNotification()
+          → AppOpsManager.checkPackage()
+          → ApplicationInfo.isInstantApp()
+          → IPackageManager.getApplicationInfo() [PKG_QUERY]
+          → IPackageManager.getPackagesForUid()
+          → <java.lang.SecurityException: void <init>(java.lang.String,j
+          → NotificationChannel.getGroup()
+          → NotificationRecord.getImportance()
+          → PreferencesHelper.isGroupBlocked()
+          → UserHandle.getAppId()
+          → TextUtils.equals()
+          → ArrayList.size()
+          → ArrayList.get()
+          → Handler.hasCallbacks()
+          → IoThread.getHandler()
+          → NotificationRecord.getLogMaker()
+          → NotificationUsageStats$AggregatedStats.getEnqueueRate()
+          → NotificationUsageStats.getOrCreateAggregatedStatsLocked()
+          → NotificationUsageStats.getAggregatedStatsLocked()
+          → NotificationUsageStats.releaseAggregatedStatsLocked()
+          → NotificationUsageStats.getAggregatedStatsLocked()
+          → <com.android.server.notification.NotificationManagerService$
+          → NotificationManagerService.cancelGroupChildrenLocked()
+          → Notification$BubbleMetadata.isBubbleSuppressable()
+          → Notification$BubbleMetadata.getFlags()
+          → Notification$BubbleMetadata.setFlags()
+          → IAlarmManager.remove()
+          → <java.lang.NullPointerException: void <init>(java.lang.Strin
+          → AlarmManager.setImpl()
+          → Uri$Builder.hasSchemeOrAuthority()
+          → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+          → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+          → Uri$PathPart.makeAbsolute()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+          → Uri$Builder.path()
+          → Uri$PathPart.appendDecodedSegment()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → ArrayMap.removeAt()
+          → StatusBarNotification.getPostTime()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+            → CharSequence.length()
+            → <android.os.DeadSystemRuntimeException: void <init>()>
+            → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+            → ArrayMap.binarySearchHashes()
+            → ManagedServices$ManagedServiceInfo.isEnabledForCurrentProfiles()
+            → <android.service.notification.IStatusBarNotificationHolder$S
+            → StatusBarNotification.clone()
+            → StatusBarNotification.cloneLight()
+            → NotificationManagerService$NotificationListeners.getOnNotificationPostedTrim()
+            → <com.android.server.notification.NotificationManagerService:
+            → NotificationManagerService.makeRankingUpdateLocked()
+            → <android.content.pm.VersionedPackage: void <init>(java.lang.
+            → NotificationListenerFilter.isPackageAllowed()
+            → NotificationListenerFilter.isTypeAllowed()
+            → ManagedServices$ManagedServiceInfo.enabledAndUserMatches()
+            → NotificationManagerService$NotificationListeners.getNotificationListenerFilter()
+            → NotificationManagerService.isInteractionVisibleToListener()
+            → NotificationRecord.isConversation()
+            → LogMaker.clearTaggedData()
+            → LogMaker.isValidValue()
+            → NotificationManagerService$NotificationAssistants.notifyAssistantSnoozedLocked()
+            → NotificationManagerService.removeFromNotificationListsLocked()
+            → NotificationManagerService.cancelNotificationLocked()
+            → UsageStatsManagerInternal.reportEvent()
+            → NotificationManagerService.getRealUserId()
+            → LogicalLight.setFlashing()
+            → LogicalLight.turnOff()
+            → NotificationManagerService.isInCall()
+            → NotificationRecord.getLight()
+            → ArrayList.isEmpty()
+            → ArrayList.remove()
+            → NotificationStats.setSnoozed()
+            → SnoozeHelper.snooze()
+            → SnoozeHelper.storeRecordLocked()
+            → SnoozeHelper.scheduleRepost()
+            → NotificationManagerService.findGroupNotificationByListLocked()
+            → StatusBarNotification.getGroup()
+            → Notification.getParcelableArrayFromBundle()
+            → ContainerHelpers.binarySearch()
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → Binder.clearCallingIdentity()
+            → Binder.restoreCallingIdentity()
+            → PermissionManagerServiceInternal.checkPostNotificationsPermissionGrantedOrLegacyAccess()
+            → PackageManager.hasSystemFeature()
+            → UserHandle.getUserHandleForUid()
+            → TelecomManager.isInManagedCall()
+            → TelecomManager.isInSelfManagedCall()
+            → NotificationChannelGroup.isBlocked()
+            → PreferencesHelper.getOrCreatePackagePreferencesLocked()
+            → Map.get()
+            → CharSequence.charAt()
+            → IoThread.ensureThreadLocked()
+            → StatusBarNotification.getLogMaker()
+            → NotificationRecord.getExposureMs()
+            → NotificationRecord.getFreshnessMs()
+            → NotificationRecord.getInterruptionMs()
+            → NotificationRecord.getLifespanMs()
+            → RateEstimator.getRate()
+            → <com.android.server.notification.NotificationUsageStats$Aggr
+            → Map.put()
+            → ArrayDeque.offer()
+            → ArrayDeque.poll()
+            → NotificationManagerService.cancelGroupChildrenByListLocked()
+            → AlarmManager.setImpl()
+            → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+            → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+            → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+            → <android.net.Uri$PathPart: void <init>(java.lang.String,java
+            → Uri$PathPart.appendEncodedSegment()
+            → Uri.encode()
+              → <android.os.DeadSystemException: void <init>()>
+              → ArraySet.contains()
+              → <com.android.server.notification.ManagedServices: android.ut
+              → <com.android.server.notification.ManagedServices: java.lang.
+              → <android.os.Binder: void <init>()>
+              → IStatusBarNotificationHolder$Stub.attachInterface()
+              → Notification.isBubbleNotification()
+              → <android.service.notification.NotificationListenerService$Ra
+              → NotificationListenerService$Ranking.populate()
+              → <android.service.notification.NotificationRankingUpdate: voi
+              → NotificationRecord.getShortcutInfo()
+              → NotificationRecord.getSound()
+              → NotificationRecord.getVibration()
+              → NotificationRecord.canBubble()
+              → NotificationRecord.canShowBadge()
+              → NotificationRecord.isHidden()
+              → NotificationRecord.isIntercepted()
+              → NotificationRecord.isTextChanged()
+              → NotificationRecord.getRankingScore()
+              → NotificationRecord.getPackageVisibilityOverride()
+              → NotificationRecord.getSuppressedVisualEffects()
+              → NotificationRecord.getUserSentiment()
+              → NotificationRecord.getImportanceExplanation()
+              → NotificationRecord.getPeopleOverride()
+              → NotificationRecord.getSmartReplies()
+              → NotificationRecord.getSnoozeCriteria()
+              → NotificationRecord.getLastAudiblyAlertedMs()
+              → ArrayList.toArray()
+              → ManagedServices$ManagedServiceInfo.isPermittedForProfile()
+              → ManagedServices$ManagedServiceInfo.supportsProfiles()
+              → ManagedServices$UserProfiles.isCurrentProfile()
+              → <com.android.server.notification.ManagedServices: com.androi
+              → ManagedServices.isServiceTokenValidLocked()
+              → NotificationChannel.isDemoted()
+              → ShortcutInfo.getPersons()
+              → NotificationRecord.isOnlyBots()
+              → SparseArray.delete()
+              → <com.android.server.notification.NotificationManagerService$
+              → NotificationManagerService$NotificationAssistants.notifyAssistantLocked()
+              → NotificationManagerService.findNotificationByListLocked()
+              → NotificationManagerService.cancelNotificationLocked()
+              → AudioManager.getModeInternal()
+              → <android.util.ArrayMap: void <init>()>
+              → SnoozeHelper.scheduleRepostAtTime()
+              → NotificationManagerService.notificationMatchesUserId()
+              → Bundle.getParcelableArray()
+              → Bundle.putParcelableArray()
+              → Array.newInstance()
+              → Context.getAttributionTag()
+              → Context.getOpPackageName()
+              → TelecomManager.getTelecomService()
+              → ITelecomService.isInManagedCall()
+              → ITelecomService.isInSelfManagedCall()
+              → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+              → UserHandle.getUserId()
+              → PreferencesHelper.getOrCreatePackagePreferencesLocked()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → HandlerThread.getLooper()
+              → HandlerThread.start()
+              → Looper.setTraceTag()
+              → <com.android.server.IoThread: void <init>()>
+              → RateEstimator.getInterarrivalEstimate()
+              → <com.android.server.notification.AlertRateLimiter: void <ini
+              → <com.android.server.notification.NotificationUsageStats$Impo
+              → <com.android.server.notification.RateEstimator: void <init>(
+              → NotificationChannel.isImportantConversation()
+              → EventLogTags.writeNotificationCancel()
+              → NotificationManagerService$FlagChecker.apply()
+              → NotificationRecord.getFlags()
+              → ArrayList.remove()
+              → <android.app.AlarmManager$ListenerWrapper: void <init>(andro
+              → AlarmManager$ListenerWrapper.setExecutor()
+              → IAlarmManager.set()
+              → WeakReference.get()
+              → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+              → WeakHashMap.get()
+              → WeakHashMap.put()
+              → <java.util.WeakHashMap: void <init>()>
+              → Preconditions.checkNotNull()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+              → Uri$Part.nonNull()
+              → <android.net.Uri: void <init>(android.net.Uri-IA)>
+              → <android.net.Uri$AbstractPart: void <init>(java.lang.String,
+              → Uri$PathPart.fromEncoded()
+              → Uri$PathPart.getEncoded()
+              → Uri.encode()
+

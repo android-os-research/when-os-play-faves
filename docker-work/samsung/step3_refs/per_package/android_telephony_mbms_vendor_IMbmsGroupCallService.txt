@@ -1,0 +1,13 @@
+# android.telephony.mbms.vendor.IMbmsGroupCallService [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.telephony.mbms.vendor.IMbmsGroupCallService$Stub$Proxy: int initialize(android.telephony.mbms.IMbmsGroupCallSessionCallback,int)>
+<android.telephony.mbms.vendor.IMbmsGroupCallService$Stub$Proxy: int startGroupCall(int,long,java.util.List,java.util.List,android.telephony.mbms.IGroupCallCallback)>
+<android.telephony.mbms.vendor.IMbmsGroupCallService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.mbms.vendor.IMbmsGroupCallService$Stub$Proxy: void dispose(int)>
+<android.telephony.mbms.vendor.IMbmsGroupCallService$Stub$Proxy: void stopGroupCall(int,long)>
+<android.telephony.mbms.vendor.IMbmsGroupCallService$Stub$Proxy: void updateGroupCall(int,long,java.util.List,java.util.List)>
+<android.telephony.mbms.vendor.IMbmsGroupCallService$Stub: android.telephony.mbms.vendor.IMbmsGroupCallService asInterface(android.os.IBinder)>
+<android.telephony.mbms.vendor.IMbmsGroupCallService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.mbms.vendor.IMbmsGroupCallService$Stub: void <init>()>

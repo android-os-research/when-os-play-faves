@@ -1,0 +1,34 @@
+.class public final synthetic Lcom/android/server/sensors/SensorService$$ExternalSyntheticLambda0;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/sensors/SensorService;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/android/server/sensors/SensorService;)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/sensors/SensorService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/sensors/SensorService;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .registers 1
+
+    iget-object p0, p0, Lcom/android/server/sensors/SensorService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/sensors/SensorService;
+
+    invoke-static {p0}, Lcom/android/server/sensors/SensorService;->$r8$lambda$xFG5m9xEpYKLBJuh369PohHMN8I(Lcom/android/server/sensors/SensorService;)V
+
+    return-void
+.end method

@@ -1,0 +1,26 @@
+# android.content.IRCPInterface [NEW]
+# Refs: 22
+# JARs: framework
+
+<android.content.IRCPInterface$Stub$Proxy: android.os.Bundle getFileInfo(java.lang.String,int)>
+<android.content.IRCPInterface$Stub$Proxy: boolean isFileExist(java.lang.String,int)>
+<android.content.IRCPInterface$Stub$Proxy: int copyChunks(int,java.lang.String,int,java.lang.String,long,int,long,boolean)>
+<android.content.IRCPInterface$Stub$Proxy: int copyFile(int,java.lang.String,int,java.lang.String)>
+<android.content.IRCPInterface$Stub$Proxy: int moveFile(int,java.lang.String,int,java.lang.String)>
+<android.content.IRCPInterface$Stub$Proxy: java.lang.String getErrorMessage(int)>
+<android.content.IRCPInterface$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.IRCPInterface$Stub$Proxy: java.util.List getFiles(java.lang.String,int)>
+<android.content.IRCPInterface$Stub$Proxy: long copyFiles(int,java.util.List,int,java.util.List,com.samsung.android.knox.SemIRCPCallback)>
+<android.content.IRCPInterface$Stub$Proxy: long copyFiles2(int,java.util.List,int,java.util.List,com.samsung.android.knox.SemIRCPCallback,java.lang.String)>
+<android.content.IRCPInterface$Stub$Proxy: long moveFiles(int,java.util.List,int,java.util.List,com.samsung.android.knox.SemIRCPCallback)>
+<android.content.IRCPInterface$Stub$Proxy: long moveFiles2(int,java.util.List,int,java.util.List,com.samsung.android.knox.SemIRCPCallback,java.lang.String)>
+<android.content.IRCPInterface$Stub$Proxy: long moveFilesForApp(int,java.util.List,java.util.List)>
+<android.content.IRCPInterface$Stub$Proxy: long moveFilesForAppEx(int,java.util.List,java.util.List,int)>
+<android.content.IRCPInterface$Stub$Proxy: long moveUnlimitedFiles(int,int,android.net.Uri,com.samsung.android.knox.SemIRCPCallback)>
+<android.content.IRCPInterface$Stub$Proxy: long moveUnlimitedFiles2(int,int,android.net.Uri,com.samsung.android.knox.SemIRCPCallback,java.lang.String)>
+<android.content.IRCPInterface$Stub$Proxy: long moveUnlimitedFilesForApp(int,android.net.Uri,int,int)>
+<android.content.IRCPInterface$Stub$Proxy: void cancel(long)>
+<android.content.IRCPInterface$Stub$Proxy: void cancelCopyChunks(long)>
+<android.content.IRCPInterface$Stub: android.content.IRCPInterface asInterface(android.os.IBinder)>
+<android.content.IRCPInterface$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.IRCPInterface$Stub: void <init>()>

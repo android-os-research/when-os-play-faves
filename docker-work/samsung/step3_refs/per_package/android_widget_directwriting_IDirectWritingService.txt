@@ -1,0 +1,22 @@
+# android.widget.directwriting.IDirectWritingService [NEW]
+# Refs: 18
+# JARs: framework
+
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: boolean onBoundedEditTextChanged(android.os.Bundle)>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: boolean onStartRecognition(android.os.Bundle)>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: boolean onStopRecognition(android.os.Bundle)>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: boolean registerCallback(android.widget.directwriting.IDirectWritingServiceCallback,java.lang.String)>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: boolean unregisterCallback(android.widget.directwriting.IDirectWritingServiceCallback)>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: int getVersion()>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: java.lang.String getPackageName()>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: void getConfiguration(android.os.Bundle)>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: void onDispatchEvent(android.os.Bundle)>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: void onEditTextActionModeStarted(android.os.Bundle)>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: void onExtraCommand(java.lang.String,android.os.Bundle)>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: void onTextViewExtraCommand(java.lang.String,android.os.Bundle)>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: void onUpdateImeOptions(int)>
+<android.widget.directwriting.IDirectWritingService$Stub$Proxy: void onWindowFocusLost(java.lang.String)>
+<android.widget.directwriting.IDirectWritingService$Stub: android.widget.directwriting.IDirectWritingService asInterface(android.os.IBinder)>
+<android.widget.directwriting.IDirectWritingService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.widget.directwriting.IDirectWritingService$Stub: void <init>()>

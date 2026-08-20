@@ -1,0 +1,49 @@
+.class public Ljunit/runner/StandardTestSuiteLoader;
+.super Ljava/lang/Object;
+.source "StandardTestSuiteLoader.java"
+
+# interfaces
+.implements Ljunit/runner/TestSuiteLoader;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 10
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public load(Ljava/lang/String;)Ljava/lang/Class;
+    .registers 3
+    .param p1, "suiteClassName"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ClassNotFoundException;
+        }
+    .end annotation
+
+    .line 15
+    invoke-static {p1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public reload(Ljava/lang/Class;)Ljava/lang/Class;
+    .registers 2
+    .param p1, "aClass"    # Ljava/lang/Class;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ClassNotFoundException;
+        }
+    .end annotation
+
+    .line 21
+    return-object p1
+.end method

@@ -1,0 +1,10 @@
+# com.android.incallui [NEW]
+# Refs: 6
+# JARs: framework, motionrecognitionservice, services
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<com.android.server.alarm.AppSyncInfo$PackageList: void loadAppSyncBlockList()>
+<com.android.server.enterprise.application.ApplicationPolicy: java.lang.String getIncalluiPkgName()>
+<com.android.server.om.SemSamsungThemeUtils: java.lang.String getReplaceablePackageName(java.lang.String)>
+<com.android.server.om.SemSamsungThemeUtils: java.util.HashMap getChangedPackageNames()>
+<com.samsung.android.gesture.MotionRecognitionService: java.lang.String getInCallUiPackageName()>

@@ -1,0 +1,36 @@
+.class public final synthetic Lcom/android/internal/telephony/data/DataNetworkController$$ExternalSyntheticLambda23;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/util/function/Consumer;
+
+
+# instance fields
+.field public final synthetic blacklist f$0:I
+
+
+# direct methods
+.method public synthetic constructor blacklist <init>(I)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lcom/android/internal/telephony/data/DataNetworkController$$ExternalSyntheticLambda23;->f$0:I
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final whitelist test-api accept(Ljava/lang/Object;)V
+    .registers 2
+
+    iget p0, p0, Lcom/android/internal/telephony/data/DataNetworkController$$ExternalSyntheticLambda23;->f$0:I
+
+    check-cast p1, Lcom/android/internal/telephony/data/DataNetworkController$DataNetworkControllerCallback;
+
+    invoke-static {p0, p1}, Lcom/android/internal/telephony/data/DataNetworkController;->$r8$lambda$lLw6YgTEQ4yMZKFaZkRZuR4rtI0(ILcom/android/internal/telephony/data/DataNetworkController$DataNetworkControllerCallback;)V
+
+    return-void
+.end method

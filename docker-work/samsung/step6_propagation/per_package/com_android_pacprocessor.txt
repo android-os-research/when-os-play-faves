@@ -1,0 +1,35 @@
+######################################################################
+# Propagation: com.android.pacprocessor
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.connectivity.PacProxyService
+  Method:   <com.android.server.connectivity.PacProxyService: void bind()>
+  Line:     587
+  Register: v1 := "com.android.pacprocessor"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName()
+
+  CALLERS (who invokes this method):
+      ← PacProxyService.setCurrentProxyScriptUrl()
+
+  CALLEES (what this method invokes):
+      → Context.bindServiceAsUser()
+      → Context.bindServiceAsUser()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → Handler.post()
+      → <com.android.server.connectivity.PacProxyService$2: void <in
+      → <com.android.server.connectivity.PacProxyService$3: void <in
+

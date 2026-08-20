@@ -1,0 +1,18 @@
+# android.window.IWindowOrganizerController [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.window.IWindowOrganizerController$Stub$Proxy: android.os.IBinder startTransition(int,android.os.IBinder,android.window.WindowContainerTransaction)>
+<android.window.IWindowOrganizerController$Stub$Proxy: android.window.IDisplayAreaOrganizerController getDisplayAreaOrganizerController()>
+<android.window.IWindowOrganizerController$Stub$Proxy: android.window.ITaskFragmentOrganizerController getTaskFragmentOrganizerController()>
+<android.window.IWindowOrganizerController$Stub$Proxy: android.window.ITaskOrganizerController getTaskOrganizerController()>
+<android.window.IWindowOrganizerController$Stub$Proxy: android.window.ITransitionMetricsReporter getTransitionMetricsReporter()>
+<android.window.IWindowOrganizerController$Stub$Proxy: int applySyncTransaction(android.window.WindowContainerTransaction,android.window.IWindowContainerTransactionCallback)>
+<android.window.IWindowOrganizerController$Stub$Proxy: int finishTransition(android.os.IBinder,android.window.WindowContainerTransaction,android.window.IWindowContainerTransactionCallback)>
+<android.window.IWindowOrganizerController$Stub$Proxy: int startLegacyTransition(int,android.view.RemoteAnimationAdapter,android.window.IWindowContainerTransactionCallback,android.window.WindowContainerTransaction)>
+<android.window.IWindowOrganizerController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.IWindowOrganizerController$Stub$Proxy: void applyTransaction(android.window.WindowContainerTransaction)>
+<android.window.IWindowOrganizerController$Stub$Proxy: void registerTransitionPlayer(android.window.ITransitionPlayer)>
+<android.window.IWindowOrganizerController$Stub: android.window.IWindowOrganizerController asInterface(android.os.IBinder)>
+<android.window.IWindowOrganizerController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.IWindowOrganizerController$Stub: void <init>()>

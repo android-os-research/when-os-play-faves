@@ -1,0 +1,6 @@
+# android.activity.launch_mode [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<com.android.server.pm.pkg.component.ParsedActivityUtils: android.content.pm.parsing.result.ParseResult parseActivityOrAlias(com.android.server.pm.pkg.component.ParsedActivityImpl,com.android.server.pm.pkg.parsing.ParsingPackage,java.lang.String,android.content.res.XmlResourceParser,android.content.res.Resources,android.content.res.TypedArray,boolean,boolean,boolean,android.content.pm.parsing.result.ParseInput,int,int,int)>
+<com.samsung.android.multiwindow.MultiWindowUtils: boolean isSingleInstancePerTask(android.content.Context,java.lang.String)>

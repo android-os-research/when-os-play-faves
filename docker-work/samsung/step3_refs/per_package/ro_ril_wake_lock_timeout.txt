@@ -1,0 +1,6 @@
+# ro.ril.wake_lock_timeout [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional wake_lock_timeout()>
+<android.sysprop.TelephonyProperties: java.util.Optional wake_lock_timeout()>

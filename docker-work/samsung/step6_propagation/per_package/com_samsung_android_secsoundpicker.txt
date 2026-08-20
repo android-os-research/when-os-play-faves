@@ -1,0 +1,98 @@
+######################################################################
+# Propagation: com.samsung.android.secsoundpicker
+######################################################################
+
+JARs:                 services
+Classes:              4
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.AudioService
+  Method:   <com.android.server.audio.AudioService: boolean isExemptedPackage(java.lang.String)>
+  Line:     22768
+  Register: p0 := "com.samsung.android.secsoundpicker"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [other] return p0
+
+  CALLERS (who invokes this method):
+      ← AudioService.setStreamVolumeWithAttribution()
+        ← AudioService.bypassAdjustStreamVolume()
+        ← AudioService.setA2dpDeviceVolume()
+        ← AudioService.setFineVolume()
+        ← AudioService.setStreamVolume()
+        ← AudioService.setStreamVolumeForDeviceWithAttribution()
+          ← AudioService.skipAdjustStreamVolume()
+          ← AudioService.setStreamVolumeForUid()
+          ← AudioService.setStreamVolumeWithAttribution()
+          ← AudioService.setVolumeIndexForAttributes()
+            ← AudioService.adjustStreamVolume()
+            ← AudioService.setStreamVolume()
+              ← AudioService.adjustStreamVolumeForUid()
+              ← AudioService.adjustStreamVolumeWithAttribution()
+              ← AudioService.adjustSuggestedStreamVolume()
+              ← AudioService.setVolumeLimiter()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$2
+  Method:   <com.android.server.pm.PersonaServiceHelper$2: void <init>()>
+  Line:     52
+  Register: v2 := "com.samsung.android.secsoundpicker"
+  Usage:    [invoke] invoke-virtual {p0, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$1
+  Method:   <com.android.server.pm.PersonaServiceHelper$1: void <init>()>
+  Line:     50
+  Register: v1 := "com.samsung.android.secsoundpicker"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$3
+  Method:   <com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+  Line:     57
+  Register: v2 := "com.samsung.android.secsoundpicker"
+  Usage:    [invoke] invoke-virtual {p0, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+

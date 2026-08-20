@@ -1,0 +1,6 @@
+# persist.radio.pcovalue [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.data.DataProfileManager: void updateDataProfilesAtModem()>
+<com.android.internal.telephony.dataconnection.DcTracker: void setDataProfilesAsNeeded()>

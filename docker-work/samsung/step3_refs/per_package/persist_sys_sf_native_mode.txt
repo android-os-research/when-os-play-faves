@@ -1,0 +1,10 @@
+# persist.sys.sf.native_mode [NEW]
+# Refs: 6
+# JARs: services
+
+<com.android.server.display.color.ColorDisplayService: int getCurrentColorModeFromSystemProperties()>
+<com.android.server.display.color.DisplayTransformManager: boolean needsLinearColorMatrix()>
+<com.android.server.display.color.DisplayTransformManager: void setDisplayColor(int,int)>
+<com.android.server.wm.WindowManagerService: boolean hasWideColorGamutSupport()>
+<com.android.server.wm.WindowManagerService: void setDisplayColorToSystemProperties(int)>
+<com.samsung.android.displaysolution.MdnieScenarioControlService: void wcg_property_changed(int)>

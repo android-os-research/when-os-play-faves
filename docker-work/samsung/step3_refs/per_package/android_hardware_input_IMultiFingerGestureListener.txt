@@ -1,0 +1,9 @@
+# android.hardware.input.IMultiFingerGestureListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.input.IMultiFingerGestureListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.input.IMultiFingerGestureListener$Stub$Proxy: void onMultiFingerGesture(int,int)>
+<android.hardware.input.IMultiFingerGestureListener$Stub: android.hardware.input.IMultiFingerGestureListener asInterface(android.os.IBinder)>
+<android.hardware.input.IMultiFingerGestureListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.input.IMultiFingerGestureListener$Stub: void <init>()>

@@ -1,0 +1,85 @@
+######################################################################
+# Propagation: com.google.android.configupdater
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          3
+Usage types:          array_init, invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.GmsAlarmManager
+  Method:   <com.android.server.alarm.GmsAlarmManager: void <init>(android.content.Context)>
+  Line:     871
+  Register: v0 := "com.google.android.configupdater"
+  Usage:    [invoke] invoke-virtual {p1, v0, v1}, Landroid/content/pm/PackageManager;->getPackageUid(Ljava/lang/String;I)
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageUid() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← AlarmManagerService.onStart()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageUid()
+      → Uri.parse()
+      → UserHandle.getAppId()
+      → <com.android.server.alarm.GmsAlarmManager$1: void <init>(com
+      → GmsAlarmManager.isChn()
+      → GmsAlarmManager.isHongkong()
+      → SemFloatingFeature.getBoolean()
+      → SemFloatingFeature.getInstance()
+      → <java.util.ArrayList: void <init>()>
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → <android.content.BroadcastReceiver: void <init>()>
+        → SystemProperties.get()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.GmsAlarmManager
+  Method:   <com.android.server.alarm.GmsAlarmManager: java.util.ArrayList updateMultiUserGmsUid(int)>
+  Line:     5942
+  Register: v5 := "com.google.android.configupdater"
+  Usage:    [invoke] invoke-virtual {p0, v5, v3, p1}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang
+  Patterns: (none)
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageUidAsUser()
+
+  CALLERS (who invokes this method):
+      ← GmsAlarmManager.disableMultiUserGmsRestriction()
+      ← GmsAlarmManager.enableMultiUserGmsRestriction()
+        ← <com.android.server.alarm.GmsAlarmManager: void -$$Nest$mdis
+        ← <com.android.server.alarm.GmsAlarmManager: void -$$Nest$mena
+          ← GmsAlarmManager$GmsHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageUidAsUser()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → ArrayList.clear()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.google.ChinaGmsToggleUtils
+  Method:   <com.samsung.android.server.pm.google.ChinaGmsToggleUtils: void <clinit>()>
+  Line:     30
+  Register: v1 := "com.google.android.configupdater"
+  Usage:    [array_init] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+

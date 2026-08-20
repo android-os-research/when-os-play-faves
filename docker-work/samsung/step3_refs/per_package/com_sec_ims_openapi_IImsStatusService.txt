@@ -1,0 +1,13 @@
+# com.sec.ims.openapi.IImsStatusService [NEW]
+# Refs: 9
+# JARs: imsmanager
+
+<com.sec.ims.openapi.IImsStatusService$Stub$Proxy: int[] getCallCount()>
+<com.sec.ims.openapi.IImsStatusService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.openapi.IImsStatusService$Stub$Proxy: void registerImsCallEventListener(com.sec.ims.volte2.IImsCallEventListener)>
+<com.sec.ims.openapi.IImsStatusService$Stub$Proxy: void registerImsRegistrationListener(com.sec.ims.IImsRegistrationListener)>
+<com.sec.ims.openapi.IImsStatusService$Stub$Proxy: void unregisterImsCallEventListener(com.sec.ims.volte2.IImsCallEventListener)>
+<com.sec.ims.openapi.IImsStatusService$Stub$Proxy: void unregisterImsRegistrationListener(com.sec.ims.IImsRegistrationListener)>
+<com.sec.ims.openapi.IImsStatusService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.openapi.IImsStatusService$Stub: com.sec.ims.openapi.IImsStatusService asInterface(android.os.IBinder)>
+<com.sec.ims.openapi.IImsStatusService$Stub: void <init>()>

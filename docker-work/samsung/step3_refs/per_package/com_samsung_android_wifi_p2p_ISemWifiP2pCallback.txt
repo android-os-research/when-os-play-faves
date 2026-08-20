@@ -1,0 +1,10 @@
+# com.samsung.android.wifi.p2p.ISemWifiP2pCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.wifi.p2p.ISemWifiP2pCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.wifi.p2p.ISemWifiP2pCallback$Stub$Proxy: void onFailure(int)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pCallback$Stub$Proxy: void onSuccess()>
+<com.samsung.android.wifi.p2p.ISemWifiP2pCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pCallback$Stub: com.samsung.android.wifi.p2p.ISemWifiP2pCallback asInterface(android.os.IBinder)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pCallback$Stub: void <init>()>

@@ -1,0 +1,8 @@
+# persist.config.chimera.enable [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.chimera.ChimeraManagerService: void <init>(android.content.Context,com.android.server.am.ActivityManagerService)>
+<com.android.server.chimera.ChimeraManagerService: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>
+<com.android.server.chimera.SettingRepositoryDefault: void enableCustomMode(boolean,boolean)>
+<com.android.server.chimera.SettingRepositoryDefault: void initialize()>

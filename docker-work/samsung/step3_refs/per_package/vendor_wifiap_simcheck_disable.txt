@@ -1,0 +1,9 @@
+# vendor.wifiap.simcheck.disable [NEW]
+# Refs: 5
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.ap.SemWifiApBroadcastReceiver$4: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.ap.SemWifiApConfigStore: boolean isSimCheck()>
+<com.samsung.android.server.wifi.ap.SemWifiApUtils: boolean isSimEnabled(android.content.Context)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartMHS: boolean simCheck()>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartNetworkCallback: boolean isSimEnabled()>

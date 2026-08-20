@@ -1,0 +1,7 @@
+# com.sec.mhs.smartmhswidget [NEW]
+# Refs: 6
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.SemWifiManagerProxy: boolean isWifiApDataUsageWidgetSupported()>
+<com.samsung.android.server.wifi.ap.datausage.SemWifiApSessionDataUsage$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.ap.datausage.SemWifiApSessionDataUsage$SemWifiApDataUsageHandler: void handleMessage(android.os.Message)>

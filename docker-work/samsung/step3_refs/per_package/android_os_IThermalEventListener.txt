@@ -1,0 +1,9 @@
+# android.os.IThermalEventListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.IThermalEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IThermalEventListener$Stub$Proxy: void notifyThrottling(android.os.Temperature)>
+<android.os.IThermalEventListener$Stub: android.os.IThermalEventListener asInterface(android.os.IBinder)>
+<android.os.IThermalEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IThermalEventListener$Stub: void <init>()>

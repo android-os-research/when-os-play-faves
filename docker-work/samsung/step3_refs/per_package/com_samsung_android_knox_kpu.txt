@@ -1,0 +1,12 @@
+# com.samsung.android.knox.kpu [NEW]
+# Refs: 9
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+<com.android.server.enterprise.application.ApplicationPolicy: boolean isFromApprovedInstaller(int,int)>
+<com.android.server.enterprise.utils.KpuHelper: boolean isKpuPackage(java.lang.String)>
+<com.android.server.enterprise.utils.KpuHelper: java.lang.String getKpuPackageName()>
+<com.android.server.pm.UserManagerService: boolean isKPUAgent(java.lang.String)>
+<com.samsung.android.knox.EdmConstants$2: void <init>()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: boolean isManagedDevice(java.lang.String)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.String isChameleon()>

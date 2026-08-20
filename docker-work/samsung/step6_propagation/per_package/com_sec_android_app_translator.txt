@@ -1,0 +1,143 @@
+######################################################################
+# Propagation: com.sec.android.app.translator
+######################################################################
+
+JARs:                 framework
+Classes:              3
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.widget.MultiSelectPopupWindow$TextActionModeCallback
+  Method:   <android.widget.MultiSelectPopupWindow$TextActionModeCallback: void populateMenuWithItems(android.view.Menu)>
+  Line:     360
+  Register: v11 := "com.sec.android.app.translator"
+  Usage:    [invoke] invoke-virtual {v10, v11}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] add-int/lit8 v11, v6, 0x1 → [other] .local v11, "i":I → [other] move v6, 
+
+  CALLERS (who invokes this method):
+      ← MultiSelectPopupWindow$TextActionModeCallback.onCreateActionMode()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Context.getResources()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setClassName()
+      → Intent.setType()
+      → <android.content.Intent: void <init>()>
+      → PackageManager.queryIntentActivities()
+      → ResolveInfo.getComponentInfo()
+      → ResolveInfo.loadLabel()
+      → Resources.getDrawable()
+      → Menu.add()
+      → Menu.add()
+      → MenuItem.setIcon()
+      → MenuItem.setIntent()
+      → MenuItem.setShowAsAction()
+      → MultiSelectPopupWindow$TextActionModeCallback.updateSelectAllItem()
+      → <android.widget.MultiSelectPopupWindow: android.widget.TextV
+      → <android.widget.MultiSelectPopupWindow: boolean -$$Nest$misD
+      → <android.widget.MultiSelectPopupWindow: boolean -$$Nest$misE
+      → <android.widget.MultiSelectPopupWindow: boolean -$$Nest$misS
+      → TextView.getContext()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → Menu.findItem()
+        → Menu.removeItem()
+        → <android.widget.MultiSelectPopupWindow: boolean -$$Nest$misS
+        → MultiSelectPopupWindow.isDictionaryEnable()
+        → MultiSelectPopupWindow.isEmergencyMode()
+        → MultiSelectPopupWindow.isShareViaEnable()
+          → MultiSelectPopupWindow.isSelectAllEnable()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → List.size()
+          → Context.getContentResolver()
+          → Settings$System.getInt()
+            → MultiSelection.getSelectionEnd()
+            → MultiSelection.getSelectionStart()
+            → TextView.getTextForMultiSelection()
+            → CharSequence.length()
+              → Spanned.getSpanStart()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.widget.Editor$ProcessTextIntentActionsHandler
+  Method:   <android.widget.Editor$ProcessTextIntentActionsHandler: int getOrder(android.content.pm.ResolveInfo)>
+  Line:     436
+  Register: v2 := "com.sec.android.app.translator"
+  Usage:    [invoke] invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v2 → [branch] if-eqz v2, :cond_30
+
+  CALLERS (who invokes this method):
+      ← Editor$ProcessTextIntentActionsHandler.onInitializeMenu()
+        ← Editor$TextActionModeCallback.onCreateActionMode()
+
+  CALLEES (what this method invokes):
+      → ResolveInfo.toString()
+      → TextView.isThemeDeviceDefault()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.widget.Editor$ProcessTextIntentActionsHandler
+  Method:   <android.widget.Editor$ProcessTextIntentActionsHandler: android.graphics.drawable.Drawable loadIcon(android.content.pm.ResolveInfo)>
+  Line:     582
+  Register: v3 := "com.sec.android.app.translator"
+  Usage:    [invoke] invoke-virtual {v0, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: (none)
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v3 → [branch] if-eqz v3, :cond_34 → [other] iget-object v3, p
+
+  CALLERS (who invokes this method):
+      ← Editor$ProcessTextIntentActionsHandler.onInitializeMenu()
+        ← Editor$TextActionModeCallback.onCreateActionMode()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Context.getResources()
+      → ResolveInfo.loadIcon()
+      → ResolveInfo.toString()
+      → Resources.getDrawable()
+      → Drawable.getIntrinsicWidth()
+      → Drawable.setBounds()
+      → TextView.getContext()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.widget.MultiSelectPopupWindow
+  Method:   <android.widget.MultiSelectPopupWindow: boolean isTranslatorEnable()>
+  Line:     615
+  Register: v6 := "com.sec.android.app.translator"
+  Usage:    [invoke] invoke-virtual {v5, v6}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v6 → [branch] if-eqz v6, :cond_52
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Intent.setAction()
+      → Intent.setType()
+      → <android.content.Intent: void <init>()>
+      → PackageManager.queryIntentActivities()
+      → ResolveInfo.toString()
+      → MultiSelectPopupWindow.isEmergencyMode()
+      → TextView.getContext()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.size()
+      → List.iterator()
+        → Context.getContentResolver()
+        → Settings$System.getInt()
+

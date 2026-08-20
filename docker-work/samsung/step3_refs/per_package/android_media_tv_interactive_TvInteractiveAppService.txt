@@ -1,0 +1,7 @@
+# android.media.tv.interactive.TvInteractiveAppService [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.media.tv.interactive.TvInteractiveAppServiceInfo: void <init>(android.content.Context,android.content.ComponentName)>
+<com.android.server.tv.interactive.TvInteractiveAppManagerService: void buildTvInteractiveAppServiceListLocked(int,java.lang.String[])>
+<com.android.server.tv.interactive.TvInteractiveAppManagerService: void updateServiceConnectionLocked(android.content.ComponentName,int)>

@@ -1,0 +1,12 @@
+# android.telephony.ICellBroadcastService [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.telephony.ICellBroadcastService$Stub$Proxy: java.lang.CharSequence getCellBroadcastAreaInfo(int)>
+<android.telephony.ICellBroadcastService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ICellBroadcastService$Stub$Proxy: void handleCdmaCellBroadcastSms(int,byte[],int)>
+<android.telephony.ICellBroadcastService$Stub$Proxy: void handleCdmaScpMessage(int,java.util.List,java.lang.String,android.os.RemoteCallback)>
+<android.telephony.ICellBroadcastService$Stub$Proxy: void handleGsmCellBroadcastSms(int,byte[])>
+<android.telephony.ICellBroadcastService$Stub: android.telephony.ICellBroadcastService asInterface(android.os.IBinder)>
+<android.telephony.ICellBroadcastService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ICellBroadcastService$Stub: void <init>()>

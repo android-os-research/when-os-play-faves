@@ -1,0 +1,8 @@
+# com.samsung.android.knox.analytics.uploader [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+<com.samsung.android.knox.analytics.util.SecurityUtils: void enforcePackageNameForContentProvider(java.lang.String,int)>
+<com.samsung.android.knox.analytics.util.UploaderBroadcaster: void broadcastAnalyticsStatus(android.content.Context,boolean,boolean)>
+<com.samsung.android.knox.analytics.util.UploaderBroadcaster: void broadcastDbSizeWarning(android.content.Context)>

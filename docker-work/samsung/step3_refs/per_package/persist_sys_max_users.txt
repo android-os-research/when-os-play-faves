@@ -1,0 +1,8 @@
+# persist.sys.max_users [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<com.android.server.pm.UserManagerService: void disableBMode()>
+<com.android.server.pm.UserManagerService: void enableBMode()>
+<com.samsung.android.core.pm.multiuser.MultiUserSupportsHelper: int getMaxSupportedUsers()>
+<com.samsung.android.server.pm.user.BmodeUtils: void restoreBmodeSettingsWhenUpgrading(boolean,java.util.List)>

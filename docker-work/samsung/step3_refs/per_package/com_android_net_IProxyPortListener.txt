@@ -1,0 +1,9 @@
+# com.android.net.IProxyPortListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.android.net.IProxyPortListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.net.IProxyPortListener$Stub$Proxy: void setProxyPort(int)>
+<com.android.net.IProxyPortListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.net.IProxyPortListener$Stub: com.android.net.IProxyPortListener asInterface(android.os.IBinder)>
+<com.android.net.IProxyPortListener$Stub: void <init>()>

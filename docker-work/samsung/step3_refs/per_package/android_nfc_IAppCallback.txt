@@ -1,0 +1,11 @@
+# android.nfc.IAppCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.nfc.IAppCallback$Stub$Proxy: android.nfc.BeamShareData createBeamShareData(byte)>
+<android.nfc.IAppCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.nfc.IAppCallback$Stub$Proxy: void onNdefPushComplete(byte)>
+<android.nfc.IAppCallback$Stub$Proxy: void onTagDiscovered(android.nfc.Tag)>
+<android.nfc.IAppCallback$Stub: android.nfc.IAppCallback asInterface(android.os.IBinder)>
+<android.nfc.IAppCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.nfc.IAppCallback$Stub: void <init>()>

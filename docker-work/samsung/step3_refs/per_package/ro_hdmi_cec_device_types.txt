@@ -1,0 +1,6 @@
+# ro.hdmi.cec_device_types [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<android.sysprop.HdmiProperties: java.util.List cec_device_types()>
+<com.android.server.hdmi.HdmiControlService: java.util.List readDeviceTypes()>

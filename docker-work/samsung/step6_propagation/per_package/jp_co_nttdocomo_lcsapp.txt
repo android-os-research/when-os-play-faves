@@ -1,0 +1,43 @@
+######################################################################
+# Propagation: jp.co.nttdocomo.lcsapp
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.cocktailbar.CocktailBarManagerService
+  Method:   <com.android.server.cocktailbar.CocktailBarManagerService: void turnOffWakupCocktailBarFromPowerManagerInternal(int,java.lang.String)>
+  Line:     321
+  Register: v0 := "jp.co.nttdocomo.lcsapp"
+  Usage:    [invoke] invoke-virtual {p2, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.startsWith() → [other] move-result v0 → [branch] if-eqz v0, :cond_73 → [other] new-instance v0
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.cocktailbar.CocktailBarManagerService: v
+        ← CocktailBarManagerService$CocktalBarLocalService.turnOffWakupCocktailBarFromPowerManager()
+
+  CALLEES (what this method invokes):
+      → Handler.post()
+      → Handler.removeCallbacks()
+      → SystemService.getContext()
+      → <com.android.server.cocktailbar.CocktailBarManagerService$Tu
+      → CocktailBarManagerServiceContainer.getCocktaiBarWakeUpStateInternal()
+      → CocktailBarFeatures.isSupportCocktailPanel()
+        → <com.android.server.cocktailbar.CocktailBarManagerService$Tu
+        → CocktailBarWakeUpManager.getWakeUpState()
+        → CocktailBarFeatures.ensureCocktailFeature()
+          → Context.getPackageManager()
+          → CocktailBarFeatures.verifyCocktailFeature()
+            → PackageManager.hasSystemFeature()
+            → File.exists()
+            → <java.io.File: void <init>(java.lang.String)>
+

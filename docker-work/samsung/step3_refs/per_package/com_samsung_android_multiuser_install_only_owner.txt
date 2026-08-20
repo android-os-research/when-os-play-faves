@@ -1,0 +1,8 @@
+# com.samsung.android.multiuser.install_only_owner [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<com.samsung.android.knox.SemPersonaManager: boolean isInstallableAppInContainer(android.content.Context,int,java.lang.String)>
+<com.samsung.android.server.pm.install.MultiUserInstallPolicy: int checkIfInstallAllowed(android.os.Bundle,int,java.util.function.Function)>
+<com.samsung.android.server.pm.install.MultiUserInstallPolicy: int checkIfInstallExistingAllowed(android.os.Bundle,int)>
+<com.samsung.android.server.pm.install.MultiUserInstallPolicy: void applyInstallPolicyPackageInternalLPw(com.android.server.pm.PackageSetting,java.util.List,int)>

@@ -1,0 +1,12 @@
+# com.android.ims.internal.IImsServiceFeatureCallback [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.android.ims.internal.IImsServiceFeatureCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsServiceFeatureCallback$Stub$Proxy: void imsFeatureCreated(com.android.ims.ImsFeatureContainer,int)>
+<com.android.ims.internal.IImsServiceFeatureCallback$Stub$Proxy: void imsFeatureRemoved(int)>
+<com.android.ims.internal.IImsServiceFeatureCallback$Stub$Proxy: void imsStatusChanged(int,int)>
+<com.android.ims.internal.IImsServiceFeatureCallback$Stub$Proxy: void updateCapabilities(long)>
+<com.android.ims.internal.IImsServiceFeatureCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.IImsServiceFeatureCallback$Stub: com.android.ims.internal.IImsServiceFeatureCallback asInterface(android.os.IBinder)>
+<com.android.ims.internal.IImsServiceFeatureCallback$Stub: void <init>()>

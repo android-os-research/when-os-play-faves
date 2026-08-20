@@ -1,0 +1,13 @@
+# android.app.backup.IMemorySaverBackupRestoreObserver [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.app.backup.IMemorySaverBackupRestoreObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.backup.IMemorySaverBackupRestoreObserver$Stub$Proxy: void onBackupCompleted(java.lang.String,boolean)>
+<android.app.backup.IMemorySaverBackupRestoreObserver$Stub$Proxy: void onRestoreCompleted(java.lang.String,boolean)>
+<android.app.backup.IMemorySaverBackupRestoreObserver$Stub$Proxy: void onRestoreStart(java.lang.String)>
+<android.app.backup.IMemorySaverBackupRestoreObserver$Stub$Proxy: void onStartBackup(java.lang.String)>
+<android.app.backup.IMemorySaverBackupRestoreObserver$Stub$Proxy: void onTimeout()>
+<android.app.backup.IMemorySaverBackupRestoreObserver$Stub: android.app.backup.IMemorySaverBackupRestoreObserver asInterface(android.os.IBinder)>
+<android.app.backup.IMemorySaverBackupRestoreObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.backup.IMemorySaverBackupRestoreObserver$Stub: void <init>()>

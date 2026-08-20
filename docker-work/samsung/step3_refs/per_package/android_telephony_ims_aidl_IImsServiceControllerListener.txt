@@ -1,0 +1,9 @@
+# android.telephony.ims.aidl.IImsServiceControllerListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.telephony.ims.aidl.IImsServiceControllerListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IImsServiceControllerListener$Stub$Proxy: void onUpdateSupportedImsFeatures(android.telephony.ims.stub.ImsFeatureConfiguration)>
+<android.telephony.ims.aidl.IImsServiceControllerListener$Stub: android.telephony.ims.aidl.IImsServiceControllerListener asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IImsServiceControllerListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IImsServiceControllerListener$Stub: void <init>()>

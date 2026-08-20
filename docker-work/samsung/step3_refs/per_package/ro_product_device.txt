@@ -1,0 +1,10 @@
+# ro.product.device [NEW]
+# Refs: 6
+# JARs: framework, services
+
+<android.os.Build: java.lang.String deriveFingerprint()>
+<android.os.Build: void <clinit>()>
+<com.android.server.am.Heimdall$HeimdalldScpmManager: void onScpmUpdateBroadcast()>
+<com.android.server.aod.AODConfig: void <clinit>()>
+<com.android.server.locksettings.SyntheticPasswordManager: android.hardware.weaver.V1_0.IWeaver getWeaverService()>
+<com.samsung.android.rune.CoreRune: void <clinit>()>

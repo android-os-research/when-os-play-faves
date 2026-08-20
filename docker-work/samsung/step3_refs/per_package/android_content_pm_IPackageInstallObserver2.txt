@@ -1,0 +1,10 @@
+# android.content.pm.IPackageInstallObserver2 [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.content.pm.IPackageInstallObserver2$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IPackageInstallObserver2$Stub$Proxy: void onPackageInstalled(java.lang.String,int,java.lang.String,android.os.Bundle)>
+<android.content.pm.IPackageInstallObserver2$Stub$Proxy: void onUserActionRequired(android.content.Intent)>
+<android.content.pm.IPackageInstallObserver2$Stub: android.content.pm.IPackageInstallObserver2 asInterface(android.os.IBinder)>
+<android.content.pm.IPackageInstallObserver2$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IPackageInstallObserver2$Stub: void <init>()>

@@ -1,0 +1,11 @@
+# android.blockchain.ITAController [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.blockchain.ITAController$Stub$Proxy: android.blockchain.TACommandResponse processTACommand(android.blockchain.TACommandRequest)>
+<android.blockchain.ITAController$Stub$Proxy: boolean loadTA(android.os.ParcelFileDescriptor,long,long)>
+<android.blockchain.ITAController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.blockchain.ITAController$Stub$Proxy: void unloadTA()>
+<android.blockchain.ITAController$Stub: android.blockchain.ITAController asInterface(android.os.IBinder)>
+<android.blockchain.ITAController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.blockchain.ITAController$Stub: void <init>()>

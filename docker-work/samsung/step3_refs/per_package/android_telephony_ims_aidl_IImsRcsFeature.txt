@@ -1,0 +1,18 @@
+# android.telephony.ims.aidl.IImsRcsFeature [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.telephony.ims.aidl.IImsRcsFeature$Stub$Proxy: int getFeatureState()>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub$Proxy: int queryCapabilityStatus()>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub$Proxy: void addCapabilityCallback(android.telephony.ims.aidl.IImsCapabilityCallback)>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub$Proxy: void changeCapabilitiesConfiguration(android.telephony.ims.feature.CapabilityChangeRequest,android.telephony.ims.aidl.IImsCapabilityCallback)>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub$Proxy: void publishCapabilities(java.lang.String,android.telephony.ims.aidl.IPublishResponseCallback)>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub$Proxy: void queryCapabilityConfiguration(int,int,android.telephony.ims.aidl.IImsCapabilityCallback)>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub$Proxy: void removeCapabilityCallback(android.telephony.ims.aidl.IImsCapabilityCallback)>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub$Proxy: void sendOptionsCapabilityRequest(android.net.Uri,java.util.List,android.telephony.ims.aidl.IOptionsResponseCallback)>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub$Proxy: void setCapabilityExchangeEventListener(android.telephony.ims.aidl.ICapabilityExchangeEventListener)>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub$Proxy: void subscribeForCapabilities(java.util.List,android.telephony.ims.aidl.ISubscribeResponseCallback)>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub: android.telephony.ims.aidl.IImsRcsFeature asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IImsRcsFeature$Stub: void <init>()>

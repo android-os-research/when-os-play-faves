@@ -1,0 +1,9 @@
+# android.debug.IAdbCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.debug.IAdbCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.debug.IAdbCallback$Stub$Proxy: void onDebuggingChanged(boolean,byte)>
+<android.debug.IAdbCallback$Stub: android.debug.IAdbCallback asInterface(android.os.IBinder)>
+<android.debug.IAdbCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.debug.IAdbCallback$Stub: void <init>()>

@@ -1,0 +1,19 @@
+# android.printservice.IPrintServiceClient [NEW]
+# Refs: 15
+# JARs: framework
+
+<android.printservice.IPrintServiceClient$Stub$Proxy: android.print.PrintJobInfo getPrintJobInfo(android.print.PrintJobId)>
+<android.printservice.IPrintServiceClient$Stub$Proxy: boolean setPrintJobState(android.print.PrintJobId,int,java.lang.String)>
+<android.printservice.IPrintServiceClient$Stub$Proxy: boolean setPrintJobTag(android.print.PrintJobId,java.lang.String)>
+<android.printservice.IPrintServiceClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.printservice.IPrintServiceClient$Stub$Proxy: java.util.List getPrintJobInfos()>
+<android.printservice.IPrintServiceClient$Stub$Proxy: void onCustomPrinterIconLoaded(android.print.PrinterId,android.graphics.drawable.Icon)>
+<android.printservice.IPrintServiceClient$Stub$Proxy: void onPrintersAdded(android.content.pm.ParceledListSlice)>
+<android.printservice.IPrintServiceClient$Stub$Proxy: void onPrintersRemoved(android.content.pm.ParceledListSlice)>
+<android.printservice.IPrintServiceClient$Stub$Proxy: void setProgress(android.print.PrintJobId,float)>
+<android.printservice.IPrintServiceClient$Stub$Proxy: void setStatus(android.print.PrintJobId,java.lang.CharSequence)>
+<android.printservice.IPrintServiceClient$Stub$Proxy: void setStatusRes(android.print.PrintJobId,int,java.lang.CharSequence)>
+<android.printservice.IPrintServiceClient$Stub$Proxy: void writePrintJobData(android.os.ParcelFileDescriptor,android.print.PrintJobId)>
+<android.printservice.IPrintServiceClient$Stub: android.printservice.IPrintServiceClient asInterface(android.os.IBinder)>
+<android.printservice.IPrintServiceClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.printservice.IPrintServiceClient$Stub: void <init>()>

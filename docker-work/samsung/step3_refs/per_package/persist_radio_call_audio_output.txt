@@ -1,0 +1,6 @@
+# persist.radio.call.audio.output [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional videocall_audio_output()>
+<android.sysprop.TelephonyProperties: java.util.Optional videocall_audio_output()>

@@ -1,0 +1,8 @@
+# com.android.server.app.GameManagerService [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.app.GameManagerService: android.app.GameModeInfo getGameModeInfo(java.lang.String,int)>
+<com.android.server.app.GameManagerService: int getGameMode(java.lang.String,int)>
+<com.android.server.app.GameManagerService: void notifyGraphicsEnvironmentSetup(java.lang.String,int)>
+<com.android.server.app.GameManagerService: void setGameMode(java.lang.String,int,int)>

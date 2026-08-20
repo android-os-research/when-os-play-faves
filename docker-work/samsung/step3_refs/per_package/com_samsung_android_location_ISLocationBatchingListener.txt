@@ -1,0 +1,9 @@
+# com.samsung.android.location.ISLocationBatchingListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.location.ISLocationBatchingListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.location.ISLocationBatchingListener$Stub$Proxy: void onLocationAvailable(android.location.Location[],boolean)>
+<com.samsung.android.location.ISLocationBatchingListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.location.ISLocationBatchingListener$Stub: com.samsung.android.location.ISLocationBatchingListener asInterface(android.os.IBinder)>
+<com.samsung.android.location.ISLocationBatchingListener$Stub: void <init>()>

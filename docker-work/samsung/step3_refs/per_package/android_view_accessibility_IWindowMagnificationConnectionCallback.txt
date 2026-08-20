@@ -1,0 +1,14 @@
+# android.view.accessibility.IWindowMagnificationConnectionCallback [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.view.accessibility.IWindowMagnificationConnectionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.accessibility.IWindowMagnificationConnectionCallback$Stub$Proxy: void onAccessibilityActionPerformed(int)>
+<android.view.accessibility.IWindowMagnificationConnectionCallback$Stub$Proxy: void onChangeMagnificationMode(int,int)>
+<android.view.accessibility.IWindowMagnificationConnectionCallback$Stub$Proxy: void onMove(int)>
+<android.view.accessibility.IWindowMagnificationConnectionCallback$Stub$Proxy: void onPerformScaleAction(int,float)>
+<android.view.accessibility.IWindowMagnificationConnectionCallback$Stub$Proxy: void onSourceBoundsChanged(int,android.graphics.Rect)>
+<android.view.accessibility.IWindowMagnificationConnectionCallback$Stub$Proxy: void onWindowMagnifierBoundsChanged(int,android.graphics.Rect)>
+<android.view.accessibility.IWindowMagnificationConnectionCallback$Stub: android.view.accessibility.IWindowMagnificationConnectionCallback asInterface(android.os.IBinder)>
+<android.view.accessibility.IWindowMagnificationConnectionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.accessibility.IWindowMagnificationConnectionCallback$Stub: void <init>()>

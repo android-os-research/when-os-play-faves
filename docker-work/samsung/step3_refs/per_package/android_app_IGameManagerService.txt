@@ -1,0 +1,16 @@
+# android.app.IGameManagerService [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.app.IGameManagerService$Stub$Proxy: android.app.GameModeInfo getGameModeInfo(java.lang.String,int)>
+<android.app.IGameManagerService$Stub$Proxy: boolean isAngleEnabled(java.lang.String,int)>
+<android.app.IGameManagerService$Stub$Proxy: int getGameMode(java.lang.String,int)>
+<android.app.IGameManagerService$Stub$Proxy: int[] getAvailableGameModes(java.lang.String)>
+<android.app.IGameManagerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IGameManagerService$Stub$Proxy: void notifyGraphicsEnvironmentSetup(java.lang.String,int)>
+<android.app.IGameManagerService$Stub$Proxy: void setGameMode(java.lang.String,int,int)>
+<android.app.IGameManagerService$Stub$Proxy: void setGameServiceProvider(java.lang.String)>
+<android.app.IGameManagerService$Stub$Proxy: void setGameState(java.lang.String,android.app.GameState,int)>
+<android.app.IGameManagerService$Stub: android.app.IGameManagerService asInterface(android.os.IBinder)>
+<android.app.IGameManagerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IGameManagerService$Stub: void <init>()>

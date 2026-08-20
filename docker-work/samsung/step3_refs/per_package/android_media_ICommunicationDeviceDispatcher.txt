@@ -1,0 +1,9 @@
+# android.media.ICommunicationDeviceDispatcher [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.ICommunicationDeviceDispatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.ICommunicationDeviceDispatcher$Stub$Proxy: void dispatchCommunicationDeviceChanged(int)>
+<android.media.ICommunicationDeviceDispatcher$Stub: android.media.ICommunicationDeviceDispatcher asInterface(android.os.IBinder)>
+<android.media.ICommunicationDeviceDispatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.ICommunicationDeviceDispatcher$Stub: void <init>()>

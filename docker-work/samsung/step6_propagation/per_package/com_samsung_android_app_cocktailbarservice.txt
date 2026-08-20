@@ -1,0 +1,963 @@
+######################################################################
+# Propagation: com.samsung.android.app.cocktailbarservice
+######################################################################
+
+JARs:                 framework, services
+Classes:              8
+Occurrences:          11
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        APPOPS, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.sec.clipboard.util.ClipboardPolicyObserver
+  Method:   <android.sec.clipboard.util.ClipboardPolicyObserver: java.lang.String getTopActivityPackageName()>
+  Line:     444
+  Register: v6 := "com.samsung.android.app.cocktailbarservice"
+  Usage:    [invoke] invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [invoke] android.os.Binder.restoreCallingIdentity()
+
+  CALLERS (who invokes this method):
+      ← ClipboardPolicyObserver.isPackageAllowed()
+        ← ClipboardService$ClipboardImpl.isClipboardAllowed()
+          ← ClipboardService$ClipboardImpl.getPrimaryClip()
+          ← ClipboardService$ClipboardImpl.hasPrimaryClip()
+          ← ClipboardService$ClipboardImpl.checkAndSetPrimaryClip()
+            ← ClipboardService$ClipboardImpl.setPrimaryClip()
+            ← ClipboardService$ClipboardImpl.setPrimaryClipAsPackage()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getRunningTasks()
+      → ComponentName.getPackageName()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → PackageManager.getPackagesForUid()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → List.size()
+      → List.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsVersionManager
+  Method:   <com.android.server.am.mars.database.MARsVersionManager: void <clinit>()>
+  Line:     438
+  Register: v14 := "com.samsung.android.app.cocktailbarservice"
+  Usage:    [array_init] filled-new-array {v12, v11, v13, v14}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v12, v11, v13, v14}, [Ljava/lang/String; → [reassigned] v14 overwritten
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.cocktailbar.CocktailBarManagerServiceImpl
+  Method:   <com.android.server.cocktailbar.CocktailBarManagerServiceImpl: void notifyCocktailBarWakeUp(boolean,int,int)>
+  Line:     5793
+  Register: p3 := "com.samsung.android.app.cocktailbarservice"
+  Usage:    [invoke] invoke-virtual {p1, p3, v0}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] const-string/jumbo p3, "keycode" → [invoke] android.content.Int
+
+  CALLERS (who invokes this method):
+      ← CocktailBarManagerServiceContainer.onNotifyCocktailBarWakeUp()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getCurrentUser()
+      → Context.startServiceAsUser()
+      → Context.getResources()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Resources.getConfiguration()
+      → Handler.post()
+      → RemoteException.printStackTrace()
+      → <com.android.server.cocktailbar.CocktailBarManagerServiceImp
+      → ServiceImplCommandLogger.recordHostCommand()
+      → ICocktailHost.notifyWakeUpState()
+      → HashMap.entrySet()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Map$Entry.getValue()
+      → Set.iterator()
+        → SimpleDateFormat.format()
+        → <android.icu.text.SimpleDateFormat: void <init>(java.lang.St
+        → LruCache.get()
+        → LruCache.put()
+        → <com.android.server.cocktailbar.utils.ServiceImplCommandLogg
+        → Exception.printStackTrace()
+        → StringBuffer.toString()
+        → StringBuffer.append()
+        → StringBuffer.append()
+        → StringBuffer.append()
+        → <java.lang.StringBuffer: void <init>()>
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.remove()
+        → <java.util.Date: void <init>()>
+          → LruCache.safeSizeOf()
+          → LruCache.create()
+          → LruCache.entryRemoved()
+          → LruCache.trimToSize()
+          → <java.lang.NullPointerException: void <init>(java.lang.Strin
+          → LinkedHashMap.get()
+          → LinkedHashMap.put()
+          → <com.android.server.cocktailbar.utils.ServiceImplCommandLogg
+            → LruCache.sizeOf()
+            → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+            → LinkedHashMap.isEmpty()
+            → LinkedHashMap.remove()
+            → LinkedHashMap.eldest()
+            → Map$Entry.getKey()
+            → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.cocktailbar.CocktailBarManagerServiceImpl
+  Method:   <com.android.server.cocktailbar.CocktailBarManagerServiceImpl: boolean removeProvidersForPackageLocked(java.lang.String)>
+  Line:     11271
+  Register: v0 := "com.samsung.android.app.cocktailbarservice"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] move-result-wide v0 → [invoke] android.os.Binder.restoreCallingId
+
+  CALLERS (who invokes this method):
+      ← CocktailBarManagerServiceImpl.onBroadcastReceived()
+      ← CocktailBarManagerServiceImpl.onPackageRemoved()
+        ← CocktailBarManagerServiceContainer$1.onReceive()
+        ← CocktailBarManagerServiceContainer$2.onPackageRemoved()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <android.os.UserHandle: void <init>(int)>
+      → TextUtils.equals()
+      → SparseArray.size()
+      → SparseArray.valueAt()
+      → CocktailBarManagerServiceImpl.removeProviderLocked()
+      → CocktailBarManagerServiceImpl.getPackageNameFromCocktail()
+      → CocktailBarManagerServiceImpl.updateToolLauncher()
+      → Cocktail.getProviderInfo()
+        → CharSequence.charAt()
+        → CharSequence.length()
+        → SparseArray.gc()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → SparseArray.remove()
+        → CocktailBarManagerServiceImpl$EnabledPackageMap.removeEnabledProvider()
+        → CocktailBarManagerServiceImpl.removeCocktailLocked()
+        → CocktailPolicyManager.establishPolicy()
+        → Cocktail.getProvider()
+        → Cocktail.getCocktailId()
+        → SemEmergencyManager.isEmergencyMode()
+        → SemFloatingFeature.getBoolean()
+        → SemFloatingFeature.getInstance()
+        → ComponentName.getPackageName()
+        → ServiceImplCommandLogger.recordHostCommand()
+        → ICocktailHost.updateToolLauncher()
+        → HashMap.isEmpty()
+        → HashMap.entrySet()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Iterator.remove()
+        → Map$Entry.getValue()
+        → Set.iterator()
+          → SparseArray.delete()
+          → ComponentName.getClassName()
+          → ArrayMap.get()
+          → ArrayMap.put()
+          → ArrayList.contains()
+          → ArrayList.remove()
+          → SparseArray.get()
+          → CocktailBarManagerServiceImpl.decrementCocktailServiceRefCount()
+          → CocktailBarManagerServiceImpl.removeCocktailInHostLocked()
+          → CocktailPolicyManager.disableUpdatableCocktail()
+          → Cocktail.updateCocktailInfo()
+          → CocktailPolicy.establishPolicy()
+          → CocktailPolicyManager.findCocktailPolicy()
+          → Context.getContentResolver()
+          → Settings$System.getIntForUser()
+          → Elog.d()
+          → SemEmergencyManager.loadFloatingFeatures()
+          → SemFloatingFeature.loge()
+          → Hashtable.get()
+          → SimpleDateFormat.format()
+          → <android.icu.text.SimpleDateFormat: void <init>(java.lang.St
+          → LruCache.get()
+          → LruCache.put()
+          → <com.android.server.cocktailbar.utils.ServiceImplCommandLogg
+          → Exception.printStackTrace()
+          → StringBuffer.toString()
+          → StringBuffer.append()
+          → StringBuffer.append()
+          → StringBuffer.append()
+          → <java.lang.StringBuffer: void <init>()>
+          → ArrayList.add()
+          → ArrayList.size()
+          → ArrayList.remove()
+          → <java.util.Date: void <init>()>
+            → ContainerHelpers.binarySearch()
+            → ArrayMap.indexOfKey()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → SparseArray.get()
+            → Intent$FilterComparison.getIntent()
+            → CocktailBarManagerServiceImpl.destroyRemoteViewsService()
+            → HashSet.isEmpty()
+            → HashSet.remove()
+            → Map$Entry.getKey()
+            → ICocktailHost.removeCocktail()
+            → CocktailPolicyManager$UpadatableCocktailInfo.disableUpdate()
+            → CocktailInfo.mergeInfo()
+            → CocktailPolicy.getCocktailType()
+            → ArrayList.iterator()
+            → LruCache.safeSizeOf()
+            → LruCache.create()
+            → LruCache.entryRemoved()
+            → LruCache.trimToSize()
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+            → LinkedHashMap.get()
+            → LinkedHashMap.put()
+            → <com.android.server.cocktailbar.utils.ServiceImplCommandLogg
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → Context.bindServiceAsUser()
+              → UserHandle.getUserId()
+              → <com.android.server.cocktailbar.CocktailBarManagerServiceImp
+              → Cocktail.getUid()
+              → SparseBooleanArray.delete()
+              → LruCache.sizeOf()
+              → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+              → LinkedHashMap.isEmpty()
+              → LinkedHashMap.remove()
+              → LinkedHashMap.eldest()
+              → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.cocktailbar.CocktailBarManagerServiceContainer$1
+  Method:   <com.android.server.cocktailbar.CocktailBarManagerServiceContainer$1: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     216
+  Register: p2 := "com.samsung.android.app.cocktailbarservice"
+  Usage:    [invoke] invoke-virtual {p1, p2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.contains() → [invoke] com.android.server.cocktailbar.mode.CocktailBarModeManager.o → [invoke] 
+
+  CALLEES (what this method invokes):
+      → BroadcastReceiver.getSendingUserId()
+      → Intent.getData()
+      → Intent.getIntExtra()
+      → Intent.getAction()
+      → Uri.toString()
+      → Handler.sendEmptyMessage()
+      → SparseArray.size()
+      → SparseArray.get()
+      → SparseArray.valueAt()
+      → <com.android.server.cocktailbar.CocktailBarManagerServiceCon
+      → <com.android.server.cocktailbar.CocktailBarManagerServiceCon
+      → <com.android.server.cocktailbar.CocktailBarManagerServiceCon
+      → <com.android.server.cocktailbar.CocktailBarManagerServiceCon
+      → <com.android.server.cocktailbar.CocktailBarManagerServiceCon
+      → <com.android.server.cocktailbar.CocktailBarManagerServiceCon
+      → CocktailBarManagerServiceContainer.onUserSwitched()
+      → CocktailBarManagerServiceImpl.onBroadcastReceived()
+      → CocktailBarManagerServiceImpl.onConfigurationChanged()
+      → CocktailBarModeManager.onBroadcastReceived()
+        → SparseArray.gc()
+        → SparseArray.get()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → CocktailBarManagerServiceContainer.onUserStarted()
+        → CocktailBarManagerServiceContainer.onUserStopped()
+        → CocktailBarManagerServiceContainer.enforceCocktailBarService()
+        → CocktailBarHistory.getInstance()
+        → CocktailBarHistory.recordServiceProcess()
+        → Intent.getExtras()
+        → Intent.getStringArrayExtra()
+        → Uri.getSchemeSpecificPart()
+        → Bundle.getBoolean()
+        → CocktailBarManagerServiceImpl.addProvidersForPackageLocked()
+        → CocktailBarManagerServiceImpl.ensureStateLoadedLocked()
+        → CocktailBarManagerServiceImpl.removeProvidersForPackageLocked()
+        → CocktailBarManagerServiceImpl.updateProvidersForPackageLocked()
+        → CocktailBarManagerServiceImpl.clearCocktailInfoLocked()
+        → CocktailBarManagerServiceImpl.saveStateAsync()
+        → CocktailBarSettings.updateInstalledCocktails()
+        → CocktailBarConfig.getDefaultVersion()
+        → CocktailBarConfig.getVersion()
+        → ComponentName.getPackageName()
+        → Context.getResources()
+        → Resources.getConfiguration()
+        → CocktailBarManagerServiceImpl.updateProvidersInfoForPackageLocked()
+        → Cocktail.getProvider()
+        → Cocktail.getVersion()
+        → Locale.equals()
+        → Locale.getDefault()
+        → UserHandle.getCallingUserId()
+        → CocktailBarMode.getRegistrationType()
+        → CocktailBarMode.onBroadcastReceived()
+        → CocktailBarModeManager.onResetMode() [APPOPS]
+        → CocktailBarModeManager.onSetMode() [APPOPS]
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+          → ContainerHelpers.binarySearch()
+          → CocktailBarManagerServiceContainer.isNotEdgeRunnableId()
+          → CocktailBarManagerServiceContainer.ensureGroupStateLoaded()
+          → Context.getSystemService()
+          → SparseArray.indexOfKey()
+          → SparseArray.removeAt()
+          → SparseIntArray.indexOfKey()
+          → SparseIntArray.removeAt()
+          → CocktailBarManagerServiceImpl.systemDestroy()
+          → CocktailBarModeManager.getCocktailBarMode()
+          → CocktailBarModeManager.getCurrentModeId()
+          → CocktailBarModeManager.onSetModeForcely() [APPOPS]
+          → <com.android.server.cocktailbar.utils.CocktailBarHistory: vo
+          → SimpleDateFormat.format()
+          → <android.icu.text.SimpleDateFormat: void <init>(java.lang.St
+          → Exception.printStackTrace()
+          → StringBuffer.toString()
+          → StringBuffer.append()
+          → StringBuffer.append()
+          → <java.lang.StringBuffer: void <init>()>
+          → ArrayList.add()
+          → ArrayList.size()
+          → ArrayList.remove()
+          → <java.util.Date: void <init>()>
+          → Intent.setPackage()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → TextUtils.equals()
+          → CocktailBarManagerServiceImpl.addProviderLocked()
+          → CocktailBarManagerServiceImpl.queryIntentReceivers()
+          → CocktailBarManagerServiceImpl.sendUpdateIntentLocked()
+          → CocktailBarManagerServiceImpl.updateToolLauncher()
+          → CocktailBarConfig.getCategoryFilter()
+          → Cocktail.getProviderInfo()
+          → Cocktail.getUpdateIntentName()
+          → CocktailProviderInfo.getCategoryIds()
+          → List.size()
+          → List.get()
+          → CocktailBarManagerServiceImpl.isProfileWithLockedParent()
+          → CocktailBarManagerServiceImpl.isUserRunningAndUnlocked()
+          → CocktailBarManagerServiceImpl.loadCocktailListLocked()
+          → CocktailBarManagerServiceImpl.loadStateLocked()
+          → CocktailBarManagerServiceImpl.resetLoadedDataLocked()
+          → <com.android.server.cocktailbar.settings.CocktailBarSettings
+          → CocktailBarConfig.reload()
+          → Context.sendBroadcastAsUser()
+          → Intent.addFlags()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → <android.os.UserHandle: void <init>(int)>
+          → CocktailBarManagerServiceImpl.removeProviderLocked()
+          → CocktailBarManagerServiceImpl.getPackageNameFromCocktail()
+          → ComponentName.getClassName()
+          → <android.content.ComponentName: void <init>(java.lang.String
+          → CocktailBarManagerServiceImpl.parseAndUpdateProviderInfoXml()
+          → CocktailBarManagerServiceImpl.lookupProviderLocked()
+          → CocktailBarManagerServiceImpl.sendEnableAndUpdateBroadcastLocked()
+          → CocktailPolicyManager.establishPolicy()
+          → CocktailBarSettings.isEnabledCocktail()
+          → Cocktail.getCocktailId()
+          → Cocktail.setPackageUpdated()
+          → SemEmergencyManager.isEmergencyMode()
+          → SemFloatingFeature.getBoolean()
+          → SemFloatingFeature.getInstance()
+          → HashSet.add()
+          → HashSet.contains()
+          → <java.util.HashSet: void <init>()>
+          → Set.add()
+          → Cocktail.updateCocktailInfo()
+          → Handler.post()
+          → BackgroundThread.getHandler()
+          → CocktailBarSettings.initCocktailMap()
+          → CocktailBarSettings.updateEnabledCocktailList()
+          → CocktailBarManagerServiceListener.onResetMode() [APPOPS]
+          → CocktailBarMode.getModeId()
+          → CocktailBarMode.getModeName()
+          → <java.lang.StringBuffer: void <init>(java.lang.String)>
+          → CocktailBarManagerServiceListener.onSetMode() [APPOPS]
+          → CocktailBarManagerServiceListener.onUnsetMode() [APPOPS]
+          → CocktailBarMode.getCocktailType()
+            → SemDualAppManager.isDualAppId()
+            → SemPersonaManager.isKnoxId()
+            → SemPersonaManager.isSecureFolderId()
+            → CocktailBarManagerServiceContainer$SecurityPolicy.getEnabledGroupProfileIds()
+            → CocktailBarManagerServiceContainer.createCocktailBarManagerServiceImplLocked()
+            → CocktailBarManagerServiceImpl$CocktailBarSettingsObserver.unregisterContentObserver()
+            → CocktailBarManagerServiceImpl.removeAllUpdatedCocktails()
+            → CocktailBarManagerServiceImpl.unlinkAllHost()
+            → SemPersonaManager.isKioskModeEnabled()
+            → <java.util.ArrayList: void <init>()>
+            → <java.util.HashMap: void <init>()>
+            → CharSequence.charAt()
+            → CharSequence.length()
+            → ComponentName.toString()
+            → ActivityInfo.isEnabled()
+            → SparseArray.put()
+            → CocktailBarManagerServiceImpl.parseProviderInfoXmlLocked()
+            → Cocktail.setVersion()
+            → Context.getContentResolver()
+            → Intent.resolveTypeIfNeeded()
+            → IPackageManager.queryIntentReceivers()
+            → ParceledListSlice.getList()
+            → CocktailBarManagerServiceImpl.isProfileWithUnlockedParent()
+            → Collections.emptyList()
+            → Intent.putExtra()
+            → Intent.setComponent()
+            → CocktailPolicyManager.canSendUpdateIntent()
+            → CocktailPolicyManager.enableUpdatableCocktail()
+            → CocktailBarHistory.recordSemCocktailProviderBr()
+            → Cocktail.getState()
+            → Cocktail.dump()
+            → ServiceImplCommandLogger.recordHostCommand()
+            → ICocktailHost.updateToolLauncher()
+            → HashMap.isEmpty()
+            → HashMap.entrySet()
+            → Iterator.remove()
+            → Map$Entry.getValue()
+            → Set.iterator()
+            → CocktailProviderInfo.getCategoryId()
+            → UserInfo.getUserHandle()
+            → UserInfo.isManagedProfile()
+            → UserHandle.getIdentifier()
+            → UserManager.getProfileParent()
+            → UserManager.getUserInfo()
+            → UserManager.isUserRunning()
+            → StorageManager.isUserKeyUnlocked()
+            → StringBuffer.append()
+            → StringBuffer.append()
+            → AtomicFile.openRead()
+            → CocktailBarManagerServiceImpl.savedStateFile()
+            → CocktailBarManagerServiceImpl.readStateFromFileLocked()
+            → IoUtils.closeQuietly()
+            → SparseArray.clear()
+            → <android.os.Handler: void <init>(android.os.Looper)>
+            → Looper.getMainLooper()
+            → <android.text.TextUtils$SimpleStringSplitter: void <init>(ch
+            → CocktailBarConfig.parseEdgeConfig()
+            → SparseArray.remove()
+            → CocktailBarManagerServiceImpl$EnabledPackageMap.removeEnabledProvider()
+            → CocktailBarManagerServiceImpl.removeCocktailLocked()
+            → Context.getPackageManager()
+            → ActivityInfo.loadXmlMetaData()
+            → XmlResourceParser.next()
+            → XmlResourceParser.getName()
+            → XmlResourceParser.close()
+            → CocktailBarUtils$CocktailBarWhiteList.isAllowedCocktailCategory()
+            → Cocktail.setProviderInfo()
+            → Cocktail.setUid()
+            → CocktailProviderInfo.create()
+            → ComponentName.equals()
+            → CocktailBarManagerServiceImpl.sendEnableIntentLocked()
+            → Cocktail.getUpdateIntentName()
+            → CocktailPolicy.establishPolicy()
+            → CocktailPolicyManager.findCocktailPolicy()
+            → HashMap.get()
+            → Settings$System.getIntForUser()
+            → Elog.d()
+            → SemEmergencyManager.loadFloatingFeatures()
+            → SemFloatingFeature.loge()
+            → Hashtable.get()
+            → CocktailInfo.mergeInfo()
+            → BackgroundThread.ensureThreadLocked()
+            → <com.android.server.cocktailbar.settings.CocktailBarSettings
+            → HashMap.put()
+            → HashMap.clear()
+            → <com.android.server.cocktailbar.settings.CocktailBarSettings
+            → CocktailBarSettings.isLocalBinder()
+            → CocktailBarSettings.updateEnabledCocktailListLocked()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+              → UserInfo.isEnabled()
+              → UserManager.getProfiles()
+              → CocktailBarManagerServiceContainer$SecurityPolicy.getGroupParent()
+              → <com.android.server.cocktailbar.CocktailBarManagerServiceCon
+              → SparseArray.append()
+              → SparseIntArray.put()
+              → <com.android.server.cocktailbar.CocktailBarManagerServiceImp
+              → CocktailBarManagerServiceImpl.setCocktailHostCallbacks()
+              → ContentResolver.unregisterContentObserver()
+              → <com.android.server.cocktailbar.CocktailBarManagerServiceImp
+              → CocktailBarManagerServiceImpl.removeAllUpdatedCocktailsLocked()
+              → CocktailBarManagerServiceImpl$CocktailHostInfo.unlinkBinder()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+              → CocktailBarManagerServiceImpl.checkCocktailAttributeLocked()
+              → <com.samsung.android.cocktailbar.Cocktail: void <init>(int)>
+              → UserManager.isUserUnlockingOrUnlocked()
+              → <com.android.server.cocktailbar.policy.cocktail.CocktailPoli
+              → CocktailPolicyManager$UpadatableCocktailInfo.enableUpdate()
+              → CocktailInfo.dump()
+              → LruCache.get()
+              → LruCache.put()
+              → <com.android.server.cocktailbar.utils.ServiceImplCommandLogg
+              → UserHandle.of()
+              → UserManager.isUserTypeManagedProfile()
+              → AtomicFile.rename()
+              → File.delete()
+              → File.exists()
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → Environment.getUserSystemDirectory()
+              → <android.util.AtomicFile: void <init>(java.io.File)>
+              → CocktailBarManagerServiceImpl.getSettingsFile()
+              → File.mkdirs()
+              → File.renameTo()
+              → <java.io.File: void <init>(java.lang.String)>
+              → AppGlobals.getPackageManager()
+              → IPackageManager.getReceiverInfo()
+              → PackageManager.currentToCanonicalPackageNames()
+              → <android.util.SparseArray: void <init>()>
+              → Xml.newPullParser()
+              → CocktailBarManagerServiceImpl.getUidForPackage()
+              → <com.samsung.android.cocktailbar.CocktailProviderInfo: void 
+              → BufferedReader.readLine()
+              → <java.io.BufferedReader: void <init>(java.io.Reader)>
+              → BufferedReader.close()
+              → <java.io.InputStreamReader: void <init>(java.io.InputStream,
+              → XmlPullParser.next()
+              → XmlPullParser.getAttributeValue()
+              → XmlPullParser.getName()
+              → XmlPullParser.setInput()
+              → SystemProperties.get()
+              → CocktailBarConfig.getEdgeConfigParser()
+              → CocktailBarConfig.parseXml()
+              → IOException.printStackTrace()
+              → XmlPullParserException.printStackTrace()
+              → SparseArray.delete()
+              → ArrayMap.get()
+              → ArrayMap.put()
+              → ArrayList.contains()
+              → ArrayList.remove()
+              → CocktailBarManagerServiceImpl.decrementCocktailServiceRefCount()
+              → CocktailBarManagerServiceImpl.removeCocktailInHostLocked()
+              → CocktailPolicyManager.disableUpdatableCocktail()
+              → CocktailBarUtils$CocktailBarWhiteList.isCategoryOfWhiteList()
+              → CocktailBarUtils$CocktailBarWhiteList.isSystemApplication()
+              → PackageManager.getResourcesForApplicationAsUser()
+              → UserHandle.getUserId()
+              → CocktailProviderInfo.enforceValidCategory()
+              → <com.samsung.android.cocktailbar.CocktailProviderInfo: void 
+              → IDeviceIdleController.addPowerSaveWhitelistApp()
+              → RemoteException.printStackTrace()
+              → CocktailBarManagerServiceImpl$EnabledPackageMap.getEnabledCount()
+              → CocktailBarManagerServiceImpl$EnabledPackageMap.putEnabledProvider()
+              → CocktailBarManagerServiceImpl.registerForBroadcastsLocked()
+              → CocktailBarHistory.recordPowerWhitelistHistory()
+              → Cocktail.setState()
+              → CocktailPolicy.getCocktailType()
+              → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+              → Looper.setSlowLogThresholdMs()
+              → Looper.setTraceTag()
+              → BackgroundThread.getLooper()
+              → <com.android.internal.os.BackgroundThread: void <init>()>
+              → BackgroundThread.start()
+              → Binder.getCallingPid() [UID_CHECK]
+              → Process.myPid()
+              → TextUtils$SimpleStringSplitter.hasNext()
+              → TextUtils$SimpleStringSplitter.next()
+              → TextUtils$SimpleStringSplitter.setString()
+              → TextUtils.isEmpty()
+              → CocktailBarSettings.getEnabledCocktailsStr()
+              → CocktailBarSettings.setEnabledCocktailsLocked()
+              → CocktailBarConfig.getInstance()
+              → CocktailBarConfig.getConvertedComponent()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.cocktailbar.CocktailBarManagerServiceContainer
+  Method:   <com.android.server.cocktailbar.CocktailBarManagerServiceContainer: void registerBroadcastReceiver()>
+  Line:     3936
+  Register: v0 := "com.samsung.android.app.cocktailbarservice"
+  Usage:    [invoke] invoke-virtual {v9, v0, v1}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← CocktailBarManagerServiceContainer.bootCompleted()
+        ← CocktailBarManagerServiceContainer.onUnlockUserImpl()
+        ← CocktailBarManagerServiceContainer.systemRunning()
+          ← <com.android.server.cocktailbar.CocktailBarManagerServiceCon
+          ← CocktailBarManagerService.onBootPhase()
+            ← CocktailBarManagerServiceContainer$CocktailBarHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiverAsUser()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.cocktailbar.CocktailBarManagerServiceContainer
+  Method:   <com.android.server.cocktailbar.CocktailBarManagerServiceContainer: void startCocktailBarServiceWithCurrentUser()>
+  Line:     4980
+  Register: v1 := "com.samsung.android.app.cocktailbarservice"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] new-instance v1, Landroid/os/UserHandle; → [invoke] android.os.
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.cocktailbar.CocktailBarManagerServiceCon
+        ← CocktailBarManagerServiceContainer$CocktailBarHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getCurrentUser()
+      → Context.startServiceAsUser()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.UserHandle: void <init>(int)>
+      → CocktailBarHistory.getInstance()
+      → CocktailBarHistory.recordServiceProcess()
+      → Exception.toString()
+      → Exception.printStackTrace()
+        → <com.android.server.cocktailbar.utils.CocktailBarHistory: vo
+        → SimpleDateFormat.format()
+        → <android.icu.text.SimpleDateFormat: void <init>(java.lang.St
+        → StringBuffer.toString()
+        → StringBuffer.append()
+        → StringBuffer.append()
+        → <java.lang.StringBuffer: void <init>()>
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.remove()
+        → <java.util.Date: void <init>()>
+          → <java.util.ArrayList: void <init>()>
+          → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.cocktailbar.mode.PrivateEmergencyMode
+  Method:   <com.android.server.cocktailbar.mode.PrivateEmergencyMode: int onBroadcastReceived(android.content.Intent)>
+  Line:     167
+  Register: v0 := "com.samsung.android.app.cocktailbarservice"
+  Usage:    [invoke] invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] new-instance v0, Landroid/os/UserHandle; → [invoke] android.os.
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getCurrentUser()
+      → Context.startServiceAsUser()
+      → Intent.setClassName()
+      → Intent.getIntExtra()
+      → Intent.getAction()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.UserHandle: void <init>(int)>
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.cocktailbar.utils.CocktailBarConfig
+  Method:   <com.android.server.cocktailbar.utils.CocktailBarConfig: android.content.res.XmlResourceParser getEdgeConfigParser()>
+  Line:     460
+  Register: v1 := "com.samsung.android.app.cocktailbarservice"
+  Usage:    [invoke] invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+  Patterns: (none)
+  Flow:     [invoke] android.content.Intent.<init>() → [other] iget-object v1, p0, Lcom/android/server/cocktailbar/utils/Co → [invok
+
+  CALLERS (who invokes this method):
+      ← CocktailBarConfig.parseEdgeConfig()
+        ← CocktailBarConfig.reload()
+        ← <com.android.server.cocktailbar.utils.CocktailBarConfig: voi
+          ← CocktailBarManagerServiceImpl.ensureStateLoadedLocked()
+          ← CocktailBarConfig.getInstance()
+            ← <com.android.server.cocktailbar.CocktailBarManagerServiceImp
+            ← CocktailBarManagerServiceImpl.bindRemoteViewsService()
+            ← CocktailBarManagerServiceImpl.isCocktailEnabled()
+            ← CocktailBarManagerServiceImpl.isEnabledCocktail()
+            ← CocktailBarManagerServiceImpl.requestToDisableCocktail()
+            ← CocktailBarManagerServiceImpl.requestToDisableCocktailByCategory()
+            ← CocktailBarManagerServiceImpl.requestToUpdateCocktail()
+            ← CocktailBarManagerServiceImpl.requestToUpdateCocktailByCategory()
+            ← CocktailBarManagerServiceImpl.updateCocktailBarSetting()
+            ← CocktailBarManagerServiceImpl.getEnabledCocktailIds()
+            ← CocktailBarManagerServiceImpl.closeCocktail()
+            ← CocktailBarManagerServiceImpl.disableCocktail()
+            ← CocktailBarManagerServiceImpl.initialize()
+            ← CocktailBarManagerServiceImpl.onBroadcastReceived()
+            ← CocktailBarManagerServiceImpl.onConfigurationChanged()
+            ← CocktailBarManagerServiceImpl.onPackageAdded()
+            ← CocktailBarManagerServiceImpl.onPackageChanged()
+            ← CocktailBarManagerServiceImpl.onPackageRemoved()
+            ← CocktailBarManagerServiceImpl.onUnlockUser()
+            ← CocktailBarManagerServiceImpl.partiallyUpdateCocktail()
+            ← CocktailBarManagerServiceImpl.partiallyUpdateHelpView()
+            ← CocktailBarManagerServiceImpl.sendEnableAndUpdateBroadcastLocked()
+            ← CocktailBarManagerServiceImpl.sendInitialBroadcastsLocked()
+            ← CocktailBarManagerServiceImpl.setEnabledCocktailIds()
+            ← CocktailBarManagerServiceImpl.setModeLocked() [APPOPS]
+            ← CocktailBarManagerServiceImpl.setOnPullPendingIntent()
+            ← CocktailBarManagerServiceImpl.showCocktail()
+            ← CocktailBarManagerServiceImpl.startListening()
+            ← CocktailBarManagerServiceImpl.systemReady()
+            ← CocktailBarManagerServiceImpl.updateCocktail()
+            ← CocktailBarManagerServiceImpl.updateCocktailAttribute()
+            ← CocktailBarManagerServiceContainer.getConfigVersion()
+            ← CocktailBarManagerServiceContainer.getPreferWidth()
+            ← CocktailBarManagerServiceContainer.getCategoryFilterStr()
+            ← CocktailBarManagerServiceContainer.getHideEdgeListStr()
+            ← CocktailBarManagerServiceContainer.dump()
+            ← <com.android.server.cocktailbar.CocktailBarManagerServiceImp
+            ← <com.android.server.cocktailbar.policy.cocktail.CocktailPoli
+            ← CocktailBarSettings.updateEnabledCocktailListLocked()
+            ← <com.android.server.cocktailbar.watcher.CocktailBarUsageStat
+              ← CocktailBarManagerServiceImpl$2.run()
+              ← CocktailBarManagerServiceContainer.bindRemoteViewsService()
+              ← CocktailBarManagerServiceContainer.isCocktailEnabled()
+              ← CocktailBarManagerServiceContainer.isEnabledCocktail()
+              ← CocktailBarManagerServiceContainer.requestToDisableCocktail()
+              ← CocktailBarManagerServiceContainer.requestToDisableCocktailByCategory()
+              ← CocktailBarManagerServiceContainer.requestToUpdateCocktail()
+              ← CocktailBarManagerServiceContainer.requestToUpdateCocktailByCategory()
+              ← <com.android.server.cocktailbar.CocktailBarManagerServiceImp
+              ← CocktailBarManagerServiceContainer.getEnabledCocktailIds()
+              ← CocktailBarManagerServiceContainer.closeCocktail()
+              ← CocktailBarManagerServiceContainer.disableCocktail()
+              ← CocktailBarManagerServiceContainer.getImplForUser()
+              ← CocktailBarManagerServiceImpl.enableUser()
+              ← CocktailBarManagerServiceContainer$1.onReceive()
+              ← CocktailBarManagerServiceContainer$2.onPackageAdded()
+              ← CocktailBarManagerServiceContainer$2.onPackageChanged()
+              ← CocktailBarManagerServiceContainer$2.onPackageRemoved()
+              ← CocktailBarManagerServiceContainer.onUnlockUserImpl()
+              ← CocktailBarManagerServiceContainer.partiallyUpdateCocktail()
+              ← CocktailBarManagerServiceContainer.partiallyUpdateHelpView()
+              ← CocktailBarManagerServiceImpl.requestToUpdateCocktailLocked()
+              ← CocktailBarManagerServiceImpl.updateProvidersForPackageLocked()
+              ← CocktailBarManagerServiceImpl.updateProvidersInfoForPackageLocked()
+              ← CocktailBarManagerServiceImpl.updateCocktail()
+              ← CocktailBarManagerServiceImpl.updateFromSettingsLocked()
+              ← CocktailBarManagerServiceImpl.sendInitialBroadcasts()
+              ← CocktailBarManagerServiceContainer.setEnabledCocktailIds()
+              ← CocktailBarManagerServiceImpl.setMode() [APPOPS]
+              ← CocktailBarManagerServiceContainer.setOnPullPendingIntent()
+              ← CocktailBarManagerServiceContainer.showCocktail()
+              ← CocktailBarManagerServiceContainer.startListening()
+              ← CocktailBarManagerServiceContainer.updateCocktail()
+              ← CocktailBarManagerServiceContainer.createCocktailBarManagerServiceImplLocked()
+              ← <com.android.server.cocktailbar.CocktailBarManagerServiceCon
+              ← <com.android.server.cocktailbar.settings.CocktailBarSettings
+              ← CocktailBarSettings.updateEnabledCocktailList()
+
+  CALLEES (what this method invokes):
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → PackageManager.queryIntentServicesAsUser()
+      → ServiceInfo.loadXmlMetaData()
+      → ServiceInfo.isEnabled()
+      → CocktailBarUtils$CocktailBarWhiteList.isSystemApplication()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.size()
+      → List.iterator()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getPackageInfo() [PKG_QUERY]
+        → RemoteException.printStackTrace()
+        → <com.android.server.cocktailbar.utils.CocktailBarUtils: java
+        → StringBuffer.toString()
+        → StringBuffer.append()
+        → StringBuffer.append()
+        → <java.lang.StringBuffer: void <init>(java.lang.String)>
+          → ActivityThread.getPackageManager()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: void <clinit>()>
+  Line:     2111
+  Register: v1 := "com.samsung.android.app.cocktailbarservice"
+  Usage:    [array_init] filled-new-array/range {v1 .. v11}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v11}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Uri.parse()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: void lambda$stopProKioskModeInternal$137()>
+  Line:     22910
+  Register: v1 := "com.samsung.android.app.cocktailbarservice"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.custom.KnoxCustomManagerService: v
+        ← KnoxCustomManagerService$$ExternalSyntheticLambda29.runOrThrow()
+
+  CALLEES (what this method invokes):
+      → RoleManager.addRoleHolderAsUser()
+      → Context.startService()
+      → Context.getContentResolver()
+      → Context.getSystemService()
+      → Context.getMainExecutor()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → ServiceManager.checkService()
+      → UserHandle.of()
+      → UserHandle.getCallingUserId()
+      → Settings$System.putInt()
+      → IStatusBarService$Stub.asInterface()
+      → IStatusBarService.disable()
+      → EdmStorageProvider.getInt()
+      → EnterpriseDeviceManager.getApplicationPolicy()
+      → EnterpriseDeviceManager.getRestrictionPolicy()
+      → ApplicationPolicy.getApplicationStateEnabled()
+      → ApplicationPolicy.setEnableApplication()
+      → ApplicationPolicy.setApplicationStateList()
+      → IKnoxCustomManagerSystemUiCallback.setStatusBarIconsState()
+      → IKnoxCustomManagerSystemUiCallback.setStatusBarNotificationsState()
+      → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+      → KnoxCustomManagerService.getStatusBarNotificationsState()
+      → KnoxCustomManagerService.getEDM()
+      → KnoxCustomManagerService.setUsbMassStorageState()
+      → KnoxCustomManagerService.clearKeyCustomizationInfoByAction()
+      → KnoxCustomManagerService.removeSettingTask()
+      → KnoxCustomManagerService.updateStatusBarLocal()
+      → RestrictionPolicy.allowSafeMode()
+      → Exception.printStackTrace()
+      → HashMap.entrySet()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Map$Entry.getValue()
+      → Set.iterator()
+        → IBinder.queryLocalInterface()
+        → <com.android.internal.statusbar.IStatusBarService$Stub$Proxy
+        → EdmStorageProviderBase.getInt()
+        → <com.samsung.android.knox.ExternalDependencyInjectorImpl: vo
+        → <com.samsung.android.knox.application.ApplicationPolicy: voi
+        → <com.samsung.android.knox.restriction.RestrictionPolicy: voi
+        → ApplicationPolicy.getService()
+        → IApplicationPolicy.getApplicationStateEnabled()
+        → ApplicationPolicy.logUsage()
+        → IApplicationPolicy.setApplicationState()
+        → IApplicationPolicy.setApplicationStateList()
+        → EdmStorageProvider.getBoolean()
+        → KnoxCustomManagerService$Injector.getEDM()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → KnoxCustomManagerService.enforceSystemPermission()
+        → KnoxCustomManagerService.setUsbMassStorageStateLocal()
+        → KnoxCustomManagerService.getProcessName()
+        → KnoxsdkFileLog.d()
+        → IWindowManager.clearKeyCustomizationInfoByAction()
+        → ActivityManagerNative.getDefault()
+        → IActivityManager.getRecentTasks()
+        → IActivityManager.removeTask()
+        → ComponentName.getPackageName()
+        → Intent.getComponent()
+        → ParceledListSlice.getList()
+        → List.iterator()
+        → Context.getPackageManager()
+        → PackageManager.getNameForUid()
+        → Settings$Global.putStringForUser()
+        → KnoxCustomManagerService.getStatusBarMode()
+        → EnterpriseLicenseManager.log()
+        → IRestrictionPolicy.allowSafeMode()
+        → RestrictionPolicy.getService()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → EdmStorageProviderBase.getIntList()
+          → EdmStorageProviderBase.translateToAdminLUID()
+          → <com.android.server.enterprise.storage.SettingNotFoundExcept
+          → List.size()
+          → List.get()
+          → ServiceManager.getService()
+          → IApplicationPolicy$Stub.asInterface()
+          → EdmStorageProviderBase.getBoolean()
+          → EnterpriseDeviceManager.getInstance()
+          → EnterpriseDeviceManager.enforceActiveAdminPermission()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+          → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+          → KnoxCustomManagerService$Injector.binderWithCleanCallingIdentity()
+          → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+          → KnoxsdkFileLog.fileLog()
+          → SemLog.d()
+          → ActivityManager.getService()
+          → KnoxCustomManagerService.getProKioskState()
+          → EnterpriseLicenseManager.getService()
+          → IEnterpriseLicense.log()
+          → IRestrictionPolicy$Stub.asInterface()
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.put()
+            → Cursor.isNull()
+            → Cursor.moveToNext()
+            → Cursor.getInt()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → EdmStorageProviderBase.getCursor()
+            → <java.util.ArrayList: void <init>()>
+            → List.add()
+            → SemPersonaManager.isKnoxId()
+            → <android.util.AndroidException: void <init>(java.lang.String
+            → <com.samsung.android.knox.application.IApplicationPolicy$Stu
+            → EdmStorageProviderBase.getBooleanList()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.w()
+            → EnterpriseDeviceManager.getService()
+            → IEnterpriseDeviceManager.enforceActiveAdminPermission()
+            → Binder.withCleanCallingIdentity()
+            → Logger.log()
+            → IEnterpriseLicense$Stub.asInterface()
+            → <com.samsung.android.knox.restriction.IRestrictionPolicy$Stu
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → EdmStorageProviderBase.getCursor()
+              → EdmStorageProviderBase.formatContentValues()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+              → <java.lang.Exception: void <init>(java.lang.String)>
+              → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → SemLog.w()
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → Binder.clearCallingIdentity()
+              → Binder.restoreCallingIdentity()
+              → ExceptionUtils.propagate()
+              → FunctionalUtils$ThrowingSupplier.getOrThrow()
+              → <com.samsung.android.knox.license.IEnterpriseLicense$Stub$Pr
+

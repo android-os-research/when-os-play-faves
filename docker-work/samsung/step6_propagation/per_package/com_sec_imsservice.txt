@@ -1,0 +1,419 @@
+######################################################################
+# Propagation: com.sec.imsservice
+######################################################################
+
+JARs:                 framework, imsmanager, rcsopenapi, vsimmanager
+Classes:              13
+Occurrences:          13
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.ims.options.SemCapabilityManager
+  Method:   <com.samsung.android.ims.options.SemCapabilityManager: void connect()>
+  Line:     301
+  Register: v1 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Lcom/samsung/android/ims/options/SemCapa → 
+
+  CALLERS (who invokes this method):
+      ← SemCapabilityManager.init()
+        ← <com.samsung.android.ims.options.SemCapabilityManager: void 
+
+  CALLEES (what this method invokes):
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → Looper.getMainLooper()
+      → Looper.myLooper()
+      → SemContextExt.bindServiceAsUser()
+      → <com.samsung.android.ims.options.SemCapabilityManager$2: voi
+        → ThreadLocal.get()
+        → SemReflectionUtils.invoke2()
+        → IllegalStateException.printStackTrace()
+        → NoSuchMethodException.printStackTrace()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → Method.isAccessible()
+          → Method.invoke()
+          → Method.setAccessible()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      imsmanager
+  Class:    com.sec.ims.options.CapabilityManager
+  Method:   <com.sec.ims.options.CapabilityManager: void connect()>
+  Line:     327
+  Register: v1 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Lcom/sec/ims/options/CapabilityManager;- → 
+
+  CALLERS (who invokes this method):
+      ← CapabilityManager.init()
+        ← <com.sec.ims.options.CapabilityManager: void <init>(android.
+        ← <com.sec.ims.options.CapabilityManager: void <init>(android.
+
+  CALLEES (what this method invokes):
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → Looper.getMainLooper()
+      → Looper.myLooper()
+      → ContextExt.bindServiceAsUser()
+      → <com.sec.ims.options.CapabilityManager$1: void <init>(com.se
+        → ThreadLocal.get()
+        → Context.bindServiceAsUser()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      rcsopenapi
+  Class:    com.gsma.services.rcs.contact.ContactService
+  Method:   <com.gsma.services.rcs.contact.ContactService: void connect()>
+  Line:     207
+  Register: v3 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, p0, Lcom/gsma/services/rcs/contact/ContactSe → [i
+
+  CALLEES (what this method invokes):
+      → Context.getApplicationContext()
+      → Context.bindService()
+      → Context.getPackageName()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → RcsServiceControl.isActivated()
+      → RcsServiceControl.isAvailable()
+      → RcsServiceControl.getInstance()
+        → CommonServiceConfiguration.getStringValueSetting()
+        → <com.gsma.services.rcs.RcsServiceControl: void <init>(androi
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getString()
+          → Cursor.close()
+          → Exception.getMessage()
+          → Exception.printStackTrace()
+          → Throwable.addSuppressed()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      rcsopenapi
+  Class:    com.gsma.services.rcs.sharing.video.VideoSharingService
+  Method:   <com.gsma.services.rcs.sharing.video.VideoSharingService: void connect()>
+  Line:     201
+  Register: v3 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, p0, Lcom/gsma/services/rcs/sharing/video/Vid → [i
+
+  CALLEES (what this method invokes):
+      → Context.getApplicationContext()
+      → Context.bindService()
+      → Context.getPackageName()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → RcsServiceControl.isActivated()
+      → RcsServiceControl.isAvailable()
+      → RcsServiceControl.getInstance()
+        → CommonServiceConfiguration.getStringValueSetting()
+        → <com.gsma.services.rcs.RcsServiceControl: void <init>(androi
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getString()
+          → Cursor.close()
+          → Exception.getMessage()
+          → Exception.printStackTrace()
+          → Throwable.addSuppressed()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      rcsopenapi
+  Class:    com.gsma.services.rcs.sharing.geoloc.GeolocSharingService
+  Method:   <com.gsma.services.rcs.sharing.geoloc.GeolocSharingService: void connect()>
+  Line:     230
+  Register: v3 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, p0, Lcom/gsma/services/rcs/sharing/geoloc/Ge → [i
+
+  CALLEES (what this method invokes):
+      → Context.getApplicationContext()
+      → Context.bindService()
+      → Context.getPackageName()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → RcsServiceControl.isActivated()
+      → RcsServiceControl.isAvailable()
+      → RcsServiceControl.getInstance()
+        → CommonServiceConfiguration.getStringValueSetting()
+        → <com.gsma.services.rcs.RcsServiceControl: void <init>(androi
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getString()
+          → Cursor.close()
+          → Exception.getMessage()
+          → Exception.printStackTrace()
+          → Throwable.addSuppressed()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      rcsopenapi
+  Class:    com.gsma.services.rcs.sharing.image.ImageSharingService
+  Method:   <com.gsma.services.rcs.sharing.image.ImageSharingService: void connect()>
+  Line:     231
+  Register: v3 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, p0, Lcom/gsma/services/rcs/sharing/image/Ima → [i
+
+  CALLEES (what this method invokes):
+      → Context.getApplicationContext()
+      → Context.bindService()
+      → Context.getPackageName()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → RcsServiceControl.isActivated()
+      → RcsServiceControl.isAvailable()
+      → RcsServiceControl.getInstance()
+        → CommonServiceConfiguration.getStringValueSetting()
+        → <com.gsma.services.rcs.RcsServiceControl: void <init>(androi
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getString()
+          → Cursor.close()
+          → Exception.getMessage()
+          → Exception.printStackTrace()
+          → Throwable.addSuppressed()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      rcsopenapi
+  Class:    com.gsma.services.rcs.extension.MultimediaSessionService
+  Method:   <com.gsma.services.rcs.extension.MultimediaSessionService: void connect()>
+  Line:     300
+  Register: v4 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v3, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v4, p0, Lcom/gsma/services/rcs/extension/Multime → [i
+
+  CALLEES (what this method invokes):
+      → Context.getApplicationContext()
+      → Context.bindService()
+      → Context.getPackageName()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → RcsServiceControl.isActivated()
+      → RcsServiceControl.isAvailable()
+      → RcsServiceControl.getInstance()
+        → CommonServiceConfiguration.getStringValueSetting()
+        → <com.gsma.services.rcs.RcsServiceControl: void <init>(androi
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getString()
+          → Cursor.close()
+          → Exception.getMessage()
+          → Exception.printStackTrace()
+          → Throwable.addSuppressed()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      rcsopenapi
+  Class:    com.gsma.services.rcs.chat.ChatService
+  Method:   <com.gsma.services.rcs.chat.ChatService: void connect()>
+  Line:     386
+  Register: v3 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, p0, Lcom/gsma/services/rcs/chat/ChatService; → [i
+
+  CALLEES (what this method invokes):
+      → Context.getApplicationContext()
+      → Context.bindService()
+      → Context.getPackageName()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → RcsServiceControl.isActivated()
+      → RcsServiceControl.isAvailable()
+      → RcsServiceControl.getInstance()
+        → CommonServiceConfiguration.getStringValueSetting()
+        → <com.gsma.services.rcs.RcsServiceControl: void <init>(androi
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getString()
+          → Cursor.close()
+          → Exception.getMessage()
+          → Exception.printStackTrace()
+          → Throwable.addSuppressed()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      rcsopenapi
+  Class:    com.gsma.services.rcs.capability.CapabilityService
+  Method:   <com.gsma.services.rcs.capability.CapabilityService: void connect()>
+  Line:     314
+  Register: v3 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, p0, Lcom/gsma/services/rcs/capability/Capabi → [i
+
+  CALLEES (what this method invokes):
+      → Context.getApplicationContext()
+      → Context.bindService()
+      → Context.getPackageName()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → RcsServiceControl.isActivated()
+      → RcsServiceControl.isAvailable()
+      → RcsServiceControl.getInstance()
+        → CommonServiceConfiguration.getStringValueSetting()
+        → <com.gsma.services.rcs.RcsServiceControl: void <init>(androi
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getString()
+          → Cursor.close()
+          → Exception.getMessage()
+          → Exception.printStackTrace()
+          → Throwable.addSuppressed()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      rcsopenapi
+  Class:    com.gsma.services.rcs.filetransfer.FileTransferService
+  Method:   <com.gsma.services.rcs.filetransfer.FileTransferService: void connect()>
+  Line:     388
+  Register: v3 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, p0, Lcom/gsma/services/rcs/filetransfer/File → [i
+
+  CALLEES (what this method invokes):
+      → Context.getApplicationContext()
+      → Context.bindService()
+      → Context.getPackageName()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → RcsServiceControl.isActivated()
+      → RcsServiceControl.isAvailable()
+      → RcsServiceControl.getInstance()
+        → CommonServiceConfiguration.getStringValueSetting()
+        → <com.gsma.services.rcs.RcsServiceControl: void <init>(androi
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getString()
+          → Cursor.close()
+          → Exception.getMessage()
+          → Exception.printStackTrace()
+          → Throwable.addSuppressed()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      rcsopenapi
+  Class:    com.gsma.services.rcs.history.HistoryService
+  Method:   <com.gsma.services.rcs.history.HistoryService: void connect()>
+  Line:     140
+  Register: v3 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, p0, Lcom/gsma/services/rcs/history/HistorySe → [i
+
+  CALLEES (what this method invokes):
+      → Context.getApplicationContext()
+      → Context.bindService()
+      → Context.getPackageName()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → RcsServiceControl.isActivated()
+      → RcsServiceControl.isAvailable()
+      → RcsServiceControl.getInstance()
+        → CommonServiceConfiguration.getStringValueSetting()
+        → <com.gsma.services.rcs.RcsServiceControl: void <init>(androi
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getString()
+          → Cursor.close()
+          → Exception.getMessage()
+          → Exception.printStackTrace()
+          → Throwable.addSuppressed()
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      rcsopenapi
+  Class:    com.gsma.services.rcs.upload.FileUploadService
+  Method:   <com.gsma.services.rcs.upload.FileUploadService: void connect()>
+  Line:     497
+  Register: v3 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, p0, Lcom/gsma/services/rcs/upload/FileUpload → [i
+
+  CALLEES (what this method invokes):
+      → Context.getApplicationContext()
+      → Context.bindService()
+      → Context.getPackageName()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → RcsServiceControl.isActivated()
+      → RcsServiceControl.isAvailable()
+      → RcsServiceControl.getInstance()
+        → CommonServiceConfiguration.getStringValueSetting()
+        → <com.gsma.services.rcs.RcsServiceControl: void <init>(androi
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getString()
+          → Cursor.close()
+          → Exception.getMessage()
+          → Exception.printStackTrace()
+          → Throwable.addSuppressed()
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      vsimmanager
+  Class:    com.sec.vsim.attsoftphone.SoftphoneManager
+  Method:   <com.sec.vsim.attsoftphone.SoftphoneManager: void connectService()>
+  Line:     152
+  Register: v2 := "com.sec.imsservice"
+  Usage:    [invoke] invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v2, p0, Lcom/sec/vsim/attsoftphone/SoftphoneMana → 
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → SoftphoneManager$SoftphoneServiceListener.onConnected()
+      → SoftphoneManager.getSoftphoneService()
+

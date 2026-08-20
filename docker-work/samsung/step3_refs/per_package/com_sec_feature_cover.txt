@@ -1,0 +1,10 @@
+# com.sec.feature.cover [NEW]
+# Refs: 6
+# JARs: framework, services
+
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.desktopmode.HardwareManager: void <init>(android.content.Context,com.android.server.desktopmode.IStateManager,com.android.server.desktopmode.SettingsHelper,android.hardware.input.InputManager,android.hardware.display.DisplayManager,android.os.PowerManagerInternal,com.android.server.wm.WindowManagerService,com.samsung.android.vr.GearVrManagerInternal,android.hardware.display.IDisplayManager)>
+<com.android.server.sepunion.SemPluginManagerService: void <init>(android.content.Context)>
+<com.android.server.wm.WindowManagerServiceExt: void <init>(android.content.Context,com.android.server.wm.WindowManagerService)>
+<com.samsung.android.cover.CoverManager: void initSystemFeature()>
+<com.samsung.android.sepunion.UnionUtils: void updateSystemFeature(android.content.Context)>

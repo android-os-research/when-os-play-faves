@@ -1,0 +1,10 @@
+# android.hardware.display.IWifiDisplayConnectionCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.hardware.display.IWifiDisplayConnectionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.display.IWifiDisplayConnectionCallback$Stub$Proxy: void onFailure(int)>
+<android.hardware.display.IWifiDisplayConnectionCallback$Stub$Proxy: void onSuccess(java.util.List)>
+<android.hardware.display.IWifiDisplayConnectionCallback$Stub: android.hardware.display.IWifiDisplayConnectionCallback asInterface(android.os.IBinder)>
+<android.hardware.display.IWifiDisplayConnectionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.display.IWifiDisplayConnectionCallback$Stub: void <init>()>

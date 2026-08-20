@@ -1,0 +1,12 @@
+# com.sec.ims.volte2.IVolteServiceEventListener [NEW]
+# Refs: 8
+# JARs: imsmanager
+
+<com.sec.ims.volte2.IVolteServiceEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.volte2.IVolteServiceEventListener$Stub$Proxy: void onCdpnInfo(java.lang.String,int)>
+<com.sec.ims.volte2.IVolteServiceEventListener$Stub$Proxy: void onDialogEvent(com.sec.ims.DialogEvent)>
+<com.sec.ims.volte2.IVolteServiceEventListener$Stub$Proxy: void onIncomingCall(int)>
+<com.sec.ims.volte2.IVolteServiceEventListener$Stub$Proxy: void onPullingCall(int)>
+<com.sec.ims.volte2.IVolteServiceEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.volte2.IVolteServiceEventListener$Stub: com.sec.ims.volte2.IVolteServiceEventListener asInterface(android.os.IBinder)>
+<com.sec.ims.volte2.IVolteServiceEventListener$Stub: void <init>()>

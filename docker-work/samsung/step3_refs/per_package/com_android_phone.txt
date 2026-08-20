@@ -1,0 +1,19 @@
+# com.android.phone [NEW]
+# Refs: 15
+# JARs: com.samsung.android.semtelephonesdk.framework-v1, framework, motionrecognitionservice, services, telephony-common
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<android.telecom.PhoneAccountHandle: void <clinit>()>
+<com.android.internal.telephony.MissedIncomingCallSmsFilter: void <clinit>()>
+<com.android.internal.telephony.VisualVoicemailSmsFilter: void <clinit>()>
+<com.android.internal.telephony.VisualVoicemailSmsFilter: void sendVvmSmsBroadcast(android.content.Context,android.telephony.VisualVoicemailSmsFilterSettings,android.telecom.PhoneAccountHandle,com.android.internal.telephony.VisualVoicemailSmsParser$WrappedMessageData,java.lang.String)>
+<com.android.internal.telephony.euicc.EuiccController: void addResolutionIntent(android.content.Intent,java.lang.String,java.lang.String,int,boolean,com.android.internal.telephony.euicc.EuiccOperation,int,int,boolean,int)>
+<com.android.internal.telephony.ims.MmTelFeatureCompatAdapter: android.app.PendingIntent createIncomingCallPendingIntent()>
+<com.android.server.MmsServiceBroker$BinderService: android.net.Uri adjustUriForUserAndGrantPermission(android.net.Uri,java.lang.String,int,int)>
+<com.android.server.Watchdog: boolean isInterestingJavaProcess(java.lang.String)>
+<com.android.server.am.ActivityManagerService: void systemReady(java.lang.Runnable,com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.enterprise.application.ApplicationPolicy: boolean handleStatusBarNotificationNotAllowedAsUser(java.lang.String,int,android.app.Notification)>
+<com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+<com.samsung.android.gesture.MotionRecognitionService$Listener: java.lang.String getTopActivityPackageName()>
+<com.samsung.android.semtelephonesdk.framework.SemTelephoneSDK$ServiceBindHelper: void bindService(android.content.Context)>
+<com.samsung.isrb.IsrbHooks: void init()>

@@ -1,0 +1,10 @@
+# android.view.translation.ITranslationDirectManager [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.view.translation.ITranslationDirectManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.translation.ITranslationDirectManager$Stub$Proxy: void onFinishTranslationSession(int)>
+<android.view.translation.ITranslationDirectManager$Stub$Proxy: void onTranslationRequest(android.view.translation.TranslationRequest,int,android.os.ICancellationSignal,android.service.translation.ITranslationCallback)>
+<android.view.translation.ITranslationDirectManager$Stub: android.view.translation.ITranslationDirectManager asInterface(android.os.IBinder)>
+<android.view.translation.ITranslationDirectManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.translation.ITranslationDirectManager$Stub: void <init>()>

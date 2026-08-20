@@ -1,0 +1,1517 @@
+######################################################################
+# Propagation: com.samsung.android.kgclient
+######################################################################
+
+JARs:                 framework, services
+Classes:              12
+Occurrences:          27
+Usage types:          array_init, invoke
+Enforcement patterns: allowlist_check, appops_set, early_return, package_enable_disable, string_compare, system_property_read
+Security tags:        APPOPS, PERM_CHECK, PKG_MGMT, PKG_QUERY, SIG_CHECK, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.net.VpnService$Builder
+  Method:   <android.net.VpnService$Builder: android.net.VpnService$Builder addAllowedApplication(java.lang.String)>
+  Line:     610
+  Register: v1 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-eqz v1, :cond_6c → [reassigned] v1 overwritten
+
+  CALLEES (what this method invokes):
+      → VpnService$Builder.isSecureWifiUid()
+      → VpnService$Builder.verifyApp()
+      → VpnService$Builder.verifyAppAsUser()
+      → <android.net.VpnService: boolean -$$Nest$sfgetmIsKGClientPac
+      → Binder.getCallingUid() [UID_CHECK]
+      → KnoxGuardManager.isVpnExceptionRequired()
+      → KnoxGuardManager.getInstance()
+      → <java.lang.UnsupportedOperationException: void <init>(java.l
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+        → IPackageManager$Stub.asInterface()
+        → IPackageManager.checkSignatures() [SIG_CHECK]
+        → IPackageManager.getPackagesForUid()
+        → ServiceManager.getService()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → UserHandle.getCallingUserId()
+        → <java.lang.IllegalStateException: void <init>(java.lang.Thro
+        → IPackageManager.getPackageUid()
+        → <android.content.pm.PackageManager$NameNotFoundException: vo
+        → IKnoxGuardManager.isVpnExceptionRequired()
+        → KnoxGuardManager.getService()
+        → <com.samsung.android.knoxguard.KnoxGuardManager: void <init>
+          → <android.util.AndroidException: void <init>(java.lang.String
+          → IKnoxGuardManager$Stub.asInterface()
+            → <java.lang.Exception: void <init>(java.lang.String)>
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knoxguard.IKnoxGuardManager$Stub$Proxy:
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.net.VpnService$Builder
+  Method:   <android.net.VpnService$Builder: android.os.ParcelFileDescriptor establish()>
+  Line:     1126
+  Register: v0 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Landroid/net/VpnService$Builder;->addDisallowedApplication(Ljava/lang/Strin
+  Patterns: (none)
+  Flow:     [invoke] android.net.VpnService$Builder.addDisallowedApplication() → [other] move-exception v0 → [other] .local v0, "e":
+
+  CALLEES (what this method invokes):
+      → IVpnManager.establishVpn()
+      → VpnService$Builder.addDisallowedApplication()
+      → <android.net.VpnService: android.net.IVpnManager -$$Nest$smg
+      → <android.net.VpnService: boolean -$$Nest$sfgetmIsKGClientPac
+      → KnoxGuardManager.isVpnExceptionRequired()
+      → KnoxGuardManager.getInstance()
+      → <java.lang.IllegalStateException: void <init>(java.lang.Thro
+        → VpnService$Builder.isSecureWifiUid()
+        → VpnService$Builder.verifyApp()
+        → VpnService$Builder.verifyAppAsUser()
+        → Binder.getCallingUid() [UID_CHECK]
+        → <java.lang.UnsupportedOperationException: void <init>(java.l
+        → <java.util.ArrayList: void <init>()>
+        → List.add()
+        → VpnService.getService()
+        → IKnoxGuardManager.isVpnExceptionRequired()
+        → KnoxGuardManager.getService()
+        → <com.samsung.android.knoxguard.KnoxGuardManager: void <init>
+          → IPackageManager$Stub.asInterface()
+          → IPackageManager.checkSignatures() [SIG_CHECK]
+          → IPackageManager.getPackagesForUid()
+          → ServiceManager.getService()
+          → IPackageManager.getApplicationInfo() [PKG_QUERY]
+          → UserHandle.getCallingUserId()
+          → IPackageManager.getPackageUid()
+          → <android.content.pm.PackageManager$NameNotFoundException: vo
+          → IVpnManager$Stub.asInterface()
+          → IKnoxGuardManager$Stub.asInterface()
+            → <android.util.AndroidException: void <init>(java.lang.String
+            → <android.net.IVpnManager$Stub$Proxy: void <init>(android.os.
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knoxguard.IKnoxGuardManager$Stub$Proxy:
+              → <java.lang.Exception: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.net.VpnService
+  Method:   <android.net.VpnService: boolean isKGClientPackageInstalled(android.content.Context)>
+  Line:     239
+  Register: v0 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {v1, v0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [invoke] android.content.pm.PackageManager.checkSignatures
+
+  CALLERS (who invokes this method):
+      ← VpnService.prepare()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → PackageManager.checkSignatures() [SIG_CHECK]
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.KnoxGuardService
+  Method:   <com.samsung.android.knoxguard.service.KnoxGuardService: void registerReceiver(android.content.Context)>
+  Line:     1445
+  Register: v1 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v1, v4}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knoxguard.service.KnoxGuardService: voi
+        ← SystemServer.startOtherServices()
+          ← SystemServer.run()
+            ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → IntentFilter.setPriority()
+      → <com.samsung.android.knoxguard.service.receiver.SystemReceiv
+      → Utils.isChinaDevice()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → SystemProperties.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.KnoxGuardSeService
+  Method:   <com.samsung.android.knoxguard.service.KnoxGuardSeService: void registerReceiver(android.content.Context)>
+  Line:     3285
+  Register: v1 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v1, v4}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knoxguard.service.KnoxGuardSeService: v
+        ← SystemServer.startOtherServices()
+          ← SystemServer.run()
+            ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → IntentFilter.setPriority()
+      → <com.samsung.android.knoxguard.service.receiver.SystemSeRece
+      → Utils.isChinaDevice()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → SystemProperties.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.KnoxGuardSeService
+  Method:   <com.samsung.android.knoxguard.service.KnoxGuardSeService: java.lang.String verifyKgRot()>
+  Line:     4812
+  Register: v3 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getNameForUid()
+      → Binder.getCallingUid() [UID_CHECK]
+      → TextUtils.isEmpty()
+      → KnoxGuardNative.verifyKgRotRefactor()
+      → KnoxGuardSeService.getStringResult()
+      → KnoxGuardSeService.makeRotReturn()
+      → IntegritySeUtil.checkSignatures() [SIG_CHECK]
+      → IntegritySeUtil.isEnabled()
+      → Utils.checkPermission() [PERM_CHECK]
+        → CharSequence.length()
+        → KnoxGuardNative.tz_verifyKgRot()
+        → KgErrWrapper.getStr()
+        → KnoxGuardSeService.setTaError()
+        → PackageInfo.toString()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → PackageManager.checkSignatures() [SIG_CHECK]
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → Context.checkCallingPermission()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.IntentRelayManager
+  Method:   <com.samsung.android.knoxguard.service.IntentRelayManager: void sendRequestedIntent(android.content.Context,java.lang.String,android.os.Bundle)>
+  Line:     59
+  Register: v1 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← KnoxGuardSeService.unlockCompleted()
+      ← KnoxGuardService$1.onUnlockedByPasscode()
+      ← SystemReceiver.onReceive()
+      ← SystemSeReceiver.onReceive()
+        ← <com.samsung.android.knoxguard.service.KnoxGuardSeService: v
+          ← KnoxGuardSeService$1.checkRemoteLockPassword()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.putExtras()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegritySeUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegritySeUtil: boolean checkComponents(android.content.Context,com.samsung.android.knoxguard.service.utils.IntegritySeUtil$IntegritySeResult)>
+  Line:     82
+  Register: v0 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [invoke] com.samsung.android.knoxguard.service.utils.Integ
+
+  CALLERS (who invokes this method):
+      ← IntegritySeUtil.checkKGClientIntegrity()
+        ← KnoxGuardSeService.setClientHealthOK()
+        ← SystemSeReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager$NameNotFoundException.getMessage()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → IntegritySeUtil.hasEnabledComponent()
+        → ComponentInfo.isEnabled()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegritySeUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegritySeUtil: boolean checkSignatures(android.content.Context)>
+  Line:     450
+  Register: v0 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [invoke] android.content.pm.PackageManager.checkSignatures
+
+  CALLERS (who invokes this method):
+      ← KnoxGuardSeService.verifyKgRot()
+      ← IntegritySeUtil.checkKGClientIntegrity()
+      ← IntegritySeUtil.setInitialState()
+        ← KnoxGuardSeService.setClientHealthOK()
+        ← SystemSeReceiver.onReceive()
+        ← <com.samsung.android.knoxguard.service.KnoxGuardSeService: v
+          ← SystemServer.startOtherServices()
+            ← SystemServer.run()
+              ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageInfo.toString()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → PackageManager.checkSignatures() [SIG_CHECK]
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegritySeUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegritySeUtil: void disableClient(android.content.Context)>
+  Line:     657
+  Register: v0 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1, v2}, Landroid/content/pm/PackageManager;->setApplicationEnabledSetting(L
+  Patterns: early_return, package_enable_disable
+  Flow:     [invoke] android.content.pm.PackageManager.setApplicationEnabledSetti → [other] sget-object v0, Lcom/samsung/android/kno
+
+  CALLERS (who invokes this method):
+      ← IntegritySeUtil.checkKGClientIntegrity()
+        ← KnoxGuardSeService.setClientHealthOK()
+        ← SystemSeReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+      → Exception.getMessage()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegritySeUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegritySeUtil: long getClientVersionCode(android.content.Context,long)>
+  Line:     721
+  Register: v0 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: (none)
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [other] sget-object v0, Lcom/samsung/android/knoxguard/ser
+
+  CALLERS (who invokes this method):
+      ← IntegritySeUtil.isValidVersion()
+        ← IntegritySeUtil.checkKGClientIntegrity()
+          ← KnoxGuardSeService.setClientHealthOK()
+          ← SystemSeReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageInfo.getLongVersionCode()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+        → PackageInfo.composeLongVersionCode()
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegritySeUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegritySeUtil: boolean isEnabled(android.content.Context)>
+  Line:     841
+  Register: v1 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [other] sget-object v1, Lcom/samsung/android/knoxguard
+
+  CALLERS (who invokes this method):
+      ← KnoxGuardSeService.verifyKgRot()
+      ← IntegritySeUtil.checkKGClientIntegrity()
+        ← KnoxGuardSeService.setClientHealthOK()
+        ← SystemSeReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegritySeUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegritySeUtil: boolean isSystemApp(android.content.Context)>
+  Line:     891
+  Register: v1 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← IntegritySeUtil.checkKGClientIntegrity()
+        ← KnoxGuardSeService.setClientHealthOK()
+        ← SystemSeReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegritySeUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegritySeUtil: void setInitialState(android.content.Context,int)>
+  Line:     965
+  Register: v0 := "com.samsung.android.kgclient"
+  Usage:    [] 
+  Patterns: early_return, appops_set
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [invoke] android.content.pm.IPackageManager.getApplica
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knoxguard.service.KnoxGuardSeService: v
+        ← SystemServer.startOtherServices()
+          ← SystemServer.run()
+            ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → AppGlobals.getPackageManager()
+      → AppOpsManager.checkOp() [APPOPS]
+      → AppOpsManager.setMode() [APPOPS]
+      → DevicePolicyManager.setActiveAdmin()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → IPackageManager.getApplicationHiddenSettingAsUser()
+      → IPackageManager.setApplicationHiddenSettingAsUser()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → RemoteException.getMessage()
+      → UserHandle.getCallingUserId()
+      → EnterpriseDeviceManager.getInstance()
+      → EnterpriseDeviceManager.setActiveAdmin()
+      → IntegritySeUtil.checkSignatures() [SIG_CHECK]
+        → ActivityThread.getPackageManager()
+        → Process.myPid()
+        → Process.myTid()
+        → Process.myUid()
+        → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+        → KnoxsdkFileLog.d()
+        → KnoxsdkFileLog.w()
+        → EnterpriseDeviceManager.getService()
+        → IEnterpriseDeviceManager.setActiveAdmin()
+        → PackageInfo.toString()
+        → PackageManager.checkSignatures() [SIG_CHECK]
+          → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+          → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+          → KnoxsdkFileLog.fileLog()
+          → SemLog.d()
+          → SemLog.w()
+          → ServiceManager.getService()
+          → IEnterpriseDeviceManager$Stub.asInterface()
+            → UserHandle.getUserId()
+            → SemPersonaManager.isKnoxId()
+            → Binder.getCallingUid() [UID_CHECK]
+            → ContextInfo$$ExternalSyntheticOutline0.m()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int,int,b
+            → KnoxsdkFileLog.d()
+            → <java.lang.Exception: void <init>(java.lang.String)>
+            → <java.util.HashMap: void <init>()>
+            → Logger.log()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegrityUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegrityUtil: boolean checkComponents(android.content.Context,com.samsung.android.knoxguard.service.utils.IntegrityUtil$IntegrityResult)>
+  Line:     80
+  Register: v0 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [invoke] com.samsung.android.knoxguard.service.utils.Integ
+
+  CALLERS (who invokes this method):
+      ← IntegrityUtil.checkKGClientIntegrity()
+        ← SystemReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager$NameNotFoundException.getMessage()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → IntegrityUtil.hasEnabledComponent()
+        → ComponentInfo.isEnabled()
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegrityUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegrityUtil: boolean checkSignatures(android.content.Context)>
+  Line:     433
+  Register: v0 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [invoke] android.content.pm.PackageManager.checkSignatures
+
+  CALLERS (who invokes this method):
+      ← IntegrityUtil.checkKGClientIntegrity()
+      ← IntegrityUtil.setInitialState()
+        ← SystemReceiver.onReceive()
+        ← <com.samsung.android.knoxguard.service.KnoxGuardService: voi
+          ← SystemServer.startOtherServices()
+            ← SystemServer.run()
+              ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageInfo.toString()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → PackageManager.checkSignatures() [SIG_CHECK]
+
+────────────────────────────────────────────────────────────
+Occurrence #17
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegrityUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegrityUtil: boolean isEnabled(android.content.Context)>
+  Line:     651
+  Register: v1 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [other] sget-object v1, Lcom/samsung/android/knoxguard
+
+  CALLERS (who invokes this method):
+      ← IntegrityUtil.checkKGClientIntegrity()
+        ← SystemReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #18
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegrityUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegrityUtil: boolean isSystemApp(android.content.Context)>
+  Line:     701
+  Register: v1 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← IntegrityUtil.checkKGClientIntegrity()
+        ← SystemReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #19
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.utils.IntegrityUtil
+  Method:   <com.samsung.android.knoxguard.service.utils.IntegrityUtil: void setInitialState(android.content.Context,java.lang.String)>
+  Line:     750
+  Register: v0 := "com.samsung.android.kgclient"
+  Usage:    [] 
+  Patterns: string_compare, early_return, appops_set
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [invoke] android.content.pm.IPackageManager.getApplica
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knoxguard.service.KnoxGuardService: voi
+        ← SystemServer.startOtherServices()
+          ← SystemServer.run()
+            ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → AppGlobals.getPackageManager()
+      → AppOpsManager.checkOp() [APPOPS]
+      → AppOpsManager.setMode() [APPOPS]
+      → DevicePolicyManager.isAdminActive()
+      → DevicePolicyManager.setActiveAdmin()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → IPackageManager.getApplicationHiddenSettingAsUser()
+      → IPackageManager.setApplicationHiddenSettingAsUser()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → RemoteException.getMessage()
+      → UserHandle.getCallingUserId()
+      → IntegrityUtil.checkSignatures() [SIG_CHECK]
+        → ActivityThread.getPackageManager()
+        → PackageInfo.toString()
+        → PackageManager.checkSignatures() [SIG_CHECK]
+
+────────────────────────────────────────────────────────────
+Occurrence #20
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.receiver.SystemReceiver
+  Method:   <com.samsung.android.knoxguard.service.receiver.SystemReceiver: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     490
+  Register: v2 := "com.samsung.android.kgclient"
+  Usage:    [] 
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLEES (what this method invokes):
+      → Intent.getData()
+      → Intent.getExtras()
+      → Intent.getAction()
+      → Uri.getSchemeSpecificPart()
+      → Handler.postDelayed()
+      → <android.os.Handler: void <init>(android.os.Looper)>
+      → Looper.getMainLooper()
+      → IntentRelayManager.sendRequestedIntent()
+      → KnoxGuardService.getKGVM()
+      → KnoxGuardService.getActionList()
+      → <com.samsung.android.knoxguard.service.receiver.SystemReceiv
+      → IntegrityUtil.checkKGClientIntegrity()
+      → IntegrityUtil.toErrorCode()
+      → IntegrityUtil.checkSystemUiIntegrity()
+      → Utils.isChinaDevice()
+      → Utils.isSetupWizardFinished()
+      → Utils.isStateForEnrolledDevice()
+      → Utils.getRlcState()
+      → Utils.autoLockDevice()
+      → Utils.lockDevice()
+      → Utils.setCheckingStateToRlc()
+      → KnoxGuardVaultManager.bindToLockScreen()
+      → Throwable.getMessage()
+      → List.contains()
+        → Context.sendBroadcastAsUser()
+        → Intent.addFlags()
+        → Intent.putExtras()
+        → Intent.setPackage()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → <com.samsung.android.knoxguard.service.utils.IntegrityUtil$I
+        → IntegrityUtil.checkComponents()
+        → IntegrityUtil.checkSignatures() [SIG_CHECK]
+        → IntegrityUtil.isEnabled()
+        → IntegrityUtil.isSystemApp()
+        → Exception.getMessage()
+        → Context.getSystemService()
+        → PowerManager.shutdown()
+        → IntegrityUtil.testSystemUiCorrupted()
+        → SystemProperties.get()
+        → Context.getContentResolver()
+        → Settings$Global.getInt()
+        → KnoxGuardVaultManager.query()
+        → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+        → Context.getString()
+        → Utils.isTabletDevice()
+        → Utils.setRemoteLockToLockscreen()
+        → Utils.getRlcClientDataCompany()
+        → KnoxGuardVaultException.getMessage()
+        → KnoxGuardVaultManager.setRestrictedDevice()
+        → RemoteException.printStackTrace()
+        → ServiceManager.getService()
+        → ILockSettings$Stub.asInterface()
+        → ILockSettings.registerRemoteLockCallback()
+        → KnoxGuardVaultManager.setLockSettingsService()
+        → KnoxGuardVaultManager.setRemoteLockToLockscreen()
+        → KnoxGuardVaultManager.throwException()
+          → Context.getPackageManager()
+          → PackageManager$NameNotFoundException.getMessage()
+          → PackageManager.getPackageInfo() [PKG_QUERY]
+          → IntegrityUtil.hasEnabledComponent()
+          → PackageInfo.toString()
+          → PackageManager.checkSignatures() [SIG_CHECK]
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → AppGlobals.getPackageManager()
+          → IPackageManager.getApplicationInfo() [PKG_QUERY]
+          → IPackageManager.getApplicationHiddenSettingAsUser()
+          → IPackageManager.setApplicationHiddenSettingAsUser()
+          → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+          → VaultKeeperManager.read()
+          → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+          → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+          → KnoxGuardVaultManager.setContext()
+          → KnoxGuardVaultManager.setCrypto()
+          → KnoxGuardVaultManager.setIsSupportKg2()
+          → KnoxGuardVaultManager.setServerCert()
+          → KnoxGuardVaultManager.setVkm()
+          → KnoxGuardVaultManager.setVkm2()
+          → VaultKeeperManager.getInstance()
+          → SystemProperties.get()
+          → Utils.setRemoteLockToLockscreen()
+          → KnoxGuardVaultManager.getClientData()
+          → JSONObject.isNull()
+          → JSONObject.getString()
+          → <org.json.JSONObject: void <init>(java.lang.String)>
+          → VaultKeeperManager.write()
+          → IBinder.queryLocalInterface()
+          → <com.android.internal.widget.ILockSettings$Stub$Proxy: void 
+          → ActivityManager.getCurrentUser()
+          → ILockSettings.setRemoteLock()
+          → RemoteLockInfo$Builder.build()
+          → RemoteLockInfo$Builder.setAllowFailCount()
+          → RemoteLockInfo$Builder.setBlockCount()
+          → RemoteLockInfo$Builder.setBundle()
+          → RemoteLockInfo$Builder.setClientName()
+          → RemoteLockInfo$Builder.setEmailAddress()
+          → RemoteLockInfo$Builder.setLockTimeOut()
+          → RemoteLockInfo$Builder.setMessage()
+          → RemoteLockInfo$Builder.setPhoneNumber()
+          → RemoteLockInfo$Builder.setSkipPinContainer()
+          → RemoteLockInfo$Builder.setSkipSupportContainer()
+          → <com.android.internal.widget.RemoteLockInfo$Builder: void <i
+          → KnoxGuardVaultManager$KGVaultData.getBundle()
+          → KnoxGuardVaultManager$KGVaultData.getSkipPin()
+          → KnoxGuardVaultManager$KGVaultData.getSkipSupport()
+          → KnoxGuardVaultManager$KGVaultData.getEmailAddress()
+          → KnoxGuardVaultManager$KGVaultData.getNoticeMessage()
+          → KnoxGuardVaultManager$KGVaultData.getPhoneNumber()
+          → KnoxGuardVaultManager$KGVaultData.getRequesterName()
+          → KnoxGuardVaultManager.getKGVaultData()
+          → KnoxGuardVaultManager.getFailureCount()
+          → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+            → ComponentInfo.isEnabled()
+            → ActivityThread.getPackageManager()
+            → IVaultKeeperService.read()
+            → Exception.printStackTrace()
+            → <com.android.internal.widget.IRemoteLockMonitorCallback$Stub
+            → <com.samsung.android.service.vaultkeeper.VaultKeeperManager:
+            → Binder.clearCallingIdentity()
+            → Binder.restoreCallingIdentity()
+            → ILockSettings.setKnoxGuard()
+            → RemoteLockInfo$Builder.setEnableEmergencyCall()
+            → Utils.startRetryLockAlarm()
+            → KnoxGuardVaultManager$KGVaultData.getClientData()
+            → IVaultKeeperService.write()
+            → <com.android.internal.widget.RemoteLockInfo: void <init>(com
+            → <android.os.Bundle: void <init>()>
+            → Bundle.putCharSequence()
+            → KnoxGuardVaultManager.deserialize()
+            → KnoxGuardVaultManager$KGVaultData.getFailureCount()
+            → <java.lang.Exception: void <init>(java.lang.String)>
+              → <android.os.Binder: void <init>()>
+              → IRemoteLockMonitorCallback$Stub.attachInterface()
+              → IVaultKeeperService$Stub.asInterface()
+              → AlarmManager.setExactAndAllowWhileIdle()
+              → SystemClock.elapsedRealtime()
+              → KnoxGuardSeService.setRetryRemoteLockInfo()
+              → Utils.getPendingIntentForRetryLockAction()
+              → Utils.isRetryLockAlarmRunning()
+              → <com.android.internal.widget.RemoteLockInfo$Builder: android
+              → <com.android.internal.widget.RemoteLockInfo$Builder: boolean
+              → <com.android.internal.widget.RemoteLockInfo$Builder: boolean
+              → <com.android.internal.widget.RemoteLockInfo$Builder: boolean
+              → <com.android.internal.widget.RemoteLockInfo$Builder: boolean
+              → <com.android.internal.widget.RemoteLockInfo$Builder: int -$$
+              → <com.android.internal.widget.RemoteLockInfo$Builder: int -$$
+              → <com.android.internal.widget.RemoteLockInfo$Builder: int -$$
+              → <com.android.internal.widget.RemoteLockInfo$Builder: java.la
+              → <com.android.internal.widget.RemoteLockInfo$Builder: java.la
+              → <com.android.internal.widget.RemoteLockInfo$Builder: java.la
+              → <com.android.internal.widget.RemoteLockInfo$Builder: java.la
+              → <com.android.internal.widget.RemoteLockInfo$Builder: long -$
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → ByteArrayInputStream.close()
+              → IOException.printStackTrace()
+              → ObjectInputStream.readObject()
+              → <java.io.ObjectInputStream: void <init>(java.io.InputStream)
+              → ObjectInputStream.close()
+
+────────────────────────────────────────────────────────────
+Occurrence #21
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knoxguard.service.receiver.SystemSeReceiver
+  Method:   <com.samsung.android.knoxguard.service.receiver.SystemSeReceiver: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     511
+  Register: v2 := "com.samsung.android.kgclient"
+  Usage:    [] 
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLEES (what this method invokes):
+      → Intent.getData()
+      → Intent.getExtras()
+      → Intent.getAction()
+      → Uri.getSchemeSpecificPart()
+      → Handler.postDelayed()
+      → <android.os.Handler: void <init>(android.os.Looper)>
+      → Looper.getMainLooper()
+      → IntentRelayManager.sendRequestedIntent()
+      → KnoxGuardNative.getTAState()
+      → KnoxGuardSeService.bindAndSetToLockScreen()
+      → <com.samsung.android.knoxguard.service.receiver.SystemSeRece
+      → SystemSeReceiver.setCheckingStateToKg()
+      → IntegritySeUtil.checkTaIntegrity()
+      → IntegritySeUtil.checkKGClientIntegrity()
+      → IntegritySeUtil.toErrorCode()
+      → IntegritySeUtil.checkSystemUiIntegrity()
+      → Utils.isChinaDevice()
+      → Utils.isSetupWizardFinished()
+      → Utils.isStateForEnrolledDevice()
+      → Utils.autoLockDevice()
+      → Utils.lockSeDevice()
+      → Utils.setKGSystemProperty()
+      → Throwable.getMessage()
+      → List.contains()
+        → Context.sendBroadcastAsUser()
+        → Intent.addFlags()
+        → Intent.putExtras()
+        → Intent.setPackage()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → KnoxGuardNative.getTAStateRefactor()
+        → RemoteException.printStackTrace()
+        → ServiceManager.getService()
+        → ILockSettings$Stub.asInterface()
+        → ILockSettings.registerRemoteLockCallback()
+        → KnoxGuardSeService.setRemoteLockToLockscreen()
+        → KnoxGuardNative.userCheckingRefactor()
+        → SystemSeReceiver.getResult()
+        → Exception.getMessage()
+        → Utils.getStringSystemProperty()
+        → <com.samsung.android.knoxguard.service.utils.IntegritySeUtil
+        → IntegritySeUtil.checkComponents()
+        → IntegritySeUtil.checkSignatures() [SIG_CHECK]
+        → IntegritySeUtil.isEnabled()
+        → IntegritySeUtil.isSystemApp()
+        → IntegritySeUtil.isValidVersion()
+        → IntegritySeUtil.disableClient()
+        → IntegritySeUtil.testSystemUiCorrupted()
+        → Utils.powerOff()
+        → SystemProperties.get()
+        → Context.getContentResolver()
+        → Settings$Global.getInt()
+        → Context.getString()
+        → Utils.isTabletDevice()
+        → Utils.setRemoteLockToLockscreen()
+        → Utils.getKGPolicyCompany()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → SystemProperties.set()
+        → KnoxGuardSeService.getIntResult()
+          → KnoxGuardNative.tz_getTAState()
+          → IBinder.queryLocalInterface()
+          → <com.android.internal.widget.ILockSettings$Stub$Proxy: void 
+          → ActivityManager.getCurrentUser()
+          → ILockSettings.setKnoxGuard()
+          → RemoteLockInfo$Builder.build()
+          → RemoteLockInfo$Builder.setAllowFailCount()
+          → RemoteLockInfo$Builder.setBlockCount()
+          → RemoteLockInfo$Builder.setBundle()
+          → RemoteLockInfo$Builder.setClientName()
+          → RemoteLockInfo$Builder.setEmailAddress()
+          → RemoteLockInfo$Builder.setLockTimeOut()
+          → RemoteLockInfo$Builder.setMessage()
+          → RemoteLockInfo$Builder.setPhoneNumber()
+          → RemoteLockInfo$Builder.setSkipPinContainer()
+          → RemoteLockInfo$Builder.setSkipSupportContainer()
+          → <com.android.internal.widget.RemoteLockInfo$Builder: void <i
+          → KnoxGuardSeService$KGLockscreenInfo.getBundle()
+          → KnoxGuardSeService$KGLockscreenInfo.getSkipPin()
+          → KnoxGuardSeService$KGLockscreenInfo.getSkipSupport()
+          → KnoxGuardSeService$KGLockscreenInfo.getClientName()
+          → KnoxGuardSeService$KGLockscreenInfo.getEmailAddress()
+          → KnoxGuardSeService$KGLockscreenInfo.getMessage()
+          → KnoxGuardSeService$KGLockscreenInfo.getPhoneNumber()
+          → KnoxGuardSeService.getKGLockObject()
+          → KnoxGuardSeService.getLockoutDelayTime()
+          → KnoxGuardSeService.initializeFailureCount()
+          → KnoxGuardSeService.setBundle()
+          → KnoxGuardSeService.setClientName()
+          → KnoxGuardSeService.setEmailAddress()
+          → KnoxGuardSeService.setMessage()
+          → KnoxGuardSeService.setPhoneNumber()
+          → KnoxGuardSeService.setSkipPin()
+          → KnoxGuardSeService.setSkipSupport()
+          → Utils.startRetryLockAlarm()
+          → KnoxGuardNative.tz_userChecking()
+          → Context.getPackageManager()
+          → PackageManager$NameNotFoundException.getMessage()
+          → PackageManager.getPackageInfo() [PKG_QUERY]
+          → IntegritySeUtil.hasEnabledComponent()
+          → PackageInfo.toString()
+          → PackageManager.checkSignatures() [SIG_CHECK]
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → IntegritySeUtil.getClientVersionCode()
+          → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+          → AppGlobals.getPackageManager()
+          → IPackageManager.getApplicationInfo() [PKG_QUERY]
+          → IPackageManager.getApplicationHiddenSettingAsUser()
+          → IPackageManager.setApplicationHiddenSettingAsUser()
+          → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+          → Context.getSystemService()
+          → PowerManager.shutdown()
+          → SystemProperties.get()
+          → Utils.setRemoteLockToLockscreen()
+          → KnoxGuardNative.getKGPolicyRefactor()
+          → KnoxGuardSeService.getStringResult()
+          → JSONObject.isNull()
+          → JSONObject.getString()
+          → JSONObject.getJSONObject()
+          → <org.json.JSONObject: void <init>(java.lang.String)>
+          → KnoxGuardSeService.setTaError()
+            → <com.android.internal.widget.RemoteLockInfo: void <init>(com
+            → <android.os.Bundle: void <init>()>
+            → Bundle.putCharSequence()
+            → KnoxGuardNative.getLockObjectRefactor()
+            → KnoxGuardSeService.getByteArrayResult()
+            → KnoxGuardSeService.deserialize()
+            → KnoxGuardNative.getTAInfo()
+            → AlarmManager.setExactAndAllowWhileIdle()
+            → SystemClock.elapsedRealtime()
+            → KnoxGuardSeService.setRetryRemoteLockInfo()
+            → Utils.getPendingIntentForRetryLockAction()
+            → Utils.isRetryLockAlarmRunning()
+            → ComponentInfo.isEnabled()
+            → PackageInfo.getLongVersionCode()
+            → ActivityThread.getPackageManager()
+            → RemoteLockInfo$Builder.setEnableEmergencyCall()
+            → KnoxGuardNative$PolicyStorageManager.getInstance()
+            → KnoxGuardNative$PolicyStorageManager.readData()
+            → KnoxGuardNative$PolicyStorageManager.getPolicyRes()
+            → KnoxGuardNative$PolicyStorageManager.getSignature()
+            → KnoxGuardNative.s2b()
+            → KnoxGuardNative.tz_getKGPolicy()
+            → KgErrWrapper.getStr()
+              → <com.android.internal.widget.RemoteLockInfo$Builder: android
+              → <com.android.internal.widget.RemoteLockInfo$Builder: boolean
+              → <com.android.internal.widget.RemoteLockInfo$Builder: boolean
+              → <com.android.internal.widget.RemoteLockInfo$Builder: boolean
+              → <com.android.internal.widget.RemoteLockInfo$Builder: boolean
+              → <com.android.internal.widget.RemoteLockInfo$Builder: int -$$
+              → <com.android.internal.widget.RemoteLockInfo$Builder: int -$$
+              → <com.android.internal.widget.RemoteLockInfo$Builder: int -$$
+              → <com.android.internal.widget.RemoteLockInfo$Builder: java.la
+              → <com.android.internal.widget.RemoteLockInfo$Builder: java.la
+              → <com.android.internal.widget.RemoteLockInfo$Builder: java.la
+              → <com.android.internal.widget.RemoteLockInfo$Builder: java.la
+              → <com.android.internal.widget.RemoteLockInfo$Builder: long -$
+              → KnoxGuardNative.tz_getLockObject()
+              → KnoxGuardSeService.getByteArrayResult()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → ByteArrayInputStream.close()
+              → IOException.printStackTrace()
+              → ObjectInputStream.readObject()
+              → <java.io.ObjectInputStream: void <init>(java.io.InputStream)
+              → ObjectInputStream.close()
+              → ClassNotFoundException.printStackTrace()
+              → KnoxGuardNative.tz_getTAInfo()
+              → AlarmManager.setImpl()
+              → PendingIntent.getBroadcast()
+              → Intent.putExtra()
+              → Utils.isEqualOrAbove()
+              → PackageInfo.composeLongVersionCode()
+              → <com.samsung.android.knoxguard.service.KnoxGuardNative$Polic
+              → KnoxGuardNative$PolicyStorageManager.cleanState()
+              → KnoxGuardNative$PolicyStorageManager.storeDataReady()
+
+────────────────────────────────────────────────────────────
+Occurrence #22
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+  Line:     373
+  Register: v6 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] java.util.List.add() → [other] new-instance v0, Landroid/os/ConditionVariable; → [invoke] android.os.ConditionV
+
+  CALLEES (what this method invokes):
+      → <android.os.ConditionVariable: void <init>()>
+      → Process.myPid()
+      → SystemProperties.get()
+      → EnterpriseDeviceManagerServiceImpl.isPackageInstalled()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → ActivityThread.getPackageManager()
+
+────────────────────────────────────────────────────────────
+Occurrence #23
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void activateAdmin(android.content.ComponentName,boolean)>
+  Line:     1137
+  Register: v2 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return, system_property_read
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v2 → [branch] if-eqz v2, :cond_5b → [other] move-result v2 → [b
+
+  CALLERS (who invokes this method):
+      ← EnterpriseDeviceManagerServiceImpl.setActiveAdmin()
+      ← EnterpriseDeviceManagerServiceImpl.setActiveAdminSilent()
+
+  CALLEES (what this method invokes):
+      → IDevicePolicyManager.isAdminActive()
+      → IDevicePolicyManager.setActiveAdmin()
+      → ComponentName.flattenToString()
+      → ComponentName.getPackageName()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → RemoteException.printStackTrace()
+      → SystemProperties.getInt()
+      → UserHandle.getUserId()
+      → EnterpriseDeviceManagerServiceImpl$Injector.userHandleGetCallingUserId()
+      → EnterpriseDeviceManagerServiceImpl.setAdminRemovable()
+      → EnterpriseDeviceManagerServiceImpl.findAdmin()
+      → EnterpriseDeviceManagerServiceImpl.getActiveAdminLocked()
+      → EnterpriseDeviceManagerServiceImpl.getLockObject()
+      → EnterpriseDeviceManagerServiceImpl.adjustKnoxGuardAdmin()
+      → EnterpriseDeviceManagerServiceImpl.removeActiveAdminDelayed()
+      → EnterpriseDeviceManagerServiceImpl.startDeferredServicesIfNeeded()
+      → EnterpriseService.getPolicyService()
+      → EnterpriseService.getPolicyServices()
+      → EnterpriseServiceCallback.onAdminAdded()
+      → RestrictionPolicy.checkAdminActivationEnabled()
+      → EdmStorageProviderBase.addorUpdateAdmin()
+      → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+      → EnterpriseDeviceAdminInfo.getComponent()
+      → EnterpriseDeviceAdminInfo.getActivityInfo()
+      → EnterpriseDeviceAdminInfo.usesMDMPolicy()
+      → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+      → ArrayList.add()
+      → ArrayList.remove()
+      → HashMap.put()
+      → HashMap.remove()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.contains()
+      → Map$Entry.getValue()
+      → Map.entrySet()
+      → Set.iterator()
+        → UserHandle.getCallingUserId()
+        → Process.myPid()
+        → AuditLog.logAsUser()
+        → EnterpriseDeviceManagerServiceImpl.hasKnoxInternalExceptionPermission()
+        → EnterpriseDeviceManagerServiceImpl.isCallerValidKPU()
+        → EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+        → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+        → EdmStorageProvider.putBoolean()
+        → Utils.getCallingOrCurrentUserId()
+        → <java.util.ArrayList: void <init>()>
+        → HashMap.get()
+        → List.add()
+        → IPackageManager.getReceiverInfo()
+        → <android.content.pm.ResolveInfo: void <init>()>
+        → <com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <i
+        → ComponentName.equals()
+        → ArrayList.iterator()
+        → LockGuard.guard()
+        → Binder.getCallingUid() [UID_CHECK]
+        → SystemProperties.get()
+        → EnterpriseDeviceManagerServiceImpl.checkCallerIsKG()
+        → EnterpriseDeviceManagerServiceImpl.isKgTurnedOn()
+        → List.remove()
+        → EnterpriseDeviceManagerServiceImpl.removeActiveAdminDelayed()
+        → ConditionVariable.block()
+        → Handler.postAtFrontOfQueue()
+        → <com.android.server.enterprise.EnterpriseDeviceManagerServic
+        → Map.get()
+        → <java.util.TreeMap: void <init>(java.util.Map)>
+        → Context.getPackageManager()
+        → PackageManager.checkPermission() [PERM_CHECK]
+        → RestrictionToastManager.show()
+        → RestrictionPolicy.checkPackageWhiteList()
+        → RestrictionPolicy.isNewAdminActivationEnabledInternal()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → ContentValues.put()
+        → ContentValues.put()
+        → ContentValues.putAll()
+        → EdmStorageProviderBase.addAdminLUID()
+        → EdmStorageProviderBase.update()
+        → EdmStorageProviderBase.insert()
+        → SemPersonaManager.isKnoxId()
+        → DeviceAdminInfo.getComponent()
+        → DeviceAdminInfo.getActivityInfo()
+        → BitSet.isEmpty()
+          → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+          → IEDMProxy.AuditLoggerAsUser()
+          → KpuHelper.isCallerValidKpu()
+          → KpuHelper.getInstance()
+          → EnterpriseDeviceManagerServiceImpl.enforceActiveAdminPermissionByContext()
+          → IPackageManager.getApplicationInfo() [PKG_QUERY]
+          → Exception.printStackTrace()
+          → EdmStorageProviderBase.putBoolean()
+          → ActivityManager.getCurrentUser()
+          → Binder.getCallingPid() [UID_CHECK]
+          → IPersonaManagerAdapter.isValidKnoxId()
+          → Utils.getPersonaManagerAdapter()
+          → <android.app.admin.DeviceAdminInfo: void <init>(android.cont
+          → EnterpriseDeviceAdminInfo.parseRequestedPermissions()
+          → <java.util.BitSet: void <init>()>
+          → LockGuard.lockToString()
+          → LockGuard.doLog()
+          → Thread.holdsLock()
+          → Thread.getName()
+          → Thread.currentThread()
+          → PackageManager.getPackageUidAsUser()
+          → KnoxGuardVaultManager.isKgTurnedOn()
+          → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+          → IDevicePolicyManager.getActiveAdmins()
+          → ContentValues.getAsInteger()
+          → Context.enforceCallingOrSelfPermission()
+          → EnterpriseDeviceManagerServiceImpl$Injector.SecContentProviderNotifyPolicyChangesAsUser()
+          → EnterpriseDeviceManagerServiceImpl.reconcileAdmin()
+          → EnterpriseServiceCallback.onAdminRemoved()
+          → EnterpriseServiceCallback.onPreAdminRemoval()
+          → KeyCodeMediatorImpl.onAdminRemoved()
+          → KeyCodeMediatorImpl.onPreAdminRemoval()
+          → EdmStorageProviderBase.addMUMContainer()
+          → EdmStorageProviderBase.canRemoveAdmin()
+          → EdmStorageProviderBase.checkPseudoAdminForUid()
+          → EdmStorageProviderBase.removeAdminFromDatabase()
+          → EdmStorageProviderBase.getValues()
+          → ConstrainedState.cleanUpConstrainedState()
+          → List.iterator()
+          → Context.getString()
+          → RestrictionToastManager.show()
+          → RestrictionPolicy.isPackageOnExclusionList()
+          → RestrictionPolicy.getUidForAdminActivation()
+          → RestrictionPolicy.isNewAdminActivationEnabledInternal()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → ArrayMap.putAll()
+          → ContentValues.put()
+          → EdmStorageProviderBase.translateToAdminLUID()
+          → EdmStorageProviderBase.update()
+          → EdmStorageProviderBase.formatContentValues()
+          → SQLiteDatabase.insert()
+          → SQLiteOpenHelper.getWritableDatabase()
+          → SemPersonaManager.checkContainerType()
+          → SemPersonaManager.isDualAppId()
+            → ServiceManager.getService()
+            → IEDMProxy$Stub.asInterface()
+            → PackageManager.getNameForUid()
+            → SystemProperties.getBoolean()
+            → IPersonaManagerAdapter.isLegacyContainer()
+            → KpuHelper.isDoPresent()
+            → KpuHelper.isKpuPackage()
+            → KpuHelper.isKpuPermissionGranted()
+            → KpuHelper.isKpuPlatformSigned()
+            → KpuHelper.getPersonaManagerAdapter()
+            → <java.lang.SecurityException: void <init>(java.lang.String)>
+            → <com.android.server.enterprise.utils.KpuHelper: void <init>(
+            → Context.checkCallingPermission()
+            → EnterpriseDeviceManagerServiceImpl.checkCallerIsKPECore()
+            → EnterpriseDeviceManagerServiceImpl.checkCallerIsUMC()
+            → EnterpriseDeviceManagerServiceImpl.checkProxyAdminPermission()
+            → EnterpriseDeviceManagerServiceImpl.isCallerDeviceOwner()
+            → EnterpriseDeviceManagerServiceImpl.isDelegationEnabledForDO()
+            → EnterpriseDeviceManagerServiceImpl.isProfileOwnerApp()
+            → EnterpriseDeviceManagerServiceImpl.getAuthorizedAdminUid()
+            → EnterpriseDeviceManagerServiceImpl.getDeviceOwnerUid()
+            → EnterpriseDeviceManagerServiceImpl.checkContainerOwnerShip()
+            → EnterpriseDeviceManagerServiceImpl.checkContainerOwnerShipForUMC()
+            → EnterpriseDeviceManagerServiceImpl.enforceUMCSignature()
+            → EnterpriseDeviceManagerServiceImpl.enforceWpcod()
+            → EnterpriseDeviceManagerServiceImpl.setDelegatorAdminUid()
+            → IPersonaManagerAdapter.isContainerService()
+            → EdmStorageProviderBase.getMUMContainerOwnerUid()
+            → Utils.getCallingOrUserUid()
+            → Utils.getProxyAdminOwnerUid()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int,boole
+            → List.size()
+            → List.get()
+            → EdmStorageProviderBase.put()
+            → AdapterRegistry.getAdapter()
+            → DeviceAdminInfo.getPackageName()
+            → AssetManager.openXmlResourceParser()
+            → AssetManager.addAssetPath()
+            → <android.content.res.AssetManager: void <init>()>
+            → AssetManager.close()
+            → Resources.obtainAttributes()
+            → <android.content.res.Resources: void <init>(android.content.
+            → TypedArray.getNonResourceString()
+            → TypedArray.recycle()
+            → XmlResourceParser.getDepth()
+            → XmlResourceParser.next()
+            → XmlResourceParser.getName()
+            → XmlResourceParser.close()
+            → <android.util.DisplayMetrics: void <init>()>
+            → DisplayMetrics.setToDefaults()
+            → XmlUtils.skipCurrentTag()
+            → EnterpriseLicenseManager.getInstance()
+            → EnterpriseLicenseManager.getELMPermissions()
+            → BitSet.set()
+            → HashMap.containsKey()
+            → <com.android.server.LockGuard$$ExternalSyntheticLambda0: voi
+            → LockGuard.findOrCreateLockInfo()
+            → <java.lang.RuntimeException: void <init>(java.lang.String)>
+            → <java.lang.Thread: void <init>(java.lang.Runnable)>
+            → Thread.start()
+            → <java.lang.Throwable: void <init>()>
+            → FactoryTest.isFactoryBinary()
+            → KnoxGuardVaultManager.throwException()
+            → VaultKeeperManager.read()
+            → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+            → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+            → KnoxGuardVaultManager.setContext()
+            → KnoxGuardVaultManager.setCrypto()
+            → KnoxGuardVaultManager.setIsSupportKg2()
+            → KnoxGuardVaultManager.setLockSettingsService()
+            → KnoxGuardVaultManager.setServerCert()
+            → KnoxGuardVaultManager.setVkm()
+            → KnoxGuardVaultManager.setVkm2()
+            → VaultKeeperManager.getInstance()
+            → ArrayMap.get()
+            → Number.intValue()
+            → SecContentProviderUtil.notifyPolicyChangesAsUser()
+            → EnterpriseServiceCallback.onAdminRemoved()
+            → KeyCodeMediatorImpl.update()
+            → Map.remove()
+            → KeyCodeMediatorImpl.getAllRestrictedKeyCodes()
+            → Map.put()
+            → EdmStorageProviderBase.getBoolean()
+            → EdmStorageProviderBase.getBoolean()
+            → EdmStorageProviderBase.delete()
+            → ContentValues.size()
+            → ContentValues.put()
+            → ContentValues.put()
+            → Cursor.moveToFirst()
+            → Cursor.moveToNext()
+            → Cursor.getBlob()
+            → Cursor.getFloat()
+            → Cursor.getColumnCount()
+            → Cursor.getCount()
+            → Cursor.getType()
+            → Cursor.getColumnName()
+            → Cursor.getString()
+            → Cursor.getLong()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → EdmStorageProviderBase.getCursor()
+            → EdmStorageProvider.getValue()
+            → EdmStorageProviderBase.getPackageNameForUid()
+            → ConstrainedState.disableConstrainedStateInternal()
+            → <android.os.Bundle: void <init>()>
+            → Bundle.putString()
+            → Handler.sendMessage()
+            → Handler.sendMessageDelayed()
+            → Message.obtain()
+            → <android.os.Message: void <init>()>
+            → Message.setData()
+            → ArrayList.contains()
+            → TextUtils.isEmpty()
+            → EdmStorageProvider.getString()
+            → EdmStorageProvider.getBoolean()
+            → EdmStorageProvider.getIntListAsUser()
+            → RestrictionPolicyCache.extract()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayMap.keyAt()
+            → ArrayMap.valueAt()
+            → ArrayMap.ensureCapacity()
+            → SQLiteDatabase.update()
+            → ContentValues.valueSet()
+            → List.toArray()
+            → Map$Entry.getKey()
+            → SQLiteOpenHelper.getDatabaseLocked()
+            → SystemProperties.get()
+            → SemDualAppManager.isDualAppId()
+              → IBinder.queryLocalInterface()
+              → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → DevicePolicyManager.getDeviceOwnerComponentOnAnyUser()
+              → Context.getSystemService()
+              → PackageManager.hasSystemFeature()
+              → PackageManager.checkSignatures() [SIG_CHECK]
+              → KpuHelper.getSepSignature()
+              → Utils.comparePackageSignature()
+              → AppGlobals.getPackageManager()
+              → ContentValues.getAsString()
+              → IPackageManager.checkUidPermission()
+              → HashSet.contains()
+              → <java.util.HashSet: void <init>(java.util.Collection)>
+              → List.isEmpty()
+              → DevicePolicyManager.isDeviceOwnerApp()
+              → RestrictionPolicy.isKnoxDelegationEnabled()
+              → PackageManager$NameNotFoundException.printStackTrace()
+              → PackageManager.getApplicationInfo() [PKG_QUERY]
+              → PackageManager.getPackageInfo() [PKG_QUERY]
+              → Utils.compareSystemSignature()
+              → IDevicePolicyManager.isOrganizationOwnedDeviceWithManagedProfile()
+              → EnterpriseDeviceManagerServiceImpl.getOrganizationOwnedProfileUserId()
+              → Field.setAccessible()
+              → Field.setInt()
+              → EdmStorageProviderBase.getInt()
+              → UserHandle.getUid()
+              → EnterpriseDeviceManagerService.getInstance()
+              → EnterpriseDeviceManagerService.getPseudoAdminUid()
+              → <com.samsung.android.knox.ContextInfo: void <init>(int,boole
+              → XmlPullParser.getDepth()
+              → XmlPullParser.next()
+              → Process.myUid()
+              → <com.samsung.android.knox.license.EnterpriseLicenseManager: 
+              → EnterpriseLicenseManager.getService()
+              → IEnterpriseLicense.getELMPermissions()
+              → <com.android.server.LockGuard$LockInfo: void <init>(com.andr
+              → StackTraceElement.toString()
+              → Throwable.getStackTrace()
+              → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+              → IVaultKeeperService.read()
+              → <com.android.internal.widget.IRemoteLockMonitorCallback$Stub
+              → <com.samsung.android.service.vaultkeeper.VaultKeeperManager:
+              → ArrayMap.indexOfKey()
+              → Uri.parse()
+              → Binder.withCleanCallingIdentity()
+              → <com.android.server.enterprise.utils.SecContentProviderUtil$
+              → Handler.hasMessages()
+              → Handler.sendEmptyMessage()
+              → Handler.removeMessages()
+              → KeyCodeMediatorImpl$KeyCodeMediatorInjector.getHandler()
+              → KeyCodeMediatorImpl$KeyCodeMediatorInjector.knoxSdkFileLogW()
+              → KeyCodeRestrictionCallback.getRestrictedKeyCodes()
+              → <java.util.HashSet: void <init>()>
+              → Set.addAll()
+              → EdmStorageProviderBase.getBooleanList()
+              → <com.android.server.enterprise.storage.SettingNotFoundExcept
+              → EdmStorageProviderBase.delete()
+              → ArrayMap.size()
+              → EdmStorageProviderBase.getCursor()
+              → EdmStorageProviderBase.getValue()
+              → EdmStorageProviderBase.getComponentNameForUid()
+              → ISystemUIAdapter.setBluetoothAllowedAsUser()
+              → EdmStorageProvider.putInt()
+              → ConstrainedState.isBluetoothAllowedOnDB()
+              → ConstrainedState.isRestrictedByConstrainedState()
+              → ConstrainedState.getEDM()
+              → ConstrainedState.showConstrainedStateNotification()
+              → ConstrainedState.updateConstrainedStateData()
+              → EnrollData.getPackageName()
+              → EnterpriseDeviceManager.isRestrictedByConstrainedState()
+              → EnterpriseDeviceManager.getRestrictionPolicy()
+              → RestrictionPolicy.isScreenCaptureEnabledInternal()
+              → RestrictionPolicy.setScreenCapture()
+              → File.delete()
+              → <java.io.File: void <init>(java.lang.String,java.lang.String
+              → HashMap.keySet()
+              → Message.obtain()
+              → CharSequence.length()
+              → EdmStorageProviderBase.getString()
+              → EdmStorageProviderBase.getIntListAsUser()
+              → RestrictionPolicyCache.getCachedPolicies()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+              → ArrayMap.entrySet()
+              → Context.getDatabasePath()
+              → SQLiteDatabase$OpenParams$Builder.build()
+              → SQLiteDatabase$OpenParams$Builder.addOpenFlags()
+              → SQLiteDatabase$OpenParams.toBuilder()
+              → SQLiteDatabase.createInMemory()
+              → SQLiteDatabase.openDatabase()
+              → SQLiteDatabase.deleteDatabase()
+              → SQLiteDatabase.isOpen()
+              → SQLiteDatabase.isReadOnly()
+              → SQLiteDatabase.getVersion()
+              → SQLiteDatabase.getPath()
+              → SQLiteDatabase.beginTransaction()
+              → SQLiteDatabase.close()
+              → SQLiteDatabase.endTransaction()
+              → SQLiteDatabase.reopenReadWrite()
+              → SQLiteDatabase.setReserveSpace()
+              → SQLiteDatabase.setTransactionSuccessful()
+              → SQLiteDatabase.setVersion()
+              → <android.database.sqlite.SQLiteException: void <init>(java.l
+              → SQLiteOpenHelper.onBeforeDelete()
+              → SQLiteOpenHelper.onConfigure()
+              → SQLiteOpenHelper.onCreate()
+              → SQLiteOpenHelper.onDowngrade()
+              → SQLiteOpenHelper.onOpen()
+              → SQLiteOpenHelper.onUpgrade()
+              → SQLiteOpenHelper.setFilePermissionsForDb()
+              → File.getPath()
+              → <java.io.File: void <init>(java.lang.String)>
+              → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+
+────────────────────────────────────────────────────────────
+Occurrence #24
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void adjustKnoxGuardAdmin()>
+  Line:     2239
+  Register: v4 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-interface {p0, v4}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return, system_property_read
+  Flow:     [invoke] java.util.List.contains() → [invoke] java.util.List.remove() → [invoke] java.util.List.contains() → [invoke] ja
+
+  CALLERS (who invokes this method):
+      ← EnterpriseDeviceManagerServiceImpl.activateAdmin()
+      ← EnterpriseDeviceManagerServiceImpl.systemReady()
+        ← EnterpriseDeviceManagerServiceImpl.setActiveAdmin()
+        ← EnterpriseDeviceManagerServiceImpl.setActiveAdminSilent()
+        ← EnterpriseDeviceManagerServiceImpl.systemReady()
+          ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+            ← EnterpriseDeviceManagerServiceImpl$Lifecycle.onBootPhase()
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+      → SystemProperties.getInt()
+      → SystemProperties.get()
+      → EnterpriseDeviceManagerServiceImpl.checkCallerIsKG()
+      → EnterpriseDeviceManagerServiceImpl.isKgTurnedOn()
+      → List.add()
+      → List.contains()
+      → List.remove()
+        → Context.getPackageManager()
+        → PackageManager.getPackageUidAsUser()
+        → EnterpriseDeviceManagerServiceImpl$Injector.userHandleGetCallingUserId()
+        → KnoxGuardVaultManager.isKgTurnedOn()
+        → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+          → UserHandle.getCallingUserId()
+          → FactoryTest.isFactoryBinary()
+          → KnoxGuardVaultManager.throwException()
+          → VaultKeeperManager.read()
+          → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+          → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+          → KnoxGuardVaultManager.setContext()
+          → KnoxGuardVaultManager.setCrypto()
+          → KnoxGuardVaultManager.setIsSupportKg2()
+          → KnoxGuardVaultManager.setLockSettingsService()
+          → KnoxGuardVaultManager.setServerCert()
+          → KnoxGuardVaultManager.setVkm()
+          → KnoxGuardVaultManager.setVkm2()
+          → VaultKeeperManager.getInstance()
+            → <com.samsung.android.service.RemoteLockControl.KnoxGuard.Kno
+            → IVaultKeeperService.read()
+            → Exception.printStackTrace()
+            → <com.android.internal.widget.IRemoteLockMonitorCallback$Stub
+            → <com.samsung.android.service.vaultkeeper.VaultKeeperManager:
+              → <java.lang.Exception: void <init>(java.lang.String)>
+              → <android.os.Binder: void <init>()>
+              → IRemoteLockMonitorCallback$Stub.attachInterface()
+              → ServiceManager.getService()
+              → IVaultKeeperService$Stub.asInterface()
+
+────────────────────────────────────────────────────────────
+Occurrence #25
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: boolean checkCallerIsKG()>
+  Line:     2843
+  Register: v2 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {v1, v2, p0}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageUidAsUser()
+
+  CALLERS (who invokes this method):
+      ← EnterpriseDeviceManagerServiceImpl.adjustKnoxGuardAdmin()
+        ← EnterpriseDeviceManagerServiceImpl.activateAdmin()
+        ← EnterpriseDeviceManagerServiceImpl.systemReady()
+          ← EnterpriseDeviceManagerServiceImpl.setActiveAdmin()
+          ← EnterpriseDeviceManagerServiceImpl.setActiveAdminSilent()
+          ← EnterpriseDeviceManagerServiceImpl.systemReady()
+            ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+              ← EnterpriseDeviceManagerServiceImpl$Lifecycle.onBootPhase()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageUidAsUser()
+      → Binder.getCallingUid() [UID_CHECK]
+      → EnterpriseDeviceManagerServiceImpl$Injector.userHandleGetCallingUserId()
+        → UserHandle.getCallingUserId()
+
+────────────────────────────────────────────────────────────
+Occurrence #26
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.restriction.RestrictionPolicy
+  Method:   <com.android.server.enterprise.restriction.RestrictionPolicy: void <clinit>()>
+  Line:     338
+  Register: v4 := "com.samsung.android.kgclient"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+
+────────────────────────────────────────────────────────────
+Occurrence #27
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: boolean isApplicationForceStopDisabled(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,boolean)>
+  Line:     25726
+  Register: p6 := "com.samsung.android.kgclient"
+  Usage:    [invoke] invoke-virtual {p1, p6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p6 → [branch] if-nez p6, :cond_22 → [other] const p6, 0x1040ddb
+
+  CALLERS (who invokes this method):
+      ← ApplicationPolicy$LocalService.isApplicationStopDisabledAsUser()
+      ← SecContentProvider2.query()
+
+  CALLEES (what this method invokes):
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UserHandle.getUserId()
+      → RestrictionToastManager.show()
+      → <com.android.server.enterprise.application.ApplicationPolicy
+      → ApplicationPolicy.isApplicationStateBlocked()
+      → EdmStorageProviderBase.getAdminUidFromLUID()
+      → <java.lang.Thread: void <init>(java.lang.Runnable)>
+      → Thread.start()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Map.keySet()
+      → Set.iterator()
+        → Context.getString()
+        → RestrictionToastManager.show()
+        → TextUtils.isEmpty()
+        → Map$Entry.getKey()
+        → Map$Entry.getValue()
+        → Map.get()
+        → Map.entrySet()
+          → <android.os.Bundle: void <init>()>
+          → Bundle.putString()
+          → Handler.sendMessage()
+          → Handler.sendMessageDelayed()
+          → Message.obtain()
+          → <android.os.Message: void <init>()>
+          → Message.setData()
+          → ArrayList.add()
+          → ArrayList.contains()
+          → CharSequence.length()
+            → Message.obtain()
+

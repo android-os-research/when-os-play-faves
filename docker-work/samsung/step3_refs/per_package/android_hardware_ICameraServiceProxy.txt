@@ -1,0 +1,12 @@
+# android.hardware.ICameraServiceProxy [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.hardware.ICameraServiceProxy$Stub$Proxy: boolean isCameraDisabled()>
+<android.hardware.ICameraServiceProxy$Stub$Proxy: int getRotateAndCropOverride(java.lang.String,int,int)>
+<android.hardware.ICameraServiceProxy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.ICameraServiceProxy$Stub$Proxy: void notifyCameraState(android.hardware.CameraSessionStats)>
+<android.hardware.ICameraServiceProxy$Stub$Proxy: void pingForUserUpdate()>
+<android.hardware.ICameraServiceProxy$Stub: android.hardware.ICameraServiceProxy asInterface(android.os.IBinder)>
+<android.hardware.ICameraServiceProxy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.ICameraServiceProxy$Stub: void <init>()>

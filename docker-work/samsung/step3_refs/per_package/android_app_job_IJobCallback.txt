@@ -1,0 +1,13 @@
+# android.app.job.IJobCallback [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.app.job.IJobCallback$Stub$Proxy: android.app.job.JobWorkItem dequeueWork(int)>
+<android.app.job.IJobCallback$Stub$Proxy: boolean completeWork(int,int)>
+<android.app.job.IJobCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.job.IJobCallback$Stub$Proxy: void acknowledgeStartMessage(int,boolean)>
+<android.app.job.IJobCallback$Stub$Proxy: void acknowledgeStopMessage(int,boolean)>
+<android.app.job.IJobCallback$Stub$Proxy: void jobFinished(int,boolean)>
+<android.app.job.IJobCallback$Stub: android.app.job.IJobCallback asInterface(android.os.IBinder)>
+<android.app.job.IJobCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.job.IJobCallback$Stub: void <init>()>

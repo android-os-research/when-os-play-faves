@@ -1,0 +1,135 @@
+######################################################################
+# Propagation: com.android.nfc
+######################################################################
+
+JARs:                 com.samsung.android.nfc.mpos, framework, services
+Classes:              5
+Occurrences:          6
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      com.samsung.android.nfc.mpos
+  Class:    com.samsung.android.nfc.mpos.MPOSAdapter$1
+  Method:   <com.samsung.android.nfc.mpos.MPOSAdapter$1: void run()>
+  Line:     52
+  Register: v1 := "com.android.nfc"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <com.samsung.android.nfc.mpos.MPOSAdapter: android.content.C
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     160
+  Register: v6 := "com.android.nfc"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     305
+  Register: v3 := "com.android.nfc"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.nfc.NfcActivityManager
+  Method:   <android.nfc.NfcActivityManager: android.nfc.BeamShareData createBeamShareData(byte)>
+  Line:     616
+  Register: v13 := "com.android.nfc"
+  Usage:    [invoke] invoke-virtual {v9, v13, v12, v14}, Landroid/app/Activity;->grantUriPermission(Ljava/lang/String;Lan
+  Patterns: string_compare
+  Flow:     [invoke] android.app.Activity.grantUriPermission()
+
+  CALLEES (what this method invokes):
+      → Activity.getUser()
+      → Activity.getUserId()
+      → Activity.grantUriPermission()
+      → ContentProvider.maybeAddUserId()
+      → Uri.getScheme()
+      → <android.nfc.BeamShareData: void <init>(android.nfc.NdefMess
+      → NfcActivityManager.findResumedActivityState()
+      → NfcAdapter$CreateBeamUrisCallback.createBeamUris()
+      → NfcAdapter$CreateNdefMessageCallback.createNdefMessage()
+      → <android.nfc.NfcEvent: void <init>(android.nfc.NfcAdapter,by
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → ArrayList.add()
+      → ArrayList.size()
+      → ArrayList.toArray()
+      → <java.util.ArrayList: void <init>()>
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: void <clinit>()>
+  Line:     245
+  Register: v5 := "com.android.nfc"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$3
+  Method:   <com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+  Line:     67
+  Register: v2 := "com.android.nfc"
+  Usage:    [invoke] invoke-virtual {p0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+

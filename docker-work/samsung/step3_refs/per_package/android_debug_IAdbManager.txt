@@ -1,0 +1,23 @@
+# android.debug.IAdbManager [NEW]
+# Refs: 19
+# JARs: framework
+
+<android.debug.IAdbManager$Stub$Proxy: android.debug.FingerprintAndPairDevice[] getPairedDevices()>
+<android.debug.IAdbManager$Stub$Proxy: boolean isAdbWifiQrSupported()>
+<android.debug.IAdbManager$Stub$Proxy: boolean isAdbWifiSupported()>
+<android.debug.IAdbManager$Stub$Proxy: int getAdbWirelessPort()>
+<android.debug.IAdbManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.debug.IAdbManager$Stub$Proxy: void allowDebugging(boolean,java.lang.String)>
+<android.debug.IAdbManager$Stub$Proxy: void allowWirelessDebugging(boolean,java.lang.String)>
+<android.debug.IAdbManager$Stub$Proxy: void clearDebuggingKeys()>
+<android.debug.IAdbManager$Stub$Proxy: void denyDebugging()>
+<android.debug.IAdbManager$Stub$Proxy: void denyWirelessDebugging()>
+<android.debug.IAdbManager$Stub$Proxy: void disablePairing()>
+<android.debug.IAdbManager$Stub$Proxy: void enablePairingByPairingCode()>
+<android.debug.IAdbManager$Stub$Proxy: void enablePairingByQrCode(java.lang.String,java.lang.String)>
+<android.debug.IAdbManager$Stub$Proxy: void registerCallback(android.debug.IAdbCallback)>
+<android.debug.IAdbManager$Stub$Proxy: void unpairDevice(java.lang.String)>
+<android.debug.IAdbManager$Stub$Proxy: void unregisterCallback(android.debug.IAdbCallback)>
+<android.debug.IAdbManager$Stub: android.debug.IAdbManager asInterface(android.os.IBinder)>
+<android.debug.IAdbManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.debug.IAdbManager$Stub: void <init>()>

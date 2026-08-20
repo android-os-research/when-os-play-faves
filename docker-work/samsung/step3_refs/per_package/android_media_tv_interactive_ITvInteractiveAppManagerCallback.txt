@@ -1,0 +1,13 @@
+# android.media.tv.interactive.ITvInteractiveAppManagerCallback [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.media.tv.interactive.ITvInteractiveAppManagerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.tv.interactive.ITvInteractiveAppManagerCallback$Stub$Proxy: void onInteractiveAppServiceAdded(java.lang.String)>
+<android.media.tv.interactive.ITvInteractiveAppManagerCallback$Stub$Proxy: void onInteractiveAppServiceRemoved(java.lang.String)>
+<android.media.tv.interactive.ITvInteractiveAppManagerCallback$Stub$Proxy: void onInteractiveAppServiceUpdated(java.lang.String)>
+<android.media.tv.interactive.ITvInteractiveAppManagerCallback$Stub$Proxy: void onStateChanged(java.lang.String,int,int,int)>
+<android.media.tv.interactive.ITvInteractiveAppManagerCallback$Stub$Proxy: void onTvInteractiveAppServiceInfoUpdated(android.media.tv.interactive.TvInteractiveAppServiceInfo)>
+<android.media.tv.interactive.ITvInteractiveAppManagerCallback$Stub: android.media.tv.interactive.ITvInteractiveAppManagerCallback asInterface(android.os.IBinder)>
+<android.media.tv.interactive.ITvInteractiveAppManagerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.tv.interactive.ITvInteractiveAppManagerCallback$Stub: void <init>()>

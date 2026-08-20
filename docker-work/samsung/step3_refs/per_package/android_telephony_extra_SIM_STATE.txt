@@ -1,0 +1,12 @@
+# android.telephony.extra.SIM_STATE [NEW]
+# Refs: 8
+# JARs: semwifi-service, telephony-common
+
+<com.android.internal.telephony.CarrierPrivilegesTracker$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.LocaleTracker$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.data.DataNetworkController$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.data.PhoneSwitcher$8: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.dataconnection.DcTracker$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.uicc.PinStorage$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.SemCellularStateManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.autowifi.AutoWifiController$5: void onReceive(android.content.Context,android.content.Intent)>

@@ -1,0 +1,20 @@
+# android.view.contentcapture.IContentCaptureManager [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void finishSession(int)>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void getContentCaptureConditions(java.lang.String,com.android.internal.os.IResultReceiver)>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void getServiceComponentName(com.android.internal.os.IResultReceiver)>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void getServiceSettingsActivity(com.android.internal.os.IResultReceiver)>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void isContentCaptureFeatureEnabled(com.android.internal.os.IResultReceiver)>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void registerContentCaptureOptionsCallback(java.lang.String,android.view.contentcapture.IContentCaptureOptionsCallback)>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void removeData(android.view.contentcapture.DataRemovalRequest)>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void resetTemporaryService(int)>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void setDefaultServiceEnabled(int,boolean)>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void setTemporaryService(int,java.lang.String,int)>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void shareData(android.view.contentcapture.DataShareRequest,android.view.contentcapture.IDataShareWriteAdapter)>
+<android.view.contentcapture.IContentCaptureManager$Stub$Proxy: void startSession(android.os.IBinder,android.os.IBinder,android.content.ComponentName,int,int,com.android.internal.os.IResultReceiver)>
+<android.view.contentcapture.IContentCaptureManager$Stub: android.view.contentcapture.IContentCaptureManager asInterface(android.os.IBinder)>
+<android.view.contentcapture.IContentCaptureManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.contentcapture.IContentCaptureManager$Stub: void <init>()>

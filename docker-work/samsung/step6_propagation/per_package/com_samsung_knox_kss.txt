@@ -1,0 +1,57 @@
+######################################################################
+# Propagation: com.samsung.knox.kss
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.ucm.ucmservice.CredentialManagerService
+  Method:   <com.samsung.ucm.ucmservice.CredentialManagerService: void sendStateChangeBroadcast(int,java.lang.String)>
+  Line:     26501
+  Register: v3 := "com.samsung.knox.kss"
+  Usage:    [invoke] invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] new-instance v3, Landroid/os/UserHandle; → [invoke] android.os
+
+  CALLERS (who invokes this method):
+      ← CredentialManagerService.changePin()
+      ← CredentialManagerService.verifyPin()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getSystemService()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.UserHandle: void <init>(int)>
+      → SemPersonaManager.getKnoxIds()
+      → UniversalCredentialUtil.getSource()
+      → Exception.getMessage()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → UserInfo.isDualAppProfile()
+        → UserInfo.isEnabled()
+        → ISemPersonaManager.getProfiles()
+        → <java.util.ArrayList: void <init>()>
+        → List.add()
+        → Uri.parse()
+        → Uri.getPathSegments()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → IndexOutOfBoundsException.printStackTrace()
+        → List.get()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+            → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+              → <java.lang.NullPointerException: void <init>(java.lang.Strin
+

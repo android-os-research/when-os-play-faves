@@ -1,0 +1,6 @@
+# provisioning.apn.alarm.tag [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.dataconnection.DcTracker: void onActionIntentProvisioningApnAlarm(android.content.Intent)>
+<com.android.internal.telephony.dataconnection.DcTracker: void startProvisioningApnAlarm()>

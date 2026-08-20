@@ -1,0 +1,8 @@
+# persist.radio.cdma.msgid [NEW]
+# Refs: 4
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional cdma_msg_id()>
+<android.internal.telephony.sysprop.TelephonyProperties: void cdma_msg_id(java.lang.Integer)>
+<android.sysprop.TelephonyProperties: java.util.Optional cdma_msg_id()>
+<android.sysprop.TelephonyProperties: void cdma_msg_id(java.lang.Integer)>

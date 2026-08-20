@@ -1,0 +1,10 @@
+# com.samsung.android.mateservice.IAgentService [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.mateservice.IAgentService$Stub$Proxy: android.os.Bundle executeAction(int,android.os.Bundle)>
+<com.samsung.android.mateservice.IAgentService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.mateservice.IAgentService$Stub$Proxy: void executeSysAction(int,android.os.Bundle)>
+<com.samsung.android.mateservice.IAgentService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mateservice.IAgentService$Stub: com.samsung.android.mateservice.IAgentService asInterface(android.os.IBinder)>
+<com.samsung.android.mateservice.IAgentService$Stub: void <init>()>

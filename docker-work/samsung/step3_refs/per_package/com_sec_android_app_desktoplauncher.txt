@@ -1,0 +1,24 @@
+# com.sec.android.app.desktoplauncher [NEW]
+# Refs: 20
+# JARs: framework, knoxsdk, services
+
+<android.app.SemAppIconSolution: boolean isThemeActive(android.app.ContextImpl)>
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<com.android.server.am.ActivityManagerService: void checkLongLivePermissions(java.lang.String)>
+<com.android.server.desktopmode.DualModeChanger: void handleStopLoadingScreen(boolean,int)>
+<com.android.server.desktopmode.DualModeChanger: void startHome(com.android.server.desktopmode.State,int)>
+<com.android.server.desktopmode.DualModeChanger: void startSPenModeSettingActivity(com.android.server.desktopmode.State)>
+<com.android.server.desktopmode.PackageStateManager: void <init>(android.content.Context,com.android.server.desktopmode.IStateManager,com.android.server.ServiceThread,android.content.pm.IPackageManager)>
+<com.android.server.desktopmode.PackageStateManager: void onPackageDataCleared(java.lang.String,int)>
+<com.android.server.desktopmode.PackageStateManager: void onPackageUpdateFinished(java.lang.String,int)>
+<com.android.server.desktopmode.StandaloneModeChanger: void handleStopLoadingScreen(boolean,int)>
+<com.android.server.desktopmode.StandaloneModeChanger: void storeDefaultHomePackageName(boolean,java.util.function.Consumer)>
+<com.android.server.desktopmode.Utils: java.lang.String getPostDataForMuse(android.content.Context)>
+<com.android.server.enterprise.appconfig.ApplicationRestrictionsService: void sendBroadcastAsUserInternal(java.lang.String,int)>
+<com.android.server.enterprise.application.ApplicationPolicy: boolean manageHomeShorcut(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String,java.lang.String)>
+<com.android.server.enterprise.application.ApplicationPolicy: java.util.List getHomeShortcuts(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+<com.samsung.android.knox.EdmConstants$1: void <init>()>
+<com.samsung.android.knox.SemPersonaManager: java.lang.String getPersonaName(android.content.Context,int)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>
+<com.samsung.android.multiwindow.DecorCaptionCompatWindow: boolean existsDexLabsActivity(android.app.Activity)>
+<com.samsung.server.wallpaper.DefaultWallpaper: void updateTransparencySettingIfNeed(java.lang.String,int,boolean)>

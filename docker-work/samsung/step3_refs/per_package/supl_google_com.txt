@@ -1,0 +1,10 @@
+# supl.google.com [NEW]
+# Refs: 7
+# JARs: framework, services
+
+<android.telephony.CarrierConfigManager$Gps: android.os.PersistableBundle getDefaults()>
+<com.android.server.location.gnss.GnssLocationProviderSec: void setDcmSuplServer()>
+<com.android.server.location.gnss.GnssLocationProviderSec: void setPropertiesMsBased(android.os.Bundle,java.util.Properties,java.lang.String)>
+<com.android.server.location.gnss.GnssLocationProviderSec: void setSuplServerForUnisocWifiOnly()>
+<com.android.server.location.gnss.GnssLocationProviderSec: void setSuplServerSec()>
+<com.android.server.location.gnss.GnssLocationProviderSec: void updateKoreanOperatorsSuplSetting()>

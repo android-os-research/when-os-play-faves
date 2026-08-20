@@ -1,0 +1,100 @@
+######################################################################
+# Propagation: com.samsung.android.dsms
+######################################################################
+
+JARs:                 framework
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.jdsms.Sender
+  Method:   <com.samsung.android.jdsms.Sender: void sendMessage(com.samsung.android.jdsms.DsmsMessage)>
+  Line:     208
+  Register: v2 := "com.samsung.android.dsms"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v3, p0, Lcom/samsung/android/jdsms/Sender;->mCon → [i
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.jdsms.Sender: void -$$Nest$msendMessage
+        ← Sender$1.run()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putSerializable()
+      → Bundle.putString()
+      → DsmsInfoCache.isCommercializedDevice()
+      → DsmsInfoCache.getInstance()
+      → DsmsLog.d()
+      → DsmsMessage.getValue()
+      → DsmsMessage.getDetail()
+      → DsmsMessage.getFeatureCode()
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+        → DsmsInfoCache.updateCommercializedDeviceCache()
+        → <com.samsung.android.jdsms.DsmsInfoCache: void <init>()>
+        → DsmsLog.isDebuggable()
+        → DsmsLog.println()
+          → DsmsInfoCache$DsmsInfoServiceClient.bind()
+          → DsmsInfoCache$DsmsInfoServiceClient.isBound()
+          → DsmsInfoCache$DsmsInfoServiceClient.isCommercializedDevice()
+          → DsmsInfoCache$DsmsInfoServiceClient.isConnected()
+          → <com.samsung.android.jdsms.DsmsInfoCache$DsmsInfoServiceClie
+          → DsmsInfoCache$DsmsInfoServiceClient.unbind()
+          → DsmsInfoCache$DsmsInfoServiceClient.waitConnection()
+          → DsmsLog.e()
+          → Exception.getMessage()
+          → Objects.toString()
+            → Context.bindServiceAsUser()
+            → <com.samsung.android.jdsms.DsmsInfoCache: android.content.Co
+            → IDsmsInfoService.isCommercializedDevice()
+            → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+            → <com.samsung.android.jdsms.DsmsInfoCache$DsmsInfoServiceClie
+            → Context.unbindService()
+            → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+            → <java.util.concurrent.TimeoutException: void <init>(java.lan
+              → <com.samsung.android.jdsms.DsmsInfoCache$DsmsInfoServiceClie
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.jdsms.DsmsInfoCache$DsmsInfoServiceClient
+  Method:   <com.samsung.android.jdsms.DsmsInfoCache$DsmsInfoServiceClient: boolean bind()>
+  Line:     121
+  Register: v2 := "com.samsung.android.dsms"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← DsmsInfoCache.updateCommercializedDeviceCache()
+        ← DsmsInfoCache.isCommercializedDevice()
+        ← DsmsService$1.run()
+          ← Sender.sendMessage()
+            ← <com.samsung.android.jdsms.Sender: void -$$Nest$msendMessage
+              ← Sender$1.run()
+
+  CALLEES (what this method invokes):
+      → Context.bindServiceAsUser()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <com.samsung.android.jdsms.DsmsInfoCache: android.content.Co
+      → DsmsLog.d()
+      → DsmsLog.e()
+        → DsmsLog.isDebuggable()
+        → DsmsLog.println()
+          → Objects.toString()
+

@@ -1,0 +1,18 @@
+# android.os.IIncidentManager [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.os.IIncidentManager$Stub$Proxy: android.os.IncidentManager$IncidentReport getIncidentReport(java.lang.String,java.lang.String,java.lang.String)>
+<android.os.IIncidentManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IIncidentManager$Stub$Proxy: java.util.List getIncidentReportList(java.lang.String,java.lang.String)>
+<android.os.IIncidentManager$Stub$Proxy: void deleteAllIncidentReports(java.lang.String)>
+<android.os.IIncidentManager$Stub$Proxy: void deleteIncidentReports(java.lang.String,java.lang.String,java.lang.String)>
+<android.os.IIncidentManager$Stub$Proxy: void registerSection(int,java.lang.String,android.os.IIncidentDumpCallback)>
+<android.os.IIncidentManager$Stub$Proxy: void reportIncident(android.os.IncidentReportArgs)>
+<android.os.IIncidentManager$Stub$Proxy: void reportIncidentToDumpstate(java.io.FileDescriptor,android.os.IIncidentReportStatusListener)>
+<android.os.IIncidentManager$Stub$Proxy: void reportIncidentToStream(android.os.IncidentReportArgs,android.os.IIncidentReportStatusListener,java.io.FileDescriptor)>
+<android.os.IIncidentManager$Stub$Proxy: void systemRunning()>
+<android.os.IIncidentManager$Stub$Proxy: void unregisterSection(int)>
+<android.os.IIncidentManager$Stub: android.os.IIncidentManager asInterface(android.os.IBinder)>
+<android.os.IIncidentManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IIncidentManager$Stub: void <init>()>

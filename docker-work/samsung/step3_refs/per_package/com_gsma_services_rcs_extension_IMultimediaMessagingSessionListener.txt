@@ -1,0 +1,11 @@
+# com.gsma.services.rcs.extension.IMultimediaMessagingSessionListener [NEW]
+# Refs: 7
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.extension.IMultimediaMessagingSessionListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSessionListener$Stub$Proxy: void onMessageReceived(com.gsma.services.rcs.contact.ContactId,java.lang.String,byte[],java.lang.String)>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSessionListener$Stub$Proxy: void onMessagesFlushed(com.gsma.services.rcs.contact.ContactId,java.lang.String)>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSessionListener$Stub$Proxy: void onStateChanged(com.gsma.services.rcs.contact.ContactId,java.lang.String,com.gsma.services.rcs.extension.MultimediaSession$State,com.gsma.services.rcs.extension.MultimediaSession$ReasonCode)>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSessionListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSessionListener$Stub: com.gsma.services.rcs.extension.IMultimediaMessagingSessionListener asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.extension.IMultimediaMessagingSessionListener$Stub: void <init>()>

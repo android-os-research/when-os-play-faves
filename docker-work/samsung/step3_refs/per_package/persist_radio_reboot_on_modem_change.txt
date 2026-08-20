@@ -1,0 +1,6 @@
+# persist.radio.reboot_on_modem_change [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional reboot_on_modem_change()>
+<android.sysprop.TelephonyProperties: java.util.Optional reboot_on_modem_change()>

@@ -1,0 +1,7 @@
+# persist.sys.binder_calls_detailed_tracking [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.BinderCallsStatsService$BinderCallsStatsShellCommand: int onCommand(java.lang.String)>
+<com.android.server.BinderCallsStatsService$LifeCycle: void onStart()>
+<com.android.server.BinderCallsStatsService$SettingsObserver: void onChange()>

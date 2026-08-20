@@ -1,0 +1,7 @@
+# android.os.storage.extra.FS_UUID [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.StorageManagerService$StorageManagerServiceHandler: void handleMessage(android.os.Message)>
+<com.android.server.StorageManagerService: void onVolumeStateChangedAsync(android.os.storage.VolumeInfo,int,int)>
+<com.android.server.pm.PackageManagerService$IPackageManagerImpl: int movePrimaryStorage(java.lang.String)>

@@ -1,0 +1,17 @@
+# com.samsung.android.hardware.context.ISemContextService [NEW]
+# Refs: 13
+# JARs: framework
+
+<com.samsung.android.hardware.context.ISemContextService$Stub$Proxy: boolean changeParameters(android.os.IBinder,int,com.samsung.android.hardware.context.SemContextAttribute)>
+<com.samsung.android.hardware.context.ISemContextService$Stub$Proxy: boolean setReferenceData(int,int,byte[])>
+<com.samsung.android.hardware.context.ISemContextService$Stub$Proxy: boolean unregisterCallback(android.os.IBinder,int)>
+<com.samsung.android.hardware.context.ISemContextService$Stub$Proxy: java.lang.String getCurrentServiceList()>
+<com.samsung.android.hardware.context.ISemContextService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.hardware.context.ISemContextService$Stub$Proxy: java.util.Map getAvailableServiceMap()>
+<com.samsung.android.hardware.context.ISemContextService$Stub$Proxy: void initializeService(android.os.IBinder,int)>
+<com.samsung.android.hardware.context.ISemContextService$Stub$Proxy: void registerCallback(android.os.IBinder,int,com.samsung.android.hardware.context.SemContextAttribute,java.lang.String)>
+<com.samsung.android.hardware.context.ISemContextService$Stub$Proxy: void requestHistoryData(android.os.IBinder,int,java.lang.String)>
+<com.samsung.android.hardware.context.ISemContextService$Stub$Proxy: void requestToUpdate(android.os.IBinder,int,java.lang.String)>
+<com.samsung.android.hardware.context.ISemContextService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.hardware.context.ISemContextService$Stub: com.samsung.android.hardware.context.ISemContextService asInterface(android.os.IBinder)>
+<com.samsung.android.hardware.context.ISemContextService$Stub: void <init>()>

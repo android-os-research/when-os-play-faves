@@ -1,0 +1,7 @@
+# android.content.SyncAdapter [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<android.content.SyncAdaptersCache: void <init>(android.content.Context)>
+<com.android.server.am.BaseRestrictionMgr: boolean isSyncManagerPackage(java.lang.String,android.content.ComponentName,android.content.Intent)>
+<com.android.server.content.SyncManager: android.content.Intent getAdapterBindIntent(android.content.Context,android.content.ComponentName,int)>

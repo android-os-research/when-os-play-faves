@@ -1,0 +1,15 @@
+# android.os.ISemHqmManager [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.os.ISemHqmManager$Stub$Proxy: boolean getCFServerEnable()>
+<android.os.ISemHqmManager$Stub$Proxy: boolean getDVServerEnable()>
+<android.os.ISemHqmManager$Stub$Proxy: boolean getHqmEnable()>
+<android.os.ISemHqmManager$Stub$Proxy: boolean sendHWParamServer(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>
+<android.os.ISemHqmManager$Stub$Proxy: boolean sendHWParamToHQM(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>
+<android.os.ISemHqmManager$Stub$Proxy: boolean sendHWParamToHQMwithAppId(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>
+<android.os.ISemHqmManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.ISemHqmManager$Stub$Proxy: void sendSystemInfoToHQM(int,java.lang.String,java.lang.String)>
+<android.os.ISemHqmManager$Stub: android.os.ISemHqmManager asInterface(android.os.IBinder)>
+<android.os.ISemHqmManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.ISemHqmManager$Stub: void <init>()>

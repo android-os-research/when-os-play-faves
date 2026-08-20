@@ -1,0 +1,14 @@
+# android.app.IUriGrantsManager [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.app.IUriGrantsManager$Stub$Proxy: android.content.pm.ParceledListSlice getGrantedUriPermissions(java.lang.String,int)>
+<android.app.IUriGrantsManager$Stub$Proxy: android.content.pm.ParceledListSlice getUriPermissions(java.lang.String,boolean,boolean)>
+<android.app.IUriGrantsManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IUriGrantsManager$Stub$Proxy: void clearGrantedUriPermissions(java.lang.String,int)>
+<android.app.IUriGrantsManager$Stub$Proxy: void grantUriPermissionFromOwner(android.os.IBinder,int,java.lang.String,android.net.Uri,int,int,int)>
+<android.app.IUriGrantsManager$Stub$Proxy: void releasePersistableUriPermission(android.net.Uri,int,java.lang.String,int)>
+<android.app.IUriGrantsManager$Stub$Proxy: void takePersistableUriPermission(android.net.Uri,int,java.lang.String,int)>
+<android.app.IUriGrantsManager$Stub: android.app.IUriGrantsManager asInterface(android.os.IBinder)>
+<android.app.IUriGrantsManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IUriGrantsManager$Stub: void <init>()>

@@ -1,0 +1,17 @@
+# com.sec.enterprise.knox.cloudmdm.smdms [NEW]
+# Refs: 13
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: boolean checkCallerIsUMC()>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void enforceUMCSignature()>
+<com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+<com.android.server.enterprise.auditlog.AuditLogService: java.lang.String getAdminPackageNameForUid(int)>
+<com.android.server.enterprise.geofencing.GeofenceService: java.lang.String getPackageNameForUid(int)>
+<com.android.server.enterprise.kioskmode.KioskModeService: java.lang.String getPackageNameForUid(int)>
+<com.android.server.enterprise.license.EnterpriseLicenseService: void <init>(com.android.server.enterprise.license.EnterpriseLicenseService$Injector,android.content.pm.IPackageManager)>
+<com.android.server.enterprise.restriction.RestrictionPolicy: void <clinit>()>
+<com.samsung.accessory.manager.authentication.cover.CoverAuthenticator: boolean notifyFriendsStateChanged(boolean,byte[],byte[])>
+<com.samsung.accessory.manager.authentication.usb.UsbAuthenticator: boolean notifyFriendsStateChanged(boolean,byte[],byte[])>
+<com.samsung.android.knox.EdmConstants$2: void <init>()>

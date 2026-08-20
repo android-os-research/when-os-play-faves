@@ -1,0 +1,13 @@
+# android.hardware.display.IDisplayManagerCallback [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.hardware.display.IDisplayManagerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.display.IDisplayManagerCallback$Stub$Proxy: void onDeviceEvent(android.os.Bundle,int)>
+<android.hardware.display.IDisplayManagerCallback$Stub$Proxy: void onDisplayEvent(int,int)>
+<android.hardware.display.IDisplayManagerCallback$Stub$Proxy: void onDisplayVolumeEvent(int,android.os.Bundle)>
+<android.hardware.display.IDisplayManagerCallback$Stub$Proxy: void onDisplayVolumeKeyEvent(int)>
+<android.hardware.display.IDisplayManagerCallback$Stub$Proxy: void onWifiDisplayParameterEvent(int,java.util.List)>
+<android.hardware.display.IDisplayManagerCallback$Stub: android.hardware.display.IDisplayManagerCallback asInterface(android.os.IBinder)>
+<android.hardware.display.IDisplayManagerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.display.IDisplayManagerCallback$Stub: void <init>()>

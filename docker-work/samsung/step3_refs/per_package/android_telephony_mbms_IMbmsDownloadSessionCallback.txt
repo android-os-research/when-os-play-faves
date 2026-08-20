@@ -1,0 +1,11 @@
+# android.telephony.mbms.IMbmsDownloadSessionCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.telephony.mbms.IMbmsDownloadSessionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.mbms.IMbmsDownloadSessionCallback$Stub$Proxy: void onError(int,java.lang.String)>
+<android.telephony.mbms.IMbmsDownloadSessionCallback$Stub$Proxy: void onFileServicesUpdated(java.util.List)>
+<android.telephony.mbms.IMbmsDownloadSessionCallback$Stub$Proxy: void onMiddlewareReady()>
+<android.telephony.mbms.IMbmsDownloadSessionCallback$Stub: android.telephony.mbms.IMbmsDownloadSessionCallback asInterface(android.os.IBinder)>
+<android.telephony.mbms.IMbmsDownloadSessionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.mbms.IMbmsDownloadSessionCallback$Stub: void <init>()>

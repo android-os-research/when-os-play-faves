@@ -1,0 +1,65 @@
+######################################################################
+# Propagation: com.nttdocomo.android.homezozo
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          array_init
+Enforcement patterns: allowlist_check, early_return
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     379
+  Register: v2 := "com.nttdocomo.android.homezozo"
+  Usage:    [array_init] filled-new-array {v1, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaManagerService
+  Method:   <com.android.server.pm.PersonaManagerService: java.util.ArrayList getWorkTabSupportLauncherUids()>
+  Line:     11501
+  Register: v2 := "com.nttdocomo.android.homezozo"
+  Usage:    [array_init] filled-new-array {v1, v2}, [Ljava/lang/String;
+  Patterns: allowlist_check
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String; → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaManagerService: java.util.Arra
+        ← PersonaManagerService$PersonaHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → IPackageManager.getPackageInfo() [PKG_QUERY]
+      → PersonaManagerService.getIPackageManager()
+      → PersonaManagerService.getLauncherPackages()
+      → Exception.printStackTrace()
+      → ArrayList.add()
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.contains()
+        → ActivityThread.getPackageManager()
+        → Context.getPackageManager()
+        → Intent.addCategory()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → PackageManager.queryIntentActivitiesAsUser()
+        → <java.util.HashMap: void <init>()>
+        → List.iterator()
+

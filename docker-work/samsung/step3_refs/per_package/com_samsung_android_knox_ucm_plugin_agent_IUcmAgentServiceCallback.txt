@@ -1,0 +1,9 @@
+# com.samsung.android.knox.ucm.plugin.agent.IUcmAgentServiceCallback [NEW]
+# Refs: 5
+# JARs: knoxsdk
+
+<com.samsung.android.knox.ucm.plugin.agent.IUcmAgentServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.ucm.plugin.agent.IUcmAgentServiceCallback$Stub$Proxy: void onCredentialStorageChange()>
+<com.samsung.android.knox.ucm.plugin.agent.IUcmAgentServiceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.ucm.plugin.agent.IUcmAgentServiceCallback$Stub: com.samsung.android.knox.ucm.plugin.agent.IUcmAgentServiceCallback asInterface(android.os.IBinder)>
+<com.samsung.android.knox.ucm.plugin.agent.IUcmAgentServiceCallback$Stub: void <init>()>

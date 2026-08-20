@@ -1,0 +1,17 @@
+# com.samsung.android.themecenter [NEW]
+# Refs: 13
+# JARs: framework, services
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<com.android.server.SystemServer: void startThemeService(boolean)>
+<com.android.server.alarm.AppSyncInfo$PackageList: void loadAppSyncBlockList()>
+<com.android.server.om.OverlayManagerService: void updateActivityManagerforSamsungOverlay(java.util.List,int,boolean,boolean,boolean)>
+<com.android.server.pm.DeletePackageHelper: void deletePackageVersionedInternal(android.content.pm.VersionedPackage,android.content.pm.IPackageDeleteObserver2,int,int,boolean)>
+<com.android.server.pm.PackageInstallerSession: boolean isThemeCenter(java.lang.String)>
+<com.android.server.pm.PackageManagerShellCommand: int runSetInstaller()>
+<com.android.server.wallpaper.WallpaperManagerService: android.os.ParcelFileDescriptor setWallpaper(java.lang.String,java.lang.String,android.graphics.Rect,boolean,android.os.Bundle,int,android.app.IWallpaperManagerCallback,int,int,boolean,android.os.Bundle)>
+<com.android.server.wallpaper.WallpaperManagerService: void clearWallpaper(java.lang.String,int,int)>
+<com.android.server.wallpaper.WallpaperManagerService: void saveVideoWallpaperData(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean,android.os.Bundle)>
+<com.samsung.server.wallpaper.DefaultWallpaper: void updateTransparencySettingIfNeed(java.lang.String,int,boolean)>
+<com.samsung.server.wallpaper.SemWallpaperData: boolean isThemeContents()>
+<com.samsung.server.wallpaper.SemWallpaperManagerService: boolean generateCroppedBitmap(com.samsung.server.wallpaper.SemWallpaperData,java.lang.String)>

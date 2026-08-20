@@ -1,0 +1,10 @@
+# ro.build.version.oneui [NEW]
+# Refs: 6
+# JARs: framework, imsmanager, semwifi-service, services
+
+<com.android.server.am.BatteryStatsService: void publish()>
+<com.android.server.asks.ASKSManagerService: void postUpdatePolicy(com.android.server.asks.RuleUpdateForSecurity)>
+<com.samsung.android.core.pm.runtimemanifest.RuntimeManifestUtils: void <clinit>()>
+<com.samsung.android.server.wifi.SemFrameworkFacade: boolean isWifiProfileShareAHSupported(android.content.Context)>
+<com.samsung.android.server.wifi.SemWifiServiceImpl: boolean isSupportEasySetup()>
+<com.sec.ims.settings.ImsProfile: boolean isEnableVcid()>

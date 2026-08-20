@@ -1,0 +1,6 @@
+# com.google.android.c2dm.intent.RECEIVE [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.MasterClearReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.am.BaseRestrictionMgr: boolean isRestrictedPackage(android.content.ComponentName,java.lang.String,int,java.lang.String,android.content.Intent,java.lang.String,int,boolean,boolean,android.content.pm.ActivityInfo)>

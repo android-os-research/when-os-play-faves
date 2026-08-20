@@ -1,0 +1,7 @@
+# android.people.list [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.app.Notification: void visitUris(java.util.function.Consumer)>
+<com.android.server.notification.NotificationRecordLogger$NotificationRecordPair: int getNumPeople(android.os.Bundle)>
+<com.android.server.notification.ValidateNotificationPeople: java.lang.String[] getExtraPeople(android.os.Bundle)>

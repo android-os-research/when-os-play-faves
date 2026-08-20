@@ -1,0 +1,90 @@
+######################################################################
+# Propagation: com.samsung.android.opencalendar
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.pm.PackageSamsungUtils
+  Method:   <android.content.pm.PackageSamsungUtils: java.util.ArrayList getCachedLiveIconPackagesLocked(android.content.Context)>
+  Line:     110
+  Register: v3 := "com.samsung.android.opencalendar"
+  Usage:    [invoke] invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: (none)
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← PackageSamsungUtils.supportLiveIcon()
+        ← LauncherActivityInfo.semGetBadgedIconForIconTray()
+
+  CALLEES (what this method invokes):
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+      → ArrayList.add()
+      → ArrayList.size()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo
+  Method:   <com.android.server.alarm.AppSyncInfo: void <init>(android.content.Context)>
+  Line:     865
+  Register: p1 := "com.samsung.android.opencalendar"
+  Usage:    [invoke] invoke-interface {p0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.add()
+
+  CALLERS (who invokes this method):
+      ← AppSyncInfo.createAppSync()
+        ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → Context.getPackageManager()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → <com.android.server.alarm.AppSyncInfo$1: void <init>(com.and
+      → <com.android.server.alarm.AppSyncInfo$AccountListener: void 
+      → <com.android.server.alarm.AppSyncInfo$IntentReceiver: void <
+      → AppSyncInfo$PackageList.contains()
+      → <com.android.server.alarm.AppSyncInfo$PackageList: void <ini
+      → AppSyncInfo$PackageList.add()
+      → AppSyncInfo$PackageList.clear()
+      → AppSyncInfo$PackageList.loadAppSync3PlusBlockList()
+      → AppSyncInfo$PackageList.loadAppSyncBlockList()
+      → AppSyncInfo$PackageList.loadChnAllowlist()
+      → <com.android.server.alarm.AppSyncInfo$SCPMBroadcastReceiver:
+      → <com.android.server.alarm.AppSyncWrapper: void <init>()>
+      → ArrayList.add()
+      → ArrayList.size()
+      → ArrayList.get()
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>()>
+      → ArrayList.clear()
+      → <java.util.HashSet: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Set.add()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <com.android.server.alarm.AppSyncInfo$AccountListener: void 
+        → <com.android.server.alarm.AppSyncInfo: void -$$Nest$minitFil
+        → HashSet.contains()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.clear()
+        → <android.content.IntentFilter: void <init>(java.lang.String)
+          → AppSyncInfo.initFilter()
+

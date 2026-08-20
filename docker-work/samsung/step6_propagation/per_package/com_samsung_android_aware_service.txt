@@ -1,0 +1,44 @@
+######################################################################
+# Propagation: com.samsung.android.aware.service
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl$2
+  Method:   <com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl$2: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     136
+  Register: p1 := "com.samsung.android.aware.service"
+  Usage:    [invoke] invoke-virtual {p2, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] const/high16 p1, 0x10000000 → [invoke] android.content.Intent.set
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.setFlags()
+      → Intent.setPackage()
+      → Intent.getParcelableExtra()
+      → NetworkInfo.getDetailedState()
+      → SemWifiP2pServiceImpl$P2pStateMachine.sendMessage()
+      → <com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl: 
+      → <com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl: 
+      → <com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl: 
+      → <com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl: 
+        → SemWifiP2pServiceImpl.setLegacyScanningEnable()
+          → SemWifiManager.isScanningEnabled()
+          → SemWifiManager.setAllowWifiScan()
+            → RemoteException.rethrowFromSystemServer()
+            → ISemWifiManager.isScanningEnabled()
+            → Context.getPackageName()
+            → ISemWifiManager.setAllowWifiScan()
+              → <android.os.DeadSystemRuntimeException: void <init>()>
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+

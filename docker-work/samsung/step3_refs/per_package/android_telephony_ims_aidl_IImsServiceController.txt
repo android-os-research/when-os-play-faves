@@ -1,0 +1,23 @@
+# android.telephony.ims.aidl.IImsServiceController [NEW]
+# Refs: 19
+# JARs: framework
+
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: android.telephony.ims.aidl.IImsConfig getConfig(int,int)>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: android.telephony.ims.aidl.IImsMmTelFeature createEmergencyOnlyMmTelFeature(int)>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: android.telephony.ims.aidl.IImsMmTelFeature createMmTelFeature(int,int)>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: android.telephony.ims.aidl.IImsRcsFeature createRcsFeature(int,int)>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: android.telephony.ims.aidl.IImsRegistration getRegistration(int,int)>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: android.telephony.ims.aidl.ISipTransport getSipTransport(int)>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: android.telephony.ims.stub.ImsFeatureConfiguration querySupportedImsFeatures()>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: long getImsServiceCapabilities()>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: void addFeatureStatusCallback(int,int,com.android.ims.internal.IImsFeatureStatusCallback)>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: void disableIms(int,int)>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: void enableIms(int,int)>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: void notifyImsServiceReadyForFeatureCreation()>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: void removeFeatureStatusCallback(int,int,com.android.ims.internal.IImsFeatureStatusCallback)>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: void removeImsFeature(int,int,boolean)>
+<android.telephony.ims.aidl.IImsServiceController$Stub$Proxy: void setListener(android.telephony.ims.aidl.IImsServiceControllerListener)>
+<android.telephony.ims.aidl.IImsServiceController$Stub: android.telephony.ims.aidl.IImsServiceController asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IImsServiceController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IImsServiceController$Stub: void <init>()>

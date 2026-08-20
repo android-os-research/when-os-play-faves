@@ -1,0 +1,14 @@
+# android.media.tv.ITvInputManagerCallback [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.media.tv.ITvInputManagerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.tv.ITvInputManagerCallback$Stub$Proxy: void onCurrentTunedInfosUpdated(java.util.List)>
+<android.media.tv.ITvInputManagerCallback$Stub$Proxy: void onInputAdded(java.lang.String)>
+<android.media.tv.ITvInputManagerCallback$Stub$Proxy: void onInputRemoved(java.lang.String)>
+<android.media.tv.ITvInputManagerCallback$Stub$Proxy: void onInputStateChanged(java.lang.String,int)>
+<android.media.tv.ITvInputManagerCallback$Stub$Proxy: void onInputUpdated(java.lang.String)>
+<android.media.tv.ITvInputManagerCallback$Stub$Proxy: void onTvInputInfoUpdated(android.media.tv.TvInputInfo)>
+<android.media.tv.ITvInputManagerCallback$Stub: android.media.tv.ITvInputManagerCallback asInterface(android.os.IBinder)>
+<android.media.tv.ITvInputManagerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.tv.ITvInputManagerCallback$Stub: void <init>()>

@@ -1,0 +1,13 @@
+# com.samsung.android.multiwindow.IFreeformCallback [NEW]
+# Refs: 9
+# JARs: framework
+
+<com.samsung.android.multiwindow.IFreeformCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.multiwindow.IFreeformCallback$Stub$Proxy: void onMinimizeAnimationEnd(int)>
+<com.samsung.android.multiwindow.IFreeformCallback$Stub$Proxy: void onMinimized(android.content.ComponentName,int,int,int,int)>
+<com.samsung.android.multiwindow.IFreeformCallback$Stub$Proxy: void onTaskMoveEnded(int,android.os.IRemoteCallback)>
+<com.samsung.android.multiwindow.IFreeformCallback$Stub$Proxy: void onTaskMoveStarted(int,android.graphics.Point)>
+<com.samsung.android.multiwindow.IFreeformCallback$Stub$Proxy: void onUnminimized(int)>
+<com.samsung.android.multiwindow.IFreeformCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.multiwindow.IFreeformCallback$Stub: com.samsung.android.multiwindow.IFreeformCallback asInterface(android.os.IBinder)>
+<com.samsung.android.multiwindow.IFreeformCallback$Stub: void <init>()>

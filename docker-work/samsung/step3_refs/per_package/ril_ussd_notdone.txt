@@ -1,0 +1,6 @@
+# ril.ussd.notdone [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional ussd_not_done()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void ussd_not_done(java.lang.Integer)>

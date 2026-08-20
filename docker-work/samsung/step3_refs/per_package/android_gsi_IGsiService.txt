@@ -1,0 +1,34 @@
+# android.gsi.IGsiService [NEW]
+# Refs: 60
+# JARs: framework, services
+
+<android.gsi.IGsiService$Stub$Proxy: android.gsi.GsiProgress getInstallProgress()>
+<android.gsi.IGsiService$Stub$Proxy: android.gsi.IImageService openImageService(java.lang.String)>
+<android.gsi.IGsiService$Stub$Proxy: boolean cancelGsiInstall()>
+<android.gsi.IGsiService$Stub$Proxy: boolean commitGsiChunkFromAshmem(long)>
+<android.gsi.IGsiService$Stub$Proxy: boolean commitGsiChunkFromStream(android.os.ParcelFileDescriptor,long)>
+<android.gsi.IGsiService$Stub$Proxy: boolean disableGsi()>
+<android.gsi.IGsiService$Stub$Proxy: boolean isGsiEnabled()>
+<android.gsi.IGsiService$Stub$Proxy: boolean isGsiInstallInProgress()>
+<android.gsi.IGsiService$Stub$Proxy: boolean isGsiInstalled()>
+<android.gsi.IGsiService$Stub$Proxy: boolean isGsiRunning()>
+<android.gsi.IGsiService$Stub$Proxy: boolean removeGsi()>
+<android.gsi.IGsiService$Stub$Proxy: boolean setGsiAshmem(android.os.ParcelFileDescriptor,long)>
+<android.gsi.IGsiService$Stub$Proxy: int closeInstall()>
+<android.gsi.IGsiService$Stub$Proxy: int closePartition()>
+<android.gsi.IGsiService$Stub$Proxy: int createPartition(java.lang.String,long,boolean)>
+<android.gsi.IGsiService$Stub$Proxy: int enableGsi(boolean,java.lang.String)>
+<android.gsi.IGsiService$Stub$Proxy: int getAvbPublicKey(android.gsi.AvbPublicKey)>
+<android.gsi.IGsiService$Stub$Proxy: int openInstall(java.lang.String)>
+<android.gsi.IGsiService$Stub$Proxy: int zeroPartition(java.lang.String)>
+<android.gsi.IGsiService$Stub$Proxy: java.lang.String dumpDeviceMapperDevices()>
+<android.gsi.IGsiService$Stub$Proxy: java.lang.String getActiveDsuSlot()>
+<android.gsi.IGsiService$Stub$Proxy: java.lang.String getInstalledGsiImageDir()>
+<android.gsi.IGsiService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.gsi.IGsiService$Stub$Proxy: java.util.List getInstalledDsuSlots()>
+<android.gsi.IGsiService$Stub$Proxy: long suggestScratchSize()>
+<android.gsi.IGsiService$Stub$Proxy: void enableGsiAsync(boolean,java.lang.String,android.gsi.IGsiServiceCallback)>
+<android.gsi.IGsiService$Stub$Proxy: void removeGsiAsync(android.gsi.IGsiServiceCallback)>
+<android.gsi.IGsiService$Stub: android.gsi.IGsiService asInterface(android.os.IBinder)>
+<android.gsi.IGsiService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.gsi.IGsiService$Stub: void <init>()>

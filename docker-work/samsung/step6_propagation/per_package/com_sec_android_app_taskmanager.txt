@@ -1,0 +1,35 @@
+######################################################################
+# Propagation: com.sec.android.app.taskmanager
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          array_init, field_store
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.sec.enterprise.kioskmode.KioskMode
+  Method:   <android.sec.enterprise.kioskmode.KioskMode: void <clinit>()>
+  Line:     26
+  Register: v0 := "com.sec.android.app.taskmanager"
+  Usage:    [field_store] sput-object v0, Landroid/sec/enterprise/kioskmode/KioskMode;->TASK_MANAGER_PKGNAME:Ljava/lang/String
+  Patterns: early_return
+  Flow:     [field_store] android.sec.enterprise.kioskmode.KioskMode.TASK_MANAGER_PKGN → [reassigned] v0 overwritten
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.kioskmode.KioskModeService
+  Method:   <com.android.server.enterprise.kioskmode.KioskModeService: void <clinit>()>
+  Line:     251
+  Register: v1 := "com.sec.android.app.taskmanager"
+  Usage:    [array_init] filled-new-array {v0, v1}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1}, [Ljava/lang/String;
+

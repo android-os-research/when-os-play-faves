@@ -1,0 +1,10 @@
+# com.samsung.android.mcfds.lib.IMcfDeviceSyncService [NEW]
+# Refs: 6
+# JARs: services
+
+<com.samsung.android.mcfds.lib.IMcfDeviceSyncService$Stub$Proxy: int internalCommand(android.os.Message)>
+<com.samsung.android.mcfds.lib.IMcfDeviceSyncService$Stub$Proxy: int internalCommandWithReturnValue(android.os.Message,android.os.Bundle)>
+<com.samsung.android.mcfds.lib.IMcfDeviceSyncService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.mcfds.lib.IMcfDeviceSyncService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcfds.lib.IMcfDeviceSyncService$Stub: com.samsung.android.mcfds.lib.IMcfDeviceSyncService asInterface(android.os.IBinder)>
+<com.samsung.android.mcfds.lib.IMcfDeviceSyncService$Stub: void <init>()>

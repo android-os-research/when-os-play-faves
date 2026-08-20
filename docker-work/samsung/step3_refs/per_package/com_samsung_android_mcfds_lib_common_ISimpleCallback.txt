@@ -1,0 +1,9 @@
+# com.samsung.android.mcfds.lib.common.ISimpleCallback [NEW]
+# Refs: 5
+# JARs: services
+
+<com.samsung.android.mcfds.lib.common.ISimpleCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.mcfds.lib.common.ISimpleCallback$Stub$Proxy: void onCallback(android.os.Message)>
+<com.samsung.android.mcfds.lib.common.ISimpleCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcfds.lib.common.ISimpleCallback$Stub: com.samsung.android.mcfds.lib.common.ISimpleCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcfds.lib.common.ISimpleCallback$Stub: void <init>()>

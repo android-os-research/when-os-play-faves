@@ -1,0 +1,6 @@
+# android.hardware.nfc.hcef [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<android.nfc.cardemulation.NfcFCardEmulation: android.nfc.cardemulation.NfcFCardEmulation getInstance(android.nfc.NfcAdapter)>
+<com.android.server.pm.NfcFeatureManager: void updateFeatureAndPackage(android.util.ArrayMap,com.samsung.android.server.pm.install.SkippingApks,boolean)>

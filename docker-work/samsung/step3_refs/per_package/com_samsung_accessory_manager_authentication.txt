@@ -1,0 +1,6 @@
+# com.samsung.accessory.manager.authentication [NEW]
+# Refs: 2
+# JARs: services
+
+<com.samsung.accessory.manager.authentication.cover.CoverAuthenticator: boolean notifyFriendsStateChanged(boolean,byte[],byte[])>
+<com.samsung.accessory.manager.authentication.usb.UsbAuthenticator: boolean notifyFriendsStateChanged(boolean,byte[],byte[])>

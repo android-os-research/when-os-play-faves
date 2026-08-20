@@ -1,0 +1,67 @@
+######################################################################
+# Propagation: com.android.se
+######################################################################
+
+JARs:                 framework, org.simalliance.openmobileapi
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.se.omapi.SEService
+  Method:   <android.se.omapi.SEService: void <init>(android.content.Context,java.util.concurrent.Executor,android.se.omapi.SEService$OnConnectedListener)>
+  Line:     143
+  Register: v1 := "com.android.se"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Landroid/se/omapi/SEService;->mConnectio → 
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.ucm.ucmservice.SEServiceChecker: void <init>(an
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.se.omapi.SEService$1: void <init>(android.se.omapi.
+      → <android.se.omapi.SEService$SEListener: void <init>(android.
+      → <java.lang.NullPointerException: void <init>(java.lang.Strin
+      → <java.util.HashMap: void <init>()>
+        → <android.se.omapi.SEService$SEListener: void <init>(android.
+          → <android.se.omapi.ISecureElementListener$Stub: void <init>()
+            → <android.os.Binder: void <init>()>
+            → ISecureElementListener$Stub.attachInterface()
+            → ISecureElementListener$Stub.markVintfStability()
+              → <android.os.Binder: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      org.simalliance.openmobileapi
+  Class:    org.simalliance.openmobileapi.SEService
+  Method:   <org.simalliance.openmobileapi.SEService: void <init>(android.content.Context,org.simalliance.openmobileapi.SEService$CallBack)>
+  Line:     91
+  Register: v1 := "com.android.se"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Lorg/simalliance/openmobileapi/SEService → 
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <java.lang.NullPointerException: void <init>(java.lang.Strin
+      → <org.simalliance.openmobileapi.SEService$1: void <init>(org.
+      → <org.simalliance.openmobileapi.SEService$2: void <init>(org.
+        → <org.simalliance.openmobileapi.service.ISmartcardServiceCall
+          → <android.os.Binder: void <init>()>
+          → ISmartcardServiceCallback$Stub.attachInterface()
+            → <android.os.Binder: void <init>(java.lang.String)>
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+

@@ -1,0 +1,149 @@
+######################################################################
+# Propagation: com.sprint.sdcplus
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          4
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.policy.KeyCustomizationInfoManager
+  Method:   <com.android.server.policy.KeyCustomizationInfoManager: void <clinit>()>
+  Line:     208
+  Register: v2 := "com.sprint.sdcplus"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.policy.KeyCustomizationInfoManager
+  Method:   <com.android.server.policy.KeyCustomizationInfoManager: com.samsung.android.view.SemWindowManager$KeyCustomizationInfo getXCoverKeyB2BDeltaInfoFromSetting(int)>
+  Line:     3466
+  Register: v2 := "com.sprint.sdcplus"
+  Usage:    [invoke] invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v2 → [branch] if-nez v2, :cond_6d
+
+  CALLERS (who invokes this method):
+      ← KeyCustomizationInfoManager.initKeyCustomizationInfoLocked()
+        ← KeyCustomizationInfoManager.init()
+        ← KeyCustomizationInfoManager.initKeyCustomizationInfoLocked()
+        ← KeyCustomizationInfoManager.initUserTopKeyCustomizationInfoLocked()
+          ← KeyCustomizationInfoManager.onUserSwitch()
+          ← KeyCustomizationManager.init()
+          ← KeyCustomizationInfoManager.clearByPackage()
+          ← KeyCustomizationInfoManager.remove()
+            ← KeyCustomizationManager.onUserSwitch()
+            ← <com.android.server.policy.PhoneWindowManagerExt: void lambd
+            ← KeyCustomizationManager.clearKeyCustomizationInfoByPackage()
+            ← KeyCustomizationInfoManager.remove()
+            ← KeyCustomizationInfoManager.remove()
+            ← KeyCustomizationInfoManager.remove()
+              ← <com.android.server.policy.PhoneWindowManagerExt: void lambd
+              ← <com.android.server.policy.PhoneWindowManagerExt: void $r8$l
+              ← PhoneWindowManagerExt$2.onReceive()
+              ← KeyCustomizationInfoManager.initKodiakDedicatedPtt()
+              ← KeyCustomizationInfoManager.checkOldSosMessageId()
+              ← KeyCustomizationInfoManager.restoreGlobalSideKeyInfo()
+              ← KeyCustomizationManager.removeKeyCustomizationInfo()
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Settings$System.getIntForUser()
+      → Settings$System.getStringForUser()
+      → KeyCustomizationInfoManager.getB2BDeltaDefaultInfo()
+      → KeyCustomizationInfoManager.getKodiakPttInfo()
+      → KeyCustomizationInfoManager.getMcpttInfo()
+        → Intent.putExtra()
+        → Intent.setFlags()
+        → Intent.setPackage()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → TextUtils.isEmpty()
+        → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+        → KeyCustomizationInfoManager.getKodiakPttIntent()
+        → ComponentName.unflattenFromString()
+        → Intent.setComponent()
+        → KeyCustomizationInfoManager.getKodiakIntentAction()
+          → CharSequence.length()
+          → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+          → Intent.addFlags()
+            → <com.samsung.android.view.SemWindowManager$KeyCustomizationI
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.policy.KeyCustomizationInfoManager
+  Method:   <com.android.server.policy.KeyCustomizationInfoManager: boolean isAvailablePtt(java.lang.String)>
+  Line:     4763
+  Register: v2 := "com.sprint.sdcplus"
+  Usage:    [invoke] invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← KeyCustomizationInfoManager.initKodiakDedicatedPtt()
+        ← KeyCustomizationInfoManager.initKodiakDedicatedPttApp()
+          ← KeyCustomizationInfoManager.initKeyCustomizationInfoLocked()
+            ← KeyCustomizationInfoManager.init()
+            ← KeyCustomizationInfoManager.initKeyCustomizationInfoLocked()
+            ← KeyCustomizationInfoManager.initUserTopKeyCustomizationInfoLocked()
+              ← KeyCustomizationInfoManager.onUserSwitch()
+              ← KeyCustomizationManager.init()
+              ← KeyCustomizationInfoManager.clearByPackage()
+              ← KeyCustomizationInfoManager.remove()
+
+  CALLEES (what this method invokes):
+      → KeyCustomizationInfoManager.hasPackage()
+      → KeyCustomizationInfoManager.getSalesCode()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → SystemProperties.get()
+        → TextUtils.isEmpty()
+          → CharSequence.length()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.policy.KeyCustomizationManager
+  Method:   <com.android.server.policy.KeyCustomizationManager: boolean isKodiakDedicatedPttApp(java.lang.String)>
+  Line:     3687
+  Register: p0 := "com.sprint.sdcplus"
+  Usage:    [invoke] invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-nez p0, :cond_38
+
+  CALLERS (who invokes this method):
+      ← KeyCustomizationManager.getIntentWithKeyInfoExtra()
+        ← KeyCustomizationManager.sendBroadcast()
+          ← KeyCustomizationManager.sendBroadcast()
+          ← KeyCustomizationManager.sendBroadcast()
+          ← KeyCustomizationManager.launchPressSendBroadcast()
+            ← KeyCustomizationManager.launchLongPressAction()
+            ← KeyCustomizationManager.launchMultiPressAction()
+            ← KeyCustomizationManager.dispatchKeyCustomizationKeyEvent()
+            ← PhoneWindowManagerExt$UserKeyRule.onKeyDown()
+            ← PhoneWindowManagerExt$UserKeyRule.onKeyUp()
+            ← PhoneWindowManagerExt$UserTopKeyRule.onKeyDown()
+            ← PhoneWindowManagerExt$UserTopKeyRule.onKeyUp()
+            ← SingleKeyGestureDetector$SingleKeyRule.sendBroadcastIfNeeded()
+              ← KeyCustomizationManager.launchLongPressAction()
+              ← PhoneWindowManagerExt.powerLongPress()
+              ← PhoneWindowManagerExt$HomeKeyRule.onMultiPress()
+              ← PhoneWindowManagerExt.powerMultiPressAction()
+              ← SingleKeyGestureDetector$SingleKeyRule.onMultiPress()
+              ← KeyCustomizationManager.dispatchKeyCustomizationKeyEvent()
+              ← PhoneWindowManagerExt.interceptKeyBeforeDispatching()
+              ← SingleKeyGestureDetector$SingleKeyRule.onKeyDown()
+              ← SingleKeyGestureDetector$SingleKeyRule.onKeyUp()
+

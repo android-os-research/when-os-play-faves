@@ -1,0 +1,11 @@
+# android.content.pm.IDataLoaderManager [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.content.pm.IDataLoaderManager$Stub$Proxy: android.content.pm.IDataLoader getDataLoader(int)>
+<android.content.pm.IDataLoaderManager$Stub$Proxy: boolean bindToDataLoader(int,android.content.pm.DataLoaderParamsParcel,long,android.content.pm.IDataLoaderStatusListener)>
+<android.content.pm.IDataLoaderManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IDataLoaderManager$Stub$Proxy: void unbindFromDataLoader(int)>
+<android.content.pm.IDataLoaderManager$Stub: android.content.pm.IDataLoaderManager asInterface(android.os.IBinder)>
+<android.content.pm.IDataLoaderManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IDataLoaderManager$Stub: void <init>()>

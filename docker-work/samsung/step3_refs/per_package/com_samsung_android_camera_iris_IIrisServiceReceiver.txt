@@ -1,0 +1,15 @@
+# com.samsung.android.camera.iris.IIrisServiceReceiver [NEW]
+# Refs: 11
+# JARs: framework
+
+<com.samsung.android.camera.iris.IIrisServiceReceiver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.camera.iris.IIrisServiceReceiver$Stub$Proxy: void onAcquired(long,int)>
+<com.samsung.android.camera.iris.IIrisServiceReceiver$Stub$Proxy: void onAuthenticationFailed(long)>
+<com.samsung.android.camera.iris.IIrisServiceReceiver$Stub$Proxy: void onAuthenticationSucceeded(long,com.samsung.android.camera.iris.Iris,byte[])>
+<com.samsung.android.camera.iris.IIrisServiceReceiver$Stub$Proxy: void onEnrollResult(long,int,int,int)>
+<com.samsung.android.camera.iris.IIrisServiceReceiver$Stub$Proxy: void onError(long,int)>
+<com.samsung.android.camera.iris.IIrisServiceReceiver$Stub$Proxy: void onIRImage(long,byte[],int,int)>
+<com.samsung.android.camera.iris.IIrisServiceReceiver$Stub$Proxy: void onRemoved(long,int,int)>
+<com.samsung.android.camera.iris.IIrisServiceReceiver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.camera.iris.IIrisServiceReceiver$Stub: com.samsung.android.camera.iris.IIrisServiceReceiver asInterface(android.os.IBinder)>
+<com.samsung.android.camera.iris.IIrisServiceReceiver$Stub: void <init>()>

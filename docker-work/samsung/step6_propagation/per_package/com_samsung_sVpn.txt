@@ -1,0 +1,752 @@
+######################################################################
+# Propagation: com.samsung.sVpn
+######################################################################
+
+JARs:                 services
+Classes:              3
+Occurrences:          17
+Usage types:          invoke
+Enforcement patterns: allowlist_check, early_return, string_compare
+Security tags:        PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.VpnManagerService
+  Method:   <com.android.server.VpnManagerService: void applyBlockingRulesToUidRange(java.lang.String,int,boolean,java.lang.String)>
+  Line:     508
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] iget-object v0, p0, Lcom/android/server/VpnManagerService;-> → [other] moni
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+      → SparseArray.get()
+      → EnterpriseVpn.applyBlockingRulesToUidRange()
+      → Vpn.applyBlockingRulesToUidRange()
+      → HashMap.get()
+        → SparseArray.get()
+        → ConnectivityManager.setRequireVpnForUids()
+        → Set.toArray()
+          → ContainerHelpers.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.VpnManagerService
+  Method:   <com.android.server.VpnManagerService: void createEnterpriseVpnInstance(java.lang.String,java.lang.String,int,int)>
+  Line:     720
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_12 → [other] iget-object v0, p0,
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+      → Handler.getLooper()
+      → SparseArray.get()
+      → SparseArray.put()
+      → VpnManagerService.checkIfKnoxVpnProfileExists()
+      → <com.android.server.connectivity.EnterpriseVpn: void <init>(
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+        → SparseArray.get()
+        → ContainerHelpers.binarySearch()
+        → SparseArray.gc()
+        → GrowingArrayUtils.insert()
+        → GrowingArrayUtils.insert()
+        → HashMap.containsKey()
+        → Context.getSystemService()
+        → ConnectivityManager.registerNetworkProvider()
+        → NetworkCapabilities$Builder.build()
+        → NetworkCapabilities$Builder.addCapability()
+        → NetworkCapabilities$Builder.addTransportType()
+        → NetworkCapabilities$Builder.removeCapability()
+        → NetworkCapabilities$Builder.setTransportInfo()
+        → <android.net.NetworkCapabilities$Builder: void <init>()>
+        → <android.net.NetworkInfo: void <init>(int,int,java.lang.Stri
+        → <android.net.NetworkProvider: void <init>(android.content.Co
+        → <android.net.VpnTransportInfo: void <init>(int,java.lang.Str
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → INetworkManagementService.allowProtect()
+        → INetworkManagementService.registerObserver()
+        → <android.util.ArraySet: void <init>()>
+        → <com.android.server.connectivity.EnterpriseVpn$2: void <init
+        → <com.android.server.connectivity.EnterpriseVpn$3: void <init
+        → EnterpriseVpn.getAppUid()
+        → EnterpriseVpn.registerLocaleChangedReceiver()
+          → <android.util.ArraySet: void <init>(int,boolean)>
+          → <com.android.server.net.BaseNetworkObserver: void <init>()>
+          → <android.content.BroadcastReceiver: void <init>()>
+          → Context.getPackageManager()
+          → PackageManager.getPackageUidAsUser()
+          → Context.registerReceiverAsUser()
+          → <android.content.IntentFilter: void <init>(java.lang.String)
+            → ArraySet.allocArrays()
+            → <android.net.INetworkManagementEventObserver$Stub: void <ini
+              → INetworkManagementEventObserver$Stub.attachInterface()
+              → <android.os.Binder: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.VpnManagerService
+  Method:   <com.android.server.VpnManagerService: void removeEnterpriseVpnInstance(java.lang.String,java.lang.String,int)>
+  Line:     3860
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_88 → [other] sget-object v0, Lco
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → SparseArray.get()
+      → SparseArray.delete()
+      → VpnManagerService.checkIfKnoxVpnProfileExists()
+      → EnterpriseVpn.cleanupObjects()
+      → EnterpriseVpn.showNotification()
+      → Vpn.cleanupObjects()
+      → HashMap.isEmpty()
+      → HashMap.size()
+      → HashMap.get()
+      → HashMap.remove()
+        → SparseArray.get()
+        → ContainerHelpers.binarySearch()
+        → HashMap.containsKey()
+        → ConnectivityManager.unregisterNetworkProvider()
+        → INetworkManagementService.unregisterObserver()
+        → EnterpriseVpn.resetUidListInNetworkCapabilities()
+        → EnterpriseVpn.unregisterLocaleChangedReceiver()
+        → NotificationManager.notifyAsUser()
+        → Context.getSystemService()
+        → SystemClock.elapsedRealtime()
+        → <android.os.UserHandle: void <init>(int)>
+        → VpnConfig.getIntentForStatusPanelEnterpriseVpnAsUser()
+        → EnterpriseVpn.createNotification()
+        → EnterpriseVpn.getDomainsByProfileName()
+        → EnterpriseVpn.dismissConnectingNotification()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.size()
+        → List.iterator()
+        → Vpn.resetUidListInNetworkCapabilities()
+          → NetworkAgent.sendNetworkCapabilities()
+          → NetworkCapabilities$Builder.build()
+          → NetworkCapabilities$Builder.setUids()
+          → <android.net.NetworkCapabilities$Builder: void <init>(androi
+          → EnterpriseVpn.applyBlockingRulesToUidRange()
+          → Set.clear()
+          → Context.unregisterReceiver()
+          → Notification$Builder.getNotification()
+          → Notification$Builder.setContentIntent()
+          → Notification$Builder.setContentText()
+          → Notification$Builder.setContentTitle()
+          → Notification$Builder.setDefaults()
+          → Notification$Builder.setOngoing()
+          → Notification$Builder.setPriority()
+          → Notification$Builder.setSmallIcon()
+          → <android.app.Notification$Builder: void <init>(android.conte
+          → Context.getString()
+          → EnterpriseVpn.getKnoxVpnService()
+          → IKnoxVpnPolicy.getDomainsByProfileName()
+          → Vpn.applyBlockingRulesToUidRange()
+            → ConnectivityManager.setRequireVpnForUids()
+            → Set.toArray()
+            → ServiceManager.getService()
+            → IKnoxVpnPolicy$Stub.asInterface()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.net.vpn.IKnoxVpnPolicy$Stub$Proxy:
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.VpnManagerService
+  Method:   <com.android.server.VpnManagerService: void resetUidListInNetworkCapabilities(java.lang.String,int,java.lang.String)>
+  Line:     4138
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] iget-object v0, p0, Lcom/android/server/VpnManagerService;-> → [other] moni
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+      → SparseArray.get()
+      → EnterpriseVpn.resetUidListInNetworkCapabilities()
+      → Vpn.resetUidListInNetworkCapabilities()
+      → HashMap.get()
+        → SparseArray.get()
+        → NetworkAgent.sendNetworkCapabilities()
+        → NetworkCapabilities$Builder.build()
+        → NetworkCapabilities$Builder.setUids()
+        → <android.net.NetworkCapabilities$Builder: void <init>(androi
+        → EnterpriseVpn.applyBlockingRulesToUidRange()
+        → Set.clear()
+        → Vpn.applyBlockingRulesToUidRange()
+          → ContainerHelpers.binarySearch()
+          → ConnectivityManager.setRequireVpnForUids()
+          → Set.toArray()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.VpnManagerService
+  Method:   <com.android.server.VpnManagerService: void updateLocalProxyInfo(java.lang.String,int,java.lang.String,android.net.ProxyInfo)>
+  Line:     5038
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] iget-object v0, p0, Lcom/android/server/VpnManagerService;-> → [other] moni
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+      → SparseArray.get()
+      → EnterpriseVpn.updateLocalProxyInfo()
+      → Vpn.updateLocalProxyInfo()
+      → HashMap.get()
+        → SparseArray.get()
+        → NetworkAgent.sendLinkProperties()
+        → EnterpriseVpn.makeLinkProperties()
+        → Vpn.makeLinkProperties()
+          → ContainerHelpers.binarySearch()
+          → InetAddresses.parseNumericAddress()
+          → <android.net.IpPrefix: void <init>(java.net.InetAddress,int)
+          → LinkAddress.getAddress()
+          → LinkProperties.addDnsServer()
+          → LinkProperties.addLinkAddress()
+          → LinkProperties.addRoute()
+          → <android.net.LinkProperties: void <init>()>
+          → LinkProperties.setDomains()
+          → LinkProperties.setHttpProxy()
+          → LinkProperties.setInterfaceName()
+          → LinkProperties.setMtu()
+          → <android.net.RouteInfo: void <init>(android.net.IpPrefix,jav
+          → InetAddress.getHostAddress()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.iterator()
+          → IpPrefix.getAddress()
+          → RouteInfo.getDestination()
+          → RouteInfo.getType()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.VpnManagerService
+  Method:   <com.android.server.VpnManagerService: void updateUidRangesToPerAppVpn(java.lang.String,int,boolean,int[],java.lang.String)>
+  Line:     5374
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+      → SparseArray.get()
+      → EnterpriseVpn.updateUidRangesToPerAppVpn()
+      → Vpn.updateUidRangesToPerAppVpn()
+      → HashMap.get()
+      → <java.util.HashSet: void <init>()>
+      → Set.add()
+        → SparseArray.get()
+        → <android.util.Range: void <init>(java.lang.Comparable,java.l
+        → EnterpriseVpn.updateUidListInNetworkCapabilities()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Set.remove()
+        → Set.iterator()
+        → Vpn.updateUidListInNetworkCapabilities()
+          → ContainerHelpers.binarySearch()
+          → Preconditions.checkNotNull()
+          → Comparable.compareTo()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → NetworkAgent.sendNetworkCapabilities()
+          → NetworkCapabilities$Builder.build()
+          → NetworkCapabilities$Builder.setUids()
+          → <android.net.NetworkCapabilities$Builder: void <init>(androi
+          → Range.getLower()
+          → Range.getUpper()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.VpnManagerService
+  Method:   <com.android.server.VpnManagerService: void updateUidRangesToUserVpn(java.lang.String,int,boolean,int,java.lang.String)>
+  Line:     5542
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+      → SparseArray.get()
+      → EnterpriseVpn.updateUidRangesToUserVpn()
+      → Vpn.updateUidRangesToUserVpn()
+      → HashMap.get()
+        → SparseArray.get()
+        → <android.util.Range: void <init>(java.lang.Comparable,java.l
+        → EnterpriseVpn.updateUidListInNetworkCapabilities()
+        → Set.add()
+        → Set.remove()
+        → Vpn.updateUidListInNetworkCapabilities()
+          → ContainerHelpers.binarySearch()
+          → Preconditions.checkNotNull()
+          → Comparable.compareTo()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → NetworkAgent.sendNetworkCapabilities()
+          → NetworkCapabilities$Builder.build()
+          → NetworkCapabilities$Builder.setUids()
+          → <android.net.NetworkCapabilities$Builder: void <init>(androi
+          → Range.getLower()
+          → Range.getUpper()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → Set.iterator()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.VpnManagerService
+  Method:   <com.android.server.VpnManagerService: void updateUidRangesToUserVpnWithBlackList(java.lang.String,int,int,int[],java.lang.String)>
+  Line:     5658
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+      → SparseArray.get()
+      → EnterpriseVpn.updateUidRangesToUserVpnWithBlackList()
+      → Vpn.updateUidRangesToUserVpnWithBlackList()
+      → HashMap.get()
+      → <java.util.HashSet: void <init>()>
+      → Set.add()
+        → SparseArray.get()
+        → Range.getLower()
+        → Range.getUpper()
+        → <android.util.Range: void <init>(java.lang.Comparable,java.l
+        → EnterpriseVpn.createUidRangeForUser()
+        → EnterpriseVpn.updateUidListInNetworkCapabilities()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → Collections.sort()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+        → Set.size()
+        → Vpn.createUidRangeForUser()
+        → Vpn.updateUidListInNetworkCapabilities()
+          → ContainerHelpers.binarySearch()
+          → Preconditions.checkNotNull()
+          → Comparable.compareTo()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → NetworkAgent.sendNetworkCapabilities()
+          → NetworkCapabilities$Builder.build()
+          → NetworkCapabilities$Builder.setUids()
+          → <android.net.NetworkCapabilities$Builder: void <init>(androi
+          → Set.iterator()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnHelper
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnHelper: void addOrRemoveAppsFromBatteryOptimization(java.lang.String,java.lang.String,boolean)>
+  Line:     295
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equalsIgnoreCase() → [other] move-result v0 → [branch] if-eqz v0, :cond_b → [other] move-resul
+
+  CALLERS (who invokes this method):
+      ← KnoxVpnEngineService.allowAuthUsbTetheringOverVpn()
+      ← KnoxVpnEngineService.disallowUsbTetheringOverVpn()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → IDeviceIdleController$Stub.asInterface()
+      → IDeviceIdleController.addPowerSaveWhitelistApp()
+      → IDeviceIdleController.removePowerSaveWhitelistApp()
+      → PowerManager.isIgnoringBatteryOptimizations()
+      → ServiceManager.getService()
+      → VpnProfileConfig.getProfileEntry()
+        → IBinder.queryLocalInterface()
+        → <android.os.IDeviceIdleController$Stub$Proxy: void <init>(an
+        → ConcurrentHashMap.containsKey()
+        → ConcurrentHashMap.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnHelper
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnHelper: void addUidsToVpnUidRange(java.lang.String,int)>
+  Line:     748
+  Register: v3 := "com.samsung.sVpn"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v3 → [branch] if-eqz v3, :cond_71 → [other] move-result v3 → 
+
+  CALLERS (who invokes this method):
+      ← KnoxVpnHelper.updateUidsToVpnUidRange()
+        ← KnoxVpnApiValidation.addContainerPackagesToVpnValidation()
+        ← KnoxVpnApiValidation.addPackagesToVpnValidation()
+        ← KnoxVpnApiValidation.removeContainerPackagesFromVpnValidation()
+        ← KnoxVpnApiValidation.removePackagesFromVpnValidation()
+
+  CALLEES (what this method invokes):
+      → IVpnManager.updateUidRangesToUserVpn()
+      → IVpnManager.updateUidRangesToUserVpnWithBlackList()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → UserHandle.getUserId()
+      → <com.android.server.audio.AudioService$$ExternalSyntheticLam
+      → KnoxVpnHelper.getVpnManagerService()
+      → KnoxVpnHelper.getNonChainedVendoUid()
+      → KnoxVpnHelper.getRegularPackageName()
+      → VpnProfileConfig.getProfileEntry()
+      → VpnProfileInfo.getChainingEnabled()
+      → VpnProfileInfo.getPersonaId()
+      → VpnProfileInfo.getVendorUid()
+      → VpnProfileInfo.getVendorPkgName()
+      → VpnProfileInfo.getExemptPackageList()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.stream()
+      → Set.add()
+      → Set.iterator()
+      → IntStream.toArray()
+      → Stream.mapToInt()
+        → IVpnManager$Stub.asInterface()
+        → ServiceManager.getService()
+        → VpnProfileConfig.getProfileEntries()
+        → Collection.iterator()
+        → ConcurrentHashMap.containsKey()
+        → ConcurrentHashMap.get()
+          → <android.net.IVpnManager$Stub$Proxy: void <init>(android.os.
+          → IBinder.queryLocalInterface()
+          → ConcurrentHashMap.values()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnHelper
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnHelper: boolean isNativeVpnClient(java.lang.String)>
+  Line:     8205
+  Register: v2 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {v3, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v2 → [branch] if-eqz v2, :cond_27
+
+  CALLEES (what this method invokes):
+      → UserHandle.getAppId()
+      → VpnProfileConfig.getProfileEntry()
+      → VpnProfileInfo.getVendorUid()
+      → VpnProfileInfo.getVendorPkgName()
+      → VpnProfileInfo.setVpnType()
+        → ConcurrentHashMap.containsKey()
+        → ConcurrentHashMap.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: void addInputFilterDropRulesForInterface(java.lang.String,int,java.util.List,java.lang.String)>
+  Line:     777
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equalsIgnoreCase() → [other] const-string/jumbo v0, "v4-" → [invoke] java.lang.StringBuilder.a
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → INetworkManagementService.updateInputFilterAppWideRules()
+      → INetworkManagementService.updateInputFilterUserWideRules()
+      → <com.android.server.audio.AudioService$$ExternalSyntheticLam
+      → KnoxVpnFirewallHelper.getNetworkManagementService()
+      → KnoxVpnFirewallHelper.jnigetIfaceIndexWitoutOffset()
+      → List.stream()
+      → IntStream.toArray()
+      → Stream.mapToInt()
+        → INetworkManagementService$Stub.asInterface()
+        → ServiceManager.getService()
+          → IBinder.queryLocalInterface()
+          → <android.os.INetworkManagementService$Stub$Proxy: void <init
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: void addRangeRulesForFilteredPackages(java.lang.String,java.lang.String,int,java.lang.String)>
+  Line:     1877
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {v3, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v0 → [branch] if-nez v0, :cond_cb → [reassigned] v0 overwritt
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → INetworkManagementService.updateInputFilterUserWideRules()
+      → <com.android.server.audio.AudioService$$ExternalSyntheticLam
+      → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+      → KnoxVpnFirewallHelper.getNetworkManagementService()
+      → KnoxVpnFirewallHelper.jnigetIfaceIndexWitoutOffset()
+      → KnoxVpnFirewallHelper.insertRule()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+      → List.stream()
+      → IntStream.toArray()
+      → Stream.mapToInt()
+        → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+        → INetworkManagementService$Stub.asInterface()
+        → ServiceManager.getService()
+        → KnoxVpnFirewallHelper.insertRules()
+        → Collections.singletonList()
+          → IBinder.queryLocalInterface()
+          → <android.os.INetworkManagementService$Stub$Proxy: void <init
+          → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+          → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+          → KnoxVpnFirewallHelper.createTableHeaderCmd()
+          → KnoxVpnFirewallHelper.parseRuleCmd()
+          → KnoxVpnFirewallHelper.parseRuleCmd()
+          → KnoxVpnFirewallHelper.runIptablesRestoreCmd()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.addAll()
+          → List.iterator()
+            → KnoxVpnFirewallHelper.parseIptablesRestoreCmd()
+            → KnoxVpnFirewallHelper.runShellCommand()
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → Enum.ordinal()
+              → INetworkManagementService.runKnoxFirewallRulesCommand()
+              → Exception.getMessage()
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: void addRulesForFilteredPackages(java.lang.String,java.lang.String,java.util.List,java.lang.String)>
+  Line:     2149
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v0 → [branch] if-nez v0, :cond_c8 → [reassigned] v0 overwritt
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → INetworkManagementService.updateInputFilterAppWideRules()
+      → <com.android.server.audio.AudioService$$ExternalSyntheticLam
+      → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+      → KnoxVpnFirewallHelper.getNetworkManagementService()
+      → KnoxVpnFirewallHelper.jnigetIfaceIndexWitoutOffset()
+      → KnoxVpnFirewallHelper.insertRules()
+      → <java.util.ArrayList: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.add()
+      → List.isEmpty()
+      → List.iterator()
+      → List.stream()
+      → IntStream.toArray()
+      → Stream.mapToInt()
+        → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+        → INetworkManagementService$Stub.asInterface()
+        → ServiceManager.getService()
+        → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+        → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+        → KnoxVpnFirewallHelper.createTableHeaderCmd()
+        → KnoxVpnFirewallHelper.parseRuleCmd()
+        → KnoxVpnFirewallHelper.parseRuleCmd()
+        → KnoxVpnFirewallHelper.runIptablesRestoreCmd()
+        → List.addAll()
+          → IBinder.queryLocalInterface()
+          → <android.os.INetworkManagementService$Stub$Proxy: void <init
+          → KnoxVpnFirewallHelper.parseIptablesRestoreCmd()
+          → KnoxVpnFirewallHelper.runShellCommand()
+            → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+            → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+            → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+            → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+            → Enum.ordinal()
+            → INetworkManagementService.runKnoxFirewallRulesCommand()
+            → Exception.getMessage()
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: java.util.List getDefaultRouteApps(int)>
+  Line:     6837
+  Register: v4 := "com.samsung.sVpn"
+  Usage:    [] 
+  Patterns: allowlist_check
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v4 → [branch] if-eqz v4, :cond_6c → [other] sget-object v4, L
+
+  CALLERS (who invokes this method):
+      ← KnoxVpnFirewallHelper.addMiscRulesRange()
+      ← KnoxVpnFirewallHelper.removeMiscRulesRange()
+
+  CALLEES (what this method invokes):
+      → UserHandle.getUserId()
+      → KnoxVpnFirewallHelper.getNonChainedVendoUid()
+      → KnoxVpnFirewallHelper.getProfileOwningUserId()
+      → KnoxVpnFirewallHelper.getDefaultRouteAppUidList()
+      → VpnProfileConfig.getProfileEntry()
+      → VpnProfileInfo.getChainingEnabled()
+      → VpnProfileInfo.getVendorUid()
+      → VpnProfileInfo.getVendorPkgName()
+      → VpnProfileInfo.getExemptPackageList()
+      → <java.util.ArrayList: void <init>()>
+      → Collections.sort()
+      → HashSet.iterator()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.add()
+      → List.contains()
+        → VpnProfileConfig.getProfileEntries()
+        → Collection.iterator()
+        → VpnPackageInfo.getCid()
+        → VpnPackageInfo.getUid()
+        → VpnProfileInfo.getProfileName()
+        → VpnProfileInfo.getPackageList()
+        → KnoxVpnFirewallHelper.getUIDForPackage()
+        → ConcurrentHashMap.containsKey()
+        → ConcurrentHashMap.get()
+          → ConcurrentHashMap.values()
+          → AppGlobals.getPackageManager()
+          → IPackageManager.getApplicationInfo() [PKG_QUERY]
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+            → ActivityThread.getPackageManager()
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: void removeRangeRulesForFilteredPackages(java.lang.String,java.lang.String,int)>
+  Line:     12775
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v0 → [branch] if-nez v0, :cond_a7 → [other] new-instance v0, 
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → INetworkManagementService.updateInputFilterUserWideRules()
+      → <com.android.server.audio.AudioService$$ExternalSyntheticLam
+      → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+      → KnoxVpnFirewallHelper.getNetworkManagementService()
+      → KnoxVpnFirewallHelper.insertRule()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+      → List.stream()
+      → IntStream.toArray()
+      → Stream.mapToInt()
+        → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+        → INetworkManagementService$Stub.asInterface()
+        → ServiceManager.getService()
+        → KnoxVpnFirewallHelper.insertRules()
+        → Collections.singletonList()
+          → IBinder.queryLocalInterface()
+          → <android.os.INetworkManagementService$Stub$Proxy: void <init
+          → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+          → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+          → KnoxVpnFirewallHelper.createTableHeaderCmd()
+          → KnoxVpnFirewallHelper.parseRuleCmd()
+          → KnoxVpnFirewallHelper.parseRuleCmd()
+          → KnoxVpnFirewallHelper.runIptablesRestoreCmd()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.addAll()
+          → List.iterator()
+            → KnoxVpnFirewallHelper.parseIptablesRestoreCmd()
+            → KnoxVpnFirewallHelper.runShellCommand()
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → Enum.ordinal()
+              → INetworkManagementService.runKnoxFirewallRulesCommand()
+              → Exception.getMessage()
+
+────────────────────────────────────────────────────────────
+Occurrence #17
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: void removeRulesForFilteredPackages(java.lang.String,java.lang.String,java.util.List)>
+  Line:     12986
+  Register: v0 := "com.samsung.sVpn"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v0 → [branch] if-nez v0, :cond_97 → [reassigned] v0 overwritt
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → INetworkManagementService.updateInputFilterAppWideRules()
+      → <com.android.server.audio.AudioService$$ExternalSyntheticLam
+      → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+      → KnoxVpnFirewallHelper.getNetworkManagementService()
+      → KnoxVpnFirewallHelper.insertRule()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+      → List.stream()
+      → IntStream.toArray()
+      → Stream.mapToInt()
+        → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+        → INetworkManagementService$Stub.asInterface()
+        → ServiceManager.getService()
+        → KnoxVpnFirewallHelper.insertRules()
+        → Collections.singletonList()
+          → IBinder.queryLocalInterface()
+          → <android.os.INetworkManagementService$Stub$Proxy: void <init
+          → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+          → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+          → KnoxVpnFirewallHelper.createTableHeaderCmd()
+          → KnoxVpnFirewallHelper.parseRuleCmd()
+          → KnoxVpnFirewallHelper.parseRuleCmd()
+          → KnoxVpnFirewallHelper.runIptablesRestoreCmd()
+          → <java.util.ArrayList: void <init>()>
+          → List.add()
+          → List.addAll()
+            → KnoxVpnFirewallHelper.parseIptablesRestoreCmd()
+            → KnoxVpnFirewallHelper.runShellCommand()
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHe
+              → Enum.ordinal()
+              → INetworkManagementService.runKnoxFirewallRulesCommand()
+              → Exception.getMessage()
+

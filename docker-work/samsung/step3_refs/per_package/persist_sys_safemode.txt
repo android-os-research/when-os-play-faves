@@ -1,0 +1,7 @@
+# persist.sys.safemode [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.power.ShutdownThread: void run()>
+<com.android.server.wm.WindowManagerService: boolean detectSafeMode()>
+<com.android.server.wm.WindowManagerServiceExt: void <clinit>()>

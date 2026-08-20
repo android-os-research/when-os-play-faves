@@ -1,0 +1,14 @@
+# com.samsung.android.knox.permission.KNOX_UCM_MGMT [NEW]
+# Refs: 10
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService$UCSMHandler: void handleMessage(android.os.Message)>
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: boolean notifyLicenseStatus(int,java.lang.String)>
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: void enforceActiveAdminPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: void enforceSecurityPermission(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.ucm.configurator.CredentialStorage)>
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: void notifyPluginIsUninstalled(java.lang.String)>
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: void notifyUCMConfigStatus(java.lang.String,android.os.Bundle,android.os.UserHandle)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>
+<com.samsung.ucm.ucmservice.CredentialManagerService: void <init>(com.samsung.ucm.ucmservice.CredentialManagerService$Injector)>
+<com.samsung.ucm.ucmservice.UcmServiceAgentManager: boolean checkESEPermission(java.lang.String)>

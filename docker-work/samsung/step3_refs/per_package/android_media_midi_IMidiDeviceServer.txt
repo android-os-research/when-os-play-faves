@@ -1,0 +1,15 @@
+# android.media.midi.IMidiDeviceServer [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.media.midi.IMidiDeviceServer$Stub$Proxy: android.media.midi.MidiDeviceInfo getDeviceInfo()>
+<android.media.midi.IMidiDeviceServer$Stub$Proxy: int connectPorts(android.os.IBinder,java.io.FileDescriptor,int)>
+<android.media.midi.IMidiDeviceServer$Stub$Proxy: java.io.FileDescriptor openInputPort(android.os.IBinder,int)>
+<android.media.midi.IMidiDeviceServer$Stub$Proxy: java.io.FileDescriptor openOutputPort(android.os.IBinder,int)>
+<android.media.midi.IMidiDeviceServer$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.midi.IMidiDeviceServer$Stub$Proxy: void closeDevice()>
+<android.media.midi.IMidiDeviceServer$Stub$Proxy: void closePort(android.os.IBinder)>
+<android.media.midi.IMidiDeviceServer$Stub$Proxy: void setDeviceInfo(android.media.midi.MidiDeviceInfo)>
+<android.media.midi.IMidiDeviceServer$Stub: android.media.midi.IMidiDeviceServer asInterface(android.os.IBinder)>
+<android.media.midi.IMidiDeviceServer$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.midi.IMidiDeviceServer$Stub: void <init>()>

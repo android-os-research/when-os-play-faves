@@ -1,0 +1,9 @@
+# com.samsung.android.spayfw [NEW]
+# Refs: 9
+# JARs: service-samsung-payment, services
+
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantPermissionsToSysComponentsAndPrivApps(com.android.server.pm.permission.DefaultPermissionGrantPolicy$DelayingPackageManagerCache,int)>
+<com.android.server.spay.PaymentManagerService: void <init>(android.content.Context)>
+<com.android.server.spay.PaymentManagerService: void disablePaymentFrameworkUpdateRemoval()>
+<com.android.server.spay.UpdateReceiver$2: void handleMessage(android.os.Message)>
+<com.android.server.spay.Utils: boolean backgroundWhitelist(android.content.Context,java.lang.String,boolean)>

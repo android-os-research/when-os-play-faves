@@ -1,0 +1,8 @@
+# fingerprint.hidl.TestHal [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.biometrics.sensors.fingerprint.hidl.TestHal: int authenticate(long,int)>
+<com.android.server.biometrics.sensors.fingerprint.hidl.TestHal: int enroll(byte[],int,int)>
+<com.android.server.biometrics.sensors.fingerprint.hidl.TestHal: int enumerate()>
+<com.android.server.biometrics.sensors.fingerprint.hidl.TestHal: int remove(int,int)>

@@ -1,0 +1,2783 @@
+.class final Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;
+.super Lcom/android/framework/protobuf/CodedInputStream;
+.source "CodedInputStream.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/framework/protobuf/CodedInputStream;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1a
+    name = "ArrayDecoder"
+.end annotation
+
+
+# instance fields
+.field private final blacklist buffer:[B
+
+.field private blacklist bufferSizeAfterLimit:I
+
+.field private blacklist currentLimit:I
+
+.field private blacklist enableAliasing:Z
+
+.field private final blacklist immutable:Z
+
+.field private blacklist lastTag:I
+
+.field private blacklist limit:I
+
+.field private blacklist pos:I
+
+.field private blacklist startPos:I
+
+
+# direct methods
+.method private constructor blacklist <init>([BIIZ)V
+    .registers 6
+    .param p1, "buffer"    # [B
+    .param p2, "offset"    # I
+    .param p3, "len"    # I
+    .param p4, "immutable"    # Z
+
+    .line 606
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/android/framework/protobuf/CodedInputStream;-><init>(Lcom/android/framework/protobuf/CodedInputStream$1;)V
+
+    .line 604
+    const v0, 0x7fffffff
+
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->currentLimit:I
+
+    .line 607
+    iput-object p1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    .line 608
+    add-int v0, p2, p3
+
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    .line 609
+    iput p2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 610
+    iput p2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->startPos:I
+
+    .line 611
+    iput-boolean p4, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->immutable:Z
+
+    .line 612
+    return-void
+.end method
+
+.method synthetic constructor blacklist <init>([BIIZLcom/android/framework/protobuf/CodedInputStream$1;)V
+    .registers 6
+    .param p1, "x0"    # [B
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
+    .param p4, "x3"    # Z
+    .param p5, "x4"    # Lcom/android/framework/protobuf/CodedInputStream$1;
+
+    .line 593
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;-><init>([BIIZ)V
+
+    return-void
+.end method
+
+.method private blacklist recomputeBufferSizeAfterLimit()V
+    .registers 4
+
+    .line 1197
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->bufferSizeAfterLimit:I
+
+    add-int/2addr v0, v1
+
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    .line 1198
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->startPos:I
+
+    sub-int v1, v0, v1
+
+    .line 1199
+    .local v1, "bufferEnd":I
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->currentLimit:I
+
+    if-le v1, v2, :cond_17
+
+    .line 1201
+    sub-int v2, v1, v2
+
+    iput v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->bufferSizeAfterLimit:I
+
+    .line 1202
+    sub-int/2addr v0, v2
+
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    goto :goto_1a
+
+    .line 1204
+    :cond_17
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->bufferSizeAfterLimit:I
+
+    .line 1206
+    :goto_1a
+    return-void
+.end method
+
+.method private blacklist skipRawVarint()V
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1022
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    sub-int/2addr v0, v1
+
+    const/16 v1, 0xa
+
+    if-lt v0, v1, :cond_d
+
+    .line 1023
+    invoke-direct {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->skipRawVarintFastPath()V
+
+    goto :goto_10
+
+    .line 1025
+    :cond_d
+    invoke-direct {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->skipRawVarintSlowPath()V
+
+    .line 1027
+    :goto_10
+    return-void
+.end method
+
+.method private blacklist skipRawVarintFastPath()V
+    .registers 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1030
+    const/4 v0, 0x0
+
+    .local v0, "i":I
+    :goto_1
+    const/16 v1, 0xa
+
+    if-ge v0, v1, :cond_15
+
+    .line 1031
+    iget-object v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    add-int/lit8 v3, v2, 0x1
+
+    iput v3, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    aget-byte v1, v1, v2
+
+    if-ltz v1, :cond_12
+
+    .line 1032
+    return-void
+
+    .line 1030
+    :cond_12
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    .line 1035
+    .end local v0    # "i":I
+    :cond_15
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+.end method
+
+.method private blacklist skipRawVarintSlowPath()V
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1039
+    const/4 v0, 0x0
+
+    .local v0, "i":I
+    :goto_1
+    const/16 v1, 0xa
+
+    if-ge v0, v1, :cond_f
+
+    .line 1040
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawByte()B
+
+    move-result v1
+
+    if-ltz v1, :cond_c
+
+    .line 1041
+    return-void
+
+    .line 1039
+    :cond_c
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    .line 1044
+    .end local v0    # "i":I
+    :cond_f
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+.end method
+
+
+# virtual methods
+.method public blacklist checkLastTagWas(I)V
+    .registers 3
+    .param p1, "value"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+        }
+    .end annotation
+
+    .line 632
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->lastTag:I
+
+    if-ne v0, p1, :cond_5
+
+    .line 635
+    return-void
+
+    .line 633
+    :cond_5
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->invalidEndTag()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+.end method
+
+.method public blacklist enableAliasing(Z)V
+    .registers 2
+    .param p1, "enabled"    # Z
+
+    .line 1171
+    iput-boolean p1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->enableAliasing:Z
+
+    .line 1172
+    return-void
+.end method
+
+.method public blacklist getBytesUntilLimit()I
+    .registers 3
+
+    .line 1216
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->currentLimit:I
+
+    const v1, 0x7fffffff
+
+    if-ne v0, v1, :cond_9
+
+    .line 1217
+    const/4 v0, -0x1
+
+    return v0
+
+    .line 1220
+    :cond_9
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->getTotalBytesRead()I
+
+    move-result v1
+
+    sub-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method public blacklist getLastTag()I
+    .registers 2
+
+    .line 639
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->lastTag:I
+
+    return v0
+.end method
+
+.method public blacklist getTotalBytesRead()I
+    .registers 3
+
+    .line 1230
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->startPos:I
+
+    sub-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method public blacklist isAtEnd()Z
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1225
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    if-ne v0, v1, :cond_8
+
+    const/4 v0, 0x1
+
+    goto :goto_9
+
+    :cond_8
+    const/4 v0, 0x0
+
+    :goto_9
+    return v0
+.end method
+
+.method public blacklist popLimit(I)V
+    .registers 2
+    .param p1, "oldLimit"    # I
+
+    .line 1210
+    iput p1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->currentLimit:I
+
+    .line 1211
+    invoke-direct {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recomputeBufferSizeAfterLimit()V
+
+    .line 1212
+    return-void
+.end method
+
+.method public blacklist pushLimit(I)I
+    .registers 4
+    .param p1, "byteLimit"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+        }
+    .end annotation
+
+    .line 1181
+    if-ltz p1, :cond_16
+
+    .line 1184
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->getTotalBytesRead()I
+
+    move-result v0
+
+    add-int/2addr p1, v0
+
+    .line 1185
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->currentLimit:I
+
+    .line 1186
+    .local v0, "oldLimit":I
+    if-gt p1, v0, :cond_11
+
+    .line 1189
+    iput p1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->currentLimit:I
+
+    .line 1191
+    invoke-direct {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recomputeBufferSizeAfterLimit()V
+
+    .line 1193
+    return v0
+
+    .line 1187
+    :cond_11
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v1
+
+    throw v1
+
+    .line 1182
+    .end local v0    # "oldLimit":I
+    :cond_16
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+.end method
+
+.method public blacklist readBool()Z
+    .registers 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 780
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint64()J
+
+    move-result-wide v0
+
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
+
+    if-eqz v0, :cond_c
+
+    const/4 v0, 0x1
+
+    goto :goto_d
+
+    :cond_c
+    const/4 v0, 0x0
+
+    :goto_d
+    return v0
+.end method
+
+.method public blacklist readByteArray()[B
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 915
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    .line 916
+    .local v0, "size":I
+    invoke-virtual {p0, v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawBytes(I)[B
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
+.method public blacklist readByteBuffer()Ljava/nio/ByteBuffer;
+    .registers 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 921
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    .line 922
+    .local v0, "size":I
+    if-lez v0, :cond_33
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    sub-int/2addr v1, v2
+
+    if-gt v0, v1, :cond_33
+
+    .line 929
+    iget-boolean v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->immutable:Z
+
+    if-nez v1, :cond_20
+
+    iget-boolean v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->enableAliasing:Z
+
+    if-eqz v1, :cond_20
+
+    .line 930
+    iget-object v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    invoke-static {v1, v2, v0}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->slice()Ljava/nio/ByteBuffer;
+
+    move-result-object v1
+
+    goto :goto_2c
+
+    .line 931
+    :cond_20
+    iget-object v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    add-int v3, v2, v0
+
+    invoke-static {v1, v2, v3}, Ljava/util/Arrays;->copyOfRange([BII)[B
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
+
+    move-result-object v1
+
+    :goto_2c
+    nop
+
+    .line 932
+    .local v1, "result":Ljava/nio/ByteBuffer;
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    add-int/2addr v2, v0
+
+    iput v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 934
+    return-object v1
+
+    .line 937
+    .end local v1    # "result":Ljava/nio/ByteBuffer;
+    :cond_33
+    if-nez v0, :cond_38
+
+    .line 938
+    sget-object v1, Lcom/android/framework/protobuf/Internal;->EMPTY_BYTE_BUFFER:Ljava/nio/ByteBuffer;
+
+    return-object v1
+
+    .line 940
+    :cond_38
+    if-gez v0, :cond_3f
+
+    .line 941
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v1
+
+    throw v1
+
+    .line 943
+    :cond_3f
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public blacklist readBytes()Lcom/android/framework/protobuf/ByteString;
+    .registers 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 895
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    .line 896
+    .local v0, "size":I
+    if-lez v0, :cond_29
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    sub-int/2addr v1, v2
+
+    if-gt v0, v1, :cond_29
+
+    .line 900
+    iget-boolean v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->immutable:Z
+
+    if-eqz v1, :cond_1c
+
+    iget-boolean v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->enableAliasing:Z
+
+    if-eqz v1, :cond_1c
+
+    .line 901
+    iget-object v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    invoke-static {v1, v2, v0}, Lcom/android/framework/protobuf/ByteString;->wrap([BII)Lcom/android/framework/protobuf/ByteString;
+
+    move-result-object v1
+
+    goto :goto_22
+
+    .line 902
+    :cond_1c
+    iget-object v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    invoke-static {v1, v2, v0}, Lcom/android/framework/protobuf/ByteString;->copyFrom([BII)Lcom/android/framework/protobuf/ByteString;
+
+    move-result-object v1
+
+    :goto_22
+    nop
+
+    .line 903
+    .local v1, "result":Lcom/android/framework/protobuf/ByteString;
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    add-int/2addr v2, v0
+
+    iput v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 904
+    return-object v1
+
+    .line 906
+    .end local v1    # "result":Lcom/android/framework/protobuf/ByteString;
+    :cond_29
+    if-nez v0, :cond_2e
+
+    .line 907
+    sget-object v1, Lcom/android/framework/protobuf/ByteString;->EMPTY:Lcom/android/framework/protobuf/ByteString;
+
+    return-object v1
+
+    .line 910
+    :cond_2e
+    invoke-virtual {p0, v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawBytes(I)[B
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/framework/protobuf/ByteString;->wrap([B)Lcom/android/framework/protobuf/ByteString;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
+.method public blacklist readDouble()D
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 745
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawLittleEndian64()J
+
+    move-result-wide v0
+
+    invoke-static {v0, v1}, Ljava/lang/Double;->longBitsToDouble(J)D
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public blacklist readEnum()I
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 953
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public blacklist readFixed32()I
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 775
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawLittleEndian32()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public blacklist readFixed64()J
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 770
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawLittleEndian64()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public blacklist readFloat()F
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 750
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawLittleEndian32()I
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Float;->intBitsToFloat(I)F
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public blacklist readGroup(ILcom/android/framework/protobuf/Parser;Lcom/android/framework/protobuf/ExtensionRegistryLite;)Lcom/android/framework/protobuf/MessageLite;
+    .registers 6
+    .param p1, "fieldNumber"    # I
+    .param p3, "extensionRegistry"    # Lcom/android/framework/protobuf/ExtensionRegistryLite;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Lcom/android/framework/protobuf/MessageLite;",
+            ">(I",
+            "Lcom/android/framework/protobuf/Parser<",
+            "TT;>;",
+            "Lcom/android/framework/protobuf/ExtensionRegistryLite;",
+            ")TT;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 843
+    .local p2, "parser":Lcom/android/framework/protobuf/Parser;, "Lcom/android/framework/protobuf/Parser<TT;>;"
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionLimit:I
+
+    if-ge v0, v1, :cond_21
+
+    .line 846
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    .line 847
+    invoke-interface {p2, p0, p3}, Lcom/android/framework/protobuf/Parser;->parsePartialFrom(Lcom/android/framework/protobuf/CodedInputStream;Lcom/android/framework/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/framework/protobuf/MessageLite;
+
+    .line 848
+    .local v0, "result":Lcom/android/framework/protobuf/MessageLite;, "TT;"
+    const/4 v1, 0x4
+
+    invoke-static {p1, v1}, Lcom/android/framework/protobuf/WireFormat;->makeTag(II)I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->checkLastTagWas(I)V
+
+    .line 849
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    add-int/lit8 v1, v1, -0x1
+
+    iput v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    .line 850
+    return-object v0
+
+    .line 844
+    .end local v0    # "result":Lcom/android/framework/protobuf/MessageLite;, "TT;"
+    :cond_21
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->recursionLimitExceeded()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+.end method
+
+.method public blacklist readGroup(ILcom/android/framework/protobuf/MessageLite$Builder;Lcom/android/framework/protobuf/ExtensionRegistryLite;)V
+    .registers 6
+    .param p1, "fieldNumber"    # I
+    .param p2, "builder"    # Lcom/android/framework/protobuf/MessageLite$Builder;
+    .param p3, "extensionRegistry"    # Lcom/android/framework/protobuf/ExtensionRegistryLite;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 827
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionLimit:I
+
+    if-ge v0, v1, :cond_1e
+
+    .line 830
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    .line 831
+    invoke-interface {p2, p0, p3}, Lcom/android/framework/protobuf/MessageLite$Builder;->mergeFrom(Lcom/android/framework/protobuf/CodedInputStream;Lcom/android/framework/protobuf/ExtensionRegistryLite;)Lcom/android/framework/protobuf/MessageLite$Builder;
+
+    .line 832
+    const/4 v0, 0x4
+
+    invoke-static {p1, v0}, Lcom/android/framework/protobuf/WireFormat;->makeTag(II)I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->checkLastTagWas(I)V
+
+    .line 833
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    add-int/lit8 v0, v0, -0x1
+
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    .line 834
+    return-void
+
+    .line 828
+    :cond_1e
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->recursionLimitExceeded()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+.end method
+
+.method public blacklist readInt32()I
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 765
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public blacklist readInt64()J
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 760
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint64()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public blacklist readMessage(Lcom/android/framework/protobuf/Parser;Lcom/android/framework/protobuf/ExtensionRegistryLite;)Lcom/android/framework/protobuf/MessageLite;
+    .registers 7
+    .param p2, "extensionRegistry"    # Lcom/android/framework/protobuf/ExtensionRegistryLite;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Lcom/android/framework/protobuf/MessageLite;",
+            ">(",
+            "Lcom/android/framework/protobuf/Parser<",
+            "TT;>;",
+            "Lcom/android/framework/protobuf/ExtensionRegistryLite;",
+            ")TT;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 880
+    .local p1, "parser":Lcom/android/framework/protobuf/Parser;, "Lcom/android/framework/protobuf/Parser<TT;>;"
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    .line 881
+    .local v0, "length":I
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionLimit:I
+
+    if-ge v1, v2, :cond_28
+
+    .line 884
+    invoke-virtual {p0, v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pushLimit(I)I
+
+    move-result v1
+
+    .line 885
+    .local v1, "oldLimit":I
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    add-int/lit8 v2, v2, 0x1
+
+    iput v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    .line 886
+    invoke-interface {p1, p0, p2}, Lcom/android/framework/protobuf/Parser;->parsePartialFrom(Lcom/android/framework/protobuf/CodedInputStream;Lcom/android/framework/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/framework/protobuf/MessageLite;
+
+    .line 887
+    .local v2, "result":Lcom/android/framework/protobuf/MessageLite;, "TT;"
+    const/4 v3, 0x0
+
+    invoke-virtual {p0, v3}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->checkLastTagWas(I)V
+
+    .line 888
+    iget v3, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    add-int/lit8 v3, v3, -0x1
+
+    iput v3, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    .line 889
+    invoke-virtual {p0, v1}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->popLimit(I)V
+
+    .line 890
+    return-object v2
+
+    .line 882
+    .end local v1    # "oldLimit":I
+    .end local v2    # "result":Lcom/android/framework/protobuf/MessageLite;, "TT;"
+    :cond_28
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->recursionLimitExceeded()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public blacklist readMessage(Lcom/android/framework/protobuf/MessageLite$Builder;Lcom/android/framework/protobuf/ExtensionRegistryLite;)V
+    .registers 6
+    .param p1, "builder"    # Lcom/android/framework/protobuf/MessageLite$Builder;
+    .param p2, "extensionRegistry"    # Lcom/android/framework/protobuf/ExtensionRegistryLite;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 864
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    .line 865
+    .local v0, "length":I
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionLimit:I
+
+    if-ge v1, v2, :cond_25
+
+    .line 868
+    invoke-virtual {p0, v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pushLimit(I)I
+
+    move-result v1
+
+    .line 869
+    .local v1, "oldLimit":I
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    add-int/lit8 v2, v2, 0x1
+
+    iput v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    .line 870
+    invoke-interface {p1, p0, p2}, Lcom/android/framework/protobuf/MessageLite$Builder;->mergeFrom(Lcom/android/framework/protobuf/CodedInputStream;Lcom/android/framework/protobuf/ExtensionRegistryLite;)Lcom/android/framework/protobuf/MessageLite$Builder;
+
+    .line 871
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v2}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->checkLastTagWas(I)V
+
+    .line 872
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    add-int/lit8 v2, v2, -0x1
+
+    iput v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->recursionDepth:I
+
+    .line 873
+    invoke-virtual {p0, v1}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->popLimit(I)V
+
+    .line 874
+    return-void
+
+    .line 866
+    .end local v1    # "oldLimit":I
+    :cond_25
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->recursionLimitExceeded()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public blacklist readRawByte()B
+    .registers 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1235
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    if-eq v0, v1, :cond_f
+
+    .line 1238
+    iget-object v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    add-int/lit8 v2, v0, 0x1
+
+    iput v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    aget-byte v0, v1, v0
+
+    return v0
+
+    .line 1236
+    :cond_f
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+.end method
+
+.method public blacklist readRawBytes(I)[B
+    .registers 5
+    .param p1, "length"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1243
+    if-lez p1, :cond_15
+
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    sub-int/2addr v0, v1
+
+    if-gt p1, v0, :cond_15
+
+    .line 1244
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 1245
+    .local v0, "tempPos":I
+    add-int/2addr v1, p1
+
+    iput v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 1246
+    iget-object v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    invoke-static {v2, v0, v1}, Ljava/util/Arrays;->copyOfRange([BII)[B
+
+    move-result-object v1
+
+    return-object v1
+
+    .line 1249
+    .end local v0    # "tempPos":I
+    :cond_15
+    if-gtz p1, :cond_21
+
+    .line 1250
+    if-nez p1, :cond_1c
+
+    .line 1251
+    sget-object v0, Lcom/android/framework/protobuf/Internal;->EMPTY_BYTE_ARRAY:[B
+
+    return-object v0
+
+    .line 1253
+    :cond_1c
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 1256
+    :cond_21
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+.end method
+
+.method public blacklist readRawLittleEndian32()I
+    .registers 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1135
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 1137
+    .local v0, "tempPos":I
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    sub-int/2addr v1, v0
+
+    const/4 v2, 0x4
+
+    if-lt v1, v2, :cond_2e
+
+    .line 1141
+    iget-object v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    .line 1142
+    .local v1, "buffer":[B
+    add-int/lit8 v2, v0, 0x4
+
+    iput v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 1143
+    aget-byte v2, v1, v0
+
+    and-int/lit16 v2, v2, 0xff
+
+    add-int/lit8 v3, v0, 0x1
+
+    aget-byte v3, v1, v3
+
+    and-int/lit16 v3, v3, 0xff
+
+    shl-int/lit8 v3, v3, 0x8
+
+    or-int/2addr v2, v3
+
+    add-int/lit8 v3, v0, 0x2
+
+    aget-byte v3, v1, v3
+
+    and-int/lit16 v3, v3, 0xff
+
+    shl-int/lit8 v3, v3, 0x10
+
+    or-int/2addr v2, v3
+
+    add-int/lit8 v3, v0, 0x3
+
+    aget-byte v3, v1, v3
+
+    and-int/lit16 v3, v3, 0xff
+
+    shl-int/lit8 v3, v3, 0x18
+
+    or-int/2addr v2, v3
+
+    return v2
+
+    .line 1138
+    .end local v1    # "buffer":[B
+    :cond_2e
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public blacklist readRawLittleEndian64()J
+    .registers 10
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1151
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 1153
+    .local v0, "tempPos":I
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    sub-int/2addr v1, v0
+
+    const/16 v2, 0x8
+
+    if-lt v1, v2, :cond_5c
+
+    .line 1157
+    iget-object v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    .line 1158
+    .local v1, "buffer":[B
+    add-int/lit8 v3, v0, 0x8
+
+    iput v3, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 1159
+    aget-byte v3, v1, v0
+
+    int-to-long v3, v3
+
+    const-wide/16 v5, 0xff
+
+    and-long/2addr v3, v5
+
+    add-int/lit8 v7, v0, 0x1
+
+    aget-byte v7, v1, v7
+
+    int-to-long v7, v7
+
+    and-long/2addr v7, v5
+
+    shl-long/2addr v7, v2
+
+    or-long v2, v3, v7
+
+    add-int/lit8 v4, v0, 0x2
+
+    aget-byte v4, v1, v4
+
+    int-to-long v7, v4
+
+    and-long/2addr v7, v5
+
+    const/16 v4, 0x10
+
+    shl-long/2addr v7, v4
+
+    or-long/2addr v2, v7
+
+    add-int/lit8 v4, v0, 0x3
+
+    aget-byte v4, v1, v4
+
+    int-to-long v7, v4
+
+    and-long/2addr v7, v5
+
+    const/16 v4, 0x18
+
+    shl-long/2addr v7, v4
+
+    or-long/2addr v2, v7
+
+    add-int/lit8 v4, v0, 0x4
+
+    aget-byte v4, v1, v4
+
+    int-to-long v7, v4
+
+    and-long/2addr v7, v5
+
+    const/16 v4, 0x20
+
+    shl-long/2addr v7, v4
+
+    or-long/2addr v2, v7
+
+    add-int/lit8 v4, v0, 0x5
+
+    aget-byte v4, v1, v4
+
+    int-to-long v7, v4
+
+    and-long/2addr v7, v5
+
+    const/16 v4, 0x28
+
+    shl-long/2addr v7, v4
+
+    or-long/2addr v2, v7
+
+    add-int/lit8 v4, v0, 0x6
+
+    aget-byte v4, v1, v4
+
+    int-to-long v7, v4
+
+    and-long/2addr v7, v5
+
+    const/16 v4, 0x30
+
+    shl-long/2addr v7, v4
+
+    or-long/2addr v2, v7
+
+    add-int/lit8 v4, v0, 0x7
+
+    aget-byte v4, v1, v4
+
+    int-to-long v7, v4
+
+    and-long v4, v7, v5
+
+    const/16 v6, 0x38
+
+    shl-long/2addr v4, v6
+
+    or-long/2addr v2, v4
+
+    return-wide v2
+
+    .line 1154
+    .end local v1    # "buffer":[B
+    :cond_5c
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public blacklist readRawVarint32()I
+    .registers 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 983
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 985
+    .local v0, "tempPos":I
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    if-ne v1, v0, :cond_8
+
+    .line 986
+    goto/16 :goto_72
+
+    .line 989
+    :cond_8
+    iget-object v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    .line 991
+    .local v2, "buffer":[B
+    add-int/lit8 v3, v0, 0x1
+
+    .end local v0    # "tempPos":I
+    .local v3, "tempPos":I
+    aget-byte v0, v2, v0
+
+    move v4, v0
+
+    .local v4, "x":I
+    if-ltz v0, :cond_14
+
+    .line 992
+    iput v3, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 993
+    return v4
+
+    .line 994
+    :cond_14
+    sub-int/2addr v1, v3
+
+    const/16 v0, 0x9
+
+    if-ge v1, v0, :cond_1a
+
+    .line 995
+    goto :goto_72
+
+    .line 996
+    :cond_1a
+    add-int/lit8 v0, v3, 0x1
+
+    .end local v3    # "tempPos":I
+    .restart local v0    # "tempPos":I
+    aget-byte v1, v2, v3
+
+    shl-int/lit8 v1, v1, 0x7
+
+    xor-int/2addr v1, v4
+
+    move v3, v1
+
+    .end local v4    # "x":I
+    .local v3, "x":I
+    if-gez v1, :cond_27
+
+    .line 997
+    xor-int/lit8 v1, v3, -0x80
+
+    .end local v3    # "x":I
+    .local v1, "x":I
+    goto :goto_7d
+
+    .line 998
+    .end local v1    # "x":I
+    .restart local v3    # "x":I
+    :cond_27
+    add-int/lit8 v1, v0, 0x1
+
+    .end local v0    # "tempPos":I
+    .local v1, "tempPos":I
+    aget-byte v0, v2, v0
+
+    shl-int/lit8 v0, v0, 0xe
+
+    xor-int/2addr v0, v3
+
+    move v3, v0
+
+    if-ltz v0, :cond_37
+
+    .line 999
+    xor-int/lit16 v0, v3, 0x3f80
+
+    move v5, v1
+
+    move v1, v0
+
+    move v0, v5
+
+    .end local v3    # "x":I
+    .local v0, "x":I
+    goto :goto_7d
+
+    .line 1000
+    .end local v0    # "x":I
+    .restart local v3    # "x":I
+    :cond_37
+    add-int/lit8 v0, v1, 0x1
+
+    .end local v1    # "tempPos":I
+    .local v0, "tempPos":I
+    aget-byte v1, v2, v1
+
+    shl-int/lit8 v1, v1, 0x15
+
+    xor-int/2addr v1, v3
+
+    move v3, v1
+
+    if-gez v1, :cond_46
+
+    .line 1001
+    const v1, -0x1fc080
+
+    xor-int/2addr v1, v3
+
+    .end local v3    # "x":I
+    .local v1, "x":I
+    goto :goto_7d
+
+    .line 1003
+    .end local v1    # "x":I
+    .restart local v3    # "x":I
+    :cond_46
+    add-int/lit8 v1, v0, 0x1
+
+    .end local v0    # "tempPos":I
+    .local v1, "tempPos":I
+    aget-byte v0, v2, v0
+
+    .line 1004
+    .local v0, "y":I
+    shl-int/lit8 v4, v0, 0x1c
+
+    xor-int/2addr v3, v4
+
+    .line 1005
+    const v4, 0xfe03f80
+
+    xor-int/2addr v3, v4
+
+    .line 1006
+    if-gez v0, :cond_7b
+
+    add-int/lit8 v4, v1, 0x1
+
+    .end local v1    # "tempPos":I
+    .local v4, "tempPos":I
+    aget-byte v1, v2, v1
+
+    if-gez v1, :cond_78
+
+    add-int/lit8 v1, v4, 0x1
+
+    .end local v4    # "tempPos":I
+    .restart local v1    # "tempPos":I
+    aget-byte v4, v2, v4
+
+    if-gez v4, :cond_7b
+
+    add-int/lit8 v4, v1, 0x1
+
+    .end local v1    # "tempPos":I
+    .restart local v4    # "tempPos":I
+    aget-byte v1, v2, v1
+
+    if-gez v1, :cond_78
+
+    add-int/lit8 v1, v4, 0x1
+
+    .end local v4    # "tempPos":I
+    .restart local v1    # "tempPos":I
+    aget-byte v4, v2, v4
+
+    if-gez v4, :cond_7b
+
+    add-int/lit8 v4, v1, 0x1
+
+    .end local v1    # "tempPos":I
+    .restart local v4    # "tempPos":I
+    aget-byte v1, v2, v1
+
+    if-gez v1, :cond_78
+
+    .line 1012
+    nop
+
+    .line 1018
+    .end local v0    # "y":I
+    .end local v2    # "buffer":[B
+    .end local v3    # "x":I
+    .end local v4    # "tempPos":I
+    :goto_72
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint64SlowPath()J
+
+    move-result-wide v0
+
+    long-to-int v0, v0
+
+    return v0
+
+    .line 1006
+    .restart local v0    # "y":I
+    .restart local v2    # "buffer":[B
+    .restart local v3    # "x":I
+    .restart local v4    # "tempPos":I
+    :cond_78
+    move v1, v3
+
+    move v0, v4
+
+    goto :goto_7d
+
+    .end local v4    # "tempPos":I
+    .restart local v1    # "tempPos":I
+    :cond_7b
+    move v0, v1
+
+    move v1, v3
+
+    .line 1015
+    .end local v3    # "x":I
+    .local v0, "tempPos":I
+    .local v1, "x":I
+    :goto_7d
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 1016
+    return v1
+.end method
+
+.method public blacklist readRawVarint64()J
+    .registers 11
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1062
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 1064
+    .local v0, "tempPos":I
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    if-ne v1, v0, :cond_8
+
+    .line 1065
+    goto/16 :goto_c0
+
+    .line 1068
+    :cond_8
+    iget-object v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    .line 1071
+    .local v2, "buffer":[B
+    add-int/lit8 v3, v0, 0x1
+
+    .end local v0    # "tempPos":I
+    .local v3, "tempPos":I
+    aget-byte v0, v2, v0
+
+    move v4, v0
+
+    .local v4, "y":I
+    if-ltz v0, :cond_15
+
+    .line 1072
+    iput v3, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 1073
+    int-to-long v0, v4
+
+    return-wide v0
+
+    .line 1074
+    :cond_15
+    sub-int/2addr v1, v3
+
+    const/16 v0, 0x9
+
+    if-ge v1, v0, :cond_1c
+
+    .line 1075
+    goto/16 :goto_c0
+
+    .line 1076
+    :cond_1c
+    add-int/lit8 v0, v3, 0x1
+
+    .end local v3    # "tempPos":I
+    .restart local v0    # "tempPos":I
+    aget-byte v1, v2, v3
+
+    shl-int/lit8 v1, v1, 0x7
+
+    xor-int/2addr v1, v4
+
+    move v3, v1
+
+    .end local v4    # "y":I
+    .local v3, "y":I
+    if-gez v1, :cond_2b
+
+    .line 1077
+    xor-int/lit8 v1, v3, -0x80
+
+    int-to-long v4, v1
+
+    .local v4, "x":J
+    goto/16 :goto_c6
+
+    .line 1078
+    .end local v4    # "x":J
+    :cond_2b
+    add-int/lit8 v1, v0, 0x1
+
+    .end local v0    # "tempPos":I
+    .local v1, "tempPos":I
+    aget-byte v0, v2, v0
+
+    shl-int/lit8 v0, v0, 0xe
+
+    xor-int/2addr v0, v3
+
+    move v3, v0
+
+    if-ltz v0, :cond_3b
+
+    .line 1079
+    xor-int/lit16 v0, v3, 0x3f80
+
+    int-to-long v4, v0
+
+    move v0, v1
+
+    .restart local v4    # "x":J
+    goto/16 :goto_c6
+
+    .line 1080
+    .end local v4    # "x":J
+    :cond_3b
+    add-int/lit8 v0, v1, 0x1
+
+    .end local v1    # "tempPos":I
+    .restart local v0    # "tempPos":I
+    aget-byte v1, v2, v1
+
+    shl-int/lit8 v1, v1, 0x15
+
+    xor-int/2addr v1, v3
+
+    move v3, v1
+
+    if-gez v1, :cond_4c
+
+    .line 1081
+    const v1, -0x1fc080
+
+    xor-int/2addr v1, v3
+
+    int-to-long v4, v1
+
+    .restart local v4    # "x":J
+    goto/16 :goto_c6
+
+    .line 1082
+    .end local v4    # "x":J
+    :cond_4c
+    int-to-long v4, v3
+
+    add-int/lit8 v1, v0, 0x1
+
+    .end local v0    # "tempPos":I
+    .restart local v1    # "tempPos":I
+    aget-byte v0, v2, v0
+
+    int-to-long v6, v0
+
+    const/16 v0, 0x1c
+
+    shl-long/2addr v6, v0
+
+    xor-long/2addr v4, v6
+
+    move-wide v6, v4
+
+    .local v6, "x":J
+    const-wide/16 v8, 0x0
+
+    cmp-long v0, v4, v8
+
+    if-ltz v0, :cond_63
+
+    .line 1083
+    const-wide/32 v4, 0xfe03f80
+
+    xor-long/2addr v4, v6
+
+    move v0, v1
+
+    .end local v6    # "x":J
+    .restart local v4    # "x":J
+    goto :goto_c6
+
+    .line 1084
+    .end local v4    # "x":J
+    .restart local v6    # "x":J
+    :cond_63
+    add-int/lit8 v0, v1, 0x1
+
+    .end local v1    # "tempPos":I
+    .restart local v0    # "tempPos":I
+    aget-byte v1, v2, v1
+
+    int-to-long v4, v1
+
+    const/16 v1, 0x23
+
+    shl-long/2addr v4, v1
+
+    xor-long/2addr v4, v6
+
+    move-wide v6, v4
+
+    cmp-long v1, v4, v8
+
+    if-gez v1, :cond_78
+
+    .line 1085
+    const-wide v4, -0x7f01fc080L
+
+    xor-long/2addr v4, v6
+
+    .end local v6    # "x":J
+    .restart local v4    # "x":J
+    goto :goto_c6
+
+    .line 1086
+    .end local v4    # "x":J
+    .restart local v6    # "x":J
+    :cond_78
+    add-int/lit8 v1, v0, 0x1
+
+    .end local v0    # "tempPos":I
+    .restart local v1    # "tempPos":I
+    aget-byte v0, v2, v0
+
+    int-to-long v4, v0
+
+    const/16 v0, 0x2a
+
+    shl-long/2addr v4, v0
+
+    xor-long/2addr v4, v6
+
+    move-wide v6, v4
+
+    cmp-long v0, v4, v8
+
+    if-ltz v0, :cond_8e
+
+    .line 1087
+    const-wide v4, 0x3f80fe03f80L
+
+    xor-long/2addr v4, v6
+
+    move v0, v1
+
+    .end local v6    # "x":J
+    .restart local v4    # "x":J
+    goto :goto_c6
+
+    .line 1088
+    .end local v4    # "x":J
+    .restart local v6    # "x":J
+    :cond_8e
+    add-int/lit8 v0, v1, 0x1
+
+    .end local v1    # "tempPos":I
+    .restart local v0    # "tempPos":I
+    aget-byte v1, v2, v1
+
+    int-to-long v4, v1
+
+    const/16 v1, 0x31
+
+    shl-long/2addr v4, v1
+
+    xor-long/2addr v4, v6
+
+    move-wide v6, v4
+
+    cmp-long v1, v4, v8
+
+    if-gez v1, :cond_a3
+
+    .line 1089
+    const-wide v4, -0x1fc07f01fc080L
+
+    xor-long/2addr v4, v6
+
+    .end local v6    # "x":J
+    .restart local v4    # "x":J
+    goto :goto_c6
+
+    .line 1098
+    .end local v4    # "x":J
+    .restart local v6    # "x":J
+    :cond_a3
+    add-int/lit8 v1, v0, 0x1
+
+    .end local v0    # "tempPos":I
+    .restart local v1    # "tempPos":I
+    aget-byte v0, v2, v0
+
+    int-to-long v4, v0
+
+    const/16 v0, 0x38
+
+    shl-long/2addr v4, v0
+
+    xor-long/2addr v4, v6
+
+    .line 1099
+    .end local v6    # "x":J
+    .restart local v4    # "x":J
+    const-wide v6, 0xfe03f80fe03f80L
+
+    xor-long/2addr v4, v6
+
+    .line 1108
+    cmp-long v0, v4, v8
+
+    if-gez v0, :cond_c5
+
+    .line 1109
+    add-int/lit8 v0, v1, 0x1
+
+    .end local v1    # "tempPos":I
+    .restart local v0    # "tempPos":I
+    aget-byte v1, v2, v1
+
+    int-to-long v6, v1
+
+    cmp-long v1, v6, v8
+
+    if-gez v1, :cond_c6
+
+    .line 1110
+    nop
+
+    .line 1117
+    .end local v0    # "tempPos":I
+    .end local v2    # "buffer":[B
+    .end local v3    # "y":I
+    .end local v4    # "x":J
+    :goto_c0
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint64SlowPath()J
+
+    move-result-wide v0
+
+    return-wide v0
+
+    .line 1108
+    .restart local v1    # "tempPos":I
+    .restart local v2    # "buffer":[B
+    .restart local v3    # "y":I
+    .restart local v4    # "x":J
+    :cond_c5
+    move v0, v1
+
+    .line 1114
+    .end local v1    # "tempPos":I
+    .restart local v0    # "tempPos":I
+    :cond_c6
+    :goto_c6
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 1115
+    return-wide v4
+.end method
+
+.method blacklist readRawVarint64SlowPath()J
+    .registers 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1122
+    const-wide/16 v0, 0x0
+
+    .line 1123
+    .local v0, "result":J
+    const/4 v2, 0x0
+
+    .local v2, "shift":I
+    :goto_3
+    const/16 v3, 0x40
+
+    if-ge v2, v3, :cond_18
+
+    .line 1124
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawByte()B
+
+    move-result v3
+
+    .line 1125
+    .local v3, "b":B
+    and-int/lit8 v4, v3, 0x7f
+
+    int-to-long v4, v4
+
+    shl-long/2addr v4, v2
+
+    or-long/2addr v0, v4
+
+    .line 1126
+    and-int/lit16 v4, v3, 0x80
+
+    if-nez v4, :cond_15
+
+    .line 1127
+    return-wide v0
+
+    .line 1123
+    .end local v3    # "b":B
+    :cond_15
+    add-int/lit8 v2, v2, 0x7
+
+    goto :goto_3
+
+    .line 1130
+    .end local v2    # "shift":I
+    :cond_18
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v2
+
+    throw v2
+.end method
+
+.method public blacklist readSFixed32()I
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 958
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawLittleEndian32()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public blacklist readSFixed64()J
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 963
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawLittleEndian64()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public blacklist readSInt32()I
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 968
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->decodeZigZag32(I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public blacklist readSInt64()J
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 973
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint64()J
+
+    move-result-wide v0
+
+    invoke-static {v0, v1}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->decodeZigZag64(J)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public blacklist readString()Ljava/lang/String;
+    .registers 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 785
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    .line 786
+    .local v0, "size":I
+    if-lez v0, :cond_1c
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    sub-int/2addr v1, v2
+
+    if-gt v0, v1, :cond_1c
+
+    .line 789
+    new-instance v1, Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    sget-object v4, Lcom/android/framework/protobuf/Internal;->UTF_8:Ljava/nio/charset/Charset;
+
+    invoke-direct {v1, v3, v2, v0, v4}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
+
+    .line 790
+    .local v1, "result":Ljava/lang/String;
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    add-int/2addr v2, v0
+
+    iput v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 791
+    return-object v1
+
+    .line 794
+    .end local v1    # "result":Ljava/lang/String;
+    :cond_1c
+    if-nez v0, :cond_21
+
+    .line 795
+    const-string v1, ""
+
+    return-object v1
+
+    .line 797
+    :cond_21
+    if-gez v0, :cond_28
+
+    .line 798
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v1
+
+    throw v1
+
+    .line 800
+    :cond_28
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public blacklist readStringRequireUtf8()Ljava/lang/String;
+    .registers 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 805
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    .line 806
+    .local v0, "size":I
+    if-lez v0, :cond_19
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    sub-int/2addr v1, v2
+
+    if-gt v0, v1, :cond_19
+
+    .line 807
+    iget-object v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->buffer:[B
+
+    invoke-static {v1, v2, v0}, Lcom/android/framework/protobuf/Utf8;->decodeUtf8([BII)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 808
+    .local v1, "result":Ljava/lang/String;
+    iget v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    add-int/2addr v2, v0
+
+    iput v2, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 809
+    return-object v1
+
+    .line 812
+    .end local v1    # "result":Ljava/lang/String;
+    :cond_19
+    if-nez v0, :cond_1e
+
+    .line 813
+    const-string v1, ""
+
+    return-object v1
+
+    .line 815
+    :cond_1e
+    if-gtz v0, :cond_25
+
+    .line 816
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v1
+
+    throw v1
+
+    .line 818
+    :cond_25
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public blacklist readTag()I
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 616
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->isAtEnd()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    .line 617
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->lastTag:I
+
+    .line 618
+    return v0
+
+    .line 621
+    :cond_a
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->lastTag:I
+
+    .line 622
+    invoke-static {v0}, Lcom/android/framework/protobuf/WireFormat;->getTagFieldNumber(I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_19
+
+    .line 627
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->lastTag:I
+
+    return v0
+
+    .line 625
+    :cond_19
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->invalidTag()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+.end method
+
+.method public blacklist readUInt32()I
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 948
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public blacklist readUInt64()J
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 755
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint64()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public blacklist readUnknownGroup(ILcom/android/framework/protobuf/MessageLite$Builder;)V
+    .registers 4
+    .param p1, "fieldNumber"    # I
+    .param p2, "builder"    # Lcom/android/framework/protobuf/MessageLite$Builder;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    .line 857
+    invoke-static {}, Lcom/android/framework/protobuf/ExtensionRegistryLite;->getEmptyRegistry()Lcom/android/framework/protobuf/ExtensionRegistryLite;
+
+    move-result-object v0
+
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readGroup(ILcom/android/framework/protobuf/MessageLite$Builder;Lcom/android/framework/protobuf/ExtensionRegistryLite;)V
+
+    .line 858
+    return-void
+.end method
+
+.method public blacklist resetSizeCounter()V
+    .registers 2
+
+    .line 1176
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    iput v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->startPos:I
+
+    .line 1177
+    return-void
+.end method
+
+.method public blacklist skipField(I)Z
+    .registers 5
+    .param p1, "tag"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 644
+    invoke-static {p1}, Lcom/android/framework/protobuf/WireFormat;->getTagWireType(I)I
+
+    move-result v0
+
+    const/4 v1, 0x4
+
+    const/4 v2, 0x1
+
+    packed-switch v0, :pswitch_data_36
+
+    .line 665
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/android/framework/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 662
+    :pswitch_e
+    invoke-virtual {p0, v1}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->skipRawBytes(I)V
+
+    .line 663
+    return v2
+
+    .line 660
+    :pswitch_12
+    const/4 v0, 0x0
+
+    return v0
+
+    .line 655
+    :pswitch_14
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->skipMessage()V
+
+    .line 656
+    nop
+
+    .line 657
+    invoke-static {p1}, Lcom/android/framework/protobuf/WireFormat;->getTagFieldNumber(I)I
+
+    move-result v0
+
+    invoke-static {v0, v1}, Lcom/android/framework/protobuf/WireFormat;->makeTag(II)I
+
+    move-result v0
+
+    .line 656
+    invoke-virtual {p0, v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->checkLastTagWas(I)V
+
+    .line 658
+    return v2
+
+    .line 652
+    :pswitch_24
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawVarint32()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->skipRawBytes(I)V
+
+    .line 653
+    return v2
+
+    .line 649
+    :pswitch_2c
+    const/16 v0, 0x8
+
+    invoke-virtual {p0, v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->skipRawBytes(I)V
+
+    .line 650
+    return v2
+
+    .line 646
+    :pswitch_32
+    invoke-direct {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->skipRawVarint()V
+
+    .line 647
+    return v2
+
+    :pswitch_data_36
+    .packed-switch 0x0
+        :pswitch_32
+        :pswitch_2c
+        :pswitch_24
+        :pswitch_14
+        :pswitch_12
+        :pswitch_e
+    .end packed-switch
+.end method
+
+.method public blacklist skipField(ILcom/android/framework/protobuf/CodedOutputStream;)Z
+    .registers 7
+    .param p1, "tag"    # I
+    .param p2, "output"    # Lcom/android/framework/protobuf/CodedOutputStream;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 671
+    invoke-static {p1}, Lcom/android/framework/protobuf/WireFormat;->getTagWireType(I)I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    packed-switch v0, :pswitch_data_52
+
+    .line 716
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/android/framework/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 710
+    :pswitch_d
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawLittleEndian32()I
+
+    move-result v0
+
+    .line 711
+    .local v0, "value":I
+    invoke-virtual {p2, p1}, Lcom/android/framework/protobuf/CodedOutputStream;->writeRawVarint32(I)V
+
+    .line 712
+    invoke-virtual {p2, v0}, Lcom/android/framework/protobuf/CodedOutputStream;->writeFixed32NoTag(I)V
+
+    .line 713
+    return v1
+
+    .line 706
+    .end local v0    # "value":I
+    :pswitch_18
+    const/4 v0, 0x0
+
+    return v0
+
+    .line 695
+    :pswitch_1a
+    invoke-virtual {p2, p1}, Lcom/android/framework/protobuf/CodedOutputStream;->writeRawVarint32(I)V
+
+    .line 696
+    invoke-virtual {p0, p2}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->skipMessage(Lcom/android/framework/protobuf/CodedOutputStream;)V
+
+    .line 697
+    nop
+
+    .line 699
+    invoke-static {p1}, Lcom/android/framework/protobuf/WireFormat;->getTagFieldNumber(I)I
+
+    move-result v0
+
+    const/4 v2, 0x4
+
+    .line 698
+    invoke-static {v0, v2}, Lcom/android/framework/protobuf/WireFormat;->makeTag(II)I
+
+    move-result v0
+
+    .line 700
+    .local v0, "endtag":I
+    invoke-virtual {p0, v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->checkLastTagWas(I)V
+
+    .line 701
+    invoke-virtual {p2, v0}, Lcom/android/framework/protobuf/CodedOutputStream;->writeRawVarint32(I)V
+
+    .line 702
+    return v1
+
+    .line 688
+    .end local v0    # "endtag":I
+    :pswitch_31
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readBytes()Lcom/android/framework/protobuf/ByteString;
+
+    move-result-object v0
+
+    .line 689
+    .local v0, "value":Lcom/android/framework/protobuf/ByteString;
+    invoke-virtual {p2, p1}, Lcom/android/framework/protobuf/CodedOutputStream;->writeRawVarint32(I)V
+
+    .line 690
+    invoke-virtual {p2, v0}, Lcom/android/framework/protobuf/CodedOutputStream;->writeBytesNoTag(Lcom/android/framework/protobuf/ByteString;)V
+
+    .line 691
+    return v1
+
+    .line 681
+    .end local v0    # "value":Lcom/android/framework/protobuf/ByteString;
+    :pswitch_3c
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readRawLittleEndian64()J
+
+    move-result-wide v2
+
+    .line 682
+    .local v2, "value":J
+    invoke-virtual {p2, p1}, Lcom/android/framework/protobuf/CodedOutputStream;->writeRawVarint32(I)V
+
+    .line 683
+    invoke-virtual {p2, v2, v3}, Lcom/android/framework/protobuf/CodedOutputStream;->writeFixed64NoTag(J)V
+
+    .line 684
+    return v1
+
+    .line 674
+    .end local v2    # "value":J
+    :pswitch_47
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readInt64()J
+
+    move-result-wide v2
+
+    .line 675
+    .restart local v2    # "value":J
+    invoke-virtual {p2, p1}, Lcom/android/framework/protobuf/CodedOutputStream;->writeRawVarint32(I)V
+
+    .line 676
+    invoke-virtual {p2, v2, v3}, Lcom/android/framework/protobuf/CodedOutputStream;->writeUInt64NoTag(J)V
+
+    .line 677
+    return v1
+
+    :pswitch_data_52
+    .packed-switch 0x0
+        :pswitch_47
+        :pswitch_3c
+        :pswitch_31
+        :pswitch_1a
+        :pswitch_18
+        :pswitch_d
+    .end packed-switch
+.end method
+
+.method public blacklist skipMessage()V
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 723
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readTag()I
+
+    move-result v0
+
+    .line 724
+    .local v0, "tag":I
+    if-eqz v0, :cond_e
+
+    invoke-virtual {p0, v0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->skipField(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_d
+
+    goto :goto_e
+
+    .line 727
+    .end local v0    # "tag":I
+    :cond_d
+    goto :goto_0
+
+    .line 725
+    .restart local v0    # "tag":I
+    :cond_e
+    :goto_e
+    return-void
+.end method
+
+.method public blacklist skipMessage(Lcom/android/framework/protobuf/CodedOutputStream;)V
+    .registers 4
+    .param p1, "output"    # Lcom/android/framework/protobuf/CodedOutputStream;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 733
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->readTag()I
+
+    move-result v0
+
+    .line 734
+    .local v0, "tag":I
+    if-eqz v0, :cond_e
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->skipField(ILcom/android/framework/protobuf/CodedOutputStream;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_d
+
+    goto :goto_e
+
+    .line 737
+    .end local v0    # "tag":I
+    :cond_d
+    goto :goto_0
+
+    .line 735
+    .restart local v0    # "tag":I
+    :cond_e
+    :goto_e
+    return-void
+.end method
+
+.method public blacklist skipRawBytes(I)V
+    .registers 4
+    .param p1, "length"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1261
+    if-ltz p1, :cond_d
+
+    iget v0, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->limit:I
+
+    iget v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    sub-int/2addr v0, v1
+
+    if-gt p1, v0, :cond_d
+
+    .line 1263
+    add-int/2addr v1, p1
+
+    iput v1, p0, Lcom/android/framework/protobuf/CodedInputStream$ArrayDecoder;->pos:I
+
+    .line 1264
+    return-void
+
+    .line 1267
+    :cond_d
+    if-gez p1, :cond_14
+
+    .line 1268
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 1270
+    :cond_14
+    invoke-static {}, Lcom/android/framework/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/android/framework/protobuf/InvalidProtocolBufferException;
+
+    move-result-object v0
+
+    throw v0
+.end method

@@ -1,0 +1,31 @@
+######################################################################
+# Propagation: com.samsung.android.app.spage
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          array_init
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: void <clinit>()>
+  Line:     2131
+  Register: v11 := "com.samsung.android.app.spage"
+  Usage:    [array_init] filled-new-array/range {v1 .. v11}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v11}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Uri.parse()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+

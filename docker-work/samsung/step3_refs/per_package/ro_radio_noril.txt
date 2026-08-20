@@ -1,0 +1,9 @@
+# ro.radio.noril [NEW]
+# Refs: 5
+# JARs: framework, semwifi-service, telephony-common
+
+<com.android.internal.telephony.ims.ImsResolver: boolean isWifiOnlyModel()>
+<com.samsung.android.audio.Rune: void <clinit>()>
+<com.samsung.android.server.wifi.SemWifiConnectivityMonitor: void <init>(android.content.Context,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.ISemInterfaceNameProvider,com.samsung.android.server.wifi.tcp.SemWifiSwitchForIndividualAppsService)>
+<com.samsung.android.server.wifi.ap.SemWifiApDevicePolicyManager: boolean isWifiOnlySystemProperty()>
+<com.samsung.android.server.wifi.util.SemRilUtil: boolean isWifiOnly(android.content.Context)>

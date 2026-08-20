@@ -1,0 +1,17 @@
+# com.android.ims.internal.IImsUtListener [NEW]
+# Refs: 13
+# JARs: framework
+
+<com.android.ims.internal.IImsUtListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsUtListener$Stub$Proxy: void lineIdentificationSupplementaryServiceResponse(int,android.telephony.ims.ImsSsInfo)>
+<com.android.ims.internal.IImsUtListener$Stub$Proxy: void onSupplementaryServiceIndication(android.telephony.ims.ImsSsData)>
+<com.android.ims.internal.IImsUtListener$Stub$Proxy: void utConfigurationCallBarringQueried(com.android.ims.internal.IImsUt,int,android.telephony.ims.ImsSsInfo[])>
+<com.android.ims.internal.IImsUtListener$Stub$Proxy: void utConfigurationCallForwardQueried(com.android.ims.internal.IImsUt,int,android.telephony.ims.ImsCallForwardInfo[])>
+<com.android.ims.internal.IImsUtListener$Stub$Proxy: void utConfigurationCallWaitingQueried(com.android.ims.internal.IImsUt,int,android.telephony.ims.ImsSsInfo[])>
+<com.android.ims.internal.IImsUtListener$Stub$Proxy: void utConfigurationQueried(com.android.ims.internal.IImsUt,int,android.os.Bundle)>
+<com.android.ims.internal.IImsUtListener$Stub$Proxy: void utConfigurationQueryFailed(com.android.ims.internal.IImsUt,int,android.telephony.ims.ImsReasonInfo)>
+<com.android.ims.internal.IImsUtListener$Stub$Proxy: void utConfigurationUpdateFailed(com.android.ims.internal.IImsUt,int,android.telephony.ims.ImsReasonInfo)>
+<com.android.ims.internal.IImsUtListener$Stub$Proxy: void utConfigurationUpdated(com.android.ims.internal.IImsUt,int)>
+<com.android.ims.internal.IImsUtListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.android.ims.internal.IImsUtListener$Stub: com.android.ims.internal.IImsUtListener asInterface(android.os.IBinder)>
+<com.android.ims.internal.IImsUtListener$Stub: void <init>()>

@@ -1,0 +1,6 @@
+# sys.isrb.crashservice [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<com.android.server.SystemServiceManager: com.android.server.SystemService startService(java.lang.Class)>
+<com.samsung.isrb.IsrbHooks: void saveCrashServiceName(java.lang.String)>

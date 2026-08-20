@@ -1,0 +1,9 @@
+# ro.build.PDA [NEW]
+# Refs: 5
+# JARs: services, ssrm
+
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: java.lang.String getDeviceFirmwareVersion()>
+<com.android.server.knox.dar.ddar.DDLog$Logger: java.lang.String getDeviceVersion()>
+<com.android.server.knox.dar.sdp.SdpManagerImpl: java.lang.String getDeviceVersion()>
+<com.android.server.pm.PersonaManagerService: java.lang.String getDeviceFirmwareVersion()>
+<com.android.server.ssrm.PreMonitor: void run()>

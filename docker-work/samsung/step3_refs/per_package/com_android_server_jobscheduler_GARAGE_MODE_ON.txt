@@ -1,0 +1,6 @@
+# com.android.server.jobscheduler.GARAGE_MODE_ON [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.job.controllers.idle.CarIdlenessTracker: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.job.controllers.idle.CarIdlenessTracker: void startTracking(android.content.Context,com.android.server.job.controllers.idle.IdlenessListener)>

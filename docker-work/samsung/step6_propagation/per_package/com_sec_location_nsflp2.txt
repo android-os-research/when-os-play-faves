@@ -1,0 +1,67 @@
+######################################################################
+# Propagation: com.sec.location.nsflp2
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     132
+  Register: v0 := "com.sec.location.nsflp2"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.location.nsflp.NSLocationMonitor
+  Method:   <com.android.server.location.nsflp.NSLocationMonitor: void onSystemReady()>
+  Line:     1937
+  Register: v1 := "com.sec.location.nsflp2"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] iget-object v1, p0, Lcom/android/server/location/nsflp/NSLoc →
+
+  CALLERS (who invokes this method):
+      ← LocationManagerService.onSystemReady()
+        ← LocationManagerService$Lifecycle.onBootPhase()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.registerReceiver()
+      → Context.getPackageManager()
+      → Context.bindService()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → PackageManager.hasSystemFeature()
+      → PackageManager.semGetSystemFeatureLevel()
+      → DeviceIdleHelper.addListener()
+      → DeviceStationaryHelper.addListener()
+      → LocationPowerSaveModeHelper.addListener()
+      → NSConnectionHelper.setFeature()
+      → <com.android.server.location.nsflp.NSLocationMonitor$1: void
+        → DeviceIdleHelper.registerInternal()
+        → CopyOnWriteArrayList.add()
+        → CopyOnWriteArrayList.size()
+        → <android.content.BroadcastReceiver: void <init>()>
+

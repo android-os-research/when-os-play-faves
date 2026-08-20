@@ -1,0 +1,19 @@
+# android.os.IVibratorManagerService [NEW]
+# Refs: 15
+# JARs: framework
+
+<android.os.IVibratorManagerService$Stub$Proxy: android.os.VibratorInfo getVibratorInfo(int)>
+<android.os.IVibratorManagerService$Stub$Proxy: boolean isVibrating(int)>
+<android.os.IVibratorManagerService$Stub$Proxy: boolean registerVibratorStateListener(int,android.os.IVibratorStateListener)>
+<android.os.IVibratorManagerService$Stub$Proxy: boolean setAlwaysOnEffect(int,java.lang.String,int,android.os.CombinedVibration,android.os.VibrationAttributes)>
+<android.os.IVibratorManagerService$Stub$Proxy: boolean unregisterVibratorStateListener(int,android.os.IVibratorStateListener)>
+<android.os.IVibratorManagerService$Stub$Proxy: int getSupportedVibratorGroup()>
+<android.os.IVibratorManagerService$Stub$Proxy: int semGetNumberOfSupportedPatterns()>
+<android.os.IVibratorManagerService$Stub$Proxy: int[] getVibratorIds()>
+<android.os.IVibratorManagerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IVibratorManagerService$Stub$Proxy: void cancelVibrate(int,android.os.IBinder)>
+<android.os.IVibratorManagerService$Stub$Proxy: void updateWatchConnectionState(boolean)>
+<android.os.IVibratorManagerService$Stub$Proxy: void vibrate(int,java.lang.String,android.os.CombinedVibration,android.os.VibrationAttributes,java.lang.String,android.os.IBinder)>
+<android.os.IVibratorManagerService$Stub: android.os.IVibratorManagerService asInterface(android.os.IBinder)>
+<android.os.IVibratorManagerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IVibratorManagerService$Stub: void <init>()>

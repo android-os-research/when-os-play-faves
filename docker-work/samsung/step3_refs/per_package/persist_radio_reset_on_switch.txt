@@ -1,0 +1,6 @@
+# persist.radio.reset_on_switch [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional reset_on_radio_tech_change()>
+<android.sysprop.TelephonyProperties: java.util.Optional reset_on_radio_tech_change()>

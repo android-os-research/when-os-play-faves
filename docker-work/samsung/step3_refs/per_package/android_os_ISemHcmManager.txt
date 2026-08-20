@@ -1,0 +1,9 @@
+# android.os.ISemHcmManager [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.ISemHcmManager$Stub$Proxy: boolean getHcmEnable()>
+<android.os.ISemHcmManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.ISemHcmManager$Stub: android.os.ISemHcmManager asInterface(android.os.IBinder)>
+<android.os.ISemHcmManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.ISemHcmManager$Stub: void <init>()>

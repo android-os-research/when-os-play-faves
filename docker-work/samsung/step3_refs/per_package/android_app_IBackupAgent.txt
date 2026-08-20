@@ -1,0 +1,18 @@
+# android.app.IBackupAgent [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.app.IBackupAgent$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IBackupAgent$Stub$Proxy: void doBackup(android.os.ParcelFileDescriptor,android.os.ParcelFileDescriptor,android.os.ParcelFileDescriptor,long,android.app.backup.IBackupCallback,int)>
+<android.app.IBackupAgent$Stub$Proxy: void doFullBackup(android.os.ParcelFileDescriptor,long,int,android.app.backup.IBackupManager,int)>
+<android.app.IBackupAgent$Stub$Proxy: void doFullBackupPath(android.os.ParcelFileDescriptor,long,int,android.app.backup.IBackupManager,int,java.lang.String[])>
+<android.app.IBackupAgent$Stub$Proxy: void doMeasureFullBackup(long,int,android.app.backup.IBackupManager,int)>
+<android.app.IBackupAgent$Stub$Proxy: void doQuotaExceeded(long,long,android.app.backup.IBackupCallback)>
+<android.app.IBackupAgent$Stub$Proxy: void doRestore(android.os.ParcelFileDescriptor,long,android.os.ParcelFileDescriptor,int,android.app.backup.IBackupManager)>
+<android.app.IBackupAgent$Stub$Proxy: void doRestoreFile(android.os.ParcelFileDescriptor,long,int,java.lang.String,java.lang.String,long,long,int,android.app.backup.IBackupManager)>
+<android.app.IBackupAgent$Stub$Proxy: void doRestoreFinished(int,android.app.backup.IBackupManager)>
+<android.app.IBackupAgent$Stub$Proxy: void doRestoreWithExcludedKeys(android.os.ParcelFileDescriptor,long,android.os.ParcelFileDescriptor,int,android.app.backup.IBackupManager,java.util.List)>
+<android.app.IBackupAgent$Stub$Proxy: void fail(java.lang.String)>
+<android.app.IBackupAgent$Stub: android.app.IBackupAgent asInterface(android.os.IBinder)>
+<android.app.IBackupAgent$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IBackupAgent$Stub: void <init>()>

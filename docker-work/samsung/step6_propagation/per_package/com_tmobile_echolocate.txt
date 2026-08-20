@@ -1,0 +1,372 @@
+######################################################################
+# Propagation: com.tmobile.echolocate
+######################################################################
+
+JARs:                 services, telephony-common
+Classes:              7
+Occurrences:          9
+Usage types:          array_init, field_store, invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PERM_FLAGS, PERM_GRANT, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerServiceExt
+  Method:   <com.android.server.am.ActivityManagerServiceExt: void <init>(android.content.Context,com.android.server.am.ActivityManagerService)>
+  Line:     590
+  Register: v3 := "com.tmobile.echolocate"
+  Usage:    [field_store] iput-object v3, p0, Lcom/android/server/am/ActivityManagerServiceExt;->TMO_PKG_NAME:Ljava/lang/Strin
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.add() → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.ActivityManagerService: void <init>(a
+      ← <com.android.server.am.ActivityManagerService: void <init>(c
+        ← <com.android.server.am.ActivityManagerService$Lifecycle: voi
+
+  CALLEES (what this method invokes):
+      → <android.util.ArrayMap: void <init>()>
+      → BackgroundThread.getLooper()
+      → BackgroundThread.get()
+      → <com.android.server.am.ActivityManagerServiceExt$1: void <in
+      → <com.android.server.am.ActivityManagerServiceExt$2: void <in
+      → <com.android.server.am.ActivityManagerServiceExt$BgHandler: 
+      → <com.android.server.am.ActivityManagerServiceExt$LocaleChang
+      → <com.android.server.am.ActivityManagerServiceExt$MetaDataCol
+      → <com.android.server.am.ActivityManagerServiceExt$MetaDataCol
+      → ActivityManagerServiceExt.initRelaxedBroadcastActions()
+      → Lists.newArrayList()
+      → BroadcastReceiverListParser.parseAllowList()
+      → <com.samsung.android.core.pm.BroadcastReceiverListParserWith
+      → PackageFeature.registerCallback()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>()>
+      → List.of()
+      → Optional.empty()
+      → Set.add()
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+        → BackgroundThread.ensureThreadLocked()
+        → <android.os.Handler: void <init>(android.os.Looper,android.o
+        → <com.android.server.am.ActivityManagerServiceExt$LocaleChang
+        → ActivityManagerServiceExt$MetaDataCollector.scheduleLoad()
+        → <com.android.server.am.ActivityManagerServiceExt$MetaDataCol
+        → Context.getResources()
+        → Resources.getStringArray()
+        → <java.util.HashSet: void <init>(java.util.Collection)>
+        → <java.util.ArrayList: void <init>(int)>
+        → Collections.addAll()
+        → BroadcastReceiverListParser.parseAllowList()
+        → <com.samsung.android.core.pm.BroadcastReceiverListParser: vo
+        → PackageFeatureController.registerCallback()
+        → List.add()
+          → ArrayMap.allocArrays()
+          → <android.os.Handler: void <init>(android.os.Looper)>
+          → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+          → Looper.setSlowLogThresholdMs()
+          → Looper.setTraceTag()
+          → <com.android.internal.os.BackgroundThread: void <init>()>
+          → BackgroundThread.start()
+          → <java.lang.ThreadLocal: void <init>()>
+          → <java.text.SimpleDateFormat: void <init>(java.lang.String)>
+          → <java.util.Date: void <init>()>
+          → Handler.postDelayed()
+          → Handler.removeCallbacks()
+          → <com.android.server.am.ActivityManagerServiceExt$MetaDataCol
+          → <com.android.server.am.ActivityManagerServiceExt$MetaDataCol
+          → <java.util.HashMap: void <init>()>
+          → BroadcastReceiverListParser.parseAllowListInternal()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → Preconditions.checkNotNull()
+            → <android.os.HandlerThread: void <init>(java.lang.String,int)
+            → <android.content.BroadcastReceiver: void <init>()>
+            → Environment.getRootDirectory()
+            → TextUtils.isEmpty()
+            → Xml.newPullParser()
+            → BroadcastReceiverListParser.parseAllowListElement()
+            → File.exists()
+            → <java.io.File: void <init>(java.lang.String)>
+            → <java.io.FileInputStream: void <init>(java.io.File)>
+            → FileInputStream.close()
+            → Throwable.addSuppressed()
+            → XmlPullParser.setInput()
+              → <java.lang.Thread: void <init>(java.lang.String)>
+              → CharSequence.length()
+              → <java.lang.AssertionError: void <init>()>
+              → XmlObjectFactory.newXmlPullParser()
+              → XmlPullParser.setFeature()
+              → BroadcastReceiverListParser.parseMetadataElement()
+              → BroadcastReceiverListParser.parseIntents()
+              → BroadcastReceiverListParser.parsePackages()
+              → Iterator.hasNext()
+              → Iterator.next()
+              → List.addAll()
+              → List.iterator()
+              → Map.put()
+              → XmlPullParser.getDepth()
+              → XmlPullParser.next()
+              → XmlPullParser.getAttributeValue()
+              → XmlPullParser.getName()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerServiceExt
+  Method:   <com.android.server.am.ActivityManagerServiceExt: void initTmoForceStopPolicy()>
+  Line:     2401
+  Register: v1 := "com.tmobile.echolocate"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/pm/PackageManagerInternal;->isSystemPackage(Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManagerInternal.isSystemPackage()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.ActivityManagerService: void lambda$s
+        ← <com.android.server.am.ActivityManagerService: void $r8$lamb
+          ← ActivityManagerService$$ExternalSyntheticLambda9.run()
+
+  CALLEES (what this method invokes):
+      → PackageManagerInternal.isSystemPackage()
+      → ActivityManagerService.getPackageManagerInternal()
+        → LocalServices.getService()
+          → ArrayMap.get()
+            → ArrayMap.indexOfKey()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerServiceExt
+  Method:   <com.android.server.am.ActivityManagerServiceExt: boolean shouldAvoidForceStopForTmoPkg(java.lang.String)>
+  Line:     5661
+  Register: p0 := "com.tmobile.echolocate"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-eqz p0, :cond_e → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerService.forceStopPackage()
+      ← ProcessList.newProcessRecordLocked()
+        ← MARsPolicyManager.forceKillPackage()
+        ← MARsPolicyManager.forceStopForRecentKill()
+        ← ActivityManagerService.addAppLocked()
+        ← ActivityManagerService.setSystemProcess()
+        ← ProcessList.startProcessLocked()
+          ← MARsPolicyManager.forceRunPolicyForRecentKill()
+          ← MARsPolicyManager.forceRunPolicyForSpecificPackage()
+          ← MARsPolicyManager.forceRunPolicyForSpecificPolicy()
+          ← ActivityManagerService$LocalService.killProcessesForRemovedTask()
+          ← ActivityManagerService.startInstrumentationOfSdkSandbox()
+          ← ActivityManagerService.addAppLocked()
+          ← SystemServer.startBootstrapServices()
+          ← ActivityManagerService.startProcessLocked()
+          ← ProcessList.startProcessLocked()
+            ← MARsHandler$MainHandler.handleMessage()
+            ← ActivityManagerService.startInstrumentation()
+            ← ActivityManagerService.addAppLocked()
+            ← SystemServer.run()
+            ← ActivityManagerService$LocalService.startProcess()
+            ← ActivityManagerService.startIsolatedProcess()
+            ← ActivityManagerService.startProcessLocked()
+            ← ActivityManagerService.startSdkSandboxProcessLocked()
+              ← ActivityManagerService.addAppLocked()
+              ← SystemServer.main()
+              ← ActivityManagerService$LocalService.startIsolatedProcess()
+              ← ActiveServices.bringUpServiceLocked()
+              ← ActivityManagerService$LocalService.startProcess()
+              ← ActivityManagerService.bindBackupAgent()
+              ← BroadcastQueue.processNextBroadcastLocked()
+              ← ContentProviderHelper.getContentProviderImpl()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.AppStateBroadcaster
+  Method:   <com.android.server.am.AppStateBroadcaster: void <clinit>()>
+  Line:     105
+  Register: v0 := "com.tmobile.echolocate"
+  Usage:    [array_init] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [other] filled-new-array {v0, v1, v2}, [Ljava/lang/String; → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → SystemProperties.get()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.cmd.ShellRestrictionsHelper
+  Method:   <com.samsung.android.server.pm.cmd.ShellRestrictionsHelper: void buildCmdBlockList()>
+  Line:     50
+  Register: v0 := "com.tmobile.echolocate"
+  Usage:    [invoke] invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.List.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.pm.cmd.ShellRestrictionsHelper: 
+        ← <com.android.server.pm.PackageManagerShellCommand: void <ini
+          ← PackageManagerService$IPackageManagerImpl.onShellCommand()
+
+  CALLEES (what this method invokes):
+      → List.add()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.permission.DefaultPermissionGrantPolicy
+  Method:   <com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultPermissionsToTmoApp(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+  Line:     4747
+  Register: v0 := "com.tmobile.echolocate"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManag
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.pm.permission.DefaultPermissionGrantPolic → [other] move-result v3 → [branch] if-eqz v3, :co
+
+  CALLERS (who invokes this method):
+      ← DefaultPermissionGrantPolicy.grantDefaultSystemHandlerPermissions()
+        ← DefaultPermissionGrantPolicy.grantDefaultPermissions() [PERM_GRANT]
+          ← LegacyPermissionManagerService$Internal.grantDefaultPermissions() [PERM_GRANT]
+
+  CALLEES (what this method invokes):
+      → <android.util.ArraySet: void <init>()>
+      → DefaultPermissionGrantPolicy$PackageManagerWrapper.getSystemPackageInfo()
+      → DefaultPermissionGrantPolicy.doesPackageSupportRuntimePermissions()
+      → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+      → Set.add()
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → ApplicationInfo.isSystemApp()
+        → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPackageInfo() [PKG_QUERY]
+        → DefaultPermissionGrantPolicy.grantRuntimePermissions() [PERM_GRANT]
+          → ArraySet.allocArrays()
+          → Context.getSystemService()
+          → ApplicationInfo.isUpdatedSystemApp()
+          → PackageManagerInternal.getDisabledSystemPackageName()
+          → Bundle.getBoolean()
+          → UserHandle.of()
+          → PermissionManager$SplitPermissionInfo.getTargetSdk()
+          → PermissionManager$SplitPermissionInfo.getSplitPermission()
+          → PermissionManager$SplitPermissionInfo.getNewPermissions()
+          → PermissionManager.getSplitPermissions()
+          → ArraySet.addAll()
+          → ArraySet.contains()
+          → <android.util.ArraySet: void <init>(java.util.Collection)>
+          → ArrayUtils.contains()
+          → ArrayUtils.isEmpty()
+          → ArrayUtils.filterNotNull()
+          → <com.android.server.pm.permission.DefaultPermissionGrantPoli
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isGranted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.isPermissionRestricted()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionFlags()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.getBackgroundPermission()
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.grantPermission() [PERM_GRANT]
+          → DefaultPermissionGrantPolicy$PackageManagerWrapper.updatePermissionFlags() [PERM_FLAGS]
+          → DefaultPermissionGrantPolicy.isFixedOrUserSet()
+          → List.size()
+          → List.get()
+          → Map.get()
+          → Map.put()
+          → Set.contains()
+            → SplitPermissionInfoParcelable.getTargetSdk()
+            → SplitPermissionInfoParcelable.getSplitPermission()
+            → SplitPermissionInfoParcelable.getNewPermissions()
+            → ActivityThread.getPermissionManager()
+            → IPermissionManager.getSplitPermissions()
+            → PermissionManager.splitPermissionInfoListToNonParcelableList()
+            → Collections.emptyList()
+            → ArraySet.add()
+            → ArraySet.ensureCapacity()
+            → Collection.size()
+            → Collection.iterator()
+            → Iterator.hasNext()
+            → Iterator.next()
+            → ArraySet.indexOf()
+            → PermissionInfo.isRestricted()
+            → DefaultPermissionGrantPolicy$PackageManagerWrapper.getPermissionInfo()
+              → <android.permission.PermissionManager$SplitPermissionInfo: v
+              → <java.util.ArrayList: void <init>(int)>
+              → List.add()
+              → ArraySet.indexOf()
+              → ArraySet.indexOfNull()
+              → ArraySet.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.sec.tmodiagnostics.DeviceReportingSecurityChecker
+  Method:   <com.sec.tmodiagnostics.DeviceReportingSecurityChecker: boolean getEchoAppSignature()>
+  Line:     334
+  Register: v3 := "com.tmobile.echolocate"
+  Usage:    [invoke] invoke-virtual {v0, v3, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [other] array-length v3, v0 → [other] if-ge v4, v3, :cond_
+
+  CALLERS (who invokes this method):
+      ← DeviceReportingSecurityChecker.getSignatureUsingSalesCode()
+        ← DeviceReportingSecurityChecker.enable()
+          ← PDPContextStateBroadcaster.enable()
+          ← ActivityManagerService.finishBooting()
+            ← DcTracker.initForSamsung()
+            ← ActivityManagerService$LocalService.finishBooting()
+            ← ActivityManagerService.bootAnimationComplete()
+            ← ActivityManagerService.ensureBootCompleted()
+              ← <com.android.internal.telephony.dataconnection.DcTracker: vo
+              ← ActivityManagerService$LocalService.ensureBootCompleted()
+              ← ActivityManagerService$UiHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → Signature.equals()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.tmobile.echolocate.DataMetrics
+  Method:   <com.tmobile.echolocate.DataMetrics: boolean isEchoAppSigPresent()>
+  Line:     1882
+  Register: v1 := "com.tmobile.echolocate"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [other] array-length v1, p0 → [other] if-ge v2, v1, :cond_
+
+  CALLERS (who invokes this method):
+      ← <com.tmobile.echolocate.DataMetrics: void <init>(android.con
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → Signature.equals()
+      → DataMetrics.logE()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.tmobile.echolocate.DataMetrics5gSa
+  Method:   <com.tmobile.echolocate.DataMetrics5gSa: boolean isEchoAppSigPresent()>
+  Line:     2359
+  Register: v1 := "com.tmobile.echolocate"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [other] array-length v1, p0 → [other] if-ge v2, v1, :cond_
+
+  CALLERS (who invokes this method):
+      ← <com.tmobile.echolocate.DataMetrics5gSa: void <init>(android
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → Signature.equals()
+      → DataMetrics5gSa.logE()
+

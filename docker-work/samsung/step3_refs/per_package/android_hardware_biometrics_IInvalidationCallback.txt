@@ -1,0 +1,9 @@
+# android.hardware.biometrics.IInvalidationCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.biometrics.IInvalidationCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.IInvalidationCallback$Stub$Proxy: void onCompleted()>
+<android.hardware.biometrics.IInvalidationCallback$Stub: android.hardware.biometrics.IInvalidationCallback asInterface(android.os.IBinder)>
+<android.hardware.biometrics.IInvalidationCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.IInvalidationCallback$Stub: void <init>()>

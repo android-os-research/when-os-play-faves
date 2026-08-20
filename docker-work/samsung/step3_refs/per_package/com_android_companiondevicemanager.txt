@@ -1,0 +1,8 @@
+# com.android.companiondevicemanager [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.companion.AssociationRequestsProcessor: void <clinit>()>
+<com.android.server.pm.PackageManagerService$IPackageManagerImpl: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>
+<com.android.server.pm.PackageManagerService: java.lang.String[] getKnownPackageNamesInternal(com.android.server.pm.Computer,int,int)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>

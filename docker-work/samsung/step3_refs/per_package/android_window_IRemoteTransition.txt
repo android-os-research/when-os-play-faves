@@ -1,0 +1,10 @@
+# android.window.IRemoteTransition [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.window.IRemoteTransition$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.IRemoteTransition$Stub$Proxy: void mergeAnimation(android.os.IBinder,android.window.TransitionInfo,android.view.SurfaceControl$Transaction,android.os.IBinder,android.window.IRemoteTransitionFinishedCallback)>
+<android.window.IRemoteTransition$Stub$Proxy: void startAnimation(android.os.IBinder,android.window.TransitionInfo,android.view.SurfaceControl$Transaction,android.window.IRemoteTransitionFinishedCallback)>
+<android.window.IRemoteTransition$Stub: android.window.IRemoteTransition asInterface(android.os.IBinder)>
+<android.window.IRemoteTransition$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.IRemoteTransition$Stub: void <init>()>

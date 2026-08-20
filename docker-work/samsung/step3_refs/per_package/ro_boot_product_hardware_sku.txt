@@ -1,0 +1,8 @@
+# ro.boot.product.hardware.sku [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<android.os.Build: void <clinit>()>
+<com.android.server.SystemConfig: void SEServiceFeature()>
+<com.android.server.SystemConfig: void readAllPermissions()>
+<com.android.server.pm.NfcFeatureManager: void updateFeatureAndPackage(android.util.ArrayMap,com.samsung.android.server.pm.install.SkippingApks,boolean)>

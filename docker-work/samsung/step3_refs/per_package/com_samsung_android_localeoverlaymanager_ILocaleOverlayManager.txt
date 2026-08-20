@@ -1,0 +1,10 @@
+# com.samsung.android.localeoverlaymanager.ILocaleOverlayManager [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.localeoverlaymanager.ILocaleOverlayManager$Stub$Proxy: boolean applyLocales(android.os.LocaleList,int,com.samsung.android.localeoverlaymanager.IOverlayChangeObserver)>
+<com.samsung.android.localeoverlaymanager.ILocaleOverlayManager$Stub$Proxy: boolean applyLocalesForPackage(java.lang.String,int,com.samsung.android.localeoverlaymanager.ILocaleOverlayInstallObserver)>
+<com.samsung.android.localeoverlaymanager.ILocaleOverlayManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.localeoverlaymanager.ILocaleOverlayManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.localeoverlaymanager.ILocaleOverlayManager$Stub: com.samsung.android.localeoverlaymanager.ILocaleOverlayManager asInterface(android.os.IBinder)>
+<com.samsung.android.localeoverlaymanager.ILocaleOverlayManager$Stub: void <init>()>

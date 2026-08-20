@@ -1,0 +1,26 @@
+######################################################################
+# Propagation: com.google.android.apps.docs.editors.slides
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DesktopModeKillPolicyManager
+  Method:   <com.android.server.desktopmode.DesktopModeKillPolicyManager: void <clinit>()>
+  Line:     81
+  Register: v8 := "com.google.android.apps.docs.editors.slides"
+  Usage:    [invoke] invoke-static/range {v1 .. v8}, Ljava/util/Set;->of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/O
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.of()
+
+  CALLEES (what this method invokes):
+      → Set.of()
+

@@ -1,0 +1,9 @@
+# android.os.IRecoverySystemProgressListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.IRecoverySystemProgressListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IRecoverySystemProgressListener$Stub$Proxy: void onProgress(int)>
+<android.os.IRecoverySystemProgressListener$Stub: android.os.IRecoverySystemProgressListener asInterface(android.os.IBinder)>
+<android.os.IRecoverySystemProgressListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IRecoverySystemProgressListener$Stub: void <init>()>

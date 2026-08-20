@@ -1,0 +1,8 @@
+# com.samsung.android.knox.permission.KNOX_BLUETOOTH [NEW]
+# Refs: 4
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.bluetooth.BluetoothPolicy: com.samsung.android.knox.ContextInfo enforceBluetoothPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.bluetooth.BluetoothPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndBluetoothPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

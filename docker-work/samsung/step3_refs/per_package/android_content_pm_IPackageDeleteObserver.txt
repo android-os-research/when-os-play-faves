@@ -1,0 +1,9 @@
+# android.content.pm.IPackageDeleteObserver [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.pm.IPackageDeleteObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IPackageDeleteObserver$Stub$Proxy: void packageDeleted(java.lang.String,int)>
+<android.content.pm.IPackageDeleteObserver$Stub: android.content.pm.IPackageDeleteObserver asInterface(android.os.IBinder)>
+<android.content.pm.IPackageDeleteObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IPackageDeleteObserver$Stub: void <init>()>

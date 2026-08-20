@@ -1,0 +1,18 @@
+# com.mediatek.ims.internal.IMtkImsCallSessionListener [NEW]
+# Refs: 14
+# JARs: mediatek-ims-base
+
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub$Proxy: void callSessionBusy(com.mediatek.ims.internal.IMtkImsCallSession)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub$Proxy: void callSessionCalling(com.mediatek.ims.internal.IMtkImsCallSession)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub$Proxy: void callSessionMergeComplete(com.mediatek.ims.internal.IMtkImsCallSession)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub$Proxy: void callSessionMergeStarted(com.mediatek.ims.internal.IMtkImsCallSession,com.mediatek.ims.internal.IMtkImsCallSession,android.telephony.ims.ImsCallProfile)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub$Proxy: void callSessionNotificationRingtoneReceived(com.mediatek.ims.internal.IMtkImsCallSession,int,java.lang.String)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub$Proxy: void callSessionRedialEcc(com.mediatek.ims.internal.IMtkImsCallSession,boolean)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub$Proxy: void callSessionRinging(com.mediatek.ims.internal.IMtkImsCallSession,android.telephony.ims.ImsCallProfile)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub$Proxy: void callSessionRttEventReceived(com.mediatek.ims.internal.IMtkImsCallSession,int)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub$Proxy: void callSessionTextCapabilityChanged(com.mediatek.ims.internal.IMtkImsCallSession,int,int,int,int)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub$Proxy: void callSessionVideoRingtoneEventReceived(com.mediatek.ims.internal.IMtkImsCallSession,int,java.lang.String)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub: com.mediatek.ims.internal.IMtkImsCallSessionListener asInterface(android.os.IBinder)>
+<com.mediatek.ims.internal.IMtkImsCallSessionListener$Stub: void <init>()>

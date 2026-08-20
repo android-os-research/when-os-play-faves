@@ -1,0 +1,84 @@
+######################################################################
+# Propagation: com.samsung.android.accessibility.talkback
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.accessibility.AccessibilityManagerService
+  Method:   <com.android.server.accessibility.AccessibilityManagerService: void changeAccessibilityComponentNameIfNeed()>
+  Line:     4255
+  Register: v1 := "com.samsung.android.accessibility.talkback"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->hasPack
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.accessibility.AccessibilityManagerService → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← AccessibilityManagerService.init()
+        ← <com.android.server.accessibility.AccessibilityManagerServic
+        ← <com.android.server.accessibility.AccessibilityManagerServic
+          ← <com.android.server.accessibility.AccessibilityManagerServic
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Settings$Secure.putString()
+      → Settings$Secure.putStringForUser()
+      → Settings$Secure.getStringForUser()
+      → AccessibilityManagerService.hasPackage()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.accessibility.AccessibilityManagerService
+  Method:   <com.android.server.accessibility.AccessibilityManagerService: void setScreenReaderEnabled(boolean)>
+  Line:     20588
+  Register: v2 := "com.samsung.android.accessibility.talkback"
+  Usage:    [invoke] invoke-virtual {p0, v0, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->hasPack
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.accessibility.AccessibilityManagerService
+
+  CALLERS (who invokes this method):
+      ← TouchExplorer.onGestureCompleted()
+
+  CALLEES (what this method invokes):
+      → AccessibilityManagerService.hasPackage()
+      → AccessibilityManagerService.semTurnOffAccessibilityService()
+      → AccessibilityManagerService.semTurnOnAccessibilityService()
+      → AccessibilitySecurityPolicy.enforceCallingPermission()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → ComponentName.unflattenFromString()
+        → ComponentName.flattenToString()
+        → Context.getContentResolver()
+        → Settings$Secure.putIntForUser()
+        → Settings$Secure.putStringForUser()
+        → Settings$Secure.getStringForUser()
+        → TextUtils$SimpleStringSplitter.hasNext()
+        → TextUtils$SimpleStringSplitter.next()
+        → <android.text.TextUtils$SimpleStringSplitter: void <init>(ch
+        → TextUtils$SimpleStringSplitter.setString()
+        → <java.util.HashSet: void <init>()>
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Set.add()
+        → Set.isEmpty()
+        → Set.remove()
+        → Set.iterator()
+        → AccessibilityManagerService.semIsAccessibilityServiceEnabled()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → AccessibilitySecurityPolicy.hasPermission()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → Context.checkCallingPermission()
+

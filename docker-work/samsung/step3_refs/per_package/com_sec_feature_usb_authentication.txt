@@ -1,0 +1,8 @@
+# com.sec.feature.usb_authentication [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.sepunion.FriendsManagerService: void initialize()>
+<com.samsung.accessory.manager.SAccessoryManager: void <init>(android.content.Context,com.android.server.input.InputManagerService)>
+<com.samsung.android.sepunion.UnionUtils: void updateSystemFeature(android.content.Context)>

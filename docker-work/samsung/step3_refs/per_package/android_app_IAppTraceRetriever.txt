@@ -1,0 +1,9 @@
+# android.app.IAppTraceRetriever [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.IAppTraceRetriever$Stub$Proxy: android.os.ParcelFileDescriptor getTraceFileDescriptor(java.lang.String,int,int)>
+<android.app.IAppTraceRetriever$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IAppTraceRetriever$Stub: android.app.IAppTraceRetriever asInterface(android.os.IBinder)>
+<android.app.IAppTraceRetriever$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IAppTraceRetriever$Stub: void <init>()>

@@ -1,0 +1,13 @@
+# android.net.IIpConnectivityMetrics [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.net.IIpConnectivityMetrics$Stub$Proxy: boolean addNetdEventCallback(int,android.net.INetdEventCallback)>
+<android.net.IIpConnectivityMetrics$Stub$Proxy: boolean removeNetdEventCallback(int)>
+<android.net.IIpConnectivityMetrics$Stub$Proxy: int logEvent(android.net.ConnectivityMetricsEvent)>
+<android.net.IIpConnectivityMetrics$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.IIpConnectivityMetrics$Stub$Proxy: void logDefaultNetworkEvent(android.net.Network,int,boolean,android.net.LinkProperties,android.net.NetworkCapabilities,android.net.Network,int,android.net.LinkProperties,android.net.NetworkCapabilities)>
+<android.net.IIpConnectivityMetrics$Stub$Proxy: void logDefaultNetworkValidity(boolean)>
+<android.net.IIpConnectivityMetrics$Stub: android.net.IIpConnectivityMetrics asInterface(android.os.IBinder)>
+<android.net.IIpConnectivityMetrics$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.IIpConnectivityMetrics$Stub: void <init>()>

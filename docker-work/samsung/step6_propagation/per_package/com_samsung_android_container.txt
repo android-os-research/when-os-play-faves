@@ -1,0 +1,195 @@
+######################################################################
+# Propagation: com.samsung.android.container
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.AsecInstallArgs
+  Method:   <com.android.server.pm.AsecInstallArgs: void <clinit>()>
+  Line:     55
+  Register: v1 := "com.samsung.android.container"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageInstallerSession
+  Method:   <com.android.server.pm.PackageInstallerSession: void <init>(com.android.server.pm.PackageInstallerService$InternalCallback,android.content.Context,com.android.server.pm.PackageManagerService,com.android.server.pm.PackageSessionProvider,com.android.server.pm.SilentUpdatePolicy,android.os.Looper,com.android.server.pm.StagingManager,int,int,int,com.android.server.pm.InstallSource,android.content.pm.PackageInstaller$SessionParams,long,long,java.io.File,java.lang.String,android.content.pm.InstallationFile[],android.util.ArrayMap,boolean,boolean,boolean,boolean,int[],int,boolean,boolean,boolean,int,java.lang.String)>
+  Line:     1607
+  Register: v6 := "com.samsung.android.container"
+  Usage:    [invoke] invoke-interface {v1, v6, v7, v8, v9}, Lcom/android/server/pm/Computer;->getPackageUid(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.pm.Computer.getPackageUid()
+
+  CALLERS (who invokes this method):
+      ← PackageInstallerService.createSessionInternal()
+      ← PackageInstallerSession.readFromXml()
+        ← PackageInstallerService.createSession()
+        ← PackageInstallerService.readSessionsLocked()
+          ← PrePackageInstallerBase.installPreloadPackage()
+          ← PackageInstallerService.systemReady()
+            ← PrePackageInstallerBase.installPreloadPackageList()
+            ← PackageManagerService.systemReady()
+              ← PrePackageInstallerBase.startPrePackageInstall()
+              ← SystemServer.startOtherServices()
+
+  CALLEES (what this method invokes):
+      → Context.checkCallingOrSelfPermission()
+      → <android.content.pm.IPackageInstallerSession$Stub: void <ini
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <android.os.Handler: void <init>(android.os.Looper,android.o
+      → UserHandle.getSharedAppGid()
+      → IncrementalManager.isAllowed()
+      → <android.util.ArrayMap: void <init>()>
+      → ArrayMap.putAll()
+      → ArraySet.add()
+      → <android.util.ArraySet: void <init>()>
+      → ArraySet.ensureCapacity()
+      → <android.util.SparseArray: void <init>()>
+      → SparseArray.put()
+      → Computer.getPackageUid()
+      → <com.android.server.pm.PackageInstallerSession$4: void <init
+      → <com.android.server.pm.PackageInstallerSession$FileEntry: vo
+      → <com.android.server.pm.PackageInstallerSession$StagedSession
+      → PackageInstallerSession.hasParentSessionId()
+      → PackageInstallerSession.isApexSession()
+      → PackageInstallerSession.isDataLoaderInstallation()
+      → PackageInstallerSession.isIncrementalInstallation()
+      → PackageInstallerSession.isMultiPackage()
+      → PackageInstallerSession.isStaged()
+      → PackageInstallerSession.isSystemDataLoaderInstallation()
+      → PackageManagerService.snapshotComputer()
+      → PackageInstallTimeLogger.createInstallTimeInfo()
+      → PackageInstallTimeLogger.updateInstallTag()
+      → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+      → <java.lang.SecurityException: void <init>(java.lang.String)>
+      → <java.security.SecureRandom: void <init>()>
+      → <java.util.ArrayList: void <init>()>
+      → Objects.requireNonNull()
+      → <java.util.concurrent.atomic.AtomicBoolean: void <init>(bool
+      → AtomicBoolean.set()
+      → <java.util.concurrent.atomic.AtomicInteger: void <init>()>
+        → IPackageInstallerSession$Stub.attachInterface()
+        → <android.os.Binder: void <init>()>
+        → SystemProperties.getBoolean()
+        → IncrementalManager.isFeatureEnabled()
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+        → ArrayMap.keyAt()
+        → ArrayMap.put()
+        → ArrayMap.valueAt()
+        → ArrayMap.ensureCapacity()
+        → ArraySet.indexOf()
+        → ArraySet.indexOfNull()
+        → ArraySet.allocArrays()
+        → ArraySet.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → <android.util.SparseArray: void <init>(int)>
+        → ContainerHelpers.binarySearch()
+        → SparseArray.gc()
+        → GrowingArrayUtils.insert()
+        → GrowingArrayUtils.insert()
+        → PackageInstallerSession.isDataLoaderInstallation()
+        → DataLoaderParams.getType()
+        → PackageInstallerSession.isSystemDataLoaderInstallation()
+        → Computer.use()
+        → Computer.getVersion()
+        → PackageManagerService.rebuildSnapshot()
+        → Thread.holdsLock()
+        → AtomicInteger.get()
+        → AtomicReference.get()
+        → AtomicReference.set()
+        → ArrayMap.size()
+        → <com.samsung.android.server.pm.install.PackageInstallTimeLog
+        → PackageInstallTimeLogger.getCurrentTime()
+        → PackageInstallTimeLogger.removeExpiredTimeInfo()
+        → ArrayMap.get()
+        → ArrayList.add()
+          → <android.os.Binder: void <init>(java.lang.String)>
+          → IncrementalManager.nativeIsEnabled()
+          → ArrayMap.allocArrays()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.freeArrays()
+          → ArraySet.binarySearch()
+          → ArrayUtils.newUnpaddedObjectArray()
+          → ComponentName.getPackageName()
+          → DataLoaderParams.getComponentName()
+          → SystemClock.currentTimeMicro()
+          → Computer.getUsed()
+          → <com.android.server.pm.ComputerEngine: void <init>(com.andro
+          → <com.android.server.pm.PackageManagerService$Snapshot: void 
+          → SnapshotStatistics.rebuild()
+          → <com.samsung.android.server.pm.install.PackageInstallTimeLog
+          → ArrayMap.remove()
+          → ArrayMap.entrySet()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → Map$Entry.getKey()
+          → Map$Entry.getValue()
+          → Set.iterator()
+          → ArrayMap.indexOfKey()
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ArrayMap.binarySearchHashes()
+            → <android.content.ComponentName: void <init>(java.lang.String
+            → <com.android.server.pm.ComputerEngine$Settings: void <init>(
+            → PackageManagerService.getDefaultAppProvider()
+            → PackageManagerService.getDexManager()
+            → ComponentName.clone()
+            → <android.content.pm.ActivityInfo: void <init>(android.conten
+            → <android.content.pm.ApplicationInfo: void <init>(android.con
+            → <android.content.pm.ResolveInfo: void <init>(android.content
+            → AppsFilterImpl.snapshot()
+            → InstantAppRegistry.snapshot()
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → Settings.snapshot()
+            → SharedLibrariesImpl.snapshot()
+            → ComponentResolver.snapshot()
+            → SnapshotCache.snapshot()
+            → WatchedSparseBooleanArray.snapshot()
+            → <java.lang.IllegalArgumentException: void <init>()>
+            → EventLogTags.writePmSnapshotRebuild()
+            → SnapshotStatistics$BinMap.getBin()
+            → <com.android.server.pm.SnapshotStatistics$Stats: void -$$Nes
+            → ArrayMap.removeAt()
+            → ArrayMap.getCollection()
+            → MapCollections.getEntrySet()
+              → <com.android.server.utils.SnapshotCache$Statistics: java.uti
+              → <com.android.server.utils.SnapshotCache$Statistics: java.uti
+              → SnapshotCache.createSnapshot()
+              → AtomicInteger.incrementAndGet()
+              → WatchableImpl.seal()
+              → <com.android.server.utils.WatchedSparseBooleanArray: void <i
+              → EventLog.writeEvent()
+              → SnapshotStatistics$Stats.rebuild()
+              → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+              → <android.util.MapCollections$EntrySet: void <init>(android.u
+

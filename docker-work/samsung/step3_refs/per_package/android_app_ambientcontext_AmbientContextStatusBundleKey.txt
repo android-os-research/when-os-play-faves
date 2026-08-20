@@ -1,0 +1,9 @@
+# android.app.ambientcontext.AmbientContextStatusBundleKey [NEW]
+# Refs: 5
+# JARs: framework, services
+
+<android.app.ambientcontext.AmbientContextManager: void lambda$queryAmbientContextServiceStatus$1(java.util.concurrent.Executor,java.util.function.Consumer,android.os.Bundle)>
+<android.app.ambientcontext.AmbientContextManager: void lambda$registerObserver$3(java.util.concurrent.Executor,java.util.function.Consumer,android.os.Bundle)>
+<com.android.server.ambientcontext.AmbientContextManagerPerUserService: void lambda$getServerStatusCallback$0(android.os.RemoteCallback,android.os.Bundle)>
+<com.android.server.ambientcontext.AmbientContextManagerPerUserService: void sendStatusCallback(android.os.RemoteCallback,int)>
+<com.android.server.ambientcontext.AmbientContextManagerPerUserService: void sendStatusToCallback(android.os.RemoteCallback,int)>

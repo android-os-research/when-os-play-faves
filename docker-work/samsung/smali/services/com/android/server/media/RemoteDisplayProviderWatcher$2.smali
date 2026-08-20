@@ -1,0 +1,47 @@
+.class public Lcom/android/server/media/RemoteDisplayProviderWatcher$2;
+.super Ljava/lang/Object;
+.source "RemoteDisplayProviderWatcher.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/media/RemoteDisplayProviderWatcher;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic this$0:Lcom/android/server/media/RemoteDisplayProviderWatcher;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/media/RemoteDisplayProviderWatcher;)V
+    .registers 2
+
+    .line 197
+    iput-object p1, p0, Lcom/android/server/media/RemoteDisplayProviderWatcher$2;->this$0:Lcom/android/server/media/RemoteDisplayProviderWatcher;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .registers 1
+
+    .line 200
+    iget-object p0, p0, Lcom/android/server/media/RemoteDisplayProviderWatcher$2;->this$0:Lcom/android/server/media/RemoteDisplayProviderWatcher;
+
+    invoke-static {p0}, Lcom/android/server/media/RemoteDisplayProviderWatcher;->-$$Nest$mscanPackages(Lcom/android/server/media/RemoteDisplayProviderWatcher;)V
+
+    return-void
+.end method

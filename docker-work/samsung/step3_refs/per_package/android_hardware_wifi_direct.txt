@@ -1,0 +1,8 @@
+# android.hardware.wifi.direct [NEW]
+# Refs: 5
+# JARs: semwifi-service, services
+
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.display.WifiDisplayAdapter: void <init>(com.android.server.display.DisplayManagerService$SyncRoot,android.content.Context,android.os.Handler,com.android.server.display.DisplayAdapter$Listener,com.android.server.display.PersistentDataStore)>
+<com.samsung.android.server.wifi.autowifi.AutoWifiController: void registerReceiver()>
+<com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl: void <init>(android.content.Context,com.samsung.android.server.wifi.SemWifiInjector)>

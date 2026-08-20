@@ -1,0 +1,7 @@
+# ro.telephony.default_network [NEW]
+# Refs: 3
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.List default_network()>
+<android.sysprop.TelephonyProperties: java.util.List default_network()>
+<com.android.internal.telephony.PreferredNetworkUpdater: void updateDefaultNetworkMode()>

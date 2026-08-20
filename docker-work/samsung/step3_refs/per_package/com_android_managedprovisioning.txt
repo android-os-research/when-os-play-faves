@@ -1,0 +1,10 @@
+# com.android.managedprovisioning [NEW]
+# Refs: 6
+# JARs: duraspeed, services
+
+<com.android.server.enterprise.application.ApplicationPolicy: boolean isFromApprovedInstaller(int,int)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy$ProvisioningProcessObserver: void onProcessDied(int,int)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy$ProvisioningState: int getProcessId(java.lang.String)>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: java.util.List getConfigurationTypeByName(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.mediatek.duraspeed.collector.q: void <clinit>()>
+<com.samsung.android.server.pm.install.SilentUninstallerList: void <init>()>

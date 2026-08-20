@@ -1,0 +1,6 @@
+# ro.boot.serialno [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.auditlog.AuditLogService: java.lang.String getSerialNumberInternal()>
+<com.android.server.enterprise.device.DeviceInfo: java.lang.String getSerialNumber(com.samsung.android.knox.ContextInfo)>

@@ -1,0 +1,16 @@
+# android.view.accessibility.IAccessibilityInteractionConnection [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub$Proxy: void clearAccessibilityFocus()>
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub$Proxy: void findAccessibilityNodeInfoByAccessibilityId(long,android.graphics.Region,int,android.view.accessibility.IAccessibilityInteractionConnectionCallback,int,int,long,android.view.MagnificationSpec,float[],android.os.Bundle)>
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub$Proxy: void findAccessibilityNodeInfosByText(long,java.lang.String,android.graphics.Region,int,android.view.accessibility.IAccessibilityInteractionConnectionCallback,int,int,long,android.view.MagnificationSpec,float[])>
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub$Proxy: void findAccessibilityNodeInfosByViewId(long,java.lang.String,android.graphics.Region,int,android.view.accessibility.IAccessibilityInteractionConnectionCallback,int,int,long,android.view.MagnificationSpec,float[])>
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub$Proxy: void findFocus(long,int,android.graphics.Region,int,android.view.accessibility.IAccessibilityInteractionConnectionCallback,int,int,long,android.view.MagnificationSpec,float[])>
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub$Proxy: void focusSearch(long,int,android.graphics.Region,int,android.view.accessibility.IAccessibilityInteractionConnectionCallback,int,int,long,android.view.MagnificationSpec,float[])>
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub$Proxy: void notifyOutsideTouch()>
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub$Proxy: void performAccessibilityAction(long,int,android.os.Bundle,int,android.view.accessibility.IAccessibilityInteractionConnectionCallback,int,int,long)>
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub: android.view.accessibility.IAccessibilityInteractionConnection asInterface(android.os.IBinder)>
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.accessibility.IAccessibilityInteractionConnection$Stub: void <init>()>

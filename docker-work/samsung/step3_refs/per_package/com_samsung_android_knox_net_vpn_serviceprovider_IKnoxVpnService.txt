@@ -1,0 +1,24 @@
+# com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService [NEW]
+# Refs: 20
+# JARs: knoxsdk
+
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: boolean setAutoRetryOnConnectionError(java.lang.String,boolean)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: boolean setCACertificate(java.lang.String,byte[])>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: boolean setServerCertValidationUserAcceptanceCriteria(java.lang.String,boolean,java.util.List,int)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: boolean setUserCertificate(java.lang.String,byte[],java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: com.samsung.android.knox.keystore.CertificateInfo getCACertificate(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: com.samsung.android.knox.keystore.CertificateInfo getUserCertificate(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: int createConnection(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: int getState(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: int getVpnModeOfOperation(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: int removeConnection(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: int setVpnModeOfOperation(java.lang.String,int)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: int startConnection(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: int stopConnection(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: java.lang.String getConnection(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: java.lang.String getErrorString(java.lang.String)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub$Proxy: java.util.List getAllConnections()>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub: com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService asInterface(android.os.IBinder)>
+<com.samsung.android.knox.net.vpn.serviceprovider.IKnoxVpnService$Stub: void <init>()>

@@ -1,0 +1,15 @@
+# com.samsung.android.bio.face.IFaceServiceReceiver [NEW]
+# Refs: 11
+# JARs: framework
+
+<com.samsung.android.bio.face.IFaceServiceReceiver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.bio.face.IFaceServiceReceiver$Stub$Proxy: void onAcquired(long,int,java.lang.String)>
+<com.samsung.android.bio.face.IFaceServiceReceiver$Stub$Proxy: void onAuthenticationFailed(long)>
+<com.samsung.android.bio.face.IFaceServiceReceiver$Stub$Proxy: void onAuthenticationSucceeded(long,int,boolean,com.samsung.android.bio.face.SemBioFace,byte[])>
+<com.samsung.android.bio.face.IFaceServiceReceiver$Stub$Proxy: void onEnrollResult(long,int,int,int)>
+<com.samsung.android.bio.face.IFaceServiceReceiver$Stub$Proxy: void onError(long,int,java.lang.String)>
+<com.samsung.android.bio.face.IFaceServiceReceiver$Stub$Proxy: void onRemoved(long,int,int)>
+<com.samsung.android.bio.face.IFaceServiceReceiver$Stub$Proxy: void onStatusUpdate(int,java.lang.String)>
+<com.samsung.android.bio.face.IFaceServiceReceiver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.bio.face.IFaceServiceReceiver$Stub: com.samsung.android.bio.face.IFaceServiceReceiver asInterface(android.os.IBinder)>
+<com.samsung.android.bio.face.IFaceServiceReceiver$Stub: void <init>()>

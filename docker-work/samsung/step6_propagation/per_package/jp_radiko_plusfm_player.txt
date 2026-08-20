@@ -1,0 +1,157 @@
+######################################################################
+# Propagation: jp.radiko.plusfm.player
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.FMRadioService$10
+  Method:   <com.android.server.FMRadioService$10: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     196
+  Register: v5 := "jp.radiko.plusfm.player"
+  Usage:    [invoke] invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v5 → [branch] if-nez v5, :cond_4b → [reassigned] v5 overwritten
+
+  CALLEES (what this method invokes):
+      → Intent.getData()
+      → Intent.getBooleanExtra()
+      → Intent.getAction()
+      → Uri.getSchemeSpecificPart()
+      → FMRadioService$10.off()
+      → <com.android.server.FMRadioService: boolean -$$Nest$fgetvolu
+      → <com.android.server.FMRadioService: void -$$Nest$fputmIsForc
+      → <com.android.server.FMRadioService: void -$$Nest$fputvolumeL
+      → <com.android.server.FMRadioService: void -$$Nest$mreleaseAud
+      → SemCscFeature.getBoolean()
+      → SemCscFeature.getInstance()
+        → AudioManager.abandonAudioFocus()
+        → <com.android.server.FMRadioService: android.media.AudioManag
+        → <com.android.server.FMRadioService: android.media.AudioManag
+        → <com.android.server.FMRadioService: boolean -$$Nest$fgetmIsO
+        → <com.android.server.FMRadioService: boolean -$$Nest$fgetmSca
+        → <com.android.server.FMRadioService: boolean -$$Nest$moffInte
+        → FMRadioService.cancelScan()
+        → FMRadioService.cancelSeek()
+        → FMRadioService.log()
+        → FMRadioService.releaseAudioSystemMute()
+        → Hashtable.get()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → FMRadioService.offInternal()
+          → FMPlayerNativeBase.cancelSeek()
+          → FMRadioService.notifyEvent()
+          → PlayerExternalChipsetBase.stopSeek()
+          → ArrayList.toArray()
+          → AudioManager.isStreamMute()
+          → AudioManager.getRingerMode()
+          → AudioManager.adjustStreamVolume()
+          → SystemProperties.get()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → Context.getSystemService()
+            → InputManager.semSetWakeKeyDynamically()
+            → FMPlayerNativeBase.off()
+            → FMRadioService.mute()
+            → FMRadioService.releaseWakeLock()
+            → FMRadioService.sendFMOFFBroadcast()
+            → FMRadioService.setDelay()
+            → FMRadioService.setFMAudioPath()
+            → FMRadioService.unRegisterBatteryListener()
+            → FMRadioService.unRegisterTelephonyListener()
+            → FMRadioService.unregisterAlarmListener()
+            → FMRadioService.unregisterAllSoundOffListener()
+            → FMRadioService.unregisterAvrcpModeObserver()
+            → FMRadioService.unregisterBikeModeObserver()
+            → FMRadioService.unregisterDNDStatusChangedListener()
+            → PlayerExternalChipsetBase.off()
+            → PlayerExternalChipsetBase.setRdsEnable()
+            → PlayerExternalChipsetBase.stopNotifyThread()
+            → SecurityException.toString()
+            → AudioManager.getStreamVolume()
+            → AudioManager.semGetStreamType()
+            → AudioManager.setParameters()
+            → FMRadioService.isUnMuteRadio()
+            → FMRadioService.convertToPrimitives()
+            → FMRadioService.remove()
+            → FMRadioService.sendFMONBroadcast()
+            → PlayerExternalChipsetBase.setVolume()
+            → IFMEventListener.asBinder()
+            → IFMEventListener.onAlternateFrequencyReceived()
+            → IFMEventListener.onAlternateFrequencyStarted()
+            → IFMEventListener.onChannelFound()
+            → IFMEventListener.onHeadsetConnected()
+            → IFMEventListener.onHeadsetDisconnected()
+            → IFMEventListener.onProgrammeIdentificationExtendedCountryCodesReceived()
+            → IFMEventListener.onRadioDataSystemDisabled()
+            → IFMEventListener.onRadioDataSystemEnabled()
+            → IFMEventListener.onRadioDataSystemReceived()
+            → IFMEventListener.onRadioDisabled()
+            → IFMEventListener.onRadioEnabled()
+            → IFMEventListener.onRadioTextPlusReceived()
+            → IFMEventListener.onRecordingFinished()
+            → IFMEventListener.onScanFinished()
+            → IFMEventListener.onScanStarted()
+            → IFMEventListener.onScanStopped()
+            → IFMEventListener.onTuned()
+            → IFMEventListener.onVolumeLocked()
+            → Vector.size()
+            → Vector.get()
+            → SemCscFeature.loadFeatureFile()
+              → IInputManager.setWakeKeyDynamically()
+              → FMPlayerNativeBase.muteOff()
+              → FMPlayerNativeBase.muteOn()
+              → FMRadioService.isAllSoundOff()
+              → FMRadioService.isDNDEnable()
+              → PlayerExternalChipsetBase.muteOff()
+              → PlayerExternalChipsetBase.muteOn()
+              → Binder.clearCallingIdentity()
+              → Binder.restoreCallingIdentity()
+              → PowerManager$WakeLock.isHeld()
+              → PowerManager$WakeLock.release()
+              → Context.sendBroadcast()
+              → Intent.setClassName()
+              → Intent.setFlags()
+              → <android.content.Intent: void <init>(java.lang.String)>
+              → Thread.sleep()
+              → Context.unregisterReceiver()
+              → TelephonyManager.listen()
+              → ContentResolver.unregisterContentObserver()
+              → Context.getContentResolver()
+              → Vector.remove()
+              → Intent.putExtra()
+              → TextUtils.isEmpty()
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.File: void <init>(java.lang.String)>
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.put()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+

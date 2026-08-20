@@ -1,0 +1,46 @@
+.class public final Lcom/android/server/wm/TaskSnapshotCache$CacheEntry;
+.super Ljava/lang/Object;
+.source "TaskSnapshotCache.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/wm/TaskSnapshotCache;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "CacheEntry"
+.end annotation
+
+
+# instance fields
+.field public final snapshot:Landroid/window/TaskSnapshot;
+
+.field public final timestamp:J
+
+.field public final topApp:Lcom/android/server/wm/ActivityRecord;
+
+
+# direct methods
+.method public constructor <init>(Landroid/window/TaskSnapshot;Lcom/android/server/wm/ActivityRecord;)V
+    .registers 3
+
+    .line 198
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 199
+    iput-object p1, p0, Lcom/android/server/wm/TaskSnapshotCache$CacheEntry;->snapshot:Landroid/window/TaskSnapshot;
+
+    .line 200
+    iput-object p2, p0, Lcom/android/server/wm/TaskSnapshotCache$CacheEntry;->topApp:Lcom/android/server/wm/ActivityRecord;
+
+    .line 202
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide p1
+
+    iput-wide p1, p0, Lcom/android/server/wm/TaskSnapshotCache$CacheEntry;->timestamp:J
+
+    return-void
+.end method

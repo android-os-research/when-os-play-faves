@@ -1,0 +1,64 @@
+.class public Lcom/android/server/pm/UserManagerService$8$1;
+.super Ljava/lang/Thread;
+.source "UserManagerService.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/pm/UserManagerService$8;->onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic this$1:Lcom/android/server/pm/UserManagerService$8;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/pm/UserManagerService$8;)V
+    .registers 2
+
+    .line 5617
+    iput-object p1, p0, Lcom/android/server/pm/UserManagerService$8$1;->this$1:Lcom/android/server/pm/UserManagerService$8;
+
+    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .registers 3
+
+    .line 5620
+    const-class v0, Landroid/app/ActivityManagerInternal;
+
+    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManagerInternal;
+
+    iget-object v1, p0, Lcom/android/server/pm/UserManagerService$8$1;->this$1:Lcom/android/server/pm/UserManagerService$8;
+
+    iget v1, v1, Lcom/android/server/pm/UserManagerService$8;->val$userId:I
+
+    .line 5621
+    invoke-virtual {v0, v1}, Landroid/app/ActivityManagerInternal;->onUserRemoved(I)V
+
+    .line 5622
+    iget-object p0, p0, Lcom/android/server/pm/UserManagerService$8$1;->this$1:Lcom/android/server/pm/UserManagerService$8;
+
+    iget-object v0, p0, Lcom/android/server/pm/UserManagerService$8;->this$0:Lcom/android/server/pm/UserManagerService;
+
+    iget p0, p0, Lcom/android/server/pm/UserManagerService$8;->val$userId:I
+
+    invoke-static {v0, p0}, Lcom/android/server/pm/UserManagerService;->-$$Nest$mremoveUserState(Lcom/android/server/pm/UserManagerService;I)V
+
+    return-void
+.end method

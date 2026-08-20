@@ -1,0 +1,9 @@
+# android.os.ISpqrService [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.ISpqrService$Stub$Proxy: boolean createInvariantProfile(java.lang.String,java.lang.String,int,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>
+<android.os.ISpqrService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.ISpqrService$Stub: android.os.ISpqrService asInterface(android.os.IBinder)>
+<android.os.ISpqrService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.ISpqrService$Stub: void <init>()>

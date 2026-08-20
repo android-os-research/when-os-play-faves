@@ -1,0 +1,10 @@
+# android.view.autofill.IAutofillWindowPresenter [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.view.autofill.IAutofillWindowPresenter$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.autofill.IAutofillWindowPresenter$Stub$Proxy: void hide(android.graphics.Rect)>
+<android.view.autofill.IAutofillWindowPresenter$Stub$Proxy: void show(android.view.WindowManager$LayoutParams,android.graphics.Rect,boolean,int)>
+<android.view.autofill.IAutofillWindowPresenter$Stub: android.view.autofill.IAutofillWindowPresenter asInterface(android.os.IBinder)>
+<android.view.autofill.IAutofillWindowPresenter$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.autofill.IAutofillWindowPresenter$Stub: void <init>()>

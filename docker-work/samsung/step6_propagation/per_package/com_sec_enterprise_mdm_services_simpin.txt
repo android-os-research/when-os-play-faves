@@ -1,0 +1,33 @@
+######################################################################
+# Propagation: com.sec.enterprise.mdm.services.simpin
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.restriction.PhoneRestrictionPolicy$7
+  Method:   <com.android.server.enterprise.restriction.PhoneRestrictionPolicy$7: void run()>
+  Line:     51
+  Register: v2 := "com.sec.enterprise.mdm.services.simpin"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] iget-object v2, p0, Lcom/android/server/enterprise/restricti →
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.bindService()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Handler.removeCallbacks()
+      → <com.android.server.enterprise.restriction.PhoneRestrictionP
+      → <com.android.server.enterprise.restriction.PhoneRestrictionP
+      → <com.android.server.enterprise.restriction.PhoneRestrictionP
+

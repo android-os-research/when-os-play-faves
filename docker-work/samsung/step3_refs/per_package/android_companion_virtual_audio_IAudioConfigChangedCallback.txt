@@ -1,0 +1,10 @@
+# android.companion.virtual.audio.IAudioConfigChangedCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.companion.virtual.audio.IAudioConfigChangedCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.companion.virtual.audio.IAudioConfigChangedCallback$Stub$Proxy: void onPlaybackConfigChanged(java.util.List)>
+<android.companion.virtual.audio.IAudioConfigChangedCallback$Stub$Proxy: void onRecordingConfigChanged(java.util.List)>
+<android.companion.virtual.audio.IAudioConfigChangedCallback$Stub: android.companion.virtual.audio.IAudioConfigChangedCallback asInterface(android.os.IBinder)>
+<android.companion.virtual.audio.IAudioConfigChangedCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.companion.virtual.audio.IAudioConfigChangedCallback$Stub: void <init>()>

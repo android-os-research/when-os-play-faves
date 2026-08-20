@@ -1,0 +1,6 @@
+# security.ASKS.version [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.asks.ASKSManagerService: void <init>(android.content.Context)>
+<com.samsung.android.knox.analytics.service.KnoxAnalyticsVersionCollector: java.lang.String getSecurityASKSVersion()>

@@ -1,0 +1,9 @@
+# com.sec.phone.SecPhoneService [NEW]
+# Refs: 5
+# JARs: framework, sec_platform_library
+
+<android.net.LowLatencyModeManager: void connectToRilService()>
+<com.samsung.android.sec_platform_library.FactoryPhone: void <init>(android.content.Context)>
+<com.samsung.android.sec_platform_library.FactoryPhone: void <init>(android.content.Context,android.content.BroadcastReceiver)>
+<com.samsung.android.sec_platform_library.FactoryPhone: void <init>(android.content.Context,int)>
+<com.samsung.android.sec_platform_library.FactoryPhone: void connectToRilService(android.content.BroadcastReceiver)>

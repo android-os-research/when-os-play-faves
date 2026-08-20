@@ -1,0 +1,7 @@
+# sys.staged_apex.state [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.pm.PackageSessionVerifier: void endVerification(com.android.server.pm.StagingManager$StagedSession)>
+<com.android.server.pm.StagingManager: void markStagedSessionsAsSuccessful()>
+<com.android.server.pm.StagingManager: void resumeSession(com.android.server.pm.StagingManager$StagedSession,boolean,boolean)>

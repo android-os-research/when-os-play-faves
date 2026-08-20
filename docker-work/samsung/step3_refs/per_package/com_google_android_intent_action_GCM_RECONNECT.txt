@@ -1,0 +1,6 @@
+# com.google.android.intent.action.GCM_RECONNECT [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.alarm.GmsAlarmManager: boolean isGmsDelay12HourAlarm(android.app.PendingIntent)>
+<com.android.server.alarm.GmsAlarmManager: void restoreGcmAlarm()>

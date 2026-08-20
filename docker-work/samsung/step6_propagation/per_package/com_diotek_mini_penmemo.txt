@@ -1,0 +1,43 @@
+######################################################################
+# Propagation: com.diotek.mini_penmemo
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.smartclip.SpenGestureManagerService
+  Method:   <com.android.server.smartclip.SpenGestureManagerService: void launchActionMemo(android.graphics.Point)>
+  Line:     4109
+  Register: p1 := "com.diotek.mini_penmemo"
+  Usage:    [invoke] invoke-virtual {p0, p1, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] sget-object p1, Lcom/android/server/smartclip/SpenGestureMan → 
+
+  CALLERS (who invokes this method):
+      ← SpenGestureManagerService.launchDoubleTapAction()
+        ← <com.android.server.smartclip.SpenGestureManagerService: voi
+          ← SpenGestureManagerService$5.run()
+
+  CALLEES (what this method invokes):
+      → Context.startServiceAsUser()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → SpenGestureManagerService.getFocusedUserHandle()
+        → Context.getSystemService()
+        → <android.os.UserHandle: void <init>(int)>
+        → SemPersonaManager.getFocusedKnoxId()
+        → SemPersonaManager.getKioskId()
+          → SemPersonaManager.getFocusedUser()
+            → UserHandle.getCallingUserId()
+            → ISemPersonaManager.getFocusedUser()
+

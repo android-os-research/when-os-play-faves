@@ -1,0 +1,13 @@
+# com.gsma.services.rcs.upload.IFileUpload [NEW]
+# Refs: 9
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.upload.IFileUpload$Stub$Proxy: android.net.Uri getFile()>
+<com.gsma.services.rcs.upload.IFileUpload$Stub$Proxy: com.gsma.services.rcs.upload.FileUpload$State getState()>
+<com.gsma.services.rcs.upload.IFileUpload$Stub$Proxy: com.gsma.services.rcs.upload.FileUploadInfo getUploadInfo()>
+<com.gsma.services.rcs.upload.IFileUpload$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.upload.IFileUpload$Stub$Proxy: java.lang.String getUploadId()>
+<com.gsma.services.rcs.upload.IFileUpload$Stub$Proxy: void abortUpload()>
+<com.gsma.services.rcs.upload.IFileUpload$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.upload.IFileUpload$Stub: com.gsma.services.rcs.upload.IFileUpload asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.upload.IFileUpload$Stub: void <init>()>

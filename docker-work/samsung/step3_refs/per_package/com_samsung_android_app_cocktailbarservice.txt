@@ -1,0 +1,15 @@
+# com.samsung.android.app.cocktailbarservice [NEW]
+# Refs: 11
+# JARs: framework, services
+
+<android.sec.clipboard.util.ClipboardPolicyObserver: java.lang.String getTopActivityPackageName()>
+<com.android.server.am.mars.database.MARsVersionManager: void <clinit>()>
+<com.android.server.cocktailbar.CocktailBarManagerServiceContainer$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.cocktailbar.CocktailBarManagerServiceContainer: void registerBroadcastReceiver()>
+<com.android.server.cocktailbar.CocktailBarManagerServiceContainer: void startCocktailBarServiceWithCurrentUser()>
+<com.android.server.cocktailbar.CocktailBarManagerServiceImpl: boolean removeProvidersForPackageLocked(java.lang.String)>
+<com.android.server.cocktailbar.CocktailBarManagerServiceImpl: void notifyCocktailBarWakeUp(boolean,int,int)>
+<com.android.server.cocktailbar.mode.PrivateEmergencyMode: int onBroadcastReceived(android.content.Intent)>
+<com.android.server.cocktailbar.utils.CocktailBarConfig: android.content.res.XmlResourceParser getEdgeConfigParser()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void <clinit>()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void lambda$stopProKioskModeInternal$137()>

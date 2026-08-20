@@ -1,0 +1,6 @@
+# persist.sys.preloads.file_cache_expired [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.PreloadsFileCacheExpirationJobService: boolean onStartJob(android.app.job.JobParameters)>
+<com.android.server.pm.PackageManagerService: void freeStorage(java.lang.String,long,int)>

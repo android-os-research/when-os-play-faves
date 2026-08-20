@@ -1,0 +1,10 @@
+# android.security.IGenerateRkpKeyService [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.security.IGenerateRkpKeyService$Stub$Proxy: int generateKey(int)>
+<android.security.IGenerateRkpKeyService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.security.IGenerateRkpKeyService$Stub$Proxy: void notifyKeyGenerated(int)>
+<android.security.IGenerateRkpKeyService$Stub: android.security.IGenerateRkpKeyService asInterface(android.os.IBinder)>
+<android.security.IGenerateRkpKeyService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.security.IGenerateRkpKeyService$Stub: void <init>()>

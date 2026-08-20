@@ -1,0 +1,144 @@
+######################################################################
+# Propagation: com.samsung.android.dqagent
+######################################################################
+
+JARs:                 hqm, services
+Classes:              4
+Occurrences:          5
+Usage types:          array_init, field_store, invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      hqm
+  Class:    a.f
+  Method:   <a.f: boolean N(android.content.Intent)>
+  Line:     695
+  Register: v2 := "com.samsung.android.dqagent"
+  Usage:    [invoke] invoke-direct {v0, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [invoke] android.content.Intent.setPackage() → [other] sget-object v2,
+
+  CALLERS (who invokes this method):
+      ← f.Q()
+        ← f.S()
+          ← f.L()
+          ← f.O()
+          ← f.R()
+          ← f.T()
+          ← f.g()
+            ← f.b()
+            ← i.d()
+            ← h.i()
+            ← a.p()
+            ← HqmManagerService.s()
+            ← HqmManagerService.sendHWParamServer()
+            ← d.onReceive()
+              ← f.G()
+              ← f.c()
+              ← f.d()
+              ← f.e()
+              ← c.d()
+              ← h.r()
+              ← k.h()
+              ← n.h()
+              ← h.d()
+              ← a.m()
+              ← a.o()
+              ← HqmManagerService.h()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setPackage()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      hqm
+  Class:    c.k
+  Method:   <c.k: void <clinit>()>
+  Line:     186
+  Register: v0 := "com.samsung.android.dqagent"
+  Usage:    [field_store] sput-object v0, Lc/k;->Y:Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [field_store] c.k.e0 → [other] new-instance v0, Ljava/util/ArrayList; → [invoke] java.util.ArrayList.<init>() → [field_s
+
+  CALLEES (what this method invokes):
+      → <android.os.HqmStatsImpl: void <init>()>
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.LinkedHashMap: void <init>()>
+        → <android.util.ArrayMap: void <init>()>
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.allocArrays()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      hqm
+  Class:    com.samsung.android.hqm.HqmManagerService
+  Method:   <com.samsung.android.hqm.HqmManagerService: void q()>
+  Line:     645
+  Register: v0 := "com.samsung.android.dqagent"
+  Usage:    [invoke] invoke-direct {p0, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [invoke] android.content.Intent.setPackage() → [other] sget-object v0,
+
+  CALLERS (who invokes this method):
+      ← HqmManagerService.f()
+        ← a.handleMessage()
+
+  CALLEES (what this method invokes):
+      → s.h()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.sendBroadcast()
+      → Intent.addFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      hqm
+  Class:    com.samsung.android.hqm.HqmManagerService
+  Method:   <com.samsung.android.hqm.HqmManagerService: void r()>
+  Line:     682
+  Register: v1 := "com.samsung.android.dqagent"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [invoke] android.content.Intent.setPackage() → [other] sget-object v1,
+
+  CALLERS (who invokes this method):
+      ← HqmManagerService.e()
+        ← a.handleMessage()
+        ← b.onReceive()
+
+  CALLEES (what this method invokes):
+      → s.h()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils
+  Method:   <com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils: void <clinit>()>
+  Line:     202
+  Register: v0 := "com.samsung.android.dqagent"
+  Usage:    [array_init] filled-new-array {v0, v1}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1}, [Ljava/lang/String; → [reassigned] v1 overwritten
+
+  CALLEES (what this method invokes):
+      → <java.io.File: void <init>(java.lang.String)>
+

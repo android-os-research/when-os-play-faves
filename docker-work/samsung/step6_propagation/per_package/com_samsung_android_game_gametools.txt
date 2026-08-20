@@ -1,0 +1,647 @@
+######################################################################
+# Propagation: com.samsung.android.game.gametools
+######################################################################
+
+JARs:                 gamemanager, services
+Classes:              6
+Occurrences:          12
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      gamemanager
+  Class:    com.samsung.android.game.GameManagerService
+  Method:   <com.samsung.android.game.GameManagerService: void <init>(android.content.Context)>
+  Line:     372
+  Register: v3 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-static {v2, v3}, Lcom/samsung/android/game/Util;->isPkgInstalled(Landroid/content/Context;Lja
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.game.Util.isPkgInstalled() → [other] iget-object v3, p0, Lcom/samsung/android/game/GameMana
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.game.GameManagerService$Lifecycle: void
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → Context.getSystemService()
+      → DisplayManager.getDisplay()
+      → DisplayManager.registerDisplayListener()
+      → Binder.getCallingUid() [UID_CHECK]
+      → UserHandle.getUserId()
+      → Display.getState()
+      → DssController.getService()
+      → <com.samsung.android.game.ActionLogger: void <init>(com.sams
+      → <com.samsung.android.game.ApBooster: void <init>(android.con
+      → <com.samsung.android.game.FgCheckThread: void <init>(boolean
+      → FgCheckThread.start()
+      → <com.samsung.android.game.GameManagerService$1: void <init>(
+      → <com.samsung.android.game.GameManagerService$2: void <init>(
+      → <com.samsung.android.game.GameManagerService$DisplayListener
+      → <com.samsung.android.game.GameManagerService$MultiUserReceiv
+      → <com.samsung.android.game.GameManagerService$PkgUpdateReceiv
+      → <com.samsung.android.game.GameManagerService$SDHMSReceiver: 
+      → <com.samsung.android.game.GameManagerService$SecFamilyPkgCha
+      → GmsLog.i()
+      → <com.samsung.android.game.GosNotifyThread: void <init>(andro
+      → GosNotifyThread.start()
+      → <com.samsung.android.game.IGameManagerService$Stub: void <in
+      → PkgDataHelper.getInstance()
+      → <com.samsung.android.game.SystemHelper: void <init>(android.
+      → Util.isPkgEnabled()
+      → Util.isPkgInstalled()
+      → DatabaseHelper.getInstance()
+      → DatabaseHelper.loadPkgDataFromDb()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+        → <com.android.server.DssController: void <init>()>
+        → <com.samsung.android.game.ApBooster$1: void <init>(com.samsu
+        → SemDvfsManager.createInstance()
+        → IUsageStatsManager$Stub.asInterface()
+        → IUsageStatsManager.registerUsageStatsWatcher()
+        → Context.getPackageName()
+        → <android.os.HandlerThread: void <init>(java.lang.String)>
+        → ServiceManager.getService()
+        → <com.samsung.android.game.FgCheckThread$1: void <init>(com.s
+        → <com.samsung.android.game.FgCheckThread$2: void <init>(com.s
+        → <com.samsung.android.game.FgCheckThread$3: void <init>(com.s
+        → <com.samsung.android.game.FgCheckThread$KeyguardReceiver: vo
+        → GmsLog.e()
+        → <com.samsung.android.game.PkgWithUserId: void <init>(java.la
+        → SemDvfsManager.createInstance()
+        → SemDvfsManager.addResourceValue()
+        → <android.os.Handler: void <init>()>
+        → Context.getContentResolver()
+        → Settings$Secure.getInt()
+        → GameManagerService$DisplayListener.checkIfResolutionChanged()
+        → <com.samsung.android.game.GameManagerService: android.conten
+        → GmsLog.d()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → Context.registerReceiverAsUser()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → IntentFilter.addDataScheme()
+        → BackgroundThread.getHandler()
+        → IntentFilter.addDataSchemeSpecificPart()
+        → GmsLog.replaceForbiddenString()
+        → ContentResolver.registerContentObserver()
+        → <android.content.IntentFilter: void <init>(java.lang.String)
+        → Settings$Secure.getUriFor()
+        → <com.samsung.android.game.GosNotifyThread$1: void <init>(com
+        → <com.samsung.android.game.GosNotifyThread$2: void <init>(com
+        → <com.samsung.android.game.GosNotifyThread$NetworkReceiver: v
+        → <android.os.Binder: void <init>()>
+        → IGameManagerService$Stub.attachInterface()
+        → <com.samsung.android.game.PkgDataHelper: void <init>()>
+        → <com.samsung.android.game.SystemHelper$1: void <init>(com.sa
+        → <com.samsung.android.os.SemAffinityControl: void <init>()>
+        → Context.getPackageManager()
+        → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+        → GmsLog.w()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → <com.samsung.android.game.data.DatabaseHelper: void <init>(a
+        → Cursor.moveToFirst()
+        → Cursor.moveToNext()
+        → Cursor.getColumnIndex()
+        → Cursor.getInt()
+        → Cursor.getString()
+        → Cursor.close()
+        → SQLiteDatabase.query()
+        → PkgData.getPkgName()
+        → <com.samsung.android.game.PkgData: void <init>(java.lang.Str
+        → PkgData.setUserID()
+        → PkgDataHelper.size()
+        → PkgDataHelper.putPkgData()
+        → DatabaseHelper.getDb()
+          → SemDvfsManager.createInstance()
+          → <android.app.usage.IUsageStatsManager$Stub$Proxy: void <init
+          → IBinder.queryLocalInterface()
+          → <java.lang.Thread: void <init>(java.lang.String)>
+          → <android.os.RemoteCallbackList: void <init>()>
+          → <android.app.TaskStackListener: void <init>()>
+          → <com.samsung.android.app.usage.IUsageStatsWatcher$Stub: void
+          → <com.samsung.android.game.FgCheckThread: android.content.Con
+          → <com.samsung.android.os.SemDvfsHyPerManager: void <init>(and
+          → HashMap.get()
+          → HashMap.put()
+          → HashMap.remove()
+          → <android.util.DisplayMetrics: void <init>()>
+          → Display.getMetrics()
+          → WindowManager.getDefaultDisplay()
+          → BackgroundThread.ensureThreadLocked()
+          → <android.database.ContentObserver: void <init>(android.os.Ha
+          → <android.os.Binder: void <init>(java.lang.String)>
+          → SemAffinityControl.logOnEng()
+          → <android.database.sqlite.SQLiteOpenHelper: void <init>(andro
+          → HashMap.size()
+          → DatabaseHelper.getWritableDatabase()
+            → <android.util.ArrayMap: void <init>()>
+            → IUsageStatsWatcher$Stub.attachInterface()
+            → <com.samsung.android.os.SemDvfsManager: void <init>(android.
+            → <android.os.Handler: void <init>(android.os.Looper)>
+            → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+            → Looper.setSlowLogThresholdMs()
+            → Looper.setTraceTag()
+            → BackgroundThread.getLooper()
+            → <com.android.internal.os.BackgroundThread: void <init>()>
+            → BackgroundThread.start()
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+            → <android.database.sqlite.SQLiteOpenHelper: void <init>(andro
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → SemDvfsManager.createRequester()
+              → SemDvfsManager.logOnEng()
+              → SemDvfsManager.setHint()
+              → Preconditions.checkNotNull()
+              → <android.os.HandlerThread: void <init>(java.lang.String,int)
+              → <android.database.sqlite.SQLiteOpenHelper: void <init>(andro
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      gamemanager
+  Class:    com.samsung.android.game.GameManagerService
+  Method:   <com.samsung.android.game.GameManagerService: void checkPkgEnabledState(java.lang.String)>
+  Line:     905
+  Register: v1 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-static {v0, v1}, Lcom/samsung/android/game/Util;->isPkgInstalled(Landroid/content/Context;Lja
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.game.Util.isPkgInstalled() → [other] iget-object v1, p0, Lcom/samsung/android/game/GameMana
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.game.GameManagerService: void access$90
+      ← GameManagerService.onUserSwitched()
+        ← GameManagerService$PkgUpdateReceiver.onPackageAdded()
+        ← GameManagerService$PkgUpdateReceiver.onPackageRemoved()
+        ← GameManagerService$PkgUpdateReceiver.onPackageReplaced()
+        ← GameManagerService$SecFamilyPkgChangeReceiver.onReceive()
+        ← GameManagerService$MultiUserReceiver.onReceive()
+          ← GameManagerService$PkgUpdateReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → FgCheckThread.setPkgEnabledState()
+      → GmsLog.d()
+      → Util.isPkgEnabled()
+      → Util.isPkgInstalled()
+        → GmsLog.replaceForbiddenString()
+        → Context.getPackageManager()
+        → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+        → GmsLog.w()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      gamemanager
+  Class:    com.samsung.android.game.GameManagerService
+  Method:   <com.samsung.android.game.GameManagerService: void onUserSwitched(int)>
+  Line:     6988
+  Register: v2 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-virtual {v0, v2, v3, v1, v4}, Landroid/app/SemStatusBarManager;->setNavigationBarShortcut(Lja
+  Patterns: early_return
+  Flow:     [invoke] android.app.SemStatusBarManager.setNavigationBarShortcut() → [invoke] android.app.SemStatusBarManager.setNaviga
+
+  CALLERS (who invokes this method):
+      ← GameManagerService$MultiUserReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → SemStatusBarManager.setNavigationBarShortcut()
+      → FgCheckThread.setCurrentUserId()
+      → GameManagerService.isMlPidModel()
+      → GameManagerService.checkPkgEnabledState()
+      → GameManagerService.deleteAllGamePolicies()
+      → GmsLog.d()
+      → GmsLog.v()
+      → GosNotifyThread.sendUserSwitchMessage()
+        → SemStatusBarManager.getService()
+        → SemStatusBarManager.enforceStatusBarService()
+        → IStatusBarService.setNavigationBarShortcut()
+        → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+        → SemSystemProperties.get()
+        → FgCheckThread.setPkgEnabledState()
+        → Util.isPkgEnabled()
+        → Util.isPkgInstalled()
+        → GameManagerService.sendPackageDataToSdhms()
+        → PkgData.getPkgName()
+        → PkgDataHelper.getPkgDataSet()
+        → PkgDataHelper.removeUser()
+        → <com.samsung.android.game.SemPackageConfiguration: void <ini
+        → SemPackageConfiguration.setCategory()
+        → SemPackageConfiguration.setCategoryByUser()
+        → SemPackageConfiguration.setUserId()
+        → DatabaseHelper.removeUser()
+        → <java.util.ArrayList: void <init>()>
+        → Collection.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.add()
+        → List.size()
+        → List.toArray()
+        → GmsLog.replaceForbiddenString()
+        → Handler.sendEmptyMessage()
+          → ServiceManager.getService()
+          → IStatusBarService$Stub.asInterface()
+          → Context.enforceCallingOrSelfPermission()
+          → SystemProperties.get()
+          → Context.getPackageManager()
+          → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+          → GmsLog.w()
+          → PackageManager.getPackageInfo() [PKG_QUERY]
+          → Context.sendBroadcastAsUser()
+          → Intent.putExtra()
+          → Intent.setPackage()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → HashMap.containsKey()
+          → HashMap.get()
+          → HashMap.values()
+          → <java.util.HashSet: void <init>()>
+          → HashMap.remove()
+          → GmsLog.e()
+          → SQLiteDatabase.compileStatement()
+          → SQLiteStatement.executeUpdateDelete()
+          → SQLiteStatement.bindLong()
+          → SQLiteStatement.clearBindings()
+          → DatabaseHelper.getDb()
+            → IBinder.queryLocalInterface()
+            → <com.android.internal.statusbar.IStatusBarService$Stub$Proxy
+            → DatabaseHelper.getWritableDatabase()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      gamemanager
+  Class:    com.samsung.android.game.FgCheckThread
+  Method:   <com.samsung.android.game.FgCheckThread: void notifyFocusInOut(com.samsung.android.game.PkgWithUserId,int,boolean)>
+  Line:     2415
+  Register: v0 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-virtual {v14, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/I
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← FgCheckThread.handleLcdOn()
+      ← FgCheckThread.handleResume()
+      ← FgCheckThread.handleUserPresent()
+      ← FgCheckThread.sendFocusOutConditionally()
+        ← <com.samsung.android.game.FgCheckThread: void access$700(com
+        ← <com.samsung.android.game.FgCheckThread: void access$400(com
+        ← FgCheckThread.handleTaskFocused()
+        ← <com.samsung.android.game.FgCheckThread: void access$800(com
+        ← <com.samsung.android.game.FgCheckThread: void access$600(com
+          ← FgCheckThread$4.handleMessage()
+          ← <com.samsung.android.game.FgCheckThread: void access$900(com
+
+  CALLEES (what this method invokes):
+      → Context.startServiceAsUser()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → RemoteCallbackList.getBroadcastItem()
+      → RemoteCallbackList.beginBroadcast()
+      → RemoteCallbackList.finishBroadcast()
+      → <android.os.UserHandle: void <init>(int)>
+      → SemDesktopModeManager.isDesktopMode()
+      → GmsLog.d()
+      → GmsLog.e()
+      → GmsLog.w()
+      → IGameManagerCallback.onGameFocusIn()
+      → IGameManagerCallback.onGameFocusOut()
+      → PkgData.isTunableApp()
+      → PkgDataHelper.getPkgData()
+      → PkgDataHelper.getInstance()
+      → PkgWithUserId.equals()
+      → PkgWithUserId.getUserId()
+      → PkgWithUserId.getPkgName()
+      → <com.samsung.android.game.PkgWithUserId: void <init>(java.la
+      → SystemHelper.callReleaseBlock()
+      → SystemInfoCollector.makeSystemInfoForFocusIn()
+      → SystemInfoCollector.makeSystemInfoForFocusOut()
+      → <com.samsung.android.game.SystemInfoCollector: void <init>(a
+      → SemDvfsManager.acquire()
+      → SemDvfsManager.release()
+      → RuntimeException.printStackTrace()
+      → Map.getOrDefault()
+      → Map.put()
+        → ArrayMap.size()
+        → ArrayMap.valueAt()
+        → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → GmsLog.replaceForbiddenString()
+        → HashMap.containsKey()
+        → HashMap.get()
+        → <com.samsung.android.game.PkgDataHelper: void <init>()>
+        → Objects.equals()
+        → Handler.obtainMessage()
+        → Handler.sendMessage()
+        → Handler.removeCallbacksAndMessages()
+        → SystemInfoCollector.getBatteryInfo()
+        → SystemInfoCollector.getBrightnessInfo()
+        → JSONException.printStackTrace()
+        → JSONObject.toString()
+        → JSONObject.put()
+        → <org.json.JSONObject: void <init>()>
+        → SystemInfoCollector.getAudioInfo()
+        → SystemInfoCollector.getGameVersionInfo()
+        → SystemInfoCollector.isWifiConnected()
+        → JSONObject.put()
+        → SemDvfsManager$DvfsRequester.release()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → <java.util.HashMap: void <init>()>
+          → Context.registerReceiver()
+          → Intent.getIntExtra()
+          → <android.content.IntentFilter: void <init>(java.lang.String)
+          → <android.util.Pair: void <init>(java.lang.Object,java.lang.O
+          → Context.getContentResolver()
+          → Settings$System.getInt()
+          → Context.getSystemService()
+          → AudioManager.getStreamMaxVolume()
+          → AudioManager.getStreamVolume()
+          → AudioManager.semGetCurrentDeviceType()
+          → Context.getPackageManager()
+          → PackageInfo.getLongVersionCode()
+          → PackageManager.getPackageInfo() [PKG_QUERY]
+          → Exception.getMessage()
+          → ConnectivityManager.getNetworkInfo()
+          → NetworkInfo.isConnected()
+          → SemDvfsManager$RequestFunc.release()
+            → PackageInfo.composeLongVersionCode()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      gamemanager
+  Class:    com.samsung.android.game.GameManagerService$PkgUpdateReceiver
+  Method:   <com.samsung.android.game.GameManagerService$PkgUpdateReceiver: void onPackageAdded(java.lang.String,android.os.UserHandle)>
+  Line:     460
+  Register: v1 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-eqz v1, :cond_9a → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← GameManagerService$PkgUpdateReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → UserHandle.getIdentifier()
+      → <com.samsung.android.game.GameManagerService: boolean access
+      → <com.samsung.android.game.GameManagerService: com.samsung.an
+      → <com.samsung.android.game.GameManagerService: void access$90
+      → GmsLog.i()
+      → GosNotifyThread.sendPackageMessage()
+        → GameManagerService.checkPkgEnabledState()
+        → GmsLog.replaceForbiddenString()
+        → Handler.obtainMessage()
+        → Handler.sendMessage()
+          → FgCheckThread.setPkgEnabledState()
+          → GmsLog.d()
+          → Util.isPkgEnabled()
+          → Util.isPkgInstalled()
+            → Context.getPackageManager()
+            → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+            → GmsLog.w()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      gamemanager
+  Class:    com.samsung.android.game.GameManagerService$PkgUpdateReceiver
+  Method:   <com.samsung.android.game.GameManagerService$PkgUpdateReceiver: void onPackageRemoved(java.lang.String,android.os.UserHandle)>
+  Line:     701
+  Register: v2 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v2 → [branch] if-eqz v2, :cond_ae
+
+  CALLERS (who invokes this method):
+      ← GameManagerService$PkgUpdateReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager$NameNotFoundException.printStackTrace()
+      → PackageManager.installExistingPackageAsUser()
+      → UserHandle.getIdentifier()
+      → GameManagerService$PkgUpdateReceiver.isServiceRunning()
+      → GameManagerService$PkgUpdateReceiver.removeFromDB()
+      → GameManagerService$PkgUpdateReceiver.removeFromVrrGroup()
+      → <com.samsung.android.game.GameManagerService: android.conten
+      → <com.samsung.android.game.GameManagerService: com.samsung.an
+      → <com.samsung.android.game.GameManagerService: void access$90
+      → GmsLog.d()
+      → GmsLog.i()
+      → GosNotifyThread.sendPackageMessage()
+        → ActivityManager.getRunningServices()
+        → ComponentName.getClassName()
+        → <com.samsung.android.game.GameManagerService: android.app.Ac
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+        → <com.samsung.android.game.GameManagerService: com.samsung.an
+        → <com.samsung.android.game.GameManagerService: com.samsung.an
+        → <com.samsung.android.game.GameManagerService: com.samsung.an
+        → PkgDataHelper.getPkgData()
+        → PkgDataHelper.getInstance()
+        → PkgDataHelper.removePkgData()
+        → DatabaseHelper.removeGame()
+        → <com.samsung.android.game.GameManagerService: java.util.List
+        → <com.samsung.android.game.GameManagerService: java.util.Map 
+        → List.contains()
+        → List.remove()
+        → Map.containsKey()
+        → Map.remove()
+        → GameManagerService.checkPkgEnabledState()
+        → GmsLog.replaceForbiddenString()
+        → Handler.obtainMessage()
+        → Handler.sendMessage()
+          → HashMap.containsKey()
+          → HashMap.get()
+          → <com.samsung.android.game.PkgDataHelper: void <init>()>
+          → HashMap.isEmpty()
+          → HashMap.remove()
+          → DatabaseHelper.getDb()
+          → DatabaseHelper.removeGameFromDb()
+          → FgCheckThread.setPkgEnabledState()
+          → Util.isPkgEnabled()
+          → Util.isPkgInstalled()
+            → <java.util.HashMap: void <init>()>
+            → DatabaseHelper.getWritableDatabase()
+            → SQLiteDatabase.compileStatement()
+            → SQLiteStatement.executeUpdateDelete()
+            → SQLiteStatement.bindLong()
+            → SQLiteStatement.bindString()
+            → SQLiteStatement.clearBindings()
+            → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+            → GmsLog.w()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     142
+  Register: v0 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.input.InputManagerService
+  Method:   <com.android.server.input.InputManagerService: void startGameToolsService(int,int)>
+  Line:     17080
+  Register: v1 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← InputManagerService.deliverInputDevicesChanged()
+        ← <com.android.server.input.InputManagerService: void -$$Nest$
+          ← InputManagerService$InputManagerHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.startServiceAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.policy.PhoneWindowManagerExt
+  Method:   <com.android.server.policy.PhoneWindowManagerExt: boolean isSupportedGameBooster()>
+  Line:     11224
+  Register: v2 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-virtual {p0, v2, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [other] new-instance v2, Ljava/lang/StringBuilder; → [
+
+  CALLERS (who invokes this method):
+      ← PhoneWindowManagerExt.interceptUnhandledKey()
+        ← PhoneWindowManager.interceptUnhandledKey()
+          ← PhoneWindowManager.dispatchUnhandledKey()
+          ← PhoneWindowManager.interceptFallback()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.policy.PhoneWindowManagerExt
+  Method:   <com.android.server.policy.PhoneWindowManagerExt: boolean isSupportedGameBoosterToggleMenu()>
+  Line:     11306
+  Register: v0 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-virtual {p0, v0, v3}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← PhoneWindowManagerExt.toggleGameBoosterMenuIfPossible()
+        ← PhoneWindowManagerExt.interceptKeyBeforeDispatching()
+          ← PhoneWindowManager.interceptKeyBeforeDispatching()
+            ← PhoneWindowManager.interceptFallback()
+              ← PhoneWindowManager.dispatchUnhandledKey()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → Bundle.getString()
+      → PhoneWindowManager.isKeyguardLocked()
+        → PhoneWindowManager.keyguardOn()
+          → PhoneWindowManager.inKeyguardRestrictedKeyInputMode()
+          → PhoneWindowManager.isKeyguardShowingAndNotOccluded()
+            → KeyguardServiceDelegate.isInputRestricted()
+            → PhoneWindowManager.isKeyguardOccluded()
+            → KeyguardServiceDelegate.isShowing()
+              → KeyguardServiceWrapper.isInputRestricted()
+              → KeyguardServiceDelegate.isOccluded()
+              → KeyguardServiceWrapper.isShowing()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.policy.PhoneWindowManagerExt
+  Method:   <com.android.server.policy.PhoneWindowManagerExt: void startGameControllerService(int,int)>
+  Line:     16263
+  Register: v1 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← PhoneWindowManagerExt.interceptUnhandledKey()
+        ← PhoneWindowManager.interceptUnhandledKey()
+          ← PhoneWindowManager.dispatchUnhandledKey()
+          ← PhoneWindowManager.interceptFallback()
+
+  CALLEES (what this method invokes):
+      → Context.startServiceAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.policy.PhoneWindowManagerExt
+  Method:   <com.android.server.policy.PhoneWindowManagerExt: boolean toggleGameBoosterMenuIfPossible()>
+  Line:     16434
+  Register: v1 := "com.samsung.android.game.gametools"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] const-string/jumbo v1, "package" → [invoke] android.content.Inten
+
+  CALLERS (who invokes this method):
+      ← PhoneWindowManagerExt.interceptKeyBeforeDispatching()
+        ← PhoneWindowManager.interceptKeyBeforeDispatching()
+          ← PhoneWindowManager.interceptFallback()
+            ← PhoneWindowManager.dispatchUnhandledKey()
+
+  CALLEES (what this method invokes):
+      → StatusBarManager.collapsePanels()
+      → Context.getSystemService()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → PhoneWindowManager.dismissKeyboardShortcutsMenu()
+      → PhoneWindowManagerExt.isSupportedGameBoosterToggleMenu()
+        → PhoneWindowManager.getStatusBarManagerInternal()
+        → StatusBarManagerInternal.dismissKeyboardShortcutsMenu()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → Bundle.getString()
+        → PhoneWindowManager.isKeyguardLocked()
+          → LocalServices.getService()
+          → PhoneWindowManager.keyguardOn()
+            → ArrayMap.get()
+            → PhoneWindowManager.inKeyguardRestrictedKeyInputMode()
+            → PhoneWindowManager.isKeyguardShowingAndNotOccluded()
+              → ArrayMap.indexOfKey()
+              → KeyguardServiceDelegate.isInputRestricted()
+              → PhoneWindowManager.isKeyguardOccluded()
+              → KeyguardServiceDelegate.isShowing()
+

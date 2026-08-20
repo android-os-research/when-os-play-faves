@@ -1,0 +1,9 @@
+# android.os.IServiceCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.IServiceCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IServiceCallback$Stub$Proxy: void onRegistration(java.lang.String,android.os.IBinder)>
+<android.os.IServiceCallback$Stub: android.os.IServiceCallback asInterface(android.os.IBinder)>
+<android.os.IServiceCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IServiceCallback$Stub: void <init>()>

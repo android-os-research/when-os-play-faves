@@ -1,0 +1,22 @@
+# android.telephony.mbms.vendor.IMbmsDownloadService [NEW]
+# Refs: 18
+# JARs: framework
+
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int addProgressListener(android.telephony.mbms.DownloadRequest,android.telephony.mbms.IDownloadProgressListener)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int addServiceAnnouncement(int,byte[])>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int addStatusListener(android.telephony.mbms.DownloadRequest,android.telephony.mbms.IDownloadStatusListener)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int cancelDownload(android.telephony.mbms.DownloadRequest)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int download(android.telephony.mbms.DownloadRequest)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int initialize(int,android.telephony.mbms.IMbmsDownloadSessionCallback)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int removeProgressListener(android.telephony.mbms.DownloadRequest,android.telephony.mbms.IDownloadProgressListener)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int removeStatusListener(android.telephony.mbms.DownloadRequest,android.telephony.mbms.IDownloadStatusListener)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int requestDownloadState(android.telephony.mbms.DownloadRequest,android.telephony.mbms.FileInfo)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int requestUpdateFileServices(int,java.util.List)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int resetDownloadKnowledge(android.telephony.mbms.DownloadRequest)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: int setTempFileRootDirectory(int,java.lang.String)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: java.util.List listPendingDownloads(int)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub$Proxy: void dispose(int)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub: android.telephony.mbms.vendor.IMbmsDownloadService asInterface(android.os.IBinder)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.mbms.vendor.IMbmsDownloadService$Stub: void <init>()>

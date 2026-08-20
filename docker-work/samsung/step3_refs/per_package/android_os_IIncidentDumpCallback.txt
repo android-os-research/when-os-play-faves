@@ -1,0 +1,9 @@
+# android.os.IIncidentDumpCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.IIncidentDumpCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IIncidentDumpCallback$Stub$Proxy: void onDumpSection(android.os.ParcelFileDescriptor)>
+<android.os.IIncidentDumpCallback$Stub: android.os.IIncidentDumpCallback asInterface(android.os.IBinder)>
+<android.os.IIncidentDumpCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IIncidentDumpCallback$Stub: void <init>()>

@@ -1,0 +1,94 @@
+.class Landroid/net/http/RequestQueue$SyncFeeder;
+.super Ljava/lang/Object;
+.source "RequestQueue.java"
+
+# interfaces
+.implements Landroid/net/http/RequestFeeder;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/net/http/RequestQueue;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "SyncFeeder"
+.end annotation
+
+
+# instance fields
+.field private mRequest:Landroid/net/http/Request;
+
+
+# direct methods
+.method constructor <init>()V
+    .registers 1
+
+    .line 345
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 346
+    return-void
+.end method
+
+
+# virtual methods
+.method public getRequest()Landroid/net/http/Request;
+    .registers 3
+
+    .line 348
+    iget-object v0, p0, Landroid/net/http/RequestQueue$SyncFeeder;->mRequest:Landroid/net/http/Request;
+
+    .line 349
+    .local v0, "r":Landroid/net/http/Request;
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Landroid/net/http/RequestQueue$SyncFeeder;->mRequest:Landroid/net/http/Request;
+
+    .line 350
+    return-object v0
+.end method
+
+.method public getRequest(Lorg/apache/http/HttpHost;)Landroid/net/http/Request;
+    .registers 3
+    .param p1, "host"    # Lorg/apache/http/HttpHost;
+
+    .line 353
+    invoke-virtual {p0}, Landroid/net/http/RequestQueue$SyncFeeder;->getRequest()Landroid/net/http/Request;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public haveRequest(Lorg/apache/http/HttpHost;)Z
+    .registers 3
+    .param p1, "host"    # Lorg/apache/http/HttpHost;
+
+    .line 356
+    iget-object v0, p0, Landroid/net/http/RequestQueue$SyncFeeder;->mRequest:Landroid/net/http/Request;
+
+    if-eqz v0, :cond_6
+
+    const/4 v0, 0x1
+
+    goto :goto_7
+
+    :cond_6
+    const/4 v0, 0x0
+
+    :goto_7
+    return v0
+.end method
+
+.method public requeueRequest(Landroid/net/http/Request;)V
+    .registers 2
+    .param p1, "r"    # Landroid/net/http/Request;
+
+    .line 359
+    iput-object p1, p0, Landroid/net/http/RequestQueue$SyncFeeder;->mRequest:Landroid/net/http/Request;
+
+    .line 360
+    return-void
+.end method

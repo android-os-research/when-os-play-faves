@@ -1,0 +1,170 @@
+######################################################################
+# Propagation: com.samsung.android.sm_cn
+######################################################################
+
+JARs:                 framework, services
+Classes:              4
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_MGMT
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDDiagnosis
+  Method:   <com.sec.android.iaft.IAFDDiagnosis: void init(android.content.Context)>
+  Line:     2836
+  Register: v1 := "com.samsung.android.sm_cn"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.AppErrors: void <init>(android.conten
+      ← IAFDService.IAFDServiceInit()
+        ← <com.android.server.am.ActivityManagerService: void <init>(a
+        ← IAFDService.onCreate()
+          ← <com.android.server.am.ActivityManagerService$Lifecycle: voi
+
+  CALLEES (what this method invokes):
+      → SemSystemProperties.getSalesCode()
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+      → IAFDDiagnosis.initData()
+        → SystemProperties.get()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+        → IAFDDBManager.getInstance()
+        → IAFDDBManager.getData()
+        → IAFDDBManager.init()
+        → Exception.printStackTrace()
+        → Thread.sleep()
+          → <com.sec.android.iaft.IAFDDBManager$IAFDDBManagerHolder: com
+          → Message.sendToTarget()
+          → IAFDDBManager$IAFDDBManagerHandler.obtainMessage()
+          → <com.sec.android.iaft.IAFDDBManager$IAFDDBManagerThread: voi
+          → IAFDDBManager$IAFDDBManagerThread.start()
+          → IAFDDBManager.setContext()
+          → IAFDDBManager.syncDBType()
+          → IAFDHCDatabase.getData()
+          → IAFDHCDatabase.getInstance()
+          → IAFDHCDatabase.init()
+            → Handler.sendMessage()
+            → <java.lang.Thread: void <init>(java.lang.String)>
+            → IAFDDiagnosis$IAFD_CONTROLINFO.getDBVersion()
+            → <com.sec.android.iaft.IAFDHCDatabase$IAFDHCDatabaseHolder: c
+            → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: void <
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setCSCFilter()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setDBVersion()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setIAFDDBControlFeature()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setWhiteList()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setenableDetectAll32bitApp()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocApp()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocAppOnlyShow()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setreMovableAppPaths()
+            → IAFDDiagnosis$IAFD_CONTROLINFO.setwebView_pkgName()
+            → <com.sec.android.iaft.IAFDDiagnosis$IAFD_DATA: void <init>()
+            → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+            → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+            → <java.util.HashMap: void <init>()>
+              → IAFDDiagnosis$IAFD_CONTROLINFO.setSupportRepair()
+              → IAFDDiagnosis$IAFD_CONTROLINFO.inithashMapValues()
+              → IAFDDiagnosis$IAFD_ENTITY.initENTITY()
+              → HashMap.putIfAbsent()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDServiceImpl$2
+  Method:   <com.sec.android.iaft.IAFDServiceImpl$2: void onClick(android.content.DialogInterface,int)>
+  Line:     72
+  Register: v1 := "com.samsung.android.sm_cn"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v1, p0, Lcom/sec/android/iaft/IAFDServiceImpl$2; → [i
+
+  CALLEES (what this method invokes):
+      → Context.startService()
+      → Intent.putExtras()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.Message: void <init>()>
+      → Message.setData()
+      → IAFDServiceImpl$ServiceHandler.sendMessage()
+      → <com.sec.android.iaft.IAFDServiceImpl: android.content.Conte
+      → <com.sec.android.iaft.IAFDServiceImpl: com.sec.android.iaft.
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.install.SilentUninstallerList
+  Method:   <com.samsung.android.server.pm.install.SilentUninstallerList: void <init>()>
+  Line:     33
+  Register: v4 := "com.samsung.android.sm_cn"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v0 .. v15}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+      ← <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+        ← <com.android.server.pm.AsecInstallHelper: void <init>(com.an
+        ← InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+        ← InstallPackageHelper.commitPackagesLocked() [PKG_MGMT]
+        ← PackageInstallerSession.onSystemDataLoaderUnrecoverable()
+        ← <com.android.server.pm.PackageManagerService: void <init>(co
+          ← InstallPackageHelper.handlePackagePostInstall() [PKG_MGMT]
+          ← PackageHandler.doHandleMessage()
+          ← <com.android.server.pm.PackageManagerService: void <init>(co
+          ← InstallPackageHelper.addForInitLI() [PKG_MGMT]
+          ← InstallPackageHelper.installPackagesLI() [PKG_MGMT]
+          ← <com.android.server.pm.PackageInstallerSession: void -$$Nest
+          ← PackageManagerService.main()
+            ← PackageHandler.handleMessage()
+            ← InstallPackageHelper.addSamsungOverlayForInitLI() [PKG_MGMT]
+            ← InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesFromAppRootDir() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesFromDir() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesTracedLI() [PKG_MGMT]
+            ← PackageInstallerSession$6.onStatusChanged()
+            ← SystemServer.startBootstrapServices()
+              ← PackageManagerService$PackageManagerInternalImpl.parseSamsungThemeOverlayPackages()
+              ← InstallPackageHelper.scanSystemPackageTracedLI() [PKG_MGMT]
+              ← <com.android.server.pm.InstallPackageHelper: void lambda$upd [PKG_MGMT]
+              ← InitAppsHelper.scanDirTracedLI()
+              ← InstallPackageHelper.processInstallRequests() [PKG_MGMT]
+              ← SystemServer.run()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.ibs.IntelligentBatterySaverFastDrainPolicy
+  Method:   <com.android.server.ibs.IntelligentBatterySaverFastDrainPolicy: void sendIntentToSmartManager()>
+  Line:     3389
+  Register: v1 := "com.samsung.android.sm_cn"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName()
+
+  CALLERS (who invokes this method):
+      ← IntelligentBatterySaverFastDrainPolicy.exitFastDrainRestriction()
+        ← <com.android.server.ibs.IntelligentBatterySaverFastDrainPoli
+        ← IntelligentBatterySaverFastDrainPolicy.updateFastDrainInternalState()
+          ← IntelligentBatterySaverFastDrainPolicy$IntelligentBatterySaverFastDrainHandler.handleMessage()
+          ← IntelligentBatterySaverFastDrainPolicy.setSysState()
+            ← <com.android.server.ibs.IntelligentBatterySaverFastDrainPoli
+            ← IntelligentBatterySaverFastDrainPolicy.dump()
+              ← IntelligentBatterySaverService.dump()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.setAction()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+

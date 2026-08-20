@@ -1,0 +1,14 @@
+# com.sec.android.desktopmode.uiservice [NEW]
+# Refs: 10
+# JARs: knoxsdk, services
+
+<com.android.server.desktopmode.BleAdvertiserServiceManager: void bindService()>
+<com.android.server.desktopmode.DesktopModeService: void requestTileUpdate(com.samsung.android.desktopmode.SemDesktopModeState)>
+<com.android.server.desktopmode.DesktopModeService: void startConnectivityActivity(int)>
+<com.android.server.desktopmode.McfManager$2: void onPackageStateChanged(com.android.server.desktopmode.State)>
+<com.android.server.desktopmode.PackageStateManager: void <init>(android.content.Context,com.android.server.desktopmode.IStateManager,com.android.server.ServiceThread,android.content.pm.IPackageManager)>
+<com.android.server.desktopmode.PackageStateManager: void setComponent(java.lang.String,boolean)>
+<com.android.server.desktopmode.UiManager: void bindService()>
+<com.android.server.enterprise.appconfig.ApplicationRestrictionsService: void sendBroadcastAsUserInternal(java.lang.String,int)>
+<com.samsung.android.knox.EdmConstants$1: void <init>()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>

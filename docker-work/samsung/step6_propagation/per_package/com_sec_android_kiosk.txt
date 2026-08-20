@@ -1,0 +1,499 @@
+######################################################################
+# Propagation: com.sec.android.kiosk
+######################################################################
+
+JARs:                 knoxsdk, services
+Classes:              4
+Occurrences:          6
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        CALLER_ID, PERM_CHECK, PERM_GRANT, PKG_MGMT, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.kiosk.KioskMode
+  Method:   <com.samsung.android.knox.kiosk.KioskMode: void enableKioskMode()>
+  Line:     4299
+  Register: v2 := "com.sec.android.kiosk"
+  Usage:    [invoke] invoke-interface {v0, v1, v2}, Lcom/samsung/android/knox/kiosk/IKioskMode;->enableKioskMode(Lcom/sam
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.kiosk.IKioskMode.enableKioskMode() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UserHandle.getUserId()
+      → AccessController.throwIfParentInstance()
+      → IKioskMode.enableKioskMode()
+      → KioskMode.getService()
+      → KioskMode.getCallingPackage() [CALLER_ID]
+      → EnterpriseLicenseManager.log()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → ServiceManager.getService()
+        → IKioskMode$Stub.asInterface()
+        → Context.getPackageManager()
+        → PackageManager.getPackagesForUid()
+        → Binder.getCallingUid() [UID_CHECK]
+        → EnterpriseLicenseManager.getService()
+        → IEnterpriseLicense.log()
+          → IBinder.queryLocalInterface()
+          → <com.samsung.android.knox.kiosk.IKioskMode$Stub$Proxy: void 
+          → IEnterpriseLicense$Stub.asInterface()
+            → <com.samsung.android.knox.license.IEnterpriseLicense$Stub$Pr
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.kiosk.KioskMode$1
+  Method:   <com.samsung.android.knox.kiosk.KioskMode$1: void run()>
+  Line:     1322
+  Register: v1 := "com.sec.android.kiosk"
+  Usage:    [invoke] invoke-interface {v0, p0, v1}, Lcom/samsung/android/knox/kiosk/IKioskMode;->enableKioskMode(Lcom/sam
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.kiosk.IKioskMode.enableKioskMode()
+
+  CALLEES (what this method invokes):
+      → IKioskMode.allowAirCommandMode()
+      → IKioskMode.allowAirViewMode()
+      → IKioskMode.allowEdgeScreen()
+      → IKioskMode.allowMultiWindowMode()
+      → IKioskMode.allowTaskManager()
+      → IKioskMode.clearAllNotifications()
+      → IKioskMode.hideNavigationBar()
+      → IKioskMode.hideStatusBar()
+      → IKioskMode.hideSystemBar()
+      → IKioskMode.wipeRecentTasks()
+      → IKioskMode.allowHardwareKeys()
+      → IKioskMode.enableKioskMode()
+      → KioskMode.isKioskModeEnabled()
+      → KioskMode.getRestrictionService()
+      → <com.samsung.android.knox.kiosk.KioskSetting: void <init>()>
+      → IRestrictionPolicy.allowSettingsChanges()
+      → IRestrictionPolicy.allowSmartClipMode()
+      → IRestrictionPolicy.allowStatusBarExpansion()
+      → IRestrictionPolicy.setHomeKeyState()
+      → List.size()
+      → List.get()
+        → IKioskMode.isKioskModeEnabled()
+        → KioskMode.getService()
+        → ServiceManager.getService()
+        → IRestrictionPolicy$Stub.asInterface()
+          → IKioskMode$Stub.asInterface()
+          → IBinder.queryLocalInterface()
+          → <com.samsung.android.knox.restriction.IRestrictionPolicy$Stu
+            → <com.samsung.android.knox.kiosk.IKioskMode$Stub$Proxy: void 
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.kioskmode.KioskModeService
+  Method:   <com.android.server.enterprise.kioskmode.KioskModeService: void cleanUpKioskMode(com.samsung.android.knox.ContextInfo,java.lang.String)>
+  Line:     2523
+  Register: v2 := "com.sec.android.kiosk"
+  Usage:    [invoke] invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [invoke] com.android.server.enterprise.application.ApplicationPolicy.
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+      ← KioskModeService._disableKioskMode()
+      ← KioskModeService._enableKioskMode()
+        ← KioskModeService$4.run()
+        ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+        ← KioskModeService.forceTerminateKiosk()
+        ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+          ← KioskModeService$KioskHandler.handleMessage()
+          ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+          ← KioskModeService.onPreAdminRemoval()
+            ← KioskModeService$5.onReceive()
+            ← KioskModeService$6.onReceive()
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → ApplicationPolicy.uninstallApplicationInternalBySystem()
+        → Binder.getCallingPid() [UID_CHECK]
+        → UserHandle.getUserId()
+        → ApplicationPolicy._uninstallApplicationInternal()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → PackageManagerAdapter.deletePackageAsUser() [PKG_MGMT]
+          → ApplicationPolicy.getValidStr()
+          → Exception.printStackTrace()
+            → IPackageManager.deletePackageAsUser() [PKG_MGMT]
+            → <com.android.server.enterprise.adapterlayer.PackageManagerAd
+              → <android.content.pm.IPackageDeleteObserver$Stub: void <init>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.kioskmode.KioskModeService
+  Method:   <com.android.server.enterprise.kioskmode.KioskModeService: int initKioskMode(com.samsung.android.knox.ContextInfo,java.lang.String)>
+  Line:     4906
+  Register: v2 := "com.sec.android.kiosk"
+  Usage:    [invoke] invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v2 → [branch] if-eqz v2, :cond_16 → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← KioskModeService._enableKioskMode()
+        ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+          ← KioskModeService$KioskHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → AppGlobals.getPackageManager()
+      → IPackageManager.getApplicationInfo() [PKG_QUERY]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → ApplicationPolicy.addPackagesToClearDataBlackList()
+      → ApplicationPolicy.getApplicationStateEnabledAsUser()
+      → ApplicationPolicy.setApplicationInstallationDisabledBySystem()
+      → ApplicationPolicy.setApplicationUninstallationDisabledBySystem()
+      → KioskModeService.extractDefaultApkAndInstall()
+      → KioskModeService.getHomeActivity()
+      → Utils.getCallingOrCurrentUserId()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → ActivityThread.getPackageManager()
+        → ApplicationPolicy.addApplicationStateList()
+        → RestrictionToastManager.show()
+        → ApplicationPolicy.getApplicationStateEnabledAsUser()
+        → ApplicationPolicy.isRestrictionToastNeeded()
+        → Binder.getCallingPid() [UID_CHECK]
+        → ApplicationPolicy._setApplicationInstallationDisabled()
+        → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → ApplicationPolicy._setApplicationUninstallationDisabled()
+        → Context.createPackageContext()
+        → Context.getAssets()
+        → AssetManager.open()
+        → Environment.getDataDirectory()
+        → FileUtils.setPermissions()
+        → ApplicationPolicy.installApplication()
+        → KioskModeService.copyFile()
+        → File.delete()
+        → File.getAbsolutePath()
+        → <java.io.File: void <init>(java.lang.String)>
+        → <java.io.FileOutputStream: void <init>(java.io.File)>
+        → InputStream.close()
+        → OutputStream.close()
+        → Intent.addCategory()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → PackageManager.queryIntentActivitiesAsUser()
+        → List.size()
+        → List.get()
+        → ActivityManager.getCurrentUser()
+        → Binder.getCallingUid() [UID_CHECK]
+        → UserHandle.getUserId()
+        → IPersonaManagerAdapter.isValidKnoxId()
+        → Utils.getPersonaManagerAdapter()
+          → ApplicationPolicy.setApplicationPkgNameControlState()
+          → ApplicationPolicy.enforceAppPermission()
+          → ApplicationPolicy.arrangePackageList()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.isEmpty()
+          → List.iterator()
+          → Context.getString()
+          → RestrictionToastManager.show()
+          → ContentValues.size()
+          → ContentValues.getAsInteger()
+          → <android.content.ContentValues: void <init>()>
+          → ApplicationPolicy.getValidStr()
+          → ApplicationPolicy.getContentValues()
+          → AuditLog.logAsUser()
+          → ApplicationPolicy.checkRegex()
+          → ApplicationPolicy.getApplicationStateList()
+          → Exception.printStackTrace()
+          → SemPersonaManager.isKnoxId()
+          → Context.sendBroadcastAsUser()
+          → Intent.addFlags()
+          → Intent.putExtra()
+          → Intent.putExtra()
+          → <android.os.UserHandle: void <init>(int)>
+          → PendingIntent.getBroadcast()
+          → PendingIntent.getIntentSender()
+          → Context.getPackageManager()
+          → PackageInstaller$Session.commit()
+          → PackageInstaller.openSession()
+          → PackageInstaller.createSession()
+          → PackageManager.getPackageInstaller()
+          → Environment.isExternalStorageEmulated()
+          → PackageManagerAdapter.isApplicationInstalled()
+          → <com.android.server.enterprise.application.ApplicationPolicy
+          → ApplicationPolicy.getSessionParams()
+          → ApplicationPolicy.checkInvalidExtension()
+          → ApplicationPolicy.hasKnoxInternalExceptionPermission()
+          → ApplicationPolicy.isSystemApp()
+          → ApplicationPolicy.prepareCommit()
+          → ApplicationPolicy.installExistingApplication()
+          → ApplicationPolicy.getPackageNameForUid()
+          → ApplicationPolicy.preGrantRuntimePermission() [PERM_GRANT]
+          → ApplicationPolicy.sendAuditLog()
+          → ApplicationPolicy.setInstallSourceMDM()
+          → ApplicationPolicy.setManagedApp()
+          → KpuHelper.isCallerKpu()
+          → KpuHelper.getInstance()
+          → Utils.createContextAsUser()
+          → EnterpriseDeviceManager.throwIfParentInstance()
+          → Exception.getMessage()
+          → Map.get()
+          → Map.put()
+          → Map.remove()
+          → TimeUnit.toNanos()
+          → InputStream.read()
+          → OutputStream.write()
+          → AdapterRegistry.getAdapter()
+            → ApplicationPolicy.setApplicationPkgNameControlState()
+            → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+            → <java.util.ArrayList: void <init>()>
+            → List.add()
+            → <android.os.Bundle: void <init>()>
+            → Bundle.putString()
+            → Handler.sendMessage()
+            → Handler.sendMessageDelayed()
+            → Message.obtain()
+            → <android.os.Message: void <init>()>
+            → Message.setData()
+            → ArrayList.add()
+            → ArrayList.contains()
+            → ArrayMap.size()
+            → ArrayMap.get()
+            → Number.intValue()
+            → <android.util.ArrayMap: void <init>()>
+            → ContentValues.put()
+            → ContentValues.put()
+            → EdmStorageProvider.getValuesList()
+            → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+            → IEDMProxy.AuditLoggerAsUser()
+            → Pattern.compile()
+            → ApplicationPolicy.enforceAppPermissionByContext()
+            → ApplicationPolicy.enforceDoPoOnlyAppPermissionByContext()
+            → ApplicationPolicy.getApplicationStateList()
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+            → IPackageInstallerSession.commit()
+            → RemoteException.rethrowFromSystemServer()
+            → IPackageInstaller.openSession()
+            → <android.content.pm.PackageInstaller$Session: void <init>(an
+            → ExceptionUtils.maybeUnwrapIOException()
+            → IPackageInstaller.createSession()
+            → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+            → PackageManagerAdapter.getValidStr()
+            → <com.android.server.enterprise.application.ApplicationPolicy
+            → <android.content.pm.PackageInstaller$SessionParams: void <in
+            → PackageInstaller$SessionParams.semSetInstallFlagsDisableVerification()
+            → PackageInstaller$SessionParams.setAllowDowngrade()
+            → PackageManager.checkPermission() [PERM_CHECK]
+            → PackageManager.getApplicationInfo() [PKG_QUERY]
+            → PackageInstaller$Session.openWrite()
+            → PackageInstaller$Session.fsync()
+            → ParcelFileDescriptor.getFileDescriptor()
+            → <java.io.FileInputStream: void <init>(java.io.File)>
+            → <java.io.FileInputStream: void <init>(java.io.FileDescriptor
+            → IOException.getMessage()
+            → SecurityException.getMessage()
+            → PackageManagerAdapter.installExistingPackageAsUserForMDM()
+            → EdmStorageProviderBase.getPackageNameForUid()
+            → PackageManager.getRequestedRuntimePermissionsForMdm()
+            → ApplicationPolicy.verifyRuntimePermissionPackageSignature()
+            → ApplicationPolicy.applyRuntimePermissionsInternal()
+            → ApplicationPolicy.getRuntimePermissionsEnforced()
+            → <com.samsung.android.knox.AppIdentity: void <init>(java.lang
+            → List.addAll()
+            → List.removeAll()
+            → EdmStorageProvider.putValuesForAdminAndField()
+            → PackageManager.getNameForUid()
+            → KpuHelper.isKpuPackage()
+            → KpuHelper.isKpuPermissionGranted()
+            → <com.android.server.enterprise.utils.KpuHelper: void <init>(
+            → Context.createPackageContextAsUser()
+            → PackageManager$NameNotFoundException.getMessage()
+            → AccessController.throwIfParentInstance()
+            → HashMap.get()
+              → ContentValues.putNull()
+              → TextUtils.isEmpty()
+              → ApplicationPolicy.getControlState()
+              → ApplicationPolicy.removeAppSignature()
+              → ApplicationPolicy.updateAppControlState()
+              → AccessController.enforceActiveAdminPermissionByContext()
+              → Message.obtain()
+              → ArrayMap.indexOfKey()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.put()
+              → EdmStorageProviderBase.getValuesList()
+              → ServiceManager.getService()
+              → IEDMProxy$Stub.asInterface()
+              → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+              → EnterpriseDeviceManager.enforceDoPoOnlyPermissionByContext()
+              → EdmStorageProviderBase.getAdminUidFromLUID()
+              → <java.util.HashSet: void <init>()>
+              → List.contains()
+              → Map$Entry.getKey()
+              → Map$Entry.getValue()
+              → Map.entrySet()
+              → Map.keySet()
+              → Set.add()
+              → Set.iterator()
+              → SystemProperties.get()
+              → SemDualAppManager.isDualAppId()
+              → <android.os.DeadSystemRuntimeException: void <init>()>
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+              → ParcelableException.maybeRethrow()
+              → IPackageInstallerSession.openWrite()
+              → <android.os.FileBridge$FileBridgeOutputStream: void <init>(a
+              → <android.os.ParcelFileDescriptor$AutoCloseOutputStream: void
+              → FileBridge$FileBridgeOutputStream.fsync()
+              → ParcelFileDescriptor$AutoCloseOutputStream.getFD()
+              → ErrnoException.rethrowAsIOException()
+              → Os.fsync()
+              → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+              → Binder.withCleanCallingIdentity()
+              → <com.android.server.enterprise.adapterlayer.PackageManagerAd
+              → ComponentName.getPackageName()
+              → EdmStorageProviderBase.getComponentNameForUid()
+              → ApplicationPolicy.getRuntimePermissionsPackageSignature()
+              → Utils.comparePackageSignature()
+              → PackageManager$NameNotFoundException.printStackTrace()
+              → ApplicationPolicy.isApplicationInstalled()
+              → ApplicationPolicy.isGrantStateValid()
+              → ApplicationPolicy.isKPECore()
+              → ApplicationPolicy.isSystemService()
+              → ApplicationPolicy.updateRuntimePermissions()
+              → ApplicationPolicy.enforceKnoxInternalExceptionPermission()
+              → ApplicationPolicy.setRuntimePermissionsInternal()
+              → ApplicationPolicy.permStateToString()
+              → AppIdentity.getPackageName()
+              → AppIdentity.getSignature()
+              → ApplicationPolicy.canSet()
+              → ApplicationPolicy.getAllPermissionGroups()
+              → EdmStorageProviderBase.putValuesForAdminAndField()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.kioskmode.KioskModeService
+  Method:   <com.android.server.enterprise.kioskmode.KioskModeService: boolean setDefaultHomeScreen(int,java.lang.String,java.lang.String)>
+  Line:     7019
+  Register: v8 := "com.sec.android.kiosk"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [invoke] java.lang.String.equals() → [other] new-instance v8, Landroid/content/Comp
+
+  CALLERS (who invokes this method):
+      ← KioskModeService._disableKioskMode()
+      ← KioskModeService._enableKioskMode()
+      ← KioskModeService.systemReady()
+        ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+        ← KioskModeService.forceTerminateKiosk()
+        ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+          ← KioskModeService$KioskHandler.handleMessage()
+          ← <com.android.server.enterprise.kioskmode.KioskModeService: v
+          ← KioskModeService.onPreAdminRemoval()
+            ← KioskModeService$5.onReceive()
+            ← KioskModeService$6.onReceive()
+
+  CALLEES (what this method invokes):
+      → AppGlobals.getPackageManager()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Intent.addCategory()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.content.IntentFilter: void <init>(java.lang.String)
+      → IntentFilter.addCategory()
+      → IPackageManager$Stub.asInterface()
+      → IPackageManager.getApplicationInfo() [PKG_QUERY]
+      → IPackageManager.clearPackagePreferredActivitiesAsUserForMDM()
+      → PackageManager.queryIntentActivitiesAsUser()
+      → PackageManager.addPreferredActivityAsUser()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → ServiceManager.getService()
+      → KioskModeService.getHomeActivity()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+      → List.size()
+      → List.get()
+      → List.toArray()
+        → ActivityThread.getPackageManager()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: java.util.List getHomeShortcuts(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+  Line:     17662
+  Register: v3 := "com.sec.android.kiosk"
+  Usage:    [invoke] invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, system_property_read
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v5 → [branch] if-nez v5, :cond_bc → [other] move-result v5 → [b
+
+  CALLEES (what this method invokes):
+      → ContentResolver.query()
+      → Context.getContentResolver()
+      → Intent.getComponent()
+      → Intent.parseUri()
+      → <android.content.Intent: void <init>()>
+      → Cursor.moveToFirst()
+      → Cursor.moveToNext()
+      → Cursor.getColumnIndex()
+      → Cursor.getInt()
+      → Cursor.getString()
+      → Cursor.close()
+      → SQLException.getMessage()
+      → Uri.parse()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → SystemProperties.get()
+      → UserHandle.getUserId()
+      → ApplicationPolicy.enforceAppPermission()
+      → Utils.createContextAsUser()
+      → DexManager.isDexActivated()
+      → DexManager.getInstance()
+      → KioskMode.isKioskModeEnabled()
+      → KioskMode.getInstance()
+      → URISyntaxException.getMessage()
+      → URISyntaxException.printStackTrace()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → Context.createPackageContextAsUser()
+        → PackageManager$NameNotFoundException.getMessage()
+        → <android.os.UserHandle: void <init>(int)>
+        → DexManager.getService()
+        → IDexPolicy.isDexActivated()
+        → <com.samsung.android.knox.dex.DexManager: void <init>()>
+        → IKioskMode.isKioskModeEnabled()
+        → KioskMode.getService()
+        → Context.getApplicationContext()
+        → Process.myUid()
+        → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+        → <com.samsung.android.knox.kiosk.KioskMode: void <init>(com.s
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+          → AccessController.enforceActiveAdminPermissionByContext()
+          → ServiceManager.getService()
+          → IDexPolicy$Stub.asInterface()
+          → <com.samsung.android.knox.ContextInfo: void <init>()>
+          → IKioskMode$Stub.asInterface()
+          → SemPersonaManager.isKnoxId()
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+            → AccessController.getService()
+            → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.dex.IDexPolicy$Stub$Proxy: void <i
+            → <com.samsung.android.knox.kiosk.IKioskMode$Stub$Proxy: void 
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → SemDualAppManager.isDualAppId()
+

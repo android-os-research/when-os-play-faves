@@ -1,0 +1,18 @@
+# android.content.IClipboard [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.content.IClipboard$Stub$Proxy: android.content.ClipData getPrimaryClip(java.lang.String,int)>
+<android.content.IClipboard$Stub$Proxy: android.content.ClipDescription getPrimaryClipDescription(java.lang.String,int)>
+<android.content.IClipboard$Stub$Proxy: boolean hasClipboardText(java.lang.String,int)>
+<android.content.IClipboard$Stub$Proxy: boolean hasPrimaryClip(java.lang.String,int)>
+<android.content.IClipboard$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.IClipboard$Stub$Proxy: java.lang.String getPrimaryClipSource(java.lang.String,int)>
+<android.content.IClipboard$Stub$Proxy: void addPrimaryClipChangedListener(android.content.IOnPrimaryClipChangedListener,java.lang.String,int)>
+<android.content.IClipboard$Stub$Proxy: void clearPrimaryClip(java.lang.String,int)>
+<android.content.IClipboard$Stub$Proxy: void removePrimaryClipChangedListener(android.content.IOnPrimaryClipChangedListener,java.lang.String,int)>
+<android.content.IClipboard$Stub$Proxy: void setPrimaryClip(android.content.ClipData,java.lang.String,int)>
+<android.content.IClipboard$Stub$Proxy: void setPrimaryClipAsPackage(android.content.ClipData,java.lang.String,int,java.lang.String)>
+<android.content.IClipboard$Stub: android.content.IClipboard asInterface(android.os.IBinder)>
+<android.content.IClipboard$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.IClipboard$Stub: void <init>()>

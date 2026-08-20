@@ -1,0 +1,9 @@
+# ro.boot.carrierid [NEW]
+# Refs: 5
+# JARs: framework, services
+
+<com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: boolean isWifiSkipCarrier()>
+<com.android.internal.telephony.TelephonyFeatures: boolean isNotAllowedMOCall(int)>
+<com.android.server.SystemConfig: void readAllPermissions()>
+<com.android.server.pdp.PdpService$SvcPdpHandler: void handleMessage(android.os.Message)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void <init>(com.samsung.android.knox.custom.KnoxCustomManagerService$Injector)>

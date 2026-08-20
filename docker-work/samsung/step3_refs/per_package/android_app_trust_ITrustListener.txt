@@ -1,0 +1,11 @@
+# android.app.trust.ITrustListener [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.app.trust.ITrustListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.trust.ITrustListener$Stub$Proxy: void onTrustChanged(boolean,int,int,java.util.List)>
+<android.app.trust.ITrustListener$Stub$Proxy: void onTrustError(java.lang.CharSequence)>
+<android.app.trust.ITrustListener$Stub$Proxy: void onTrustManagedChanged(boolean,int)>
+<android.app.trust.ITrustListener$Stub: android.app.trust.ITrustListener asInterface(android.os.IBinder)>
+<android.app.trust.ITrustListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.trust.ITrustListener$Stub: void <init>()>

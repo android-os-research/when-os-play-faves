@@ -1,0 +1,60 @@
+######################################################################
+# Propagation: com.skms.android.agent
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.SkpmATCmd
+  Method:   <com.android.server.SkpmATCmd: boolean bindSkpmService()>
+  Line:     113
+  Register: v3 := "com.skms.android.agent"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← SkpmATCmd.processCmd()
+
+  CALLEES (what this method invokes):
+      → Context.bindServiceAsUser()
+      → Intent.setPackage()
+      → Intent.toString()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <com.android.server.SkpmATCmd$1: void <init>(com.android.ser
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.ucm.ucmservice.CredentialManagerService
+  Method:   <com.samsung.ucm.ucmservice.CredentialManagerService: void lambda$runLccmScript$0()>
+  Line:     1148
+  Register: v2 := "com.skms.android.agent"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.ucm.ucmservice.CredentialManagerService: void $
+        ← CredentialManagerService$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Exception.getMessage()
+      → Exception.printStackTrace()
+      → InterruptedException.printStackTrace()
+      → Thread.sleep()
+

@@ -1,0 +1,455 @@
+######################################################################
+# Propagation: com.sec.android.app.SecSetupWizard
+######################################################################
+
+JARs:                 framework, semwifi-service, services
+Classes:              7
+Occurrences:          7
+Usage types:          array_init, field_store, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_MGMT, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     174
+  Register: v13 := "com.sec.android.app.SecSetupWizard"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.fontutil.FlipFontOptimizer
+  Method:   <com.samsung.android.fontutil.FlipFontOptimizer: void setFlipfont(android.content.Context,java.lang.String)>
+  Line:     1052
+  Register: v1 := "com.sec.android.app.SecSetupWizard"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.compareTo() → [other] move-result v1 → [branch] if-nez v1, :cond_232 → [reassigned] v1 overwri
+
+  CALLERS (who invokes this method):
+      ← FlipFontOptimizer.setFlipfont()
+        ← ActivityManagerService.finishBooting()
+          ← ActivityManagerService$LocalService.finishBooting()
+          ← ActivityManagerService.bootAnimationComplete()
+          ← ActivityManagerService.ensureBootCompleted()
+            ← ActivityManagerService$LocalService.ensureBootCompleted()
+            ← ActivityManagerService$UiHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → ActivityManager.getRunningTasks()
+      → ActivityManager.forceStopPackage()
+      → ActivityManager.restartPackage()
+      → IActivityManager.getGlobalConfiguration()
+      → IActivityManager.updateConfiguration()
+      → ComponentName.getPackageName()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → PackageManager.getResourcesForApplication()
+      → AssetManager.open()
+      → Resources.getAssets()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → RemoteException.getMessage()
+      → FlipFontOptimizer.getFontString()
+      → FlipFontOptimizer.savePreferences()
+      → FontWriter.copyFontFile()
+      → FontWriter.createFontDirectory()
+      → <com.samsung.android.fontutil.FontWriter: void <init>()>
+      → FontWriter.writeLoc()
+      → SemTypeface.getFontPackageName()
+      → SemTypeface.getTypefaceFilename()
+      → TypefaceFile.getDroidName()
+      → TypefaceFile.getFileName()
+      → TypefaceFinder.findMatchingTypefaceByName()
+      → File.getAbsolutePath()
+      → InputStream.close()
+      → Exception.getMessage()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → FlipFontOptimizer.getFontsVector()
+        → ArrayList.size()
+        → ArrayList.get()
+        → Context.getContentResolver()
+        → Context.createPackageContext()
+        → Context.getSharedPreferences()
+        → Context.getPackageName()
+        → SharedPreferences$Editor.putBoolean()
+        → SharedPreferences$Editor.putInt()
+        → SharedPreferences$Editor.putString()
+        → SharedPreferences$Editor.commit()
+        → SharedPreferences.edit()
+        → Settings$Global.putInt()
+        → Exception.printStackTrace()
+        → FontWriter.setFileProperties()
+        → <java.io.BufferedOutputStream: void <init>(java.io.OutputStr
+        → BufferedOutputStream.close()
+        → BufferedOutputStream.write()
+        → File.delete()
+        → File.getCanonicalPath()
+        → File.length()
+        → <java.io.File: void <init>(java.io.File,java.lang.String)>
+        → <java.io.FileOutputStream: void <init>(java.io.File)>
+        → FileOutputStream.close()
+        → InputStream.read()
+        → <java.lang.Exception: void <init>(java.lang.String)>
+        → Throwable.addSuppressed()
+        → UserHandle.myUserId()
+        → <java.io.File: void <init>(java.lang.String)>
+        → SystemProperties.set()
+        → <java.io.File: void <init>(java.lang.String,java.lang.String
+        → <java.io.OutputStreamWriter: void <init>(java.io.OutputStrea
+        → OutputStreamWriter.close()
+        → OutputStreamWriter.write()
+        → SemTypeface.getName()
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → PackageManager.getResourcesForApplication()
+          → PackageManager.getInstalledApplications()
+          → <com.samsung.android.fontutil.TypefaceFinder: void <init>()>
+          → TypefaceFinder.findTypefaces()
+          → TypefaceFinder.getSansEntries()
+          → <java.util.ArrayList: void <init>()>
+          → File.createNewFile()
+          → File.mkdir()
+          → File.setExecutable()
+          → File.setReadable()
+          → File.setWritable()
+            → AssetManager.list()
+            → TypefaceFinder.findTypefacesWithCR()
+            → TypefaceFinder.parseTypefaceXml()
+            → Context.getResources()
+            → Resources.getText()
+            → SemTypeface.getSansName()
+            → <com.samsung.android.fontutil.TypefaceFinder$TypefaceSortByN
+            → TypefaceFinder.isDomesticModel()
+            → ArrayList.add()
+            → ArrayList.add()
+            → Collections.sort()
+              → ContentResolver.openInputStream()
+              → ContentResolver.getType()
+              → Uri.parse()
+              → SemTypeface.setFontPackageName()
+              → SemTypeface.setTypefaceFilename()
+              → TypefaceParser.getParsedData()
+              → <com.samsung.android.fontutil.TypefaceParser: void <init>()>
+              → List.add()
+              → SAXParser.getXMLReader()
+              → SAXParserFactory.newSAXParser()
+              → SAXParserFactory.newInstance()
+              → <org.xml.sax.InputSource: void <init>(java.io.InputStream)>
+              → XMLReader.parse()
+              → XMLReader.setContentHandler()
+              → List.isEmpty()
+              → TypefaceFinder.readCountryCode()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemApeController
+  Method:   <com.samsung.android.server.wifi.SemApeController: void initBlockedPackages()>
+  Line:     584
+  Register: v1 := "com.sec.android.app.SecSetupWizard"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashSet.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.SemApeController: void <ini
+
+  CALLEES (what this method invokes):
+      → HashSet.add()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.devicepolicy.DevicePolicyManagerService
+  Method:   <com.android.server.devicepolicy.DevicePolicyManagerService: void <clinit>()>
+  Line:     2832
+  Register: v1 := "com.sec.android.app.SecSetupWizard"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.util.ArraySet: void <init>()>
+      → Set.add()
+      → Set.addAll()
+      → TimeUnit.toMillis()
+        → <android.util.ArraySet: void <init>(int,boolean)>
+          → ArraySet.allocArrays()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.hardware.display.AdaptiveDisplayColorService
+  Method:   <com.samsung.android.hardware.display.AdaptiveDisplayColorService: void <init>(android.content.Context)>
+  Line:     749
+  Register: v14 := "com.sec.android.app.SecSetupWizard"
+  Usage:    [field_store] iput-object v14, v0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->SETUP_WIZAR
+  Patterns: string_compare, early_return
+  Flow:     [other] filled-new-array/range {v15 .. v23}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.hardware.display.SemMdnieManagerService
+
+  CALLEES (what this method invokes):
+      → ActivityManagerNative.getDefault()
+      → IActivityManager.registerProcessObserver()
+      → ContentResolver.registerContentObserver()
+      → Context.getContentResolver()
+      → Context.registerReceiver()
+      → Context.getPackageManager()
+      → Context.getResources()
+      → Context.getSystemService()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → PackageManager.hasSystemFeature()
+      → Resources.getBoolean()
+      → Resources.getInteger()
+      → Resources.getIntArray()
+      → Resources.getStringArray()
+      → SensorManager.getDefaultSensor()
+      → <android.hardware.SystemSensorManager: void <init>(android.c
+      → SContextManager.isAvailableService()
+      → Handler.getLooper()
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → Settings$System.getUriFor()
+      → <com.samsung.android.cover.CoverManager: void <init>(android
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → AdaptiveDisplayColorService.setting_is_changed()
+        → ActivityManager.getService()
+        → Sensor.isWakeUpSensor()
+        → SensorManager.getSensorList()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.size()
+        → List.get()
+        → List.iterator()
+        → Context.getApplicationInfo() [PKG_QUERY]
+        → Context.getOpPackageName()
+        → Sensor.getHandle()
+        → <android.hardware.Sensor: void <init>()>
+        → <android.hardware.SensorManager: void <init>()>
+        → SystemSensorManager.nativeGetSensorAtIndex()
+        → SystemSensorManager.nativeCreate()
+        → SystemSensorManager.nativeClassInit()
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+        → HashMap.put()
+        → <java.util.HashMap: void <init>()>
+        → Optional.empty()
+        → SemContextManager.isAvailableService()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <android.os.Binder: void <init>()>
+        → CoverManager.initSystemFeature()
+        → <java.util.concurrent.CopyOnWriteArrayList: void <init>()>
+        → <android.app.IProcessObserver$Stub: void <init>()>
+        → <com.samsung.android.cover.CoverManager$StateListener: void 
+        → <android.os.Handler: void <init>(android.os.Looper,android.o
+        → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+        → <android.database.ContentObserver: void <init>(android.os.Ha
+        → IProcessObserver.onForegroundActivitiesChanged()
+        → Settings$System.getInt()
+        → CoverManager.registerListener()
+        → CoverManager.unregisterListener()
+        → AdaptiveDisplayColorService.enableRgbSensor()
+          → Sensor.getType()
+          → SensorManager.getFullSensorList()
+          → SparseArray.get()
+          → SparseArray.append()
+          → Collections.unmodifiableList()
+          → List.add()
+          → <android.util.SparseArray: void <init>()>
+          → SystemProperties.get()
+          → SemContextManager.getAvailableServiceMap()
+          → Map.containsKey()
+          → <android.os.Binder: void <init>(java.lang.String)>
+          → IProcessObserver$Stub.attachInterface()
+          → <android.content.BroadcastReceiver: void <init>()>
+          → <android.content.ComponentName: void <init>(java.lang.String
+          → Context.getPackageName()
+          → Process.myUid()
+          → CoverListenerDelegate.getListener()
+          → <com.samsung.android.cover.CoverListenerDelegate: void <init
+          → CoverManager.isSupportCover()
+          → CoverManager.getService()
+          → ICoverManager.registerCallback()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → CopyOnWriteArrayList.add()
+          → CopyOnWriteArrayList.iterator()
+          → ICoverManager.unregisterCallback()
+          → CopyOnWriteArrayList.remove()
+          → SensorManager.registerListener()
+          → SensorManager.unregisterListener()
+          → <android.hardware.scontext.SContextEnvironmentAdaptiveDispla
+          → SContextManager.registerListener()
+          → SContextManager.unregisterListener()
+          → Handler.removeMessages()
+          → AdaptiveDisplayColorService.initRgbAverage()
+          → File.exists()
+          → <java.io.File: void <init>(java.lang.String)>
+            → SparseArray.get()
+            → SparseArray.gc()
+            → SparseArray.put()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → <android.util.SparseArray: void <init>(int)>
+            → ISemContextService.getAvailableServiceMap()
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+            → Context.getMainLooper()
+            → <com.samsung.android.cover.CoverListenerDelegate$ListenerDel
+            → <com.samsung.android.cover.ICoverManagerCallback$Stub: void 
+            → ServiceManager.getService()
+            → ICoverManager$Stub.asInterface()
+            → SensorManager.registerListenerImpl()
+            → SensorManager.getDelay()
+            → SensorManager.unregisterListenerImpl()
+            → <android.hardware.scontext.SContextAttribute: void <init>()>
+            → SContextEnvironmentAdaptiveDisplayAttribute.setAttribute()
+            → SContextManager.addListenerAttribute()
+            → SContextManager.registerListener()
+            → SContext.getServiceName()
+            → SContextManager.getListenerDelegate()
+            → SContextManager.checkListenerAndService()
+            → SemContextManager.unregisterListener()
+              → ContainerHelpers.binarySearch()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+              → ArrayUtils.newUnpaddedObjectArray()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → ICoverManagerCallback$Stub.attachInterface()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.cover.ICoverManager$Stub$Proxy: void <i
+              → <com.samsung.android.hardware.context.SemContextAttribute: v
+              → SContextAttribute.setAttribute()
+              → Bundle.getFloat()
+              → Bundle.getInt()
+              → <android.os.Bundle: void <init>()>
+              → Bundle.putFloat()
+              → Bundle.putInt()
+              → <android.hardware.scontext.SContextActivityCalibrationAttrib
+              → <android.hardware.scontext.SContextActivityLocationLoggingAt
+              → <android.hardware.scontext.SContextActivityNotificationAttri
+              → <android.hardware.scontext.SContextActivityNotificationExAtt
+              → <android.hardware.scontext.SContextApproachAttribute: void <
+              → <android.hardware.scontext.SContextAutoBrightnessAttribute: 
+              → <android.hardware.scontext.SContextAutoRotationAttribute: vo
+              → <android.hardware.scontext.SContextDevicePhysicalContextMoni
+              → <android.hardware.scontext.SContextEnvironmentAttribute: voi
+              → <android.hardware.scontext.SContextExerciseAttribute: void <
+              → <android.hardware.scontext.SContextFlatMotionForTableModeAtt
+              → <android.hardware.scontext.SContextInactiveTimerAttribute: v
+              → <android.hardware.scontext.SContextMovementForPositioningAtt
+              → <android.hardware.scontext.SContextPedometerAttribute: void 
+              → <android.hardware.scontext.SContextSLocationCoreAttribute: v
+              → <android.hardware.scontext.SContextShakeMotionAttribute: voi
+              → <android.hardware.scontext.SContextSleepMonitorAttribute: vo
+              → <android.hardware.scontext.SContextSpecificPoseAlertAttribut
+              → <android.hardware.scontext.SContextStepCountAlertAttribute: 
+              → <android.hardware.scontext.SContextStepLevelMonitorAttribute
+              → <android.hardware.scontext.SContextTemperatureAlertAttribute
+              → SContextAttribute.checkAttribute()
+              → <android.hardware.scontext.SContextManager$SContextListenerD
+              → SContextManager.setReferenceData()
+              → SemContextManager.registerListener()
+              → SemContextManager.setClientInfo()
+              → SContextManager$SContextListenerDelegate.getListener()
+              → CopyOnWriteArrayList.isEmpty()
+              → ISemContextService.unregisterCallback()
+              → SemContext.getServiceName()
+              → SemContextManager$ListenerDelegate.clear()
+              → SemContextManager.checkListenerAndService()
+              → SemContextManager.getListenerDelegate()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils
+  Method:   <com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils: void skipSetupWizard()>
+  Line:     2250
+  Register: v5 := "com.sec.android.app.SecSetupWizard"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.pm.maintenancemode.MaintenanceMo
+        ← <com.samsung.android.server.pm.maintenancemode.MaintenanceMo
+          ← MaintenanceModeServiceUtils$$ExternalSyntheticLambda2.run()
+
+  CALLEES (what this method invokes):
+      → ActivityThread.getPackageManager()
+      → Context.getContentResolver()
+      → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+      → Settings$Secure.putIntForUser()
+      → Settings$System.putLongForUser()
+      → Exception.toString()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+  Line:     686
+  Register: v2 := "com.sec.android.app.SecSetupWizard"
+  Usage:    [array_init] filled-new-array {v1, v2, v3, v4}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Process.myPid()
+      → ArrayMap.size()
+      → ArrayMap.get()
+      → ArrayMap.keyAt()
+      → ArrayMap.put()
+      → ArrayMap.valueAt()
+      → <android.util.ArrayMap: void <init>()>
+      → <com.android.server.enterprise.application.ApplicationPolicy
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Collections.unmodifiableList()
+      → <java.util.HashMap: void <init>()>
+        → ArrayMap.indexOfKey()
+        → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+        → ArrayMap.indexOf()
+        → ArrayMap.indexOfNull()
+        → ArrayMap.allocArrays()
+        → ArrayMap.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.binarySearchHashes()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ContainerHelpers.binarySearch()
+

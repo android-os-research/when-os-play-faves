@@ -1,0 +1,15 @@
+# gsm.operator.isroaming [NEW]
+# Refs: 11
+# JARs: framework, imsmanager, services, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.List operator_is_roaming()>
+<android.internal.telephony.sysprop.TelephonyProperties: void operator_is_roaming(java.util.List)>
+<android.sysprop.TelephonyProperties: java.util.List operator_is_roaming()>
+<android.sysprop.TelephonyProperties: void operator_is_roaming(java.util.List)>
+<com.android.internal.telephony.SmsDispatchersController: boolean isCdmaMo()>
+<com.android.internal.telephony.SmsHQMAgent: void sendSDACInfoToHQM(java.lang.String,java.lang.String,com.android.internal.telephony.SemDMACdata)>
+<com.android.internal.telephony.SmsHQMAgent: void sendSMOTInfoToHQM(java.lang.String,java.lang.String,int)>
+<com.android.internal.telephony.dataconnection.DcTracker: boolean hasMatchedTetherApnSettingBlockList(java.util.ArrayList)>
+<com.android.server.content.ContentService: void semSetMasterSyncAutomaticallyAsUser(boolean,int,java.lang.String)>
+<com.android.server.enterprise.restriction.RoamingPolicy: void blockSyncIfRoaming()>
+<com.sec.ims.extensions.TelephonyManagerExt: boolean isRoaming()>

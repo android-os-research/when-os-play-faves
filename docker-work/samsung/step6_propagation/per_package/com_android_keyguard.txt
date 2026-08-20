@@ -1,0 +1,82 @@
+######################################################################
+# Propagation: com.android.keyguard
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.appwidget.AppWidgetServiceImpl
+  Method:   <com.android.server.appwidget.AppWidgetServiceImpl: void performUpgradeLocked(int)>
+  Line:     14024
+  Register: v3 := "com.android.keyguard"
+  Usage:    [invoke] invoke-virtual {p0, v3, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->getUidForPackage(L
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.appwidget.AppWidgetServiceImpl.getUidForP → [invoke] com.android.server.appwidget.AppWidgetS
+
+  CALLERS (who invokes this method):
+      ← AppWidgetServiceImpl.loadGroupStateLocked()
+        ← AppWidgetServiceImpl.ensureGroupStateLoadedLocked()
+          ← <com.android.server.appwidget.AppWidgetServiceImpl: void -$$
+          ← AppWidgetServiceImpl.ensureGroupStateLoadedLocked()
+          ← AppWidgetServiceImpl.onPackageBroadcastReceived()
+          ← AppWidgetServiceImpl.stopListening()
+            ← AppWidgetServiceImpl$SaveStateRunnable.run()
+            ← AppWidgetServiceImpl.getAppWidgetInfo()
+            ← AppWidgetServiceImpl.createAppWidgetConfigIntentSender()
+            ← AppWidgetServiceImpl.semCreateAppWidgetConfigIntentSender()
+            ← AppWidgetServiceImpl.getInstalledProvidersForProfile()
+            ← AppWidgetServiceImpl.startListening()
+            ← AppWidgetServiceImpl.getAppWidgetOptions()
+            ← AppWidgetServiceImpl.getAppWidgetViews()
+            ← AppWidgetServiceImpl.bindAppWidgetId()
+            ← AppWidgetServiceImpl.bindRemoteViewsService()
+            ← AppWidgetServiceImpl.hasBindAppWidgetPermission()
+            ← AppWidgetServiceImpl.requestPinAppWidget()
+            ← AppWidgetServiceImpl.allocateAppWidgetId()
+            ← AppWidgetServiceImpl.getAppWidgetIds()
+            ← AppWidgetServiceImpl.getAppWidgetIdsForHost()
+            ← AppWidgetServiceImpl.getAllProvidersForProfile()
+            ← <com.android.server.appwidget.AppWidgetServiceImpl: void -$$
+            ← AppWidgetServiceImpl.changeHostIds()
+            ← AppWidgetServiceImpl.deleteAllHosts()
+            ← AppWidgetServiceImpl.deleteAppWidgetId()
+            ← AppWidgetServiceImpl.deleteHost()
+            ← AppWidgetServiceImpl.handleUserUnlocked()
+            ← AppWidgetServiceImpl.notifyAppWidgetViewDataChanged()
+            ← AppWidgetServiceImpl.onConfigurationChanged()
+            ← AppWidgetServiceImpl.onEmergencyModeDisabled()
+            ← AppWidgetServiceImpl.setBindAppWidgetPermission()
+            ← AppWidgetServiceImpl.updateAppWidgetIds()
+            ← AppWidgetServiceImpl.updateAppWidgetOptions()
+            ← AppWidgetServiceImpl.updateAppWidgetProvider()
+            ← AppWidgetServiceImpl.updateAppWidgetProviderInfo()
+            ← <com.android.server.appwidget.AppWidgetServiceImpl: void -$$
+              ← AppWidgetServiceImpl$SecurityPolicy.isCallerBindAppWidgetWhiteListedLocked()
+              ← AppWidgetServiceImpl$AppWidgetManagerLocal.unlockUser()
+              ← <com.android.server.appwidget.AppWidgetServiceImpl: void -$$
+              ← <com.android.server.appwidget.AppWidgetServiceImpl: void -$$
+              ← AppWidgetServiceImpl.partiallyUpdateAppWidgetIds()
+              ← AppWidgetServiceImpl.updateAppWidgetIds()
+              ← AppWidgetServiceImpl$1.onReceive()
+
+  CALLEES (what this method invokes):
+      → Process.myUid()
+      → <com.android.server.appwidget.AppWidgetServiceImpl$HostId: v
+      → AppWidgetServiceImpl.lookupHostLocked()
+      → AppWidgetServiceImpl.getUidForPackage()
+      → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → AppWidgetServiceImpl$HostId.equals()
+        → ArrayList.size()
+        → ArrayList.get()
+        → IPackageManager.getPackageInfo() [PKG_QUERY]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+

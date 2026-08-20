@@ -1,0 +1,11 @@
+# android.companion.ICompanionDeviceService [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.companion.ICompanionDeviceService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.companion.ICompanionDeviceService$Stub$Proxy: void onDeviceAppeared(android.companion.AssociationInfo)>
+<android.companion.ICompanionDeviceService$Stub$Proxy: void onDeviceDisappeared(android.companion.AssociationInfo)>
+<android.companion.ICompanionDeviceService$Stub$Proxy: void onDispatchMessage(int,int,byte[])>
+<android.companion.ICompanionDeviceService$Stub: android.companion.ICompanionDeviceService asInterface(android.os.IBinder)>
+<android.companion.ICompanionDeviceService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.companion.ICompanionDeviceService$Stub: void <init>()>

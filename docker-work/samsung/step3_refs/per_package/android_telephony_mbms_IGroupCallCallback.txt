@@ -1,0 +1,11 @@
+# android.telephony.mbms.IGroupCallCallback [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.telephony.mbms.IGroupCallCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.mbms.IGroupCallCallback$Stub$Proxy: void onBroadcastSignalStrengthUpdated(int)>
+<android.telephony.mbms.IGroupCallCallback$Stub$Proxy: void onError(int,java.lang.String)>
+<android.telephony.mbms.IGroupCallCallback$Stub$Proxy: void onGroupCallStateChanged(int,int)>
+<android.telephony.mbms.IGroupCallCallback$Stub: android.telephony.mbms.IGroupCallCallback asInterface(android.os.IBinder)>
+<android.telephony.mbms.IGroupCallCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.mbms.IGroupCallCallback$Stub: void <init>()>

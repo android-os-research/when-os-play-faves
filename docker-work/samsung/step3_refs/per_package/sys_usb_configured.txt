@@ -1,0 +1,6 @@
+# sys.usb.configured [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.usb.UsbDeviceManager$UsbHandler: void updateState(java.lang.String)>
+<com.android.server.usb.UsbDeviceManager$UsbHandlerLegacy: void <init>(android.os.Looper,android.content.Context,com.android.server.usb.UsbDeviceManager,com.android.server.usb.UsbAlsaManager,com.android.server.usb.UsbPermissionManager)>

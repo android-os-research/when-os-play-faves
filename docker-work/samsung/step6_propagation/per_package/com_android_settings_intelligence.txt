@@ -1,0 +1,108 @@
+######################################################################
+# Propagation: com.android.settings.intelligence
+######################################################################
+
+JARs:                 knoxsdk, semwifi-service, services
+Classes:              4
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$1
+  Method:   <com.samsung.android.knox.EdmConstants$1: void <init>()>
+  Line:     49
+  Register: v0 := "com.android.settings.intelligence"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.SemWifiApUtils$2
+  Method:   <com.samsung.android.server.wifi.ap.SemWifiApUtils$2: void run()>
+  Line:     65
+  Register: v1 := "com.android.settings.intelligence"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → SemWifiApUtils.getOneUiVersion()
+        → SemSystemProperties.get()
+          → SystemProperties.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: void lambda$closeSettingsApp$139()>
+  Line:     4211
+  Register: v2 := "com.android.settings.intelligence"
+  Usage:    [invoke] invoke-virtual {v1, v2, v0}, Landroid/app/ActivityManager;->forceStopPackageByAdmin(Ljava/lang/Strin
+  Patterns: early_return
+  Flow:     [invoke] android.app.ActivityManager.forceStopPackageByAdmin() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.custom.KnoxCustomManagerService: v
+        ← KnoxCustomManagerService$$ExternalSyntheticLambda46.runOrThrow()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.forceStopPackageByAdmin()
+      → Context.getSystemService()
+      → Context.sendBroadcastAsUser()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UserHandle.getCallingUserId()
+      → <android.os.UserHandle: void <init>(int)>
+      → Exception.printStackTrace()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.appconfig.ApplicationRestrictionsService
+  Method:   <com.android.server.enterprise.appconfig.ApplicationRestrictionsService: void sendBroadcastAsUserInternal(java.lang.String,int)>
+  Line:     1305
+  Register: v3 := "com.android.settings.intelligence"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.util.ArrayList.add() → [other] iget-object v2, p0, Lcom/android/server/enterprise/appconfig → [invoke] and
+
+  CALLERS (who invokes this method):
+      ← ApplicationRestrictionsService$1.onReceive()
+      ← ApplicationRestrictionsService.setApplicationRestrictionsInternal()
+        ← ApplicationRestrictionsService.setKeyedAppStatesReport()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.clearApplicationUserData()
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UserHandle.of()
+      → ArrayList.add()
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Map.get()
+      → Map.keySet()
+      → Set.iterator()
+

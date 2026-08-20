@@ -1,0 +1,8 @@
+# com.samsung.feature.device_category_tablet [NEW]
+# Refs: 4
+# JARs: framework, motionrecognitionservice, services
+
+<android.app.WallpaperManager$Globals: android.graphics.Bitmap checkDeviceDensity(android.content.Context,android.graphics.Bitmap,int)>
+<android.service.wallpaper.WallpaperService$Engine: boolean isSupportInconsistency()>
+<com.android.server.inputmethod.InputMethodManagerService: com.android.internal.inputmethod.InputBindResult startInputOrWindowGainedFocusInternalLocked(int,com.android.internal.view.IInputMethodClient,android.os.IBinder,int,int,int,android.view.inputmethod.EditorInfo,com.android.internal.view.IInputContext,com.android.internal.inputmethod.IRemoteAccessibilityInputConnection,int,int,android.window.ImeOnBackInvokedDispatcher)>
+<com.samsung.android.gesture.MotionRecognitionSAR: boolean isKoreaPhoneType()>

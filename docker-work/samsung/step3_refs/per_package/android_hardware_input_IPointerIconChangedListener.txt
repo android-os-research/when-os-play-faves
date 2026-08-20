@@ -1,0 +1,9 @@
+# android.hardware.input.IPointerIconChangedListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.input.IPointerIconChangedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.input.IPointerIconChangedListener$Stub$Proxy: void onPointerIconChanged(int,android.view.PointerIcon)>
+<android.hardware.input.IPointerIconChangedListener$Stub: android.hardware.input.IPointerIconChangedListener asInterface(android.os.IBinder)>
+<android.hardware.input.IPointerIconChangedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.input.IPointerIconChangedListener$Stub: void <init>()>

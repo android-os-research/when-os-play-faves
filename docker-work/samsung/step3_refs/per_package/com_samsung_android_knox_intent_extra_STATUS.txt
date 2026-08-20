@@ -1,0 +1,6 @@
+# com.samsung.android.knox.intent.extra.STATUS [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.email.AccountsReceiver$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.enterprise.email.AccountsReceiver: void sendClientAuthResultIntent(long,int,int)>

@@ -1,0 +1,5 @@
+# persist.sys.disallow_maintenance_mode_last_caller [NEW]
+# Refs: 1
+# JARs: framework
+
+<com.android.internal.app.MaintenanceModeUtils: void setDisallowedSetting(boolean)>

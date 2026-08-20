@@ -1,0 +1,34 @@
+######################################################################
+# Propagation: com.samsung.android.app.watchmanager2
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: (none)
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: java.lang.String[] getConcentrationModeSuspendPackages(java.util.List,java.util.List,java.lang.String)>
+  Line:     16810
+  Register: v7 := "com.samsung.android.app.watchmanager2"
+  Usage:    [] 
+  Patterns: (none)
+
+  CALLERS (who invokes this method):
+      ← ApplicationPolicy.setConcentrationMode()
+
+  CALLEES (what this method invokes):
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.remove()
+      → List.toArray()
+      → List.iterator()
+

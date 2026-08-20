@@ -1,0 +1,13 @@
+# android.content.integrity.IAppIntegrityManager [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.content.integrity.IAppIntegrityManager$Stub$Proxy: android.content.pm.ParceledListSlice getCurrentRules()>
+<android.content.integrity.IAppIntegrityManager$Stub$Proxy: java.lang.String getCurrentRuleSetProvider()>
+<android.content.integrity.IAppIntegrityManager$Stub$Proxy: java.lang.String getCurrentRuleSetVersion()>
+<android.content.integrity.IAppIntegrityManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.integrity.IAppIntegrityManager$Stub$Proxy: java.util.List getWhitelistedRuleProviders()>
+<android.content.integrity.IAppIntegrityManager$Stub$Proxy: void updateRuleSet(java.lang.String,android.content.pm.ParceledListSlice,android.content.IntentSender)>
+<android.content.integrity.IAppIntegrityManager$Stub: android.content.integrity.IAppIntegrityManager asInterface(android.os.IBinder)>
+<android.content.integrity.IAppIntegrityManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.integrity.IAppIntegrityManager$Stub: void <init>()>

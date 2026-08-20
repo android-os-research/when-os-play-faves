@@ -1,0 +1,7 @@
+# persist.sys.gps.dds.subId [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.location.LocationManagerService: void <init>(android.content.Context,com.android.server.location.injector.Injector)>
+<com.android.server.location.gnss.GnssConfiguration: int getEsExtensionSecCarrier()>
+<com.android.server.location.gnss.GnssLocationProvider$3: void onReceive(android.content.Context,android.content.Intent)>

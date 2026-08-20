@@ -1,0 +1,7 @@
+# persist.security.ucmcrypto [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.connectivity.Vpn: boolean isUcmEnabled()>
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: void <init>(android.content.Context)>
+<com.android.server.enterprise.ucm.UniversalCredentialManagerService: void updateUcmCryptoProp()>

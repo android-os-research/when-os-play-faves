@@ -1,0 +1,16 @@
+# android.os.epic.IEpicObject [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.os.epic.IEpicObject$Stub$Proxy: boolean acquire_lock()>
+<android.os.epic.IEpicObject$Stub$Proxy: boolean acquire_lock_conditional(java.lang.String)>
+<android.os.epic.IEpicObject$Stub$Proxy: boolean acquire_lock_option(int,int)>
+<android.os.epic.IEpicObject$Stub$Proxy: boolean acquire_lock_option_multi(int[],int[])>
+<android.os.epic.IEpicObject$Stub$Proxy: boolean hint_release(java.lang.String)>
+<android.os.epic.IEpicObject$Stub$Proxy: boolean perf_hint(java.lang.String)>
+<android.os.epic.IEpicObject$Stub$Proxy: boolean release_lock()>
+<android.os.epic.IEpicObject$Stub$Proxy: boolean release_lock_conditional(java.lang.String)>
+<android.os.epic.IEpicObject$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.epic.IEpicObject$Stub: android.os.epic.IEpicObject asInterface(android.os.IBinder)>
+<android.os.epic.IEpicObject$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.epic.IEpicObject$Stub: void <init>()>

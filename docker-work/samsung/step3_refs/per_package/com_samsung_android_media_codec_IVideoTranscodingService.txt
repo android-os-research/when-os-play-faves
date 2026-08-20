@@ -1,0 +1,11 @@
+# com.samsung.android.media.codec.IVideoTranscodingService [NEW]
+# Refs: 7
+# JARs: framework
+
+<com.samsung.android.media.codec.IVideoTranscodingService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.media.codec.IVideoTranscodingService$Stub$Proxy: java.lang.String register(int,com.samsung.android.media.codec.IVideoTranscodingServiceCallback)>
+<com.samsung.android.media.codec.IVideoTranscodingService$Stub$Proxy: void startTask(java.lang.String)>
+<com.samsung.android.media.codec.IVideoTranscodingService$Stub$Proxy: void stopTask(java.lang.String)>
+<com.samsung.android.media.codec.IVideoTranscodingService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.media.codec.IVideoTranscodingService$Stub: com.samsung.android.media.codec.IVideoTranscodingService asInterface(android.os.IBinder)>
+<com.samsung.android.media.codec.IVideoTranscodingService$Stub: void <init>()>

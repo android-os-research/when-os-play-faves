@@ -1,0 +1,168 @@
+.class Lcom/android/server/pm/ApkChecksums$Injector;
+.super Ljava/lang/Object;
+.source "ApkChecksums.java"
+
+
+# annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PRIVATE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/pm/ApkChecksums;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "Injector"
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+    }
+.end annotation
+
+
+# instance fields
+.field public final mContext:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/pm/ApkChecksums$Injector$Producer<",
+            "Landroid/content/Context;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final mHandlerProducer:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/pm/ApkChecksums$Injector$Producer<",
+            "Landroid/os/Handler;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final mIncrementalManagerProducer:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/pm/ApkChecksums$Injector$Producer<",
+            "Landroid/os/incremental/IncrementalManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final mPackageManagerInternalProducer:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/pm/ApkChecksums$Injector$Producer<",
+            "Landroid/content/pm/PackageManagerInternal;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/pm/ApkChecksums$Injector$Producer;Lcom/android/server/pm/ApkChecksums$Injector$Producer;Lcom/android/server/pm/ApkChecksums$Injector$Producer;Lcom/android/server/pm/ApkChecksums$Injector$Producer;)V
+    .registers 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/server/pm/ApkChecksums$Injector$Producer<",
+            "Landroid/content/Context;",
+            ">;",
+            "Lcom/android/server/pm/ApkChecksums$Injector$Producer<",
+            "Landroid/os/Handler;",
+            ">;",
+            "Lcom/android/server/pm/ApkChecksums$Injector$Producer<",
+            "Landroid/os/incremental/IncrementalManager;",
+            ">;",
+            "Lcom/android/server/pm/ApkChecksums$Injector$Producer<",
+            "Landroid/content/pm/PackageManagerInternal;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 147
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 148
+    iput-object p1, p0, Lcom/android/server/pm/ApkChecksums$Injector;->mContext:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+
+    .line 149
+    iput-object p2, p0, Lcom/android/server/pm/ApkChecksums$Injector;->mHandlerProducer:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+
+    .line 150
+    iput-object p3, p0, Lcom/android/server/pm/ApkChecksums$Injector;->mIncrementalManagerProducer:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+
+    .line 151
+    iput-object p4, p0, Lcom/android/server/pm/ApkChecksums$Injector;->mPackageManagerInternalProducer:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getContext()Landroid/content/Context;
+    .registers 1
+
+    .line 155
+    iget-object p0, p0, Lcom/android/server/pm/ApkChecksums$Injector;->mContext:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+
+    invoke-interface {p0}, Lcom/android/server/pm/ApkChecksums$Injector$Producer;->produce()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method public getHandler()Landroid/os/Handler;
+    .registers 1
+
+    .line 159
+    iget-object p0, p0, Lcom/android/server/pm/ApkChecksums$Injector;->mHandlerProducer:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+
+    invoke-interface {p0}, Lcom/android/server/pm/ApkChecksums$Injector$Producer;->produce()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method public getIncrementalManager()Landroid/os/incremental/IncrementalManager;
+    .registers 1
+
+    .line 163
+    iget-object p0, p0, Lcom/android/server/pm/ApkChecksums$Injector;->mIncrementalManagerProducer:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+
+    invoke-interface {p0}, Lcom/android/server/pm/ApkChecksums$Injector$Producer;->produce()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/os/incremental/IncrementalManager;
+
+    return-object p0
+.end method
+
+.method public getPackageManagerInternal()Landroid/content/pm/PackageManagerInternal;
+    .registers 1
+
+    .line 167
+    iget-object p0, p0, Lcom/android/server/pm/ApkChecksums$Injector;->mPackageManagerInternalProducer:Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+
+    invoke-interface {p0}, Lcom/android/server/pm/ApkChecksums$Injector$Producer;->produce()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/content/pm/PackageManagerInternal;
+
+    return-object p0
+.end method

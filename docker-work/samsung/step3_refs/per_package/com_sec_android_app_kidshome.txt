@@ -1,0 +1,12 @@
+# com.sec.android.app.kidshome [NEW]
+# Refs: 8
+# JARs: framework, services
+
+<com.android.server.appprelauncher.AppPrelaunchService: boolean isKidsHome()>
+<com.android.server.desktopmode.DefaultBlocker: boolean isKidsLauncherMode()>
+<com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter: boolean isKidsModeRunning()>
+<com.android.server.pm.PackageManagerService: boolean isKidsHome()>
+<com.android.server.wm.MultiWindowEnableController: boolean isKidsHomeMode()>
+<com.samsung.android.globalactions.util.PackageManagerWrapper: boolean isKidsHomeMode()>
+<com.samsung.android.globalactions.util.PackageManagerWrapper: void <init>(android.content.Context)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>

@@ -1,0 +1,7 @@
+# vendor.wifiap.autohotspot.btadapterenable.smartgattclient [NEW]
+# Refs: 3
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartGattClient: boolean connectToSmartMHS(java.lang.String,int,int,int,java.lang.String,java.lang.String,int,boolean)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartGattClient: void handleBootCompleted()>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartGattClient: void shutdownclient()>

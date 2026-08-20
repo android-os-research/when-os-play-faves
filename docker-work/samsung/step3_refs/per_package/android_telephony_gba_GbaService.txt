@@ -1,0 +1,6 @@
+# android.telephony.gba.GbaService [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.telephony.gba.GbaService: android.os.IBinder onBind(android.content.Intent)>
+<com.android.internal.telephony.GbaManager: void bindService()>

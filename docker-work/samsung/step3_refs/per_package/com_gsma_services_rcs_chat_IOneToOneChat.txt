@@ -1,0 +1,16 @@
+# com.gsma.services.rcs.chat.IOneToOneChat [NEW]
+# Refs: 12
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub$Proxy: boolean isAllowedToSendMessage()>
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub$Proxy: com.gsma.services.rcs.chat.IChatMessage sendGeoloc(com.gsma.services.rcs.Geoloc)>
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub$Proxy: com.gsma.services.rcs.chat.IChatMessage sendMessage(java.lang.String)>
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub$Proxy: com.gsma.services.rcs.contact.ContactId getRemoteContact()>
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub$Proxy: void openChat()>
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub$Proxy: void resendMessage(java.lang.String)>
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub$Proxy: void sendIsComposingEvent(boolean)>
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub$Proxy: void setComposingStatus(boolean)>
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub: com.gsma.services.rcs.chat.IOneToOneChat asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.chat.IOneToOneChat$Stub: void <init>()>

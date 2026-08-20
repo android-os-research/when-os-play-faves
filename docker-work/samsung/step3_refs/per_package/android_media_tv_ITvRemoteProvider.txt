@@ -1,0 +1,10 @@
+# android.media.tv.ITvRemoteProvider [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.tv.ITvRemoteProvider$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.tv.ITvRemoteProvider$Stub$Proxy: void onInputBridgeConnected(android.os.IBinder)>
+<android.media.tv.ITvRemoteProvider$Stub$Proxy: void setRemoteServiceInputSink(android.media.tv.ITvRemoteServiceInput)>
+<android.media.tv.ITvRemoteProvider$Stub: android.media.tv.ITvRemoteProvider asInterface(android.os.IBinder)>
+<android.media.tv.ITvRemoteProvider$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.tv.ITvRemoteProvider$Stub: void <init>()>

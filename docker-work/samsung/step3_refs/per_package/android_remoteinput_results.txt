@@ -1,0 +1,8 @@
+# android.remoteinput.results [NEW]
+# Refs: 4
+# JARs: framework
+
+<android.app.RemoteInput: android.content.Intent getClipDataIntentFromIntent(android.content.Intent)>
+<android.app.RemoteInput: void addDataResultToIntent(android.app.RemoteInput,android.content.Intent,java.util.Map)>
+<android.app.RemoteInput: void addResultsToIntent(android.app.RemoteInput[],android.content.Intent,android.os.Bundle)>
+<android.app.RemoteInput: void setResultsSource(android.content.Intent,int)>

@@ -1,0 +1,9 @@
+# android.os.IVoldMountCallback [NEW]
+# Refs: 10
+# JARs: framework, services
+
+<android.os.IVoldMountCallback$Stub$Proxy: boolean onVolumeChecking(java.io.FileDescriptor,java.lang.String,java.lang.String)>
+<android.os.IVoldMountCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IVoldMountCallback$Stub: android.os.IVoldMountCallback asInterface(android.os.IBinder)>
+<android.os.IVoldMountCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IVoldMountCallback$Stub: void <init>()>

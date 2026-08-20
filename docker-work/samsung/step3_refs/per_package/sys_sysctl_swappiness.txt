@@ -1,0 +1,6 @@
+# sys.sysctl.swappiness [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.am.KillPolicyManager$SwappinessController: void setValue(int)>
+<com.android.server.bgslotmanager.BgAppPropManager: void updateTuningParameter(java.lang.String,java.lang.String)>

@@ -1,0 +1,22 @@
+# android.location.INSLocationCallback [NEW]
+# Refs: 18
+# JARs: framework
+
+<android.location.INSLocationCallback$Stub$Proxy: android.os.Bundle getActiveRequests(java.lang.String)>
+<android.location.INSLocationCallback$Stub$Proxy: android.os.Bundle getKernelWakeLockInfo(java.lang.String)>
+<android.location.INSLocationCallback$Stub$Proxy: android.os.Bundle getUidState(int,int)>
+<android.location.INSLocationCallback$Stub$Proxy: boolean isLocationEnabled(int)>
+<android.location.INSLocationCallback$Stub$Proxy: boolean isProviderEnabled(java.lang.String,int)>
+<android.location.INSLocationCallback$Stub$Proxy: boolean setFeatureDeviceActivity(boolean)>
+<android.location.INSLocationCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.INSLocationCallback$Stub$Proxy: void noteGpsOp(int,int)>
+<android.location.INSLocationCallback$Stub$Proxy: void registerDeviceActivityDetector(int,int,boolean)>
+<android.location.INSLocationCallback$Stub$Proxy: void requestToUpdateDeviceActivityDetector()>
+<android.location.INSLocationCallback$Stub$Proxy: void sendLogToHqm(java.lang.String,java.lang.String,java.lang.String)>
+<android.location.INSLocationCallback$Stub$Proxy: void setMotionPowerSaveMode(boolean)>
+<android.location.INSLocationCallback$Stub$Proxy: void unregisterDeviceActivityDetector()>
+<android.location.INSLocationCallback$Stub$Proxy: void updateBackgroundThrottlingAllowlist(java.util.List)>
+<android.location.INSLocationCallback$Stub$Proxy: void writeUtLog(int,java.lang.String,java.lang.String)>
+<android.location.INSLocationCallback$Stub: android.location.INSLocationCallback asInterface(android.os.IBinder)>
+<android.location.INSLocationCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.INSLocationCallback$Stub: void <init>()>

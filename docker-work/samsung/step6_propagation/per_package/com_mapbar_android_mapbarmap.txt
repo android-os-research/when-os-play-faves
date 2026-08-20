@@ -1,0 +1,35 @@
+######################################################################
+# Propagation: com.mapbar.android.mapbarmap
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.filter.filter.RunningLocationFilter
+  Method:   <com.android.server.am.mars.filter.filter.RunningLocationFilter: int filter(java.lang.String,int,int,int)>
+  Line:     151
+  Register: p0 := "com.mapbar.android.mapbarmap"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-eqz p0, :cond_69 → [reassigned] p0 overwritten
+
+  CALLEES (what this method invokes):
+      → FreecessController.isInGPSAllowList()
+      → FreecessController.getInstance()
+      → MARsPolicyManager.isChinaPolicyEnabled()
+      → MARsPolicyManager.isForegroundServicePkg()
+      → MARsPolicyManager.getInstance()
+        → List.contains()
+        → <com.android.server.am.FreecessController$FreecessController
+        → MARsPolicyManager.getForegroundServiceStartTime()
+        → <com.android.server.am.MARsPolicyManager$MARsPolicyManagerHo
+          → HashMap.getOrDefault()
+

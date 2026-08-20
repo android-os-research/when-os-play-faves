@@ -1,0 +1,9 @@
+# android.gsi.IProgressCallback [NEW]
+# Refs: 10
+# JARs: framework, services
+
+<android.gsi.IProgressCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.gsi.IProgressCallback$Stub$Proxy: void onProgress(long,long)>
+<android.gsi.IProgressCallback$Stub: android.gsi.IProgressCallback asInterface(android.os.IBinder)>
+<android.gsi.IProgressCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.gsi.IProgressCallback$Stub: void <init>()>

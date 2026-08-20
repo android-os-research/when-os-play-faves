@@ -1,0 +1,9 @@
+# android.view.ISystemGestureExclusionListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.ISystemGestureExclusionListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.ISystemGestureExclusionListener$Stub$Proxy: void onSystemGestureExclusionChanged(int,android.graphics.Region,android.graphics.Region)>
+<android.view.ISystemGestureExclusionListener$Stub: android.view.ISystemGestureExclusionListener asInterface(android.os.IBinder)>
+<android.view.ISystemGestureExclusionListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.ISystemGestureExclusionListener$Stub: void <init>()>

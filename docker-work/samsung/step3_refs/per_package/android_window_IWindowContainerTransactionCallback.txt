@@ -1,0 +1,9 @@
+# android.window.IWindowContainerTransactionCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.window.IWindowContainerTransactionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.IWindowContainerTransactionCallback$Stub$Proxy: void onTransactionReady(int,android.view.SurfaceControl$Transaction)>
+<android.window.IWindowContainerTransactionCallback$Stub: android.window.IWindowContainerTransactionCallback asInterface(android.os.IBinder)>
+<android.window.IWindowContainerTransactionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.IWindowContainerTransactionCallback$Stub: void <init>()>

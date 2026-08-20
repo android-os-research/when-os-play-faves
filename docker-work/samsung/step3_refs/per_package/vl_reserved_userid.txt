@@ -1,0 +1,6 @@
+# vl.reserved.userid [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.knox.dar.VirtualLockImpl: int getReservedUserIdForSystem()>
+<com.android.server.knox.dar.VirtualLockImpl: int reserveUserIdForSystem()>

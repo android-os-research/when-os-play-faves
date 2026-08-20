@@ -1,0 +1,11 @@
+# android.view.IPinnedTaskListener [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.view.IPinnedTaskListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IPinnedTaskListener$Stub$Proxy: void onActivityHidden(android.content.ComponentName)>
+<android.view.IPinnedTaskListener$Stub$Proxy: void onImeVisibilityChanged(boolean,int)>
+<android.view.IPinnedTaskListener$Stub$Proxy: void onMovementBoundsChanged(boolean)>
+<android.view.IPinnedTaskListener$Stub: android.view.IPinnedTaskListener asInterface(android.os.IBinder)>
+<android.view.IPinnedTaskListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IPinnedTaskListener$Stub: void <init>()>

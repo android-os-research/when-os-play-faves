@@ -1,0 +1,17 @@
+# com.samsung.android.app.ISemExecuteManager [NEW]
+# Refs: 13
+# JARs: framework
+
+<com.samsung.android.app.ISemExecuteManager$Stub$Proxy: android.content.pm.ApplicationInfo getApplicationInfo(java.lang.String,java.lang.String,int,android.os.UserHandle)>
+<com.samsung.android.app.ISemExecuteManager$Stub$Proxy: android.content.pm.ParceledListSlice getShortcuts(java.lang.String,java.lang.String,long,java.lang.String,java.util.List,android.content.ComponentName,int,android.os.UserHandle)>
+<com.samsung.android.app.ISemExecuteManager$Stub$Proxy: android.os.ParcelFileDescriptor getShortcutIconFd(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int)>
+<com.samsung.android.app.ISemExecuteManager$Stub$Proxy: boolean hasShortcutHostPermission(java.lang.String)>
+<com.samsung.android.app.ISemExecuteManager$Stub$Proxy: boolean startShortcut(java.lang.String,java.lang.String,java.lang.String,java.lang.String,android.graphics.Rect,android.os.Bundle,int)>
+<com.samsung.android.app.ISemExecuteManager$Stub$Proxy: com.samsung.android.app.SemExecutableInfo getExecutableInfo(java.lang.String)>
+<com.samsung.android.app.ISemExecuteManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.app.ISemExecuteManager$Stub$Proxy: java.util.List getExecutableInfos()>
+<com.samsung.android.app.ISemExecuteManager$Stub$Proxy: void registerChangedCallback(java.lang.String,android.app.PendingIntent,android.os.UserHandle)>
+<com.samsung.android.app.ISemExecuteManager$Stub$Proxy: void unRegisterChangedCallback(java.lang.String,android.app.PendingIntent,android.os.UserHandle)>
+<com.samsung.android.app.ISemExecuteManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.app.ISemExecuteManager$Stub: com.samsung.android.app.ISemExecuteManager asInterface(android.os.IBinder)>
+<com.samsung.android.app.ISemExecuteManager$Stub: void <init>()>

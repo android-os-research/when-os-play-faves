@@ -1,0 +1,13 @@
+# android.hardware.lights.ILightsManager [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.hardware.lights.ILightsManager$Stub$Proxy: android.hardware.lights.LightState getLightState(int)>
+<android.hardware.lights.ILightsManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.lights.ILightsManager$Stub$Proxy: java.util.List getLights()>
+<android.hardware.lights.ILightsManager$Stub$Proxy: void closeSession(android.os.IBinder)>
+<android.hardware.lights.ILightsManager$Stub$Proxy: void openSession(android.os.IBinder,int)>
+<android.hardware.lights.ILightsManager$Stub$Proxy: void setLightStates(android.os.IBinder,int[],android.hardware.lights.LightState[])>
+<android.hardware.lights.ILightsManager$Stub: android.hardware.lights.ILightsManager asInterface(android.os.IBinder)>
+<android.hardware.lights.ILightsManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.lights.ILightsManager$Stub: void <init>()>

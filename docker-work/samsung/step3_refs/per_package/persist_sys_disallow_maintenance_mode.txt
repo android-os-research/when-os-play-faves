@@ -1,0 +1,6 @@
+# persist.sys.disallow_maintenance_mode [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<com.android.internal.app.MaintenanceModeUtils: void setDisallowedSetting(boolean)>
+<com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils: boolean isDisallowedByPolicy(android.content.Context,java.lang.String)>

@@ -1,0 +1,7 @@
+# com.samsung.android.networkdiagnostic [NEW]
+# Refs: 3
+# JARs: services, telephony-common
+
+<com.android.internal.telephony.SemBigDataInfoController: boolean checkVersionOfNetworkDiagnostic(android.content.Context)>
+<com.android.internal.telephony.SemBigDataInfoController: void insertLogToNedi(java.lang.String,java.lang.String)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantPermissionsToSysComponentsAndPrivApps(com.android.server.pm.permission.DefaultPermissionGrantPolicy$DelayingPackageManagerCache,int)>

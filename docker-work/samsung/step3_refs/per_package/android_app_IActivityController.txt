@@ -1,0 +1,14 @@
+# android.app.IActivityController [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.app.IActivityController$Stub$Proxy: boolean activityResuming(java.lang.String)>
+<android.app.IActivityController$Stub$Proxy: boolean activityStarting(android.content.Intent,java.lang.String)>
+<android.app.IActivityController$Stub$Proxy: boolean appCrashed(java.lang.String,int,java.lang.String,java.lang.String,long,java.lang.String)>
+<android.app.IActivityController$Stub$Proxy: int appEarlyNotResponding(java.lang.String,int,java.lang.String)>
+<android.app.IActivityController$Stub$Proxy: int appNotResponding(java.lang.String,int,java.lang.String)>
+<android.app.IActivityController$Stub$Proxy: int systemNotResponding(java.lang.String)>
+<android.app.IActivityController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IActivityController$Stub: android.app.IActivityController asInterface(android.os.IBinder)>
+<android.app.IActivityController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IActivityController$Stub: void <init>()>

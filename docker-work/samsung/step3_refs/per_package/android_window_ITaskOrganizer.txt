@@ -1,0 +1,19 @@
+# android.window.ITaskOrganizer [NEW]
+# Refs: 15
+# JARs: framework
+
+<android.window.ITaskOrganizer$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.ITaskOrganizer$Stub$Proxy: void addStartingWindow(android.window.StartingWindowInfo,android.os.IBinder)>
+<android.window.ITaskOrganizer$Stub$Proxy: void copySplashScreenView(int)>
+<android.window.ITaskOrganizer$Stub$Proxy: void onAppSplashScreenViewRemoved(int)>
+<android.window.ITaskOrganizer$Stub$Proxy: void onBackPressedOnTaskRoot(android.app.ActivityManager$RunningTaskInfo)>
+<android.window.ITaskOrganizer$Stub$Proxy: void onImeDrawnOnTask(int)>
+<android.window.ITaskOrganizer$Stub$Proxy: void onSplitLayoutChangeRequested(android.app.ActivityManager$RunningTaskInfo,android.os.Bundle)>
+<android.window.ITaskOrganizer$Stub$Proxy: void onTaskAppeared(android.app.ActivityManager$RunningTaskInfo,android.view.SurfaceControl)>
+<android.window.ITaskOrganizer$Stub$Proxy: void onTaskInfoChanged(android.app.ActivityManager$RunningTaskInfo)>
+<android.window.ITaskOrganizer$Stub$Proxy: void onTaskVanished(android.app.ActivityManager$RunningTaskInfo)>
+<android.window.ITaskOrganizer$Stub$Proxy: void preloadSplashScreenAppIcon(android.content.pm.ActivityInfo,int,android.content.res.Configuration)>
+<android.window.ITaskOrganizer$Stub$Proxy: void removeStartingWindow(android.window.StartingWindowRemovalInfo)>
+<android.window.ITaskOrganizer$Stub: android.window.ITaskOrganizer asInterface(android.os.IBinder)>
+<android.window.ITaskOrganizer$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.ITaskOrganizer$Stub: void <init>()>

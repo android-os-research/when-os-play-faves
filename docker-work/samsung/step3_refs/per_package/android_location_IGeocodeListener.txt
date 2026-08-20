@@ -1,0 +1,9 @@
+# android.location.IGeocodeListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.location.IGeocodeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.IGeocodeListener$Stub$Proxy: void onResults(java.lang.String,java.util.List)>
+<android.location.IGeocodeListener$Stub: android.location.IGeocodeListener asInterface(android.os.IBinder)>
+<android.location.IGeocodeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.IGeocodeListener$Stub: void <init>()>

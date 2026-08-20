@@ -1,0 +1,63 @@
+######################################################################
+# Propagation: com.sec.knox.containeragent
+######################################################################
+
+JARs:                 framework
+Classes:              2
+Occurrences:          2
+Usage types:          field_store, invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.sec.clipboard.util.ClipboardPolicyObserver
+  Method:   <android.sec.clipboard.util.ClipboardPolicyObserver: boolean isKnoxVersion1(java.lang.String)>
+  Line:     762
+  Register: v0 := "com.sec.knox.containeragent"
+  Usage:    [invoke] invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v0 → [branch] if-nez v0, :cond_23
+
+  CALLERS (who invokes this method):
+      ← ClipboardPolicyObserver.isPackageAllowed()
+        ← ClipboardService$ClipboardImpl.isClipboardAllowed()
+          ← ClipboardService$ClipboardImpl.getPrimaryClip()
+          ← ClipboardService$ClipboardImpl.hasPrimaryClip()
+          ← ClipboardService$ClipboardImpl.checkAndSetPrimaryClip()
+            ← ClipboardService$ClipboardImpl.setPrimaryClip()
+            ← ClipboardService$ClipboardImpl.setPrimaryClipAsPackage()
+
+  CALLEES (what this method invokes):
+      → TextUtils.isEmpty()
+        → CharSequence.length()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     653
+  Register: v3 := "com.sec.knox.containeragent"
+  Usage:    [field_store] aput-object v3, v2, v1
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+

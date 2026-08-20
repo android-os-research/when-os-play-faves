@@ -1,0 +1,6 @@
+# com.samsung.android.knox.intent.action.LOG_EXCEPTION [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.auditlog.InformFailure: void broadcastFailure(java.lang.Exception,java.lang.String)>
+<com.android.server.enterprise.auditlog.InformFailure: void broadcastFailure(java.lang.String,java.lang.String)>

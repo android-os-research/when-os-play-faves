@@ -1,0 +1,13 @@
+# android.content.pm.ISystemPersonaObserver [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.content.pm.ISystemPersonaObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.ISystemPersonaObserver$Stub$Proxy: void onKnoxContainerLaunch(int)>
+<android.content.pm.ISystemPersonaObserver$Stub$Proxy: void onPersonaActive(int)>
+<android.content.pm.ISystemPersonaObserver$Stub$Proxy: void onRemovePersona(int)>
+<android.content.pm.ISystemPersonaObserver$Stub$Proxy: void onResetPersona(int)>
+<android.content.pm.ISystemPersonaObserver$Stub$Proxy: void onStateChange(int,com.samsung.android.knox.SemPersonaState,com.samsung.android.knox.SemPersonaState)>
+<android.content.pm.ISystemPersonaObserver$Stub: android.content.pm.ISystemPersonaObserver asInterface(android.os.IBinder)>
+<android.content.pm.ISystemPersonaObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.ISystemPersonaObserver$Stub: void <init>()>

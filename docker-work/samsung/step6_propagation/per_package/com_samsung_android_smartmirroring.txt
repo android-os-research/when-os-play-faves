@@ -1,0 +1,408 @@
+######################################################################
+# Propagation: com.samsung.android.smartmirroring
+######################################################################
+
+JARs:                 framework, semwifi-service, services
+Classes:              8
+Occurrences:          10
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        APPOPS, PKG_MGMT, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants$1
+  Method:   <android.content.om.SamsungThemeConstants$1: void <init>()>
+  Line:     107
+  Register: v0 := "com.samsung.android.smartmirroring"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/om/SamsungThemeConstants$1;->put(Ljava/lang/Object;Lja
+  Patterns: early_return
+  Flow:     [invoke] android.content.om.SamsungThemeConstants$1.put()
+
+  CALLERS (who invokes this method):
+      ← <android.content.om.SamsungThemeConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → SamsungThemeConstants$1.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemApeController
+  Method:   <com.samsung.android.server.wifi.SemApeController: void initBlockedPackages()>
+  Line:     598
+  Register: v0 := "com.samsung.android.smartmirroring"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashSet.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.SemApeController: void <ini
+
+  CALLEES (what this method invokes):
+      → HashSet.add()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemApeService
+  Method:   <com.samsung.android.server.wifi.SemApeService: void <init>(android.content.Context,android.os.HandlerThread,com.samsung.android.server.wifi.SemClientModeManager)>
+  Line:     613
+  Register: p0 := "com.samsung.android.smartmirroring"
+  Usage:    [invoke] invoke-interface {v1, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.List.add() → [reassigned] p0 overwritten
+
+  CALLEES (what this method invokes):
+      → HandlerThread.getLooper()
+      → <com.samsung.android.server.wifi.SemApeService$1: void <init
+      → <com.samsung.android.server.wifi.SemApeService$2: void <init
+      → <com.samsung.android.server.wifi.SemApeService$ApeHandler: v
+      → <com.samsung.android.server.wifi.SemApeService$Stats: void <
+      → SemApeService.logi()
+      → SemApeService.registerBroadcastReceivers()
+      → SemApeService.registerNetworkCallbacks()
+      → SemApeService.registerPrimaryInterfaceListener()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.LinkedList: void <init>()>
+      → List.add()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <android.net.ConnectivityManager$NetworkCallback: void <init
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → Context.registerReceiver()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → Context.getSystemService()
+        → ConnectivityManager.registerNetworkCallback()
+        → NetworkRequest$Builder.build()
+        → NetworkRequest$Builder.addTransportType()
+        → NetworkRequest$Builder.removeCapability()
+        → NetworkRequest$Builder.setUids()
+        → <android.net.NetworkRequest$Builder: void <init>()>
+        → <com.samsung.android.server.wifi.SemApeService$NetworkCallba
+        → <com.samsung.android.server.wifi.SemApeService$$ExternalSynt
+        → SemApeService.logd()
+        → SemClientModeManager.registerPrimaryInterfaceListener()
+          → <com.samsung.android.server.wifi.SemApeService$NetworkCallba
+          → <com.samsung.android.server.wifi.SemClientModeManager$$Exter
+          → SemWifiThreadRunner.post()
+            → Handler.post()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl
+  Method:   <com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl: boolean isAllowedPackageForNextAction(java.lang.String)>
+  Line:     807
+  Register: v1 := "com.samsung.android.smartmirroring"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← SemWifiP2pServiceImpl.setInUsePackage()
+      ← SemWifiP2pServiceImpl.unsetInUsePackage()
+
+  CALLEES (what this method invokes):
+      → <com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl$$
+      → List.stream()
+      → Stream.anyMatch()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.Integer lambda$setDisplayMirroringState$63(boolean)>
+  Line:     10417
+  Register: v0 := "com.samsung.android.smartmirroring"
+  Usage:    [invoke] invoke-direct {p1, v0, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: (none)
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] new-instance v0, Landroid/content/Intent; → [invoke] android.c
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getSystemService()
+      → Context.startActivity()
+      → Intent.addCategory()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → DisplayManager.semDisconnectWifiDisplay()
+      → DisplayManager.semStartScanWifiDisplays()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.Integer lambda$startSmartView$51()>
+  Line:     22205
+  Register: v2 := "com.samsung.android.smartmirroring"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: (none)
+  Flow:     [invoke] android.content.ComponentName.<init>() → [invoke] android.content.Intent.putExtra() → [reassigned] v2 overwritt
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.custom.KnoxCustomManagerService: j
+        ← KnoxCustomManagerService$$ExternalSyntheticLambda35.getOrThrow()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startActivity()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → KnoxCustomManagerService.isSupportSmartView()
+        → Context.getPackageManager()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: boolean isSupportSmartView()>
+  Line:     40718
+  Register: v1 := "com.samsung.android.smartmirroring"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.custom.KnoxCustomManagerService: j
+        ← <com.samsung.android.knox.custom.KnoxCustomManagerService: j
+          ← KnoxCustomManagerService$$ExternalSyntheticLambda35.getOrThrow()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.display.WifiDisplayController$18
+  Method:   <com.android.server.display.WifiDisplayController$18: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     85
+  Register: v3 := "com.samsung.android.smartmirroring"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [invoke] android.content.Intent.setPackage()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → Intent.getParcelableExtra()
+      → Intent.getBooleanExtra()
+      → Intent.getIntExtra()
+      → Intent.getAction()
+      → Intent.getStringExtra()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → SemWifiDisplayConfig.isPinRequest()
+      → SemWifiDisplayConfig.getConnectionType()
+      → NetworkInfo.getDetailedState()
+      → Handler.postDelayed()
+      → <com.android.server.display.WifiDisplayController: android.c
+      → <com.android.server.display.WifiDisplayController: android.h
+      → <com.android.server.display.WifiDisplayController: android.n
+      → <com.android.server.display.WifiDisplayController: android.o
+      → <com.android.server.display.WifiDisplayController: boolean -
+      → <com.android.server.display.WifiDisplayController: java.lang
+      → <com.android.server.display.WifiDisplayController: void -$$N
+      → <com.android.server.display.WifiDisplayController: void -$$N
+      → <com.android.server.display.WifiDisplayController: void -$$N
+      → <com.android.server.display.WifiDisplayController: void -$$N
+      → <com.android.server.display.WifiDisplayController: void -$$N
+        → WifiDisplayController.disconnect()
+        → WifiDisplayController.handleConnectionChanged()
+        → WifiDisplayController.handlePeersChanged()
+        → WifiDisplayController.handleStateChanged()
+          → RemoteDisplay.dispose()
+          → WifiDisplayController.onConnectionFailure()
+          → WifiDisplayController.sendEventToSemDeviceStatusListener()
+          → WifiDisplayController.setParam()
+          → WifiDisplayController.unadvertiseDisplay()
+          → WifiDisplayController.updateConnection()
+          → NetworkInfo.isConnected()
+          → WifiP2pManager.requestGroupInfo()
+          → <com.android.server.display.WifiDisplayController$13: void <
+          → WifiDisplayController.requestPeers()
+          → Context.getContentResolver()
+          → Settings$Global.putInt()
+          → WifiDisplayController.updateWfdEnableState()
+            → IWifiDisplayConnectionCallback.onFailure()
+            → Handler.post()
+            → <com.android.server.display.WifiDisplayController$21: void <
+            → RemoteDisplay.setParam()
+            → WifiDisplayController.advertiseDisplay()
+            → Context.getOpPackageName()
+            → SemWifiDisplayConfig.getMode()
+            → WifiDisplay.setMode() [APPOPS]
+            → RemoteDisplay.listen()
+            → MacAddress.fromString()
+            → WifiP2pGroup.isGroupOwner()
+            → WifiP2pManager.cancelConnect()
+            → WifiP2pManager.connect()
+            → WifiP2pManager.removeClient()
+            → WifiP2pManager.removeGroup()
+            → WifiP2pManager.setMiracastMode()
+            → Handler.removeCallbacks()
+            → <com.android.server.display.WifiDisplayController$10: void <
+            → <com.android.server.display.WifiDisplayController$11: void <
+            → <com.android.server.display.WifiDisplayController$12: void <
+            → <com.android.server.display.WifiDisplayController$9: void <i
+            → WifiDisplayController$Listener.onDisplaySessionInfo()
+            → WifiDisplayController.createWifiDisplay()
+            → WifiDisplayController.getSessionInfo()
+            → WifiDisplayController.createConnectConfig()
+            → WifiDisplayController.getPortNumber()
+            → WifiDisplayController.getEngineParameters()
+            → WifiDisplayController.getInterfaceAddress()
+            → WifiDisplayController.handleConnectionFailure()
+            → WifiDisplayController.retrieveWifiP2pManagerAndChannel()
+            → WifiDisplayController.updateScanState()
+            → Inet4Address.getHostAddress()
+            → WifiP2pManager.requestPeers()
+            → <com.android.server.display.WifiDisplayController$5: void <i
+            → WifiP2pManager.setWfdInfo()
+            → WifiP2pWfdInfo.setDeviceType()
+            → <android.net.wifi.p2p.WifiP2pWfdInfo: void <init>()>
+            → WifiP2pWfdInfo.setContentProtectionSupported()
+            → WifiP2pWfdInfo.setControlPort()
+            → WifiP2pWfdInfo.setEnabled()
+            → WifiP2pWfdInfo.setMaxThroughput()
+            → WifiP2pWfdInfo.setSessionAvailable()
+            → <com.android.server.display.WifiDisplayController$2: void <i
+            → <com.android.server.display.WifiDisplayController$3: void <i
+            → WifiDisplayController.reportFeatureState()
+            → SemWifiP2pManager.setScreenSharing()
+              → <com.android.server.display.WifiDisplayController$17: void <
+              → Objects.equals()
+              → <android.hardware.display.WifiDisplay: void <init>(java.lang
+              → WifiDisplay.setBluetoothMacAddress()
+              → WifiDisplay.setDeviceInfo()
+              → WifiDisplay.setIconIdx()
+              → WifiP2pDevice.getWfdInfo()
+              → WifiP2pWfdInfo.isSessionAvailable()
+              → WifiDisplayController.getBluetoothMacAddress()
+              → <android.hardware.display.WifiDisplaySessionInfo: void <init
+              → WifiP2pGroup.getOwner()
+              → WifiP2pGroup.getNetworkName()
+              → WifiP2pGroup.getPassphrase()
+              → <android.net.wifi.p2p.WifiP2pConfig: void <init>()>
+              → WifiP2pDevice.wpsDisplaySupported()
+              → WifiP2pDevice.wpsKeypadSupported()
+              → WifiP2pDevice.wpsPbcSupported()
+              → SemWifiDisplayConfig.getJasonArrayParameters()
+              → SemWifiDisplayConfig.addParameter()
+              → <android.hardware.display.SemWifiDisplayParameter: void <ini
+              → <android.hardware.display.SemWifiDisplayParameter: void <ini
+              → <android.hardware.display.SemWifiDisplayParameter: void <ini
+              → WifiInfo.getFrequency()
+              → WifiManager.getConnectionInfo()
+              → WifiDisplayMcfManager.getInitiatedMirroringUuid()
+              → JSONException.toString()
+              → JSONObject.toString()
+              → JSONObject.put()
+              → <org.json.JSONObject: void <init>()>
+              → WifiP2pGroup.getInterface()
+              → NetworkInterface.getByName()
+              → NetworkInterface.getInetAddresses()
+              → Enumeration.hasMoreElements()
+              → Enumeration.nextElement()
+              → Context.getString()
+              → Context.getString()
+              → <android.view.ContextThemeWrapper: void <init>(android.conte
+              → Toast.makeText()
+              → Toast.makeText()
+              → Toast.show()
+              → Context.getSystemService()
+              → WifiP2pManager.initialize()
+              → Handler.getLooper()
+              → WifiDisplayController.handleScanFinished()
+              → WifiDisplayController.handleScanStarted()
+              → WifiDisplayController.stopPeerDiscovery()
+              → WifiDisplayController.tryDiscoverPeers()
+              → <com.android.server.display.WifiDisplayController$4: void <i
+              → WifiDisplayController.computeFeatureState()
+              → RemoteException.rethrowFromSystemServer()
+              → ISemWifiP2pManager.setScreenSharing()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.display.WifiDisplayMcfManager
+  Method:   <com.android.server.display.WifiDisplayMcfManager: void bindBleAdvertiserService()>
+  Line:     366
+  Register: v1 := "com.samsung.android.smartmirroring"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← WifiDisplayMcfManager.handleMcfAdapterScannerScanResult()
+        ← <com.android.server.display.WifiDisplayMcfManager: void -$$N
+          ← WifiDisplayMcfManager$McfHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → WifiDisplayMcfManager.getInitiatedMirroringUuid()
+        → TextUtils.isEmpty()
+        → PersistentDataStore.getInitiatedMirroringUuid()
+        → PersistentDataStore.setInitiatedMirroringUuid()
+        → ByteBuffer.array()
+        → ByteBuffer.putLong()
+        → ByteBuffer.wrap()
+        → Base64$Encoder.encodeToString()
+        → Base64.getUrlEncoder()
+        → UUID.randomUUID()
+        → UUID.getLeastSignificantBits()
+        → UUID.getMostSignificantBits()
+          → CharSequence.length()
+          → PersistentDataStore.loadIfNeeded()
+          → PersistentDataStore.setDirty()
+            → PersistentDataStore.load()
+              → Xml.resolvePullParser()
+              → PersistentDataStore$Injector.openRead()
+              → PersistentDataStore.clearState()
+              → PersistentDataStore.loadFromXml()
+              → IoUtils.closeQuietly()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.display.WifiDisplayAdapter$10
+  Method:   <com.android.server.display.WifiDisplayAdapter$10: void run()>
+  Line:     51
+  Register: v2 := "com.samsung.android.smartmirroring"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] const-string/jumbo v2, "package" → [invoke] android.os.Service
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → IPackageManager$Stub.asInterface()
+      → IPackageManager.setComponentEnabledSetting() [PKG_MGMT]
+      → ServiceManager.getService()
+      → Exception.printStackTrace()
+

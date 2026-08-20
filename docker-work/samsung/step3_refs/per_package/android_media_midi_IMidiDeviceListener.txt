@@ -1,0 +1,11 @@
+# android.media.midi.IMidiDeviceListener [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.media.midi.IMidiDeviceListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.midi.IMidiDeviceListener$Stub$Proxy: void onDeviceAdded(android.media.midi.MidiDeviceInfo)>
+<android.media.midi.IMidiDeviceListener$Stub$Proxy: void onDeviceRemoved(android.media.midi.MidiDeviceInfo)>
+<android.media.midi.IMidiDeviceListener$Stub$Proxy: void onDeviceStatusChanged(android.media.midi.MidiDeviceStatus)>
+<android.media.midi.IMidiDeviceListener$Stub: android.media.midi.IMidiDeviceListener asInterface(android.os.IBinder)>
+<android.media.midi.IMidiDeviceListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.midi.IMidiDeviceListener$Stub: void <init>()>

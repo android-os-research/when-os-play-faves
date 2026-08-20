@@ -1,0 +1,7 @@
+# ro.cdma.home.operator.alpha [NEW]
+# Refs: 3
+# JARs: framework, telephony-common
+
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: java.util.Optional cdma_home_operator_alpha()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional cdma_home_operator_alpha()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void cdma_home_operator_alpha(java.lang.String)>

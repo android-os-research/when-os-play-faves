@@ -1,0 +1,14 @@
+# com.android.ims.internal.IImsConfig [NEW]
+# Refs: 10
+# JARs: framework
+
+<com.android.ims.internal.IImsConfig$Stub$Proxy: boolean getVolteProvisioned()>
+<com.android.ims.internal.IImsConfig$Stub$Proxy: int getProvisionedValue(int)>
+<com.android.ims.internal.IImsConfig$Stub$Proxy: int setProvisionedStringValue(int,java.lang.String)>
+<com.android.ims.internal.IImsConfig$Stub$Proxy: int setProvisionedValue(int,int)>
+<com.android.ims.internal.IImsConfig$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.android.ims.internal.IImsConfig$Stub$Proxy: java.lang.String getProvisionedStringValue(int)>
+<com.android.ims.internal.IImsConfig$Stub$Proxy: void getFeatureValue(int,int,com.android.ims.ImsConfigListener)>
+<com.android.ims.internal.IImsConfig$Stub$Proxy: void getVideoQuality(com.android.ims.ImsConfigListener)>
+<com.android.ims.internal.IImsConfig$Stub$Proxy: void setFeatureValue(int,int,int,com.android.ims.ImsConfigListener)>
+<com.android.ims.internal.IImsConfig$Stub$Proxy: void setVideoQuality(int,com.android.ims.ImsConfigListener)>

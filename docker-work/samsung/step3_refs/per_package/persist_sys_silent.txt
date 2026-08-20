@@ -1,0 +1,6 @@
+# persist.sys.silent [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.audio.AudioService: void handleSetRingerMode(int,java.lang.String,boolean)>
+<com.android.server.audio.AudioService: void muteRingerModeStreams()>

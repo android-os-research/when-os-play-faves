@@ -1,0 +1,288 @@
+.class public Lcom/android/server/display/color/ColorDisplayShellCommand;
+.super Landroid/os/ShellCommand;
+.source "ColorDisplayShellCommand.java"
+
+
+# static fields
+.field public static final ERROR:I = -0x1
+
+.field public static final SUCCESS:I = 0x0
+
+.field public static final USAGE:Ljava/lang/String; = "usage: cmd color_display SUBCOMMAND [ARGS]\n    help\n      Shows this message.\n    set-saturation LEVEL\n      Sets the device saturation to the given LEVEL, 0-100 inclusive.\n    set-layer-saturation LEVEL CALLER_PACKAGE TARGET_PACKAGE\n      Sets the saturation LEVEL for all layers of the TARGET_PACKAGE, attributed\n      to the CALLER_PACKAGE. The lowest LEVEL from any CALLER_PACKAGE is applied.\n"
+
+
+# instance fields
+.field public final mService:Lcom/android/server/display/color/ColorDisplayService;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/display/color/ColorDisplayService;)V
+    .registers 2
+
+    .line 40
+    invoke-direct {p0}, Landroid/os/ShellCommand;-><init>()V
+
+    .line 41
+    iput-object p1, p0, Lcom/android/server/display/color/ColorDisplayShellCommand;->mService:Lcom/android/server/display/color/ColorDisplayService;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final getLevel()I
+    .registers 4
+
+    .line 95
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArg()Ljava/lang/String;
+
+    move-result-object v0
+
+    const/4 v1, -0x1
+
+    if-nez v0, :cond_11
+
+    .line 97
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getErrPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object p0
+
+    const-string v0, "Error: Required argument LEVEL is unspecified"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v1
+
+    .line 102
+    :cond_11
+    :try_start_11
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+    :try_end_15
+    .catch Ljava/lang/NumberFormatException; {:try_start_11 .. :try_end_15} :catch_27
+
+    if-ltz v0, :cond_1d
+
+    const/16 v2, 0x64
+
+    if-le v0, v2, :cond_1c
+
+    goto :goto_1d
+
+    :cond_1c
+    return v0
+
+    .line 108
+    :cond_1d
+    :goto_1d
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getErrPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object p0
+
+    const-string v0, "Error: LEVEL argument must be an integer between 0 and 100"
+
+    .line 109
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v1
+
+    .line 104
+    :catch_27
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getErrPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object p0
+
+    const-string v0, "Error: LEVEL argument is not an integer"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v1
+.end method
+
+.method public final getPackageName()Ljava/lang/String;
+    .registers 2
+
+    .line 88
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArg()Ljava/lang/String;
+
+    move-result-object p0
+
+    .line 90
+    const-class v0, Landroid/content/pm/PackageManagerInternal;
+
+    .line 89
+    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/PackageManagerInternal;
+
+    invoke-virtual {v0, p0}, Landroid/content/pm/PackageManagerInternal;->getPackage(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/AndroidPackage;
+
+    move-result-object v0
+
+    if-nez v0, :cond_13
+
+    const/4 p0, 0x0
+
+    :cond_13
+    return-object p0
+.end method
+
+.method public onCommand(Ljava/lang/String;)I
+    .registers 3
+
+    if-nez p1, :cond_7
+
+    .line 47
+    invoke-virtual {p0, p1}, Landroid/os/ShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+
+    :cond_7
+    const-string/jumbo v0, "set-layer-saturation"
+
+    .line 49
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_23
+
+    const-string/jumbo v0, "set-saturation"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1e
+
+    .line 55
+    invoke-virtual {p0, p1}, Landroid/os/ShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+
+    .line 51
+    :cond_1e
+    invoke-virtual {p0}, Lcom/android/server/display/color/ColorDisplayShellCommand;->setSaturation()I
+
+    move-result p0
+
+    return p0
+
+    .line 53
+    :cond_23
+    invoke-virtual {p0}, Lcom/android/server/display/color/ColorDisplayShellCommand;->setLayerSaturation()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public onHelp()V
+    .registers 2
+
+    .line 117
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object p0
+
+    const-string/jumbo v0, "usage: cmd color_display SUBCOMMAND [ARGS]\n    help\n      Shows this message.\n    set-saturation LEVEL\n      Sets the device saturation to the given LEVEL, 0-100 inclusive.\n    set-layer-saturation LEVEL CALLER_PACKAGE TARGET_PACKAGE\n      Sets the saturation LEVEL for all layers of the TARGET_PACKAGE, attributed\n      to the CALLER_PACKAGE. The lowest LEVEL from any CALLER_PACKAGE is applied.\n"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public final setLayerSaturation()I
+    .registers 5
+
+    .line 69
+    invoke-virtual {p0}, Lcom/android/server/display/color/ColorDisplayShellCommand;->getLevel()I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-ne v0, v1, :cond_8
+
+    return v1
+
+    .line 73
+    :cond_8
+    invoke-virtual {p0}, Lcom/android/server/display/color/ColorDisplayShellCommand;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-nez v2, :cond_18
+
+    .line 75
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getErrPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object p0
+
+    const-string v0, "Error: CALLER_PACKAGE must be an installed package name"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v1
+
+    .line 78
+    :cond_18
+    invoke-virtual {p0}, Lcom/android/server/display/color/ColorDisplayShellCommand;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_28
+
+    .line 80
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getErrPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object p0
+
+    const-string v0, "Error: TARGET_PACKAGE must be an installed package name"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v1
+
+    .line 83
+    :cond_28
+    iget-object p0, p0, Lcom/android/server/display/color/ColorDisplayShellCommand;->mService:Lcom/android/server/display/color/ColorDisplayService;
+
+    invoke-virtual {p0, v2, v3, v0}, Lcom/android/server/display/color/ColorDisplayService;->setAppSaturationLevelInternal(Ljava/lang/String;Ljava/lang/String;I)Z
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public final setSaturation()I
+    .registers 3
+
+    .line 60
+    invoke-virtual {p0}, Lcom/android/server/display/color/ColorDisplayShellCommand;->getLevel()I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-ne v0, v1, :cond_8
+
+    return v1
+
+    .line 64
+    :cond_8
+    iget-object p0, p0, Lcom/android/server/display/color/ColorDisplayShellCommand;->mService:Lcom/android/server/display/color/ColorDisplayService;
+
+    invoke-virtual {p0, v0}, Lcom/android/server/display/color/ColorDisplayService;->setSaturationLevelInternal(I)V
+
+    const/4 p0, 0x0
+
+    return p0
+.end method

@@ -1,0 +1,401 @@
+######################################################################
+# Propagation: com.samsung.android.SettingsReceiver
+######################################################################
+
+JARs:                 framework, knoxsdk, semwifi-service, services
+Classes:              5
+Occurrences:          5
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     200
+  Register: v26 := "com.samsung.android.SettingsReceiver"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$1
+  Method:   <com.samsung.android.knox.EdmConstants$1: void <init>()>
+  Line:     138
+  Register: v0 := "com.samsung.android.SettingsReceiver"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.b2b.WifiB2bPolicyManager
+  Method:   <com.samsung.android.server.wifi.b2b.WifiB2bPolicyManager: android.os.Bundle getPolicy()>
+  Line:     510
+  Register: v0 := "com.samsung.android.SettingsReceiver"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/samsung/android/knox/appconfig/ApplicationRestrictionsManager;->ge
+  Patterns: (none)
+  Flow:     [invoke] com.samsung.android.knox.appconfig.ApplicationRestrictionsMa → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← WifiB2bPolicyManager.updateWiFiB2BPolicy()
+        ← <com.samsung.android.server.wifi.b2b.WifiB2bPolicyManager: v
+        ← WifiB2bPolicyManager.handleLazyBootCompleted()
+          ← WifiB2bPolicyManager$1.onReceive()
+          ← SemWifiServiceImpl.handleLazyBootCompleted()
+            ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void $r
+              ← SemWifiServiceImpl$$ExternalSyntheticLambda6.onLazyBootCompleted()
+
+  CALLEES (what this method invokes):
+      → ApplicationRestrictionsManager.getApplicationRestrictions()
+      → WifiB2bPolicyManager.checkAndGetRestrictionsManager()
+        → <android.os.Bundle: void <init>()>
+        → RemoteException.rethrowFromSystemServer()
+        → ApplicationRestrictionsManager.getService()
+        → IKnoxCustomManager.getApplicationRestrictionsInternal()
+        → ApplicationRestrictionsManager.getInstance()
+          → <android.os.DeadSystemRuntimeException: void <init>()>
+          → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+          → ServiceManager.getService()
+          → IKnoxCustomManager$Stub.asInterface()
+          → <com.samsung.android.knox.appconfig.ApplicationRestrictionsM
+            → <android.os.DeadSystemException: void <init>()>
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.custom.IKnoxCustomManager$Stub$Pro
+            → Process.myUid()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+            → <com.samsung.android.knox.appconfig.ApplicationRestrictionsM
+              → <android.os.DeadObjectException: void <init>()>
+              → UserHandle.getUserId()
+              → SemPersonaManager.isKnoxId()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>
+  Line:     29034
+  Register: p3 := "com.samsung.android.SettingsReceiver"
+  Usage:    [invoke] invoke-virtual {p0, p3}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->copyBundle(Ljav
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.custom.KnoxCustomManagerService.cop → [reassigned] p3 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.checkCallingOrSelfPermission()
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → Bundle.toString()
+      → KnoxCustomManagerService.copyBundle()
+      → KnoxCustomManagerService.getAirGestureOptionState()
+      → KnoxCustomManagerService.getBackupRestoreState()
+      → KnoxCustomManagerService.getDeviceSpeakerEnabledState()
+      → KnoxCustomManagerService.getDisplayMirroringState()
+      → KnoxCustomManagerService.getEthernetStateInternal()
+      → KnoxCustomManagerService.getExtendedCallInfoState()
+      → KnoxCustomManagerService.getGearNotificationState()
+      → KnoxCustomManagerService.getHardKeyIntentState()
+      → KnoxCustomManagerService.getInfraredState()
+      → KnoxCustomManagerService.getInputMethodRestrictionState()
+      → KnoxCustomManagerService.getLTESettingState()
+      → KnoxCustomManagerService.getLcdBacklightState()
+      → KnoxCustomManagerService.getMultiWindowState()
+      → KnoxCustomManagerService.getPowerDialogCustomItemsState()
+      → KnoxCustomManagerService.getPowerMenuLockedState()
+      → KnoxCustomManagerService.getProKioskNotificationMessagesState()
+      → KnoxCustomManagerService.getProKioskPowerDialogCustomItemsState()
+      → KnoxCustomManagerService.getProKioskState()
+      → KnoxCustomManagerService.getProKioskStatusBarClockState()
+      → KnoxCustomManagerService.getProKioskStatusBarIconsState()
+      → KnoxCustomManagerService.getProKioskUsbMassStorageState()
+      → KnoxCustomManagerService.getProKioskUsbNetState()
+      → KnoxCustomManagerService.getProtectBatteryState()
+      → KnoxCustomManagerService.getScreenOffOnHomeLongPressState()
+      → KnoxCustomManagerService.getScreenOffOnStatusBarDoubleTapState()
+      → KnoxCustomManagerService.getScreenWakeupOnPowerState()
+      → KnoxCustomManagerService.getStatusBarClockState()
+      → KnoxCustomManagerService.getStatusBarIconsState()
+      → KnoxCustomManagerService.getStatusBarNotificationsState()
+      → KnoxCustomManagerService.getToastEnabledState()
+      → KnoxCustomManagerService.getToastGravityEnabledState()
+      → KnoxCustomManagerService.getToastShowPackageNameState()
+      → KnoxCustomManagerService.getUnlockSimOnBootState()
+      → KnoxCustomManagerService.getUsbMassStorageState()
+      → KnoxCustomManagerService.getUsbNetStateInternal()
+      → KnoxCustomManagerService.getVolumeButtonRotationState()
+      → KnoxCustomManagerService.getVolumeKeyAppState()
+      → KnoxCustomManagerService.getVolumePanelEnabledState()
+      → KnoxCustomManagerService.getWifiConnectionMonitorState()
+      → KnoxCustomManagerService.isDataAllowedFromKnox()
+      → KnoxCustomManagerService.getBatteryLevelColourItem()
+      → KnoxCustomManagerService.getAccessibilitySettingsItems()
+      → KnoxCustomManagerService.getAutoCallPickupState()
+      → KnoxCustomManagerService.getCallScreenDisabledItems()
+      → KnoxCustomManagerService.getDexHDMIAutoEnterState()
+      → KnoxCustomManagerService.getDexHomeAlignment()
+      → KnoxCustomManagerService.getDexScreenTimeout()
+      → KnoxCustomManagerService.getForceAutoStartUpState()
+      → KnoxCustomManagerService.getHardKeyIntentMode()
+      → KnoxCustomManagerService.getHideNotificationMessages()
+      → KnoxCustomManagerService.getHomeScreenMode()
+      → KnoxCustomManagerService.getKeyboardModeInternal()
+      → KnoxCustomManagerService.getLockScreenHiddenItems()
+      → KnoxCustomManagerService.getLockScreenOverrideMode()
+      → KnoxCustomManagerService.getMobileNetworkType()
+      → KnoxCustomManagerService.getPowerDialogItems()
+      → KnoxCustomManagerService.getPowerDialogOptionMode()
+      → KnoxCustomManagerService.getProKioskStatusBarMode()
+      → KnoxCustomManagerService.getQuickPanelButtons()
+      → KnoxCustomManagerService.getQuickPanelEditMode()
+      → KnoxCustomManagerService.getRecentLongPressMode()
+      → KnoxCustomManagerService.getSensorDisabled()
+      → KnoxCustomManagerService.getSettingsEnabledItems()
+      → KnoxCustomManagerService.getSettingsHiddenState()
+      → KnoxCustomManagerService.getShowIMEWithHardKeyboard()
+      → KnoxCustomManagerService.getStatusBarMode()
+      → KnoxCustomManagerService.getStatusBarTextScrollWidth()
+      → KnoxCustomManagerService.getStatusBarTextSize()
+      → KnoxCustomManagerService.getStatusBarTextStyle()
+      → KnoxCustomManagerService.getSystemSoundsEnabledState()
+      → KnoxCustomManagerService.getToastGravity()
+      → KnoxCustomManagerService.getToastGravityXOffset()
+      → KnoxCustomManagerService.getToastGravityYOffset()
+      → KnoxCustomManagerService.getUsbConnectionType()
+      → KnoxCustomManagerService.getUserInactivityTimeout()
+      → KnoxCustomManagerService.getVibrationIntensity()
+      → KnoxCustomManagerService.getVolumeControlStream()
+      → KnoxCustomManagerService.getWifiFrequencyBand()
+      → KnoxCustomManagerService.getWifiHotspotEnabledState()
+      → KnoxCustomManagerService.isDexAutoOpenLastAppAllowed()
+      → KnoxCustomManagerService.getExitUI()
+      → KnoxCustomManagerService.getHomeActivity()
+      → KnoxCustomManagerService.getLockScreenShortcut()
+      → KnoxCustomManagerService.getProKioskString()
+      → KnoxCustomManagerService.getProKioskUsbNetAddress()
+      → KnoxCustomManagerService.getQuickPanelItems()
+      → KnoxCustomManagerService.getQuickPanelItemsDisabled()
+      → KnoxCustomManagerService.getRecentLongPressActivity()
+      → KnoxCustomManagerService.getStatusBarText()
+      → KnoxCustomManagerService.getUsbNetAddress()
+      → KnoxCustomManagerService.getAutoCallNumberList()
+      → KnoxCustomManagerService.getDexForegroundModePackageList()
+      → KnoxCustomManagerService.getPowerDialogCustomItems()
+      → KnoxCustomManagerService.getProKioskPowerDialogCustomItems()
+      → KnoxCustomManagerService.getUltraPowerSavingPackages()
+      → KnoxCustomManagerService.getVolumeKeyAppsList()
+      → PrintWriter.println()
+      → Exception.getStackTrace()
+      → List.size()
+        → Bundle.getBundle()
+        → Bundle.keySet()
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putBundle()
+        → KnoxCustomManagerService.getApplicationRestrictionsInternal()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Set.iterator()
+        → Context.getContentResolver()
+        → Settings$System.getInt()
+        → EdmStorageProvider.getBoolean()
+        → Exception.printStackTrace()
+        → Settings$Secure.getInt()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → KnoxCustomManagerService$Injector.binderWithCleanCallingIdentity()
+        → Context.getSystemService()
+        → AudioManager.isForceSpeakerOn()
+        → ConsumerIrManager.hasIrEmitter()
+        → EdmStorageProvider.getInt()
+        → Settings$Global.getInt()
+        → TextUtils.isEmpty()
+        → SemFloatingFeature.getBoolean()
+        → SemFloatingFeature.getInstance()
+        → BufferedReader.readLine()
+        → <java.io.BufferedReader: void <init>(java.io.Reader)>
+        → BufferedReader.close()
+        → File.canWrite()
+        → File.exists()
+        → <java.io.File: void <init>(java.lang.String)>
+        → <java.io.FileReader: void <init>(java.lang.String)>
+        → Bundle.containsKey()
+        → Bundle.isEmpty()
+        → Bundle.getString()
+        → EnterpriseDeviceManager.getPhoneRestrictionPolicy()
+        → KnoxCustomManagerService.getEDM()
+        → PhoneRestrictionPolicy.isDataAllowedFromSimSlot()
+        → EdmStorageProvider.getBlob()
+        → KnoxCustomManagerService.deserializeStatusbarIconItem()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → LocalServices.getService()
+        → DesktopModeManagerInternal.getDexHDMIAutoEnterState()
+        → DeXLauncherConfigurationInternal.getOrder()
+        → KnoxCustomManagerService.getScreenTimeoutForDesktopMode()
+        → PrivateKnoxCustom.isKnoxCustomAutoStartUpEnabled()
+        → PrivateKnoxCustom.getInstance()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → Context.getPackageManager()
+        → PackageManager.hasSystemFeature()
+        → TelephonyManager.isDataCapable()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → SystemProperties.get()
+        → Settings$System.getInt()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → WifiManager.getWifiApState()
+        → EdmStorageProvider.getString()
+        → Settings$System.getString()
+        → KnoxCustomManagerService.getQuickPanelItemId()
+        → StringBuffer.toString()
+        → StringBuffer.append()
+        → <java.lang.StringBuffer: void <init>()>
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+        → KnoxCustomManagerService.deserializeObject()
+        → List.add()
+        → List.clear()
+        → <android.text.TextUtils$SimpleStringSplitter: void <init>(ch
+        → TextUtils$StringSplitter.iterator()
+        → TextUtils$StringSplitter.setString()
+          → ApplicationRestrictionsInternal.getApplicationRestrictionsInternal()
+          → EdmStorageProviderBase.getBoolean()
+          → Binder.withCleanCallingIdentity()
+          → IConsumerIrService.hasIrEmitter()
+          → RemoteException.rethrowFromSystemServer()
+          → EdmStorageProviderBase.getInt()
+          → CharSequence.length()
+          → SemFloatingFeature.loge()
+          → Hashtable.get()
+          → EnterpriseDeviceManager.getPhoneRestrictionPolicy()
+          → KnoxCustomManagerService$Injector.getEDM()
+          → RemoteException.printStackTrace()
+          → IPhoneRestrictionPolicy.isDataAllowedFromSimSlot()
+          → PhoneRestrictionPolicy.getService()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → EdmStorageProviderBase.getBlob()
+          → EdmStorageProviderBase.translateToAdminLUID()
+          → Parcel.obtain()
+          → Parcel.readValue()
+          → Parcel.recycle()
+          → Parcel.setDataPosition()
+          → Parcel.unmarshall()
+          → Exception.getMessage()
+          → ArrayMap.get()
+          → ContentResolver.call()
+          → Bundle.getInt()
+          → Bundle.putString()
+          → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+          → KnoxCustomManagerService.useSettingDbForScreenTimeout()
+          → KnoxCustomManagerService.screenTimeoutKey()
+          → PrivateKnoxCustom.readBooleanDataValue()
+          → <com.samsung.android.knox.custom.PrivateKnoxCustom: void <in
+          → EdmStorageProviderBase.getString()
+          → Parcel.createTypedArray()
+            → EdmStorageProviderBase.getBooleanList()
+            → <com.android.server.enterprise.storage.SettingNotFoundExcept
+            → List.get()
+            → ExceptionUtils.propagate()
+            → FunctionalUtils$ThrowingSupplier.getOrThrow()
+            → <android.os.DeadSystemRuntimeException: void <init>()>
+            → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+            → EdmStorageProviderBase.getIntList()
+            → <com.samsung.android.knox.restriction.PhoneRestrictionPolicy
+            → <java.util.HashMap: void <init>()>
+            → Map.containsKey()
+            → Map.get()
+            → Map.put()
+            → EnterpriseDeviceManager.getInstance()
+            → ServiceManager.getService()
+            → IPhoneRestrictionPolicy$Stub.asInterface()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.put()
+            → EdmStorageProviderBase.getBlobList()
+            → SemPersonaManager.isKnoxId()
+            → ArrayMap.indexOfKey()
+            → PrivateKnoxCustom.readParamData()
+            → EdmStorageProviderBase.getString()
+              → Cursor.isNull()
+              → Cursor.moveToNext()
+              → Cursor.getInt()
+              → Cursor.close()
+              → SQLException.getMessage()
+              → EdmStorageProviderBase.getCursor()
+              → <android.util.AndroidException: void <init>(java.lang.String
+              → ExceptionUtils.propagateIfInstanceOf()
+              → Preconditions.checkNotNull()
+              → <android.os.DeadSystemException: void <init>()>
+              → Process.myPid()
+              → Process.myTid()
+              → Process.myUid()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.d()
+              → KnoxsdkFileLog.w()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.restriction.IPhoneRestrictionPolic
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → Cursor.getBlob()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+              → EdmStorageProviderBase.getStringList()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.appconfig.ApplicationRestrictionsService
+  Method:   <com.android.server.enterprise.appconfig.ApplicationRestrictionsService: void sendBroadcastAsUserInternal(java.lang.String,int)>
+  Line:     1271
+  Register: v1 := "com.samsung.android.SettingsReceiver"
+  Usage:    [invoke] invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.util.ArrayList.add() → [other] iget-object v2, p0, Lcom/android/server/enterprise/appconfig → [invoke] and
+
+  CALLERS (who invokes this method):
+      ← ApplicationRestrictionsService$1.onReceive()
+      ← ApplicationRestrictionsService.setApplicationRestrictionsInternal()
+        ← ApplicationRestrictionsService.setKeyedAppStatesReport()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.clearApplicationUserData()
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UserHandle.of()
+      → ArrayList.add()
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Map.get()
+      → Map.keySet()
+      → Set.iterator()
+

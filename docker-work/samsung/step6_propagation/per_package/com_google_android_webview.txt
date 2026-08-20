@@ -1,0 +1,219 @@
+######################################################################
+# Propagation: com.google.android.webview
+######################################################################
+
+JARs:                 duraspeed, framework, services
+Classes:              4
+Occurrences:          7
+Usage types:          array_init, invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.collector.q
+  Method:   <com.mediatek.duraspeed.collector.q: void <clinit>()>
+  Line:     179
+  Register: v37 := "com.google.android.webview"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDHCDatabase
+  Method:   <com.sec.android.iaft.IAFDHCDatabase: void init(android.content.Context,java.lang.String,boolean)>
+  Line:     842
+  Register: v2 := "com.google.android.webview"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Lcom/sec/android/iaft/IAFDDiagnosis$IAFD_CONTROLINFO;->setwebView_pkgName(L
+  Patterns: early_return
+  Flow:     [reassigned] v5 overwritten
+
+  CALLERS (who invokes this method):
+      ← IAFDDBManager.init()
+      ← IAFDDBManager.initTBs()
+        ← IAFDDiagnosis.initData()
+        ← <com.sec.android.iaft.IAFDDBManager: void -$$Nest$minitTBs(c
+          ← IAFDDiagnosis.parseExpTypeInternal()
+          ← IAFDDiagnosis.init()
+          ← IAFDDBManager$IAFDDBManagerHandler.handleMessage()
+            ← IAFDDiagnosis.parseExpType()
+            ← <com.android.server.am.AppErrors: void <init>(android.conten
+            ← IAFDService.IAFDServiceInit()
+              ← AppErrors.handleShowAppErrorUi()
+              ← IAFDService$IAFDBinder.IAFDParse()
+              ← <com.android.server.am.ActivityManagerService: void <init>(a
+              ← IAFDService.onCreate()
+
+  CALLEES (what this method invokes):
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: void <
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setCSCFilter()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setDBVersion()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setIAFDDBControlFeature()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setWhiteList()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setenableDetectAll32bitApp()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocApp()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocAppOnlyShow()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setreMovableAppPaths()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setwebView_pkgName()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_DATA: void <init>()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+      → <java.util.HashMap: void <init>()>
+        → IAFDDiagnosis$IAFD_CONTROLINFO.setSupportRepair()
+        → IAFDDiagnosis$IAFD_CONTROLINFO.inithashMapValues()
+        → IAFDDiagnosis$IAFD_ENTITY.initENTITY()
+        → HashMap.putIfAbsent()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDHCDatabase
+  Method:   <com.sec.android.iaft.IAFDHCDatabase: void init(android.content.Context,java.lang.String,boolean)>
+  Line:     1238
+  Register: v5 := "com.google.android.webview"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [reassigned] v5 overwritten
+
+  CALLERS (who invokes this method):
+      ← IAFDDBManager.init()
+      ← IAFDDBManager.initTBs()
+        ← IAFDDiagnosis.initData()
+        ← <com.sec.android.iaft.IAFDDBManager: void -$$Nest$minitTBs(c
+          ← IAFDDiagnosis.parseExpTypeInternal()
+          ← IAFDDiagnosis.init()
+          ← IAFDDBManager$IAFDDBManagerHandler.handleMessage()
+            ← IAFDDiagnosis.parseExpType()
+            ← <com.android.server.am.AppErrors: void <init>(android.conten
+            ← IAFDService.IAFDServiceInit()
+              ← AppErrors.handleShowAppErrorUi()
+              ← IAFDService$IAFDBinder.IAFDParse()
+              ← <com.android.server.am.ActivityManagerService: void <init>(a
+              ← IAFDService.onCreate()
+
+  CALLEES (what this method invokes):
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: void <
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setCSCFilter()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setDBVersion()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setIAFDDBControlFeature()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setWhiteList()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setenableDetectAll32bitApp()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocApp()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocAppOnlyShow()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setreMovableAppPaths()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setwebView_pkgName()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_DATA: void <init>()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+      → <java.util.HashMap: void <init>()>
+        → IAFDDiagnosis$IAFD_CONTROLINFO.setSupportRepair()
+        → IAFDDiagnosis$IAFD_CONTROLINFO.inithashMapValues()
+        → IAFDDiagnosis$IAFD_ENTITY.initENTITY()
+        → HashMap.putIfAbsent()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.android.iaft.IAFDHCDatabase
+  Method:   <com.sec.android.iaft.IAFDHCDatabase: void init(android.content.Context,java.lang.String,boolean)>
+  Line:     1390
+  Register: v5 := "com.google.android.webview"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [reassigned] v5 overwritten
+
+  CALLERS (who invokes this method):
+      ← IAFDDBManager.init()
+      ← IAFDDBManager.initTBs()
+        ← IAFDDiagnosis.initData()
+        ← <com.sec.android.iaft.IAFDDBManager: void -$$Nest$minitTBs(c
+          ← IAFDDiagnosis.parseExpTypeInternal()
+          ← IAFDDiagnosis.init()
+          ← IAFDDBManager$IAFDDBManagerHandler.handleMessage()
+            ← IAFDDiagnosis.parseExpType()
+            ← <com.android.server.am.AppErrors: void <init>(android.conten
+            ← IAFDService.IAFDServiceInit()
+              ← AppErrors.handleShowAppErrorUi()
+              ← IAFDService$IAFDBinder.IAFDParse()
+              ← <com.android.server.am.ActivityManagerService: void <init>(a
+              ← IAFDService.onCreate()
+
+  CALLEES (what this method invokes):
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_CONTROLINFO: void <
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setCSCFilter()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setDBVersion()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setIAFDDBControlFeature()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setWhiteList()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setenableDetectAll32bitApp()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocApp()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.sethashMapOfLinkForVocAppOnlyShow()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setreMovableAppPaths()
+      → IAFDDiagnosis$IAFD_CONTROLINFO.setwebView_pkgName()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_DATA: void <init>()
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+      → <com.sec.android.iaft.IAFDDiagnosis$IAFD_ENTITY: void <init>
+      → <java.util.HashMap: void <init>()>
+        → IAFDDiagnosis$IAFD_CONTROLINFO.setSupportRepair()
+        → IAFDDiagnosis$IAFD_CONTROLINFO.inithashMapValues()
+        → IAFDDiagnosis$IAFD_ENTITY.initENTITY()
+        → HashMap.putIfAbsent()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: void <clinit>()>
+  Line:     243
+  Register: v4 := "com.google.android.webview"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: void <clinit>()>
+  Line:     274
+  Register: v5 := "com.google.android.webview"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl
+  Method:   <com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl: void <init>(com.android.server.knox.dar.DarManagerService$Injector)>
+  Line:     75
+  Register: v8 := "com.google.android.webview"
+  Usage:    [array_init] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.knox.dar.DarManagerService: void <init>(
+        ← <com.android.server.knox.dar.DarManagerService: void <init>(
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+

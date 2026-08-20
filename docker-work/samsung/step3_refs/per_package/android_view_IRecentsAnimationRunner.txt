@@ -1,0 +1,11 @@
+# android.view.IRecentsAnimationRunner [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.view.IRecentsAnimationRunner$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IRecentsAnimationRunner$Stub$Proxy: void onAnimationCanceled(int[],android.window.TaskSnapshot[])>
+<android.view.IRecentsAnimationRunner$Stub$Proxy: void onAnimationStart(android.view.IRecentsAnimationController,android.view.RemoteAnimationTarget[],android.view.RemoteAnimationTarget[],android.graphics.Rect,android.graphics.Rect)>
+<android.view.IRecentsAnimationRunner$Stub$Proxy: void onTasksAppeared(android.view.RemoteAnimationTarget[])>
+<android.view.IRecentsAnimationRunner$Stub: android.view.IRecentsAnimationRunner asInterface(android.os.IBinder)>
+<android.view.IRecentsAnimationRunner$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IRecentsAnimationRunner$Stub: void <init>()>

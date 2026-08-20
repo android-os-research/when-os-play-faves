@@ -1,0 +1,82 @@
+######################################################################
+# Propagation: com.sec.android.easyonehand
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.OneHandOpPolicy
+  Method:   <com.android.server.wm.OneHandOpPolicy: void lambda$screenTurnedOff$1()>
+  Line:     249
+  Register: v2 := "com.sec.android.easyonehand"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.wm.OneHandOpPolicy: void $r8$lambda$HBPJ
+        ← OneHandOpPolicy$$ExternalSyntheticLambda2.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startService()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Exception.printStackTrace()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.OneHandOpPolicy
+  Method:   <com.android.server.wm.OneHandOpPolicy: void lambda$startService$2(int)>
+  Line:     290
+  Register: v2 := "com.sec.android.easyonehand"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.wm.OneHandOpPolicy: void $r8$lambda$xL91
+        ← OneHandOpPolicy$$ExternalSyntheticLambda1.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startService()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Exception.printStackTrace()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.OneHandOpPolicy
+  Method:   <com.android.server.wm.OneHandOpPolicy: void lambda$stopService$3()>
+  Line:     348
+  Register: v2 := "com.sec.android.easyonehand"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.wm.OneHandOpPolicy: void $r8$lambda$bD2K
+        ← OneHandOpPolicy$$ExternalSyntheticLambda3.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startService()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Exception.printStackTrace()
+

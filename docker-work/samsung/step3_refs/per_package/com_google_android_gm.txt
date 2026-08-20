@@ -1,0 +1,7 @@
+# com.google.android.gm [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<com.android.server.am.MARsPolicyManager: boolean getSyncBlockEnabled(java.lang.String,int)>
+<com.android.server.enterprise.application.ApplicationPolicy: void setAndroidMarketState(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>

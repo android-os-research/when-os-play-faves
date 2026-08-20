@@ -1,0 +1,6 @@
+# bluetooth.controller.voltage [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.android.internal.os.PowerProfile: void dumpDebug(android.util.proto.ProtoOutputStream)>
+<com.android.internal.os.PowerProfile: void readPowerValuesFromXml(android.content.Context,int)>

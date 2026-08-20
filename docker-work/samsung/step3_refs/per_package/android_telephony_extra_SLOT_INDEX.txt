@@ -1,0 +1,35 @@
+# android.telephony.extra.SLOT_INDEX [NEW]
+# Refs: 31
+# JARs: framework, services, telephony-common
+
+<android.telephony.CellBroadcastIntents: void putPhoneIdAndSubIdExtra(android.content.Context,android.content.Intent,int)>
+<com.android.internal.telephony.CarrierKeyDownloadManager$2: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.CarrierKeyDownloadManager: void cleanupRenewalAlarms()>
+<com.android.internal.telephony.CarrierKeyDownloadManager: void resetRenewalAlarm()>
+<com.android.internal.telephony.CarrierPrivilegesTracker$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.GsmCdmaPhone$3: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.MultiSimSettingController$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.NetworkRegistrationManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.NetworkTypeController$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.ServiceStateTracker$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.SignalStrengthController$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.data.AccessNetworksManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.data.DataConfigManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.data.DataNetworkController$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.data.DataServiceManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.data.PhoneSwitcher$8: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.dataconnection.DataServiceManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.dataconnection.DataThrottler$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.dataconnection.DcTracker$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.emergency.SemEmergencyNumberTracker$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.ims.ImsResolver$2: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.imsphone.ImsPhoneCallTracker$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.internal.telephony.uicc.PinStorage$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.TelephonyRegistry$2: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.TelephonyRegistry: android.content.Intent createServiceStateIntent(android.telephony.ServiceState,int,int,boolean)>
+<com.android.server.TelephonyRegistry: void broadcastCallStateChanged(int,java.lang.String,int,int)>
+<com.android.server.emergency.EmergencyAffordanceService$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.location.gnss.sec.SuplInitHandler: void handleDataSmsReceived(android.content.Intent)>
+<com.android.server.location.gnss.sec.SuplInitHandler: void handleWapPushReceived(android.content.Intent)>
+<com.android.server.net.NetworkPolicyManagerService$14: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.vcn.TelephonySubscriptionTracker: void handleActionCarrierConfigChanged(android.content.Context,android.content.Intent)>

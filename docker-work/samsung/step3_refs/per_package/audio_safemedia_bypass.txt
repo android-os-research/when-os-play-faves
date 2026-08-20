@@ -1,0 +1,6 @@
+# audio.safemedia.bypass [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.audio.AudioService: void onConfigureSafeVolume(boolean,java.lang.String)>
+<com.android.server.audio.AudioService: void onSystemReady()>

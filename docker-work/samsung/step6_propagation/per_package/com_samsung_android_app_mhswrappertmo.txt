@@ -1,0 +1,176 @@
+######################################################################
+# Propagation: com.samsung.android.app.mhswrappertmo
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.ap.SemSoftApManager$5
+  Method:   <com.samsung.android.server.wifi.ap.SemSoftApManager$5: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     304
+  Register: v0 := "com.samsung.android.app.mhswrappertmo"
+  Usage:    [invoke] invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v0, p0, Lcom/samsung/android/server/wifi/ap/SemS → 
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Context.sendBroadcastAsUser()
+      → Intent.setClassName()
+      → Intent.getParcelableExtra()
+      → Intent.getIntExtra()
+      → Intent.getAction()
+      → Intent.getStringExtra()
+      → NetworkInfo.getDetailedState()
+      → Settings$Global.getInt()
+      → SemWifiInjector.getWifiApChipInfo()
+      → SemSoftApManager$SemSoftApHandler.hasMessages()
+      → SemSoftApManager$SemSoftApHandler.sendEmptyMessageDelayed()
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: androi
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: boolea
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: boolea
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: boolea
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: boolea
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: com.sa
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: com.sa
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: com.sa
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: int -$
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: int -$
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: int -$
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: int -$
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: java.l
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: java.l
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: void -
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: void -
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: void -
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: void -
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: void -
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: void -
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: void -
+      → <com.samsung.android.server.wifi.ap.SemSoftApManager: void -
+      → SemSoftApManager.addSemSoftApDumpLog()
+      → SemSoftApManager.handleAirplaneMode()
+      → SemWifiApChipInfo.supportWifiSharing()
+      → SemWifiManager.setWifiApEnabled()
+        → SemSoftApManager.handleModemPowerBackoff()
+        → SemSoftApManager.handleSoftApState()
+        → StringBuffer.toString()
+        → StringBuffer.append()
+        → <java.lang.StringBuffer: void <init>()>
+        → SimpleDateFormat.format()
+        → <java.text.SimpleDateFormat: void <init>(java.lang.String,ja
+        → List.add()
+        → List.size()
+        → List.remove()
+        → SystemProperties.getInt()
+        → SemWifiApChipInfo.addMHSDumpLog()
+        → SemWifiApChipInfo.checkWifiSharing()
+        → <java.lang.Throwable: void <init>()>
+        → RemoteException.rethrowFromSystemServer()
+        → ISemWifiManager.setWifiApEnabled()
+        → SemWifiManager.insertHotSpotEnabledHistory()
+          → Context.getSystemService()
+          → ServiceManager.getService()
+          → SystemProperties.get()
+          → ServiceState.getNrFrequencyRange()
+          → TelephonyManager.getServiceState()
+          → IBatteryStats.noteWifiOff()
+          → IBatteryStats.noteWifiOn()
+          → ISemTelephony$Stub.asInterface()
+          → ISemTelephony.setTransmitPowerWithFlag()
+          → SemSoftApManager.syncGetWifiApStateByName()
+          → SemSoftApManager.setHotspotBackOff()
+          → TextUtils.isEmpty()
+          → SemWifiInjector.getInstance()
+          → SemWifiInjector.getWifiVersionProvider()
+          → SemHostapdHal.isRegisteredHostapdAidl()
+          → SemHostapdHal.setUpHostapdAidl()
+          → SemHostapdHal.stopHostapdAidl()
+          → SemSoftApManager.disableSoftap()
+          → SemSoftApManager.enableSoftap()
+          → SemSoftApManager.handleWifiSharingSoftap()
+          → WifiDriverVersionProvider.getWifiChipVendor()
+          → Enum.name()
+          → SystemProperties.get()
+          → SystemProperties.set()
+          → <android.os.DeadSystemRuntimeException: void <init>()>
+          → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+          → Context.getPackageName()
+          → Bundle.getString()
+          → <android.os.Bundle: void <init>()>
+          → Bundle.putString()
+          → DateFormat.format()
+          → SemWifiManager.reportHotspotDumpLogs()
+          → Exception.getStackTrace()
+          → <java.lang.Exception: void <init>()>
+          → StackTraceElement.getLineNumber()
+          → StackTraceElement.getFileName()
+          → StackTraceElement.getMethodName()
+            → IBinder.queryLocalInterface()
+            → <com.android.internal.telephony.ISemTelephony$Stub$Proxy: vo
+            → SemSoftApManager.sendHostapdCommandToHandler()
+            → CharSequence.length()
+            → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+            → SemHostapdHalAidlImpl.isRegistered()
+            → SemHostapdHalAidlImpl.serviceDeclared()
+            → SemHostapdHalAidlImpl.attachDaemon()
+            → SemHostapdHalAidlImpl.terminate()
+            → SemFrameworkFacade.isHotspotDongleProduct()
+            → SemWifiApTimeOutImpl.unRegisterSoftApCallback()
+            → SemWifiApTimeOutImpl.registerSoftApCallback()
+            → SemWifiManagerProxy.setWifiEnabled()
+            → SemSoftApManager.checkDualBandHostapd()
+            → SemSoftApManager.isUsbTethered()
+            → SemSoftApManager.isWifiOn()
+            → SemSoftApManager.getWifiSavedState()
+            → SemSoftApManager.setWifiSavedState()
+            → SemRilUtil.isWifiOnly()
+            → <android.os.DeadSystemException: void <init>()>
+            → ISemWifiManager.reportHotspotDumpLogs()
+              → <com.samsung.android.server.wifi.ap.SemSoftApManager$6: void
+              → SemSoftApManager$SemSoftApHandler.post()
+              → SemSoftApManager.isLohsOn()
+              → SemSoftApManager.isSoftApOn()
+              → ServiceManager.isDeclared()
+              → SdkLevel.isAtLeastT()
+              → IBinder.linkToDeath()
+              → <com.samsung.android.server.wifi.ap.SemHostapdHalAidlImpl$Ho
+              → SemHostapdHalAidlImpl.getServiceBinderMockable()
+              → SemHostapdHalAidlImpl.getHostapdMockable()
+              → SemHostapdHalAidlImpl.initSehHostapdService()
+              → SemHostapdHalAidlImpl.addMHSDumpLog()
+              → SemHostapdHalAidlImpl.clearState()
+              → SemHostapdHalAidlImpl.handleRemoteException()
+              → SemHostapdHalAidlImpl.checkHostapdAndLogFailure()
+              → CountDownLatch.await()
+              → <java.util.concurrent.CountDownLatch: void <init>(int)>
+              → Context.unregisterReceiver()
+              → WifiManager.unregisterSoftApCallback()
+              → SemWifiApTimeOutImpl$SoftApTimeoutEnabledSettingObserver.unregister()
+              → Context.registerReceiver()
+              → WifiManager.registerSoftApCallback()
+              → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+              → Looper.getMainLooper()
+              → <com.android.internal.util.WakeupMessage: void <init>(androi
+              → <com.samsung.android.server.wifi.ap.SemWifiApTimeOutImpl$2: 
+              → <com.samsung.android.server.wifi.ap.SemWifiApTimeOutImpl$Sof
+              → SemWifiApTimeOutImpl$SoftApTimeoutEnabledSettingObserver.register()
+              → SemWifiApTimeOutImpl.isPlugged()
+              → WifiManager.setWifiEnabled()
+              → Context.getSystemService()
+              → TetheringManager.getTetherableUsbRegexs()
+              → TetheringManager.getTetheredIfaces()
+              → SemWifiManagerProxy.getWifiState()
+              → Settings$Secure.getInt()
+              → Settings$Secure.putInt()
+              → SemSystemProperties.get()
+              → <android.os.DeadObjectException: void <init>()>
+

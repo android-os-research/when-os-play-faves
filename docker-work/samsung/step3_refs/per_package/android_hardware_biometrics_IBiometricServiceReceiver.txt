@@ -1,0 +1,15 @@
+# android.hardware.biometrics.IBiometricServiceReceiver [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.hardware.biometrics.IBiometricServiceReceiver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.IBiometricServiceReceiver$Stub$Proxy: void onAcquired(int,java.lang.String)>
+<android.hardware.biometrics.IBiometricServiceReceiver$Stub$Proxy: void onAuthenticationFailed()>
+<android.hardware.biometrics.IBiometricServiceReceiver$Stub$Proxy: void onAuthenticationSucceeded(int)>
+<android.hardware.biometrics.IBiometricServiceReceiver$Stub$Proxy: void onDialogDismissed(int)>
+<android.hardware.biometrics.IBiometricServiceReceiver$Stub$Proxy: void onError(int,int,int)>
+<android.hardware.biometrics.IBiometricServiceReceiver$Stub$Proxy: void onSemAuthenticationSucceeded(int,int,byte[])>
+<android.hardware.biometrics.IBiometricServiceReceiver$Stub$Proxy: void onSystemEvent(int)>
+<android.hardware.biometrics.IBiometricServiceReceiver$Stub: android.hardware.biometrics.IBiometricServiceReceiver asInterface(android.os.IBinder)>
+<android.hardware.biometrics.IBiometricServiceReceiver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.IBiometricServiceReceiver$Stub: void <init>()>

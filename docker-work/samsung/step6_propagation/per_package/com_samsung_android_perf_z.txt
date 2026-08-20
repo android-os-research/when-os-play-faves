@@ -1,0 +1,31 @@
+######################################################################
+# Propagation: com.samsung.android.perf_z
+######################################################################
+
+JARs:                 gamemanager
+Classes:              1
+Occurrences:          1
+Usage types:          array_init
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      gamemanager
+  Class:    com.samsung.android.game.GosNotifyThread
+  Method:   <com.samsung.android.game.GosNotifyThread: boolean isUninstallEventMonitoredPkgName(java.lang.String)>
+  Line:     308
+  Register: v0 := "com.samsung.android.perf_z"
+  Usage:    [array_init] filled-new-array {v0, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v2}, [Ljava/lang/String; → [other] array-length v2, v0 → [other] if-ge v4, v2, :cond_23
+
+  CALLERS (who invokes this method):
+      ← GosNotifyThread.notifyPackageChangedToGos()
+        ← <com.samsung.android.game.GosNotifyThread: void access$100(c
+          ← GosNotifyThread$3.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Objects.equals()
+

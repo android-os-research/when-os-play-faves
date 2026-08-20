@@ -1,0 +1,31 @@
+######################################################################
+# Propagation: com.kddi.extcontroldevice
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.sec.rll.ExtControlDeviceService
+  Method:   <com.sec.rll.ExtControlDeviceService: boolean isAccessPermitted()>
+  Line:     195
+  Register: v8 := "com.kddi.extcontroldevice"
+  Usage:    [invoke] invoke-virtual {v7, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.startsWith() → [other] move-result v8 → [branch] if-eqz v8, :cond_40
+
+  CALLERS (who invokes this method):
+      ← ExtControlDeviceService.getStatus()
+      ← ExtControlDeviceService.setStatus()
+
+  CALLEES (what this method invokes):
+      → PackageManager.getPackagesForUid()
+      → Binder.getCallingUid() [UID_CHECK]
+

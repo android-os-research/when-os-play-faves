@@ -1,0 +1,8 @@
+# persist.sys.omc_etcpath [NEW]
+# Refs: 4
+# JARs: framework
+
+<com.android.internal.app.LocaleStore: void fillCacheManaged(android.content.Context,boolean)>
+<com.samsung.android.util.CustomizedTextParser: void <init>()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional omc_etc_path()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void omc_etc_path(java.lang.String)>

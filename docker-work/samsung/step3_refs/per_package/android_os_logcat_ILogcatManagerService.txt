@@ -1,0 +1,10 @@
+# android.os.logcat.ILogcatManagerService [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.logcat.ILogcatManagerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.logcat.ILogcatManagerService$Stub$Proxy: void finishThread(int,int,int,int)>
+<android.os.logcat.ILogcatManagerService$Stub$Proxy: void startThread(int,int,int,int)>
+<android.os.logcat.ILogcatManagerService$Stub: android.os.logcat.ILogcatManagerService asInterface(android.os.IBinder)>
+<android.os.logcat.ILogcatManagerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.logcat.ILogcatManagerService$Stub: void <init>()>

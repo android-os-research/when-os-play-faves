@@ -1,0 +1,6 @@
+# com.sec.android.sdhms.action.CRASH_ANR [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.am.AnrHelper: void appNotResponding(com.android.server.am.ProcessRecord,java.lang.String,android.content.pm.ApplicationInfo,java.lang.String,com.android.server.wm.WindowProcessController,boolean,java.lang.String)>
+<com.android.server.am.AppErrors: void crashApplicationInner(com.android.server.am.ProcessRecord,android.app.ApplicationErrorReport$CrashInfo,int,int)>

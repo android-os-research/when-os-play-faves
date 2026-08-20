@@ -1,0 +1,14 @@
+# com.skms.android.agent.ISkpmService [NEW]
+# Refs: 10
+# JARs: framework
+
+<com.skms.android.agent.ISkpmService$Stub$Proxy: int SkpmChangeOtaServer(java.lang.String,java.lang.String)>
+<com.skms.android.agent.ISkpmService$Stub$Proxy: int SkpmReadInjectedKeyUID(byte,byte,java.lang.String,byte[])>
+<com.skms.android.agent.ISkpmService$Stub$Proxy: int SkpmServiceCreateGetKeySession(byte,java.lang.String,byte[],byte)>
+<com.skms.android.agent.ISkpmService$Stub$Proxy: int SkpmServiceInjectedKeyVerification(byte,byte,java.lang.String)>
+<com.skms.android.agent.ISkpmService$Stub$Proxy: int SkpmServiceKeyInjection(byte,byte,java.lang.String,byte[],byte)>
+<com.skms.android.agent.ISkpmService$Stub$Proxy: int SkpmServiceReleaseGetKeySession()>
+<com.skms.android.agent.ISkpmService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.skms.android.agent.ISkpmService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.skms.android.agent.ISkpmService$Stub: com.skms.android.agent.ISkpmService asInterface(android.os.IBinder)>
+<com.skms.android.agent.ISkpmService$Stub: void <init>()>

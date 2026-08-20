@@ -1,0 +1,10 @@
+# android.hardware.input.IInputSensorEventListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.hardware.input.IInputSensorEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.input.IInputSensorEventListener$Stub$Proxy: void onInputSensorAccuracyChanged(int,int,int)>
+<android.hardware.input.IInputSensorEventListener$Stub$Proxy: void onInputSensorChanged(int,int,int,long,float[])>
+<android.hardware.input.IInputSensorEventListener$Stub: android.hardware.input.IInputSensorEventListener asInterface(android.os.IBinder)>
+<android.hardware.input.IInputSensorEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.input.IInputSensorEventListener$Stub: void <init>()>

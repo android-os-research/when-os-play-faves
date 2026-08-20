@@ -1,0 +1,12 @@
+# com.sec.ims.options.ICapabilityServiceEventListener [NEW]
+# Refs: 8
+# JARs: imsmanager
+
+<com.sec.ims.options.ICapabilityServiceEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.options.ICapabilityServiceEventListener$Stub$Proxy: void onCapabilitiesChanged(java.util.List,com.sec.ims.options.Capabilities)>
+<com.sec.ims.options.ICapabilityServiceEventListener$Stub$Proxy: void onCapabilityAndAvailabilityPublished(int)>
+<com.sec.ims.options.ICapabilityServiceEventListener$Stub$Proxy: void onMultipleCapabilitiesChanged(java.util.List,java.util.List)>
+<com.sec.ims.options.ICapabilityServiceEventListener$Stub$Proxy: void onOwnCapabilitiesChanged()>
+<com.sec.ims.options.ICapabilityServiceEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.options.ICapabilityServiceEventListener$Stub: com.sec.ims.options.ICapabilityServiceEventListener asInterface(android.os.IBinder)>
+<com.sec.ims.options.ICapabilityServiceEventListener$Stub: void <init>()>

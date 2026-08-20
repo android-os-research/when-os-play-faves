@@ -1,0 +1,9 @@
+# android.location.provider.IProviderRequestListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.location.provider.IProviderRequestListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.provider.IProviderRequestListener$Stub$Proxy: void onProviderRequestChanged(java.lang.String,android.location.provider.ProviderRequest)>
+<android.location.provider.IProviderRequestListener$Stub: android.location.provider.IProviderRequestListener asInterface(android.os.IBinder)>
+<android.location.provider.IProviderRequestListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.provider.IProviderRequestListener$Stub: void <init>()>

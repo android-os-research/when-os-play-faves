@@ -1,0 +1,9 @@
+# com.sprint.ms.smf.services [NEW]
+# Refs: 5
+# JARs: services, telephony-common
+
+<com.android.server.am.AppStateBroadcaster: void <clinit>()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultPermissionsToSprintApps(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.sec.tmodiagnostics.DeviceReportingSecurityChecker: boolean getSprintHubSignature()>
+<com.tmobile.echolocate.DataMetrics5gSa: boolean isSprintHubSigPresent()>
+<com.tmobile.echolocate.DataMetrics: boolean isSprintHubSigPresent()>

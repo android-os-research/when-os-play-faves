@@ -1,0 +1,7 @@
+# com.samsung.android.hardware.display.category.VIEW_COVER_DISPLAY [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.app.SemWallpaperColorsArea: android.view.DisplayInfo getDisplayInfo(int,int)>
+<com.android.server.wallpaper.WallpaperManagerService$WallpaperConnection: void appendConnectorWithCondition(java.util.function.Predicate)>
+<com.samsung.server.wallpaper.VirtualDisplayMode: boolean isVirtualWallpaperDisplay(int)>

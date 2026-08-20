@@ -1,0 +1,7 @@
+# persist.sys.knox.device_owner [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<com.android.server.devicepolicy.DevicePolicyManagerService: void setDeviceOwnershipSystemPropertyLocked()>
+<com.samsung.android.knox.SemPersonaManager: boolean isDeviceOrProfileOwnerEnabled()>
+<com.samsung.android.knox.SemPersonaManager: boolean isDoEnabled(int)>

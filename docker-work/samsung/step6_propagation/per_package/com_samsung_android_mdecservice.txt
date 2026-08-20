@@ -1,0 +1,36 @@
+######################################################################
+# Propagation: com.samsung.android.mdecservice
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.audio.AudioHelper
+  Method:   <com.samsung.android.server.audio.AudioHelper: boolean hasCmcFeature(android.content.Context)>
+  Line:     643
+  Register: v1 := "com.samsung.android.mdecservice"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← AudioHelper.getPlatformType()
+        ← AudioService$SamsungSettingsObserver.onChange()
+        ← <com.android.server.audio.AudioService: void <init>(android.
+          ← <com.android.server.audio.AudioService: void <init>(android.
+            ← <com.android.server.audio.AudioService$Lifecycle: void <init
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → Settings$Global.getInt()
+

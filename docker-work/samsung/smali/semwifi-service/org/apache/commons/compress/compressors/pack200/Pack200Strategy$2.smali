@@ -1,0 +1,53 @@
+.class final enum Lorg/apache/commons/compress/compressors/pack200/Pack200Strategy$2;
+.super Lorg/apache/commons/compress/compressors/pack200/Pack200Strategy;
+.source "Pack200Strategy.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lorg/apache/commons/compress/compressors/pack200/Pack200Strategy;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4010
+    name = null
+.end annotation
+
+
+# direct methods
+.method private constructor <init>(Ljava/lang/String;I)V
+    .registers 4
+
+    const/4 v0, 0x0
+
+    .line 38
+    invoke-direct {p0, p1, p2, v0}, Lorg/apache/commons/compress/compressors/pack200/Pack200Strategy;-><init>(Ljava/lang/String;ILorg/apache/commons/compress/compressors/pack200/Pack200Strategy-IA;)V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Ljava/lang/String;ILorg/apache/commons/compress/compressors/pack200/Pack200Strategy$2-IA;)V
+    .registers 4
+
+    invoke-direct {p0, p1, p2}, Lorg/apache/commons/compress/compressors/pack200/Pack200Strategy$2;-><init>(Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method newStreamBridge()Lorg/apache/commons/compress/compressors/pack200/StreamBridge;
+    .registers 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 41
+    new-instance p0, Lorg/apache/commons/compress/compressors/pack200/TempFileCachingStreamBridge;
+
+    invoke-direct {p0}, Lorg/apache/commons/compress/compressors/pack200/TempFileCachingStreamBridge;-><init>()V
+
+    return-object p0
+.end method

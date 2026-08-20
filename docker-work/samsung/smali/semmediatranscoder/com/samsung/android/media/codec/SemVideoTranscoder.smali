@@ -1,0 +1,325 @@
+.class public Lcom/samsung/android/media/codec/SemVideoTranscoder;
+.super Ljava/lang/Object;
+.source "SemVideoTranscoder.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressListener;,
+        Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressEventListener;,
+        Lcom/samsung/android/media/codec/SemVideoTranscoder$ConfigType;,
+        Lcom/samsung/android/media/codec/SemVideoTranscoder$CodecType;
+    }
+.end annotation
+
+
+# instance fields
+.field private mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+.field private mProgressEventListener:Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressEventListener;
+
+.field private mProgressListener:Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressListener;
+
+.field private mVideoTranscodingServiceCallback:Lcom/samsung/android/media/codec/IVideoTranscodingServiceCallback;
+
+
+# direct methods
+.method static bridge synthetic -$$Nest$fgetmProgressEventListener(Lcom/samsung/android/media/codec/SemVideoTranscoder;)Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressEventListener;
+    .registers 1
+
+    iget-object p0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mProgressEventListener:Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressEventListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmProgressListener(Lcom/samsung/android/media/codec/SemVideoTranscoder;)Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressListener;
+    .registers 1
+
+    iget-object p0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mProgressListener:Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmVideoTranscodingServiceCallback(Lcom/samsung/android/media/codec/SemVideoTranscoder;)Lcom/samsung/android/media/codec/IVideoTranscodingServiceCallback;
+    .registers 1
+
+    iget-object p0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mVideoTranscodingServiceCallback:Lcom/samsung/android/media/codec/IVideoTranscodingServiceCallback;
+
+    return-object p0
+.end method
+
+.method public constructor <init>()V
+    .registers 2
+
+    .line 30
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 31
+    new-instance v0, Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    invoke-direct {v0}, Lcom/samsung/android/transcode/core/EncodeVideo;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    .line 32
+    return-void
+.end method
+
+.method public static getMaxEncodingDuration(IIII)I
+    .registers 5
+    .param p0, "maxSizeKB"    # I
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "audioCodecType"    # I
+
+    .line 388
+    invoke-static {p0, p1, p2, p3}, Lcom/samsung/android/transcode/core/EncodeVideo;->getMaxEncodingDuration(IIII)I
+
+    move-result v0
+
+    return v0
+.end method
+
+
+# virtual methods
+.method public encode()V
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 182
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    invoke-virtual {v0}, Lcom/samsung/android/transcode/core/EncodeVideo;->encode()V
+
+    .line 183
+    return-void
+.end method
+
+.method public getOutputFileSize()I
+    .registers 2
+
+    .line 286
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    invoke-virtual {v0}, Lcom/samsung/android/transcode/core/EncodeVideo;->getOutputFileSize()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public initialize(Ljava/lang/String;IILandroid/content/Context;Landroid/net/Uri;)V
+    .registers 12
+    .param p1, "outputFilePath"    # Ljava/lang/String;
+    .param p2, "outputWidth"    # I
+    .param p3, "outputHeight"    # I
+    .param p4, "context"    # Landroid/content/Context;
+    .param p5, "inputUri"    # Landroid/net/Uri;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 235
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    move-object v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    move-object v4, p4
+
+    move-object v5, p5
+
+    invoke-virtual/range {v0 .. v5}, Lcom/samsung/android/transcode/core/EncodeVideo;->initialize(Ljava/lang/String;IILandroid/content/Context;Landroid/net/Uri;)V
+
+    .line 236
+    return-void
+.end method
+
+.method public initialize(Ljava/lang/String;IILjava/lang/String;)V
+    .registers 6
+    .param p1, "outputFilePath"    # Ljava/lang/String;
+    .param p2, "outputWidth"    # I
+    .param p3, "outputHeight"    # I
+    .param p4, "inputFilePath"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 219
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/samsung/android/transcode/core/EncodeVideo;->initialize(Ljava/lang/String;IILjava/lang/String;)V
+
+    .line 220
+    return-void
+.end method
+
+.method public rewrite()V
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 195
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    invoke-virtual {v0}, Lcom/samsung/android/transcode/core/EncodeVideo;->rewrite()V
+
+    .line 196
+    return-void
+.end method
+
+.method public setEncodingCodecs(II)V
+    .registers 4
+    .param p1, "videoCodecType"    # I
+    .param p2, "audioCodecType"    # I
+
+    .line 261
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    invoke-virtual {v0, p1, p2}, Lcom/samsung/android/transcode/core/EncodeVideo;->setEncodingCodecs(II)V
+
+    .line 262
+    return-void
+.end method
+
+.method public setMaxOutputSize(I)V
+    .registers 3
+    .param p1, "kilobytes"    # I
+
+    .line 275
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    invoke-virtual {v0, p1}, Lcom/samsung/android/transcode/core/EncodeVideo;->setMaxOutputSize(I)V
+
+    .line 276
+    return-void
+.end method
+
+.method public setOutputBitdepth(I)Z
+    .registers 3
+    .param p1, "bitdepth"    # I
+
+    .line 405
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    invoke-virtual {v0, p1}, Lcom/samsung/android/transcode/core/EncodeVideo;->setOutputBitdepth(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public setOutputConfig(II)V
+    .registers 4
+    .param p1, "type"    # I
+    .param p2, "value"    # I
+
+    .line 418
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    invoke-virtual {v0, p1, p2}, Lcom/samsung/android/transcode/core/EncodeVideo;->setOutputConfig(II)V
+
+    .line 419
+    return-void
+.end method
+
+.method public setProgressEventListener(Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressEventListener;)V
+    .registers 4
+    .param p1, "listner"    # Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressEventListener;
+
+    .line 296
+    iput-object p1, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mProgressEventListener:Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressEventListener;
+
+    .line 297
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    new-instance v1, Lcom/samsung/android/media/codec/SemVideoTranscoder$1;
+
+    invoke-direct {v1, p0}, Lcom/samsung/android/media/codec/SemVideoTranscoder$1;-><init>(Lcom/samsung/android/media/codec/SemVideoTranscoder;)V
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/transcode/core/EncodeVideo;->setProgressUpdateListener(Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;)V
+
+    .line 310
+    return-void
+.end method
+
+.method public setProgressListener(Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressListener;)V
+    .registers 4
+    .param p1, "listener"    # Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressListener;
+
+    .line 319
+    iput-object p1, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mProgressListener:Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressListener;
+
+    .line 320
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    new-instance v1, Lcom/samsung/android/media/codec/SemVideoTranscoder$2;
+
+    invoke-direct {v1, p0}, Lcom/samsung/android/media/codec/SemVideoTranscoder$2;-><init>(Lcom/samsung/android/media/codec/SemVideoTranscoder;)V
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/transcode/core/EncodeVideo;->setEncodeProgressListener(Lcom/samsung/android/transcode/core/Encode$EncodeProgressListener;)V
+
+    .line 337
+    return-void
+.end method
+
+.method public setTrimTime(JJ)V
+    .registers 6
+    .param p1, "startMs"    # J
+    .param p3, "endMs"    # J
+
+    .line 247
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/samsung/android/transcode/core/EncodeVideo;->setTrimTime(JJ)V
+
+    .line 248
+    return-void
+.end method
+
+.method public setVideoTranscodingServiceCallback(Lcom/samsung/android/media/codec/SemVideoTranscodingService$ProgressCallback;)V
+    .registers 4
+    .param p1, "callback"    # Lcom/samsung/android/media/codec/SemVideoTranscodingService$ProgressCallback;
+
+    .line 344
+    iput-object p1, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mVideoTranscodingServiceCallback:Lcom/samsung/android/media/codec/IVideoTranscodingServiceCallback;
+
+    .line 345
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    new-instance v1, Lcom/samsung/android/media/codec/SemVideoTranscoder$3;
+
+    invoke-direct {v1, p0}, Lcom/samsung/android/media/codec/SemVideoTranscoder$3;-><init>(Lcom/samsung/android/media/codec/SemVideoTranscoder;)V
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/transcode/core/EncodeVideo;->setEncodeProgressListener(Lcom/samsung/android/transcode/core/Encode$EncodeProgressListener;)V
+
+    .line 374
+    return-void
+.end method
+
+.method public stop()V
+    .registers 2
+
+    .line 204
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    invoke-virtual {v0}, Lcom/samsung/android/transcode/core/EncodeVideo;->stop()V
+
+    .line 205
+    return-void
+.end method

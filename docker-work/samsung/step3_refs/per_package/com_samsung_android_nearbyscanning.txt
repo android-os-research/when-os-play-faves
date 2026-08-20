@@ -1,0 +1,13 @@
+# com.samsung.android.nearbyscanning [NEW]
+# Refs: 9
+# JARs: semwifi-service, services
+
+<com.android.server.desktopmode.McfManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.desktopmode.McfManager: void registerIntent()>
+<com.android.server.display.WifiDisplayMcfManager$5: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.display.WifiDisplayMcfManager: void registerIntent()>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApAdvancedAutohotspotService: void registerReceiver()>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartBleScanner$SemWifiApSmartBleScannerReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartBleScanner: void <clinit>()>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartMHS$SemWifiApSmartMHSBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartMHS: void <clinit>()>

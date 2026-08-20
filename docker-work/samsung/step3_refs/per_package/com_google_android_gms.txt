@@ -1,0 +1,28 @@
+# com.google.android.gms [NEW]
+# Refs: 25
+# JARs: duraspeed, framework, knoxsdk, semwifi-service, services
+
+<com.android.internal.app.ChooserActivity: android.content.ComponentName getNearbyShareInternalComponent()>
+<com.android.server.DualAppManagerService: void <clinit>()>
+<com.android.server.alarm.GmsAlarmManager: boolean isGmsDelay12HourAlarm(android.app.PendingIntent)>
+<com.android.server.alarm.GmsAlarmManager: boolean isGmsDelay6HourAlarm(android.app.PendingIntent)>
+<com.android.server.alarm.GmsAlarmManager: boolean skipGmsAlarms(android.app.PendingIntent)>
+<com.android.server.alarm.GmsAlarmManager: java.util.ArrayList updateMultiUserGmsUid(int)>
+<com.android.server.alarm.GmsAlarmManager: void <init>(android.content.Context)>
+<com.android.server.alarm.GmsAlarmManager: void restoreGcmAlarm()>
+<com.android.server.alarm.GmsAlarmManager: void setGMSLocationProviderChangeReceiverState(int)>
+<com.android.server.devicepolicy.DevicePolicyManagerService: void <clinit>()>
+<com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>
+<com.android.server.enterprise.application.ApplicationPolicy: void setAndroidMarketState(com.samsung.android.knox.ContextInfo,boolean)>
+<com.android.server.knox.dar.ddar.core.DualDarDoManagerImpl: void <init>(com.android.server.knox.dar.DarManagerService$Injector)>
+<com.android.server.pm.ComputerEngine: java.util.List getTopPriorityPackages(long)>
+<com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.mediatek.duraspeed.collector.q: void <clinit>()>
+<com.mediatek.duraspeed.suppress.SuppressAction: java.lang.String onReadyToStartComponent(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.kpm.KnoxPushService: boolean isGMSCoreEnabled()>
+<com.samsung.android.server.pm.google.ChinaGmsToggleUtils: void <clinit>()>
+<com.samsung.android.server.wifi.SemApeController: void initBlockedPackages()>
+<com.samsung.android.server.wifi.SemApeService: void <init>(android.content.Context,android.os.HandlerThread,com.samsung.android.server.wifi.SemClientModeManager)>
+<com.samsung.android.server.wifi.SemWifiConnectivityMonitor: void <init>(android.content.Context,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.ISemInterfaceNameProvider,com.samsung.android.server.wifi.tcp.SemWifiSwitchForIndividualAppsService)>
+<com.samsung.android.server.wifi.silentroaming.SilentRoamingManager: void <init>(android.content.Context,com.samsung.android.server.wifi.util.SemClock,android.os.Looper,com.samsung.android.server.wifi.halclient.SemWifiNative,com.samsung.android.server.wifi.SemWifiManagerProxy,com.samsung.android.server.wifi.SemWifiConfigManager,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.SemFrameworkFacade,android.util.LocalLog,com.samsung.android.server.wifi.silentroaming.SilentRoamingWifiInfo,com.samsung.android.server.wifi.silentroaming.SilentRoamingPnoScanner,com.samsung.android.server.wifi.silentroaming.SemThroughputPredictor,com.samsung.android.server.wifi.silentroaming.SemThroughputScorer)>

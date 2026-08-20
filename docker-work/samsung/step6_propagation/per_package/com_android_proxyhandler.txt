@@ -1,0 +1,84 @@
+######################################################################
+# Propagation: com.android.proxyhandler
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.connectivity.PacProxyService
+  Method:   <com.android.server.connectivity.PacProxyService: void bind()>
+  Line:     634
+  Register: v0 := "com.android.proxyhandler"
+  Usage:    [invoke] invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName()
+
+  CALLERS (who invokes this method):
+      ← PacProxyService.setCurrentProxyScriptUrl()
+
+  CALLEES (what this method invokes):
+      → Context.bindServiceAsUser()
+      → Context.bindServiceAsUser()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → Handler.post()
+      → <com.android.server.connectivity.PacProxyService$2: void <in
+      → <com.android.server.connectivity.PacProxyService$3: void <in
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.proxy.LocalProxyManager
+  Method:   <com.android.server.enterprise.proxy.LocalProxyManager: void bindProxyService()>
+  Line:     1454
+  Register: v1 := "com.android.proxyhandler"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] new-instance v1, Lcom/android/server/enterprise/proxy/LocalP → 
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.enterprise.proxy.LocalProxyManager: void
+      ← <com.android.server.enterprise.proxy.LocalProxyManager: void
+        ← <com.android.server.enterprise.proxy.LocalProxyManager: void
+        ← <com.android.server.enterprise.proxy.LocalProxyManager: void
+          ← LocalProxyManager$$ExternalSyntheticLambda12.runOrThrow()
+          ← LocalProxyManager$$ExternalSyntheticLambda11.runOrThrow()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → <com.android.server.enterprise.proxy.LocalProxyManager$2: vo
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.proxy.LocalProxyManager
+  Method:   <com.android.server.enterprise.proxy.LocalProxyManager: void bindToLocalProxyServer()>
+  Line:     1529
+  Register: v1 := "com.android.proxyhandler"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] new-instance v1, Lcom/android/server/enterprise/proxy/LocalP → 
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.enterprise.proxy.LocalProxyManager: void
+        ← <com.android.server.enterprise.proxy.LocalProxyManager: void
+          ← LocalProxyManager$$ExternalSyntheticLambda10.runOrThrow()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → <com.android.server.enterprise.proxy.LocalProxyManager$1: vo
+

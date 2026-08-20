@@ -1,0 +1,9 @@
+# android.view.IScrollCaptureResponseListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.IScrollCaptureResponseListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IScrollCaptureResponseListener$Stub$Proxy: void onScrollCaptureResponse(android.view.ScrollCaptureResponse)>
+<android.view.IScrollCaptureResponseListener$Stub: android.view.IScrollCaptureResponseListener asInterface(android.os.IBinder)>
+<android.view.IScrollCaptureResponseListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IScrollCaptureResponseListener$Stub: void <init>()>

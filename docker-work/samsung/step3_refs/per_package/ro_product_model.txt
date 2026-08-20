@@ -1,0 +1,26 @@
+# ro.product.model [NEW]
+# Refs: 22
+# JARs: framework, motionrecognitionservice, semwifi-service, services, telephony-common
+
+<android.os.Build: void <clinit>()>
+<com.android.internal.telephony.SmsApplication$DefaultMessageAppConfig: boolean setDefaultMsgApp_File(java.lang.String)>
+<com.android.internal.telephony.TelephonyFeatures: boolean needSecSimOnOffEx()>
+<com.android.internal.telephony.semtelephonyinterface.SemTelephonyController: void <clinit>()>
+<com.android.server.am.DynamicHiddenApp: void isHomeHubMode(android.os.Bundle,java.lang.String)>
+<com.android.server.am.FreecessController: void <clinit>()>
+<com.android.server.asks.ASKSManagerService: boolean checkTokenTarget(java.lang.String,java.lang.String)>
+<com.android.server.asks.ASKSManagerService: boolean isTrustedStore(java.lang.String)>
+<com.android.server.asks.ASKSManagerService: int checkUnknownSourcePackage(java.lang.String,java.lang.String[],java.lang.String[],java.lang.String,android.content.pm.Signature[],java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String)>
+<com.android.server.asks.ASKSManagerService: void postASKSsetup(java.lang.String,java.lang.String,int)>
+<com.android.server.asks.ASKSManagerService: void refreshInstalledUnknownList_NEW()>
+<com.android.server.asks.RuleUpdateForSecurity: boolean checkTargetModelAndCarrier(java.util.ArrayList,java.util.ArrayList)>
+<com.android.server.enterprise.device.DeviceInfo: java.lang.String getModelNumber(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.gesture.MotionRecognitionPalmSweep: void <init>(android.content.Context,com.samsung.android.gesture.MotionRecognitionPalmData)>
+<com.samsung.android.gesture.MotionRecognitionService: boolean checkDeviceForDummyAction()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void <init>(com.samsung.android.knox.custom.KnoxCustomManagerService$Injector)>
+<com.samsung.android.server.wifi.SemWifiDelayedWakeup: java.lang.String getProductModelName()>
+<com.samsung.android.server.wifi.SemWifiLnaControl: java.lang.String getProductModelName()>
+<com.samsung.android.server.wifi.SemWifiServiceImpl: boolean needToStartSilentRoaming()>
+<com.samsung.android.server.wifi.SemWifiTwtMonitor: java.lang.String getProductModelName()>
+<com.samsung.android.server.wifi.silentroaming.SilentRoamingManager: boolean needToUseAlternativeSilentRoaming()>
+<com.samsung.server.wallpaper.CMFWallpaper$ProductFeatures: java.lang.String getProductInfo()>

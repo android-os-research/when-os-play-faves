@@ -1,0 +1,9 @@
+# android.content.pm.IPackageLoadingProgressCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.content.pm.IPackageLoadingProgressCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IPackageLoadingProgressCallback$Stub$Proxy: void onPackageLoadingProgressChanged(float)>
+<android.content.pm.IPackageLoadingProgressCallback$Stub: android.content.pm.IPackageLoadingProgressCallback asInterface(android.os.IBinder)>
+<android.content.pm.IPackageLoadingProgressCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IPackageLoadingProgressCallback$Stub: void <init>()>

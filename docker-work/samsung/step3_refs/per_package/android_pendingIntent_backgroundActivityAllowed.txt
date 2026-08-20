@@ -1,0 +1,7 @@
+# android.pendingIntent.backgroundActivityAllowed [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.app.ComponentOptions: android.os.Bundle toBundle()>
+<android.app.ComponentOptions: void <init>(android.os.Bundle)>
+<com.android.server.am.PendingIntentRecord: boolean isPendingIntentBalAllowedByCaller(android.os.Bundle)>

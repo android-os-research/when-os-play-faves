@@ -1,0 +1,10 @@
+# com.samsung.android.content.smartclip.IInputMethodInfoChangeListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<com.samsung.android.content.smartclip.IInputMethodInfoChangeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.content.smartclip.IInputMethodInfoChangeListener$Stub$Proxy: void onInputInfoChanged(com.android.internal.view.IInputContext,android.view.inputmethod.EditorInfo)>
+<com.samsung.android.content.smartclip.IInputMethodInfoChangeListener$Stub$Proxy: void onKeyboardClosed()>
+<com.samsung.android.content.smartclip.IInputMethodInfoChangeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.content.smartclip.IInputMethodInfoChangeListener$Stub: com.samsung.android.content.smartclip.IInputMethodInfoChangeListener asInterface(android.os.IBinder)>
+<com.samsung.android.content.smartclip.IInputMethodInfoChangeListener$Stub: void <init>()>

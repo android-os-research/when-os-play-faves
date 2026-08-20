@@ -1,0 +1,7 @@
+# ro.ril.svlte1x [NEW]
+# Refs: 3
+# JARs: framework, telephony-common
+
+<com.android.internal.telephony.SmsDomainSelector: int getCommonSmsDomain(int,java.lang.String)>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional svlte1x()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void svlte1x(java.lang.String)>

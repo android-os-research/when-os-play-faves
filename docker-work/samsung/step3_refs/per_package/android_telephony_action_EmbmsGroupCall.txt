@@ -1,0 +1,6 @@
+# android.telephony.action.EmbmsGroupCall [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.telephony.MbmsGroupCallSession: int bindAndInitialize()>
+<android.telephony.mbms.MbmsUtils: android.content.ComponentName getOverrideServiceName(android.content.Context,java.lang.String)>

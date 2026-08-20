@@ -1,0 +1,18 @@
+# android.media.projection.IMediaProjection [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.media.projection.IMediaProjection$Stub$Proxy: android.window.WindowContainerToken getTaskRecordingWindowContainerToken()>
+<android.media.projection.IMediaProjection$Stub$Proxy: boolean canProjectAudio()>
+<android.media.projection.IMediaProjection$Stub$Proxy: boolean canProjectSecureVideo()>
+<android.media.projection.IMediaProjection$Stub$Proxy: boolean canProjectVideo()>
+<android.media.projection.IMediaProjection$Stub$Proxy: int applyVirtualDisplayFlags(int)>
+<android.media.projection.IMediaProjection$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.projection.IMediaProjection$Stub$Proxy: void registerCallback(android.media.projection.IMediaProjectionCallback)>
+<android.media.projection.IMediaProjection$Stub$Proxy: void setTaskRecordingWindowContainerToken(android.window.WindowContainerToken)>
+<android.media.projection.IMediaProjection$Stub$Proxy: void start(android.media.projection.IMediaProjectionCallback)>
+<android.media.projection.IMediaProjection$Stub$Proxy: void stop()>
+<android.media.projection.IMediaProjection$Stub$Proxy: void unregisterCallback(android.media.projection.IMediaProjectionCallback)>
+<android.media.projection.IMediaProjection$Stub: android.media.projection.IMediaProjection asInterface(android.os.IBinder)>
+<android.media.projection.IMediaProjection$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.projection.IMediaProjection$Stub: void <init>()>

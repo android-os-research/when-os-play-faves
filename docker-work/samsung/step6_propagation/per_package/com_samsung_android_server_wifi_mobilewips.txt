@@ -1,0 +1,381 @@
+######################################################################
+# Propagation: com.samsung.android.server.wifi.mobilewips
+######################################################################
+
+JARs:                 knoxsdk, semwifi-service
+Classes:              6
+Occurrences:          10
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PERM_CHECK, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$1
+  Method:   <com.samsung.android.knox.EdmConstants$1: void <init>()>
+  Line:     89
+  Register: v0 := "com.samsung.android.server.wifi.mobilewips"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1
+  Method:   <com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1: void <init>()>
+  Line:     62
+  Register: v0 := "com.samsung.android.server.wifi.mobilewips"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.appconfig.ApplicationRestrictionsM
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService$2
+  Method:   <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService$2: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     55
+  Register: v0 := "com.samsung.android.server.wifi.mobilewips"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → Intent.getData()
+      → Intent.getAction()
+      → Uri.getSchemeSpecificPart()
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+        → SemMobileWipsFrameworkService.turnOnWips()
+          → SemMobileWipsFrameworkService.turnOnWips()
+            → SemWifiManagerProxy.getWifiState()
+            → SemMobileWipsFrameworkService.checkMwipsPackageVersion()
+            → SemMobileWipsFrameworkService.hasWifiWIPSPermission()
+            → SemMobileWipsFrameworkService.clearWipsServiceStatusEvent()
+            → SemMobileWipsFrameworkService.sendEmptyMessageDelayed()
+              → AtomicInteger.get()
+              → Context.getPackageManager()
+              → PackageManager.getPackageInfo() [PKG_QUERY]
+              → Exception.printStackTrace()
+              → PackageManager.checkPermission() [PERM_CHECK]
+              → SemMobileWipsFrameworkService$ServiceHandler.removeCallbacksAndMessages()
+              → SemMobileWipsFrameworkService.getHandler()
+              → SemMobileWipsFrameworkService$ServiceHandler.sendEmptyMessageDelayed()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService
+  Method:   <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService: boolean checkMwipsPackageVersion()>
+  Line:     793
+  Register: v4 := "com.samsung.android.server.wifi.mobilewips"
+  Usage:    [invoke] invoke-virtual {p0, v4, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [reassigned] v4 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemMobileWipsFrameworkService.turnOnWips()
+        ← <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+        ← SemMobileWipsFrameworkService.onBootPhase()
+        ← SemMobileWipsFrameworkService.turnOnWips()
+          ← SemMobileWipsFrameworkService$4.onReceive()
+          ← SemMobileWipsFrameworkService$6.onServiceDisconnected()
+          ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void la
+          ← <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+            ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void $r
+            ← SemMobileWipsFrameworkService$1.onChange()
+            ← SemMobileWipsFrameworkService$2.onReceive()
+              ← SemWifiServiceImpl$$ExternalSyntheticLambda10.run()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → Exception.printStackTrace()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService
+  Method:   <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService: int getWipsPid()>
+  Line:     1008
+  Register: v2 := "com.samsung.android.server.wifi.mobilewips"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equalsIgnoreCase()
+
+  CALLERS (who invokes this method):
+      ← SemMobileWipsFrameworkService.isWipsOn()
+      ← <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+        ← <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+        ← SemMobileWipsFrameworkService$ServiceHandler.monitorWipsStatus()
+          ← SemMobileWipsFrameworkService$1.onChange()
+          ← SemMobileWipsFrameworkService$ServiceHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getRunningAppProcesses()
+      → Context.getSystemService()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService
+  Method:   <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService: void turnOnWips(int)>
+  Line:     1365
+  Register: v0 := "com.samsung.android.server.wifi.mobilewips"
+  Usage:    [invoke] invoke-direct {p0, v0}, Lcom/samsung/android/server/wifi/mobilewips/SemMobileWipsFrameworkService;->
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.wifi.mobilewips.SemMobileWipsFram → [other] move-result v0 → [branch] if-nez v0, :co
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+      ← SemMobileWipsFrameworkService.onBootPhase()
+      ← SemMobileWipsFrameworkService.turnOnWips()
+        ← SemMobileWipsFrameworkService$4.onReceive()
+        ← SemMobileWipsFrameworkService$6.onServiceDisconnected()
+        ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void la
+        ← <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+          ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void $r
+          ← SemMobileWipsFrameworkService$1.onChange()
+          ← SemMobileWipsFrameworkService$2.onReceive()
+            ← SemWifiServiceImpl$$ExternalSyntheticLambda10.run()
+
+  CALLEES (what this method invokes):
+      → SemWifiManagerProxy.getWifiState()
+      → SemMobileWipsFrameworkService.checkMwipsPackageVersion()
+      → SemMobileWipsFrameworkService.hasWifiWIPSPermission()
+      → SemMobileWipsFrameworkService.clearWipsServiceStatusEvent()
+      → SemMobileWipsFrameworkService.sendEmptyMessageDelayed()
+        → AtomicInteger.get()
+        → Context.getPackageManager()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → Exception.printStackTrace()
+        → PackageManager.checkPermission() [PERM_CHECK]
+        → SemMobileWipsFrameworkService$ServiceHandler.removeCallbacksAndMessages()
+        → SemMobileWipsFrameworkService.getHandler()
+        → SemMobileWipsFrameworkService$ServiceHandler.sendEmptyMessageDelayed()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService
+  Method:   <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService: void registerPackageReceiver()>
+  Line:     2107
+  Register: v1 := "com.samsung.android.server.wifi.mobilewips"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [other] iget-object v1, p0, Lcom/samsung/android/ser
+
+  CALLERS (who invokes this method):
+      ← SemMobileWipsFrameworkService.registerForBroadcastsForWifiWIPS()
+        ← <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+          ← <com.samsung.android.server.wifi.SemWifiInjector: void <init
+            ← <com.samsung.android.server.wifi.SemWifiService: void <init>
+
+  CALLEES (what this method invokes):
+      → ContentResolver.registerContentObserver()
+      → Context.getContentResolver()
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → Settings$Secure.getUriFor()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService$ServiceHandler
+  Method:   <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService$ServiceHandler: void startWipsService()>
+  Line:     329
+  Register: v2 := "com.samsung.android.server.wifi.mobilewips"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemMobileWipsFrameworkService$ServiceHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startServiceAsUser()
+      → Context.bindServiceAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → Process.myUserHandle()
+      → SemCscFeature.getBoolean()
+      → SemCscFeature.getInstance()
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+        → Hashtable.get()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → SystemProperties.get()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → SemCscFeature.loadFeatureFile()
+              → TextUtils.isEmpty()
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.File: void <init>(java.lang.String)>
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.put()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService$ServiceHandler
+  Method:   <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService$ServiceHandler: void stopWipsService()>
+  Line:     598
+  Register: v2 := "com.samsung.android.server.wifi.mobilewips"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemMobileWipsFrameworkService$ServiceHandler.handleMessage()
+      ← SemMobileWipsFrameworkService$ServiceHandler.monitorWipsStatus()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.stopServiceAsUser()
+      → Context.unbindService()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → Process.myUserHandle()
+      → SemWifiManagerProxy.getWifiState()
+      → SemMobileWipsDnsRequester.stop()
+      → SemMobileWipsFrameworkService$ServiceHandler.removeBadge()
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+      → SemMobileWipsFrameworkService.setWipsValue()
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+      → SemMobileWipsWifiScanner.stop()
+      → ISemMobileWipsService.unregisterCallback()
+      → ISemMobileWipsService.unregisterPacketSender()
+      → Exception.printStackTrace()
+        → AtomicInteger.get()
+        → HandlerThread.quitSafely()
+        → HandlerThread.interrupt()
+        → SemMobileWipsDnsRequester$ServiceHandler.removeMessages()
+        → ContentResolver.update()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → Context.getContentResolver()
+        → Uri.parse()
+        → SimpleDateFormat.format()
+        → <java.text.SimpleDateFormat: void <init>(java.lang.String)>
+        → <java.util.Date: void <init>(long)>
+        → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsFra
+        → SemMobileWipsFrameworkService$ServiceHandler.postAtFrontOfQueue()
+        → SemMobileWipsFrameworkService.getHandler()
+        → WifiScanner.stopScan()
+        → SemMobileWipsWifiScanner$ServiceHandler.removeCallbacksAndMessages()
+          → HandlerThread.getLooper()
+          → Looper.quitSafely()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+            → HandlerThread.isAlive()
+            → Thread.currentThread()
+            → Thread.interrupt()
+            → MessageQueue.quit()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+              → <java.lang.NullPointerException: void <init>(java.lang.Strin
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.mobilewips.SemMobileWipsWifiScanner
+  Method:   <com.samsung.android.server.wifi.mobilewips.SemMobileWipsWifiScanner: void <init>(com.samsung.android.server.wifi.mobilewips.ISemMobileWipsFrameworkServiceCallback,android.net.wifi.WifiScanner)>
+  Line:     134
+  Register: v0 := "com.samsung.android.server.wifi.mobilewips"
+  Usage:    [invoke] invoke-direct {p1, p2, v0}, Landroid/os/WorkSource;-><init>(ILjava/lang/String;)V
+  Patterns: early_return
+  Flow:     [invoke] android.os.WorkSource.<init>()
+
+  CALLERS (who invokes this method):
+      ← SemMobileWipsFrameworkService.onBootPhase()
+        ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void la
+          ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void $r
+            ← SemWifiServiceImpl$$ExternalSyntheticLambda10.run()
+
+  CALLEES (what this method invokes):
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → <android.os.WorkSource: void <init>(int,java.lang.String)>
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsWif
+      → <com.samsung.android.server.wifi.mobilewips.SemMobileWipsWif
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → Preconditions.checkNotNull()
+        → <android.os.Handler: void <init>(android.os.Looper)>
+

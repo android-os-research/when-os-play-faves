@@ -1,0 +1,6 @@
+# ro.sys.safemode [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.wm.WindowManagerService: boolean detectSafeMode()>
+<com.android.server.wm.WindowManagerServiceExt: void <clinit>()>

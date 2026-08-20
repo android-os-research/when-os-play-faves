@@ -1,0 +1,10 @@
+# android.app.admin.IKeyguardCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.admin.IKeyguardCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.admin.IKeyguardCallback$Stub$Proxy: void onDismiss()>
+<android.app.admin.IKeyguardCallback$Stub$Proxy: void onRemoteContentReady(android.view.SurfaceControlViewHost$SurfacePackage)>
+<android.app.admin.IKeyguardCallback$Stub: android.app.admin.IKeyguardCallback asInterface(android.os.IBinder)>
+<android.app.admin.IKeyguardCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.admin.IKeyguardCallback$Stub: void <init>()>

@@ -1,0 +1,13 @@
+# android.app.backup.IRestoreSession [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.app.backup.IRestoreSession$Stub$Proxy: int getAvailableRestoreSets(android.app.backup.IRestoreObserver,android.app.backup.IBackupManagerMonitor)>
+<android.app.backup.IRestoreSession$Stub$Proxy: int restoreAll(long,android.app.backup.IRestoreObserver,android.app.backup.IBackupManagerMonitor)>
+<android.app.backup.IRestoreSession$Stub$Proxy: int restorePackage(java.lang.String,android.app.backup.IRestoreObserver,android.app.backup.IBackupManagerMonitor)>
+<android.app.backup.IRestoreSession$Stub$Proxy: int restorePackages(long,android.app.backup.IRestoreObserver,java.lang.String[],android.app.backup.IBackupManagerMonitor)>
+<android.app.backup.IRestoreSession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.backup.IRestoreSession$Stub$Proxy: void endRestoreSession()>
+<android.app.backup.IRestoreSession$Stub: android.app.backup.IRestoreSession asInterface(android.os.IBinder)>
+<android.app.backup.IRestoreSession$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.backup.IRestoreSession$Stub: void <init>()>

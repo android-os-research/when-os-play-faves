@@ -1,0 +1,6 @@
+# com.samsung.android.notification.blockable [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.notification.PreferencesHelper: void updateNotificationChannel(java.lang.String,int,android.app.NotificationChannel,boolean)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantRuntimePermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,android.content.pm.PackageInfo,java.util.Set,boolean,boolean,boolean,int)>

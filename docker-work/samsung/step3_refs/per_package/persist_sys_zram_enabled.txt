@@ -1,0 +1,6 @@
+# persist.sys.zram_enabled [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.StorageManagerService: void handleSystemReady()>
+<com.android.server.StorageManagerService: void refreshZramSettings()>

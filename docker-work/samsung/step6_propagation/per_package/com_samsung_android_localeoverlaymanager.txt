@@ -1,0 +1,702 @@
+######################################################################
+# Propagation: com.samsung.android.localeoverlaymanager
+######################################################################
+
+JARs:                 framework, services
+Classes:              6
+Occurrences:          7
+Usage types:          array_init, invoke
+Enforcement patterns: early_return
+Security tags:        APPOPS, PKG_MGMT, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     335
+  Register: v18 := "com.samsung.android.localeoverlaymanager"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     359
+  Register: v2 := "com.samsung.android.localeoverlaymanager"
+  Usage:    [array_init] filled-new-array {v1, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.SystemServer
+  Method:   <com.android.server.SystemServer: void startResourceOverlayService(boolean)>
+  Line:     14320
+  Register: v2 := "com.samsung.android.localeoverlaymanager"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.SystemServer: void lambda$startOtherServ
+        ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+          ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startServiceAsUser()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService
+  Method:   <com.android.server.am.ActivityManagerService: void updateLocaleOverlays(android.os.LocaleList)>
+  Line:     82664
+  Register: v1 := "com.samsung.android.localeoverlaymanager"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] new-instance v1, Landroid/content/Intent; → [invoke] android.c
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerService.updatePersistentConfigurationAndLocaleOverlays()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startServiceAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → LocaleList.isEmpty()
+      → Exception.printStackTrace()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.install.PrePackageInstallerBase
+  Method:   <com.samsung.android.server.pm.install.PrePackageInstallerBase: void installPreloadPackage(java.io.File)>
+  Line:     961
+  Register: v4 := "com.samsung.android.localeoverlaymanager"
+  Usage:    [invoke] invoke-direct {v2, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← PrePackageInstallerBase.installPreloadPackageList()
+        ← PrePackageInstallerBase.startPrePackageInstall()
+          ← <com.samsung.android.server.pm.install.PrePackageInstallerBa
+            ← <com.samsung.android.server.pm.install.PrePackageInstallerBa
+              ← PrePackageInstallerBase$$ExternalSyntheticLambda2.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startService()
+      → Context.getAttributionTag()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → Intent.setData()
+      → Intent.getIntExtra()
+      → Intent.getStringExtra()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → PackageInstaller$Session.openWrite()
+      → <android.content.pm.PackageInstaller$Session: void <init>(an
+      → PackageInstaller$Session.close()
+      → PackageInstaller$Session.commit()
+      → PackageInstaller$Session.fsync()
+      → <android.content.pm.PackageInstaller$SessionParams: void <in
+      → Uri.fromParts()
+      → PackageInstallerService.openSession()
+      → PackageInstallerService.createSession()
+      → PrePackageInstallerBase$LocalIntentReceiver.getResult()
+      → PrePackageInstallerBase$LocalIntentReceiver.getIntentSender()
+      → <com.samsung.android.server.pm.install.PrePackageInstallerBa
+      → PrePackageInstallerBase$PrePackageInstallLogMsg.out()
+      → PrePackageInstallerBase.isLocaleOptimizedPackage()
+      → PrePackageInstallerBase.putInstallHistory()
+      → PrePackageInstallerBase.setInstallFlags()
+      → File.getName()
+      → File.length()
+      → <java.io.FileInputStream: void <init>(java.io.File)>
+      → InputStream.read()
+      → InputStream.close()
+      → OutputStream.close()
+      → OutputStream.write()
+      → Throwable.addSuppressed()
+        → IPackageInstallerSession.openWrite()
+        → <android.os.FileBridge$FileBridgeOutputStream: void <init>(a
+        → <android.os.ParcelFileDescriptor$AutoCloseOutputStream: void
+        → RemoteException.rethrowFromSystemServer()
+        → ExceptionUtils.maybeUnwrapIOException()
+        → IPackageInstallerSession.close()
+        → IPackageInstallerSession.commit()
+        → FileBridge$FileBridgeOutputStream.fsync()
+        → ParcelFileDescriptor$AutoCloseOutputStream.getFD()
+        → ErrnoException.rethrowAsIOException()
+        → Os.fsync()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+        → Uri$Part.fromDecoded()
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+        → ExceptionUtils.wrap()
+        → PackageInstallerService.openSessionInternal()
+        → PackageInstallerService.createSessionInternal()
+        → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+        → LinkedBlockingQueue.take()
+        → <android.content.IntentSender: void <init>(android.content.I
+        → <com.samsung.android.server.pm.install.PrePackageInstallerBa
+        → StringBuffer.append()
+        → SimpleDateFormat.format()
+        → <java.util.Date: void <init>(long)>
+        → PackageManager$NameNotFoundException.getMessage()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → Bundle.getBoolean()
+        → PrePackageInstallerBase$PrePackageInstallLogMsg.write()
+        → PrePackageInstallerBase$SettingsProviderProxy.setInstallHistory()
+        → Collection.add()
+        → Collection.contains()
+          → ParcelFileDescriptor.getFileDescriptor()
+          → <java.io.OutputStream: void <init>()>
+          → ByteBuffer.hasArray()
+          → ByteBuffer.array()
+          → ByteBuffer.allocateDirect()
+          → <java.io.FileOutputStream: void <init>(java.io.FileDescripto
+          → <android.os.DeadSystemRuntimeException: void <init>()>
+          → ParcelableException.maybeRethrow()
+          → FileBridge$FileBridgeOutputStream.writeCommandAndBlock()
+          → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+          → Uri$Part.from()
+          → <android.os.ParcelableException: void <init>(java.lang.Throw
+          → SparseArray.get()
+          → PackageInstallerService.checkOpenSessionAccess() [APPOPS]
+          → PackageInstallerSession.open()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → ActivityManager.getLauncherLargeIconSize()
+          → AppOpsManager.checkPackage()
+          → NotificationManager.notify()
+          → Context.checkCallingOrSelfPermission()
+          → Context.getSystemService()
+          → Context.getString()
+          → Context.enforceCallingOrSelfPermission()
+          → PackageInstaller$SessionParams.setSize()
+          → PackageManagerInternal.isPlatformSigned()
+          → Bitmap.createScaledBitmap()
+          → Bitmap.getHeight()
+          → Bitmap.getWidth()
+          → Binder.getCallingPid() [UID_CHECK]
+          → Binder.getCallingUid() [UID_CHECK]
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → HandlerThread.getLooper()
+          → Process.myPid()
+          → ServiceManager.getService()
+          → TextUtils.equals()
+          → TextUtils.trimToSize()
+          → SparseArray.put()
+          → SparseIntArray.get()
+          → InstallLocationUtils.fitsOnExternal()
+          → InstallLocationUtils.fitsOnInternal()
+          → InstallLocationUtils.resolveInstallVolume()
+          → ApexManager.isApexSupported()
+          → Computer.getApplicationInfo() [PKG_QUERY]
+          → Computer.checkUidPermission()
+          → Computer.getFlagsForUid()
+          → Computer.getPackagesForUid()
+          → Computer.enforceCrossUserPermission()
+          → InstallSource.create()
+          → <com.android.server.pm.PackageInstallerService$Callbacks: vo
+          → PackageInstallerService.buildNotification()
+          → PackageInstallerService.checkSettingsForDirectSdInstall()
+          → PackageInstallerService.isCalledBySystemOrShell()
+          → PackageInstallerService.isSdCardAvailableAndMounted()
+          → PackageInstallerService.isStagedInstallerAllowed()
+          → PackageInstallerService.allocateSessionIdLocked()
+          → PackageInstallerService.getSessionCount()
+          → PackageInstallerService.buildSessionDir()
+          → PackageInstallerService.buildExternalStageCid()
+          → PackageInstallerSession.isSystemDataLoaderInstallation()
+          → PackageInstallerSession.getInstallSource()
+          → <com.android.server.pm.PackageInstallerSession: void <init>(
+          → PackageManagerService.isCallerVerifier()
+          → PackageManagerService.isUserRestricted()
+          → PackageManagerService.snapshotComputer()
+          → PackageManagerService.addInstallerPackageName()
+          → RequestThrottle.schedule()
+          → IRestrictionPolicy$Stub.asInterface()
+          → IRestrictionPolicy.showRestrictionToast()
+          → <java.io.IOException: void <init>(java.lang.String)>
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → <com.samsung.android.server.pm.install.PrePackageInstallerBa
+          → <java.util.concurrent.LinkedBlockingQueue: void <init>()>
+          → PrePackageInstallerBase$PrePackageInstallLogMsg.flush()
+          → Context.getContentResolver()
+          → Settings$System.putString()
+            → <android.os.DeadSystemException: void <init>()>
+            → ParcelableException.getCause()
+            → IoBridge.read()
+            → IoBridge.write()
+            → Memory.peekInt()
+            → Memory.pokeInt()
+            → <android.net.Uri: void <init>(android.net.Uri-IA)>
+            → <android.net.Uri$Part: void <init>(java.lang.String,java.lan
+            → SparseArray.get()
+            → PackageInstallerService.isCallingUidOwner()
+            → PackageInstallerSession.isSealed()
+            → PackageInstallerService$InternalCallback.onSessionActiveChanged()
+            → PackageInstallerService$InternalCallback.onSessionPrepared()
+            → PackageInstallerService.prepareExternalStageCid()
+            → PackageInstallerService.prepareStageDir()
+            → PackageInstallerSession.computeProgressLocked()
+            → AtomicInteger.getAndIncrement()
+            → HandlerThread.isAlive()
+            → Thread.currentThread()
+            → Thread.interrupt()
+            → CharSequence.charAt()
+            → CharSequence.length()
+            → TextUtils.isEmpty()
+            → Preconditions.checkArgument()
+            → CharSequence.subSequence()
+            → Character.isHighSurrogate()
+            → Character.isLowSurrogate()
+            → ContainerHelpers.binarySearch()
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → SparseIntArray.get()
+            → Context.getSystemService()
+            → StorageManager.getPrimaryVolume()
+            → StorageManager.getVolumeList()
+            → StorageManager.getStorageBytesUntilLow()
+            → StorageVolume.isRemovable()
+            → StorageVolume.getPathFile()
+            → StorageVolume.getPath()
+            → StorageVolume.getSubSystem()
+            → InstallLocationUtils.hasActiveContainer()
+            → Environment.getDataDirectory()
+            → StorageManager.getUuidForPath()
+            → StorageManager.getAllocatableBytes()
+            → InstallLocationUtils.translateAllocateFlags()
+            → InstallLocationUtils.getDefaultTestableInterface()
+            → InstallLocationUtils.resolveInstallVolume()
+            → InstallSource.create()
+            → PackageInstallerService$Callbacks.notifySessionCreated()
+            → Notification$BigTextStyle.bigText()
+            → <android.app.Notification$BigTextStyle: void <init>()>
+            → Notification$Builder.build()
+            → Notification$Builder.setColor()
+            → Notification$Builder.setContentText()
+            → Notification$Builder.setContentTitle()
+            → Notification$Builder.setSmallIcon()
+            → Notification$Builder.setStyle()
+            → <android.app.Notification$Builder: void <init>(android.conte
+            → Context.getResources()
+            → Resources.getColor()
+            → Resources.getString()
+            → Settings$System.getInt()
+            → StorageVolume.getState()
+            → SystemConfig.getInstance()
+            → SystemConfig.getWhitelistedStagedInstallers()
+            → Set.contains()
+            → SparseBooleanArray.get()
+            → SparseBooleanArray.put()
+            → Random.nextInt()
+            → SparseArray.size()
+            → SparseArray.valueAt()
+            → PackageInstallerSession.getInstallerUid()
+            → Environment.getDataStagingDirectory()
+            → PackageInstallerService.tryParseSessionId()
+            → PackageInstallerService.buildTmpSessionDir()
+            → <java.io.File: void <init>(java.io.File,java.lang.String)>
+            → <java.lang.RuntimeException: void <init>(java.lang.String)>
+            → Objects.equals()
+            → ComponentName.getPackageName()
+            → DataLoaderParams.getComponentName()
+            → PackageInstallerSession.isDataLoaderInstallation()
+            → <android.content.pm.IPackageInstallerSession$Stub: void <ini
+            → <android.os.Handler: void <init>(android.os.Looper,android.o
+            → UserHandle.getSharedAppGid()
+            → IncrementalManager.isAllowed()
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.putAll()
+            → ArraySet.add()
+            → <android.util.ArraySet: void <init>()>
+            → ArraySet.ensureCapacity()
+            → <android.util.SparseArray: void <init>()>
+            → Computer.getPackageUid()
+            → <com.android.server.pm.PackageInstallerSession$4: void <init
+            → <com.android.server.pm.PackageInstallerSession$FileEntry: vo
+            → <com.android.server.pm.PackageInstallerSession$StagedSession
+            → PackageInstallerSession.hasParentSessionId()
+            → PackageInstallerSession.isApexSession()
+            → PackageInstallerSession.isDataLoaderInstallation()
+            → PackageInstallerSession.isIncrementalInstallation()
+            → PackageInstallerSession.isMultiPackage()
+            → PackageInstallerSession.isStaged()
+            → PackageInstallerSession.isSystemDataLoaderInstallation()
+            → PackageInstallTimeLogger.createInstallTimeInfo()
+            → PackageInstallTimeLogger.updateInstallTag()
+            → <java.security.SecureRandom: void <init>()>
+            → <java.util.ArrayList: void <init>()>
+            → Objects.requireNonNull()
+            → <java.util.concurrent.atomic.AtomicBoolean: void <init>(bool
+            → AtomicBoolean.set()
+            → <java.util.concurrent.atomic.AtomicInteger: void <init>()>
+            → UserHandle.getUserId()
+            → Bundle.getBoolean()
+            → UserManagerService.getUserRestrictions()
+            → Computer.use()
+            → Computer.getVersion()
+            → PackageManagerService.rebuildSnapshot()
+            → Thread.holdsLock()
+            → AtomicInteger.get()
+            → AtomicReference.get()
+            → AtomicReference.set()
+            → Settings.addInstallerPackageNames()
+            → Handler.post()
+            → AtomicInteger.incrementAndGet()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.restriction.IRestrictionPolicy$Stu
+            → <android.content.IIntentSender$Stub: void <init>()>
+            → File.setReadable()
+            → <java.io.File: void <init>(java.lang.String)>
+            → <java.io.FileOutputStream: void <init>(java.io.File,boolean)
+            → FileOutputStream.close()
+            → <java.io.OutputStreamWriter: void <init>(java.io.OutputStrea
+            → OutputStreamWriter.close()
+            → OutputStreamWriter.write()
+            → StringBuffer.toString()
+            → StringBuffer.setLength()
+              → <android.os.DeadObjectException: void <init>()>
+              → <android.net.Uri: void <init>()>
+              → <android.net.Uri$AbstractPart: void <init>(java.lang.String,
+              → <com.android.server.pm.PackageInstallerService$Callbacks: vo
+              → <com.android.server.pm.PackageInstallerService: com.android.
+              → <com.android.server.pm.PackageInstallerService: com.android.
+              → AsecInstallHelper.getEncryptKey()
+              → PackageHelperExt.createSdDir()
+              → SELinux.restorecon()
+              → SELinux.setFileContext()
+              → SELinux.fileSelabelLookup()
+              → Os.chmod()
+              → Os.mkdir()
+              → File.exists()
+              → File.getAbsolutePath()
+              → File.getCanonicalPath()
+              → <java.io.IOException: void <init>(java.lang.String,java.lang
+              → MathUtils.constrain()
+              → PackageInstallerService$InternalCallback.onSessionProgressChanged()
+              → AtomicBoolean.get()
+              → StorageVolume.getActivitySecureContainer()
+              → <com.android.internal.content.InstallLocationUtils$1: void <
+              → InstallLocationUtils.resolveInstallVolume()
+              → InstallSource.createInternal()
+              → InstallSource.intern()
+              → Handler.obtainMessage()
+              → Message.sendToTarget()
+              → Notification.secSafeCharSequence()
+              → <android.app.Notification$Style: void <init>()>
+              → SystemConfig.isSystemProcess()
+              → <com.android.server.SystemConfig: void <init>()>
+              → GrowingArrayUtils.insert()
+              → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+              → PackageInstallerService.getTmpSessionDir()
+              → IPackageInstallerSession$Stub.attachInterface()
+              → <android.os.Binder: void <init>()>
+              → SystemProperties.getBoolean()
+              → IncrementalManager.isFeatureEnabled()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.keyAt()
+              → ArrayMap.put()
+              → ArrayMap.valueAt()
+              → ArrayMap.ensureCapacity()
+              → ArraySet.indexOf()
+              → ArraySet.indexOfNull()
+              → ArraySet.allocArrays()
+              → ArraySet.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → <android.util.ArraySet: void <init>(int,boolean)>
+              → <android.util.SparseArray: void <init>(int)>
+              → DataLoaderParams.getType()
+              → ArrayMap.size()
+              → <com.samsung.android.server.pm.install.PackageInstallTimeLog
+              → PackageInstallTimeLogger.getCurrentTime()
+              → PackageInstallTimeLogger.removeExpiredTimeInfo()
+              → ArrayMap.get()
+              → ArrayList.add()
+              → BundleUtils.clone()
+              → UserManagerService.getEffectiveUserRestrictions()
+              → UserManagerService.checkManageOrInteractPermissionIfCallerInOtherProfileGroup()
+              → SystemClock.currentTimeMicro()
+              → Computer.getUsed()
+              → <com.android.server.pm.ComputerEngine: void <init>(com.andro
+              → <com.android.server.pm.PackageManagerService$Snapshot: void 
+              → SnapshotStatistics.rebuild()
+              → WatchedArraySet.add()
+              → IIntentSender$Stub.attachInterface()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: int setSystemLocale(java.lang.String,java.lang.String)>
+  Line:     56129
+  Register: v0 := "com.samsung.android.localeoverlaymanager"
+  Usage:    [invoke] invoke-direct {p2, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] new-instance v0, Landroid/content/Intent; → [invoke] android.c
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.startService()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <android.os.LocaleList: void <init>(java.util.Locale[])>
+      → TextUtils.isEmpty()
+      → LocalePicker.updateLocale()
+      → KnoxCustomManagerService.enforceSettingPermission()
+      → KnoxCustomManagerService.getProcessName()
+      → KnoxCustomManagerService.closeSettingsApp()
+      → KnoxsdkFileLog.d()
+      → Locale$Builder.build()
+      → Locale$Builder.setLanguage()
+      → Locale$Builder.setRegion()
+      → Locale$Builder.setScript()
+      → <java.util.Locale$Builder: void <init>()>
+      → Locale.equals()
+      → Locale.getAvailableLocales()
+      → <java.util.Locale: void <init>(java.lang.String)>
+      → <java.util.Locale: void <init>(java.lang.String,java.lang.St
+      → StringTokenizer.nextToken()
+      → <java.util.StringTokenizer: void <init>(java.lang.String,jav
+        → CharSequence.length()
+        → LocalePicker.updateLocales()
+        → EnterpriseDeviceManager.enforceActiveAdminPermission()
+        → KnoxCustomManagerService.getEDM()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → KnoxCustomManagerService$Injector.binderWithCleanCallingIdentity()
+        → Bundle.isEmpty()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → KnoxCustomManagerService$Injector.binderWithCleanCallingIdentity()
+        → KnoxCustomManagerService.getApplicationRestrictionsInternal()
+        → KnoxsdkFileLog.fileLog()
+        → SemLog.d()
+          → ActivityManager.getService()
+          → ActivityThread.currentOpPackageName()
+          → IActivityManager.getGlobalConfiguration()
+          → IActivityManager.updatePersistentConfigurationAndLocaleOverlays()
+          → BackupManager.dataChanged()
+          → Configuration.setLocales()
+          → LocalePicker.removeExcludedLocales()
+          → EnterpriseDeviceManager.getService()
+          → IEnterpriseDeviceManager.enforceActiveAdminPermission()
+          → KnoxCustomManagerService$Injector.getEDM()
+          → Binder.withCleanCallingIdentity()
+          → Binder.withCleanCallingIdentity()
+          → <android.os.Bundle: void <init>()>
+          → LocalServices.getService()
+          → ApplicationRestrictionsInternal.getApplicationRestrictionsInternal()
+          → Logger.log()
+            → BackupManager.checkServiceBinder()
+            → IBackupManager.dataChanged()
+            → LocaleList.size()
+            → LocaleList.get()
+            → LocalePicker.getLocaleFilter()
+            → ArrayList.add()
+            → ArrayList.size()
+            → ArrayList.toArray()
+            → <java.util.ArrayList: void <init>(int)>
+            → Locale.toString()
+            → Predicate.test()
+            → ServiceManager.getService()
+            → IEnterpriseDeviceManager$Stub.asInterface()
+            → EnterpriseDeviceManager.getInstance()
+            → ExceptionUtils.propagate()
+            → FunctionalUtils$ThrowingSupplier.getOrThrow()
+            → FunctionalUtils$ThrowingRunnable.runOrThrow()
+            → ArrayMap.get()
+              → IBackupManager$Stub.asInterface()
+              → LocalizationProperties.locale_filter()
+              → <com.android.internal.app.LocalePicker$$ExternalSyntheticLam
+              → Optional.orElse()
+              → Optional.map()
+              → PatternSyntaxException.getPattern()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+              → Process.myPid()
+              → Process.myTid()
+              → Process.myUid()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.w()
+              → ExceptionUtils.propagateIfInstanceOf()
+              → Preconditions.checkNotNull()
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+              → ArrayMap.indexOfKey()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageManagerService
+  Method:   <com.android.server.pm.PackageManagerService: void bindLocaleServiceAndCallOnPackageInstalled(int,int,java.lang.String,boolean)>
+  Line:     8994
+  Register: v3 := "com.samsung.android.localeoverlaymanager"
+  Usage:    [invoke] invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← PackageManagerService.bindLocaleServiceAndCallOnPackageInstalled()
+      ← PackageManagerService.installLocaleOverlaysForUpdateRemovedPackage()
+        ← PackageHandler.doHandleMessage()
+        ← DeletePackageHelper.checkAndInstallLocaleOverlays() [PKG_MGMT]
+          ← PackageHandler.handleMessage()
+          ← DeletePackageHelper.deletePackageX() [PKG_MGMT]
+            ← <com.android.server.pm.DeletePackageHelper: void lambda$dele [PKG_MGMT]
+            ← <com.android.server.pm.DeletePackageHelper: void lambda$remo [PKG_MGMT]
+            ← InstantAppRegistry.pruneInstantApps()
+            ← <com.android.server.pm.PackageInstallerSession: void lambda$ [PKG_MGMT]
+            ← PackageManagerService.deletePackageXForKnox() [PKG_MGMT]
+            ← <com.android.server.pm.PackageManagerService: void lambda$de [PKG_MGMT]
+            ← SharedLibrariesImpl.pruneUnusedStaticSharedLibraries()
+              ← <com.android.server.pm.DeletePackageHelper: void $r8$lambda$ [PKG_MGMT]
+              ← <com.android.server.pm.DeletePackageHelper: void $r8$lambda$ [PKG_MGMT]
+              ← InstantAppRegistry.pruneInstalledInstantApps()
+              ← InstantAppRegistry.pruneUninstalledInstantApps()
+              ← InstantAppRegistry.pruneInstantApps()
+              ← <com.android.server.pm.PackageInstallerSession: void $r8$lam [PKG_MGMT]
+              ← PersonaServiceHelper$4.run()
+              ← <com.android.server.pm.PackageManagerService: void $r8$lambd
+              ← PackageManagerService.freeStorage()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.bindServiceAsUser()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → Bundle.getBoolean()
+      → Handler.postDelayed()
+      → SystemClock.uptimeMillis()
+      → FgThread.getHandler()
+      → Computer.getApplicationInfo() [PKG_QUERY]
+      → LocaleOverlayServiceConnection.getLocaleOverlayService()
+      → <com.android.server.pm.LocaleOverlayServiceConnection: void 
+      → <com.android.server.pm.OverlayInstallObserver: void <init>(i
+      → PackageManagerService.snapshotComputer()
+      → PackageManagerService.overlaysInstallComplete()
+      → ILocaleOverlayManager.applyLocalesForPackage()
+      → Exception.printStackTrace()
+        → FgThread.ensureThreadLocked()
+        → <com.android.server.pm.OverlayInstallObserver$1: void <init>
+        → <com.samsung.android.localeoverlaymanager.ILocaleOverlayInst
+        → Computer.use()
+        → Computer.getVersion()
+        → PackageManagerService.rebuildSnapshot()
+        → Thread.holdsLock()
+        → AtomicInteger.get()
+        → AtomicReference.get()
+        → AtomicReference.set()
+        → PackageManagerService.overlaysInstallComplete()
+          → <android.os.Handler: void <init>(android.os.Looper)>
+          → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+          → HandlerThread.getLooper()
+          → HandlerThread.start()
+          → Looper.setSlowLogThresholdMs()
+          → Looper.setTraceTag()
+          → <com.android.server.FgThread: void <init>()>
+          → <android.os.Binder: void <init>()>
+          → ILocaleOverlayInstallObserver$Stub.attachInterface()
+          → SystemClock.currentTimeMicro()
+          → Computer.getUsed()
+          → <com.android.server.pm.ComputerEngine: void <init>(com.andro
+          → <com.android.server.pm.PackageManagerService$Snapshot: void 
+          → SnapshotStatistics.rebuild()
+          → Handler.obtainMessage()
+          → Handler.sendMessage()
+          → Handler.removeCallbacks()
+          → DeletePackageHelper.overlaysInstallComplete() [PKG_MGMT]
+            → Preconditions.checkNotNull()
+            → HandlerThread.isAlive()
+            → Thread.currentThread()
+            → Thread.interrupt()
+            → <com.android.server.ServiceThread: void <init>(java.lang.Str
+            → <android.os.Binder: void <init>(java.lang.String)>
+            → <com.android.server.pm.ComputerEngine$Settings: void <init>(
+            → PackageManagerService.getDefaultAppProvider()
+            → PackageManagerService.getDexManager()
+            → ComponentName.clone()
+            → <android.content.pm.ActivityInfo: void <init>(android.conten
+            → <android.content.pm.ApplicationInfo: void <init>(android.con
+            → <android.content.pm.ResolveInfo: void <init>(android.content
+            → AppsFilterImpl.snapshot()
+            → InstantAppRegistry.snapshot()
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → Settings.snapshot()
+            → SharedLibrariesImpl.snapshot()
+            → ComponentResolver.snapshot()
+            → SnapshotCache.snapshot()
+            → WatchedSparseBooleanArray.snapshot()
+            → <java.lang.IllegalArgumentException: void <init>()>
+            → EventLogTags.writePmSnapshotRebuild()
+            → SnapshotStatistics$BinMap.getBin()
+            → <com.android.server.pm.SnapshotStatistics$Stats: void -$$Nes
+            → SparseArray.get()
+            → SparseArray.delete()
+            → PackageRemovedInfo.sendSystemPackageUpdatedBroadcasts()
+              → <android.os.HandlerThread: void <init>(java.lang.String,int)
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+              → <com.android.server.utils.SnapshotCache$Statistics: java.uti
+              → <com.android.server.utils.SnapshotCache$Statistics: java.uti
+              → SnapshotCache.createSnapshot()
+              → AtomicInteger.incrementAndGet()
+              → WatchableImpl.seal()
+              → <com.android.server.utils.WatchedSparseBooleanArray: void <i
+              → EventLog.writeEvent()
+              → SnapshotStatistics$Stats.rebuild()
+              → SparseArray.get()
+              → ContainerHelpers.binarySearch()
+              → PackageRemovedInfo.sendSystemPackageUpdatedBroadcastsInternal()
+

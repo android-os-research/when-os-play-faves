@@ -1,0 +1,32 @@
+######################################################################
+# Propagation: com.samsung.android.location
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: (none)
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.location.SLocationLoader
+  Method:   <com.samsung.android.location.SLocationLoader: java.lang.Class getClassFromLib(android.content.Context,java.lang.String)>
+  Line:     35
+  Register: v0 := "com.samsung.android.location"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Lan
+  Patterns: (none)
+  Flow:     [invoke] android.content.Context.createPackageContext() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← SLocationLoader.getSLocationService()
+      ← SLocationLoader.systemReady()
+
+  CALLEES (what this method invokes):
+      → Context.createPackageContext()
+      → Context.getClassLoader()
+      → ClassLoader.loadClass()
+

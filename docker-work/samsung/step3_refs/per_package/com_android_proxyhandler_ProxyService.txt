@@ -1,0 +1,7 @@
+# com.android.proxyhandler.ProxyService [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.connectivity.PacProxyService: void bind()>
+<com.android.server.enterprise.proxy.LocalProxyManager: void bindProxyService()>
+<com.android.server.enterprise.proxy.LocalProxyManager: void bindToLocalProxyServer()>

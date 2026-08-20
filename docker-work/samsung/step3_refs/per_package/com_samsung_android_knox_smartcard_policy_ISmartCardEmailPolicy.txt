@@ -1,0 +1,17 @@
+# com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy [NEW]
+# Refs: 13
+# JARs: knoxsdk
+
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub$Proxy: boolean isAuthenticationEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub$Proxy: boolean isCredentialRequired(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub$Proxy: boolean removeSMIMEEncryptionCertificate(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub$Proxy: boolean removeSMIMESignatureCertificate(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub$Proxy: boolean requireCredentials(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub$Proxy: boolean setForceSMIMEEncryptionCertificate(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub$Proxy: boolean setForceSMIMESignatureCertificate(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub$Proxy: java.lang.String getSMIMEEncryptionCertificate(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub$Proxy: java.lang.String getSMIMESignatureCertificate(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub: com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.smartcard.policy.ISmartCardEmailPolicy$Stub: void <init>()>

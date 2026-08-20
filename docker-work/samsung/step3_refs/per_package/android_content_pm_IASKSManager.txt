@@ -1,0 +1,26 @@
+# android.content.pm.IASKSManager [NEW]
+# Refs: 22
+# JARs: framework
+
+<android.content.pm.IASKSManager$Stub$Proxy: boolean checkFollowingLegitimateWay(java.lang.String,int)>
+<android.content.pm.IASKSManager$Stub$Proxy: boolean isTrustedStore(java.lang.String)>
+<android.content.pm.IASKSManager$Stub$Proxy: boolean isUnknownApps(java.lang.String,android.content.pm.Signature[])>
+<android.content.pm.IASKSManager$Stub$Proxy: byte[] getSEInfo(java.lang.String)>
+<android.content.pm.IASKSManager$Stub$Proxy: int checkRestrictedPermission(java.lang.String,java.lang.String)>
+<android.content.pm.IASKSManager$Stub$Proxy: int checkUnknownSourcePackage(java.lang.String,java.lang.String[],java.lang.String[],java.lang.String,android.content.pm.Signature[],java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String)>
+<android.content.pm.IASKSManager$Stub$Proxy: int verifyASKStokenForPackage(java.lang.String,java.lang.String,long,android.content.pm.Signature[],java.lang.String,java.lang.String,boolean)>
+<android.content.pm.IASKSManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IASKSManager$Stub$Proxy: java.lang.String getUNvalueForASKS()>
+<android.content.pm.IASKSManager$Stub$Proxy: java.lang.String readASKSFiles(java.lang.String,java.lang.String)>
+<android.content.pm.IASKSManager$Stub$Proxy: java.lang.String[] checkASKSTarget(int)>
+<android.content.pm.IASKSManager$Stub$Proxy: java.util.List getIMEIList()>
+<android.content.pm.IASKSManager$Stub$Proxy: java.util.List getUnknownAppList()>
+<android.content.pm.IASKSManager$Stub$Proxy: void applyScpmPolicyFromApp()>
+<android.content.pm.IASKSManager$Stub$Proxy: void checkDeletableListForASKS()>
+<android.content.pm.IASKSManager$Stub$Proxy: void clearASKSruleForRemovedPackage(java.lang.String)>
+<android.content.pm.IASKSManager$Stub$Proxy: void postASKSsetup(java.lang.String,java.lang.String,int)>
+<android.content.pm.IASKSManager$Stub$Proxy: void setTrustTimebyStatusChanged()>
+<android.content.pm.IASKSManager$Stub$Proxy: void systemReady()>
+<android.content.pm.IASKSManager$Stub: android.content.pm.IASKSManager asInterface(android.os.IBinder)>
+<android.content.pm.IASKSManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IASKSManager$Stub: void <init>()>

@@ -1,0 +1,10 @@
+# android.app.IAssistDataReceiver [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.IAssistDataReceiver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IAssistDataReceiver$Stub$Proxy: void onHandleAssistData(android.os.Bundle)>
+<android.app.IAssistDataReceiver$Stub$Proxy: void onHandleAssistScreenshot(android.graphics.Bitmap)>
+<android.app.IAssistDataReceiver$Stub: android.app.IAssistDataReceiver asInterface(android.os.IBinder)>
+<android.app.IAssistDataReceiver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IAssistDataReceiver$Stub: void <init>()>

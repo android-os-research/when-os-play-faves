@@ -1,0 +1,10 @@
+# com.samsung.android.gamesdk.IGameSDKStateListener [NEW]
+# Refs: 12
+# JARs: framework, gamesdk
+
+<com.samsung.android.gamesdk.IGameSDKStateListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.gamesdk.IGameSDKStateListener$Stub$Proxy: void onGameSDKFinalized()>
+<com.samsung.android.gamesdk.IGameSDKStateListener$Stub$Proxy: void onGameSDKInitialized()>
+<com.samsung.android.gamesdk.IGameSDKStateListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.gamesdk.IGameSDKStateListener$Stub: com.samsung.android.gamesdk.IGameSDKStateListener asInterface(android.os.IBinder)>
+<com.samsung.android.gamesdk.IGameSDKStateListener$Stub: void <init>()>

@@ -1,0 +1,10 @@
+# com.samsung.speg [NEW]
+# Refs: 6
+# JARs: services
+
+<com.android.server.appprelauncher.AppPrelaunchService: boolean prelaunchAppTillStage(java.lang.String,int,int)>
+<com.android.server.pm.InstallPackageHelper: boolean spegLaunchApp(com.android.server.pm.ReconciledPackage)>
+<com.android.server.pm.InstallPackageHelper: com.android.server.pm.PrepareResult preparePackageLI(com.android.server.pm.InstallArgs,com.android.server.pm.PackageInstalledInfo)>
+<com.android.server.wm.ActivityManagerPerformance: boolean isSpeg(java.lang.String,java.lang.String)>
+<com.android.server.wm.ActivityStarter: int execute()>
+<com.android.server.wm.ActivityTaskSupervisor: boolean realStartActivityLocked(com.android.server.wm.ActivityRecord,com.android.server.wm.WindowProcessController,boolean,boolean)>

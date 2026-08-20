@@ -1,0 +1,6 @@
+# com.samsung.android.knox.analytics.service.cryptokey [NEW]
+# Refs: 2
+# JARs: services
+
+<com.samsung.android.knox.analytics.database.CryptoHandler: javax.crypto.SecretKey getKeyStoreKey(boolean)>
+<com.samsung.android.knox.analytics.database.CryptoHandler: void deleteAnalyticsLegacyKey()>

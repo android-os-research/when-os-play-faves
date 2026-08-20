@@ -1,0 +1,9 @@
+# android.location.IGnssAntennaInfoListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.location.IGnssAntennaInfoListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.IGnssAntennaInfoListener$Stub$Proxy: void onGnssAntennaInfoChanged(java.util.List)>
+<android.location.IGnssAntennaInfoListener$Stub: android.location.IGnssAntennaInfoListener asInterface(android.os.IBinder)>
+<android.location.IGnssAntennaInfoListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.IGnssAntennaInfoListener$Stub: void <init>()>

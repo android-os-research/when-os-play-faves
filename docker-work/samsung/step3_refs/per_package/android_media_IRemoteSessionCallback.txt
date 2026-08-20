@@ -1,0 +1,10 @@
+# android.media.IRemoteSessionCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.IRemoteSessionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IRemoteSessionCallback$Stub$Proxy: void onSessionChanged(android.media.session.MediaSession$Token)>
+<android.media.IRemoteSessionCallback$Stub$Proxy: void onVolumeChanged(android.media.session.MediaSession$Token,int)>
+<android.media.IRemoteSessionCallback$Stub: android.media.IRemoteSessionCallback asInterface(android.os.IBinder)>
+<android.media.IRemoteSessionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IRemoteSessionCallback$Stub: void <init>()>

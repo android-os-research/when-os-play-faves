@@ -1,0 +1,20 @@
+# android.media.metrics.IMediaMetricsManager [NEW]
+# Refs: 16
+# JARs: framework
+
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: java.lang.String getBundleSessionId(int)>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: java.lang.String getEditingSessionId(int)>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: java.lang.String getPlaybackSessionId(int)>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: java.lang.String getRecordingSessionId(int)>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: java.lang.String getTranscodingSessionId(int)>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: void releaseSessionId(java.lang.String,int)>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: void reportBundleMetrics(java.lang.String,android.os.PersistableBundle,int)>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: void reportNetworkEvent(java.lang.String,android.media.metrics.NetworkEvent,int)>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: void reportPlaybackErrorEvent(java.lang.String,android.media.metrics.PlaybackErrorEvent,int)>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: void reportPlaybackMetrics(java.lang.String,android.media.metrics.PlaybackMetrics,int)>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: void reportPlaybackStateEvent(java.lang.String,android.media.metrics.PlaybackStateEvent,int)>
+<android.media.metrics.IMediaMetricsManager$Stub$Proxy: void reportTrackChangeEvent(java.lang.String,android.media.metrics.TrackChangeEvent,int)>
+<android.media.metrics.IMediaMetricsManager$Stub: android.media.metrics.IMediaMetricsManager asInterface(android.os.IBinder)>
+<android.media.metrics.IMediaMetricsManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.metrics.IMediaMetricsManager$Stub: void <init>()>

@@ -1,0 +1,13 @@
+# com.samsung.android.knox.permission.KNOX_KIOSK_MODE [NEW]
+# Refs: 9
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.kioskmode.KioskModeService: com.samsung.android.knox.ContextInfo enforceKioskModePermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.kioskmode.KioskModeService: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndKioskModePermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.kioskmode.KioskModeService: void broadcastBlockedEdgeScreenIntent(boolean)>
+<com.android.server.enterprise.kioskmode.KioskModeService: void broadcastKioskResult(int,int,int)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>
+<com.samsung.android.knox.kiosk.KioskMode: void disableKioskMode()>
+<com.samsung.android.knox.kiosk.KioskMode: void enableKioskMode()>
+<com.samsung.android.knox.kiosk.KioskMode: void enableKioskMode(java.lang.String)>

@@ -1,0 +1,9 @@
+# com.samsung.android.app.reminder [NEW]
+# Refs: 7
+# JARs: services
+
+<com.android.server.am.ActiveServices: boolean bumpServiceExecutingLocked(com.android.server.am.ServiceRecord,boolean,java.lang.String,java.lang.String)>
+<com.android.server.am.ActiveServices: void scheduleServiceTimeoutLocked(com.android.server.am.ProcessRecord)>
+<com.android.server.am.ActiveServices: void serviceDoneExecutingLocked(com.android.server.am.ServiceRecord,boolean,boolean,boolean)>
+<com.android.server.am.ActiveServices: void serviceTimeout(com.android.server.am.ProcessRecord)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>

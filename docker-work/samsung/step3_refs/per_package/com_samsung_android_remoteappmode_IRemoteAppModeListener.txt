@@ -1,0 +1,9 @@
+# com.samsung.android.remoteappmode.IRemoteAppModeListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.remoteappmode.IRemoteAppModeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.remoteappmode.IRemoteAppModeListener$Stub$Proxy: void onRemoteAppModeStateChanged(boolean)>
+<com.samsung.android.remoteappmode.IRemoteAppModeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.remoteappmode.IRemoteAppModeListener$Stub: com.samsung.android.remoteappmode.IRemoteAppModeListener asInterface(android.os.IBinder)>
+<com.samsung.android.remoteappmode.IRemoteAppModeListener$Stub: void <init>()>

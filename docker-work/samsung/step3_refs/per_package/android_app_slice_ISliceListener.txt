@@ -1,0 +1,9 @@
+# android.app.slice.ISliceListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.slice.ISliceListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.slice.ISliceListener$Stub$Proxy: void onSliceUpdated(android.app.slice.Slice)>
+<android.app.slice.ISliceListener$Stub: android.app.slice.ISliceListener asInterface(android.os.IBinder)>
+<android.app.slice.ISliceListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.slice.ISliceListener$Stub: void <init>()>

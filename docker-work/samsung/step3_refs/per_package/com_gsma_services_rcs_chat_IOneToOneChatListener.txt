@@ -1,0 +1,11 @@
+# com.gsma.services.rcs.chat.IOneToOneChatListener [NEW]
+# Refs: 7
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.chat.IOneToOneChatListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.chat.IOneToOneChatListener$Stub$Proxy: void onComposingEvent(com.gsma.services.rcs.contact.ContactId,boolean)>
+<com.gsma.services.rcs.chat.IOneToOneChatListener$Stub$Proxy: void onMessageStatusChanged(com.gsma.services.rcs.contact.ContactId,java.lang.String,java.lang.String,com.gsma.services.rcs.chat.ChatLog$Message$Content$Status,com.gsma.services.rcs.chat.ChatLog$Message$Content$ReasonCode)>
+<com.gsma.services.rcs.chat.IOneToOneChatListener$Stub$Proxy: void onMessagesDeleted(com.gsma.services.rcs.contact.ContactId,java.util.List)>
+<com.gsma.services.rcs.chat.IOneToOneChatListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.chat.IOneToOneChatListener$Stub: com.gsma.services.rcs.chat.IOneToOneChatListener asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.chat.IOneToOneChatListener$Stub: void <init>()>

@@ -1,0 +1,10 @@
+# com.mediatek.common.operamax.ILoaderStateListener [NEW]
+# Refs: 6
+# JARs: mediatek-common
+
+<com.mediatek.common.operamax.ILoaderStateListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.common.operamax.ILoaderStateListener$Stub$Proxy: void onSavingState(int)>
+<com.mediatek.common.operamax.ILoaderStateListener$Stub$Proxy: void onTunnelState(int)>
+<com.mediatek.common.operamax.ILoaderStateListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.common.operamax.ILoaderStateListener$Stub: com.mediatek.common.operamax.ILoaderStateListener asInterface(android.os.IBinder)>
+<com.mediatek.common.operamax.ILoaderStateListener$Stub: void <init>()>

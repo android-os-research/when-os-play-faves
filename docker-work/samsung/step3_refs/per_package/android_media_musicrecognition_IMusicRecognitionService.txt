@@ -1,0 +1,10 @@
+# android.media.musicrecognition.IMusicRecognitionService [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.musicrecognition.IMusicRecognitionService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.musicrecognition.IMusicRecognitionService$Stub$Proxy: void getAttributionTag(android.media.musicrecognition.IMusicRecognitionAttributionTagCallback)>
+<android.media.musicrecognition.IMusicRecognitionService$Stub$Proxy: void onAudioStreamStarted(android.os.ParcelFileDescriptor,android.media.AudioFormat,android.media.musicrecognition.IMusicRecognitionServiceCallback)>
+<android.media.musicrecognition.IMusicRecognitionService$Stub: android.media.musicrecognition.IMusicRecognitionService asInterface(android.os.IBinder)>
+<android.media.musicrecognition.IMusicRecognitionService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.musicrecognition.IMusicRecognitionService$Stub: void <init>()>

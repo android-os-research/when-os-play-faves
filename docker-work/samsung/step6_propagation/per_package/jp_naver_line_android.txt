@@ -1,0 +1,232 @@
+######################################################################
+# Propagation: jp.naver.line.android
+######################################################################
+
+JARs:                 duraspeed, semwifi-service, services
+Classes:              5
+Occurrences:          5
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.collector.q
+  Method:   <com.mediatek.duraspeed.collector.q: void <clinit>()>
+  Line:     163
+  Register: v33 := "jp.naver.line.android"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils
+  Method:   <com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils: void <clinit>()>
+  Line:     147
+  Register: v6 := "jp.naver.line.android"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v9}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → Debug.semIsProductDev()
+      → SemFloatingFeature.getBoolean()
+      → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.MediaFocusControl
+  Method:   <com.android.server.audio.MediaFocusControl: void <clinit>()>
+  Line:     328
+  Register: v3 := "jp.naver.line.android"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <com.android.server.audio.AudioEventLogger: void <init>(int,
+        → <java.util.LinkedList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.audio.SoundAppPolicyManager
+  Method:   <com.samsung.android.server.audio.SoundAppPolicyManager: void setDefaultAllowList()>
+  Line:     1335
+  Register: v1 := "jp.naver.line.android"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Lcom/samsung/android/server/audio/AudioSettingsHelper;->putAppList(Ljav
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.audio.AudioSettingsHelper.putAppL → [other] const v1, 0x788659ac → [invoke] com.sams
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.audio.AudioService: void lambda$onCustom
+        ← <com.android.server.audio.AudioService: void $r8$lambda$zqmb
+          ← AudioService$$ExternalSyntheticLambda11.run()
+
+  CALLEES (what this method invokes):
+      → AudioSettingsHelper.putAppList()
+      → AudioSettingsHelper.resetAllowedListTable()
+      → AudioSettingsHelper.setIntValue()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → AudioCipher.encrypt()
+        → AudioSettingsHelper.add()
+        → SQLiteDatabase.execSQL()
+        → <java.util.concurrent.CopyOnWriteArrayList: void <init>()>
+        → ContentValues.put()
+        → AudioSettingsHelper.set()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → Base64.encodeToString()
+          → <com.samsung.android.server.audio.AudioCipher$KeyStoreHolder
+          → AudioCipher.getCipher()
+          → Optional.isPresent()
+          → Optional.get()
+          → Cipher.doFinal()
+          → Cipher.getIV()
+          → Cipher.init()
+          → SQLiteDatabase.insert()
+          → SQLiteDatabase.update()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → Base64.encode()
+            → <java.lang.AssertionError: void <init>(java.lang.Object)>
+            → AudioCipher$KeyStoreHolder.getKey()
+            → Optional.empty()
+            → Optional.of()
+            → Cipher.getInstance()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → Base64.encode()
+              → AudioCipher$KeyStoreHolder.generateKey()
+              → KeyStore.getKey()
+              → KeyStore.getInstance()
+              → KeyStore.load()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.notification.PreferencesHelper
+  Method:   <com.android.server.notification.PreferencesHelper: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.notification.RankingHandler,com.android.server.notification.ZenModeHelper,com.android.server.notification.PermissionHelper,com.android.server.notification.NotificationChannelLogger,android.app.AppOpsManager,com.android.server.notification.SysUiStatsEvent$BuilderFactory,boolean)>
+  Line:     344
+  Register: v6 := "jp.naver.line.android"
+  Usage:    [] 
+  Patterns: early_return, system_property_read
+  Flow:     [other] filled-new-array/range {v3 .. v28}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← NotificationManagerService.init()
+        ← NotificationManagerService.onStart()
+
+  CALLEES (what this method invokes):
+      → SystemProperties.getInt()
+      → <android.util.ArrayMap: void <init>()>
+      → PreferencesHelper.setHideContentAllowList()
+      → PreferencesHelper.syncChannelsBypassingDnd()
+      → PreferencesHelper.updateBadgingEnabled()
+      → PreferencesHelper.updateBubblesEnabled()
+      → PreferencesHelper.updateMediaNotificationFilteringEnabled()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.HashSet: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+        → HashSet.add()
+        → PreferencesHelper.updateChannelsBypassingDnd()
+        → ZenModeHelper.getNotificationPolicy()
+        → Context.getContentResolver()
+        → Settings$Secure.getIntForUser()
+        → SparseBooleanArray.get()
+        → SparseBooleanArray.keyAt()
+        → SparseBooleanArray.size()
+        → <android.util.SparseBooleanArray: void <init>()>
+        → SparseBooleanArray.put()
+        → PreferencesHelper.updateConfig()
+        → Settings$Global.getInt()
+          → ArrayMap.allocArrays()
+          → NotificationChannel.canBypassDnd()
+          → UserHandle.getUserId()
+          → ArrayMap.size()
+          → ArrayMap.valueAt()
+          → ArrayMap.values()
+          → ArraySet.add()
+          → ArraySet.size()
+          → ArraySet.removeAt()
+          → ArraySet.valueAt()
+          → <android.util.ArraySet: void <init>()>
+          → <android.util.Pair: void <init>(java.lang.Object,java.lang.O
+          → PermissionHelper.hasPermission()
+          → PreferencesHelper.channelIsLiveLocked()
+          → PreferencesHelper.getCurrentUserWithManagedProfile()
+          → PreferencesHelper.updateZenPolicy()
+          → Collection.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.contains()
+          → ZenModeHelper.getNotificationPolicy()
+          → SparseBooleanArray.get()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → <android.util.SparseBooleanArray: void <init>(int)>
+          → ContainerHelpers.binarySearch()
+          → GrowingArrayUtils.insert()
+          → GrowingArrayUtils.insert()
+          → RankingHandler.requestSort()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ArrayMap.getCollection()
+            → MapCollections.getValues()
+            → ArraySet.indexOf()
+            → ArraySet.indexOfNull()
+            → ArraySet.allocArrays()
+            → ArraySet.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → ArraySet.shouldShrink()
+            → ArraySet.getNewShrunkenSize()
+            → ArraySet.clear()
+            → ArraySet.valueAtUnchecked()
+            → <android.util.ArraySet: void <init>(int,boolean)>
+            → Binder.clearCallingIdentity()
+            → Binder.restoreCallingIdentity()
+            → PermissionManagerServiceInternal.checkPostNotificationsPermissionGrantedOrLegacyAccess()
+            → NotificationChannel.isDeleted()
+            → NotificationChannel.getImportance()
+            → NotificationChannel.getGroup()
+            → PreferencesHelper.isGroupBlocked()
+            → Context.getSystemService()
+            → UserManager.getProfileIds()
+            → PreferencesHelper.getCurrentUser()
+            → List.add()
+            → NotificationManager$Policy.getExceptionContacts()
+            → <android.app.NotificationManager$Policy: void <init>(int,int
+            → ZenModeHelper.setNotificationPolicy()
+            → ZenModeConfig.toNotificationPolicy()
+            → ArrayUtils.newUnpaddedIntArray()
+              → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+              → <android.util.MapCollections$ValuesCollection: void <init>(a
+              → ArraySet.binarySearch()
+              → NotificationChannelGroup.isBlocked()
+              → PreferencesHelper.getOrCreatePackagePreferencesLocked()
+              → Map.get()
+              → ActivityManager.getCurrentUser()
+              → ZenModeConfig.copy()
+              → ZenModeConfig.applyNotificationPolicy()
+              → ZenModeHelper.setConfigLocked()
+              → ZenModeConfig.getConversationSendersWithDefault()
+              → ZenModeConfig.sourceToPrioritySenders()
+

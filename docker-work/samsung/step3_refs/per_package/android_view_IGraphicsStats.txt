@@ -1,0 +1,9 @@
+# android.view.IGraphicsStats [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.IGraphicsStats$Stub$Proxy: android.os.ParcelFileDescriptor requestBufferForProcess(java.lang.String,android.view.IGraphicsStatsCallback)>
+<android.view.IGraphicsStats$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IGraphicsStats$Stub: android.view.IGraphicsStats asInterface(android.os.IBinder)>
+<android.view.IGraphicsStats$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IGraphicsStats$Stub: void <init>()>

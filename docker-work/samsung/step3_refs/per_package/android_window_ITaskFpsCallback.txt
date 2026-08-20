@@ -1,0 +1,9 @@
+# android.window.ITaskFpsCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.window.ITaskFpsCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.ITaskFpsCallback$Stub$Proxy: void onFpsReported(float)>
+<android.window.ITaskFpsCallback$Stub: android.window.ITaskFpsCallback asInterface(android.os.IBinder)>
+<android.window.ITaskFpsCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.ITaskFpsCallback$Stub: void <init>()>

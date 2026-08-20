@@ -1,0 +1,6 @@
+# android.wallpaper.freeze [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<android.service.wallpaper.WallpaperService$Engine: void doCommand(android.service.wallpaper.WallpaperService$WallpaperCommand)>
+<com.android.server.wm.WallpaperController: void adjustWallpaperWindows()>

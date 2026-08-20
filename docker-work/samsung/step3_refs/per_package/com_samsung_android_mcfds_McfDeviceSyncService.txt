@@ -1,0 +1,7 @@
+# com.samsung.android.mcfds.McfDeviceSyncService [NEW]
+# Refs: 3
+# JARs: services
+
+<com.samsung.android.mcf.continuity.impl.ContinuityAdapterImpl: android.content.Intent createStartIntent(android.content.Context)>
+<com.samsung.android.mcfds.lib.AbstractDeviceSyncManager: boolean connectService(com.samsung.android.mcfds.lib.AbstractDeviceSyncManager$StateListener)>
+<com.samsung.android.mcfds.lib.AbstractDeviceSyncManager: boolean connectServiceAsUser(com.samsung.android.mcfds.lib.AbstractDeviceSyncManager$StateListener,android.os.UserHandle)>

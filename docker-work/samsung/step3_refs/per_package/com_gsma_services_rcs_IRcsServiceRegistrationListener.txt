@@ -1,0 +1,10 @@
+# com.gsma.services.rcs.IRcsServiceRegistrationListener [NEW]
+# Refs: 6
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.IRcsServiceRegistrationListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.IRcsServiceRegistrationListener$Stub$Proxy: void onServiceRegistered()>
+<com.gsma.services.rcs.IRcsServiceRegistrationListener$Stub$Proxy: void onServiceUnregistered(com.gsma.services.rcs.RcsServiceRegistration$ReasonCode)>
+<com.gsma.services.rcs.IRcsServiceRegistrationListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.IRcsServiceRegistrationListener$Stub: com.gsma.services.rcs.IRcsServiceRegistrationListener asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.IRcsServiceRegistrationListener$Stub: void <init>()>

@@ -1,0 +1,808 @@
+######################################################################
+# Propagation: com.samsung.ucs.agent.ese
+######################################################################
+
+JARs:                 services
+Classes:              3
+Occurrences:          7
+Usage types:          array_init, invoke
+Enforcement patterns: allowlist_check, early_return, string_compare, system_property_read
+Security tags:        PERM_CHECK, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.ucm.ucmservice.UcmServiceAgentManager
+  Method:   <com.samsung.ucm.ucmservice.UcmServiceAgentManager: boolean isEseManaged()>
+  Line:     524
+  Register: v6 := "com.samsung.ucs.agent.ese"
+  Usage:    [invoke] invoke-virtual {v4, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Strin
+  Patterns: early_return
+  Flow:     [invoke] android.content.ContentValues.put()
+
+  CALLERS (who invokes this method):
+      ← UcmServiceAgentManager.refreshAgentListInternal()
+        ← UcmServiceAgentManager.refreshAgentList()
+          ← CredentialManagerService.refreshAgentList()
+          ← UcmServiceAgentManager.getActiveAgentList()
+          ← UcmServiceAgentManager.deleteAndRefreshAgents()
+            ← <com.samsung.ucm.ucmservice.CredentialManagerService: void -
+            ← CredentialManagerService.notifyChangeToPlugin()
+            ← CredentialManagerService.saw()
+            ← CredentialManagerService.listProvidersInternal()
+            ← CredentialManagerService.configureKeyguardSettings()
+            ← CredentialManagerService.isActivePlugin()
+            ← CredentialManagerService.isUserCertificatesExistInUCS()
+            ← CredentialManagerService.getActiveAgent()
+            ← CredentialManagerService.getODEAgent()
+            ← CredentialManagerService.configureODESettings()
+            ← CredentialManagerService.registerPackageReceiver()
+            ← CredentialManagerService.resetNonMdmCertificates()
+              ← CredentialManagerService$1.handleMessage()
+              ← CredentialManagerService$7.onReceive()
+              ← CredentialManagerService.listExposedProvidersInternal()
+              ← <com.samsung.ucm.ucmservice.CredentialManagerService: boolea
+              ← CredentialManagerService.APDUCommand()
+              ← CredentialManagerService.changePin()
+              ← CredentialManagerService.containsAlias()
+              ← CredentialManagerService.deleteInternal()
+              ← CredentialManagerService.generateKey()
+              ← CredentialManagerService.generateKeyPairMain()
+              ← CredentialManagerService.generateKeyguardPassword()
+              ← CredentialManagerService.generateSecureRandom()
+              ← CredentialManagerService.getAdminConfigureBundleFromCs()
+              ← CredentialManagerService.getAgentInfo()
+              ← CredentialManagerService.getCredentialStorageProperty()
+              ← CredentialManagerService.getInfo()
+              ← CredentialManagerService.getKeyType()
+              ← CredentialManagerService.getStatus()
+              ← CredentialManagerService.importKey()
+              ← CredentialManagerService.importKeyPairInternal()
+              ← CredentialManagerService.processCommand()
+              ← CredentialManagerService.resetUid()
+              ← CredentialManagerService.resetUser()
+              ← CredentialManagerService.sawInternal()
+              ← CredentialManagerService.setAdminConfigureBundleForCs()
+              ← CredentialManagerService.setCertificateChain()
+              ← CredentialManagerService.setCredentialStorageProperty()
+              ← CredentialManagerService.setState()
+              ← CredentialManagerService.verifyPin()
+              ← CredentialManagerService.verifyPuk()
+              ← CredentialManagerService.decrypt()
+              ← CredentialManagerService.encrypt()
+              ← CredentialManagerService.generateDek()
+              ← CredentialManagerService.generateWrappedDek()
+              ← CredentialManagerService.getCertificateChain()
+              ← CredentialManagerService.getDek()
+              ← CredentialManagerService.sign()
+              ← CredentialManagerService.unwrapDek()
+              ← CredentialManagerService.getActiveAgentFromUri()
+              ← CredentialManagerService.getDetailErrorMessage()
+              ← CredentialManagerService.getOdeVendorSpecific()
+              ← <com.samsung.ucm.ucmservice.CredentialManagerService: com.sa
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → EdmStorageProvider.getCount()
+      → <com.android.server.enterprise.storage.EdmStorageProvider: v
+      → Exception.getMessage()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → EdmStorageProviderBase.getCount()
+        → <com.android.server.enterprise.storage.EdmStorageProviderBas
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → ContentValues.size()
+          → Cursor.moveToNext()
+          → Cursor.getInt()
+          → Cursor.close()
+          → SQLException.getMessage()
+          → SQLiteDatabase.rawQuery()
+          → SQLiteOpenHelper.getWritableDatabase()
+          → EdmStorageProviderBase.getInt()
+          → EdmStorageProviderBase.parseContentValues()
+          → SQLiteDatabase.enableWriteAheadLogging()
+          → EdmStorageHelper.getInstance()
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ArrayMap.size()
+            → SQLiteOpenHelper.getDatabaseLocked()
+            → EdmStorageProviderBase.getIntList()
+            → List.size()
+            → List.get()
+            → ContentValues.containsKey()
+            → ContentValues.getAsInteger()
+            → ContentValues.remove()
+            → EdmStorageProviderBase.getAdminLUIDWhereIn()
+            → EdmStorageProviderBase.convertAdminIdToLUID()
+            → <com.android.server.enterprise.storage.EdmStorageHelper: voi
+              → ContainerHelpers.binarySearch()
+              → Context.getDatabasePath()
+              → SQLiteDatabase$OpenParams$Builder.build()
+              → SQLiteDatabase$OpenParams$Builder.addOpenFlags()
+              → SQLiteDatabase$OpenParams.toBuilder()
+              → SQLiteDatabase.createInMemory()
+              → SQLiteDatabase.openDatabase()
+              → SQLiteDatabase.deleteDatabase()
+              → SQLiteDatabase.isOpen()
+              → SQLiteDatabase.isReadOnly()
+              → SQLiteDatabase.getVersion()
+              → SQLiteDatabase.getPath()
+              → SQLiteDatabase.beginTransaction()
+              → SQLiteDatabase.close()
+              → SQLiteDatabase.endTransaction()
+              → SQLiteDatabase.reopenReadWrite()
+              → SQLiteDatabase.setReserveSpace()
+              → SQLiteDatabase.setTransactionSuccessful()
+              → SQLiteDatabase.setVersion()
+              → <android.database.sqlite.SQLiteException: void <init>(java.l
+              → SQLiteOpenHelper.onBeforeDelete()
+              → SQLiteOpenHelper.onConfigure()
+              → SQLiteOpenHelper.onCreate()
+              → SQLiteOpenHelper.onDowngrade()
+              → SQLiteOpenHelper.onOpen()
+              → SQLiteOpenHelper.onUpgrade()
+              → SQLiteOpenHelper.setFilePermissionsForDb()
+              → File.getPath()
+              → <java.io.File: void <init>(java.lang.String)>
+              → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+              → Cursor.isNull()
+              → EdmStorageProviderBase.getCursor()
+              → <java.util.ArrayList: void <init>()>
+              → List.add()
+              → ArrayMap.containsKey()
+              → ArrayMap.get()
+              → Number.intValue()
+              → ArrayMap.remove()
+              → EdmStorageProviderBase.getAdminLUIDWhereInArgs()
+              → ContentValues.put()
+              → EdmStorageProviderBase.translateToAdminLUID()
+              → <android.database.sqlite.SQLiteOpenHelper: void <init>(andro
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.ucm.ucmservice.UcmServiceAgentManager
+  Method:   <com.samsung.ucm.ucmservice.UcmServiceAgentManager: boolean isSystemStorage(java.lang.String)>
+  Line:     673
+  Register: p0 := "com.samsung.ucs.agent.ese"
+  Usage:    [invoke] invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-eqz p0, :cond_11 → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← UcmServiceAgentManager.refreshAgentListInternal()
+        ← UcmServiceAgentManager.refreshAgentList()
+          ← CredentialManagerService.refreshAgentList()
+          ← UcmServiceAgentManager.getActiveAgentList()
+          ← UcmServiceAgentManager.deleteAndRefreshAgents()
+            ← <com.samsung.ucm.ucmservice.CredentialManagerService: void -
+            ← CredentialManagerService.notifyChangeToPlugin()
+            ← CredentialManagerService.saw()
+            ← CredentialManagerService.listProvidersInternal()
+            ← CredentialManagerService.configureKeyguardSettings()
+            ← CredentialManagerService.isActivePlugin()
+            ← CredentialManagerService.isUserCertificatesExistInUCS()
+            ← CredentialManagerService.getActiveAgent()
+            ← CredentialManagerService.getODEAgent()
+            ← CredentialManagerService.configureODESettings()
+            ← CredentialManagerService.registerPackageReceiver()
+            ← CredentialManagerService.resetNonMdmCertificates()
+              ← CredentialManagerService$1.handleMessage()
+              ← CredentialManagerService$7.onReceive()
+              ← CredentialManagerService.listExposedProvidersInternal()
+              ← <com.samsung.ucm.ucmservice.CredentialManagerService: boolea
+              ← CredentialManagerService.APDUCommand()
+              ← CredentialManagerService.changePin()
+              ← CredentialManagerService.containsAlias()
+              ← CredentialManagerService.deleteInternal()
+              ← CredentialManagerService.generateKey()
+              ← CredentialManagerService.generateKeyPairMain()
+              ← CredentialManagerService.generateKeyguardPassword()
+              ← CredentialManagerService.generateSecureRandom()
+              ← CredentialManagerService.getAdminConfigureBundleFromCs()
+              ← CredentialManagerService.getAgentInfo()
+              ← CredentialManagerService.getCredentialStorageProperty()
+              ← CredentialManagerService.getInfo()
+              ← CredentialManagerService.getKeyType()
+              ← CredentialManagerService.getStatus()
+              ← CredentialManagerService.importKey()
+              ← CredentialManagerService.importKeyPairInternal()
+              ← CredentialManagerService.processCommand()
+              ← CredentialManagerService.resetUid()
+              ← CredentialManagerService.resetUser()
+              ← CredentialManagerService.sawInternal()
+              ← CredentialManagerService.setAdminConfigureBundleForCs()
+              ← CredentialManagerService.setCertificateChain()
+              ← CredentialManagerService.setCredentialStorageProperty()
+              ← CredentialManagerService.setState()
+              ← CredentialManagerService.verifyPin()
+              ← CredentialManagerService.verifyPuk()
+              ← CredentialManagerService.decrypt()
+              ← CredentialManagerService.encrypt()
+              ← CredentialManagerService.generateDek()
+              ← CredentialManagerService.generateWrappedDek()
+              ← CredentialManagerService.getCertificateChain()
+              ← CredentialManagerService.getDek()
+              ← CredentialManagerService.sign()
+              ← CredentialManagerService.unwrapDek()
+              ← CredentialManagerService.getActiveAgentFromUri()
+              ← CredentialManagerService.getDetailErrorMessage()
+              ← CredentialManagerService.getOdeVendorSpecific()
+              ← <com.samsung.ucm.ucmservice.CredentialManagerService: com.sa
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.ucm.ucmservice.UcmServiceAgentManager
+  Method:   <com.samsung.ucm.ucmservice.UcmServiceAgentManager: void refreshAgentListInternal(android.util.ArraySet,android.os.Bundle)>
+  Line:     1165
+  Register: v12 := "com.samsung.ucs.agent.ese"
+  Usage:    [invoke] invoke-virtual {v12, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v12 → [branch] if-eqz v12, :cond_151 → [other] iget-boolean v12
+
+  CALLERS (who invokes this method):
+      ← UcmServiceAgentManager.refreshAgentList()
+        ← CredentialManagerService.refreshAgentList()
+        ← UcmServiceAgentManager.getActiveAgentList()
+        ← UcmServiceAgentManager.deleteAndRefreshAgents()
+          ← <com.samsung.ucm.ucmservice.CredentialManagerService: void -
+          ← CredentialManagerService.notifyChangeToPlugin()
+          ← CredentialManagerService.saw()
+          ← CredentialManagerService.listProvidersInternal()
+          ← CredentialManagerService.configureKeyguardSettings()
+          ← CredentialManagerService.isActivePlugin()
+          ← CredentialManagerService.isUserCertificatesExistInUCS()
+          ← CredentialManagerService.getActiveAgent()
+          ← CredentialManagerService.getODEAgent()
+          ← CredentialManagerService.configureODESettings()
+          ← CredentialManagerService.registerPackageReceiver()
+          ← CredentialManagerService.resetNonMdmCertificates()
+            ← CredentialManagerService$1.handleMessage()
+            ← CredentialManagerService$7.onReceive()
+            ← CredentialManagerService.listExposedProvidersInternal()
+            ← <com.samsung.ucm.ucmservice.CredentialManagerService: boolea
+            ← CredentialManagerService.APDUCommand()
+            ← CredentialManagerService.changePin()
+            ← CredentialManagerService.containsAlias()
+            ← CredentialManagerService.deleteInternal()
+            ← CredentialManagerService.generateKey()
+            ← CredentialManagerService.generateKeyPairMain()
+            ← CredentialManagerService.generateKeyguardPassword()
+            ← CredentialManagerService.generateSecureRandom()
+            ← CredentialManagerService.getAdminConfigureBundleFromCs()
+            ← CredentialManagerService.getAgentInfo()
+            ← CredentialManagerService.getCredentialStorageProperty()
+            ← CredentialManagerService.getInfo()
+            ← CredentialManagerService.getKeyType()
+            ← CredentialManagerService.getStatus()
+            ← CredentialManagerService.importKey()
+            ← CredentialManagerService.importKeyPairInternal()
+            ← CredentialManagerService.processCommand()
+            ← CredentialManagerService.resetUid()
+            ← CredentialManagerService.resetUser()
+            ← CredentialManagerService.sawInternal()
+            ← CredentialManagerService.setAdminConfigureBundleForCs()
+            ← CredentialManagerService.setCertificateChain()
+            ← CredentialManagerService.setCredentialStorageProperty()
+            ← CredentialManagerService.setState()
+            ← CredentialManagerService.verifyPin()
+            ← CredentialManagerService.verifyPuk()
+            ← CredentialManagerService.decrypt()
+            ← CredentialManagerService.encrypt()
+            ← CredentialManagerService.generateDek()
+            ← CredentialManagerService.generateWrappedDek()
+            ← CredentialManagerService.getCertificateChain()
+            ← CredentialManagerService.getDek()
+            ← CredentialManagerService.sign()
+            ← CredentialManagerService.unwrapDek()
+            ← CredentialManagerService.getActiveAgentFromUri()
+            ← CredentialManagerService.getDetailErrorMessage()
+            ← CredentialManagerService.getOdeVendorSpecific()
+            ← <com.samsung.ucm.ucmservice.CredentialManagerService: com.sa
+              ← CredentialManagerService.listAllProviders()
+              ← CredentialManagerService.listProviders()
+              ← CredentialManagerService$5.onReceive()
+              ← CredentialManagerService.delete()
+              ← CredentialManagerService.deleteCertificate()
+              ← CredentialManagerService.generateKeyPair()
+              ← CredentialManagerService.generateKeyPairInternal()
+              ← CredentialManagerService.importKeyPair()
+              ← CredentialManagerService.installCertificate()
+              ← EDMProxyService.ucmDecrypt()
+              ← EDMProxyService.ucmEncrypt()
+              ← CredentialManagerService.generateDek()
+              ← <com.samsung.ucm.ucmservice.CredentialManagerService: com.sa
+              ← CredentialManagerService.generateWrappedDek()
+              ← EDMProxyService.ucmGetCertificateChain()
+              ← CredentialManagerService.getDek()
+              ← EDMProxyService.ucmSign()
+              ← <com.samsung.ucm.ucmservice.CredentialManagerService: com.sa
+              ← CredentialManagerService.unwrapDek()
+              ← CredentialManagerService.getKeyguardPinCurrentRetryCount()
+              ← CredentialManagerService.getKeyguardPinMaximumLength()
+              ← CredentialManagerService.getKeyguardPinMaximumRetryCount()
+              ← CredentialManagerService.getKeyguardPinMinimumLength()
+              ← CredentialManagerService.initKeyguardPin()
+              ← CredentialManagerService.setKeyguardPinMaximumLength()
+              ← CredentialManagerService.setKeyguardPinMaximumRetryCount()
+              ← CredentialManagerService.setKeyguardPinMinimumLength()
+              ← CredentialManagerService.getDekForVold()
+              ← CredentialManagerService.getDekForVoldInternalKey()
+              ← CredentialManagerService.saveTempOdeKey()
+              ← CredentialManagerService$UcmErcomSpecific.getDekForVold()
+              ← CredentialManagerService$UcmErcomSpecific.getDekForVoldInternalKey()
+              ← CredentialManagerService$UcmErcomSpecific.getDeks()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getPackageName()
+      → Context.getPackageManager()
+      → Bundle.getInt()
+      → Bundle.getString()
+      → <android.os.UserHandle: void <init>(int)>
+      → ArraySet.remove()
+      → UcmAgentWrapper.getComponentName()
+      → <com.samsung.ucm.ucmservice.UcmAgentWrapper: void <init>(and
+      → UcmAgentWrapper.initialize()
+      → UcmAgentWrapper.unbind()
+      → UcmServiceAgentManager.isEseManaged()
+      → UcmServiceAgentManager.isSystemStorage()
+      → UcmServiceAgentManager.getAllPlugins()
+      → UcmServiceUtil.isSystemApp()
+      → Exception.getMessage()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.add()
+      → List.contains()
+      → List.iterator()
+        → ArraySet.indexOf()
+        → ArraySet.removeAt()
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → <com.samsung.ucm.ucmservice.UcmAgentWrapper$2: void <init>(c
+        → UcmAgentWrapper.createHandler()
+        → Exception.printStackTrace()
+        → <java.util.LinkedList: void <init>()>
+        → Context.bindServiceAsUser()
+        → Intent.setComponent()
+        → <android.content.Intent: void <init>()>
+        → UcmAgentWrapper.getAgentInfo()
+        → UcmAgentWrapper.scheduleRestart()
+        → Context.unbindService()
+        → Exception.toString()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → EdmStorageProvider.getCount()
+        → <com.android.server.enterprise.storage.EdmStorageProvider: v
+        → PackageManager.queryIntentServicesAsUser()
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>(int)>
+        → List.size()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getPackageInfo() [PKG_QUERY]
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → UcmServiceUtil.compareSignatures()
+          → ArraySet.indexOf()
+          → ArraySet.indexOfNull()
+          → ArraySet.shouldShrink()
+          → ArraySet.getNewShrunkenSize()
+          → ArraySet.allocArrays()
+          → ArraySet.clear()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → HandlerThread.getLooper()
+          → <android.os.HandlerThread: void <init>(java.lang.String)>
+          → HandlerThread.start()
+          → <com.samsung.ucm.ucmservice.UcmAgentWrapper$1: void <init>(c
+          → ComponentName.unflattenFromString()
+          → PackageManager.getResourcesForApplication()
+          → ServiceInfo.loadXmlMetaData()
+          → XmlResourceParser.next()
+          → XmlResourceParser.getAttributeValue()
+          → XmlResourceParser.getName()
+          → XmlResourceParser.close()
+          → UcmAgentWrapper$AgentInfo.toString()
+          → <com.samsung.ucm.ucmservice.UcmAgentWrapper$AgentInfo: void 
+          → UcmAgentWrapper.hexStringToByteArray()
+          → Handler.sendEmptyMessageDelayed()
+          → Handler.removeMessages()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → EdmStorageProviderBase.getCount()
+          → <com.android.server.enterprise.storage.EdmStorageProviderBas
+          → ActivityThread.getPackageManager()
+          → HashSet.add()
+          → HashSet.equals()
+          → <java.util.HashSet: void <init>()>
+            → ArraySet.binarySearch()
+            → ArraySet.freeArrays()
+            → HandlerThread.isAlive()
+            → Thread.currentThread()
+            → Thread.interrupt()
+            → <java.lang.Thread: void <init>(java.lang.String)>
+            → <android.os.Handler: void <init>(android.os.Looper)>
+            → UnsupportedEncodingException.printStackTrace()
+            → StringBuffer.toString()
+            → StringBuffer.append()
+            → <java.lang.StringBuffer: void <init>()>
+            → Character.digit()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → ContentValues.size()
+            → Cursor.moveToNext()
+            → Cursor.getInt()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → SQLiteDatabase.rawQuery()
+            → SQLiteOpenHelper.getWritableDatabase()
+            → EdmStorageProviderBase.getInt()
+            → EdmStorageProviderBase.parseContentValues()
+            → SQLiteDatabase.enableWriteAheadLogging()
+            → EdmStorageHelper.getInstance()
+              → ContainerHelpers.binarySearch()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ArrayMap.size()
+              → SQLiteOpenHelper.getDatabaseLocked()
+              → EdmStorageProviderBase.getIntList()
+              → List.get()
+              → ContentValues.containsKey()
+              → ContentValues.getAsInteger()
+              → ContentValues.remove()
+              → EdmStorageProviderBase.getAdminLUIDWhereIn()
+              → EdmStorageProviderBase.convertAdminIdToLUID()
+              → <com.android.server.enterprise.storage.EdmStorageHelper: voi
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.ucm.ucmservice.CredentialManagerService
+  Method:   <com.samsung.ucm.ucmservice.CredentialManagerService: void registerPackageReceiver()>
+  Line:     22448
+  Register: v4 := "com.samsung.ucs.agent.ese"
+  Usage:    [invoke] invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← CredentialManagerService.refreshAgentList()
+        ← <com.samsung.ucm.ucmservice.CredentialManagerService: void -
+          ← CredentialManagerService$1.handleMessage()
+          ← CredentialManagerService$7.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → UcmServiceAgentManager.getActiveAgentList()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → UcmServiceAgentManager.refreshAgentList()
+        → List.isEmpty()
+          → ArraySet.addAll()
+          → ArraySet.iterator()
+          → <android.util.ArraySet: void <init>()>
+          → UcmAgentWrapper.unbind()
+          → UcmServiceAgentManager.isSystemReady()
+          → UcmServiceAgentManager.refreshAgentListInternal()
+          → Exception.getMessage()
+          → List.remove()
+            → ArraySet.add()
+            → ArraySet.ensureCapacity()
+            → Collection.size()
+            → Collection.iterator()
+            → ArraySet.getCollection()
+            → MapCollections.getKeySet()
+            → Set.iterator()
+            → <android.util.ArraySet: void <init>(int,boolean)>
+            → Context.unbindService()
+            → Exception.toString()
+            → ActivityManager.isSystemReady()
+            → Context.getSystemService()
+            → ComponentName.getPackageName()
+            → Context.getPackageManager()
+            → Bundle.getInt()
+            → Bundle.getString()
+            → <android.os.UserHandle: void <init>(int)>
+            → ArraySet.remove()
+            → UcmAgentWrapper.getComponentName()
+            → <com.samsung.ucm.ucmservice.UcmAgentWrapper: void <init>(and
+            → UcmAgentWrapper.initialize()
+            → UcmServiceAgentManager.isEseManaged()
+            → UcmServiceAgentManager.isSystemStorage()
+            → UcmServiceAgentManager.getAllPlugins()
+            → UcmServiceUtil.isSystemApp()
+            → List.add()
+            → List.contains()
+              → ArraySet.indexOf()
+              → ArraySet.indexOfNull()
+              → ArraySet.allocArrays()
+              → ArraySet.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → <android.util.ArraySet$1: void <init>(android.util.ArraySet)
+              → <android.util.MapCollections$KeySet: void <init>(android.uti
+              → ArraySet.indexOf()
+              → ArraySet.removeAt()
+              → <android.content.ComponentName: void <init>(java.lang.String
+              → <com.samsung.ucm.ucmservice.UcmAgentWrapper$2: void <init>(c
+              → UcmAgentWrapper.createHandler()
+              → Exception.printStackTrace()
+              → <java.util.LinkedList: void <init>()>
+              → Context.bindServiceAsUser()
+              → Intent.setComponent()
+              → <android.content.Intent: void <init>()>
+              → UcmAgentWrapper.getAgentInfo()
+              → UcmAgentWrapper.scheduleRestart()
+              → <android.content.ContentValues: void <init>()>
+              → ContentValues.put()
+              → Binder.clearCallingIdentity()
+              → Binder.restoreCallingIdentity()
+              → EdmStorageProvider.getCount()
+              → <com.android.server.enterprise.storage.EdmStorageProvider: v
+              → PackageManager.queryIntentServicesAsUser()
+              → ArrayList.add()
+              → <java.util.ArrayList: void <init>(int)>
+              → List.size()
+              → AppGlobals.getPackageManager()
+              → IPackageManager.getPackageInfo() [PKG_QUERY]
+              → PackageManager.getPackageInfo() [PKG_QUERY]
+              → UcmServiceUtil.compareSignatures()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.ucm.UniversalCredentialManagerService
+  Method:   <com.android.server.enterprise.ucm.UniversalCredentialManagerService: void <clinit>()>
+  Line:     436
+  Register: v2 := "com.samsung.ucs.agent.ese"
+  Usage:    [array_init] filled-new-array {v1, v2, v3}, [Ljava/lang/String;
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [other] filled-new-array {v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → SystemProperties.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.ucm.UniversalCredentialManagerService
+  Method:   <com.android.server.enterprise.ucm.UniversalCredentialManagerService: int configureCredentialStoragePlugin(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.ucm.configurator.CredentialStorage,android.os.Bundle)>
+  Line:     6776
+  Register: v5 := "com.samsung.ucs.agent.ese"
+  Usage:    [invoke] invoke-virtual {v4, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equalsIgnoreCase() → [reassigned] v5 overwritten
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → Bundle.getInt()
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putInt()
+      → UniversalCredentialManagerService$RequestIdGenerator.getNextContainerRequestId()
+      → UniversalCredentialManagerService.isCredentialStorageManagedInternal()
+      → UniversalCredentialManagerService.isPluginActive()
+      → UniversalCredentialManagerService.isValidParam()
+      → UniversalCredentialManagerService.validateSignature()
+      → UniversalCredentialManagerService.getUcmService()
+      → UniversalCredentialManagerService.enforceSecurityPermission()
+      → IUcmService.setAdminConfigureBundleForCs()
+      → UniversalCredentialUtil$UcmUriBuilder.setResourceId()
+      → UniversalCredentialUtil$UcmUriBuilder.setUid()
+      → UniversalCredentialUtil$UcmUriBuilder.build()
+      → <com.samsung.android.knox.ucm.core.UniversalCredentialUtil$U
+      → Exception.getMessage()
+        → UniversalCredentialManagerService$RequestIdGenerator.randInt()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → ContentValues.put()
+        → EdmStorageProvider.getCount()
+        → UniversalCredentialManagerService.getCredentialStorageProvider()
+        → TextUtils.isEmpty()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getPackageInfo() [PKG_QUERY]
+        → UniversalCredentialManagerService.convertStringToSignature()
+        → UniversalCredentialManagerService.compareSignatures()
+        → ServiceManager.getService()
+        → IUcmService$Stub.asInterface()
+        → UniversalCredentialManagerService.isSystemStorage()
+        → UniversalCredentialManagerService.getEDM()
+        → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → <java.util.ArrayList: void <init>()>
+        → List.add()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → Uri$Builder.build()
+        → Uri$Builder.appendPath()
+        → Uri$Builder.authority()
+        → Uri$Builder.path()
+        → Uri$Builder.scheme()
+        → <android.net.Uri$Builder: void <init>()>
+        → Uri.toString()
+        → Process.myUid()
+        → ContextInfo$$ExternalSyntheticOutline0.m()
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+          → Random.nextInt()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → EdmStorageProviderBase.getCount()
+          → UniversalCredentialManagerService.getUniversalCredentialUtil()
+          → UniversalCredentialManagerService.getManagedProviders()
+          → Provider.getName()
+          → Provider.getProperty()
+          → CharSequence.length()
+          → ActivityThread.getPackageManager()
+          → <android.content.pm.Signature: void <init>(java.lang.String)
+          → TextUtils.split()
+          → HashSet.add()
+          → HashSet.equals()
+          → <java.util.HashSet: void <init>()>
+          → IBinder.queryLocalInterface()
+          → <com.samsung.android.knox.ucm.core.IUcmService$Stub$Proxy: v
+          → UniversalCredentialManagerService.isSystemApp()
+          → List.contains()
+          → EnterpriseDeviceManager.getInstance()
+          → EnterpriseDeviceManager.getService()
+          → IEnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+          → Uri$Builder.hasSchemeOrAuthority()
+          → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+          → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+          → Uri$PathPart.makeAbsolute()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+          → Uri$Builder.path()
+          → Uri$PathPart.appendDecodedSegment()
+          → Uri$Builder.authority()
+          → Uri$Part.fromDecoded()
+          → Uri$PathPart.fromDecoded()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → ContentValues.size()
+            → Cursor.moveToNext()
+            → Cursor.getInt()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → SQLiteDatabase.rawQuery()
+            → SQLiteOpenHelper.getWritableDatabase()
+            → EdmStorageProviderBase.getInt()
+            → EdmStorageProviderBase.parseContentValues()
+            → UniversalCredentialUtil.getInstance()
+            → Bundle.getString()
+            → IUcmService.listAllProviders()
+            → <com.samsung.android.knox.ucm.core.jcajce.UcmKeystoreProvide
+            → ArrayList.add()
+            → ArrayList.size()
+            → ArrayList.toArray()
+            → Signature.parseHexDigit()
+            → Context.getPackageManager()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+            → Process.myPid()
+            → Process.myTid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.d()
+            → KnoxsdkFileLog.w()
+            → IEnterpriseDeviceManager$Stub.asInterface()
+            → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+            → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+            → <android.net.Uri$PathPart: void <init>(java.lang.String,java
+            → Uri$PathPart.appendEncodedSegment()
+            → Uri.encode()
+            → Uri$Part.from()
+            → Uri$PathPart.from()
+              → ArrayMap.binarySearchHashes()
+              → ArrayMap.size()
+              → SQLiteOpenHelper.getDatabaseLocked()
+              → EdmStorageProviderBase.getIntList()
+              → List.size()
+              → List.get()
+              → ContentValues.containsKey()
+              → ContentValues.getAsInteger()
+              → ContentValues.remove()
+              → EdmStorageProviderBase.getAdminLUIDWhereIn()
+              → EdmStorageProviderBase.convertAdminIdToLUID()
+              → <com.samsung.android.knox.ucm.core.UniversalCredentialUtil: 
+              → <com.samsung.android.knox.ucm.core.jcajce.UcmKeystoreProvide
+              → UcmKeystoreProvider.setBundle()
+              → <java.security.Provider: void <init>(java.lang.String,double
+              → Provider.putService()
+              → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+              → SemLog.w()
+              → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+              → Uri$Part.nonNull()
+              → <android.net.Uri: void <init>(android.net.Uri-IA)>
+              → <android.net.Uri$AbstractPart: void <init>(java.lang.String,
+              → Uri$PathPart.fromEncoded()
+              → Uri$PathPart.getEncoded()
+              → Uri.encode()
+              → <android.net.Uri$Part: void <init>(java.lang.String,java.lan
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.ucm.UniversalCredentialManagerService
+  Method:   <com.android.server.enterprise.ucm.UniversalCredentialManagerService: void registerPackageReceiver()>
+  Line:     36240
+  Register: v2 := "com.samsung.ucs.agent.ese"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v2 → [branch] if-nez v2, :cond_18 → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← UniversalCredentialManagerService.configureCredentialStorageInternal()
+      ← <com.android.server.enterprise.ucm.UniversalCredentialManage
+        ← UniversalCredentialManagerService.manageCredentialStorage()
+
+  CALLEES (what this method invokes):
+      → ContentValues.getAsString()
+      → Context.registerReceiverAsUser()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → UniversalCredentialManagerService.getActivePlugin()
+      → ArrayList.iterator()
+      → Iterator.hasNext()
+      → Iterator.next()
+        → ArrayMap.get()
+        → EdmStorageProvider.getDataByFields()
+        → Exception.getMessage()
+        → <java.util.ArrayList: void <init>()>
+          → ArrayMap.indexOfKey()
+          → EdmStorageProviderBase.getDataByFields()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → <android.content.ContentValues: void <init>()>
+            → ContentValues.put()
+            → EdmStorageProviderBase.getValues()
+            → <java.util.ArrayList: void <init>(java.util.Collection)>
+              → ArrayMap.binarySearchHashes()
+              → <android.util.ArrayMap: void <init>()>
+              → ArrayMap.put()
+              → ContentValues.size()
+              → ContentValues.put()
+              → ContentValues.put()
+              → ContentValues.put()
+              → Cursor.moveToFirst()
+              → Cursor.moveToNext()
+              → Cursor.getBlob()
+              → Cursor.getFloat()
+              → Cursor.getColumnCount()
+              → Cursor.getCount()
+              → Cursor.getType()
+              → Cursor.getColumnName()
+              → Cursor.getString()
+              → Cursor.getLong()
+              → Cursor.close()
+              → SQLException.getMessage()
+              → EdmStorageProviderBase.getCursor()
+              → List.add()
+

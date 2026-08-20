@@ -1,0 +1,21 @@
+# android.os.IServiceManager [NEW]
+# Refs: 17
+# JARs: framework
+
+<android.os.IServiceManager$Stub$Proxy: android.os.ConnectionInfo getConnectionInfo(java.lang.String)>
+<android.os.IServiceManager$Stub$Proxy: android.os.IBinder checkService(java.lang.String)>
+<android.os.IServiceManager$Stub$Proxy: android.os.IBinder getService(java.lang.String)>
+<android.os.IServiceManager$Stub$Proxy: android.os.ServiceDebugInfo[] getServiceDebugInfo()>
+<android.os.IServiceManager$Stub$Proxy: boolean isDeclared(java.lang.String)>
+<android.os.IServiceManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IServiceManager$Stub$Proxy: java.lang.String updatableViaApex(java.lang.String)>
+<android.os.IServiceManager$Stub$Proxy: java.lang.String[] getDeclaredInstances(java.lang.String)>
+<android.os.IServiceManager$Stub$Proxy: java.lang.String[] listServices(int)>
+<android.os.IServiceManager$Stub$Proxy: void addService(java.lang.String,android.os.IBinder,boolean,int)>
+<android.os.IServiceManager$Stub$Proxy: void registerClientCallback(java.lang.String,android.os.IBinder,android.os.IClientCallback)>
+<android.os.IServiceManager$Stub$Proxy: void registerForNotifications(java.lang.String,android.os.IServiceCallback)>
+<android.os.IServiceManager$Stub$Proxy: void tryUnregisterService(java.lang.String,android.os.IBinder)>
+<android.os.IServiceManager$Stub$Proxy: void unregisterForNotifications(java.lang.String,android.os.IServiceCallback)>
+<android.os.IServiceManager$Stub: android.os.IServiceManager asInterface(android.os.IBinder)>
+<android.os.IServiceManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IServiceManager$Stub: void <init>()>

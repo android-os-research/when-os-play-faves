@@ -1,0 +1,5 @@
+# ro.sys.kernelmemory.nandswap.expand_action [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.am.PerProcessNandswap: boolean isExpandActionEnabled()>

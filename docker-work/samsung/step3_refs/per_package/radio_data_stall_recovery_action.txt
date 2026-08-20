@@ -1,0 +1,6 @@
+# radio.data.stall.recovery.action [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.dataconnection.DcTracker$DataStallRecoveryHandler: int getRecoveryAction()>
+<com.android.internal.telephony.dataconnection.DcTracker$DataStallRecoveryHandler: void putRecoveryAction(int)>

@@ -1,0 +1,15 @@
+# android.media.audiopolicy.IAudioPolicyCallback [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.media.audiopolicy.IAudioPolicyCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.audiopolicy.IAudioPolicyCallback$Stub$Proxy: void notifyAudioFocusAbandon(android.media.AudioFocusInfo)>
+<android.media.audiopolicy.IAudioPolicyCallback$Stub$Proxy: void notifyAudioFocusGrant(android.media.AudioFocusInfo,int)>
+<android.media.audiopolicy.IAudioPolicyCallback$Stub$Proxy: void notifyAudioFocusLoss(android.media.AudioFocusInfo,boolean)>
+<android.media.audiopolicy.IAudioPolicyCallback$Stub$Proxy: void notifyAudioFocusRequest(android.media.AudioFocusInfo,int)>
+<android.media.audiopolicy.IAudioPolicyCallback$Stub$Proxy: void notifyMixStateUpdate(java.lang.String,int)>
+<android.media.audiopolicy.IAudioPolicyCallback$Stub$Proxy: void notifyUnregistration()>
+<android.media.audiopolicy.IAudioPolicyCallback$Stub$Proxy: void notifyVolumeAdjust(int)>
+<android.media.audiopolicy.IAudioPolicyCallback$Stub: android.media.audiopolicy.IAudioPolicyCallback asInterface(android.os.IBinder)>
+<android.media.audiopolicy.IAudioPolicyCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.audiopolicy.IAudioPolicyCallback$Stub: void <init>()>

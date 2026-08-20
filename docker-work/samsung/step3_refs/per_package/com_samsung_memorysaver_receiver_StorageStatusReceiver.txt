@@ -1,0 +1,6 @@
+# com.samsung.memorysaver.receiver.StorageStatusReceiver [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.storage.DeviceStorageMonitorYuva: void sendCancelUserMemLowNotification(int)>
+<com.android.server.storage.DeviceStorageMonitorYuva: void sendUserMemLowNotification(int)>

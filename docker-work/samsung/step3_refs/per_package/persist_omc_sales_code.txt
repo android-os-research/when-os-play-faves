@@ -1,0 +1,15 @@
+# persist.omc.sales_code [NEW]
+# Refs: 12
+# JARs: imsmanager, services, vsimmanager
+
+<com.android.server.desktopmode.Utils: java.lang.String getSalesCode()>
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: java.lang.String readOMCSalesCode()>
+<com.android.server.knox.dar.sdp.SdpManagerImpl: java.lang.String readOMCSalesCode()>
+<com.android.server.pm.PackageManagerService: void systemReady()>
+<com.android.server.policy.KeyCustomizationInfoManager: java.lang.String getSalesCode()>
+<com.samsung.android.hardware.display.AfterimageCompensationService: java.lang.String readOMCSalesCode()>
+<com.samsung.android.server.pm.permission.OmcPermissionPolicy: android.util.ArrayMap readDefaultPermissionXML(java.lang.String,boolean)>
+<com.sec.ims.settings.ImsProfile: boolean isEnableVcid()>
+<com.sec.ims.util.IMSLog: void <clinit>()>
+<com.sec.vsim.util.OmcCode: java.lang.String get()>
+<com.sec.vsim.util.OmcCode: java.lang.String getSalesCode()>

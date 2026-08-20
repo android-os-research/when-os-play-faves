@@ -1,0 +1,16 @@
+# android.app.prediction.IPredictionManager [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.app.prediction.IPredictionManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.prediction.IPredictionManager$Stub$Proxy: void createPredictionSession(android.app.prediction.AppPredictionContext,android.app.prediction.AppPredictionSessionId,android.os.IBinder)>
+<android.app.prediction.IPredictionManager$Stub$Proxy: void notifyAppTargetEvent(android.app.prediction.AppPredictionSessionId,android.app.prediction.AppTargetEvent)>
+<android.app.prediction.IPredictionManager$Stub$Proxy: void notifyLaunchLocationShown(android.app.prediction.AppPredictionSessionId,java.lang.String,android.content.pm.ParceledListSlice)>
+<android.app.prediction.IPredictionManager$Stub$Proxy: void onDestroyPredictionSession(android.app.prediction.AppPredictionSessionId)>
+<android.app.prediction.IPredictionManager$Stub$Proxy: void registerPredictionUpdates(android.app.prediction.AppPredictionSessionId,android.app.prediction.IPredictionCallback)>
+<android.app.prediction.IPredictionManager$Stub$Proxy: void requestPredictionUpdate(android.app.prediction.AppPredictionSessionId)>
+<android.app.prediction.IPredictionManager$Stub$Proxy: void sortAppTargets(android.app.prediction.AppPredictionSessionId,android.content.pm.ParceledListSlice,android.app.prediction.IPredictionCallback)>
+<android.app.prediction.IPredictionManager$Stub$Proxy: void unregisterPredictionUpdates(android.app.prediction.AppPredictionSessionId,android.app.prediction.IPredictionCallback)>
+<android.app.prediction.IPredictionManager$Stub: android.app.prediction.IPredictionManager asInterface(android.os.IBinder)>
+<android.app.prediction.IPredictionManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.prediction.IPredictionManager$Stub: void <init>()>

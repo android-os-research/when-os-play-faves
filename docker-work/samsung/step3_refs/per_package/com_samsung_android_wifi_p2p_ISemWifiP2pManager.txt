@@ -1,0 +1,21 @@
+# com.samsung.android.wifi.p2p.ISemWifiP2pManager [NEW]
+# Refs: 17
+# JARs: framework
+
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: android.net.MacAddress getP2pFactoryMacAddress()>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: int getWifiP2pState()>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: int[] getChannelsMhzForBand(int)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: java.util.List getInUsePackageList(java.lang.String)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: void controlOpenWifiScanTimer(int)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: void discoverPeers(int,com.samsung.android.wifi.p2p.ISemWifiP2pCallback)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: void removeClient(java.lang.String,com.samsung.android.wifi.p2p.ISemWifiP2pCallback)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: void setInUsePackage(java.lang.String,java.lang.String,java.lang.String,boolean)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: void setListenOffloading(int,int,int,int)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: void setMsMiceInfo(int,java.lang.String,java.lang.String)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: void setScreenSharing(boolean)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: void unsetAllInUsePackage(java.lang.String)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub$Proxy: void unsetInUsePackage(java.lang.String,java.lang.String,java.lang.String,boolean)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub: com.samsung.android.wifi.p2p.ISemWifiP2pManager asInterface(android.os.IBinder)>
+<com.samsung.android.wifi.p2p.ISemWifiP2pManager$Stub: void <init>()>

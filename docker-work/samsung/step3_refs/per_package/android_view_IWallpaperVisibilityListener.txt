@@ -1,0 +1,9 @@
+# android.view.IWallpaperVisibilityListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.IWallpaperVisibilityListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IWallpaperVisibilityListener$Stub$Proxy: void onWallpaperVisibilityChanged(boolean,int)>
+<android.view.IWallpaperVisibilityListener$Stub: android.view.IWallpaperVisibilityListener asInterface(android.os.IBinder)>
+<android.view.IWallpaperVisibilityListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IWallpaperVisibilityListener$Stub: void <init>()>

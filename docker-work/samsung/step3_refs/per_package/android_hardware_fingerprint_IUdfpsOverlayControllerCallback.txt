@@ -1,0 +1,9 @@
+# android.hardware.fingerprint.IUdfpsOverlayControllerCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.fingerprint.IUdfpsOverlayControllerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.fingerprint.IUdfpsOverlayControllerCallback$Stub$Proxy: void onUserCanceled()>
+<android.hardware.fingerprint.IUdfpsOverlayControllerCallback$Stub: android.hardware.fingerprint.IUdfpsOverlayControllerCallback asInterface(android.os.IBinder)>
+<android.hardware.fingerprint.IUdfpsOverlayControllerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.fingerprint.IUdfpsOverlayControllerCallback$Stub: void <init>()>

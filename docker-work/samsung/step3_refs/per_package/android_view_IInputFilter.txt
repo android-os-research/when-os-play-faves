@@ -1,0 +1,11 @@
+# android.view.IInputFilter [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.view.IInputFilter$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IInputFilter$Stub$Proxy: void filterInputEvent(android.view.InputEvent,int)>
+<android.view.IInputFilter$Stub$Proxy: void install(android.view.IInputFilterHost)>
+<android.view.IInputFilter$Stub$Proxy: void uninstall()>
+<android.view.IInputFilter$Stub: android.view.IInputFilter asInterface(android.os.IBinder)>
+<android.view.IInputFilter$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IInputFilter$Stub: void <init>()>

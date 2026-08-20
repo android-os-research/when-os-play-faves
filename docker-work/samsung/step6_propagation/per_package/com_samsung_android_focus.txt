@@ -1,0 +1,381 @@
+######################################################################
+# Propagation: com.samsung.android.focus
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: string_compare
+Security tags:        PERM_CHECK, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.email.ExchangeAccountPolicy
+  Method:   <com.android.server.enterprise.email.ExchangeAccountPolicy: long addNewAccount_ex(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,boolean,java.lang.String,java.lang.String,java.lang.String,boolean,boolean,java.lang.String,boolean,boolean,boolean,java.lang.String,java.lang.String,int,int,int,int,int,int,int,boolean,int,int,byte[],java.lang.String)>
+  Line:     547
+  Register: v15 := "com.samsung.android.focus"
+  Usage:    [invoke] invoke-static {v15, v14}, Lcom/android/server/enterprise/email/SettingsUtils;->isPackageInstalled(Lj
+  Patterns: (none)
+  Flow:     [invoke] com.android.server.enterprise.email.SettingsUtils.isPackageI → [other] move-object/from16 p3, v15 → [reassigned
+
+  CALLERS (who invokes this method):
+      ← ExchangeAccountPolicy.addNewAccount()
+        ← ExchangeAccountPolicy.createAccount()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <android.os.UserHandle: void <init>(int)>
+      → ExchangeAccountPolicy.enforceExchangeAccountPermission()
+      → ExchangeAccountPolicy.setAccountCertificatePassword()
+      → ExchangeAccountPolicy.setAccountEmailPassword()
+      → SettingsUtils.isPackageInstalled()
+      → SettingsUtils.isValidEmailAddress()
+      → SettingsUtils.getEmailPackageName()
+      → SettingsUtils.getValidStr()
+      → SettingsUtils.getAccountId()
+      → Utils.getCallingOrCurrentUserId()
+        → ExchangeAccountPolicy.getEDM()
+        → SettingsUtils.setPackageNameForUid()
+        → EdmStorageProviderBase.getPackageNameForUid()
+        → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → SettingsUtils.setSecurityPassword()
+        → SettingsUtils.createIDforAccount()
+        → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+        → SettingsUtils.setSecurityPasswordFocus()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Exception.printStackTrace()
+        → UserHandle.myUserId()
+        → SettingsUtils.getAccountContentUri()
+        → SettingsUtils.getHostAuthContentUri()
+        → SettingsUtils.getAccountIdInternal()
+        → ActivityManager.getCurrentUser()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → UserHandle.getUserId()
+        → IPersonaManagerAdapter.isValidKnoxId()
+        → Utils.getPersonaManagerAdapter()
+        → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+          → EnterpriseDeviceManager.getInstance()
+          → ComponentName.getPackageName()
+          → EdmStorageProviderBase.getComponentNameForUid()
+          → AccessController.enforceActiveAdminPermissionByContext()
+          → Map.put()
+          → Slog.d()
+          → EnterpriseDeviceManager.getService()
+          → IEnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+          → ActivityThread.getPackageManager()
+          → Uri.parse()
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Context.createPackageContextAsUser()
+          → Cursor.moveToNext()
+          → Cursor.getColumnIndex()
+          → Cursor.getCount()
+          → Cursor.getInt()
+          → Cursor.close()
+          → SettingsUtils.isPersona()
+          → SettingsUtils.getPackageNameForUid()
+          → AdapterRegistry.getAdapter()
+          → SemPersonaManager.isKnoxId()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.d()
+            → KnoxsdkFileLog.w()
+            → ComponentName.unflattenFromString()
+            → EdmStorageProviderBase.getString()
+            → AccessController.getService()
+            → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+            → Log.println_native()
+            → ServiceManager.getService()
+            → IEnterpriseDeviceManager$Stub.asInterface()
+            → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+            → HashMap.get()
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+              → SemLog.w()
+              → <android.content.ContentValues: void <init>()>
+              → ContentValues.put()
+              → EdmStorageProviderBase.getString()
+              → EdmStorageProviderBase.translateToAdminLUID()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+              → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+              → SystemProperties.get()
+              → SemDualAppManager.isDualAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.email.ExchangeAccountPolicy
+  Method:   <com.android.server.enterprise.email.ExchangeAccountPolicy: long addNewAccount_new(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.accounts.ExchangeAccount)>
+  Line:     1147
+  Register: v14 := "com.samsung.android.focus"
+  Usage:    [invoke] invoke-static {v14, v12}, Lcom/android/server/enterprise/email/SettingsUtils;->isPackageInstalled(Lj
+  Patterns: (none)
+  Flow:     [invoke] com.android.server.enterprise.email.SettingsUtils.isPackageI → [other] move-object/from16 p1, v14 → [reassigned
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <android.os.UserHandle: void <init>(int)>
+      → TextUtils.isEmpty()
+      → <com.android.server.enterprise.email.AccountSMIMECertificate
+      → AccountsReceiver.pushSMIMECertificate()
+      → ExchangeAccountPolicy.enforceExchangeAccountPermission()
+      → ExchangeAccountPolicy.convertUcmUri()
+      → ExchangeAccountPolicy.setAccountCertificatePassword()
+      → ExchangeAccountPolicy.setAccountEmailPassword()
+      → ExchangeAccountPolicy.enforceUCMPermission()
+      → SettingsUtils.isPackageInstalled()
+      → SettingsUtils.isValidEmailAddress()
+      → SettingsUtils.getEmailPackageName()
+      → SettingsUtils.getValidStr()
+      → SettingsUtils.getAccountId()
+      → Utils.getCallingOrCurrentUserId()
+        → CharSequence.length()
+        → Slog.d()
+        → Map.put()
+        → ExchangeAccountPolicy.getEDM()
+        → SettingsUtils.setPackageNameForUid()
+        → EdmStorageProviderBase.getPackageNameForUid()
+        → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → ExchangeAccountPolicy.getUCMService()
+        → UniversalCredentialManagerService.getAvailableCredentialStorages()
+        → UniversalCredentialUtil$UcmUriBuilder.setAlias()
+        → UniversalCredentialUtil$UcmUriBuilder.setResourceId()
+        → UniversalCredentialUtil$UcmUriBuilder.setUid()
+        → UniversalCredentialUtil$UcmUriBuilder.build()
+        → <com.samsung.android.knox.ucm.core.UniversalCredentialUtil$U
+        → SettingsUtils.setSecurityPassword()
+        → SettingsUtils.createIDforAccount()
+        → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+        → SettingsUtils.setSecurityPasswordFocus()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Exception.printStackTrace()
+        → UserHandle.myUserId()
+        → SettingsUtils.getAccountContentUri()
+        → SettingsUtils.getHostAuthContentUri()
+        → SettingsUtils.getAccountIdInternal()
+        → ActivityManager.getCurrentUser()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → UserHandle.getUserId()
+        → IPersonaManagerAdapter.isValidKnoxId()
+        → Utils.getPersonaManagerAdapter()
+        → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+          → Log.println_native()
+          → EnterpriseDeviceManager.getInstance()
+          → ComponentName.getPackageName()
+          → EdmStorageProviderBase.getComponentNameForUid()
+          → AccessController.enforceActiveAdminPermissionByContext()
+          → PackageManager.getPackagesForUid()
+          → UniversalCredentialManagerService.isCallerDelegated()
+          → UniversalCredentialManagerService.getAvailableCredentialStorageInternal()
+          → UniversalCredentialManagerService.getDelegatedStorages()
+          → UniversalCredentialManagerService.enforceSecurityPermission()
+          → <java.util.ArrayList: void <init>()>
+          → List.add()
+          → List.contains()
+          → List.size()
+          → List.toArray()
+          → <java.lang.NullPointerException: void <init>(java.lang.Strin
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → Uri$Builder.build()
+          → Uri$Builder.appendPath()
+          → Uri$Builder.authority()
+          → Uri$Builder.path()
+          → Uri$Builder.scheme()
+          → <android.net.Uri$Builder: void <init>()>
+          → Uri.toString()
+          → Process.myUid()
+          → ContextInfo$$ExternalSyntheticOutline0.m()
+          → EnterpriseDeviceManager.getService()
+          → IEnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+          → ActivityThread.getPackageManager()
+          → Uri.parse()
+          → ContentResolver.query()
+          → Context.getContentResolver()
+          → Context.createPackageContextAsUser()
+          → Cursor.moveToNext()
+          → Cursor.getColumnIndex()
+          → Cursor.getCount()
+          → Cursor.getInt()
+          → Cursor.close()
+          → SettingsUtils.isPersona()
+          → SettingsUtils.getPackageNameForUid()
+          → AdapterRegistry.getAdapter()
+          → SemPersonaManager.isKnoxId()
+            → Process.myPid()
+            → Process.myTid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.d()
+            → KnoxsdkFileLog.w()
+            → ComponentName.unflattenFromString()
+            → EdmStorageProviderBase.getString()
+            → AccessController.getService()
+            → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+            → <android.os.Bundle: void <init>()>
+            → Bundle.putInt()
+            → UniversalCredentialManagerService.checkDelegatorPermission()
+            → UniversalCredentialManagerService.getPackagesFromWhiteListInternal()
+            → AppIdentity.getPackageName()
+            → Exception.getMessage()
+            → Iterator.hasNext()
+            → Iterator.next()
+            → List.iterator()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+            → UniversalCredentialManagerService.getUniversalCredentialUtil()
+            → UniversalCredentialManagerService.convertSignatureToString()
+            → UniversalCredentialManagerService.getManagedProviders()
+            → <com.samsung.android.knox.ucm.configurator.CredentialStorage
+            → Provider.getName()
+            → Provider.getProperty()
+            → ContentValues.getAsString()
+            → EdmStorageProvider.getDataByFields()
+            → ArrayList.size()
+            → ArrayList.iterator()
+            → UniversalCredentialManagerService.isSystemStorage()
+            → UniversalCredentialManagerService.getEDM()
+            → <java.lang.SecurityException: void <init>(java.lang.String)>
+            → Uri$Builder.hasSchemeOrAuthority()
+            → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+            → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+            → Uri$PathPart.makeAbsolute()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → Uri$Builder.path()
+            → Uri$PathPart.appendDecodedSegment()
+            → Uri$Builder.authority()
+            → Uri$Part.fromDecoded()
+            → Uri$PathPart.fromDecoded()
+            → ServiceManager.getService()
+            → IEnterpriseDeviceManager$Stub.asInterface()
+            → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+            → HashMap.get()
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+              → SemLog.w()
+              → <android.content.ContentValues: void <init>()>
+              → ContentValues.put()
+              → EdmStorageProviderBase.getString()
+              → EdmStorageProviderBase.translateToAdminLUID()
+              → IPackageManager.checkUidPermission()
+              → UniversalCredentialManagerService.getDelegatorUid()
+              → ContentValues.getAsInteger()
+              → Bundle.getInt()
+              → Bundle.getString()
+              → UniversalCredentialManagerService.isAdminLicenseActive()
+              → UniversalCredentialManagerService.isValidAccessType()
+              → <com.samsung.android.knox.AppIdentity: void <init>()>
+              → AppIdentity.setPackageName()
+              → AppIdentity.setSignature()
+              → UniversalCredentialUtil.getInstance()
+              → Signature.toCharsString()
+              → TextUtils.join()
+              → UniversalCredentialManagerService.getUcmService()
+              → IUcmService.listAllProviders()
+              → <com.samsung.android.knox.ucm.core.jcajce.UcmKeystoreProvide
+              → ArrayList.add()
+              → ArrayList.toArray()
+              → ArrayMap.get()
+              → EdmStorageProviderBase.getDataByFields()
+              → UniversalCredentialManagerService.isSystemApp()
+              → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+              → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+              → <android.net.Uri$PathPart: void <init>(java.lang.String,java
+              → Uri$PathPart.appendEncodedSegment()
+              → Uri.encode()
+              → Uri$Part.from()
+              → Uri$PathPart.from()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+              → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+              → SystemProperties.get()
+              → SemDualAppManager.isDualAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.email.ExchangeAccountPolicy
+  Method:   <com.android.server.enterprise.email.ExchangeAccountPolicy: java.lang.String getAccountEmailPassword(com.samsung.android.knox.ContextInfo,long)>
+  Line:     3407
+  Register: p2 := "com.samsung.android.focus"
+  Usage:    [invoke] invoke-virtual {p0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← SecContentProvider2.query()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getNameForUid()
+      → ExchangeAccountPolicy.getEDM()
+      → SettingsUtils.getSecurityPassword()
+      → SettingsUtils.getSecurityPasswordFocus()
+      → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → EnterpriseDeviceManager.getInstance()
+        → Map.get()
+        → Map.remove()
+        → EnterpriseDeviceManager.getService()
+        → IEnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+          → Process.myPid()
+          → Process.myTid()
+          → Process.myUid()
+          → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+          → KnoxsdkFileLog.d()
+          → KnoxsdkFileLog.w()
+          → ServiceManager.getService()
+          → IEnterpriseDeviceManager$Stub.asInterface()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.fileLog()
+            → SemLog.d()
+            → SemLog.w()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+              → UserHandle.getUserId()
+              → SemPersonaManager.isKnoxId()
+              → Context.getSystemService()
+              → Binder.getCallingUid() [UID_CHECK]
+              → ContextInfo$$ExternalSyntheticOutline0.m()
+              → <com.samsung.android.knox.ContextInfo: void <init>(int,int,b
+              → KnoxsdkFileLog.d()
+              → <java.lang.Exception: void <init>(java.lang.String)>
+              → <java.util.HashMap: void <init>()>
+              → Logger.log()
+

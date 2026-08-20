@@ -1,0 +1,6 @@
+# com.android.providers.downloads.documents [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.android.internal.app.ChooserActivity$FilePathUtil: boolean isDownloadsDocument(android.net.Uri)>
+<com.samsung.android.app.SemDualAppManager: boolean shouldAddUserId(android.net.Uri,int)>

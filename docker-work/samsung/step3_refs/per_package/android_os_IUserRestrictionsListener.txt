@@ -1,0 +1,9 @@
+# android.os.IUserRestrictionsListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.IUserRestrictionsListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IUserRestrictionsListener$Stub$Proxy: void onUserRestrictionsChanged(int,android.os.Bundle,android.os.Bundle)>
+<android.os.IUserRestrictionsListener$Stub: android.os.IUserRestrictionsListener asInterface(android.os.IBinder)>
+<android.os.IUserRestrictionsListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IUserRestrictionsListener$Stub: void <init>()>

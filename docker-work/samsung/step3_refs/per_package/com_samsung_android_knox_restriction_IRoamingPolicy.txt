@@ -1,0 +1,16 @@
+# com.samsung.android.knox.restriction.IRoamingPolicy [NEW]
+# Refs: 12
+# JARs: knoxsdk
+
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub$Proxy: boolean isRoamingDataEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub$Proxy: boolean isRoamingPushEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub$Proxy: boolean isRoamingSyncEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub$Proxy: boolean isRoamingVoiceCallsEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub$Proxy: boolean setRoamingData(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub$Proxy: boolean setRoamingPush(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub$Proxy: boolean setRoamingSync(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub$Proxy: boolean setRoamingVoiceCalls(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub: com.samsung.android.knox.restriction.IRoamingPolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.restriction.IRoamingPolicy$Stub: void <init>()>

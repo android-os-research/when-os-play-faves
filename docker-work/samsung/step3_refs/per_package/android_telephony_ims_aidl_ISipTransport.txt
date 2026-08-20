@@ -1,0 +1,10 @@
+# android.telephony.ims.aidl.ISipTransport [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.telephony.ims.aidl.ISipTransport$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.ISipTransport$Stub$Proxy: void createSipDelegate(int,android.telephony.ims.DelegateRequest,android.telephony.ims.aidl.ISipDelegateStateCallback,android.telephony.ims.aidl.ISipDelegateMessageCallback)>
+<android.telephony.ims.aidl.ISipTransport$Stub$Proxy: void destroySipDelegate(android.telephony.ims.aidl.ISipDelegate,int)>
+<android.telephony.ims.aidl.ISipTransport$Stub: android.telephony.ims.aidl.ISipTransport asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.ISipTransport$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.ISipTransport$Stub: void <init>()>

@@ -1,0 +1,16 @@
+# com.samsung.android.mcf.ICasterCallback [NEW]
+# Refs: 24
+# JARs: mcfsdk, services
+
+<com.samsung.android.mcf.ICasterCallback$Stub$a: java.lang.String b()>
+<com.samsung.android.mcf.ICasterCallback$Stub$a: void onAdvertiseStarted(int)>
+<com.samsung.android.mcf.ICasterCallback$Stub$a: void onAdvertiseStopped(int)>
+<com.samsung.android.mcf.ICasterCallback$Stub$a: void onConnectionFailed(android.os.PersistableBundle,int)>
+<com.samsung.android.mcf.ICasterCallback$Stub$a: void onConnectionStateChanged(android.os.PersistableBundle,int)>
+<com.samsung.android.mcf.ICasterCallback$Stub$a: void onHandoverRequest(int,android.os.PersistableBundle,int)>
+<com.samsung.android.mcf.ICasterCallback$Stub$a: void onHandoverResult(android.os.PersistableBundle,int)>
+<com.samsung.android.mcf.ICasterCallback$Stub$a: void onMcfServiceStateChanged(int,int)>
+<com.samsung.android.mcf.ICasterCallback$Stub$a: void onPilotScanResult(java.lang.String,int)>
+<com.samsung.android.mcf.ICasterCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.ICasterCallback$Stub: com.samsung.android.mcf.ICasterCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.ICasterCallback$Stub: void <init>()>

@@ -1,0 +1,13 @@
+# com.samsung.android.scloud [NEW]
+# Refs: 9
+# JARs: framework, services
+
+<android.content.om.SamsungThemeConstants$1: void <init>()>
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<com.android.internal.app.MaintenanceModeUtils: boolean isCloudBackupSupported(android.content.Context)>
+<com.android.internal.app.MaintenanceModeUtils: void startActivityToBackup(android.content.Context,java.lang.String)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantPermissionsToSysComponentsAndPrivApps(com.android.server.pm.permission.DefaultPermissionGrantPolicy$DelayingPackageManagerCache,int)>
+<com.samsung.android.server.continuity.AbstractPreconditionObserver: void registerPackageObserver()>
+<com.samsung.android.server.continuity.AbstractPreconditionObserver: void setInstalledFlag(java.lang.String)>
+<com.samsung.android.server.continuity.AbstractPreconditionObserver: void start(int,com.samsung.android.server.continuity.AbstractPreconditionObserver$StateChangedListener)>
+<com.samsung.android.server.continuity.AbstractPreconditionObserver: void unsetInstalledFlag(java.lang.String)>

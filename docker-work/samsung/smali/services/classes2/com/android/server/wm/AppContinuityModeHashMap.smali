@@ -1,0 +1,28 @@
+.class Lcom/android/server/wm/AppContinuityModeHashMap;
+.super Ljava/util/concurrent/ConcurrentHashMap;
+.source "PackageSettingsManager.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/util/concurrent/ConcurrentHashMap<",
+        "Ljava/lang/String;",
+        "Ljava/lang/Integer;",
+        ">;"
+    }
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 124
+    invoke-direct {p0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+
+    return-void
+.end method

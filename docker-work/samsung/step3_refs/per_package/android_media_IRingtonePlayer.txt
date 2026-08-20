@@ -1,0 +1,21 @@
+# android.media.IRingtonePlayer [NEW]
+# Refs: 17
+# JARs: framework, services
+
+<android.media.IRingtonePlayer$Stub$Proxy: android.os.IBinder setOnCompletionListener(android.app.INotificationPlayerOnCompletionListener)>
+<android.media.IRingtonePlayer$Stub$Proxy: android.os.ParcelFileDescriptor openRingtone(android.net.Uri)>
+<android.media.IRingtonePlayer$Stub$Proxy: boolean isPlaying(android.os.IBinder)>
+<android.media.IRingtonePlayer$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IRingtonePlayer$Stub$Proxy: java.lang.String getTitle(android.net.Uri)>
+<android.media.IRingtonePlayer$Stub$Proxy: void fadeinRingtone(android.os.IBinder)>
+<android.media.IRingtonePlayer$Stub$Proxy: void fadeoutRingtone(android.os.IBinder,int,float)>
+<android.media.IRingtonePlayer$Stub$Proxy: void play(android.os.IBinder,android.net.Uri,android.media.AudioAttributes,float,boolean)>
+<android.media.IRingtonePlayer$Stub$Proxy: void playAsync(android.net.Uri,android.os.UserHandle,boolean,android.media.AudioAttributes)>
+<android.media.IRingtonePlayer$Stub$Proxy: void playWithVolumeShaping(android.os.IBinder,android.net.Uri,android.media.AudioAttributes,float,boolean,android.media.VolumeShaper$Configuration)>
+<android.media.IRingtonePlayer$Stub$Proxy: void setPlaybackProperties(android.os.IBinder,float,boolean,boolean)>
+<android.media.IRingtonePlayer$Stub$Proxy: void stop(android.os.IBinder)>
+<android.media.IRingtonePlayer$Stub$Proxy: void stopAsync()>
+<android.media.IRingtonePlayer$Stub: android.media.IRingtonePlayer asInterface(android.os.IBinder)>
+<android.media.IRingtonePlayer$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IRingtonePlayer$Stub: void <init>()>
+<com.android.server.notification.EasyMuteController: void <init>(android.content.Context)>

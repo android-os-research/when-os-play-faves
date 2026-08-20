@@ -1,0 +1,23 @@
+# com.samsung.android.desktopmode.IDesktopModeUiService [NEW]
+# Refs: 19
+# JARs: framework
+
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: boolean hasOverlay(int,int)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: boolean hasUiElement()>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: boolean isActivityShowing(int)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: int getCurrentDialogType()>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: int getCurrentOverlayType(int)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: void dismissDialog(int,int)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: void dismissOverlay(int,int)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: void finishActivity(int)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: void removeNavBarIcon(int)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: void removeNotification(int)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: void showDialog(int,int,com.samsung.android.desktopmode.IDesktopModeUiServiceCallback)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: void showNavBarIcon(int)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: void showNotification(int)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: void showOverlay(int,int,com.samsung.android.desktopmode.IDesktopModeUiServiceCallback)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub$Proxy: void startActivity(int,int,com.samsung.android.desktopmode.IDesktopModeUiServiceCallback)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub: com.samsung.android.desktopmode.IDesktopModeUiService asInterface(android.os.IBinder)>
+<com.samsung.android.desktopmode.IDesktopModeUiService$Stub: void <init>()>

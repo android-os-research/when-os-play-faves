@@ -1,0 +1,10 @@
+# com.samsung.feature.samsung_experience_mobile_lite [NEW]
+# Refs: 6
+# JARs: framework, semwifi-service, services
+
+<android.sec.clipboard.util.SemClipboardPolicy: boolean isSepLite(android.content.Context)>
+<com.android.server.contentcapture.ContentCaptureManagerService: boolean enableTimeout()>
+<com.android.server.enterprise.utils.KpuHelper: boolean isKpuPlatformSigned(java.lang.String,int)>
+<com.android.server.input.InputManagerService: void <init>(com.android.server.input.InputManagerService$Injector)>
+<com.samsung.android.server.audio.AudioHelper: java.lang.String getOneUIVersion(android.content.Context)>
+<com.samsung.android.server.wifi.SemFrameworkFacade: boolean isSepLiteModel(android.content.Context)>

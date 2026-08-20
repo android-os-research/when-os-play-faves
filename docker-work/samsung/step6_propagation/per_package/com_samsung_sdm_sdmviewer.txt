@@ -1,0 +1,80 @@
+######################################################################
+# Propagation: com.samsung.sdm.sdmviewer
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_MGMT
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.os.RecoverySystem
+  Method:   <android.os.RecoverySystem: void installPackage(android.content.Context,java.io.File,boolean)>
+  Line:     2820
+  Register: v12 := "com.samsung.sdm.sdmviewer"
+  Usage:    [invoke] invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v12 → [branch] if-eqz v12, :cond_16e → [other] new-instance v12
+
+  CALLERS (who invokes this method):
+      ← RecoverySystem.installPackage() [PKG_MGMT]
+        ← NonAbUpdateInstaller.installUpdateInThread()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → Context.getSystemService()
+      → Context.getPackageName()
+      → PackageManager.hasSystemFeature()
+      → DisplayManager.getDisplay()
+      → PowerManager.reboot()
+      → Display.getState()
+      → File.delete()
+      → File.exists()
+      → File.setReadable()
+      → File.setWritable()
+      → File.getCanonicalPath()
+      → FileDescriptor.sync()
+      → <java.io.FileWriter: void <init>(java.io.File)>
+      → <java.io.FileWriter: void <init>(java.lang.String)>
+      → FileWriter.close()
+      → FileWriter.write()
+      → <java.io.IOException: void <init>(java.lang.String)>
+      → RandomAccessFile.getFD()
+      → <java.io.RandomAccessFile: void <init>(java.io.File,java.lan
+      → RandomAccessFile.close()
+      → RandomAccessFile.writeBytes()
+      → Throwable.addSuppressed()
+      → Locale.toLanguageTag()
+      → Locale.getDefault()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo$PackageList
+  Method:   <com.android.server.alarm.AppSyncInfo$PackageList: void loadAppSync3PlusBlockList()>
+  Line:     372
+  Register: v0 := "com.samsung.sdm.sdmviewer"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/android/server/alarm/AppSyncInfo$PackageList;->add(Ljava/lang/String;)
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.alarm.AppSyncInfo$PackageList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.alarm.AppSyncInfo: void <init>(android.c
+        ← AppSyncInfo.createAppSync()
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+            ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → AppSyncInfo$PackageList.add()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.contains()
+

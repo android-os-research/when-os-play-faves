@@ -1,0 +1,346 @@
+######################################################################
+# Propagation: com.samsung.android.hmt.vrsvc
+######################################################################
+
+JARs:                 framework, services
+Classes:              5
+Occurrences:          13
+Usage types:          invoke
+Enforcement patterns: early_return, identity_read, string_compare
+Security tags:        DEVICE_ID, PKG_QUERY, SIG_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.vr.GearVrManager
+  Method:   <com.samsung.android.vr.GearVrManager: android.content.Intent createWaitActivityIntent(java.lang.String,android.content.IntentSender,int)>
+  Line:     394
+  Register: v1 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: (none)
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritten
+
+  CALLEES (what this method invokes):
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.XrManagerService
+  Method:   <com.android.server.vr.XrManagerService: boolean isReady()>
+  Line:     1443
+  Register: v3 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->checkSignatures(Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.checkSignatures()
+
+  CALLERS (who invokes this method):
+      ← XrManagerService.updateReadyLocked()
+        ← <com.android.server.vr.XrManagerService: void -$$Nest$mupdat
+        ← <com.android.server.vr.XrManagerService: void lambda$onBootP
+        ← <com.android.server.vr.XrManagerService: void lambda$onBootP
+        ← XrManagerService.onBootPhase()
+          ← XrManagerService$2.onReceive()
+          ← <com.android.server.vr.XrManagerService: void $r8$lambda$dMU
+          ← <com.android.server.vr.XrManagerService: void $r8$lambda$Tcc
+            ← XrManagerService$$ExternalSyntheticLambda0.onXrSettingsChanged()
+            ← XrManagerService$$ExternalSyntheticLambda1.onVrServicePackageChanged()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.checkSignatures() [SIG_CHECK]
+      → XrPackageHelper.isVrServicePackageAvailable()
+      → XrSettings.isDeviceProvisoned()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.XrManagerService
+  Method:   <com.android.server.vr.XrManagerService: void updateDockStateLocked()>
+  Line:     2706
+  Register: v0 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return, identity_read
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← XrManagerService.notifyHmtEventChanged()
+      ← XrManagerService.updateReadyLocked()
+        ← GearVrManagerInternalImpl.notifyHmtEventChanged()
+        ← XrManagerShellCommand.runDockCommand()
+        ← XrManagerShellCommand.runMountCommand()
+        ← XrManagerShellCommand.runStateCommand()
+        ← XrManagerShellCommand.runUnMountCommand()
+        ← XrManagerShellCommand.runUndockCommand()
+        ← <com.android.server.vr.XrManagerService: void -$$Nest$mupdat
+        ← <com.android.server.vr.XrManagerService: void lambda$onBootP
+        ← <com.android.server.vr.XrManagerService: void lambda$onBootP
+        ← XrManagerService.onBootPhase()
+          ← XrManagerShellCommand.onCommand()
+          ← XrManagerService$2.onReceive()
+          ← <com.android.server.vr.XrManagerService: void $r8$lambda$dMU
+          ← <com.android.server.vr.XrManagerService: void $r8$lambda$Tcc
+            ← XrManagerService$$ExternalSyntheticLambda0.onXrSettingsChanged()
+            ← XrManagerService$$ExternalSyntheticLambda1.onVrServicePackageChanged()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.addFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Handler.obtainMessage()
+      → Handler.sendMessage()
+      → XrManagerService.isDock()
+      → HmtDevice.getDeviceId() [DEVICE_ID]
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.HmtManager
+  Method:   <com.android.server.vr.HmtManager: java.util.ArrayList getSupportDevices(java.lang.String)>
+  Line:     783
+  Register: v1 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: string_compare
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← HmtManager.loadSupportedHmtDevices()
+        ← XrManagerService.onBootPhase()
+        ← XrManagerService.updateReadyLocked()
+          ← <com.android.server.vr.XrManagerService: void -$$Nest$mupdat
+          ← <com.android.server.vr.XrManagerService: void lambda$onBootP
+          ← <com.android.server.vr.XrManagerService: void lambda$onBootP
+            ← XrManagerService$2.onReceive()
+            ← <com.android.server.vr.XrManagerService: void $r8$lambda$dMU
+            ← <com.android.server.vr.XrManagerService: void $r8$lambda$Tcc
+              ← XrManagerService$$ExternalSyntheticLambda0.onXrSettingsChanged()
+              ← XrManagerService$$ExternalSyntheticLambda1.onVrServicePackageChanged()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → ApplicationInfo.loadXmlMetaData()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → XmlResourceParser.getEventType()
+      → XmlResourceParser.getName()
+      → XmlResourceParser.close()
+      → XmlUtils.nextElement()
+      → HmtDevice.isEnabled()
+      → HmtDevice.readDevices()
+      → Throwable.addSuppressed()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → XmlPullParser.next()
+        → HmtDevice$Builder.build()
+        → HmtDevice$Builder.setCategory()
+        → HmtDevice$Builder.setDeviceFOV()
+        → HmtDevice$Builder.setDeviceIPD()
+        → HmtDevice$Builder.setDeviceId()
+        → HmtDevice$Builder.setDeviceNameFilter()
+        → HmtDevice$Builder.setDeviceRevisionFilter()
+        → HmtDevice$Builder.setDisplayCount()
+        → HmtDevice$Builder.setDisplayDensityDpi()
+        → HmtDevice$Builder.setDisplayFrequency()
+        → HmtDevice$Builder.setDisplayHeight()
+        → HmtDevice$Builder.setDisplayPPI()
+        → HmtDevice$Builder.setDisplayRotation()
+        → HmtDevice$Builder.setDisplaySequenceLeft()
+        → HmtDevice$Builder.setDisplaySequenceRight()
+        → HmtDevice$Builder.setDisplayWidth()
+        → HmtDevice$Builder.setEnabled()
+        → HmtDevice$Builder.setEyeBufferHeight()
+        → HmtDevice$Builder.setEyeBufferWidth()
+        → HmtDevice$Builder.setName()
+        → HmtDevice$Builder.setProductId()
+        → HmtDevice$Builder.setRenderDirection()
+        → HmtDevice$Builder.setSwappedLR()
+        → HmtDevice$Builder.setVendorId()
+        → <com.samsung.android.vr.HmtDevice$Builder: void <init>()>
+        → HmtDevice.parseIntValue()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → XmlPullParser.getAttributeCount()
+        → XmlPullParser.getAttributeName()
+        → XmlPullParser.getAttributeValue()
+          → <com.samsung.android.vr.HmtDevice: void <init>(com.samsung.a
+          → NumberFormatException.getMessage()
+            → <com.samsung.android.vr.HmtDevice$Builder: boolean -$$Nest$f
+            → <com.samsung.android.vr.HmtDevice$Builder: float -$$Nest$fge
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetc
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd [DEVICE_ID]
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetd
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgete
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgete
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetp
+            → <com.samsung.android.vr.HmtDevice$Builder: int -$$Nest$fgetv
+            → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+            → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+            → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+            → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+            → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+            → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+            → <com.samsung.android.vr.HmtDevice$Builder: java.lang.String 
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.XrPackageHelper$1
+  Method:   <com.android.server.vr.XrPackageHelper$1: void onPackageAdded(java.lang.String,int)>
+  Line:     38
+  Register: v0 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → XrPackageHelper.setVrServicePackageState()
+        → XrPackageHelper$OnVrServicePackageListener.onVrServicePackageChanged()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.XrPackageHelper$1
+  Method:   <com.android.server.vr.XrPackageHelper$1: void onPackageAppeared(java.lang.String,int)>
+  Line:     84
+  Register: v0 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → XrPackageHelper.setVrServicePackageState()
+        → XrPackageHelper$OnVrServicePackageListener.onVrServicePackageChanged()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.XrPackageHelper$1
+  Method:   <com.android.server.vr.XrPackageHelper$1: void onPackageDisappeared(java.lang.String,int)>
+  Line:     130
+  Register: v0 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → XrPackageHelper.setVrServicePackageState()
+        → XrPackageHelper$OnVrServicePackageListener.onVrServicePackageChanged()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.XrPackageHelper$1
+  Method:   <com.android.server.vr.XrPackageHelper$1: void onPackageModified(java.lang.String)>
+  Line:     176
+  Register: v0 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → <com.android.server.vr.XrPackageHelper: boolean -$$Nest$misV
+      → XrPackageHelper.setVrServicePackageState()
+        → XrPackageHelper.isVrServiceEnabled()
+        → XrPackageHelper$OnVrServicePackageListener.onVrServicePackageChanged()
+          → Context.getPackageManager()
+          → PackageManager.getApplicationEnabledSetting()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.XrPackageHelper$1
+  Method:   <com.android.server.vr.XrPackageHelper$1: void onPackageRemoved(java.lang.String,int)>
+  Line:     208
+  Register: v0 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → XrPackageHelper.setVrServicePackageState()
+        → XrPackageHelper$OnVrServicePackageListener.onVrServicePackageChanged()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.XrPackageHelper$1
+  Method:   <com.android.server.vr.XrPackageHelper$1: void onPackageUpdateFinished(java.lang.String,int)>
+  Line:     254
+  Register: p0 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-eqz p0, :cond_23 → [other] new-instance p0, Lj
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.XrPackageHelper$1
+  Method:   <com.android.server.vr.XrPackageHelper$1: void onPackageUpdateStarted(java.lang.String,int)>
+  Line:     293
+  Register: p0 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-eqz p0, :cond_23 → [other] new-instance p0, Lj
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.XrPackageHelper
+  Method:   <com.android.server.vr.XrPackageHelper: boolean isVrServiceEnabled()>
+  Line:     100
+  Register: v1 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {p0, v1}, Landroid/content/pm/PackageManager;->getApplicationEnabledSetting(Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationEnabledSetti → [invoke] android.content.pm.PackageManager.getAp
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.vr.XrPackageHelper: boolean -$$Nest$misV
+        ← XrPackageHelper$1.onPackageModified()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationEnabledSetting()
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.XrPackageHelper
+  Method:   <com.android.server.vr.XrPackageHelper: boolean isVrServiceInstalled()>
+  Line:     154
+  Register: v1 := "com.samsung.android.hmt.vrsvc"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo()
+
+  CALLERS (who invokes this method):
+      ← XrPackageHelper.register()
+        ← XrManagerService.onBootPhase()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+

@@ -1,0 +1,7 @@
+# com.sec.feature.cover.nfcledcover [NEW]
+# Refs: 3
+# JARs: framework, motionrecognitionservice, services
+
+<com.android.server.sepunion.cover.Feature: void updateSystemFeature(android.content.Context)>
+<com.samsung.android.cover.CoverManager: void initSystemFeature()>
+<com.samsung.android.gesture.PocketDeviceManager: boolean hasCoverSystemFeature(android.content.Context)>

@@ -1,0 +1,14 @@
+# com.samsung.android.knox.cmfa.IAuthFactorService [NEW]
+# Refs: 10
+# JARs: knoxsdk
+
+<com.samsung.android.knox.cmfa.IAuthFactorService$Stub$Proxy: boolean isStarted()>
+<com.samsung.android.knox.cmfa.IAuthFactorService$Stub$Proxy: com.samsung.android.knox.cmfa.AuthFactorType getType()>
+<com.samsung.android.knox.cmfa.IAuthFactorService$Stub$Proxy: int init(com.samsung.android.knox.cmfa.IResultListener)>
+<com.samsung.android.knox.cmfa.IAuthFactorService$Stub$Proxy: int start(java.util.Map,com.samsung.android.knox.cmfa.IAuthFactorListener)>
+<com.samsung.android.knox.cmfa.IAuthFactorService$Stub$Proxy: int stop()>
+<com.samsung.android.knox.cmfa.IAuthFactorService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.cmfa.IAuthFactorService$Stub$Proxy: long getTrustScore()>
+<com.samsung.android.knox.cmfa.IAuthFactorService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.cmfa.IAuthFactorService$Stub: com.samsung.android.knox.cmfa.IAuthFactorService asInterface(android.os.IBinder)>
+<com.samsung.android.knox.cmfa.IAuthFactorService$Stub: void <init>()>

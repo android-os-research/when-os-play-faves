@@ -1,0 +1,176 @@
+######################################################################
+# Propagation: com.google.android.ims
+######################################################################
+
+JARs:                 services, telephony-common
+Classes:              3
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PERM_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     80
+  Register: v20 := "com.google.android.ims"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo$PackageList
+  Method:   <com.android.server.alarm.AppSyncInfo$PackageList: void loadAppSync3PlusBlockList()>
+  Line:     252
+  Register: v0 := "com.google.android.ims"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/android/server/alarm/AppSyncInfo$PackageList;->add(Ljava/lang/String;)
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.alarm.AppSyncInfo$PackageList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.alarm.AppSyncInfo: void <init>(android.c
+        ← AppSyncInfo.createAppSync()
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+            ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → AppSyncInfo$PackageList.add()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      telephony-common
+  Class:    com.android.internal.telephony.CarrierServicesSmsFilter
+  Method:   <com.android.internal.telephony.CarrierServicesSmsFilter: boolean filter()>
+  Line:     665
+  Register: v3 := "com.google.android.ims"
+  Usage:    [invoke] invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] const-wide/16 v4, 0x7530 → [invoke] android.os.Handler.sendMessageDelayed()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getPackageName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Handler.obtainMessage()
+      → Handler.sendMessageDelayed()
+      → <com.android.internal.telephony.CarrierServicesSmsFilter$Fil
+      → CarrierServicesSmsFilter.getCarrierAppPackageForFiltering()
+      → CarrierServicesSmsFilter.filterWithPackage()
+      → CarrierServicesSmsFilter.log()
+      → CarrierServicesSmsFilter.loge()
+      → CarrierSmsUtils.getImsRcsPackageForIntent()
+      → SmsApplication.getDefaultSmsApplication()
+      → <java.lang.RuntimeException: void <init>(java.lang.String)>
+      → <java.util.ArrayList: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.add()
+      → List.size()
+      → List.iterator()
+      → Optional.isPresent()
+      → Optional.get()
+        → <java.util.HashSet: void <init>()>
+        → CarrierPrivilegesTracker.getCarrierPackageNamesForIntent()
+        → CarrierServicesSmsFilter.getSystemAppForIntent()
+        → CarrierServicesSmsFilter.logv()
+        → Phone.getCarrierPrivilegesTracker()
+        → List.get()
+        → Optional.empty()
+        → Optional.of()
+        → <com.android.internal.telephony.CarrierServicesSmsFilter$Car
+        → CarrierServicesSmsFilter$CarrierSmsFilter.filterSms()
+        → <com.android.internal.telephony.CarrierServicesSmsFilter$Car
+        → <com.android.internal.telephony.CarrierServicesSmsFilter$Fil
+        → Rlog.d()
+        → Rlog.e()
+        → Context.getPackageManager()
+        → PackageManager.queryIntentServices()
+        → CarrierSmsUtils.getImsRcsPackage()
+          → PackageManager.queryBroadcastReceivers()
+          → PackageManager.queryIntentActivities()
+          → PackageManager.queryIntentContentProviders()
+          → <android.util.ArraySet: void <init>()>
+          → CarrierPrivilegesTracker.getCarrierPrivilegeStatusForPackage()
+          → CarrierPrivilegesTracker.getPackageName()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+          → Collections.emptyList()
+          → List.addAll()
+          → Set.add()
+          → Lock.lock()
+          → Lock.unlock()
+          → ReadWriteLock.readLock()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → Rlog.v()
+          → <android.service.carrier.CarrierMessagingServiceWrapper: voi
+          → CarrierMessagingServiceWrapper.bindToCarrierMessagingService()
+          → <com.android.internal.telephony.CarrierServicesSmsFilter$Car
+          → <com.android.internal.telephony.CarrierServicesSmsFilter$Car
+          → CarrierServicesSmsFilter$CarrierSmsFilterCallback.onReceiveSmsComplete()
+          → <com.android.internal.telephony.CarrierServicesSmsFilter: an
+          → <com.android.internal.telephony.CarrierServicesSmsFilter: vo
+          → <com.android.internal.telephony.CarrierServicesSmsFilter: vo
+          → CarrierServicesSmsFilter$FilterAggregator.addToCallbacks()
+          → Rlog.log()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → Phone.getPhoneId()
+          → ImsResolver.getInstance()
+          → ImsResolver.getConfiguredImsServicePackageName()
+          → Rlog.i()
+            → <android.util.ArraySet: void <init>(int,boolean)>
+            → Set.contains()
+            → Context.bindService()
+            → Intent.setPackage()
+            → <android.service.carrier.CarrierMessagingServiceWrapper$Carr
+            → Preconditions.checkState()
+            → Objects.requireNonNull()
+            → CarrierMessagingServiceWrapper.disconnect()
+            → CarrierServicesSmsFilter$FilterAggregator.onFilterComplete()
+            → <com.android.internal.telephony.CarrierServicesSmsFilter: vo
+            → Handler.getLooper()
+            → Handler.post()
+            → Looper.isCurrentThread()
+            → LocalLog.log()
+            → <com.android.internal.telephony.ims.ImsResolver$$ExternalSyn
+            → ImsResolver.getConfiguredImsServicePackageNameInternal()
+            → Map.get()
+            → CompletableFuture.complete()
+            → CompletableFuture.get()
+            → <java.util.concurrent.CompletableFuture: void <init>()>
+              → ArraySet.allocArrays()
+              → <android.service.carrier.CarrierMessagingServiceWrapper$Carr
+              → Context.unbindService()
+              → Preconditions.checkNotNull()
+              → Handler.removeMessages()
+              → CarrierServicesSmsFilter$CarrierServicesSmsFilterCallbackInterface.onFilterComplete()
+              → CarrierServicesSmsFilter$FilterAggregator.combine()
+              → <com.android.internal.telephony.CarrierServicesSmsFilter: co
+              → <com.android.internal.telephony.CarrierServicesSmsFilter: co
+              → Set.remove()
+              → Thread.currentThread()
+              → SystemClock.elapsedRealtime()
+              → LocalLog.append()
+              → Duration.ofMillis()
+              → Instant.now()
+              → LocalDateTime.now()
+              → TextUtils.isEmpty()
+              → ImsResolver.doesCachedImsServiceExist()
+              → ImsResolver.getCarrierConfiguredPackageName()
+              → ImsResolver.getDeviceConfiguration()
+

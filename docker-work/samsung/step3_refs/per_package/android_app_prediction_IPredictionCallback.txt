@@ -1,0 +1,9 @@
+# android.app.prediction.IPredictionCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.prediction.IPredictionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.prediction.IPredictionCallback$Stub$Proxy: void onResult(android.content.pm.ParceledListSlice)>
+<android.app.prediction.IPredictionCallback$Stub: android.app.prediction.IPredictionCallback asInterface(android.os.IBinder)>
+<android.app.prediction.IPredictionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.prediction.IPredictionCallback$Stub: void <init>()>

@@ -1,0 +1,8 @@
+# org.apache.commons.logging.impl.Log4JLogger [NEW]
+# Refs: 4
+# JARs: org.apache.http.legacy
+
+<org.apache.commons.logging.LogSource: void <clinit>()>
+<org.apache.commons.logging.impl.LogFactoryImpl: boolean isLog4JAvailable()>
+<org.apache.commons.logging.impl.LogFactoryImpl: org.apache.commons.logging.Log discoverLogImplementation(java.lang.String)>
+<org.apache.commons.logging.impl.LogFactoryImpl: void <clinit>()>

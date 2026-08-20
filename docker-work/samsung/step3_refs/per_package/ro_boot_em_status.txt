@@ -1,0 +1,11 @@
+# ro.boot.em.status [NEW]
+# Refs: 7
+# JARs: framework, services
+
+<com.android.server.DevRootKeyATCmd: void <clinit>()>
+<com.android.server.PACMService$PACServiceSocketThread: boolean isDevAndNoship()>
+<com.android.server.UserDeviceATCmd: java.lang.String processCmd(java.lang.String)>
+<com.android.server.asks.ASKSManagerService: int checkUnknownSourcePackage(java.lang.String,java.lang.String[],java.lang.String[],java.lang.String,android.content.pm.Signature[],java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String)>
+<com.android.server.asks.ASKSManagerService: int parsePackageForASKS(com.android.server.asks.ASKSManagerService$ASKSSession,java.lang.String,java.lang.String,long,java.lang.String,java.lang.String,int,boolean)>
+<com.android.server.asks.ASKSManagerService: java.lang.String getUNvalueForASKS()>
+<com.android.server.locksettings.SyntheticPasswordManager: android.hardware.weaver.V1_0.IWeaver getWeaverService()>

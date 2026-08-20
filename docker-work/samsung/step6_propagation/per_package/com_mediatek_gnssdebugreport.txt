@@ -1,0 +1,28 @@
+######################################################################
+# Propagation: com.mediatek.gnssdebugreport
+######################################################################
+
+JARs:                 mediatek-framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      mediatek-framework
+  Class:    com.mediatek.gnssdebugreport.GnssDebugReportManager
+  Method:   <com.mediatek.gnssdebugreport.GnssDebugReportManager: boolean bindService(android.content.Context,android.content.ServiceConnection)>
+  Line:     34
+  Register: v1 := "com.mediatek.gnssdebugreport"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v1 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+

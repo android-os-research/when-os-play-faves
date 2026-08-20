@@ -1,0 +1,8 @@
+# com.android.server.accessibility.magnification.action.TURN_ON_IN_SETTINGS [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.accessibility.magnification.WindowMagnificationPromptController$NotificationActionReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.accessibility.magnification.WindowMagnificationPromptController: android.app.Notification$Action buildTurnOnAction()>
+<com.android.server.accessibility.magnification.WindowMagnificationPromptController: void registerReceiverIfNeeded()>
+<com.android.server.accessibility.magnification.WindowMagnificationPromptController: void showNotificationIfNeeded()>

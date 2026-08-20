@@ -1,0 +1,1683 @@
+######################################################################
+# Propagation: com.sec.android.app.fm
+######################################################################
+
+JARs:                 framework, services
+Classes:              6
+Occurrences:          12
+Usage types:          invoke
+Enforcement patterns: allowlist_check, early_return, permission_grant, string_compare
+Security tags:        APPOPS, PERM_GRANT, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.FMRadioService$10
+  Method:   <com.android.server.FMRadioService$10: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     175
+  Register: v5 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v5 → [branch] if-nez v5, :cond_4b → [reassigned] v5 overwritten
+
+  CALLEES (what this method invokes):
+      → Intent.getData()
+      → Intent.getBooleanExtra()
+      → Intent.getAction()
+      → Uri.getSchemeSpecificPart()
+      → FMRadioService$10.off()
+      → <com.android.server.FMRadioService: boolean -$$Nest$fgetvolu
+      → <com.android.server.FMRadioService: void -$$Nest$fputmIsForc
+      → <com.android.server.FMRadioService: void -$$Nest$fputvolumeL
+      → <com.android.server.FMRadioService: void -$$Nest$mreleaseAud
+      → SemCscFeature.getBoolean()
+      → SemCscFeature.getInstance()
+        → AudioManager.abandonAudioFocus()
+        → <com.android.server.FMRadioService: android.media.AudioManag
+        → <com.android.server.FMRadioService: android.media.AudioManag
+        → <com.android.server.FMRadioService: boolean -$$Nest$fgetmIsO
+        → <com.android.server.FMRadioService: boolean -$$Nest$fgetmSca
+        → <com.android.server.FMRadioService: boolean -$$Nest$moffInte
+        → FMRadioService.cancelScan()
+        → FMRadioService.cancelSeek()
+        → FMRadioService.log()
+        → FMRadioService.releaseAudioSystemMute()
+        → Hashtable.get()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → FMRadioService.offInternal()
+          → FMPlayerNativeBase.cancelSeek()
+          → FMRadioService.notifyEvent()
+          → PlayerExternalChipsetBase.stopSeek()
+          → ArrayList.toArray()
+          → AudioManager.isStreamMute()
+          → AudioManager.getRingerMode()
+          → AudioManager.adjustStreamVolume()
+          → SystemProperties.get()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → Context.getSystemService()
+            → InputManager.semSetWakeKeyDynamically()
+            → FMPlayerNativeBase.off()
+            → FMRadioService.mute()
+            → FMRadioService.releaseWakeLock()
+            → FMRadioService.sendFMOFFBroadcast()
+            → FMRadioService.setDelay()
+            → FMRadioService.setFMAudioPath()
+            → FMRadioService.unRegisterBatteryListener()
+            → FMRadioService.unRegisterTelephonyListener()
+            → FMRadioService.unregisterAlarmListener()
+            → FMRadioService.unregisterAllSoundOffListener()
+            → FMRadioService.unregisterAvrcpModeObserver()
+            → FMRadioService.unregisterBikeModeObserver()
+            → FMRadioService.unregisterDNDStatusChangedListener()
+            → PlayerExternalChipsetBase.off()
+            → PlayerExternalChipsetBase.setRdsEnable()
+            → PlayerExternalChipsetBase.stopNotifyThread()
+            → SecurityException.toString()
+            → AudioManager.getStreamVolume()
+            → AudioManager.semGetStreamType()
+            → AudioManager.setParameters()
+            → FMRadioService.isUnMuteRadio()
+            → FMRadioService.convertToPrimitives()
+            → FMRadioService.remove()
+            → FMRadioService.sendFMONBroadcast()
+            → PlayerExternalChipsetBase.setVolume()
+            → IFMEventListener.asBinder()
+            → IFMEventListener.onAlternateFrequencyReceived()
+            → IFMEventListener.onAlternateFrequencyStarted()
+            → IFMEventListener.onChannelFound()
+            → IFMEventListener.onHeadsetConnected()
+            → IFMEventListener.onHeadsetDisconnected()
+            → IFMEventListener.onProgrammeIdentificationExtendedCountryCodesReceived()
+            → IFMEventListener.onRadioDataSystemDisabled()
+            → IFMEventListener.onRadioDataSystemEnabled()
+            → IFMEventListener.onRadioDataSystemReceived()
+            → IFMEventListener.onRadioDisabled()
+            → IFMEventListener.onRadioEnabled()
+            → IFMEventListener.onRadioTextPlusReceived()
+            → IFMEventListener.onRecordingFinished()
+            → IFMEventListener.onScanFinished()
+            → IFMEventListener.onScanStarted()
+            → IFMEventListener.onScanStopped()
+            → IFMEventListener.onTuned()
+            → IFMEventListener.onVolumeLocked()
+            → Vector.size()
+            → Vector.get()
+            → SemCscFeature.loadFeatureFile()
+              → IInputManager.setWakeKeyDynamically()
+              → FMPlayerNativeBase.muteOff()
+              → FMPlayerNativeBase.muteOn()
+              → FMRadioService.isAllSoundOff()
+              → FMRadioService.isDNDEnable()
+              → PlayerExternalChipsetBase.muteOff()
+              → PlayerExternalChipsetBase.muteOn()
+              → Binder.clearCallingIdentity()
+              → Binder.restoreCallingIdentity()
+              → PowerManager$WakeLock.isHeld()
+              → PowerManager$WakeLock.release()
+              → Context.sendBroadcast()
+              → Intent.setClassName()
+              → Intent.setFlags()
+              → <android.content.Intent: void <init>(java.lang.String)>
+              → Thread.sleep()
+              → Context.unregisterReceiver()
+              → TelephonyManager.listen()
+              → ContentResolver.unregisterContentObserver()
+              → Context.getContentResolver()
+              → Vector.remove()
+              → Intent.putExtra()
+              → TextUtils.isEmpty()
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.File: void <init>(java.lang.String)>
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.put()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.FMRadioService
+  Method:   <com.android.server.FMRadioService: void inDirectModeBroadcast()>
+  Line:     3207
+  Register: v1 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Lcom/android/server/FMRadioService;->mCo → 
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.FMRadioService: void -$$Nest$minDirectMo
+        ← FMRadioService$8.onAudioFocusChange()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.setAction()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → FMRadioService.log()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.FMRadioService
+  Method:   <com.android.server.FMRadioService: boolean offInternal(int,boolean)>
+  Line:     3884
+  Register: v3 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {v1, v3, v2, v4}, Landroid/hardware/input/InputManager;->semSetWakeKeyDynamically(Lja
+  Patterns: early_return
+  Flow:     [invoke] android.hardware.input.InputManager.semSetWakeKeyDynamically → [other] new-instance v3, Ljava/lang/StringBuilde
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.FMRadioService: boolean -$$Nest$moffInte
+      ← FMRadioService.off()
+      ← FMRadioService.on()
+      ← FMRadioService.handleBikeMode()
+      ← FMRadioService.responedFocusEvent()
+        ← FMRadioService$10.off()
+        ← FMRadioService$11.off()
+        ← FMRadioService$12.onReceive()
+        ← FMRadioService$3.onReceive()
+        ← FMRadioService$4.onReceive()
+        ← FMRadioService$5.off()
+        ← <com.android.server.FMRadioService: boolean -$$Nest$mon(com.
+        ← FMRadioService.on()
+        ← <com.android.server.FMRadioService: void -$$Nest$mhandleBike
+        ← <com.android.server.FMRadioService: void -$$Nest$mresponedFo
+          ← FMRadioService$10.onReceive()
+          ← FMRadioService$11.onReceive()
+          ← FMRadioService$5.onReceive()
+          ← FMRadioService$6.onCallStateChanged()
+          ← FMRadioService$17.onChange()
+          ← FMRadioService$AudioFocusHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → InputManager.semSetWakeKeyDynamically()
+      → AudioManager.abandonAudioFocus()
+      → FMPlayerNativeBase.off()
+      → FMRadioService.cancelSeek()
+      → FMRadioService.log()
+      → FMRadioService.mute()
+      → FMRadioService.notifyEvent()
+      → FMRadioService.releaseWakeLock()
+      → FMRadioService.sendFMOFFBroadcast()
+      → FMRadioService.setDelay()
+      → FMRadioService.setFMAudioPath()
+      → FMRadioService.unRegisterBatteryListener()
+      → FMRadioService.unRegisterTelephonyListener()
+      → FMRadioService.unregisterAlarmListener()
+      → FMRadioService.unregisterAllSoundOffListener()
+      → FMRadioService.unregisterAvrcpModeObserver()
+      → FMRadioService.unregisterBikeModeObserver()
+      → FMRadioService.unregisterDNDStatusChangedListener()
+      → PlayerExternalChipsetBase.off()
+      → PlayerExternalChipsetBase.setRdsEnable()
+      → PlayerExternalChipsetBase.stopNotifyThread()
+      → SecurityException.toString()
+        → IInputManager.setWakeKeyDynamically()
+        → FMPlayerNativeBase.cancelSeek()
+        → PlayerExternalChipsetBase.stopSeek()
+        → AudioManager.setParameters()
+        → FMPlayerNativeBase.muteOff()
+        → FMPlayerNativeBase.muteOn()
+        → FMRadioService.isAllSoundOff()
+        → FMRadioService.isDNDEnable()
+        → PlayerExternalChipsetBase.muteOff()
+        → PlayerExternalChipsetBase.muteOn()
+        → AudioManager.getStreamVolume()
+        → AudioManager.semGetStreamType()
+        → FMRadioService.isUnMuteRadio()
+        → FMRadioService.convertToPrimitives()
+        → FMRadioService.remove()
+        → FMRadioService.sendFMONBroadcast()
+        → PlayerExternalChipsetBase.setVolume()
+        → IFMEventListener.asBinder()
+        → IFMEventListener.onAlternateFrequencyReceived()
+        → IFMEventListener.onAlternateFrequencyStarted()
+        → IFMEventListener.onChannelFound()
+        → IFMEventListener.onHeadsetConnected()
+        → IFMEventListener.onHeadsetDisconnected()
+        → IFMEventListener.onProgrammeIdentificationExtendedCountryCodesReceived()
+        → IFMEventListener.onRadioDataSystemDisabled()
+        → IFMEventListener.onRadioDataSystemEnabled()
+        → IFMEventListener.onRadioDataSystemReceived()
+        → IFMEventListener.onRadioDisabled()
+        → IFMEventListener.onRadioEnabled()
+        → IFMEventListener.onRadioTextPlusReceived()
+        → IFMEventListener.onRecordingFinished()
+        → IFMEventListener.onScanFinished()
+        → IFMEventListener.onScanStarted()
+        → IFMEventListener.onScanStopped()
+        → IFMEventListener.onTuned()
+        → IFMEventListener.onVolumeLocked()
+        → Vector.size()
+        → Vector.get()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → PowerManager$WakeLock.isHeld()
+        → PowerManager$WakeLock.release()
+        → Context.sendBroadcast()
+        → Intent.setClassName()
+        → Intent.setFlags()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → Thread.sleep()
+        → Context.unregisterReceiver()
+        → TelephonyManager.listen()
+        → ContentResolver.unregisterContentObserver()
+        → Context.getContentResolver()
+          → Settings$System.getInt()
+          → NotificationManager.getNotificationPolicy()
+          → Settings$Global.getInt()
+          → Vector.remove()
+          → Intent.putExtra()
+          → PowerManager$WakeLock.release()
+            → Handler.removeCallbacks()
+            → IPowerManager.releaseWakeLock()
+            → RemoteException.rethrowFromSystemServer()
+            → Trace.asyncTraceEnd()
+            → <java.lang.RuntimeException: void <init>(java.lang.String)>
+              → <android.os.DeadSystemRuntimeException: void <init>()>
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.FMRadioService
+  Method:   <com.android.server.FMRadioService: boolean on(boolean)>
+  Line:     4080
+  Register: v5 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {v5, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.hardware.input.InputManager.semSetWakeKeyDynamically → [other] new-instance v6, Ljava/lang/StringBuilde
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.FMRadioService: boolean -$$Nest$mon(com.
+      ← FMRadioService.on()
+      ← FMRadioService.responedFocusEvent()
+        ← FMRadioService$6.onCallStateChanged()
+        ← <com.android.server.FMRadioService: void -$$Nest$mresponedFo
+          ← FMRadioService$AudioFocusHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → PackageManager.getPackagesForUid()
+      → InputManager.semSetWakeKeyDynamically()
+      → AudioAttributes$Builder.build()
+      → AudioAttributes$Builder.semAddAudioTag()
+      → AudioAttributes$Builder.setLegacyStreamType()
+      → <android.media.AudioAttributes$Builder: void <init>()>
+      → AudioFocusRequest$Builder.build()
+      → AudioFocusRequest$Builder.setAudioAttributes()
+      → AudioFocusRequest$Builder.setOnAudioFocusChangeListener()
+      → <android.media.AudioFocusRequest$Builder: void <init>(int)>
+      → AudioManager.semSetRadioOutputPath()
+      → AudioManager.abandonAudioFocus()
+      → AudioManager.requestAudioFocus()
+      → AudioManager.requestAudioFocus()
+      → AudioManager.semGetRadioOutputPath()
+      → AudioManager.semGetStreamType()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Handler.post()
+      → SemSystemProperties.getInt()
+      → TelephonyManager.getCallStateForSubscription()
+      → FMPlayerNativeBase.on()
+      → FMPlayerNativeBase.preInitialize()
+      → FMPlayerNativeBase.setATJ()
+      → FMPlayerNativeBase.setBlendPAMD_th()
+      → FMPlayerNativeBase.setBlendRSSI_th()
+      → FMPlayerNativeBase.setFrequencyOffsetThreshold()
+      → FMPlayerNativeBase.setIFCount1()
+      → FMPlayerNativeBase.setIFCount2()
+      → FMPlayerNativeBase.setNoisePowerThreshold()
+      → FMPlayerNativeBase.setPilotPowerThreshold()
+      → FMPlayerNativeBase.setRSSI_th()
+      → FMPlayerNativeBase.setSeekDC()
+      → FMPlayerNativeBase.setSeekDesenseRSSI()
+      → FMPlayerNativeBase.setSeekQA()
+      → FMPlayerNativeBase.setSeekRSSI()
+      → FMPlayerNativeBase.setSeekSMG()
+      → FMPlayerNativeBase.setSoftMuteCoeff()
+      → FMPlayerNativeBase.setSoftStereoBlendCoeff()
+      → FMPlayerNativeBase.setSoftStereoBlendRef()
+      → FMPlayerNativeBase.setSoftmute_th()
+      → FMPlayerNativeBase.setStereo()
+      → FMPlayerNativeBase.setVolume()
+      → <com.android.server.FMRadioService$SamsungAnalyticsRunnable:
+      → FMRadioService.getContext()
+      → FMRadioService.isCTSTestApp()
+      → FMRadioService.isDNDEnable()
+      → FMRadioService.isFmTestApp()
+      → FMRadioService.isPathSupportSoftmute()
+      → FMRadioService.offInternal()
+      → FMRadioService.log()
+      → FMRadioService.mute()
+      → FMRadioService.notifyEvent()
+      → FMRadioService.registerAlarmListener()
+      → FMRadioService.registerAllSoundOffListener()
+      → FMRadioService.registerAvrcpModeObserver()
+      → FMRadioService.registerBatteryListener()
+      → FMRadioService.registerBikeModeObserver()
+      → FMRadioService.registerDNDStatusChangedListener()
+      → FMRadioService.registerTelephonyListener()
+      → FMRadioService.releaseWakeLock()
+      → FMRadioService.setAFRMSSISamples()
+      → FMRadioService.setAFRMSSIThreshold()
+      → FMRadioService.setBand()
+      → FMRadioService.setCFOTh12()
+      → FMRadioService.setChannelSpacing()
+      → FMRadioService.setDEConstant()
+      → FMRadioService.setFMAudioPath()
+      → FMRadioService.setGoodChannelRMSSIThreshold()
+      → FMRadioService.setOffChannelThreshold()
+      → FMRadioService.setOnChannelThreshold()
+      → FMRadioService.setRMSSIFirstStage()
+      → FMRadioService.setSINRFirstStage()
+      → FMRadioService.setSINRSamples()
+      → FMRadioService.setSINRThreshold()
+      → FMRadioService.setSearchAlgoType()
+      → FMRadioService.setSignalSetting()
+      → FMRadioService.setSoftmute()
+      → FMRadioService.unRegisterBatteryListener()
+      → PlayerExternalChipsetBase.isOn()
+      → PlayerExternalChipsetBase.on()
+      → PlayerExternalChipsetBase.setBand()
+      → PlayerExternalChipsetBase.setChannelSpacing()
+      → PlayerExternalChipsetBase.setSeekDC()
+      → PlayerExternalChipsetBase.setSeekQA()
+      → PlayerExternalChipsetBase.setRecordMode()
+      → PlayerExternalChipsetBase.setRssiThreshold()
+      → SecurityException.toString()
+        → IInputManager.setWakeKeyDynamically()
+        → <android.media.AudioAttributes: int -$$Nest$fgetmFlags(andro
+        → <android.media.AudioAttributes: int -$$Nest$fgetmUsage(andro
+        → <android.media.AudioAttributes: void -$$Nest$fputmBundle(and
+        → <android.media.AudioAttributes: void -$$Nest$fputmContentTyp
+        → <android.media.AudioAttributes: void -$$Nest$fputmFlags(andr
+        → <android.media.AudioAttributes: void -$$Nest$fputmFormattedT
+        → <android.media.AudioAttributes: void -$$Nest$fputmSource(and
+        → <android.media.AudioAttributes: void -$$Nest$fputmTags(andro
+        → <android.media.AudioAttributes: void -$$Nest$fputmUsage(andr
+        → <android.media.AudioAttributes: void <init>(android.media.Au
+        → <android.os.Bundle: void <init>(android.os.Bundle)>
+        → TextUtils.join()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → HashSet.clone()
+        → AudioAttributes$Builder.addTag()
+        → AudioAttributes$Builder.setInternalLegacyStreamType()
+        → <java.util.HashSet: void <init>()>
+        → AudioAttributes$Builder.addBundle()
+        → <android.media.AudioAttributes$Builder: void <init>(android.
+        → AudioAttributes.getBundle()
+        → <android.media.AudioFocusRequest: void <init>(android.media.
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putBoolean()
+        → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+        → AudioFocusRequest$Builder.setFocusGain()
+        → <android.media.AudioFocusRequest: android.media.AudioAttribu
+        → SystemProperties.getInt()
+        → NotificationManager.getNotificationPolicy()
+        → Context.getContentResolver()
+        → Settings$Global.getInt()
+        → FMPlayerNativeBase.off()
+        → FMRadioService.cancelSeek()
+        → FMRadioService.sendFMOFFBroadcast()
+        → FMRadioService.setDelay()
+        → FMRadioService.unRegisterTelephonyListener()
+        → FMRadioService.unregisterAlarmListener()
+        → FMRadioService.unregisterAllSoundOffListener()
+        → FMRadioService.unregisterAvrcpModeObserver()
+        → FMRadioService.unregisterBikeModeObserver()
+        → FMRadioService.unregisterDNDStatusChangedListener()
+        → PlayerExternalChipsetBase.off()
+        → PlayerExternalChipsetBase.setRdsEnable()
+        → PlayerExternalChipsetBase.stopNotifyThread()
+        → AudioManager.setParameters()
+        → FMPlayerNativeBase.muteOff()
+        → FMPlayerNativeBase.muteOn()
+        → FMRadioService.isAllSoundOff()
+        → PlayerExternalChipsetBase.muteOff()
+        → PlayerExternalChipsetBase.muteOn()
+        → AudioManager.getStreamVolume()
+        → FMRadioService.isUnMuteRadio()
+        → FMRadioService.convertToPrimitives()
+        → FMRadioService.remove()
+        → FMRadioService.sendFMONBroadcast()
+        → PlayerExternalChipsetBase.setVolume()
+        → IFMEventListener.asBinder()
+        → IFMEventListener.onAlternateFrequencyReceived()
+        → IFMEventListener.onAlternateFrequencyStarted()
+        → IFMEventListener.onChannelFound()
+        → IFMEventListener.onHeadsetConnected()
+        → IFMEventListener.onHeadsetDisconnected()
+        → IFMEventListener.onProgrammeIdentificationExtendedCountryCodesReceived()
+        → IFMEventListener.onRadioDataSystemDisabled()
+        → IFMEventListener.onRadioDataSystemEnabled()
+        → IFMEventListener.onRadioDataSystemReceived()
+        → IFMEventListener.onRadioDisabled()
+        → IFMEventListener.onRadioEnabled()
+        → IFMEventListener.onRadioTextPlusReceived()
+        → IFMEventListener.onRecordingFinished()
+        → IFMEventListener.onScanFinished()
+        → IFMEventListener.onScanStarted()
+        → IFMEventListener.onScanStopped()
+        → IFMEventListener.onTuned()
+        → IFMEventListener.onVolumeLocked()
+        → Vector.size()
+        → Vector.get()
+        → Context.registerReceiver()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → ContentResolver.registerContentObserver()
+        → Settings$Secure.getUriFor()
+        → Settings$Secure.getInt()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → TelephonyManager.listen()
+        → PowerManager$WakeLock.isHeld()
+        → PowerManager$WakeLock.release()
+        → FMPlayerNativeBase.setAFRMSSISamples()
+        → FMPlayerNativeBase.setAFRMSSIThreshold()
+        → FMPlayerNativeBase.setBand()
+        → FMPlayerNativeBase.setCFOTh12()
+        → FMPlayerNativeBase.setChannelSpacing()
+        → FMPlayerNativeBase.setDEConstant()
+        → FMPlayerNativeBase.setGoodChannelRMSSIThreshold()
+        → FMPlayerNativeBase.setOffChannelThreshold()
+        → FMPlayerNativeBase.setOnChannelThreshold()
+        → FMPlayerNativeBase.setRMSSIFirstStage()
+        → FMPlayerNativeBase.setSINRFirstStage()
+        → FMPlayerNativeBase.setSINRSamples()
+        → FMPlayerNativeBase.setSINRThreshold()
+        → FMPlayerNativeBase.setSearchAlgoType()
+        → FMPlayerNativeBase.setCnt_th()
+        → FMPlayerNativeBase.setSNR_th()
+        → FMPlayerNativeBase.setSoftmute()
+        → Context.unregisterReceiver()
+          → Iterable.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → HashSet.add()
+          → <android.media.AudioAttributes: android.os.Bundle -$$Nest$fg
+          → AudioAttributes.areHapticChannelsMuted()
+          → AudioAttributes.isContentSpatialized()
+          → <android.media.AudioAttributes: int -$$Nest$fgetmContentType
+          → <android.media.AudioAttributes: int -$$Nest$fgetmSource(andr
+          → <android.media.AudioAttributes: int -$$Nest$smusageForStream
+          → AudioAttributes.getAllFlags()
+          → AudioAttributes.getSpatializationBehavior()
+          → <android.media.AudioAttributes: java.util.HashSet -$$Nest$fg
+          → AudioProductStrategy.getAudioAttributesForStrategyWithLegacyStreamType()
+          → AudioProductStrategy.getAudioProductStrategies()
+          → List.size()
+          → Bundle.putAll()
+          → <android.media.AudioFocusRequest: void <init>(android.media.
+          → AudioFocusRequest.isValidFocusGain()
+          → FMPlayerNativeBase.cancelSeek()
+          → PlayerExternalChipsetBase.stopSeek()
+          → Context.sendBroadcast()
+          → Intent.setClassName()
+          → Intent.setFlags()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → Thread.sleep()
+          → ContentResolver.unregisterContentObserver()
+          → Settings$System.getInt()
+          → Vector.remove()
+          → Intent.putExtra()
+          → PowerManager$WakeLock.release()
+            → AudioAttributes$Builder.setContentType()
+            → AudioAttributes$Builder.setUsage()
+            → AudioProductStrategy.getAudioAttributesForLegacyStreamType()
+            → List.iterator()
+            → AudioProductStrategy.initializeAudioProductStrategies()
+            → Handler.removeCallbacks()
+            → IPowerManager.releaseWakeLock()
+            → RemoteException.rethrowFromSystemServer()
+            → Trace.asyncTraceEnd()
+            → <java.lang.RuntimeException: void <init>(java.lang.String)>
+              → AudioProductStrategy$AudioAttributesGroup.getAudioAttributes()
+              → AudioProductStrategy$AudioAttributesGroup.supportsStreamType()
+              → AudioProductStrategy.native_list_audio_product_strategies()
+              → <java.util.ArrayList: void <init>()>
+              → <android.os.DeadSystemRuntimeException: void <init>()>
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.FMRadioService
+  Method:   <com.android.server.FMRadioService: boolean on(boolean)>
+  Line:     4729
+  Register: v6 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {v0, v6, v5, v7}, Landroid/hardware/input/InputManager;->semSetWakeKeyDynamically(Lja
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.hardware.input.InputManager.semSetWakeKeyDynamically → [other] new-instance v6, Ljava/lang/StringBuilde
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.FMRadioService: boolean -$$Nest$mon(com.
+      ← FMRadioService.on()
+      ← FMRadioService.responedFocusEvent()
+        ← FMRadioService$6.onCallStateChanged()
+        ← <com.android.server.FMRadioService: void -$$Nest$mresponedFo
+          ← FMRadioService$AudioFocusHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → PackageManager.getPackagesForUid()
+      → InputManager.semSetWakeKeyDynamically()
+      → AudioAttributes$Builder.build()
+      → AudioAttributes$Builder.semAddAudioTag()
+      → AudioAttributes$Builder.setLegacyStreamType()
+      → <android.media.AudioAttributes$Builder: void <init>()>
+      → AudioFocusRequest$Builder.build()
+      → AudioFocusRequest$Builder.setAudioAttributes()
+      → AudioFocusRequest$Builder.setOnAudioFocusChangeListener()
+      → <android.media.AudioFocusRequest$Builder: void <init>(int)>
+      → AudioManager.semSetRadioOutputPath()
+      → AudioManager.abandonAudioFocus()
+      → AudioManager.requestAudioFocus()
+      → AudioManager.requestAudioFocus()
+      → AudioManager.semGetRadioOutputPath()
+      → AudioManager.semGetStreamType()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Handler.post()
+      → SemSystemProperties.getInt()
+      → TelephonyManager.getCallStateForSubscription()
+      → FMPlayerNativeBase.on()
+      → FMPlayerNativeBase.preInitialize()
+      → FMPlayerNativeBase.setATJ()
+      → FMPlayerNativeBase.setBlendPAMD_th()
+      → FMPlayerNativeBase.setBlendRSSI_th()
+      → FMPlayerNativeBase.setFrequencyOffsetThreshold()
+      → FMPlayerNativeBase.setIFCount1()
+      → FMPlayerNativeBase.setIFCount2()
+      → FMPlayerNativeBase.setNoisePowerThreshold()
+      → FMPlayerNativeBase.setPilotPowerThreshold()
+      → FMPlayerNativeBase.setRSSI_th()
+      → FMPlayerNativeBase.setSeekDC()
+      → FMPlayerNativeBase.setSeekDesenseRSSI()
+      → FMPlayerNativeBase.setSeekQA()
+      → FMPlayerNativeBase.setSeekRSSI()
+      → FMPlayerNativeBase.setSeekSMG()
+      → FMPlayerNativeBase.setSoftMuteCoeff()
+      → FMPlayerNativeBase.setSoftStereoBlendCoeff()
+      → FMPlayerNativeBase.setSoftStereoBlendRef()
+      → FMPlayerNativeBase.setSoftmute_th()
+      → FMPlayerNativeBase.setStereo()
+      → FMPlayerNativeBase.setVolume()
+      → <com.android.server.FMRadioService$SamsungAnalyticsRunnable:
+      → FMRadioService.getContext()
+      → FMRadioService.isCTSTestApp()
+      → FMRadioService.isDNDEnable()
+      → FMRadioService.isFmTestApp()
+      → FMRadioService.isPathSupportSoftmute()
+      → FMRadioService.offInternal()
+      → FMRadioService.log()
+      → FMRadioService.mute()
+      → FMRadioService.notifyEvent()
+      → FMRadioService.registerAlarmListener()
+      → FMRadioService.registerAllSoundOffListener()
+      → FMRadioService.registerAvrcpModeObserver()
+      → FMRadioService.registerBatteryListener()
+      → FMRadioService.registerBikeModeObserver()
+      → FMRadioService.registerDNDStatusChangedListener()
+      → FMRadioService.registerTelephonyListener()
+      → FMRadioService.releaseWakeLock()
+      → FMRadioService.setAFRMSSISamples()
+      → FMRadioService.setAFRMSSIThreshold()
+      → FMRadioService.setBand()
+      → FMRadioService.setCFOTh12()
+      → FMRadioService.setChannelSpacing()
+      → FMRadioService.setDEConstant()
+      → FMRadioService.setFMAudioPath()
+      → FMRadioService.setGoodChannelRMSSIThreshold()
+      → FMRadioService.setOffChannelThreshold()
+      → FMRadioService.setOnChannelThreshold()
+      → FMRadioService.setRMSSIFirstStage()
+      → FMRadioService.setSINRFirstStage()
+      → FMRadioService.setSINRSamples()
+      → FMRadioService.setSINRThreshold()
+      → FMRadioService.setSearchAlgoType()
+      → FMRadioService.setSignalSetting()
+      → FMRadioService.setSoftmute()
+      → FMRadioService.unRegisterBatteryListener()
+      → PlayerExternalChipsetBase.isOn()
+      → PlayerExternalChipsetBase.on()
+      → PlayerExternalChipsetBase.setBand()
+      → PlayerExternalChipsetBase.setChannelSpacing()
+      → PlayerExternalChipsetBase.setSeekDC()
+      → PlayerExternalChipsetBase.setSeekQA()
+      → PlayerExternalChipsetBase.setRecordMode()
+      → PlayerExternalChipsetBase.setRssiThreshold()
+      → SecurityException.toString()
+        → IInputManager.setWakeKeyDynamically()
+        → <android.media.AudioAttributes: int -$$Nest$fgetmFlags(andro
+        → <android.media.AudioAttributes: int -$$Nest$fgetmUsage(andro
+        → <android.media.AudioAttributes: void -$$Nest$fputmBundle(and
+        → <android.media.AudioAttributes: void -$$Nest$fputmContentTyp
+        → <android.media.AudioAttributes: void -$$Nest$fputmFlags(andr
+        → <android.media.AudioAttributes: void -$$Nest$fputmFormattedT
+        → <android.media.AudioAttributes: void -$$Nest$fputmSource(and
+        → <android.media.AudioAttributes: void -$$Nest$fputmTags(andro
+        → <android.media.AudioAttributes: void -$$Nest$fputmUsage(andr
+        → <android.media.AudioAttributes: void <init>(android.media.Au
+        → <android.os.Bundle: void <init>(android.os.Bundle)>
+        → TextUtils.join()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → HashSet.clone()
+        → AudioAttributes$Builder.addTag()
+        → AudioAttributes$Builder.setInternalLegacyStreamType()
+        → <java.util.HashSet: void <init>()>
+        → AudioAttributes$Builder.addBundle()
+        → <android.media.AudioAttributes$Builder: void <init>(android.
+        → AudioAttributes.getBundle()
+        → <android.media.AudioFocusRequest: void <init>(android.media.
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putBoolean()
+        → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+        → AudioFocusRequest$Builder.setFocusGain()
+        → <android.media.AudioFocusRequest: android.media.AudioAttribu
+        → SystemProperties.getInt()
+        → NotificationManager.getNotificationPolicy()
+        → Context.getContentResolver()
+        → Settings$Global.getInt()
+        → FMPlayerNativeBase.off()
+        → FMRadioService.cancelSeek()
+        → FMRadioService.sendFMOFFBroadcast()
+        → FMRadioService.setDelay()
+        → FMRadioService.unRegisterTelephonyListener()
+        → FMRadioService.unregisterAlarmListener()
+        → FMRadioService.unregisterAllSoundOffListener()
+        → FMRadioService.unregisterAvrcpModeObserver()
+        → FMRadioService.unregisterBikeModeObserver()
+        → FMRadioService.unregisterDNDStatusChangedListener()
+        → PlayerExternalChipsetBase.off()
+        → PlayerExternalChipsetBase.setRdsEnable()
+        → PlayerExternalChipsetBase.stopNotifyThread()
+        → AudioManager.setParameters()
+        → FMPlayerNativeBase.muteOff()
+        → FMPlayerNativeBase.muteOn()
+        → FMRadioService.isAllSoundOff()
+        → PlayerExternalChipsetBase.muteOff()
+        → PlayerExternalChipsetBase.muteOn()
+        → AudioManager.getStreamVolume()
+        → FMRadioService.isUnMuteRadio()
+        → FMRadioService.convertToPrimitives()
+        → FMRadioService.remove()
+        → FMRadioService.sendFMONBroadcast()
+        → PlayerExternalChipsetBase.setVolume()
+        → IFMEventListener.asBinder()
+        → IFMEventListener.onAlternateFrequencyReceived()
+        → IFMEventListener.onAlternateFrequencyStarted()
+        → IFMEventListener.onChannelFound()
+        → IFMEventListener.onHeadsetConnected()
+        → IFMEventListener.onHeadsetDisconnected()
+        → IFMEventListener.onProgrammeIdentificationExtendedCountryCodesReceived()
+        → IFMEventListener.onRadioDataSystemDisabled()
+        → IFMEventListener.onRadioDataSystemEnabled()
+        → IFMEventListener.onRadioDataSystemReceived()
+        → IFMEventListener.onRadioDisabled()
+        → IFMEventListener.onRadioEnabled()
+        → IFMEventListener.onRadioTextPlusReceived()
+        → IFMEventListener.onRecordingFinished()
+        → IFMEventListener.onScanFinished()
+        → IFMEventListener.onScanStarted()
+        → IFMEventListener.onScanStopped()
+        → IFMEventListener.onTuned()
+        → IFMEventListener.onVolumeLocked()
+        → Vector.size()
+        → Vector.get()
+        → Context.registerReceiver()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → ContentResolver.registerContentObserver()
+        → Settings$Secure.getUriFor()
+        → Settings$Secure.getInt()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → TelephonyManager.listen()
+        → PowerManager$WakeLock.isHeld()
+        → PowerManager$WakeLock.release()
+        → FMPlayerNativeBase.setAFRMSSISamples()
+        → FMPlayerNativeBase.setAFRMSSIThreshold()
+        → FMPlayerNativeBase.setBand()
+        → FMPlayerNativeBase.setCFOTh12()
+        → FMPlayerNativeBase.setChannelSpacing()
+        → FMPlayerNativeBase.setDEConstant()
+        → FMPlayerNativeBase.setGoodChannelRMSSIThreshold()
+        → FMPlayerNativeBase.setOffChannelThreshold()
+        → FMPlayerNativeBase.setOnChannelThreshold()
+        → FMPlayerNativeBase.setRMSSIFirstStage()
+        → FMPlayerNativeBase.setSINRFirstStage()
+        → FMPlayerNativeBase.setSINRSamples()
+        → FMPlayerNativeBase.setSINRThreshold()
+        → FMPlayerNativeBase.setSearchAlgoType()
+        → FMPlayerNativeBase.setCnt_th()
+        → FMPlayerNativeBase.setSNR_th()
+        → FMPlayerNativeBase.setSoftmute()
+        → Context.unregisterReceiver()
+          → Iterable.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → HashSet.add()
+          → <android.media.AudioAttributes: android.os.Bundle -$$Nest$fg
+          → AudioAttributes.areHapticChannelsMuted()
+          → AudioAttributes.isContentSpatialized()
+          → <android.media.AudioAttributes: int -$$Nest$fgetmContentType
+          → <android.media.AudioAttributes: int -$$Nest$fgetmSource(andr
+          → <android.media.AudioAttributes: int -$$Nest$smusageForStream
+          → AudioAttributes.getAllFlags()
+          → AudioAttributes.getSpatializationBehavior()
+          → <android.media.AudioAttributes: java.util.HashSet -$$Nest$fg
+          → AudioProductStrategy.getAudioAttributesForStrategyWithLegacyStreamType()
+          → AudioProductStrategy.getAudioProductStrategies()
+          → List.size()
+          → Bundle.putAll()
+          → <android.media.AudioFocusRequest: void <init>(android.media.
+          → AudioFocusRequest.isValidFocusGain()
+          → FMPlayerNativeBase.cancelSeek()
+          → PlayerExternalChipsetBase.stopSeek()
+          → Context.sendBroadcast()
+          → Intent.setClassName()
+          → Intent.setFlags()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → Thread.sleep()
+          → ContentResolver.unregisterContentObserver()
+          → Settings$System.getInt()
+          → Vector.remove()
+          → Intent.putExtra()
+          → PowerManager$WakeLock.release()
+            → AudioAttributes$Builder.setContentType()
+            → AudioAttributes$Builder.setUsage()
+            → AudioProductStrategy.getAudioAttributesForLegacyStreamType()
+            → List.iterator()
+            → AudioProductStrategy.initializeAudioProductStrategies()
+            → Handler.removeCallbacks()
+            → IPowerManager.releaseWakeLock()
+            → RemoteException.rethrowFromSystemServer()
+            → Trace.asyncTraceEnd()
+            → <java.lang.RuntimeException: void <init>(java.lang.String)>
+              → AudioProductStrategy$AudioAttributesGroup.getAudioAttributes()
+              → AudioProductStrategy$AudioAttributesGroup.supportsStreamType()
+              → AudioProductStrategy.native_list_audio_product_strategies()
+              → <java.util.ArrayList: void <init>()>
+              → <android.os.DeadSystemRuntimeException: void <init>()>
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.FMRadioService
+  Method:   <com.android.server.FMRadioService: boolean on(boolean)>
+  Line:     5381
+  Register: v6 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {v0, v6, v5, v7}, Landroid/hardware/input/InputManager;->semSetWakeKeyDynamically(Lja
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.hardware.input.InputManager.semSetWakeKeyDynamically → [other] new-instance v6, Ljava/lang/StringBuilde
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.FMRadioService: boolean -$$Nest$mon(com.
+      ← FMRadioService.on()
+      ← FMRadioService.responedFocusEvent()
+        ← FMRadioService$6.onCallStateChanged()
+        ← <com.android.server.FMRadioService: void -$$Nest$mresponedFo
+          ← FMRadioService$AudioFocusHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → PackageManager.getPackagesForUid()
+      → InputManager.semSetWakeKeyDynamically()
+      → AudioAttributes$Builder.build()
+      → AudioAttributes$Builder.semAddAudioTag()
+      → AudioAttributes$Builder.setLegacyStreamType()
+      → <android.media.AudioAttributes$Builder: void <init>()>
+      → AudioFocusRequest$Builder.build()
+      → AudioFocusRequest$Builder.setAudioAttributes()
+      → AudioFocusRequest$Builder.setOnAudioFocusChangeListener()
+      → <android.media.AudioFocusRequest$Builder: void <init>(int)>
+      → AudioManager.semSetRadioOutputPath()
+      → AudioManager.abandonAudioFocus()
+      → AudioManager.requestAudioFocus()
+      → AudioManager.requestAudioFocus()
+      → AudioManager.semGetRadioOutputPath()
+      → AudioManager.semGetStreamType()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Handler.post()
+      → SemSystemProperties.getInt()
+      → TelephonyManager.getCallStateForSubscription()
+      → FMPlayerNativeBase.on()
+      → FMPlayerNativeBase.preInitialize()
+      → FMPlayerNativeBase.setATJ()
+      → FMPlayerNativeBase.setBlendPAMD_th()
+      → FMPlayerNativeBase.setBlendRSSI_th()
+      → FMPlayerNativeBase.setFrequencyOffsetThreshold()
+      → FMPlayerNativeBase.setIFCount1()
+      → FMPlayerNativeBase.setIFCount2()
+      → FMPlayerNativeBase.setNoisePowerThreshold()
+      → FMPlayerNativeBase.setPilotPowerThreshold()
+      → FMPlayerNativeBase.setRSSI_th()
+      → FMPlayerNativeBase.setSeekDC()
+      → FMPlayerNativeBase.setSeekDesenseRSSI()
+      → FMPlayerNativeBase.setSeekQA()
+      → FMPlayerNativeBase.setSeekRSSI()
+      → FMPlayerNativeBase.setSeekSMG()
+      → FMPlayerNativeBase.setSoftMuteCoeff()
+      → FMPlayerNativeBase.setSoftStereoBlendCoeff()
+      → FMPlayerNativeBase.setSoftStereoBlendRef()
+      → FMPlayerNativeBase.setSoftmute_th()
+      → FMPlayerNativeBase.setStereo()
+      → FMPlayerNativeBase.setVolume()
+      → <com.android.server.FMRadioService$SamsungAnalyticsRunnable:
+      → FMRadioService.getContext()
+      → FMRadioService.isCTSTestApp()
+      → FMRadioService.isDNDEnable()
+      → FMRadioService.isFmTestApp()
+      → FMRadioService.isPathSupportSoftmute()
+      → FMRadioService.offInternal()
+      → FMRadioService.log()
+      → FMRadioService.mute()
+      → FMRadioService.notifyEvent()
+      → FMRadioService.registerAlarmListener()
+      → FMRadioService.registerAllSoundOffListener()
+      → FMRadioService.registerAvrcpModeObserver()
+      → FMRadioService.registerBatteryListener()
+      → FMRadioService.registerBikeModeObserver()
+      → FMRadioService.registerDNDStatusChangedListener()
+      → FMRadioService.registerTelephonyListener()
+      → FMRadioService.releaseWakeLock()
+      → FMRadioService.setAFRMSSISamples()
+      → FMRadioService.setAFRMSSIThreshold()
+      → FMRadioService.setBand()
+      → FMRadioService.setCFOTh12()
+      → FMRadioService.setChannelSpacing()
+      → FMRadioService.setDEConstant()
+      → FMRadioService.setFMAudioPath()
+      → FMRadioService.setGoodChannelRMSSIThreshold()
+      → FMRadioService.setOffChannelThreshold()
+      → FMRadioService.setOnChannelThreshold()
+      → FMRadioService.setRMSSIFirstStage()
+      → FMRadioService.setSINRFirstStage()
+      → FMRadioService.setSINRSamples()
+      → FMRadioService.setSINRThreshold()
+      → FMRadioService.setSearchAlgoType()
+      → FMRadioService.setSignalSetting()
+      → FMRadioService.setSoftmute()
+      → FMRadioService.unRegisterBatteryListener()
+      → PlayerExternalChipsetBase.isOn()
+      → PlayerExternalChipsetBase.on()
+      → PlayerExternalChipsetBase.setBand()
+      → PlayerExternalChipsetBase.setChannelSpacing()
+      → PlayerExternalChipsetBase.setSeekDC()
+      → PlayerExternalChipsetBase.setSeekQA()
+      → PlayerExternalChipsetBase.setRecordMode()
+      → PlayerExternalChipsetBase.setRssiThreshold()
+      → SecurityException.toString()
+        → IInputManager.setWakeKeyDynamically()
+        → <android.media.AudioAttributes: int -$$Nest$fgetmFlags(andro
+        → <android.media.AudioAttributes: int -$$Nest$fgetmUsage(andro
+        → <android.media.AudioAttributes: void -$$Nest$fputmBundle(and
+        → <android.media.AudioAttributes: void -$$Nest$fputmContentTyp
+        → <android.media.AudioAttributes: void -$$Nest$fputmFlags(andr
+        → <android.media.AudioAttributes: void -$$Nest$fputmFormattedT
+        → <android.media.AudioAttributes: void -$$Nest$fputmSource(and
+        → <android.media.AudioAttributes: void -$$Nest$fputmTags(andro
+        → <android.media.AudioAttributes: void -$$Nest$fputmUsage(andr
+        → <android.media.AudioAttributes: void <init>(android.media.Au
+        → <android.os.Bundle: void <init>(android.os.Bundle)>
+        → TextUtils.join()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → HashSet.clone()
+        → AudioAttributes$Builder.addTag()
+        → AudioAttributes$Builder.setInternalLegacyStreamType()
+        → <java.util.HashSet: void <init>()>
+        → AudioAttributes$Builder.addBundle()
+        → <android.media.AudioAttributes$Builder: void <init>(android.
+        → AudioAttributes.getBundle()
+        → <android.media.AudioFocusRequest: void <init>(android.media.
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putBoolean()
+        → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+        → AudioFocusRequest$Builder.setFocusGain()
+        → <android.media.AudioFocusRequest: android.media.AudioAttribu
+        → SystemProperties.getInt()
+        → NotificationManager.getNotificationPolicy()
+        → Context.getContentResolver()
+        → Settings$Global.getInt()
+        → FMPlayerNativeBase.off()
+        → FMRadioService.cancelSeek()
+        → FMRadioService.sendFMOFFBroadcast()
+        → FMRadioService.setDelay()
+        → FMRadioService.unRegisterTelephonyListener()
+        → FMRadioService.unregisterAlarmListener()
+        → FMRadioService.unregisterAllSoundOffListener()
+        → FMRadioService.unregisterAvrcpModeObserver()
+        → FMRadioService.unregisterBikeModeObserver()
+        → FMRadioService.unregisterDNDStatusChangedListener()
+        → PlayerExternalChipsetBase.off()
+        → PlayerExternalChipsetBase.setRdsEnable()
+        → PlayerExternalChipsetBase.stopNotifyThread()
+        → AudioManager.setParameters()
+        → FMPlayerNativeBase.muteOff()
+        → FMPlayerNativeBase.muteOn()
+        → FMRadioService.isAllSoundOff()
+        → PlayerExternalChipsetBase.muteOff()
+        → PlayerExternalChipsetBase.muteOn()
+        → AudioManager.getStreamVolume()
+        → FMRadioService.isUnMuteRadio()
+        → FMRadioService.convertToPrimitives()
+        → FMRadioService.remove()
+        → FMRadioService.sendFMONBroadcast()
+        → PlayerExternalChipsetBase.setVolume()
+        → IFMEventListener.asBinder()
+        → IFMEventListener.onAlternateFrequencyReceived()
+        → IFMEventListener.onAlternateFrequencyStarted()
+        → IFMEventListener.onChannelFound()
+        → IFMEventListener.onHeadsetConnected()
+        → IFMEventListener.onHeadsetDisconnected()
+        → IFMEventListener.onProgrammeIdentificationExtendedCountryCodesReceived()
+        → IFMEventListener.onRadioDataSystemDisabled()
+        → IFMEventListener.onRadioDataSystemEnabled()
+        → IFMEventListener.onRadioDataSystemReceived()
+        → IFMEventListener.onRadioDisabled()
+        → IFMEventListener.onRadioEnabled()
+        → IFMEventListener.onRadioTextPlusReceived()
+        → IFMEventListener.onRecordingFinished()
+        → IFMEventListener.onScanFinished()
+        → IFMEventListener.onScanStarted()
+        → IFMEventListener.onScanStopped()
+        → IFMEventListener.onTuned()
+        → IFMEventListener.onVolumeLocked()
+        → Vector.size()
+        → Vector.get()
+        → Context.registerReceiver()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → ContentResolver.registerContentObserver()
+        → Settings$Secure.getUriFor()
+        → Settings$Secure.getInt()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → TelephonyManager.listen()
+        → PowerManager$WakeLock.isHeld()
+        → PowerManager$WakeLock.release()
+        → FMPlayerNativeBase.setAFRMSSISamples()
+        → FMPlayerNativeBase.setAFRMSSIThreshold()
+        → FMPlayerNativeBase.setBand()
+        → FMPlayerNativeBase.setCFOTh12()
+        → FMPlayerNativeBase.setChannelSpacing()
+        → FMPlayerNativeBase.setDEConstant()
+        → FMPlayerNativeBase.setGoodChannelRMSSIThreshold()
+        → FMPlayerNativeBase.setOffChannelThreshold()
+        → FMPlayerNativeBase.setOnChannelThreshold()
+        → FMPlayerNativeBase.setRMSSIFirstStage()
+        → FMPlayerNativeBase.setSINRFirstStage()
+        → FMPlayerNativeBase.setSINRSamples()
+        → FMPlayerNativeBase.setSINRThreshold()
+        → FMPlayerNativeBase.setSearchAlgoType()
+        → FMPlayerNativeBase.setCnt_th()
+        → FMPlayerNativeBase.setSNR_th()
+        → FMPlayerNativeBase.setSoftmute()
+        → Context.unregisterReceiver()
+          → Iterable.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → HashSet.add()
+          → <android.media.AudioAttributes: android.os.Bundle -$$Nest$fg
+          → AudioAttributes.areHapticChannelsMuted()
+          → AudioAttributes.isContentSpatialized()
+          → <android.media.AudioAttributes: int -$$Nest$fgetmContentType
+          → <android.media.AudioAttributes: int -$$Nest$fgetmSource(andr
+          → <android.media.AudioAttributes: int -$$Nest$smusageForStream
+          → AudioAttributes.getAllFlags()
+          → AudioAttributes.getSpatializationBehavior()
+          → <android.media.AudioAttributes: java.util.HashSet -$$Nest$fg
+          → AudioProductStrategy.getAudioAttributesForStrategyWithLegacyStreamType()
+          → AudioProductStrategy.getAudioProductStrategies()
+          → List.size()
+          → Bundle.putAll()
+          → <android.media.AudioFocusRequest: void <init>(android.media.
+          → AudioFocusRequest.isValidFocusGain()
+          → FMPlayerNativeBase.cancelSeek()
+          → PlayerExternalChipsetBase.stopSeek()
+          → Context.sendBroadcast()
+          → Intent.setClassName()
+          → Intent.setFlags()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → Thread.sleep()
+          → ContentResolver.unregisterContentObserver()
+          → Settings$System.getInt()
+          → Vector.remove()
+          → Intent.putExtra()
+          → PowerManager$WakeLock.release()
+            → AudioAttributes$Builder.setContentType()
+            → AudioAttributes$Builder.setUsage()
+            → AudioProductStrategy.getAudioAttributesForLegacyStreamType()
+            → List.iterator()
+            → AudioProductStrategy.initializeAudioProductStrategies()
+            → Handler.removeCallbacks()
+            → IPowerManager.releaseWakeLock()
+            → RemoteException.rethrowFromSystemServer()
+            → Trace.asyncTraceEnd()
+            → <java.lang.RuntimeException: void <init>(java.lang.String)>
+              → AudioProductStrategy$AudioAttributesGroup.getAudioAttributes()
+              → AudioProductStrategy$AudioAttributesGroup.supportsStreamType()
+              → AudioProductStrategy.native_list_audio_product_strategies()
+              → <java.util.ArrayList: void <init>()>
+              → <android.os.DeadSystemRuntimeException: void <init>()>
+              → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.FMRadioService
+  Method:   <com.android.server.FMRadioService: void sendFMOFFBroadcast()>
+  Line:     9566
+  Register: v1 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] const/high16 v1, 0x40000000    # 2.0f → [invoke] android.conten
+
+  CALLERS (who invokes this method):
+      ← FMRadioService.offInternal()
+        ← <com.android.server.FMRadioService: boolean -$$Nest$moffInte
+        ← FMRadioService.off()
+        ← FMRadioService.on()
+        ← FMRadioService.handleBikeMode()
+        ← FMRadioService.responedFocusEvent()
+          ← FMRadioService$10.off()
+          ← FMRadioService$11.off()
+          ← FMRadioService$12.onReceive()
+          ← FMRadioService$3.onReceive()
+          ← FMRadioService$4.onReceive()
+          ← FMRadioService$5.off()
+          ← <com.android.server.FMRadioService: boolean -$$Nest$mon(com.
+          ← FMRadioService.on()
+          ← <com.android.server.FMRadioService: void -$$Nest$mhandleBike
+          ← <com.android.server.FMRadioService: void -$$Nest$mresponedFo
+            ← FMRadioService$10.onReceive()
+            ← FMRadioService$11.onReceive()
+            ← FMRadioService$5.onReceive()
+            ← FMRadioService$6.onCallStateChanged()
+            ← FMRadioService$17.onChange()
+            ← FMRadioService$AudioFocusHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.setClassName()
+      → Intent.setFlags()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → FMRadioService.log()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.FMRadioService
+  Method:   <com.android.server.FMRadioService: void sendFMONBroadcast(java.lang.Object)>
+  Line:     9612
+  Register: v1 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] new-instance v1, Ljava/lang/StringBuilder; → [invoke] java.lang
+
+  CALLERS (who invokes this method):
+      ← FMRadioService.notifyEvent()
+        ← FMPlayerNative.notifyAFDataReceived()
+        ← FMPlayerNative.notifyAFStarted()
+        ← FMPlayerNative.notifyRDSEvent()
+        ← FMPlayerNative.notifyRTPlusEvent()
+        ← FMRadioService$2.onReceive()
+        ← FMRadioService$3.onReceive()
+        ← FMRadioService$4.onReceive()
+        ← FMRadioService$6.onCallStateChanged()
+        ← FMRadioService$8.onAudioFocusChange()
+        ← FMRadioService$ScanThread.doScan()
+        ← FMRadioService$ScanThread.run()
+        ← FMRadioService.cancelScan()
+        ← FMRadioService.offInternal()
+        ← FMRadioService.on()
+        ← FMRadioService.on_in_testmode()
+        ← FMRadioService.seekDown()
+        ← FMRadioService.seekUp()
+        ← FMRadioService.disableRDS()
+        ← FMRadioService.enableRDS()
+        ← FMRadioService.notifyRecFinish()
+        ← FMRadioService.responedFocusEvent()
+        ← FMRadioService.tune()
+        ← PlayerExternalChipsetBes$NotifyWorkerThread.verifyInfo()
+          ← FMRadioService$10.off()
+          ← FMRadioService$11.off()
+          ← FMRadioService$12.onReceive()
+          ← FMRadioService$5.off()
+          ← <com.android.server.FMRadioService: boolean -$$Nest$moffInte
+          ← FMRadioService.off()
+          ← FMRadioService.handleBikeMode()
+          ← <com.android.server.FMRadioService: boolean -$$Nest$mon(com.
+          ← FMRadioService.on()
+          ← FMRadioService$14.onReceive()
+          ← FMRadioService$15.onReceive()
+          ← <com.android.server.FMRadioService: void -$$Nest$mresponedFo
+          ← PlayerExternalChipsetBes$NotifyWorkerThread.run()
+            ← FMRadioService$10.onReceive()
+            ← FMRadioService$11.onReceive()
+            ← FMRadioService$5.onReceive()
+            ← <com.android.server.FMRadioService: void -$$Nest$mhandleBike
+            ← FMRadioService$AudioFocusHandler.handleMessage()
+              ← FMRadioService$17.onChange()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → Intent.setFlags()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → FMRadioService.log()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.server.PlayerExternalChipsetBesRichwave
+  Method:   <com.android.server.PlayerExternalChipsetBesRichwave: boolean openConnection()>
+  Line:     267
+  Register: v4 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {v0, v3, v4}, Landroid/hardware/usb/UsbManager;->grantPermission(Landroid/hardware/us
+  Patterns: early_return, permission_grant
+  Flow:     [invoke] android.hardware.usb.UsbManager.grantPermission()
+
+  CALLERS (who invokes this method):
+      ← PlayerExternalChipsetBesRichwave.getSoundMode()
+      ← PlayerExternalChipsetBesRichwave.isOn()
+      ← PlayerExternalChipsetBesRichwave.isRdsEnabled()
+      ← PlayerExternalChipsetBesRichwave.off()
+      ← PlayerExternalChipsetBesRichwave.on()
+      ← PlayerExternalChipsetBesRichwave.setBand()
+      ← PlayerExternalChipsetBesRichwave.setChannelSpacing()
+      ← PlayerExternalChipsetBesRichwave.setRdsEnable()
+      ← PlayerExternalChipsetBesRichwave.setSeekDC()
+      ← PlayerExternalChipsetBesRichwave.setSeekQA()
+      ← PlayerExternalChipsetBesRichwave.setSoundMode()
+      ← PlayerExternalChipsetBesRichwave.setVolume()
+      ← PlayerExternalChipsetBesRichwave.startNotifyThread()
+      ← PlayerExternalChipsetBesRichwave.stopSeekExecute()
+      ← PlayerExternalChipsetBesRichwave.getBand()
+      ← PlayerExternalChipsetBesRichwave.getChannelSpacing()
+      ← PlayerExternalChipsetBesRichwave.getRssiThreshold()
+      ← PlayerExternalChipsetBesRichwave.getSeekDC()
+      ← PlayerExternalChipsetBesRichwave.getSeekQA()
+      ← PlayerExternalChipsetBesRichwave.getTunedFrequency()
+      ← PlayerExternalChipsetBesRichwave.getVolume()
+      ← PlayerExternalChipsetBesRichwave.muteOff()
+      ← PlayerExternalChipsetBesRichwave.muteOn()
+      ← PlayerExternalChipsetBesRichwave.setRecordMode()
+      ← PlayerExternalChipsetBesRichwave.setRssiThreshold()
+        ← PlayerExternalChipsetBesRichwave.seekTune()
+        ← PlayerExternalChipsetBesRichwave.stopNotifyThread()
+        ← PlayerExternalChipsetBesRichwave.stopSeek()
+          ← PlayerExternalChipsetBesRichwave.seekDown()
+          ← PlayerExternalChipsetBesRichwave.seekUp()
+          ← PlayerExternalChipsetBesRichwave.tune()
+            ← PlayerExternalChipsetBesRichwave.searchAll()
+
+  CALLEES (what this method invokes):
+      → UsbManager.openDevice()
+      → UsbManager.hasPermission()
+      → UsbManager.grantPermission() [PERM_GRANT]
+      → PlayerExternalChipsetBesRichwave.log()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.filter.filter.ActiveMusicRecordFilter
+  Method:   <com.android.server.am.mars.filter.filter.ActiveMusicRecordFilter: int filter(java.lang.String,int,int,int)>
+  Line:     199
+  Register: v0 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_4a → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → AudioManager.isUsingAudio()
+      → AudioManager.semIsFmRadioActive()
+      → SystemClock.elapsedRealtime()
+      → ArrayMap.get()
+      → ArrayMap.put()
+      → ArrayMap.remove()
+      → MARsPolicyManager.getScreenOnState()
+      → MARsPolicyManager.isAutoRunOn()
+      → MARsPolicyManager.isChinaPolicyEnabled()
+      → MARsPolicyManager.isForegroundServicePkg()
+      → MARsPolicyManager.getInstance()
+      → MARsVersionManager.isAdjustRestrictionMatch()
+      → MARsVersionManager.getInstance()
+      → ArrayList.contains()
+        → ArrayMap.indexOfKey()
+        → ArrayMap.indexOf()
+        → ArrayMap.indexOfNull()
+        → ArrayMap.allocArrays()
+        → ArrayMap.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → ArrayMap.removeAt()
+        → MARsPackageInfo.getFASEnabled()
+        → MARsPolicyManager.getMARsPackageInfo()
+        → MARsPolicyManager.getForegroundServiceStartTime()
+        → <com.android.server.am.MARsPolicyManager$MARsPolicyManagerHo
+        → MARsVersionManager.isAdjustRestrictionMatchInternal()
+        → MARsVersionManager.isRestrictionTypeAllowed()
+        → MARsVersionManager.convertRestrictionTypeToName()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → <com.android.server.am.mars.database.MARsVersionManager$MARs
+          → ArrayMap.binarySearchHashes()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → MARsPkgMap.totalSize()
+          → MARsPkgMap.get()
+          → HashMap.getOrDefault()
+          → MARsVersionManager.isActionMatch()
+            → ContainerHelpers.binarySearch()
+            → ArrayMap.size()
+            → ArrayMap.valueAt()
+            → SparseArray.size()
+            → SparseArray.get()
+              → SparseArray.gc()
+              → SparseArray.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     92
+  Register: v0 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.AudioService
+  Method:   <com.android.server.audio.AudioService: void setStreamVolumeWithAttribution(int,int,int,java.lang.String,java.lang.String,java.lang.String,int,boolean,int)>
+  Line:     45990
+  Register: v6 := "com.sec.android.app.fm"
+  Usage:    [invoke] invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v6 → [branch] if-eqz v6, :cond_1f1 → [other] iget v6, v0, Lcom/
+
+  CALLERS (who invokes this method):
+      ← AudioService.bypassAdjustStreamVolume()
+      ← AudioService.setA2dpDeviceVolume()
+      ← AudioService.setFineVolume()
+      ← AudioService.setStreamVolume()
+      ← AudioService.setStreamVolumeForDeviceWithAttribution()
+        ← AudioService.skipAdjustStreamVolume()
+        ← AudioService.setStreamVolumeForUid()
+        ← AudioService.setStreamVolumeWithAttribution()
+        ← AudioService.setVolumeIndexForAttributes()
+          ← AudioService.adjustStreamVolume()
+          ← AudioService.setStreamVolume()
+            ← AudioService.adjustStreamVolumeForUid()
+            ← AudioService.adjustStreamVolumeWithAttribution()
+            ← AudioService.adjustSuggestedStreamVolume()
+            ← AudioService.setVolumeLimiter()
+              ← AudioService.adjustStreamVolume()
+              ← AudioService.adjustSuggestedStreamVolumeForUid()
+              ← AudioService.handleVolumeKey()
+              ← AudioService.setAudioServiceConfig()
+
+  CALLEES (what this method invokes):
+      → NotificationManager.isNotificationPolicyAccessGrantedForPackage()
+      → Context.getPackageName()
+      → UserHandle.getAppId()
+      → UserHandle.getUid()
+      → AudioDeviceBroker.postSetAvrcpAbsoluteVolumeIndex()
+      → AudioDeviceBroker.postSetHearingAidVolumeIndex()
+      → AudioDeviceBroker.postSetLeAudioVolumeIndex()
+      → AudioDeviceBroker.updateIndividualA2dpVolumes()
+      → <com.android.server.audio.AudioService$StreamVolumeCommand: 
+      → AudioService$VolumeController.isSafeVolumeDialogShowing()
+      → AudioService$VolumeController.displayVolumeLimiterToast()
+      → AudioService$VolumeController.postDisplaySafeVolumeWarning()
+      → AudioService$VolumeController.postVolumeChanged()
+      → AudioService$VolumeStreamState.setIndex()
+      → <com.android.server.audio.AudioService$VolumeStreamState: in
+      → AudioService$VolumeStreamState.getIndex()
+      → AudioService$VolumeStreamState.getMaxIndex()
+      → AudioService.checkNoteAppOp()
+      → AudioService.checkSafeMediaVolume()
+      → AudioService.isAndroidNPlus()
+      → AudioService.isBluetoothScoOn()
+      → AudioService.isExemptedPackage()
+      → AudioService.isFixedVolumeDevice()
+      → AudioService.isMultiSoundOnInternal()
+      → AudioService.volumeAdjustmentAllowedByDnd()
+      → AudioService.wouldToggleZenMode()
+      → AudioService.getAppDevice()
+      → AudioService.getBluetoothContextualVolumeStream()
+      → AudioService.getCurrentUserId()
+      → AudioService.getDeviceForStream()
+      → AudioService.getNewRingerMode()
+      → AudioService.rescaleIndex()
+      → AudioService.safeMediaVolumeIndex()
+      → AudioService.ensureValidStreamType()
+      → AudioService.maybeSendSystemAudioStatusCommand()
+      → AudioService.onSetStreamVolume()
+      → AudioService.sendMsg()
+      → AudioService.sendVolumeChangedIntent()
+      → AudioService.sendVolumeUpdate()
+      → FrequentWorker.runOrSkip()
+      → GoodCatchManager.isMediaVolumeCatchEnabled()
+      → GoodCatchManager.updateMediaVolume()
+      → ScreenSharingHelper.isSupportDisplayVolumeControl()
+      → <java.lang.SecurityException: void <init>(java.lang.String)>
+      → Set.contains()
+        → AudioDeviceBroker.sendIMsgNoDelay()
+        → AudioDeviceBroker.sendIIMsgNoDelay()
+        → <com.android.server.audio.AudioDeviceBroker$BleVolumeInfo: v
+        → AudioDeviceBroker.sendLMsgNoDelay()
+        → DualA2dpVolumeManager.updateIndividualA2dpVolumes()
+        → IVolumeController.displayVolumeLimiterToast()
+        → IVolumeController.displaySafeVolumeWarning()
+        → IVolumeController.volumeChanged()
+        → AudioSystem.getNumStreamTypes()
+        → SparseIntArray.keyAt()
+        → SparseIntArray.size()
+        → SparseIntArray.put()
+        → EventLogTags.writeVolumeChanged()
+        → <com.android.server.audio.AudioService$VolumeStreamState$$Ex
+        → <com.android.server.audio.AudioService$VolumeStreamState$$Ex
+        → AudioService$VolumeStreamState.hasIndexForDevice()
+        → AudioService$VolumeStreamState.getValidIndex()
+        → <com.android.server.audio.AudioService: boolean -$$Nest$fget
+        → <com.android.server.audio.AudioService: boolean -$$Nest$msho
+        → <com.android.server.audio.AudioService: com.android.server.a
+        → <com.android.server.audio.AudioService: com.samsung.android.
+        → <com.android.server.audio.AudioService: int -$$Nest$mrescale
+        → <com.android.server.audio.AudioService: java.lang.Object -$$
+        → <com.android.server.audio.AudioService: void -$$Nest$msendBr
+        → DeviceAliasManager.apply()
+        → <java.lang.Throwable: void <init>()>
+        → SparseIntArray.get()
+        → SparseIntArray.get()
+        → AppOpsManager.noteOp() [APPOPS]
+        → AudioService.isSafeA2dpDevice()
+        → AudioService.notifyVibrationForSafeMediaPopup()
+        → AudioHelper.isFactoryMode()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfoAsUser() [PKG_QUERY]
+        → Binder.getCallingUid() [UID_CHECK]
+        → UserHandle.getUserId()
+        → AudioDeviceBroker.isBluetoothScoOn()
+        → RecordingActivityMonitor.isLegacyRemoteSubmixActive()
+        → MultiSoundManager.isEnabled()
+        → MultiSoundManager.isRemoteSubmixAppExist()
+        → NotificationManager.getZenMode()
+        → AudioService.isStreamMutedByRingerOrZenMode()
+        → AudioService.isUiSoundsStreamType()
+        → AudioService.getRingerModeExternal()
+        → MultiSoundManager.getAppDevice()
+        → AudioService.getBluetoothContextualVolumeStream()
+        → AtomicInteger.get()
+        → ActivityManager.getService()
+        → IActivityManager.getCurrentUser()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → AudioService.selectOneAudioDevice()
+        → AudioService.getDeviceSetForStream()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Set.iterator()
+        → AudioService.getUiSoundsStreamType()
+        → AudioService$VolumeStreamState.getMinIndex()
+        → AudioService.rescaleIndex()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → HdmiAudioSystemClient.sendReportAudioStatusCecCommand()
+        → AudioService.isStreamMute()
+        → AudioService.getStreamMaxVolume()
+        → AudioService.getStreamVolume()
+        → AudioService$VolumeStreamState.mute()
+        → AudioService.setRingerMode()
+        → AudioService.setStreamVolumeInt()
+        → Handler.obtainMessage()
+        → Handler.hasMessages()
+        → Handler.sendMessageAtTime()
+        → Handler.removeMessages()
+        → SystemClock.uptimeMillis()
+        → AudioDeviceBroker.shouldVolumeChangedIntent()
+        → AudioService.sendVolumeChangedIntent()
+        → AudioService.isFullVolumeDevice()
+        → AudioService.updateFlagsForSamsungVolume()
+        → FrequentWorker.func()
+        → TextUtils.equals()
+        → SemGoodCatchManager.update()
+          → AudioDeviceBroker.sendIILMsg()
+          → ArrayMap.size()
+          → ArrayMap.keyAt()
+          → ArrayMap.valueAt()
+          → <com.android.server.audio.AudioEventLogger$StringEvent: void
+          → AudioEventLogger.log()
+          → DualA2dpVolumeManager.setVolume()
+          → DualA2dpVolumeManager.getValidIndex()
+          → DualA2dpVolumeManager.updateMainVolume()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → ContainerHelpers.binarySearch()
+          → GrowingArrayUtils.insert()
+          → EventLog.writeEvent()
+          → <com.android.server.audio.AudioService: boolean -$$Nest$fget
+          → AudioService.shouldSkipDeviceAlias()
+          → AudioService.sendBroadcastToSoundEventReceiver()
+          → SparseArray.get()
+          → DeviceAliasManager$DeviceAlias.isExcludedStream()
+          → DeviceAliasManager$DeviceAliasRunner.run()
+          → Settings$Global.getInt()
+          → AudioDeviceBroker.isBluetoothHeadphoneActive()
+          → PowerManager.isScreenOn()
+          → AudioService.callLcdOn()
+          → AudioService.callVibrateMsg()
+          → AudioDeviceBroker.isDeviceOnForCommunication()
+          → AtomicBoolean.get()
+          → Set.size()
+          → MultiSoundManager$MultiSoundInterface.getConnectedDevice()
+          → MultiSoundManager$MultiSoundItem.getAppDevice()
+          → MultiSoundManager.isDeviceConnected()
+          → MultiSoundManager.getCurrentMediaDevice()
+          → HashMap.get()
+          → AudioSystem.deviceSetToString()
+          → Set.isEmpty()
+          → AudioService$VolumeStreamState.observeDevicesForStream_syncVSS()
+          → <android.hardware.hdmi.HdmiAudioSystemClient$1: void <init>(
+          → HdmiAudioSystemClient.getDeviceType()
+          → IHdmiControlService.reportAudioStatus()
+          → Handler.postDelayed()
+          → <com.android.server.audio.AudioService$VolumeStreamState: bo
+          → AudioService.getActiveStreamType()
+          → AudioService.getStreamVolume()
+          → Intent.putExtra()
+          → Intent.putExtra()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → <com.android.server.audio.AudioService: com.android.server.a
+          → <com.android.server.audio.AudioService: void -$$Nest$msendBr
+          → <com.android.server.audio.AudioService: void -$$Nest$smsendM
+          → AudioManagerInternal$RingerModeDelegate.onSetRingerModeExternal()
+          → AudioManagerInternal$RingerModeDelegate.onSetRingerModeInternal()
+          → AudioService.getRingerModeInternal()
+          → AudioService.ensureValidRingerMode()
+          → AudioService.handleSetRingerMode()
+          → AudioService.setRingerModeExt()
+          → AudioService.setRingerModeInt()
+          → DualA2dpVolumeManager.shouldVolumeChangedIntent()
+          → Handler.post()
+          → <com.android.server.audio.AudioService$$ExternalSyntheticLam
+          → AudioService.getIndexDividedBy10()
+          → AudioDeviceBroker.isDualA2dpMode()
+          → AudioDeviceBroker.isRemoteVolumeControlSupported()
+          → AudioService.isInCommunication()
+          → CharSequence.charAt()
+          → CharSequence.length()
+          → RemoteException.printStackTrace()
+          → IGoodCatchManager.update()
+            → PowerManager$WakeLock.acquire()
+            → AudioDeviceBroker.isMessageHandledUnderWakelock()
+            → AudioDeviceBroker.checkMessagesMuteMusic()
+            → <com.android.server.audio.AudioEventLogger$Event: void <init
+            → LinkedList.add()
+            → LinkedList.size()
+            → LinkedList.removeFirst()
+            → BluetoothDevice.getAddress()
+            → ArrayMap.put()
+            → DualA2dpVolumeManager.postSaveVolumeDB()
+            → DualA2dpVolumeManager.updateMainVolume()
+            → AudioService.isBluetoothDualModeActive()
+            → Intent.putExtra()
+            → Intent.setComponent()
+            → AudioService$SoundEventReceiver.hasEventType()
+            → ArrayList.isEmpty()
+            → ArrayList.iterator()
+            → SparseArray.get()
+            → DualA2dpVolumeManager.isBluetoothHeadphoneActive()
+            → PowerManager$WakeLock.isHeld()
+            → PowerManager.newWakeLock()
+            → AudioService.vibrateCall()
+            → AudioDeviceAttributes.getType()
+            → AudioDeviceBroker.preferredCommunicationDevice()
+            → AudioSystemAdapter.getDeviceConnectionState()
+            → MultiSoundManager$MultiSoundInterface.getCurrentMediaDevice()
+            → AudioSystem.getDeviceMaskFromSet()
+            → EventLogTags.writeStreamDevicesChanged()
+            → <com.android.server.audio.AudioService: com.android.server.a
+            → <com.android.server.audio.AudioService: com.samsung.android.
+            → <com.android.server.audio.AudioService: java.util.Set -$$Nes
+            → <com.android.server.audio.AudioService: java.util.concurrent
+            → AudioService.postObserveDevicesForAllStreams()
+            → CurrentDeviceManager.changedCurrentDevice()
+            → SystemServerAdapter.isPrivileged()
+            → MultiSoundManager.getPreventOverheatState()
+            → MultiSoundManager.setPreventOverheatState()
+            → Collections.unmodifiableSet()
+            → Set.equals()
+            → <java.util.TreeSet: void <init>()>
+            → AudioDeviceBroker.isBluetoothScoActive()
+            → AudioService.getRemoteMic()
+            → AudioService.wasStreamActiveRecently()
+            → AudioSystemAdapter.isStreamActive()
+            → CustomDeviceManagerProxy.getInstance()
+            → CustomDeviceManagerProxy.getVolumeControlStream()
+            → AudioHelper.getActiveStreamTypeInternal()
+            → AudioService.isMultiSoundOn()
+            → AudioService.sendBroadcastToAll()
+            → AudioService.isValidRingerMode()
+            → AudioService.checkPlayRingerModeEffect()
+            → <com.samsung.android.server.audio.AudioEvents$RingerModeEven
+            → GoodCatchManager.isRingerModeCatchEnabled()
+            → GoodCatchManager.updateRingerMode()
+            → IndexOutOfBoundsException.printStackTrace()
+            → AudioService.broadcastRingerMode()
+            → AudioService.muteMediaStreamOfSpeaker()
+            → AudioService.muteRingerModeStreams()
+            → DualA2dpVolumeManager.isDualA2dpMode()
+            → BtHelper.isRemoteVolumeControlSupported()
+            → Context.getSystemService()
+            → TelecomManager.isInCall()
+              → PowerManager$WakeLock.acquireLocked()
+              → AudioDeviceBroker.messageMutesMusic()
+              → AudioService.setMusicMute()
+              → AtomicBoolean.getAndSet()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → Handler.removeCallbacks()
+              → <com.samsung.android.server.audio.DualA2dpVolumeManager$Pers
+              → AudioDeviceBroker.isDualModeActive()
+              → BluetoothDevice.semGetAudioType()
+              → VibrationAttributes$Builder.build()
+              → VibrationAttributes$Builder.semAddTag()
+              → VibrationAttributes$Builder.setUsage()
+              → <android.os.VibrationAttributes$Builder: void <init>()>
+              → VibrationEffect.semCreateHaptic()
+              → Vibrator.vibrate()
+              → HapticFeedbackConstants.semGetVibrationIndex()
+              → AudioService.hasVibrator()
+              → AudioDeviceBroker.requestedCommunicationDevice()
+              → BtHelper.getHeadsetAudioDevice()
+              → BtHelper.isBluetoothScoOn()
+              → AudioSystem.getDeviceConnectionState()
+              → AudioService.getDeviceSetForStreamDirect()
+              → <com.android.server.audio.CurrentDeviceManager$$ExternalSynt
+              → Set.forEach()
+              → <com.samsung.android.server.audio.MultiSoundManager$PreventO
+              → MultiSoundManager$PreventOverheatState.setDevice()
+              → AudioDeviceBroker.isDeviceActiveForCommunication()
+              → AudioSystemAdapter.isStreamActiveRemotely()
+              → AudioSystem.isStreamActive()
+              → <com.samsung.android.knox.custom.CustomDeviceManagerProxy: v
+              → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+              → IEDMProxy.getVolumeControlStream()
+              → AudioSystem.isStreamActiveRemotely()
+              → AudioHelper.getActiveStreams()
+              → Context.sendBroadcastAsUser()
+              → Intent.addFlags()
+              → AudioService.sendStickyBroadcastToAll()
+              → AudioService$DeviceVolumeUpdate.getVolumeIndex()
+              → <com.android.server.audio.AudioService$DeviceVolumeUpdate: v
+              → AudioSettingsHelper.setIntValue()
+              → Binder.getCallingPid() [UID_CHECK]
+              → SparseIntArray.valueAt()
+              → <com.android.server.audio.AudioService$VolumeStreamState: an
+              → AudioService.isStreamAffectedByRingerMode()
+              → AudioService.shouldZenMuteStream()
+              → BluetoothDevice.getVolumeControlSupport()
+              → Context.getAttributionTag()
+              → Context.getOpPackageName()
+              → TelecomManager.getTelecomService()
+              → ITelecomService.isInCall()
+

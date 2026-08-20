@@ -1,0 +1,9 @@
+# com.samsung.android.knox.permission.KNOX_DATE_TIME [NEW]
+# Refs: 5
+# JARs: knoxsdk, services
+
+<com.android.server.NetworkTimeUpdateService: void onPollNetworkTimeUnderWakeLock(int)>
+<com.android.server.enterprise.datetime.DateTimePolicy: com.samsung.android.knox.ContextInfo enforceDateTimePermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.datetime.DateTimePolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndDateTimePermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

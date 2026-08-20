@@ -1,0 +1,9 @@
+# com.android.server.spay.Utils [NEW]
+# Refs: 10
+# JARs: service-samsung-payment, services
+
+<com.android.server.spay.Utils: boolean backgroundWhitelist(android.content.Context,java.lang.String,boolean)>
+<com.android.server.spay.Utils: boolean hasValidSignature(android.content.Context,java.lang.String)>
+<com.android.server.spay.Utils: boolean sendSecureUIAbortIntent(android.content.Context)>
+<com.android.server.spay.Utils: boolean writeFile(byte[],java.lang.String)>
+<com.android.server.spay.Utils: byte[] readFile(java.lang.String)>

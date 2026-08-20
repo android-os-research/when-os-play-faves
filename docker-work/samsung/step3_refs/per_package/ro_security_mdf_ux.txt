@@ -1,0 +1,7 @@
+# ro.security.mdf.ux [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.enterprise.restriction.RestrictionPolicy: boolean isCCModeSupported(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.analytics.service.KnoxAnalyticsVersionCollector: java.lang.String getSecurityMDFVersion()>
+<com.samsung.android.security.mdf.MdfService.MdfPolicy: boolean isCCModeSupport()>

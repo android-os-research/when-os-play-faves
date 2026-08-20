@@ -1,0 +1,9 @@
+# com.sec.vsim.app.jansky.IDeviceNameUpdateListener [NEW]
+# Refs: 5
+# JARs: vsimmanager
+
+<com.sec.vsim.app.jansky.IDeviceNameUpdateListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.vsim.app.jansky.IDeviceNameUpdateListener$Stub$Proxy: void onDeviceNameUpdated(long,java.lang.String,boolean)>
+<com.sec.vsim.app.jansky.IDeviceNameUpdateListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.vsim.app.jansky.IDeviceNameUpdateListener$Stub: com.sec.vsim.app.jansky.IDeviceNameUpdateListener asInterface(android.os.IBinder)>
+<com.sec.vsim.app.jansky.IDeviceNameUpdateListener$Stub: void <init>()>

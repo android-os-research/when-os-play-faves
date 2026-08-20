@@ -1,0 +1,14 @@
+# com.samsung.android.settings.wifi.mobileap.wifiapwarning [NEW]
+# Refs: 10
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.ap.SemSoftApManager$SemSoftApHandler: void handleMessage(android.os.Message)>
+<com.samsung.android.server.wifi.ap.SemWifiApBroadcastReceiver: ???>
+<com.samsung.android.server.wifi.ap.SemWifiApBroadcastReceiver: void showHotspotErrorDialog(android.content.Context,int,android.content.Intent)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApAdvancedAutohotspotService$AdvancedAHSHandler: void handleMessage(android.os.Message)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApAdvancedAutohotspotService: void launchWiFiApWarning(java.lang.String,int)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartClient: void sendScanResultFromScanner(int,android.bluetooth.le.ScanResult)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartGattClient: void launchWiFiApWarning(java.lang.String,int)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartGattClient: void launchWiFiApWarningForWifiProfileSharing(java.lang.String)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartGattServer$1: void onCharacteristicWriteRequest(android.bluetooth.BluetoothDevice,int,android.bluetooth.BluetoothGattCharacteristic,boolean,boolean,int,byte[])>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartGattServer$BleWorkHandler: void handleMessage(android.os.Message)>

@@ -1,0 +1,12 @@
+# com.samsung.android.mcf.discovery.IMcfDeviceDiscoverCallback [NEW]
+# Refs: 16
+# JARs: mcfsdk, services
+
+<com.samsung.android.mcf.discovery.IMcfDeviceDiscoverCallback$Stub$a: java.lang.String b()>
+<com.samsung.android.mcf.discovery.IMcfDeviceDiscoverCallback$Stub$a: void onDeviceDiscovered(android.os.PersistableBundle,int)>
+<com.samsung.android.mcf.discovery.IMcfDeviceDiscoverCallback$Stub$a: void onDeviceRemoved(android.os.PersistableBundle,int)>
+<com.samsung.android.mcf.discovery.IMcfDeviceDiscoverCallback$Stub$a: void onDiscoveryStarted(int)>
+<com.samsung.android.mcf.discovery.IMcfDeviceDiscoverCallback$Stub$a: void onDiscoveryStopped(int)>
+<com.samsung.android.mcf.discovery.IMcfDeviceDiscoverCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.discovery.IMcfDeviceDiscoverCallback$Stub: com.samsung.android.mcf.discovery.IMcfDeviceDiscoverCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.discovery.IMcfDeviceDiscoverCallback$Stub: void <init>()>

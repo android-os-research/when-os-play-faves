@@ -1,0 +1,6 @@
+# android.car.user_hal_timeout [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.sysprop.CarProperties: java.util.Optional user_hal_timeout()>
+<android.sysprop.CarProperties: void user_hal_timeout(java.lang.Integer)>

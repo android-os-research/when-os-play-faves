@@ -1,0 +1,16 @@
+# android.hardware.camera2.extension.ICameraExtensionsProxyService [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub$Proxy: android.hardware.camera2.extension.IAdvancedExtenderImpl initializeAdvancedExtension(int)>
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub$Proxy: android.hardware.camera2.extension.IImageCaptureExtenderImpl initializeImageExtension(int)>
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub$Proxy: android.hardware.camera2.extension.IPreviewExtenderImpl initializePreviewExtension(int)>
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub$Proxy: boolean advancedExtensionsSupported()>
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub$Proxy: long registerClient()>
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub$Proxy: void initializeSession(android.hardware.camera2.extension.IInitializeSessionCallback)>
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub$Proxy: void releaseSession()>
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub$Proxy: void unregisterClient(long)>
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub: android.hardware.camera2.extension.ICameraExtensionsProxyService asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.ICameraExtensionsProxyService$Stub: void <init>()>

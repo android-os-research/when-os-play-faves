@@ -1,0 +1,7 @@
+# android.companion.ICompanionDeviceDiscoveryService [NEW]
+# Refs: 3
+# JARs: framework
+
+<android.companion.ICompanionDeviceDiscoveryService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.companion.ICompanionDeviceDiscoveryService$Stub$Proxy: void onAssociationCreated()>
+<android.companion.ICompanionDeviceDiscoveryService$Stub$Proxy: void startDiscovery(android.companion.AssociationRequest,java.lang.String,android.companion.IAssociationRequestCallback,com.android.internal.infra.AndroidFuture)>

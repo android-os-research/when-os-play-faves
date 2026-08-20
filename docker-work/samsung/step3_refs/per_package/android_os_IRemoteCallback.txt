@@ -1,0 +1,9 @@
+# android.os.IRemoteCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.IRemoteCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IRemoteCallback$Stub$Proxy: void sendResult(android.os.Bundle)>
+<android.os.IRemoteCallback$Stub: android.os.IRemoteCallback asInterface(android.os.IBinder)>
+<android.os.IRemoteCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IRemoteCallback$Stub: void <init>()>

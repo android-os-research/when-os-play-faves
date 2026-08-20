@@ -1,0 +1,9 @@
+# com.samsung.android.cocktailbar.ICocktailBarStateCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.cocktailbar.ICocktailBarStateCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.cocktailbar.ICocktailBarStateCallback$Stub$Proxy: void onCocktailBarStateChanged(com.samsung.android.cocktailbar.CocktailBarStateInfo)>
+<com.samsung.android.cocktailbar.ICocktailBarStateCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.cocktailbar.ICocktailBarStateCallback$Stub: com.samsung.android.cocktailbar.ICocktailBarStateCallback asInterface(android.os.IBinder)>
+<com.samsung.android.cocktailbar.ICocktailBarStateCallback$Stub: void <init>()>

@@ -1,0 +1,10 @@
+# com.samsung.android.knox.restriction.ISPDControlPolicy [NEW]
+# Refs: 6
+# JARs: knoxsdk
+
+<com.samsung.android.knox.restriction.ISPDControlPolicy$Stub$Proxy: boolean setAutoSecurityPolicyUpdateMode(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.restriction.ISPDControlPolicy$Stub$Proxy: int getAutoSecurityPolicyUpdateMode()>
+<com.samsung.android.knox.restriction.ISPDControlPolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.restriction.ISPDControlPolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.restriction.ISPDControlPolicy$Stub: com.samsung.android.knox.restriction.ISPDControlPolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.restriction.ISPDControlPolicy$Stub: void <init>()>

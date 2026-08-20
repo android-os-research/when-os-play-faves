@@ -1,0 +1,22 @@
+# com.mediatek.ims.internal.IMtkImsCallSession [NEW]
+# Refs: 18
+# JARs: mediatek-ims-base
+
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: android.telephony.ims.ImsCallProfile getCallProfile()>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: boolean isIncomingCallMultiparty()>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: com.android.ims.internal.IImsCallSession getIImsCallSession()>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: java.lang.String getCallId()>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: java.lang.String getHeaderCallId()>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: void approveEccRedial(boolean)>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: void callTerminated()>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: void close()>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: void removeLastParticipant()>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: void resume()>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: void setIImsCallSession(com.android.ims.internal.IImsCallSession)>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: void setImsCallMode(int)>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: void setListener(com.mediatek.ims.internal.IMtkImsCallSessionListener)>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub$Proxy: void videoRingtoneOperation(int,java.lang.String)>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub: com.mediatek.ims.internal.IMtkImsCallSession asInterface(android.os.IBinder)>
+<com.mediatek.ims.internal.IMtkImsCallSession$Stub: void <init>()>

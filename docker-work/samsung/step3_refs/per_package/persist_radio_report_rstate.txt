@@ -1,0 +1,6 @@
+# persist.radio.report_rstate [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional report_r_state()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void report_r_state(java.lang.Integer)>

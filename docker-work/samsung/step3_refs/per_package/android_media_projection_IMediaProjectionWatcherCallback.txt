@@ -1,0 +1,10 @@
+# android.media.projection.IMediaProjectionWatcherCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.projection.IMediaProjectionWatcherCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.projection.IMediaProjectionWatcherCallback$Stub$Proxy: void onStart(android.media.projection.MediaProjectionInfo)>
+<android.media.projection.IMediaProjectionWatcherCallback$Stub$Proxy: void onStop(android.media.projection.MediaProjectionInfo)>
+<android.media.projection.IMediaProjectionWatcherCallback$Stub: android.media.projection.IMediaProjectionWatcherCallback asInterface(android.os.IBinder)>
+<android.media.projection.IMediaProjectionWatcherCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.projection.IMediaProjectionWatcherCallback$Stub: void <init>()>

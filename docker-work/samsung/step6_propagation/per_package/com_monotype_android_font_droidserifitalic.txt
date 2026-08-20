@@ -1,0 +1,254 @@
+######################################################################
+# Propagation: com.monotype.android.font.droidserifitalic
+######################################################################
+
+JARs:                 framework, services
+Classes:              4
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.fontutil.TypefaceFinder
+  Method:   <com.samsung.android.fontutil.TypefaceFinder: void getSansEntries(android.content.Context,android.content.pm.PackageManager,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList)>
+  Line:     1026
+  Register: v12 := "com.monotype.android.font.droidserifitalic"
+  Usage:    [invoke] invoke-virtual {v15, v12}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v12 → [branch] if-eqz v12, :cond_116 → [other] move-object/from
+
+  CALLERS (who invokes this method):
+      ← FlipFontOptimizer.getFontsVector()
+        ← FlipFontOptimizer.getFontString()
+          ← FlipFontOptimizer.setFlipfont()
+            ← FlipFontOptimizer.setFlipfont()
+              ← ActivityManagerService.finishBooting()
+
+  CALLEES (what this method invokes):
+      → Context.getResources()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → Resources.getText()
+      → SemTypeface.getFontPackageName()
+      → SemTypeface.getSansName()
+      → SemTypeface.getTypefaceFilename()
+      → <com.samsung.android.fontutil.TypefaceFinder$TypefaceSortByN
+      → TypefaceFinder.isDomesticModel()
+      → Exception.printStackTrace()
+      → ArrayList.add()
+      → ArrayList.add()
+      → Collections.sort()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → List.isEmpty()
+        → TypefaceFinder.readCountryCode()
+          → SemCscFeature.getInstance()
+          → SemCscFeature.getString()
+            → <com.samsung.android.feature.SemCscFeature: void <init>()>
+            → Hashtable.get()
+              → SystemProperties.get()
+              → SemCscFeature.loadFeatureFile()
+              → Exception.toString()
+              → <java.util.Hashtable: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.fontutil.FlipFontOptimizer
+  Method:   <com.samsung.android.fontutil.FlipFontOptimizer: java.util.ArrayList getFontsVector()>
+  Line:     180
+  Register: v12 := "com.monotype.android.font.droidserifitalic"
+  Usage:    [invoke] invoke-virtual {v11, v12}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+  Patterns: (none)
+  Flow:     [invoke] java.lang.String.startsWith() → [other] move-result v12 → [branch] if-nez v12, :cond_62 → [reassigned] v12 over
+
+  CALLERS (who invokes this method):
+      ← FlipFontOptimizer.getFontString()
+        ← FlipFontOptimizer.setFlipfont()
+          ← FlipFontOptimizer.setFlipfont()
+            ← ActivityManagerService.finishBooting()
+              ← ActivityManagerService$LocalService.finishBooting()
+              ← ActivityManagerService.bootAnimationComplete()
+              ← ActivityManagerService.ensureBootCompleted()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → PackageManager.getResourcesForApplication()
+      → PackageManager.getInstalledApplications()
+      → Resources.getAssets()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <com.samsung.android.fontutil.TypefaceFinder: void <init>()>
+      → TypefaceFinder.findTypefaces()
+      → TypefaceFinder.getSansEntries()
+      → Exception.getMessage()
+      → <java.util.ArrayList: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → AssetManager.open()
+        → AssetManager.list()
+        → TypefaceFinder.findTypefacesWithCR()
+        → TypefaceFinder.parseTypefaceXml()
+        → InputStream.close()
+        → Throwable.addSuppressed()
+        → Context.getResources()
+        → Resources.getText()
+        → SemTypeface.getFontPackageName()
+        → SemTypeface.getSansName()
+        → SemTypeface.getTypefaceFilename()
+        → <com.samsung.android.fontutil.TypefaceFinder$TypefaceSortByN
+        → TypefaceFinder.isDomesticModel()
+        → Exception.printStackTrace()
+        → ArrayList.add()
+        → ArrayList.add()
+        → Collections.sort()
+          → ContentResolver.openInputStream()
+          → ContentResolver.getType()
+          → Context.getContentResolver()
+          → Uri.parse()
+          → SemTypeface.setFontPackageName()
+          → SemTypeface.setTypefaceFilename()
+          → TypefaceParser.getParsedData()
+          → <com.samsung.android.fontutil.TypefaceParser: void <init>()>
+          → List.add()
+          → SAXParser.getXMLReader()
+          → SAXParserFactory.newSAXParser()
+          → SAXParserFactory.newInstance()
+          → <org.xml.sax.InputSource: void <init>(java.io.InputStream)>
+          → XMLReader.parse()
+          → XMLReader.setContentHandler()
+          → List.isEmpty()
+          → TypefaceFinder.readCountryCode()
+            → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+            → <org.xml.sax.helpers.DefaultHandler: void <init>()>
+            → SemCscFeature.getInstance()
+            → SemCscFeature.getString()
+              → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+              → <com.samsung.android.feature.SemCscFeature: void <init>()>
+              → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.general.TypefaceFinder
+  Method:   <com.android.server.enterprise.general.TypefaceFinder: void getSansEntries(android.content.pm.PackageManager,java.util.Vector,java.util.Vector,java.util.Vector)>
+  Line:     574
+  Register: v9 := "com.monotype.android.font.droidserifitalic"
+  Usage:    [invoke] invoke-virtual {v6, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← MiscPolicy$SystemFontChanger.getFontsVector()
+        ← MiscPolicy$SystemFontChanger.getFontString()
+          ← MiscPolicy$SystemFontChanger.changeFont()
+          ← MiscPolicy$SystemFontChanger.getSystemFonts()
+            ← MiscPolicy$SystemFontChanger.setSystemActiveFont()
+            ← MiscPolicy$SystemFontChanger.getSystemActiveFont()
+            ← MiscPolicy.getSystemFonts()
+              ← MiscPolicy.setSystemActiveFont()
+              ← MiscPolicy.getSystemActiveFont()
+
+  CALLEES (what this method invokes):
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → PackageManager.getResourcesForApplication()
+      → Resources.getAssets()
+      → Typeface.createFromAsset()
+      → Typeface.getFontPackageName()
+      → Typeface.getSansName()
+      → Typeface.getTypefaceFilename()
+      → <com.android.server.enterprise.general.TypefaceFinder$Typefa
+      → TypefaceFinder.deleteWhiteSpace()
+      → Exception.printStackTrace()
+      → Collections.sort()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.size()
+      → List.get()
+      → List.iterator()
+      → Vector.add()
+      → Vector.add()
+        → List.isEmpty()
+        → StringBuffer.toString()
+        → StringBuffer.append()
+        → <java.lang.StringBuffer: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.general.MiscPolicy$SystemFontChanger
+  Method:   <com.android.server.enterprise.general.MiscPolicy$SystemFontChanger: java.util.Vector getFontsVector()>
+  Line:     708
+  Register: v11 := "com.monotype.android.font.droidserifitalic"
+  Usage:    [invoke] invoke-virtual {v10, v11}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+  Patterns: (none)
+  Flow:     [invoke] java.lang.String.startsWith() → [other] move-result v11 → [branch] if-eqz v11, :cond_45 → [reassigned] v11 over
+
+  CALLERS (who invokes this method):
+      ← MiscPolicy$SystemFontChanger.getFontString()
+        ← MiscPolicy$SystemFontChanger.changeFont()
+        ← MiscPolicy$SystemFontChanger.getSystemFonts()
+          ← MiscPolicy$SystemFontChanger.setSystemActiveFont()
+          ← MiscPolicy$SystemFontChanger.getSystemActiveFont()
+          ← MiscPolicy.getSystemFonts()
+            ← MiscPolicy.setSystemActiveFont()
+            ← MiscPolicy.getSystemActiveFont()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → PackageManager.getResourcesForApplication()
+      → PackageManager.getInstalledApplications()
+      → Resources.getAssets()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <com.android.server.enterprise.general.MiscPolicy: android.c
+      → TypefaceFinder.findTypefaces()
+      → <com.android.server.enterprise.general.TypefaceFinder: void 
+      → TypefaceFinder.getSansEntries()
+      → Exception.printStackTrace()
+      → List.size()
+      → List.get()
+      → <java.util.Vector: void <init>()>
+        → AssetManager.open()
+        → AssetManager.list()
+        → TypefaceFinder.parseTypefaceXml()
+        → <java.util.ArrayList: void <init>()>
+        → Typeface.createFromAsset()
+        → Typeface.getFontPackageName()
+        → Typeface.getSansName()
+        → Typeface.getTypefaceFilename()
+        → <com.android.server.enterprise.general.TypefaceFinder$Typefa
+        → TypefaceFinder.deleteWhiteSpace()
+        → Collections.sort()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+        → Vector.add()
+        → Vector.add()
+          → Typeface.setFontPackageName()
+          → Typeface.setTypefaceFilename()
+          → TypefaceParser.getParsedData()
+          → <com.android.server.enterprise.general.TypefaceParser: void 
+          → List.add()
+          → SAXParser.getXMLReader()
+          → SAXParserFactory.newSAXParser()
+          → SAXParserFactory.newInstance()
+          → <org.xml.sax.InputSource: void <init>(java.io.InputStream)>
+          → XMLReader.parse()
+          → XMLReader.setContentHandler()
+          → List.isEmpty()
+          → StringBuffer.toString()
+          → StringBuffer.append()
+          → <java.lang.StringBuffer: void <init>()>
+            → <org.xml.sax.helpers.DefaultHandler: void <init>()>
+

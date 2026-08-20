@@ -1,0 +1,6 @@
+# android.test.runner [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.pm.parsing.library.AndroidTestBaseUpdater: void updatePackage(com.android.server.pm.parsing.pkg.ParsedPackage,boolean)>
+<com.android.server.pm.parsing.library.PackageBackwardCompatibility$AndroidTestRunnerSplitUpdater: void updatePackage(com.android.server.pm.parsing.pkg.ParsedPackage,boolean)>

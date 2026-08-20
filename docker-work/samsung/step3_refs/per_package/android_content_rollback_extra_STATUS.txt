@@ -1,0 +1,8 @@
+# android.content.rollback.extra.STATUS [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.pm.PackageManagerShellCommand: int runRollbackApp()>
+<com.android.server.rollback.Rollback: void lambda$commit$0(android.content.Intent,android.content.Context,android.content.IntentSender,java.util.List)>
+<com.android.server.rollback.RollbackManagerServiceImpl: void sendFailure(android.content.Context,android.content.IntentSender,int,java.lang.String)>
+<com.android.server.rollback.RollbackPackageHealthObserver: void lambda$rollbackPackage$4(android.content.rollback.RollbackInfo,android.content.pm.VersionedPackage,int,java.lang.String,android.content.Intent)>

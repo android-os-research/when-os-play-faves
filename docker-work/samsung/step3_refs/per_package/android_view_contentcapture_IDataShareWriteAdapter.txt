@@ -1,0 +1,12 @@
+# android.view.contentcapture.IDataShareWriteAdapter [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.view.contentcapture.IDataShareWriteAdapter$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.contentcapture.IDataShareWriteAdapter$Stub$Proxy: void error(int)>
+<android.view.contentcapture.IDataShareWriteAdapter$Stub$Proxy: void finish()>
+<android.view.contentcapture.IDataShareWriteAdapter$Stub$Proxy: void rejected()>
+<android.view.contentcapture.IDataShareWriteAdapter$Stub$Proxy: void write(android.os.ParcelFileDescriptor)>
+<android.view.contentcapture.IDataShareWriteAdapter$Stub: android.view.contentcapture.IDataShareWriteAdapter asInterface(android.os.IBinder)>
+<android.view.contentcapture.IDataShareWriteAdapter$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.contentcapture.IDataShareWriteAdapter$Stub: void <init>()>

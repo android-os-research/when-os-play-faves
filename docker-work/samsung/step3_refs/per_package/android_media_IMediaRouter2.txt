@@ -1,0 +1,16 @@
+# android.media.IMediaRouter2 [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.media.IMediaRouter2$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IMediaRouter2$Stub$Proxy: void notifyRouterRegistered(java.util.List,android.media.RoutingSessionInfo)>
+<android.media.IMediaRouter2$Stub$Proxy: void notifyRoutesAdded(java.util.List)>
+<android.media.IMediaRouter2$Stub$Proxy: void notifyRoutesChanged(java.util.List)>
+<android.media.IMediaRouter2$Stub$Proxy: void notifyRoutesRemoved(java.util.List)>
+<android.media.IMediaRouter2$Stub$Proxy: void notifySessionCreated(int,android.media.RoutingSessionInfo)>
+<android.media.IMediaRouter2$Stub$Proxy: void notifySessionInfoChanged(android.media.RoutingSessionInfo)>
+<android.media.IMediaRouter2$Stub$Proxy: void notifySessionReleased(android.media.RoutingSessionInfo)>
+<android.media.IMediaRouter2$Stub$Proxy: void requestCreateSessionByManager(long,android.media.RoutingSessionInfo,android.media.MediaRoute2Info)>
+<android.media.IMediaRouter2$Stub: android.media.IMediaRouter2 asInterface(android.os.IBinder)>
+<android.media.IMediaRouter2$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IMediaRouter2$Stub: void <init>()>

@@ -1,0 +1,15 @@
+# ro.build.fingerprint [NEW]
+# Refs: 11
+# JARs: framework, services
+
+<android.content.pm.PackagePartitions: java.lang.String getFingerprint()>
+<android.os.Build: java.lang.String deriveFingerprint()>
+<android.os.Build: void ensureFingerprintProperty()>
+<com.android.server.BootReceiver$SaveLastkmsg: void logLastKmsg()>
+<com.android.server.EntropyMixer: byte[] getDeviceSpecificInformation()>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: boolean isFirmwareChanged()>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <init>(com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl$Injector)>
+<com.android.server.enterprise.restriction.RestrictionPolicy: boolean isFirmwareChanged()>
+<com.android.server.enterprise.storage.EdmStorageHelper: void doCreationOrUpdatePostCommands(android.database.sqlite.SQLiteDatabase)>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: boolean isFirmwareChanged()>
+<com.samsung.android.knox.custom.KnoxCustomManagerService: void systemReady()>

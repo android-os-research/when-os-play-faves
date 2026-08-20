@@ -1,0 +1,9 @@
+# android.hardware.location.IActivityRecognitionHardwareWatcher [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.location.IActivityRecognitionHardwareWatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.location.IActivityRecognitionHardwareWatcher$Stub$Proxy: void onInstanceChanged(android.hardware.location.IActivityRecognitionHardware)>
+<android.hardware.location.IActivityRecognitionHardwareWatcher$Stub: android.hardware.location.IActivityRecognitionHardwareWatcher asInterface(android.os.IBinder)>
+<android.hardware.location.IActivityRecognitionHardwareWatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.location.IActivityRecognitionHardwareWatcher$Stub: void <init>()>

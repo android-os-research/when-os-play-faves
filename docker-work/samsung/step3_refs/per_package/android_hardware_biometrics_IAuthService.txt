@@ -1,0 +1,22 @@
+# android.hardware.biometrics.IAuthService [NEW]
+# Refs: 18
+# JARs: framework
+
+<android.hardware.biometrics.IAuthService$Stub$Proxy: android.hardware.biometrics.ITestSession createTestSession(int,android.hardware.biometrics.ITestSessionCallback,java.lang.String)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: boolean hasEnrolledBiometrics(int,java.lang.String)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: int canAuthenticate(java.lang.String,int,int)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: java.lang.CharSequence getButtonLabel(int,java.lang.String,int)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: java.lang.CharSequence getPromptMessage(int,java.lang.String,int)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: java.lang.CharSequence getSettingName(int,java.lang.String,int)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: java.lang.String getUiPackage()>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: java.util.List getSensorProperties(java.lang.String)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: long authenticate(android.os.IBinder,long,int,android.hardware.biometrics.IBiometricServiceReceiver,java.lang.String,android.hardware.biometrics.PromptInfo)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: long[] getAuthenticatorIds(int)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: void cancelAuthentication(android.os.IBinder,java.lang.String,long)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: void invalidateAuthenticatorIds(int,int,android.hardware.biometrics.IInvalidationCallback)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: void registerEnabledOnKeyguardCallback(android.hardware.biometrics.IBiometricEnabledOnKeyguardCallback)>
+<android.hardware.biometrics.IAuthService$Stub$Proxy: void resetLockoutTimeBound(android.os.IBinder,java.lang.String,int,int,byte[])>
+<android.hardware.biometrics.IAuthService$Stub: android.hardware.biometrics.IAuthService asInterface(android.os.IBinder)>
+<android.hardware.biometrics.IAuthService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.IAuthService$Stub: void <init>()>

@@ -1,0 +1,108 @@
+.class public Lcom/android/server/vcn/VcnGatewayConnection$VcnWakeLock;
+.super Ljava/lang/Object;
+.source "VcnGatewayConnection.java"
+
+
+# annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PRIVATE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/vcn/VcnGatewayConnection;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "VcnWakeLock"
+.end annotation
+
+
+# instance fields
+.field public final mImpl:Landroid/os/PowerManager$WakeLock;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;ILjava/lang/String;)V
+    .registers 5
+
+    .line 2677
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2678
+    const-class v0, Landroid/os/PowerManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/os/PowerManager;
+
+    .line 2679
+    invoke-virtual {p1, p2, p3}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnWakeLock;->mImpl:Landroid/os/PowerManager$WakeLock;
+
+    const/4 p0, 0x0
+
+    .line 2680
+    invoke-virtual {p1, p0}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public declared-synchronized acquire()V
+    .registers 2
+
+    monitor-enter p0
+
+    .line 2689
+    :try_start_1
+    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnWakeLock;->mImpl:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    :try_end_6
+    .catchall {:try_start_1 .. :try_end_6} :catchall_8
+
+    .line 2690
+    monitor-exit p0
+
+    return-void
+
+    :catchall_8
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method public declared-synchronized release()V
+    .registers 2
+
+    monitor-enter p0
+
+    .line 2698
+    :try_start_1
+    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnWakeLock;->mImpl:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+    :try_end_6
+    .catchall {:try_start_1 .. :try_end_6} :catchall_8
+
+    .line 2699
+    monitor-exit p0
+
+    return-void
+
+    :catchall_8
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method

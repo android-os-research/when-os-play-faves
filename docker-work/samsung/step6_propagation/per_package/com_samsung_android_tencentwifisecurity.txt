@@ -1,0 +1,47 @@
+######################################################################
+# Propagation: com.samsung.android.tencentwifisecurity
+######################################################################
+
+JARs:                 framework, semwifi-service
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     262
+  Register: v57 := "com.samsung.android.tencentwifisecurity"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemWifiServiceImpl$7
+  Method:   <com.samsung.android.server.wifi.SemWifiServiceImpl$7: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     45
+  Register: p2 := "com.samsung.android.tencentwifisecurity"
+  Usage:    [invoke] invoke-virtual {p0, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] sget-object p2, Landroid/os/UserHandle;->ALL:Landroid/os/Use → [i
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.setPackage()
+      → Intent.clone()
+

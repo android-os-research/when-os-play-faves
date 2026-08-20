@@ -1,0 +1,7 @@
+# ro.vold.primary_physical [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.StorageManagerService: android.os.storage.StorageVolume[] getVolumeList(int,java.lang.String,int)>
+<com.android.server.StorageManagerService: java.lang.String getDefaultPrimaryStorageUuid()>
+<com.android.server.StorageManagerService: void readSettingsLocked()>

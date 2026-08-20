@@ -1,0 +1,9 @@
+# android.app.IRequestFinishCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.IRequestFinishCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IRequestFinishCallback$Stub$Proxy: void requestFinish()>
+<android.app.IRequestFinishCallback$Stub: android.app.IRequestFinishCallback asInterface(android.os.IBinder)>
+<android.app.IRequestFinishCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IRequestFinishCallback$Stub: void <init>()>

@@ -1,0 +1,6 @@
+# samsung.knox.intent.action.rcp.MOVEMENT [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.knox.KnoxAnalyticsContainer: void onBroadcastIntentReceived(android.content.Context,android.content.Intent)>
+<com.android.server.pm.PersonaManagerService: void systemReady()>

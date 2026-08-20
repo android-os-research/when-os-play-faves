@@ -1,0 +1,17 @@
+# android.view.translation.ITranslationManager [NEW]
+# Refs: 13
+# JARs: framework
+
+<android.view.translation.ITranslationManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.translation.ITranslationManager$Stub$Proxy: void getServiceSettingsActivity(com.android.internal.os.IResultReceiver,int)>
+<android.view.translation.ITranslationManager$Stub$Proxy: void onSessionCreated(android.view.translation.TranslationContext,int,com.android.internal.os.IResultReceiver,int)>
+<android.view.translation.ITranslationManager$Stub$Proxy: void onTranslationCapabilitiesRequest(int,int,android.os.ResultReceiver,int)>
+<android.view.translation.ITranslationManager$Stub$Proxy: void onTranslationFinished(boolean,android.os.IBinder,android.content.ComponentName,int)>
+<android.view.translation.ITranslationManager$Stub$Proxy: void registerTranslationCapabilityCallback(android.os.IRemoteCallback,int)>
+<android.view.translation.ITranslationManager$Stub$Proxy: void registerUiTranslationStateCallback(android.os.IRemoteCallback,int)>
+<android.view.translation.ITranslationManager$Stub$Proxy: void unregisterTranslationCapabilityCallback(android.os.IRemoteCallback,int)>
+<android.view.translation.ITranslationManager$Stub$Proxy: void unregisterUiTranslationStateCallback(android.os.IRemoteCallback,int)>
+<android.view.translation.ITranslationManager$Stub$Proxy: void updateUiTranslationState(int,android.view.translation.TranslationSpec,android.view.translation.TranslationSpec,java.util.List,android.os.IBinder,int,android.view.translation.UiTranslationSpec,int)>
+<android.view.translation.ITranslationManager$Stub: android.view.translation.ITranslationManager asInterface(android.os.IBinder)>
+<android.view.translation.ITranslationManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.translation.ITranslationManager$Stub: void <init>()>

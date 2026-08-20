@@ -1,0 +1,6 @@
+# persist.sys.hdmi.addr.audiosystem [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.hdmi.HdmiCecLocalDeviceAudioSystem: int getPreferredAddress()>
+<com.android.server.hdmi.HdmiCecLocalDeviceAudioSystem: void setPreferredAddress(int)>

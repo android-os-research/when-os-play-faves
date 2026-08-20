@@ -1,0 +1,145 @@
+######################################################################
+# Propagation: com.android.email
+######################################################################
+
+JARs:                 knoxsdk, services
+Classes:              3
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PERM_CHECK, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EnterpriseDeviceAdminInfo
+  Method:   <com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <init>(android.content.Context,android.content.pm.ResolveInfo)>
+  Line:     1776
+  Register: v0 := "com.android.email"
+  Usage:    [invoke] invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← EnterpriseDeviceManagerServiceImpl.findAdmin()
+        ← EnterpriseDeviceManagerServiceImpl$MyPackageMonitor.onPackageUpdateFinished()
+        ← EnterpriseDeviceManagerServiceImpl.isAdminRemovableInternal()
+        ← EnterpriseDeviceManagerServiceImpl.isMdmAdminPresentAsUser()
+        ← EnterpriseDeviceManagerServiceImpl.isMdmAdminPresentInternal()
+        ← EnterpriseDeviceManagerServiceImpl.activateAdmin()
+        ← EnterpriseDeviceManagerServiceImpl.loadActiveAdmins()
+        ← EnterpriseDeviceManagerServiceImpl.reconcileAdmin()
+          ← EnterpriseDeviceManagerServiceImpl.isAdminRemovable()
+          ← EnterpriseDeviceManagerServiceImpl.isMdmAdminPresent()
+          ← EnterpriseDeviceManagerServiceImpl.systemReady()
+          ← EnterpriseDeviceManagerServiceImpl.setActiveAdmin()
+          ← EnterpriseDeviceManagerServiceImpl.setActiveAdminSilent()
+          ← EnterpriseDeviceManagerServiceImpl.removeActiveAdminDelayed()
+          ← EnterpriseDeviceManagerServiceImpl.transferOwnerShip()
+            ← EnterpriseDeviceManagerServiceImpl.systemReady()
+            ← EnterpriseDeviceManagerServiceImpl.removeActiveAdminDelayed()
+              ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+              ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+              ← EnterpriseDeviceManagerServiceImpl.removeActiveAdminFromDpm()
+
+  CALLEES (what this method invokes):
+      → <android.app.admin.DeviceAdminInfo: void <init>(android.cont
+      → EnterpriseDeviceAdminInfo.parseRequestedPermissions()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.BitSet: void <init>()>
+        → DeviceAdminInfo.getPackageName()
+        → Context.getPackageManager()
+        → PackageManager.checkPermission() [PERM_CHECK]
+        → AssetManager.openXmlResourceParser()
+        → AssetManager.addAssetPath()
+        → <android.content.res.AssetManager: void <init>()>
+        → AssetManager.close()
+        → Resources.obtainAttributes()
+        → <android.content.res.Resources: void <init>(android.content.
+        → TypedArray.getNonResourceString()
+        → TypedArray.recycle()
+        → XmlResourceParser.getDepth()
+        → XmlResourceParser.next()
+        → XmlResourceParser.getName()
+        → XmlResourceParser.close()
+        → <android.util.DisplayMetrics: void <init>()>
+        → DisplayMetrics.setToDefaults()
+        → XmlUtils.skipCurrentTag()
+        → EnterpriseLicenseManager.getInstance()
+        → EnterpriseLicenseManager.getELMPermissions()
+        → Exception.printStackTrace()
+        → BitSet.set()
+        → HashMap.containsKey()
+        → HashMap.get()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.add()
+        → List.contains()
+        → List.iterator()
+          → XmlPullParser.getDepth()
+          → XmlPullParser.next()
+          → Process.myUid()
+          → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+          → <com.samsung.android.knox.license.EnterpriseLicenseManager: 
+          → EnterpriseLicenseManager.getService()
+          → IEnterpriseLicense.getELMPermissions()
+            → UserHandle.getUserId()
+            → SemPersonaManager.isKnoxId()
+            → ServiceManager.getService()
+            → IEnterpriseLicense$Stub.asInterface()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.license.IEnterpriseLicense$Stub$Pr
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo$PackageList
+  Method:   <com.android.server.alarm.AppSyncInfo$PackageList: void loadAppSyncBlockList()>
+  Line:     778
+  Register: v0 := "com.android.email"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/android/server/alarm/AppSyncInfo$PackageList;->add(Ljava/lang/String;)
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.alarm.AppSyncInfo$PackageList.add() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.alarm.AppSyncInfo: void <init>(android.c
+        ← AppSyncInfo.createAppSync()
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+            ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → AppSyncInfo$PackageList.add()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.contains()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+  Line:     342
+  Register: v5 := "com.android.email"
+  Usage:    [invoke] invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] java.util.List.add() → [other] new-instance v0, Landroid/os/ConditionVariable; → [invoke] android.os.ConditionV
+
+  CALLEES (what this method invokes):
+      → <android.os.ConditionVariable: void <init>()>
+      → Process.myPid()
+      → SystemProperties.get()
+      → EnterpriseDeviceManagerServiceImpl.isPackageInstalled()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → ActivityThread.getPackageManager()
+

@@ -1,0 +1,14 @@
+# com.samsung.android.nfc.mpos.IMPOSAdapter [NEW]
+# Refs: 10
+# JARs: com.samsung.android.nfc.mpos
+
+<com.samsung.android.nfc.mpos.IMPOSAdapter$Stub$Proxy: boolean changeDedicatedReaderMode(android.os.IBinder,com.samsung.android.nfc.mpos.IMPOSAdapterCallbacks,java.lang.String)>
+<com.samsung.android.nfc.mpos.IMPOSAdapter$Stub$Proxy: boolean getState()>
+<com.samsung.android.nfc.mpos.IMPOSAdapter$Stub$Proxy: boolean selectHost(java.lang.String)>
+<com.samsung.android.nfc.mpos.IMPOSAdapter$Stub$Proxy: boolean setDedicatedReaderMode(boolean)>
+<com.samsung.android.nfc.mpos.IMPOSAdapter$Stub$Proxy: boolean setOnCallback(com.samsung.android.nfc.mpos.IMPOSAdapterCallbacks)>
+<com.samsung.android.nfc.mpos.IMPOSAdapter$Stub$Proxy: boolean setTestMode(int)>
+<com.samsung.android.nfc.mpos.IMPOSAdapter$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.nfc.mpos.IMPOSAdapter$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.nfc.mpos.IMPOSAdapter$Stub: com.samsung.android.nfc.mpos.IMPOSAdapter asInterface(android.os.IBinder)>
+<com.samsung.android.nfc.mpos.IMPOSAdapter$Stub: void <init>()>

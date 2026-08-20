@@ -1,0 +1,1295 @@
+######################################################################
+# Propagation: com.samsung.android.oneconnect
+######################################################################
+
+JARs:                 framework, semwifi-service, services
+Classes:              10
+Occurrences:          12
+Usage types:          array_init, field_store, invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1247
+  Register: v3 := "com.samsung.android.oneconnect"
+  Usage:    [field_store] aput-object v3, v2, v1
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.share.SemShareCommon
+  Method:   <com.samsung.android.share.SemShareCommon: boolean getQuickConnectSupportState()>
+  Line:     1062
+  Register: v3 := "com.samsung.android.oneconnect"
+  Usage:    [invoke] invoke-virtual {v2, v3, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemShareCommon.checkSamsungConnectInfo()
+
+  CALLEES (what this method invokes):
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.share.SemShareCommon
+  Method:   <com.samsung.android.share.SemShareCommon: int getSamsungConnectVersion()>
+  Line:     1880
+  Register: v2 := "com.samsung.android.oneconnect"
+  Usage:    [invoke] invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo()
+
+  CALLERS (who invokes this method):
+      ← SemShareCommon.checkSamsungConnectInfo()
+
+  CALLEES (what this method invokes):
+      → PackageManager$NameNotFoundException.printStackTrace()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemEasySetupWifiManager$EasySetupHandler
+  Method:   <com.samsung.android.server.wifi.SemEasySetupWifiManager$EasySetupHandler: void handleMessage(android.os.Message)>
+  Line:     133
+  Register: v0 := "com.samsung.android.oneconnect"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_e0 → [other] iget-object v0, p0,
+
+  CALLEES (what this method invokes):
+      → KeyguardManager.inKeyguardRestrictedInputMode()
+      → Context.getSystemService()
+      → Intent.getData()
+      → Uri.getSchemeSpecificPart()
+      → <com.samsung.android.server.wifi.SemEasySetupWifiManager: an
+      → <com.samsung.android.server.wifi.SemEasySetupWifiManager: bo
+      → <com.samsung.android.server.wifi.SemEasySetupWifiManager: bo
+      → <com.samsung.android.server.wifi.SemEasySetupWifiManager: bo
+      → <com.samsung.android.server.wifi.SemEasySetupWifiManager: bo
+      → SemEasySetupWifiManager.isHomeActivityVisible()
+      → SemEasySetupWifiManager.isSufficientPartialScan()
+      → <com.samsung.android.server.wifi.SemEasySetupWifiManager: co
+      → <com.samsung.android.server.wifi.SemEasySetupWifiManager: ja
+      → <com.samsung.android.server.wifi.SemEasySetupWifiManager: vo
+      → <com.samsung.android.server.wifi.SemEasySetupWifiManager: vo
+      → <com.samsung.android.server.wifi.SemEasySetupWifiManager: vo
+      → <com.samsung.android.server.wifi.SemEasySetupWifiManager: vo
+      → SemClock.getElapsedSinceBootMillis()
+      → Map.remove()
+        → SemEasySetupWifiManager.isEasySetupEnabled()
+        → SemEasySetupWifiManager.resetPartialScanTimerWhenScreenOnOff()
+        → SemEasySetupWifiManager.checkEasySetupNetwork()
+        → SemEasySetupWifiManager.startPartialScan()
+        → SystemClock.elapsedRealtime()
+          → WifiFeatureController.isSupportEasySetup()
+          → WifiFeatureController.isSupportEasySetupResetAfterScreenOffOn()
+          → SemEasySetupWifiManager.isValidSecurityType()
+          → SemEasySetupWifiManager.launchEasySetupService()
+          → <java.util.ArrayList: void <init>()>
+          → Collection.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.add()
+          → List.isEmpty()
+          → List.iterator()
+          → Map.values()
+          → <android.net.wifi.WifiScanner$ChannelSpec: void <init>(int)>
+          → <android.net.wifi.WifiScanner$ScanSettings: void <init>()>
+          → WifiScanner.startScan()
+          → <android.os.WorkSource: void <init>(int,java.lang.String)>
+          → SemEasySetupWifiManager.retrieveWifiScannerIfNecessary()
+            → WifiFeatureController.isSupported()
+            → SemScanResultUtil.isScanResultForEapNetwork()
+            → SemScanResultUtil.isScanResultForOpenNetwork()
+            → SemScanResultUtil.isScanResultForOweNetwork()
+            → SemScanResultUtil.isScanResultForWepNetwork()
+            → PendingIntent.send()
+            → Intent.putParcelableArrayListExtra()
+            → <android.content.Intent: void <init>()>
+            → Exception.printStackTrace()
+            → <java.util.ArrayList: void <init>(java.util.Collection)>
+            → Preconditions.checkNotNull()
+            → Context.getSystemService()
+              → HashMap.get()
+              → HashMap.getOrDefault()
+              → SemScanResultUtil.isScanResultForWpa3EnterpriseOnlyNetwork()
+              → SemScanResultUtil.isScanResultForWpa3EnterpriseTransitionNetwork()
+              → SemScanResultUtil.isScanResultForDppNetwork()
+              → SemScanResultUtil.isScanResultForEapSuiteBNetwork()
+              → SemScanResultUtil.isScanResultForPskNetwork()
+              → SemScanResultUtil.isScanResultForSaeNetwork()
+              → SemScanResultUtil.isScanResultForUnknownAkmNetwork()
+              → SemScanResultUtil.isScanResultForWapiCertNetwork()
+              → SemScanResultUtil.isScanResultForWapiPskNetwork()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemWifiConnectivityMonitor
+  Method:   <com.samsung.android.server.wifi.SemWifiConnectivityMonitor: void <init>(android.content.Context,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.ISemInterfaceNameProvider,com.samsung.android.server.wifi.tcp.SemWifiSwitchForIndividualAppsService)>
+  Line:     2804
+  Register: v10 := "com.samsung.android.oneconnect"
+  Usage:    [array_init] filled-new-array {v10, v11, v12, v13}, [Ljava/lang/String;
+  Patterns: string_compare, early_return
+  Flow:     [other] filled-new-array/range {v11 .. v21}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← SemWifiConnectivityMonitor.makeWifiConnectivityMonitor()
+        ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void <i
+          ← <com.samsung.android.server.wifi.SemWifiService: void <init>
+
+  CALLEES (what this method invokes):
+      → IUsageStatsManager$Stub.asInterface()
+      → IUsageStatsManager.registerUsageStatsWatcher()
+      → Context.getContentResolver()
+      → Context.getSystemService()
+      → IOverlayManager$Stub.asInterface()
+      → <android.net.wifi.WifiInfo: void <init>()>
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → ServiceManager.getService()
+      → <android.util.LruCache: void <init>(int)>
+      → <com.android.internal.util.StateMachine: void <init>(java.la
+      → SemFrameworkFacade.isComcastVendor()
+      → SemFrameworkFacade.isFactoryBinary()
+      → SemFrameworkFacade.isSetupwizardFinished()
+      → SemFrameworkFacade.isShowDataSelectPopupOnBootup()
+      → SemFrameworkFacade.isSnsDefaultOn()
+      → SemFrameworkFacade.setIntegerSetting()
+      → SemFrameworkFacade.getOpBranding()
+      → SemFrameworkFacade.getIntegerSetting()
+      → SemFrameworkFacade.getStringCscFeature()
+      → SemFrameworkFacade.getSystemProperties()
+      → SemWifiConfigManager.registerNetworkRemovedListener()
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+      → SemWifiConnectivityMonitor.isIndividualAppSupported()
+      → SemWifiConnectivityMonitor.getNetworkRemovedListener()
+      → SemWifiConnectivityMonitor.addState()
+      → SemWifiConnectivityMonitor.addState()
+      → SemWifiConnectivityMonitor.setInitialState()
+      → SemWifiConnectivityMonitor.setLogRecSize()
+      → SemWifiConnectivityMonitor.setResourceOverlayForChina()
+      → SemWifiConnectivityMonitor.updateCountryIsoCode()
+      → SemWifiInjector.getFrameworkFacade()
+      → SemWifiInjector.getWifiConfigManager()
+      → SemWifiInjector.getWifiLinkInfoCollector()
+      → SemWifiInjector.getWifiManagerProxy()
+      → SemWifiInjector.getWifiTrafficPoller()
+      → SemWifiInjector.getWifiBackOffController()
+      → SemWifiInjector.getWifiIssueDetector()
+      → SemWifiInjector.getWifiNative()
+      → SemWifiInjector.getMobileWipsFrameworkService()
+      → SemWifiInjector.getScanPoll()
+      → SemWifiManagerProxy.setWifiConnectedNetworkScorer()
+      → SemWifiManagerProxy.registerListener()
+      → <com.samsung.android.server.wifi.util.LogUtils: void <init>(
+      → ScanPool.registerScanResultUpdatedListener()
+      → <com.samsung.android.server.wifi.wcm.BssidStatistics: void <
+      → <com.samsung.android.server.wifi.wcm.NetworkStatsAnalyzer: v
+      → NetworkStatsAnalyzer.setCurrentWCMMode()
+      → NetworkStatsAnalyzer.setNetworkStatsAnalyzerCallBack()
+      → <com.samsung.android.server.wifi.wcm.QcFailHistory: void <in
+      → <com.samsung.android.server.wifi.wcm.ScoreQC: void <init>()>
+      → <com.samsung.android.server.wifi.wcm.SemWifiRssiBasePoller: 
+      → SemWifiRssiBasePoller.setSemWifiRssiBasePollerCallBack()
+      → WcmBigDataManager.getBigDataFeature()
+      → <com.samsung.android.server.wifi.wcm.WcmBigDataManager: void
+      → <com.samsung.android.server.wifi.wcm.WifiScoreMediator: void
+      → Exception.printStackTrace()
+      → Executors.newSingleThreadExecutor()
+      → <java.util.concurrent.atomic.AtomicBoolean: void <init>(bool
+        → <android.app.usage.IUsageStatsManager$Stub$Proxy: void <init
+        → IBinder.queryLocalInterface()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → <java.util.LinkedHashMap: void <init>(int,float,boolean)>
+        → SemCscFeature.getBoolean()
+        → SemCscFeature.getInstance()
+        → SystemProperties.get()
+        → SemCscFeature.getString()
+        → Settings$Global.putInt()
+        → SemOpBrandingLoader.getInstance()
+        → SemOpBrandingLoader.getOpBranding()
+        → Settings$Global.getInt()
+        → Set.add()
+        → <com.samsung.android.app.usage.IUsageStatsWatcher$Stub: void
+        → <com.android.internal.util.State: void <init>()>
+        → SemWifiConnectivityMonitor$NetworkCallbackController.init()
+        → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+        → IOverlayManager.setEnabled()
+        → TelephonyManager.getNetworkCountryIso()
+        → SemWifiConnectivityMonitor.isChineseIso()
+        → SemWifiConnectivityMonitor.getCurrentTimeSimpleDateFormat()
+        → SemFrameworkFacade.isHotspotDongleProduct()
+        → SemWifiInjector.getBigDataLogManager()
+        → <com.samsung.android.server.wifi.diagnostics.WifiIssueDetect
+        → ScanPool.getInstance()
+        → WifiManager.setWifiConnectedNetworkScorer()
+        → <com.samsung.android.server.wifi.SemWifiManagerProxy$$Extern
+        → SemWifiThreadRunner.post()
+        → Debug.semIsProductDev()
+        → Pattern.compile()
+        → <com.samsung.android.server.wifi.wcm.BssidStatistics: void <
+        → <com.samsung.android.server.wifi.wcm.OpenNetworkQos: void <i
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → <java.util.ArrayList: void <init>()>
+        → HashMap.containsKey()
+        → HashMap.get()
+        → SemWifiInjector.getInstance()
+        → SemWifiInjector.getWifiVersionProvider()
+        → WcmBigDataManager.initialize()
+        → <java.util.HashMap: void <init>()>
+          → Hashtable.get()
+          → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → <com.samsung.android.wifi.SemOpBrandingLoader: void <init>()
+          → SemOpBrandingLoader.updateFromFile()
+          → <android.os.Binder: void <init>()>
+          → IUsageStatsWatcher$Stub.attachInterface()
+          → SemWifiConnectivityMonitor$NetworkCallbackController.registerConnectionNetworkCallback()
+          → SemWifiConnectivityMonitor$NetworkCallbackController.registerDefaultNetworkCallback()
+          → SimpleDateFormat.format()
+          → <android.icu.text.SimpleDateFormat: void <init>(java.lang.St
+          → <java.util.Date: void <init>()>
+          → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternApProble
+          → <com.samsung.android.server.wifi.diagnostics.PatternDhcpFail
+          → <com.samsung.android.server.wifi.diagnostics.PatternScanProb
+          → <com.samsung.android.server.wifi.diagnostics.PatternSystemPr
+          → <com.samsung.android.server.wifi.diagnostics.PatternWifiAppP
+          → <com.samsung.android.server.wifi.diagnostics.PatternWipsDisc
+          → WifiIssueDetector.loadHistory()
+          → WifiIssueDetector.registerIssuePattern()
+          → <java.util.HashSet: void <init>()>
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.add()
+          → List.addAll()
+          → List.iterator()
+          → <com.samsung.android.server.wifi.util.ScanPool: void <init>(
+          → Handler.post()
+          → <com.samsung.android.server.wifi.wcm.BssidStatistics$VolumeW
+          → <com.samsung.android.server.wifi.wcm.Constant: void <init>()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSCNT: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSSIV: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataSSVI: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataTCPE: void <i
+          → <com.samsung.android.server.wifi.wcm.WcmBigDataWFSN: void <i
+          → HashMap.put()
+          → HashMap.clear()
+            → SemCscFeature.loadFeatureFile()
+            → Exception.toString()
+            → <java.util.Hashtable: void <init>()>
+            → Environment.getLegacyExternalStorageDirectory()
+            → SemOpBrandingLoader.getVendorFromCsc()
+            → File.getPath()
+            → SemOpBrandingLoader$SemVendor.ordinal()
+            → SemOpBrandingLoader$SemVendor.name()
+            → SemOpBrandingLoader.getVendorFromFile()
+            → <android.os.Binder: void <init>(java.lang.String)>
+            → ConnectivityManager.registerNetworkCallback()
+            → NetworkRequest$Builder.build()
+            → NetworkRequest$Builder.addTransportType()
+            → NetworkRequest$Builder.removeCapability()
+            → <android.net.NetworkRequest$Builder: void <init>()>
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor:
+            → ConnectivityManager.registerDefaultNetworkCallback()
+            → <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+            → SemFrameworkFacade.isSupportedBigdataHqmService()
+            → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+            → WifiBigDataLogManager.isSupported()
+            → WifiBigDataLogManager.initialize()
+            → <com.samsung.android.server.wifi.diagnostics.WifiIssuePatter
+            → WifiIssueDetector.readFromFile()
+            → File.delete()
+            → File.exists()
+            → File.length()
+            → <java.io.File: void <init>(java.lang.String)>
+            → Collections.emptyList()
+            → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+            → <com.samsung.android.server.wifi.wcm.WcmBigDataFeature: void
+            → WcmBigDataSCNT.initialize()
+            → WcmBigDataSSVI.initialize()
+            → WcmBigDataTCPE.initialize()
+              → SemCscFeature.loadFeatureFile()
+              → SemOpBrandingLoader.getVendor()
+              → BufferedReader.readLine()
+              → <java.io.BufferedReader: void <init>(java.io.Reader)>
+              → BufferedReader.close()
+              → File.lastModified()
+              → <java.io.FileReader: void <init>(java.io.File)>
+              → IOException.printStackTrace()
+              → Throwable.addSuppressed()
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+              → <android.net.ConnectivityManager$NetworkCallback: void <init
+              → SemWifiConnectivityMonitor.getCm()
+              → SemFrameworkFacade.isSupportedBigdataSurveyMode()
+              → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+              → WifiBigDataLogManager.getSupportedBigDataFeatures()
+              → List.forEach()
+              → RandomAccessFile.readLine()
+              → <java.io.RandomAccessFile: void <init>(java.lang.String,java
+              → RandomAccessFile.close()
+              → List.size()
+              → List.remove()
+              → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.silentroaming.SilentRoamingManager
+  Method:   <com.samsung.android.server.wifi.silentroaming.SilentRoamingManager: void <init>(android.content.Context,com.samsung.android.server.wifi.util.SemClock,android.os.Looper,com.samsung.android.server.wifi.halclient.SemWifiNative,com.samsung.android.server.wifi.SemWifiManagerProxy,com.samsung.android.server.wifi.SemWifiConfigManager,com.samsung.android.server.wifi.SemWifiInjector,com.samsung.android.server.wifi.SemFrameworkFacade,android.util.LocalLog,com.samsung.android.server.wifi.silentroaming.SilentRoamingWifiInfo,com.samsung.android.server.wifi.silentroaming.SilentRoamingPnoScanner,com.samsung.android.server.wifi.silentroaming.SemThroughputPredictor,com.samsung.android.server.wifi.silentroaming.SemThroughputScorer)>
+  Line:     1398
+  Register: v3 := "com.samsung.android.oneconnect"
+  Usage:    [array_init] filled-new-array {v3, v7, v8, v9}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v7 .. v17}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+        ← <com.samsung.android.server.wifi.SemWifiInjector: void <init
+          ← <com.samsung.android.server.wifi.SemWifiService: void <init>
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → <android.util.ArraySet: void <init>()>
+      → MessageUtils.findMessageNames()
+      → <com.android.internal.util.StateMachine: void <init>(java.la
+      → SemWifiInjector.getInterfaceNameProvider()
+      → SemWifiInjector.getWifiFeatureController()
+      → SemWifiInjector.getWifiIssueDetector()
+      → SemWifiInjector.getScanPoll()
+      → SemWifiInjector.getWifiNl80211Util()
+      → <com.samsung.android.server.wifi.silentroaming.SemScoringPar
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+      → SilentRoamingManager.addState()
+      → SilentRoamingManager.addState()
+      → SilentRoamingManager.registerForSettingsChanges()
+      → SilentRoamingManager.setInitialState()
+      → SilentRoamingManager.setLogRecSize()
+      → SilentRoamingManager.start()
+      → <com.samsung.android.server.wifi.util.LogUtils: void <init>(
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.HashSet: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → MessageUtils.findMessageNames()
+        → HandlerThread.getLooper()
+        → <android.os.HandlerThread: void <init>(java.lang.String)>
+        → HandlerThread.start()
+        → SemFrameworkFacade.isHotspotDongleProduct()
+        → SemWifiInjector.getBigDataLogManager()
+        → <com.samsung.android.server.wifi.diagnostics.WifiIssueDetect
+        → ScanPool.getInstance()
+        → <com.samsung.android.server.wifi.util.WifiNl80211Util: void 
+        → <com.android.internal.util.State: void <init>()>
+        → ContentResolver.registerContentObserver()
+        → Context.getContentResolver()
+        → SemFrameworkFacade.getUriFor()
+        → <com.samsung.android.server.wifi.silentroaming.SilentRoaming
+        → SilentRoamingManager.getHandler()
+        → Debug.semIsProductDev()
+        → Pattern.compile()
+          → ArraySet.allocArrays()
+          → SparseArray.get()
+          → <android.util.SparseArray: void <init>()>
+          → SparseArray.put()
+          → <com.android.internal.util.MessageUtils$DuplicateConstantErr
+          → Field.getInt()
+          → Field.getModifiers()
+          → Field.getName()
+          → Field.setAccessible()
+          → Modifier.isFinal()
+          → Modifier.isStatic()
+          → HandlerThread.isAlive()
+          → Thread.currentThread()
+          → Thread.interrupt()
+          → <java.lang.Thread: void <init>(java.lang.String)>
+          → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+          → <android.os.Handler: void <init>(android.os.Looper)>
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternAbnormal
+          → <com.samsung.android.server.wifi.diagnostics.PatternApProble
+          → <com.samsung.android.server.wifi.diagnostics.PatternDhcpFail
+          → <com.samsung.android.server.wifi.diagnostics.PatternScanProb
+          → <com.samsung.android.server.wifi.diagnostics.PatternSystemPr
+          → <com.samsung.android.server.wifi.diagnostics.PatternWifiAppP
+          → <com.samsung.android.server.wifi.diagnostics.PatternWipsDisc
+          → WifiIssueDetector.loadHistory()
+          → WifiIssueDetector.registerIssuePattern()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.add()
+          → List.addAll()
+          → List.iterator()
+          → Set.add()
+          → <com.samsung.android.server.wifi.util.ScanPool: void <init>(
+          → Settings$Global.getUriFor()
+          → <android.database.ContentObserver: void <init>(android.os.Ha
+            → SparseArray.get()
+            → <android.util.SparseArray: void <init>(int)>
+            → ContainerHelpers.binarySearch()
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → <java.lang.Error: void <init>(java.lang.String)>
+            → SemFrameworkFacade.isSupportedBigdataHqmService()
+            → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+            → WifiBigDataLogManager.isSupported()
+            → WifiBigDataLogManager.initialize()
+            → <com.samsung.android.server.wifi.diagnostics.WifiIssuePatter
+            → WifiIssueDetector.readFromFile()
+            → File.delete()
+            → File.exists()
+            → File.length()
+            → <java.io.File: void <init>(java.lang.String)>
+            → Collections.emptyList()
+            → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+              → ArrayUtils.newUnpaddedObjectArray()
+              → SemFrameworkFacade.isSupportedBigdataSurveyMode()
+              → <com.samsung.android.server.wifi.bigdata.WifiBigDataLogManag
+              → WifiBigDataLogManager.getSupportedBigDataFeatures()
+              → HashMap.clear()
+              → List.forEach()
+              → RandomAccessFile.readLine()
+              → <java.io.RandomAccessFile: void <init>(java.lang.String,java
+              → RandomAccessFile.close()
+              → Exception.printStackTrace()
+              → Throwable.addSuppressed()
+              → List.size()
+              → List.remove()
+              → <com.samsung.android.server.wifi.util.ScanPool$CountryCodeHe
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     132
+  Register: v46 := "com.samsung.android.oneconnect"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$3
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$3: void <init>()>
+  Line:     32
+  Register: v0 := "com.samsung.android.oneconnect"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.AudioService$SamsungBroadcastReceiver
+  Method:   <com.android.server.audio.AudioService$SamsungBroadcastReceiver: void handleIntent(android.content.Context,android.content.Intent)>
+  Line:     656
+  Register: p2 := "com.samsung.android.oneconnect"
+  Usage:    [invoke] invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] p2 overwritten
+
+  CALLERS (who invokes this method):
+      ← AudioService$SamsungBroadcastReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → BluetoothA2dp.getActiveDevice()
+      → BluetoothDevice.getAddress()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → Intent.getData()
+      → Intent.getParcelableExtra()
+      → Intent.getBooleanExtra()
+      → Intent.getIntExtra()
+      → Intent.getAction()
+      → Intent.getStringExtra()
+      → <android.content.Intent: void <init>()>
+      → AudioSystem.getParameters()
+      → Uri.getSchemeSpecificPart()
+      → Settings$System.putString()
+      → Settings$System.getString()
+      → TextUtils.equals()
+      → TextUtils.isEmpty()
+      → SparseIntArray.delete()
+      → AudioDeviceBroker.getA2dp()
+      → AudioDeviceBroker.checkSendBecomingNoisyIntent()
+      → AudioDeviceBroker.getPriorityDevice()
+      → AudioDeviceBroker.getAddressForDevice()
+      → AudioDeviceBroker.handleTmsStateChange()
+      → AudioDeviceBroker.postActiveBluetoothDeviceChanged()
+      → AudioDeviceBroker.setDualA2dpMode()
+      → AudioDeviceBroker.updateDeviceQuickConnection()
+      → <com.android.server.audio.AudioEventLogger$StringEvent: void
+      → AudioEventLogger.log()
+      → <com.android.server.audio.AudioService$SamsungBroadcastRecei
+      → <com.android.server.audio.AudioService$SamsungBroadcastRecei
+      → <com.android.server.audio.AudioService: android.content.Cont
+      → <com.android.server.audio.AudioService: android.util.SparseI
+      → AudioService.isInAllowedList()
+      → <com.android.server.audio.AudioService: com.android.server.a
+      → <com.android.server.audio.AudioService: com.android.server.a
+      → <com.android.server.audio.AudioService: com.android.server.a
+      → <com.android.server.audio.AudioService: com.android.server.a
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: com.samsung.android.
+      → <com.android.server.audio.AudioService: int -$$Nest$fgetmNbQ
+      → AudioService.getDeviceForStream()
+      → AudioService.getPinDeviceInternal()
+      → AudioService.setDeviceToForceByUser()
+      → <com.android.server.audio.AudioService: void -$$Nest$fputmAl
+      → <com.android.server.audio.AudioService: void -$$Nest$fputmGo
+      → <com.android.server.audio.AudioService: void -$$Nest$fputmIs
+      → <com.android.server.audio.AudioService: void -$$Nest$fputmNb
+      → <com.android.server.audio.AudioService: void -$$Nest$mcheckM
+      → <com.android.server.audio.AudioService: void -$$Nest$mclearS
+      → <com.android.server.audio.AudioService: void -$$Nest$msendBr
+      → <com.android.server.audio.AudioService: void -$$Nest$msetAll
+      → <com.android.server.audio.AudioService: void -$$Nest$munSetS
+      → <com.android.server.audio.AudioService: void -$$Nest$smsendM
+      → AudioSystemAdapter.setParameters()
+      → MediaFocusControl.getIgnoredUid()
+      → MediaFocusControl.setIgnoreAudioFocus()
+      → <com.samsung.android.media.AudioParameter: void <init>(java.
+      → AudioExecutor.execute()
+      → AudioGameManager.isGamePackager()
+      → AudioGameManager.addGameUid()
+      → AudioGameManager.deleteGameUid()
+      → AudioHelper.setNbQualityMode()
+      → AudioHqmHelper.sendHqmAudioData()
+      → BluetoothHelper.setBtVolumeMonitor()
+      → <com.samsung.android.server.audio.GoodCatchManager: void <in
+      → KaraokeHelper.checkAndBroadcastKaraokeInstalled()
+      → MultiSoundManager.removeItem()
+      → MultiSoundManager.getAppDevice()
+      → MultiSoundManager.clearHeadUpNotification()
+      → MultiSoundManager.clearNotification()
+      → MultiSoundManager.resetPinDevice()
+      → MultiSoundManager.setAppVolume()
+      → MultiSoundManager.showToast()
+      → MultiSoundManager.updateAudioServiceNotificationChannel()
+      → PackageListHelper.addPackage()
+      → PackageListHelper.removePackageForName()
+      → PhoneStateHelper.registerPhoneStateListener()
+      → PhoneStateHelper.unregisterPhoneStateListener()
+      → ScreenSharingHelper.isDLNAEnabled()
+      → ScreenSharingHelper.setDLNAEnabled()
+      → ScreenSharingHelper.setSplitSoundEnabled()
+      → SoundAppPolicyManager.init()
+        → CharSequence.charAt()
+        → CharSequence.length()
+        → ContainerHelpers.binarySearch()
+        → SparseIntArray.removeAt()
+        → BtHelper.getA2dp()
+        → AudioDeviceInventory.checkSendBecomingNoisyIntent()
+        → AudioDeviceInventory.getPriorityDevice()
+        → AudioDeviceInventory.getAddressForDevice()
+        → AudioDeviceInventory.handleTmsStateChange()
+        → AudioDeviceBroker.sendLMsgNoDelay()
+        → BluetoothA2dp.getConnectedDevices()
+        → BluetoothDevice.equals()
+        → BluetoothDevice.semGetAudioType()
+        → AudioDeviceBroker.postSetVolumeIndexForA2dpDevice()
+        → DualA2dpVolumeManager.setDualA2dpMode()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.size()
+        → List.iterator()
+        → AudioDeviceInventory.updateDeviceQuickConnection()
+        → <com.android.server.audio.AudioEventLogger$Event: void <init
+        → LinkedList.add()
+        → LinkedList.size()
+        → LinkedList.removeFirst()
+        → PackageListHelper.isInAllowedList()
+        → AudioService.selectOneAudioDevice()
+        → AudioService.getDeviceSetForStream()
+        → Set.contains()
+        → Set.iterator()
+        → AtomicInteger.get()
+        → MultiSoundManager.getPinDevice()
+        → AudioDeviceBroker.setDeviceToForceByUser()
+        → AudioService.checkModifyPhoneStateOrRoutingPermission()
+        → AudioService.checkMuteInterval()
+        → AudioService.clearSoundAssistantSettings()
+        → AudioService.sendBroadcastToAll()
+        → AudioService.setAllSoundMute()
+        → AudioService.unSetSoundSettingEventBroadcastIntent()
+        → AudioService.sendMsg()
+        → AudioSystem.setParameters()
+        → FocusRequester.hasSameUid()
+        → FocusRequester.handleFocusLoss()
+        → FocusRequester.release()
+        → MultiFocusStack.getFocusRequester()
+        → ArrayList.isEmpty()
+        → ArrayList.size()
+        → ArrayList.get()
+        → LinkedHashMap.put()
+        → <java.util.LinkedHashMap: void <init>()>
+        → StringTokenizer.hasMoreTokens()
+        → StringTokenizer.nextToken()
+        → <java.util.StringTokenizer: void <init>(java.lang.String,jav
+        → Debug.getCaller()
+        → HandlerExecutor.execute()
+        → <com.samsung.android.server.audio.AudioExecutor$$ExternalSyn
+        → AudioExecutor.init()
+        → SemGameManager.isAvailable()
+        → SemGameManager.isGamePackage()
+        → AudioGameManager.setParamGameUidList()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → ArrayList.remove()
+        → AudioParameter.get()
+        → AudioHqmHelper.sendLoggingDataToHQM()
+        → <java.util.ArrayList: void <init>()>
+        → <com.samsung.android.sepunion.SemGoodCatchManager: void <ini
+        → <com.samsung.android.server.audio.GoodCatchManager$1: void <
+        → <com.samsung.android.server.audio.GoodCatchManager$2: void <
+        → Intent.putExtra()
+        → Intent.putExtra()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → AudioHelper.sendBroadcastToUser()
+        → AudioSettingsHelper.checkAppCategory()
+        → MultiSoundManager.setDeviceToNative()
+        → HashMap.get()
+        → HashMap.remove()
+        → MultiSoundManager$MultiSoundItem.getAppDevice()
+        → MultiSoundManager.getAppDevice()
+        → NotificationManager.cancel()
+        → MultiSoundManager.disable()
+        → MultiSoundManager.setAppDevice()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → HashMap.values()
+        → MultiSoundManager$MultiSoundItem.removable()
+        → <com.samsung.android.server.audio.MultiSoundManager$MultiSou
+        → MultiSoundManager$MultiSoundItem.setAppVolume()
+        → MultiSoundManager.setAppVolumeToNative()
+        → HashMap.put()
+        → Context.getResources()
+        → Context.getString()
+        → Resources.getText()
+        → <android.view.ContextThemeWrapper: void <init>(android.conte
+        → Toast.makeText()
+        → Toast.show()
+        → <android.app.NotificationChannel: void <init>(java.lang.Stri
+        → NotificationManager.createNotificationChannel()
+        → NotificationManager.deleteNotificationChannel()
+        → Context.getSystemService()
+        → Resources.getString()
+        → Context.getPackageManager()
+        → Context.checkCallingOrSelfPermission()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → AppCategorizer.putPackage()
+        → AppCategorizer.removePackage()
+        → AudioHelper.getUidForPackage()
+        → PackageListHelper.checkAudioSettingsPermission()
+        → SubscriptionManager.getSubId()
+        → TelephonyManager.createForSubscriptionId()
+        → TelephonyManager.getActiveModemCount()
+        → TelephonyManager.listen()
+        → PhoneStateHelper.getPhoneStateListener()
+        → ScreenSharingHelper.setMirroingPolicyParameter()
+        → <com.samsung.android.server.audio.SoundAppPolicyManager$$Ext
+        → Executors.newSingleThreadScheduledExecutor()
+        → ScheduledExecutorService.schedule()
+          → AudioDeviceInventory.checkSendBecomingNoisyIntentInt()
+          → LinkedHashMap.get()
+          → LinkedHashMap.entrySet()
+          → Map$Entry.getKey()
+          → Map$Entry.getValue()
+          → BluetoothHeadset.isAudioConnected()
+          → BluetoothHeadset.getConnectedDevices()
+          → AudioDeviceInfo.convertInternalDeviceToDeviceType()
+          → AudioDeviceBroker.getBTHeadset()
+          → <com.android.server.audio.AudioDeviceInventory$DeviceInfo: j
+          → <android.media.AudioDeviceAttributes: void <init>(int,java.l
+          → <com.android.server.audio.AudioDeviceInventory$DeviceInfo: v
+          → AudioDeviceInventory.checkDeviceConnected()
+          → AudioSystemAdapter.setDeviceConnectionState()
+          → LinkedHashMap.remove()
+          → AudioDeviceBroker.sendIILMsg()
+          → AudioSystem.setStreamVolumeIndexAS()
+          → AudioDeviceBroker.postSetVolumeIndexOnDevice()
+          → DualA2dpVolumeManager.getMainVolume()
+          → ArrayMap.getOrDefault()
+          → AudioEventLogger$Event.printLog()
+          → AudioManagerHelper.getAddressForLog()
+          → DualA2dpVolumeManager.updateMainVolume()
+          → List.get()
+          → AudioSystem.deviceSetToString()
+          → Set.isEmpty()
+          → Set.size()
+          → AudioService$VolumeStreamState.observeDevicesForStream_syncVSS()
+          → AudioService.ensureValidStreamType()
+          → AudioDeviceInventory.setDeviceToForceByUser()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → Settings$Global.putInt()
+          → AudioService.isMuteIntervalEnabled()
+          → AudioService.setRingerMode()
+          → Settings$System.putFloatForUser()
+          → Settings$System.putIntForUser()
+          → SparseIntArray.keyAt()
+          → SparseIntArray.size()
+          → SparseIntArray.clear()
+          → AudioService.setMediaVolumeSteps()
+          → AudioService.muteMediaStreamOfSpeaker()
+          → SemAudioSystem.setPolicyParameters()
+          → AudioSettingsHelper.removeValue()
+          → Context.sendBroadcastAsUser()
+          → Intent.addFlags()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → SystemServerAdapter.isPrivileged()
+          → AudioService.setAllSoundMuteToNative()
+          → ComponentName.getPackageName()
+          → AudioService$SoundEventReceiver.samePackageName()
+          → MediaSessionService$MediaSessionServiceInternal.getMediaKeyEventReceiver()
+          → MediaSessionService$MediaSessionServiceInternal.getVolumeLongPressReceiver()
+          → MediaSessionService$MediaSessionServiceInternal.setMediaKeyEventReceiver()
+          → MediaSessionService$MediaSessionServiceInternal.setVolumeLongPressReceiver()
+          → ArrayList.iterator()
+          → ArrayList.clear()
+          → Handler.obtainMessage()
+          → Handler.hasMessages()
+          → Handler.sendMessageAtTime()
+          → Handler.removeMessages()
+          → SystemClock.uptimeMillis()
+          → IAudioFocusDispatcher.dispatchAudioFocusChange()
+          → FocusRequester.toAudioFocusInfo()
+          → FocusRequester.frameworkHandleFocusLoss()
+          → MediaFocusControl.mustNotifyFocusOwnerOnDuck()
+          → MediaFocusControl.notifyExtPolicyFocusLoss_syncAf()
+          → IBinder.unlinkToDeath()
+          → SparseArray.size()
+          → SparseArray.valueAt()
+          → MultiFocusStack.findFocusRequester()
+          → ArrayList.addAll()
+          → Stack.removeAll()
+          → Handler.post()
+          → <java.util.concurrent.RejectedExecutionException: void <init
+          → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+          → HandlerThread.getThreadHandler()
+          → <android.os.HandlerThread: void <init>(java.lang.String)>
+          → HandlerThread.start()
+          → GmsLog.w()
+          → SemGameManager.getGMSBinder()
+          → GmsLog.d()
+          → IGameManagerService$Stub.asInterface()
+          → IGameManagerService.identifyGamePackage()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → LinkedHashMap.isEmpty()
+          → SemHqmManager.sendHWParamToHQM()
+          → AudioHqmHelper.convertToBigDataFormat()
+          → <android.os.Binder: void <init>()>
+          → Looper.getMainLooper()
+          → RemoteException.printStackTrace()
+          → IGoodCatchManager$Stub.asInterface()
+          → IGoodCatchManager.registerListener()
+          → <com.samsung.android.sepunion.SemGoodCatchManager$1: void <i
+          → <com.samsung.android.sepunion.SemGoodCatchManager$2: void <i
+          → SemUnionManager.getSemSystemService()
+          → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+          → <com.samsung.android.server.audio.AudioSettingsHelper$$Exter
+          → CopyOnWriteArrayList.isEmpty()
+          → CopyOnWriteArrayList.stream()
+          → Stream.anyMatch()
+          → Handler.postAtTime()
+          → AudioParameter$Builder.build()
+          → AudioParameter$Builder.setParam()
+          → AudioParameter$Builder.setParam()
+          → <com.samsung.android.media.AudioParameter$Builder: void <ini
+          → <com.samsung.android.server.audio.MultiSoundManager$$Externa
+          → MultiSoundManager$MultiSoundInterface.getConnectedDevice()
+          → MultiSoundManager.isDeviceConnected()
+          → MultiSoundManager.getCurrentMediaDevice()
+          → MultiSoundManager$MultiSoundInterface.clearNotification()
+          → MultiSoundManager.resetByEnableDisable()
+          → AudioSystem.getDevicesForStream()
+          → MultiSoundManager$MultiSoundInterface.checkAudioSettingsPermission()
+          → MultiSoundManager$MultiSoundInterface.sendBecomingNoisyIntent()
+          → MultiSoundManager$MultiSoundInterface.showHeadUpNotification()
+          → MultiSoundManager$MultiSoundInterface.updateFocusRequester()
+          → MultiSoundManager$MultiSoundItem.getUid()
+          → MultiSoundManager$MultiSoundItem.setAppDevice()
+          → HashMap.entrySet()
+          → Handler.removeCallbacks()
+          → <com.samsung.android.server.audio.MultiSoundManager$SetVolum
+          → <com.samsung.android.server.audio.MultiSoundManager$SetVolum
+          → <android.content.ContextWrapper: void <init>(android.content
+          → Toast.makeText()
+          → INotificationManager.enqueueTextToastForDex()
+          → INotificationManager.enqueueToastForDex()
+          → Compatibility.isChangeEnabled()
+          → Context.getApplicationInfo() [PKG_QUERY]
+          → Context.getDisplayId()
+          → Context.getOpPackageName()
+          → PackageManager.getApplicationLabel()
+          → Debug.getCallers()
+          → Html.fromHtml()
+          → Html.toHtml()
+          → <android.text.SpannableString: void <init>(java.lang.CharSeq
+          → View.findViewById()
+          → TextView.getText()
+          → TextView.setText()
+          → <android.widget.Toast$CallbackBinder: void <init>(java.util.
+          → Toast.getService()
+          → Toast.checkGameHomeAllowList()
+          → Toast.isSpeg()
+          → Toast.semGetMessageFromTv()
+          → Preconditions.checkState()
+          → CustomDeviceManagerProxy.getToastEnabledState()
+          → CustomDeviceManagerProxy.getToastShowPackageNameState()
+          → CustomDeviceManagerProxy.getInstance()
+          → CharSequence.toString()
+          → <java.lang.RuntimeException: void <init>(java.lang.String)>
+          → NotificationChannel.getTrimmedString()
+          → AppCategorizer.checkExist()
+          → AudioSettingsHelper.putPackage()
+          → Hashtable.put()
+          → AudioSettingsHelper.removePackage()
+          → Hashtable.remove()
+          → PackageManager.getApplicationInfoAsUser() [PKG_QUERY]
+          → AudioHelper.getCurrentUserId()
+          → <com.samsung.android.server.audio.PhoneStateHelper$1: void <
+            → AudioSystem.isSingleAudioDeviceType()
+            → AudioSystem.getDeviceName()
+            → MediaMetrics$Item.set()
+            → MediaMetrics$Item.record()
+            → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+            → AudioDeviceBroker.hasAudioFocusUsers()
+            → AudioDeviceBroker.hasMediaDynamicPolicy()
+            → AudioDeviceBroker.isInCommunication()
+            → AudioDeviceBroker.isMultiSoundOn()
+            → AudioDeviceBroker.getDeviceForStream()
+            → AudioDeviceBroker.getPinDevice()
+            → AudioDeviceBroker.postBroadcastBecomingNoisy()
+            → AudioDeviceBroker.sendBecomingNoisyToPinnedApp()
+            → AudioDeviceInventory.checkEnforcedStream()
+            → AudioSystemAdapter.isStreamActive()
+            → AudioHelper.isFactoryMode()
+            → AudioHelper.isWiredDeviceType()
+            → ScreenSharingHelper.isSplitSoundEnabled()
+            → Collection.iterator()
+            → <java.util.HashSet: void <init>()>
+            → LinkedHashMap.values()
+            → Set.add()
+            → SparseIntArray.get()
+            → BtHelper.getBTHeadset()
+            → AudioDeviceInventory$DeviceInfo.makeDeviceListKey()
+            → <com.android.server.audio.AudioDeviceInventory$DeviceInfo: v
+            → <com.android.server.audio.AudioDeviceInventory$$ExternalSynt
+            → AudioSystemAdapter.getDeviceConnectionState()
+            → Collection.stream()
+            → AudioSystem.setDeviceConnectionState()
+            → AudioSystemAdapter.invalidateRoutingCache()
+            → PowerManager$WakeLock.acquire()
+            → AudioDeviceBroker.isMessageHandledUnderWakelock()
+            → AudioDeviceBroker.checkMessagesMuteMusic()
+            → AudioService.postSetVolumeIndexOnDevice()
+            → AudioEventLogger$Event.printLog()
+            → AudioManagerHelper.getAddressForLog()
+            → ArrayMap.size()
+            → ArrayMap.valueAt()
+            → AudioSystem.getDeviceMaskFromSet()
+            → EventLogTags.writeStreamDevicesChanged()
+            → <com.android.server.audio.AudioService: com.android.server.a
+            → <com.android.server.audio.AudioService: java.util.Set -$$Nes
+            → <com.android.server.audio.AudioService: java.util.concurrent
+            → AudioService.postObserveDevicesForAllStreams()
+            → CurrentDeviceManager.changedCurrentDevice()
+            → MultiSoundManager.getPreventOverheatState()
+            → MultiSoundManager.setPreventOverheatState()
+            → Collections.unmodifiableSet()
+            → Set.equals()
+            → <java.util.TreeSet: void <init>()>
+            → BluetoothA2dp.setAudioPath()
+            → AudioDeviceBroker.postSetDeviceConnectionStateForceByUser()
+            → AudioDeviceBroker.setBluetoothA2dpOnInt()
+            → <com.android.server.audio.AudioDeviceInventory$SetForceDevic
+            → AudioDeviceInventory.changeActiveBleDevice()
+            → AudioDeviceInventory.changeActiveBluetoothDevice()
+            → Settings$Global.getInt()
+            → AudioManagerInternal$RingerModeDelegate.onSetRingerModeExternal()
+            → AudioManagerInternal$RingerModeDelegate.onSetRingerModeInternal()
+            → AudioService.getRingerModeExternal()
+            → AudioService.getRingerModeInternal()
+            → AudioService.ensureValidRingerMode()
+            → AudioService.handleSetRingerMode()
+            → AudioService.sendBroadcastToSoundEventReceiver()
+            → AudioService.setRingerModeExt()
+            → AudioService.setRingerModeInt()
+            → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+            → AudioService.getStreamMaxVolume()
+            → AudioService.createVariableMediaVolumeMap()
+            → AudioService$DeviceVolumeUpdate.getVolumeIndex()
+            → <com.android.server.audio.AudioService$DeviceVolumeUpdate: v
+            → AudioService$VolumeStreamState.getIndex()
+            → AudioSettingsHelper.setIntValue()
+            → AudioSettingsHelper.remove()
+            → <com.android.server.media.MediaSessionService: android.conte
+            → <com.android.server.media.MediaSessionService: android.conte
+            → <com.android.server.media.MediaSessionService: java.lang.Obj
+            → <com.android.server.media.MediaSessionService: void -$$Nest$
+            → <com.android.server.media.MediaSessionService: void -$$Nest$
+            → <android.media.AudioFocusInfo: void <init>(android.media.Aud
+            → FocusRequester.getSdkTarget()
+            → MediaFocusControl.duckPlayers()
+            → AudioFocusInfo.getGainRequest()
+            → AudioFocusInfo.getPackageName()
+            → IAudioPolicyCallback.asBinder()
+            → IAudioPolicyCallback.notifyAudioFocusLoss()
+            → AudioService.notifyCarLifeEvent()
+            → SparseArray.gc()
+            → <com.android.server.audio.MultiFocusStack$$ExternalSynthetic
+            → <com.android.server.audio.MultiFocusStack$$ExternalSynthetic
+            → Stack.stream()
+            → Collectors.toCollection()
+            → Stream.collect()
+            → Stream.filter()
+            → Preconditions.checkNotNull()
+            → <android.os.Handler: void <init>(android.os.Looper)>
+            → HandlerThread.getLooper()
+            → <java.lang.Thread: void <init>(java.lang.String)>
+            → GmsLog.replaceForbiddenString()
+            → ServiceManager.getService()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.game.IGameManagerService$Stub$Proxy: vo
+            → ISemHqmManager.sendHWParamToHQM()
+            → SemHqmManager.printExceptionTrace()
+            → JSONException.printStackTrace()
+            → JSONObject.toString()
+            → JSONObject.put()
+            → <org.json.JSONObject: void <init>()>
+            → <android.os.Binder: void <init>(java.lang.String)>
+            → <com.samsung.android.sepunion.IGoodCatchManager$Stub$Proxy: 
+            → <com.samsung.android.sepunion.IGoodCatchDispatcher$Stub: voi
+            → <android.os.Bundle: void <init>()>
+            → IUnionManager.getSemSystemService()
+            → Log.i()
+            → SemUnionManager.getService()
+            → <com.samsung.android.media.AudioParameter: void <init>(java.
+            → MultiSoundManager$MultiSoundInterface.getCurrentMediaDevice()
+            → MultiSoundManager.setStateToNative()
+            → <android.widget.Toast: void <init>(android.content.Context,a
+            → ToastPresenter.getTextToastView()
+            → <android.text.SpannableString: void <init>(java.lang.CharSeq
+            → <android.widget.Toast$CallbackBinder: void <init>(java.util.
+            → INotificationManager$Stub.asInterface()
+            → Context.getContentResolver()
+            → Context.getPackageName()
+            → SystemProperties.get()
+            → Settings$System.getInt()
+            → ActivityThread.currentApplication()
+            → PackageManager.isSpeg()
+            → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+            → IEDMProxy.getToastEnabledState()
+            → IEDMProxy.getToastShowPackageNameState()
+            → <com.samsung.android.knox.custom.CustomDeviceManagerProxy: v
+            → Hashtable.containsValue()
+            → <android.content.ContentValues: void <init>()>
+            → ContentValues.put()
+            → ContentValues.put()
+            → AudioSettingsHelper.set()
+            → ActivityManager.getService()
+            → IActivityManager.getCurrentUser()
+            → <android.telephony.PhoneStateListener: void <init>()>
+              → MediaMetrics$Item.putDouble()
+              → MediaMetrics$Item.putInt()
+              → MediaMetrics$Item.putLong()
+              → MediaMetrics$Item.putString()
+              → MediaMetrics$Key.getName()
+              → MediaMetrics$Item.updateHeader()
+              → <android.media.MediaMetrics: int -$$Nest$smnative_submit_byt
+              → ByteBuffer.limit()
+              → <android.media.MediaMetrics$Item: void <init>(java.lang.Stri
+              → AudioService.hasAudioFocusUsers()
+              → AudioService.hasMediaDynamicPolicy()
+              → AudioService.isInCommunication()
+              → AudioService.isRingtoneMode()
+              → AudioService.isMultiSoundOn()
+              → AudioDeviceBroker.sendIMsgNoDelay()
+              → AudioService.sendBecomingNoisyToPinnedApp()
+              → AudioSystem.isStreamActive()
+              → AudioSystem.getDeviceConnectionState()
+              → ConcurrentHashMap.clear()
+              → Handler.postDelayed()
+              → PowerManager$WakeLock.acquireLocked()
+              → AudioDeviceBroker.messageMutesMusic()
+              → AudioService.setMusicMute()
+              → AtomicBoolean.getAndSet()
+              → AudioEventLogger$Event.eventToString()
+              → EventLog.writeEvent()
+              → AudioService.getDeviceSetForStreamDirect()
+              → <com.android.server.audio.CurrentDeviceManager$$ExternalSynt
+              → Set.forEach()
+              → <com.samsung.android.server.audio.MultiSoundManager$PreventO
+              → MultiSoundManager$PreventOverheatState.setDevice()
+              → AudioDeviceBroker.sendLMsg()
+              → AudioDeviceBroker.onSetForceUse()
+              → AudioDeviceBroker.sendMsg()
+              → AtomicBoolean.get()
+              → BluetoothDevice.semGetAliasName()
+              → BluetoothLeAudio.setActiveDevice()
+              → BluetoothLeAudio.getConnectedDevices()
+              → AudioDeviceBroker.getLeAudio()
+              → AudioDeviceInventory.isBleHeadsetConnected()
+              → BluetoothHelper.setBtVolumeMonitor()
+              → BluetoothA2dp.setActiveDevice()
+              → BluetoothDevice.getName()
+              → AudioDeviceBroker.setActiveBluetoothDevice()
+              → AudioService.isValidRingerMode()
+              → AudioService.checkPlayRingerModeEffect()
+              → AudioService.isStreamMutedByRingerOrZenMode()
+              → <com.samsung.android.server.audio.AudioEvents$RingerModeEven
+              → GoodCatchManager.isRingerModeCatchEnabled()
+              → GoodCatchManager.updateRingerMode()
+              → IndexOutOfBoundsException.printStackTrace()
+              → Intent.setComponent()
+              → AudioService$SoundEventReceiver.hasEventType()
+              → AudioService.broadcastRingerMode()
+              → AudioService.muteRingerModeStreams()
+              → AudioService$VolumeStreamState.getMaxIndex()
+              → <com.android.server.audio.AudioService$VolumeMap: void <init
+              → Preconditions.checkState()
+              → SparseIntArray.get()
+              → SQLiteDatabase.delete()
+              → AudioAttributes$Builder.build()
+              → <android.media.AudioAttributes$Builder: void <init>()>
+              → PlayerFocusEnforcer.duckPlayers()
+              → HandlerThread.isAlive()
+              → Thread.currentThread()
+              → Thread.interrupt()
+              → Exception.printStackTrace()
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+              → IGoodCatchDispatcher$Stub.attachInterface()
+              → Log.getCodeInfoString()
+              → IUnionManager$Stub.asInterface()
+              → <com.samsung.android.media.AudioParameter$$ExternalSynthetic
+              → LinkedHashMap.keySet()
+              → Set.stream()
+              → AudioParameter$Builder.setParam()
+              → <com.samsung.android.server.audio.MultiSoundManager$$Externa
+              → Resources.getDimensionPixelSize()
+              → Resources.getInteger()
+              → <android.widget.Toast$TN: void <init>(android.content.Contex
+              → Toast.getLooper()
+              → Context.getTheme()
+              → Resources$Theme.resolveAttribute()
+              → <android.util.TypedValue: void <init>()>
+              → LayoutInflater.from()
+              → LayoutInflater.inflate()
+              → ToastPresenter.semCheckMaxFontScale()
+              → <android.text.SpannableStringInternal: void <init>(java.lang
+              → <android.app.ITransientNotificationCallback$Stub: void <init
+              → IEDMProxy$Stub.asInterface()
+              → <android.util.ArrayMap: void <init>()>
+              → ArrayMap.put()
+              → SQLiteDatabase.update()
+              → SQLiteDatabase.insert()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.audio.MultiSoundManager
+  Method:   <com.samsung.android.server.audio.MultiSoundManager: void dump(java.io.PrintWriter)>
+  Line:     780
+  Register: v1 := "com.samsung.android.oneconnect"
+  Usage:    [invoke] invoke-interface {v0, v1}, Lcom/samsung/android/server/audio/MultiSoundManager$MultiSoundInterface;-
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.audio.MultiSoundManager$MultiSoun → [other] iget-object v1, p0, Lcom/samsung/android
+
+  CALLERS (who invokes this method):
+      ← AudioService.addSamsungExtraDump()
+        ← AudioService.dump()
+
+  CALLEES (what this method invokes):
+      → MultiSoundManager$MultiSoundInterface.isInstalledApp()
+      → MultiSoundManager$MultiSoundInterface.getCurrentMediaDevice()
+      → MultiSoundManager$MultiSoundInterface.getPackageName()
+      → MultiSoundManager$MultiSoundItem.getAppDevice()
+      → MultiSoundManager$MultiSoundItem.getAppVolume()
+      → MultiSoundManager$MultiSoundItem.getUid()
+      → MultiSoundManager.getPinDevice()
+      → MultiSoundManager.getPinAppInfo()
+      → PrintWriter.print()
+      → PrintWriter.println()
+      → PrintWriter.println()
+      → HashMap.size()
+      → HashMap.entrySet()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Map$Entry.getValue()
+      → Set.iterator()
+        → MultiSoundManager.getAppDevice()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → HashMap.values()
+        → List.iterator()
+        → MultiSoundManager$MultiSoundInterface.getApplicationLabel()
+        → MultiSoundManager$MultiSoundInterface.getMultiSoundAppFromSetting()
+        → MultiSoundManager.isRemoteSubmixAppExist()
+        → Map$Entry.getKey()
+          → MultiSoundManager$MultiSoundInterface.getConnectedDevice()
+          → MultiSoundManager.isDeviceConnected()
+          → MultiSoundManager.getCurrentMediaDevice()
+          → HashMap.get()
+          → Set.contains()
+          → Set.size()
+            → AudioSystemAdapter.getDeviceConnectionState()
+              → AudioSystem.getDeviceConnectionState()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.smartthings.SmartThingsService
+  Method:   <com.android.server.smartthings.SmartThingsService: void <init>(android.content.Context)>
+  Line:     47
+  Register: v1 := "com.samsung.android.oneconnect"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← SystemServer.startOtherServices()
+        ← SystemServer.run()
+          ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → IntentFilter.setPriority()
+      → <com.android.server.smartthings.SmartThingsService$UpdateRec
+      → SmartThingsService.backgroundWhitelist()
+        → <com.android.server.smartthings.SmartThingsService$UpdateRec
+        → ActivityManager.getService()
+        → IActivityManager.backgroundAllowlistUid()
+        → Context.getPackageManager()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → <android.content.BroadcastReceiver: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.smartthings.SmartThingsService
+  Method:   <com.android.server.smartthings.SmartThingsService: void backgroundWhitelist(android.content.Context)>
+  Line:     98
+  Register: v0 := "com.samsung.android.oneconnect"
+  Usage:    [invoke] invoke-virtual {p1, v0, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.smartthings.SmartThingsService: void -$$
+      ← <com.android.server.smartthings.SmartThingsService: void <in
+        ← SmartThingsService$UpdateReceiver.onReceive()
+        ← SystemServer.startOtherServices()
+          ← SystemServer.run()
+            ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → IActivityManager.backgroundAllowlistUid()
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+

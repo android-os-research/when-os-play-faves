@@ -1,0 +1,18 @@
+# com.samsung.android.perfsdkservice.IPerfSDKService [NEW]
+# Refs: 28
+# JARs: framework, perfsdkservice
+
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub$Proxy: int connectionRequest()>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub$Proxy: int initPerfSDK(java.lang.String)>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub$Proxy: int removeSessionKey(java.lang.String)>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub$Proxy: int setSessionKey(java.lang.String)>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub$Proxy: int[] getHighBoostingLevel()>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub$Proxy: int[] getLowBoostingLevel()>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub$Proxy: int[] getThermalTable()>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub$Proxy: java.lang.String getAllowedPkgName()>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub$Proxy: java.lang.String getChangedForegroundPackagename()>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub$Proxy: java.lang.String getForegroundPackagename()>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub: com.samsung.android.perfsdkservice.IPerfSDKService asInterface(android.os.IBinder)>
+<com.samsung.android.perfsdkservice.IPerfSDKService$Stub: void <init>()>

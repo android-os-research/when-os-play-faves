@@ -1,0 +1,9 @@
+# android.debug.IAdbTransport [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.debug.IAdbTransport$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.debug.IAdbTransport$Stub$Proxy: void onAdbEnabled(boolean,byte)>
+<android.debug.IAdbTransport$Stub: android.debug.IAdbTransport asInterface(android.os.IBinder)>
+<android.debug.IAdbTransport$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.debug.IAdbTransport$Stub: void <init>()>

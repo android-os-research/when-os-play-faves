@@ -1,0 +1,93 @@
+######################################################################
+# Propagation: com.smithmicro.netwise.director.comcast.oem
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemWifiConnectivityMonitor
+  Method:   <com.samsung.android.server.wifi.SemWifiConnectivityMonitor: boolean isCaptivePortalExceptionOnly(java.lang.String)>
+  Line:     9834
+  Register: v0 := "com.smithmicro.netwise.director.comcast.oem"
+  Usage:    [invoke] invoke-direct {p0, v0}, Lcom/samsung/android/server/wifi/SemWifiConnectivityMonitor;->isPackageExist
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.samsung.android.server.wifi.SemWifiConnectivityMonitor.i → [other] move-result v0 → [branch] if-eqz v0, :co
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor:
+      ← SemWifiConnectivityMonitor.determineMode()
+      ← SemWifiConnectivityMonitor.setCaptivePortalMode()
+        ← SemWifiConnectivityMonitor$ConnectedState.processMessage()
+        ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor:
+        ← SemClientModeImpl.report()
+        ← SemWifiServiceImpl.report()
+          ← SemWifiConnectivityMonitor$12.eleCheckFinished()
+          ← SemWifiConnectivityMonitor$ConnectedState.enter()
+          ← SemWifiConnectivityMonitor$ConnectedState.exit()
+          ← SemWifiConnectivityMonitor$InvalidState.processMessage()
+          ← SemWifiConnectivityMonitor$InvalidState.enter()
+          ← SemWifiConnectivityMonitor$Level1State.enter()
+          ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+          ← SemWifiConnectivityMonitor$ValidState.processMessage()
+          ← SemWifiConnectivityMonitor$ValidState.enter()
+          ← <com.samsung.android.server.wifi.SemClientModeImpl: void -$$
+          ← SemClientModeImpl.reportBigDataLog()
+          ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void -$
+          ← SemWifiServiceImpl.reportIssue()
+            ← <com.samsung.android.server.wifi.SemWifiConnectivityMonitor$
+            ← SemClientModeImpl$3.onDestroyed()
+            ← SemClientModeImpl$ConnectModeState.processMessage()
+            ← SemClientModeImpl$ConnectedState.processMessage()
+            ← SemClientModeImpl$ConnectedState.enter()
+            ← SemClientModeImpl$ConnectedState.exit()
+            ← SemClientModeImpl$L2ConnectedState.processMessage()
+            ← SemClientModeImpl$ObtainingIpState.processMessage()
+            ← SemClientModeImpl.processBigDataLogEvent()
+            ← SemWifiServiceImpl$5.onReceive()
+            ← SemWifiServiceImpl$8.onReceive()
+              ← SemWifiConnectivityMonitor$NetworkCallbackController$1$$ExternalSyntheticLambda1.run()
+              ← <com.samsung.android.server.wifi.SemClientModeImpl: void -$$
+
+  CALLEES (what this method invokes):
+      → WifiInfo.getSSID()
+      → SemFrameworkFacade.isSetupwizardFinished()
+      → SemWifiConnectivityMonitor.syncGetCurrentWifiInfo()
+      → SemWifiConnectivityMonitor.isComcastSsid()
+      → SemWifiConnectivityMonitor.isPackageExists()
+      → SemWifiConnectivityMonitor.logd()
+        → SystemProperties.get()
+        → WcmUtil.getCurrentWifiInfo()
+        → WcmUtil.getInstance()
+        → ContentResolver.query()
+        → Context.getContentResolver()
+        → Cursor.moveToFirst()
+        → Cursor.moveToNext()
+        → Cursor.getColumnIndex()
+        → Cursor.getCount()
+        → Cursor.getString()
+        → Cursor.close()
+        → Uri.parse()
+        → TextUtils.isEmpty()
+        → Context.getPackageManager()
+        → PackageManager$NameNotFoundException.toString()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+          → SystemClock.elapsedRealtime()
+          → SemWifiManagerProxy.getConnectionInfo()
+          → SemWifiManagerProxy.getConnectionInfo()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+          → CharSequence.length()
+            → WifiManager.getConnectionInfo()
+            → SemWifiManagerProxy.isVerboseLoggingEnabled()
+            → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+              → AtomicBoolean.get()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+              → <java.lang.NullPointerException: void <init>(java.lang.Strin
+

@@ -1,0 +1,9 @@
+# android.app.IForegroundServiceObserver [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.IForegroundServiceObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IForegroundServiceObserver$Stub$Proxy: void onForegroundStateChanged(android.os.IBinder,java.lang.String,int,boolean)>
+<android.app.IForegroundServiceObserver$Stub: android.app.IForegroundServiceObserver asInterface(android.os.IBinder)>
+<android.app.IForegroundServiceObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IForegroundServiceObserver$Stub: void <init>()>

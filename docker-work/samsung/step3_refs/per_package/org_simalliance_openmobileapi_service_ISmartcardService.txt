@@ -1,0 +1,11 @@
+# org.simalliance.openmobileapi.service.ISmartcardService [NEW]
+# Refs: 7
+# JARs: org.simalliance.openmobileapi
+
+<org.simalliance.openmobileapi.service.ISmartcardService$Stub$Proxy: boolean[] isNfcEventAllowed(java.lang.String,byte[],java.lang.String[],org.simalliance.openmobileapi.service.ISmartcardServiceCallback,org.simalliance.openmobileapi.service.SmartcardError)>
+<org.simalliance.openmobileapi.service.ISmartcardService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<org.simalliance.openmobileapi.service.ISmartcardService$Stub$Proxy: java.lang.String[] getReaders()>
+<org.simalliance.openmobileapi.service.ISmartcardService$Stub$Proxy: org.simalliance.openmobileapi.service.ISmartcardServiceReader getReader(java.lang.String,org.simalliance.openmobileapi.service.SmartcardError)>
+<org.simalliance.openmobileapi.service.ISmartcardService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<org.simalliance.openmobileapi.service.ISmartcardService$Stub: org.simalliance.openmobileapi.service.ISmartcardService asInterface(android.os.IBinder)>
+<org.simalliance.openmobileapi.service.ISmartcardService$Stub: void <init>()>

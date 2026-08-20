@@ -1,0 +1,12 @@
+# android.view.IScrollCaptureConnection [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.view.IScrollCaptureConnection$Stub$Proxy: android.os.ICancellationSignal endCapture()>
+<android.view.IScrollCaptureConnection$Stub$Proxy: android.os.ICancellationSignal requestImage(android.graphics.Rect)>
+<android.view.IScrollCaptureConnection$Stub$Proxy: android.os.ICancellationSignal startCapture(android.view.Surface,android.view.IScrollCaptureCallbacks)>
+<android.view.IScrollCaptureConnection$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IScrollCaptureConnection$Stub$Proxy: void close()>
+<android.view.IScrollCaptureConnection$Stub: android.view.IScrollCaptureConnection asInterface(android.os.IBinder)>
+<android.view.IScrollCaptureConnection$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IScrollCaptureConnection$Stub: void <init>()>

@@ -1,0 +1,13 @@
+# android.hardware.biometrics.IBiometricSysuiReceiver [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.hardware.biometrics.IBiometricSysuiReceiver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.IBiometricSysuiReceiver$Stub$Proxy: void onDeviceCredentialPressed()>
+<android.hardware.biometrics.IBiometricSysuiReceiver$Stub$Proxy: void onDialogAnimatedIn()>
+<android.hardware.biometrics.IBiometricSysuiReceiver$Stub$Proxy: void onDialogDismissed(int,byte[])>
+<android.hardware.biometrics.IBiometricSysuiReceiver$Stub$Proxy: void onSystemEvent(int)>
+<android.hardware.biometrics.IBiometricSysuiReceiver$Stub$Proxy: void onTryAgainPressed()>
+<android.hardware.biometrics.IBiometricSysuiReceiver$Stub: android.hardware.biometrics.IBiometricSysuiReceiver asInterface(android.os.IBinder)>
+<android.hardware.biometrics.IBiometricSysuiReceiver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.IBiometricSysuiReceiver$Stub: void <init>()>

@@ -1,0 +1,13 @@
+# com.mediatek.search.ISearchEngineManagerService [NEW]
+# Refs: 9
+# JARs: mediatek-framework
+
+<com.mediatek.search.ISearchEngineManagerService$Stub$Proxy: boolean setDefault(com.mediatek.common.search.SearchEngine)>
+<com.mediatek.search.ISearchEngineManagerService$Stub$Proxy: com.mediatek.common.search.SearchEngine getBestMatch(java.lang.String,java.lang.String)>
+<com.mediatek.search.ISearchEngineManagerService$Stub$Proxy: com.mediatek.common.search.SearchEngine getDefault()>
+<com.mediatek.search.ISearchEngineManagerService$Stub$Proxy: com.mediatek.common.search.SearchEngine getSearchEngine(int,java.lang.String)>
+<com.mediatek.search.ISearchEngineManagerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.search.ISearchEngineManagerService$Stub$Proxy: java.util.List getAvailables()>
+<com.mediatek.search.ISearchEngineManagerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.search.ISearchEngineManagerService$Stub: com.mediatek.search.ISearchEngineManagerService asInterface(android.os.IBinder)>
+<com.mediatek.search.ISearchEngineManagerService$Stub: void <init>()>

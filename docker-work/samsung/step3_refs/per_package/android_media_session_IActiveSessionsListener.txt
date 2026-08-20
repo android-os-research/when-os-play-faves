@@ -1,0 +1,9 @@
+# android.media.session.IActiveSessionsListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.session.IActiveSessionsListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.session.IActiveSessionsListener$Stub$Proxy: void onActiveSessionsChanged(java.util.List)>
+<android.media.session.IActiveSessionsListener$Stub: android.media.session.IActiveSessionsListener asInterface(android.os.IBinder)>
+<android.media.session.IActiveSessionsListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.session.IActiveSessionsListener$Stub: void <init>()>

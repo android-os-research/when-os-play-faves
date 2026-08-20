@@ -1,0 +1,7 @@
+# com.samsung.android.knox.permission.KNOX_SMARTCARD [NEW]
+# Refs: 3
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.smartcard.SmartCardBrowserPolicy: com.samsung.android.knox.ContextInfo enforcePermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.smartcard.SmartCardEmailPolicy: com.samsung.android.knox.ContextInfo enforcePermission(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

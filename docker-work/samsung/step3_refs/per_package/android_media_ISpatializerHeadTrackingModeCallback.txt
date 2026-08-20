@@ -1,0 +1,10 @@
+# android.media.ISpatializerHeadTrackingModeCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.ISpatializerHeadTrackingModeCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.ISpatializerHeadTrackingModeCallback$Stub$Proxy: void dispatchSpatializerActualHeadTrackingModeChanged(int)>
+<android.media.ISpatializerHeadTrackingModeCallback$Stub$Proxy: void dispatchSpatializerDesiredHeadTrackingModeChanged(int)>
+<android.media.ISpatializerHeadTrackingModeCallback$Stub: android.media.ISpatializerHeadTrackingModeCallback asInterface(android.os.IBinder)>
+<android.media.ISpatializerHeadTrackingModeCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.ISpatializerHeadTrackingModeCallback$Stub: void <init>()>

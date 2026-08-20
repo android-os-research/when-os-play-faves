@@ -1,0 +1,39 @@
+######################################################################
+# Propagation: com.sec.android.app.wlantest
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.b2b.WifiB2bPolicyManager
+  Method:   <com.samsung.android.server.wifi.b2b.WifiB2bPolicyManager: boolean isGrantedPackage(java.lang.String)>
+  Line:     711
+  Register: v0 := "com.sec.android.app.wlantest"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.startsWith()
+
+  CALLERS (who invokes this method):
+      ← SemWifiServiceImpl.isNCHOModeEnabled()
+      ← SemWifiServiceImpl.setCountryRev()
+      ← SemWifiServiceImpl.setNCHOModeEnabled()
+      ← SemWifiServiceImpl.setRoamBand()
+      ← SemWifiServiceImpl.setRoamDelta()
+      ← SemWifiServiceImpl.setRoamScanChannels()
+      ← SemWifiServiceImpl.setRoamScanEnabled()
+      ← SemWifiServiceImpl.setRoamScanPeriod()
+      ← SemWifiServiceImpl.setRoamTrigger()
+      ← SemWifiServiceImpl.getRoamBand()
+      ← SemWifiServiceImpl.getRoamDelta()
+      ← SemWifiServiceImpl.getRoamScanPeriod()
+      ← SemWifiServiceImpl.getRoamTrigger()
+      ← SemWifiServiceImpl.getCountryRev()
+

@@ -1,0 +1,10 @@
+# android.app.job.IJobService [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.job.IJobService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.job.IJobService$Stub$Proxy: void startJob(android.app.job.JobParameters)>
+<android.app.job.IJobService$Stub$Proxy: void stopJob(android.app.job.JobParameters)>
+<android.app.job.IJobService$Stub: android.app.job.IJobService asInterface(android.os.IBinder)>
+<android.app.job.IJobService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.job.IJobService$Stub: void <init>()>

@@ -1,0 +1,9 @@
+# android.os.IWakeLockCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.IWakeLockCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IWakeLockCallback$Stub$Proxy: void onStateChanged(boolean)>
+<android.os.IWakeLockCallback$Stub: android.os.IWakeLockCallback asInterface(android.os.IBinder)>
+<android.os.IWakeLockCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IWakeLockCallback$Stub: void <init>()>

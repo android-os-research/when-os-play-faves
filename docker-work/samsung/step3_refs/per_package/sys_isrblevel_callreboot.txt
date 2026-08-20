@@ -1,0 +1,7 @@
+# sys.isrblevel.callreboot [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.BootReceiver: void setISRBmode()>
+<com.android.server.isrb.IsrbManagerServiceImpl$ServiceHandler: void handleMessage(android.os.Message)>
+<com.android.server.power.ShutdownThread: void shutdownInner(android.content.Context)>

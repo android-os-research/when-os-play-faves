@@ -1,0 +1,9 @@
+# android.media.musicrecognition.IMusicRecognitionManager [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.musicrecognition.IMusicRecognitionManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.musicrecognition.IMusicRecognitionManager$Stub$Proxy: void beginRecognition(android.media.musicrecognition.RecognitionRequest,android.os.IBinder)>
+<android.media.musicrecognition.IMusicRecognitionManager$Stub: android.media.musicrecognition.IMusicRecognitionManager asInterface(android.os.IBinder)>
+<android.media.musicrecognition.IMusicRecognitionManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.musicrecognition.IMusicRecognitionManager$Stub: void <init>()>

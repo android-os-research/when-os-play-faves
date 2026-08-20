@@ -1,0 +1,10 @@
+# android.telephony.ICellInfoCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.telephony.ICellInfoCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ICellInfoCallback$Stub$Proxy: void onCellInfo(java.util.List)>
+<android.telephony.ICellInfoCallback$Stub$Proxy: void onError(int,java.lang.String,java.lang.String)>
+<android.telephony.ICellInfoCallback$Stub: android.telephony.ICellInfoCallback asInterface(android.os.IBinder)>
+<android.telephony.ICellInfoCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ICellInfoCallback$Stub: void <init>()>

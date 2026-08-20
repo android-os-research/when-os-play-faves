@@ -1,0 +1,9 @@
+# android.window.ITransitionMetricsReporter [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.window.ITransitionMetricsReporter$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.window.ITransitionMetricsReporter$Stub$Proxy: void reportAnimationStart(android.os.IBinder,long)>
+<android.window.ITransitionMetricsReporter$Stub: android.window.ITransitionMetricsReporter asInterface(android.os.IBinder)>
+<android.window.ITransitionMetricsReporter$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.window.ITransitionMetricsReporter$Stub: void <init>()>

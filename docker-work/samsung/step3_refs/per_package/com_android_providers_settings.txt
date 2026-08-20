@@ -1,0 +1,9 @@
+# com.android.providers.settings [NEW]
+# Refs: 5
+# JARs: framework, services
+
+<com.android.internal.app.LocalePicker: void updateLocales(android.os.LocaleList)>
+<com.android.server.DualAppManagerService: void <clinit>()>
+<com.android.server.backup.restore.PerformUnifiedRestoreTask: void <init>(com.android.server.backup.UserBackupManagerService,com.android.server.backup.OperationStorage,com.android.server.backup.transport.TransportConnection,android.app.backup.IRestoreObserver,android.app.backup.IBackupManagerMonitor,long,android.content.pm.PackageInfo,int,boolean,java.lang.String[],com.android.server.backup.internal.OnTaskFinishedListener,com.android.server.backup.utils.BackupEligibilityRules)>
+<com.android.server.locksettings.LockSettingsStorage: void setString(java.lang.String,java.lang.String,int)>
+<com.samsung.android.server.audio.AudioSettingsHelper: void initSystemVibration(java.lang.String,int)>

@@ -1,0 +1,9 @@
+# android.location.INetInitiatedListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.location.INetInitiatedListener$Stub$Proxy: boolean sendNiResponse(int,int)>
+<android.location.INetInitiatedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.INetInitiatedListener$Stub: android.location.INetInitiatedListener asInterface(android.os.IBinder)>
+<android.location.INetInitiatedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.INetInitiatedListener$Stub: void <init>()>

@@ -1,0 +1,301 @@
+######################################################################
+# Propagation: com.samsung.android.uds
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.net.NetworkPolicyManagerService
+  Method:   <com.android.server.net.NetworkPolicyManagerService: android.content.Intent buildViewDataUsageIntentUDS(android.net.NetworkTemplate)>
+  Line:     2940
+  Register: v1 := "com.samsung.android.uds"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: (none)
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← NetworkPolicyManagerService.enqueueNotification()
+        ← NetworkPolicyManagerService.updateNotificationsNL()
+          ← NetworkPolicyManagerService$15.handleMessage()
+          ← NetworkPolicyManagerService$17.onPreciseCallStateChanged()
+          ← NetworkPolicyManagerService$StatsCallback.onThresholdReached()
+          ← NetworkPolicyManagerService.handleNetworkPoliciesUpdateAL()
+          ← NetworkPolicyManagerService.initService()
+          ← NetworkPolicyManagerService.notifyVideoCallOverLimit()
+          ← NetworkPolicyManagerService.setRestrictBackgroundUL()
+          ← NetworkPolicyManagerService.updateNetworksInternal()
+            ← NetworkPolicyManagerService$14.onReceive()
+            ← NetworkPolicyManagerService.dump()
+            ← NetworkPolicyManagerService.performSnooze()
+            ← NetworkPolicyManagerService.setNetworkPolicies()
+            ← NetworkPolicyManagerService.setSubscriptionPlansInternal()
+            ← <com.android.server.net.NetworkPolicyManagerService: void la
+            ← NetworkPolicyManagerService.updateVideoCallLocked()
+            ← NetworkPolicyManagerService.setRestrictBackground()
+            ← NetworkPolicyManagerService.updateRestrictBackgroundByLowPowerModeUL()
+            ← <com.android.server.net.NetworkPolicyManagerService: void -$
+            ← NetworkPolicyManagerService.updateNetworks()
+              ← NetworkPolicyManagerService$9.onReceive()
+              ← NetworkPolicyManagerService.snoozeLimit()
+              ← NetworkPolicyManagerService.addNetworkPolicyAL()
+              ← NetworkPolicyManagerService.factoryReset()
+              ← <com.android.server.net.NetworkPolicyManagerService: void -$
+              ← NetworkPolicyManagerService.setSubscriptionPlans()
+              ← <com.android.server.net.NetworkPolicyManagerService: void $r
+              ← NetworkPolicyManagerService.updateNetworkEnabledNL()
+              ← NetworkPolicyManagerShellCommand.setRestrictBackground()
+              ← NetworkPolicyManagerService$2.onLowPowerModeChanged()
+              ← NetworkPolicyManagerService$13.onReceive()
+              ← NetworkPolicyManagerService$3.onSubscriptionsChanged()
+
+  CALLEES (what this method invokes):
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.net.NetworkPolicyManagerService
+  Method:   <com.android.server.net.NetworkPolicyManagerService: void enqueueNotification(android.net.NetworkPolicy,int,long,android.content.pm.ApplicationInfo)>
+  Line:     7826
+  Register: v3 := "com.samsung.android.uds"
+  Usage:    [invoke] invoke-virtual {v7, v3}, Lcom/android/server/net/NetworkPolicyManagerService;->isPackageInstalled(Lj
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.android.server.net.NetworkPolicyManagerService.isPackage → [invoke] com.android.server.net.NetworkPolicyMan
+
+  CALLERS (who invokes this method):
+      ← NetworkPolicyManagerService.updateNotificationsNL()
+        ← NetworkPolicyManagerService$15.handleMessage()
+        ← NetworkPolicyManagerService$17.onPreciseCallStateChanged()
+        ← NetworkPolicyManagerService$StatsCallback.onThresholdReached()
+        ← NetworkPolicyManagerService.handleNetworkPoliciesUpdateAL()
+        ← NetworkPolicyManagerService.initService()
+        ← NetworkPolicyManagerService.notifyVideoCallOverLimit()
+        ← NetworkPolicyManagerService.setRestrictBackgroundUL()
+        ← NetworkPolicyManagerService.updateNetworksInternal()
+          ← NetworkPolicyManagerService$14.onReceive()
+          ← NetworkPolicyManagerService.dump()
+          ← NetworkPolicyManagerService.performSnooze()
+          ← NetworkPolicyManagerService.setNetworkPolicies()
+          ← NetworkPolicyManagerService.setSubscriptionPlansInternal()
+          ← <com.android.server.net.NetworkPolicyManagerService: void la
+          ← NetworkPolicyManagerService.updateVideoCallLocked()
+          ← NetworkPolicyManagerService.setRestrictBackground()
+          ← NetworkPolicyManagerService.updateRestrictBackgroundByLowPowerModeUL()
+          ← <com.android.server.net.NetworkPolicyManagerService: void -$
+          ← NetworkPolicyManagerService.updateNetworks()
+            ← NetworkPolicyManagerService$9.onReceive()
+            ← NetworkPolicyManagerService.snoozeLimit()
+            ← NetworkPolicyManagerService.addNetworkPolicyAL()
+            ← NetworkPolicyManagerService.factoryReset()
+            ← <com.android.server.net.NetworkPolicyManagerService: void -$
+            ← NetworkPolicyManagerService.setSubscriptionPlans()
+            ← <com.android.server.net.NetworkPolicyManagerService: void $r
+            ← NetworkPolicyManagerService.updateNetworkEnabledNL()
+            ← NetworkPolicyManagerShellCommand.setRestrictBackground()
+            ← NetworkPolicyManagerService$2.onLowPowerModeChanged()
+            ← NetworkPolicyManagerService$13.onReceive()
+            ← NetworkPolicyManagerService$3.onSubscriptionsChanged()
+              ← NetworkPolicyManagerService.ensureActiveCarrierPolicyAL()
+              ← NetworkPolicyManagerService$$ExternalSyntheticLambda3.run()
+              ← NetworkPolicyManagerShellCommand.runSet()
+
+  CALLEES (what this method invokes):
+      → Notification$BigTextStyle.bigText()
+      → <android.app.Notification$BigTextStyle: void <init>()>
+      → Notification$Builder.build()
+      → Notification$Builder.addAction()
+      → Notification$Builder.setChannelId()
+      → Notification$Builder.setColor()
+      → Notification$Builder.setContentIntent()
+      → Notification$Builder.setContentText()
+      → Notification$Builder.setContentTitle()
+      → Notification$Builder.setDeleteIntent()
+      → Notification$Builder.setOngoing()
+      → Notification$Builder.setOnlyAlertOnce()
+      → Notification$Builder.setSmallIcon()
+      → Notification$Builder.setStyle()
+      → Notification$Builder.setTicker()
+      → Notification$Builder.setWhen()
+      → <android.app.Notification$Builder: void <init>(android.conte
+      → NotificationManager.notifyAsUser()
+      → PendingIntent.getActivity()
+      → PendingIntent.getActivityAsUser()
+      → PendingIntent.getBroadcast()
+      → Context.getContentResolver()
+      → Context.getPackageManager()
+      → Context.getResources()
+      → Context.getColor()
+      → Context.getSystemService()
+      → Context.getPackageName()
+      → Context.sendBroadcast()
+      → <android.content.Intent: void <init>()>
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → ApplicationInfo.loadLabel()
+      → Resources.getText()
+      → Resources.getString()
+      → Resources.getString()
+      → NetworkPolicyManager.cycleIterator()
+      → NetworkTemplate.getMatchRule()
+      → UserManager.isHeadlessSystemUserMode()
+      → Settings$System.getInt()
+      → Settings$System.getString()
+      → Formatter.formatFileSize()
+      → ArraySet.add()
+      → NetworkPolicyManagerService$NotificationId.getId()
+      → NetworkPolicyManagerService$NotificationId.getTag()
+      → <com.android.server.net.NetworkPolicyManagerService$Notifica
+      → NetworkPolicyManagerService.buildNetworkOverLimitIntent()
+      → NetworkPolicyManagerService.buildSnoozeRapidIntent()
+      → NetworkPolicyManagerService.buildSnoozeTetheringWarningIntent()
+      → NetworkPolicyManagerService.buildSnoozeWarningIntent()
+      → NetworkPolicyManagerService.buildViewDataUsageIntent()
+      → NetworkPolicyManagerService.buildViewDataUsageIntentSM()
+      → NetworkPolicyManagerService.buildViewDataUsageIntentUDS()
+      → NetworkPolicyManagerService.jumpToSamsungApps()
+      → NetworkPolicyManagerService.isOffPeakEnable()
+      → NetworkPolicyManagerService.isPackageInstalled()
+      → NetworkPolicyManagerService.isSystemApp()
+      → NetworkPolicyManagerService.findRelevantSubIdNL()
+      → NetworkPolicyManagerService.getTotalBytesForOffPeak()
+      → SemCscFeature.getInstance()
+      → SemCscFeature.getString()
+      → Instant.toEpochMilli()
+      → ZonedDateTime.toInstant()
+      → Iterator.next()
+        → Notification.secSafeCharSequence()
+        → <android.app.Notification$Style: void <init>()>
+        → Context.getString()
+        → Formatter.formatBytes()
+        → Formatter.bidiWrap()
+        → ArraySet.indexOf()
+        → ArraySet.indexOfNull()
+        → ArraySet.allocArrays()
+        → ArraySet.freeArrays()
+        → <java.util.ConcurrentModificationException: void <init>()>
+        → NetworkPolicyManagerService$NotificationId.buildNotificationTag()
+        → ComponentName.unflattenFromString()
+        → Intent.addFlags()
+        → Intent.putExtra()
+        → Intent.setComponent()
+        → Intent.setPackage()
+        → Intent.setAction()
+        → Intent.putExtra()
+        → Intent.putExtra()
+        → Intent.putExtra()
+        → Intent.setClassName()
+        → NetworkPolicyManagerService.checkOffPeakEnable()
+        → ConcurrentHashMap.containsKey()
+        → ConcurrentHashMap.getOrDefault()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → NetworkIdentity$Builder.build()
+        → NetworkIdentity$Builder.setDefaultNetwork()
+        → NetworkIdentity$Builder.setMetered()
+        → NetworkIdentity$Builder.setSubId()
+        → NetworkIdentity$Builder.setSubscriberId()
+        → NetworkIdentity$Builder.setType()
+        → <android.net.NetworkIdentity$Builder: void <init>()>
+        → NetworkTemplate.matches()
+        → SparseArray.keyAt()
+        → SparseArray.size()
+        → SparseArray.valueAt()
+        → Settings$System.getLong()
+        → NetworkPolicyManagerService$Dependencies.getNetworkTotalBytes()
+        → NetworkPolicyManagerService.adjustOffPeakEndTime()
+        → TimeZone.getRawOffset()
+        → TimeZone.getDefault()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+        → Hashtable.get()
+          → Notification.removeTextSizeSpans()
+          → CharSequence.length()
+          → CharSequence.subSequence()
+          → CharSequence.toString()
+          → <android.text.format.Formatter$BytesResult: void <init>(java
+          → BidiFormatter.getInstance()
+          → BidiFormatter.unicodeWrap()
+          → TextUtils.getLayoutDirectionFromLocale()
+          → Formatter.localeFromContext()
+          → ArraySet.binarySearch()
+          → NetworkTemplate.hashCode()
+          → ConcurrentHashMap.put()
+          → SparseArray.gc()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → NetworkStats$Bucket.getRxBytes()
+          → NetworkStats$Bucket.getTxBytes()
+          → NetworkStatsManager.querySummaryForDevice()
+          → Trace.traceBegin()
+          → Trace.traceEnd()
+          → SystemProperties.get()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → <android.text.SpannableStringBuilder: void <init>(java.lang.
+            → SpannableStringBuilder.setSpan()
+            → Spanned.getSpanEnd()
+            → Spanned.getSpanFlags()
+            → Spanned.getSpanStart()
+            → Spanned.length()
+            → Spanned.getSpans()
+            → CharacterStyle.getUnderlying()
+            → TextAppearanceSpan.getLinkTextColor()
+            → TextAppearanceSpan.getTextColor()
+            → TextAppearanceSpan.getTextStyle()
+            → TextAppearanceSpan.getFamily()
+            → <android.text.style.TextAppearanceSpan: void <init>(java.lan
+            → BidiFormatter.getDefaultInstanceFromContext()
+            → BidiFormatter.unicodeWrap()
+            → ULocale.forLocale()
+            → ULocale.isRightToLeft()
+            → DisplayProperties.debug_force_rtl()
+            → Locale.equals()
+            → Optional.orElse()
+            → Configuration.getLocales()
+            → Resources.getConfiguration()
+            → LocaleList.get()
+            → ContainerHelpers.binarySearch()
+            → SemCscFeature.loadFeatureFile()
+              → <android.text.style.MetricAffectingSpan: void <init>()>
+              → BidiFormatter.unicodeWrap()
+              → SystemProperties.get()
+              → DisplayProperties.tryParseBoolean()
+              → Optional.ofNullable()
+              → TextUtils.isEmpty()
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.File: void <init>(java.lang.String)>
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.put()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+

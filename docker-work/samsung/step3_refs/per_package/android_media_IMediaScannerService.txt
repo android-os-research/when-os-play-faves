@@ -1,0 +1,10 @@
+# android.media.IMediaScannerService [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.media.IMediaScannerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IMediaScannerService$Stub$Proxy: void requestScanFile(java.lang.String,java.lang.String,android.media.IMediaScannerListener)>
+<android.media.IMediaScannerService$Stub$Proxy: void scanFile(java.lang.String,java.lang.String)>
+<android.media.IMediaScannerService$Stub: android.media.IMediaScannerService asInterface(android.os.IBinder)>
+<android.media.IMediaScannerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IMediaScannerService$Stub: void <init>()>

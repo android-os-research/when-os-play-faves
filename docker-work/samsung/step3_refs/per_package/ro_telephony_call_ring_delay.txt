@@ -1,0 +1,6 @@
+# ro.telephony.call_ring.delay [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional call_ring_delay()>
+<android.sysprop.TelephonyProperties: java.util.Optional call_ring_delay()>

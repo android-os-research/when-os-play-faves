@@ -1,0 +1,7 @@
+# usbdevicemanager.adb.tv [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.debug.AdbNotifications: android.app.Notification createNotification(android.content.Context,byte)>
+<com.android.server.adb.AdbDebuggingManager$AdbDebuggingHandler: void setupNotifications()>
+<com.android.server.usb.UsbDeviceManager$UsbHandler: void handleMessage(android.os.Message)>

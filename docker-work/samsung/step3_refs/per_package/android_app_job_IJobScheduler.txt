@@ -1,0 +1,17 @@
+# android.app.job.IJobScheduler [NEW]
+# Refs: 13
+# JARs: framework
+
+<android.app.job.IJobScheduler$Stub$Proxy: android.app.job.JobInfo getPendingJob(int)>
+<android.app.job.IJobScheduler$Stub$Proxy: android.content.pm.ParceledListSlice getAllJobSnapshots()>
+<android.app.job.IJobScheduler$Stub$Proxy: android.content.pm.ParceledListSlice getAllPendingJobs()>
+<android.app.job.IJobScheduler$Stub$Proxy: int enqueue(android.app.job.JobInfo,android.app.job.JobWorkItem)>
+<android.app.job.IJobScheduler$Stub$Proxy: int schedule(android.app.job.JobInfo)>
+<android.app.job.IJobScheduler$Stub$Proxy: int scheduleAsPackage(android.app.job.JobInfo,java.lang.String,int,java.lang.String)>
+<android.app.job.IJobScheduler$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.job.IJobScheduler$Stub$Proxy: java.util.List getStartedJobs()>
+<android.app.job.IJobScheduler$Stub$Proxy: void cancel(int)>
+<android.app.job.IJobScheduler$Stub$Proxy: void cancelAll()>
+<android.app.job.IJobScheduler$Stub: android.app.job.IJobScheduler asInterface(android.os.IBinder)>
+<android.app.job.IJobScheduler$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.job.IJobScheduler$Stub: void <init>()>

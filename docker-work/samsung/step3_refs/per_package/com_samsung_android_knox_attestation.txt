@@ -1,0 +1,7 @@
+# com.samsung.android.knox.attestation [NEW]
+# Refs: 3
+# JARs: framework, knoxsdk, services
+
+<com.android.server.GrdmIcccManagerService: byte[] grdmSetAttestationData(byte[])>
+<com.samsung.android.knox.integrity.EnhancedAttestationPolicy: boolean bindService()>
+<com.samsung.android.knox.tima.attestation.EnhancedAttestationPolicy: boolean bindService()>

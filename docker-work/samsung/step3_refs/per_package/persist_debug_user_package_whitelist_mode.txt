@@ -1,0 +1,5 @@
+# persist.debug.user.package_whitelist_mode [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.pm.UserSystemPackageInstaller: int getWhitelistMode()>

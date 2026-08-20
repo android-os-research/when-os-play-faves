@@ -1,0 +1,8 @@
+# android.telephony.action.EmbmsDownload [NEW]
+# Refs: 4
+# JARs: framework
+
+<android.telephony.MbmsDownloadSession: int bindAndInitialize()>
+<android.telephony.mbms.MbmsDownloadReceiver: java.lang.String getMiddlewarePackageCached(android.content.Context)>
+<android.telephony.mbms.MbmsDownloadReceiver: void verifyPermissionIntegrity(android.content.Context)>
+<android.telephony.mbms.MbmsUtils: android.content.ComponentName getOverrideServiceName(android.content.Context,java.lang.String)>

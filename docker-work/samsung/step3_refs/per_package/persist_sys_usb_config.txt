@@ -1,0 +1,9 @@
+# persist.sys.usb.config [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.adb.AdbService: void systemReady()>
+<com.android.server.usb.UsbDeviceManager$UsbHandler: void handleMessage(android.os.Message)>
+<com.android.server.usb.UsbDeviceManager$UsbHandler: void setAdbEnabled(boolean)>
+<com.android.server.usb.UsbDeviceManager: java.lang.String getPersistProp(boolean)>
+<com.samsung.android.server.pm.maintenancemode.MaintenanceModeServiceUtils: boolean containsAdbFunction()>

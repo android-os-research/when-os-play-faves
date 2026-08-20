@@ -1,0 +1,6 @@
+# lockscreen.pwdata.ver [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.locksettings.LockSettingsService: void migrateSecurityLog()>
+<com.android.server.locksettings.SyntheticPasswordManager: long createPasswordBasedSyntheticPassword(android.service.gatekeeper.IGateKeeperService,com.android.internal.widget.LockscreenCredential,com.android.server.locksettings.SyntheticPasswordManager$AuthenticationToken,int)>

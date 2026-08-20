@@ -1,0 +1,1369 @@
+######################################################################
+# Propagation: com.att.iqi
+######################################################################
+
+JARs:                 framework, gamesdk, services
+Classes:              10
+Occurrences:          11
+Usage types:          invoke
+Enforcement patterns: early_return, package_enable_disable, string_compare
+Security tags:        APPOPS, PKG_MGMT
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.game.GmsLog
+  Method:   <com.samsung.android.game.GmsLog: java.lang.String replaceForbiddenString(java.lang.String)>
+  Line:     187
+  Register: v0 := "com.att.iqi"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequ
+  Patterns: (none)
+  Flow:     [invoke] java.lang.String.replace() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← GmsLog.d()
+      ← GmsLog.e()
+      ← GmsLog.e()
+      ← GmsLog.i()
+      ← GmsLog.v()
+      ← GmsLog.w()
+      ← GmsLog.w()
+      ← GmsLog.w()
+        ← AlarmReceiver$Task.doInBackground()
+        ← AlarmReceiver$Task.onPostExecute()
+        ← ApBooster.callAcquire()
+        ← ApBooster.callSetDvfsValue()
+        ← ApBooster.acquire()
+        ← ApBooster.release()
+        ← CategoryUpdater.updateCategoriesToDB()
+        ← CategoryUpdater.updateSingleCategoryToDB()
+        ← FgCheckThread$2.onTaskFocusChanged()
+        ← FgCheckThread$2.sendRunningComponentFocus()
+        ← FgCheckThread$3.notePauseComponent()
+        ← FgCheckThread$3.noteResumeComponent()
+        ← FgCheckThread$4.handleMessage()
+        ← FgCheckThread$KeyguardReceiver.onReceive()
+        ← FgCheckThread.isRunningApp()
+        ← FgCheckThread.handleLcdOn()
+        ← FgCheckThread.handleResume()
+        ← FgCheckThread.handleTaskFocused()
+        ← FgCheckThread.handleUserPresent()
+        ← FgCheckThread.notifyFocusInOut()
+        ← FgCheckThread.sendFocusOutConditionally()
+        ← GameManagerService$DisplayListener$DisplayNotifyRunnable.run()
+        ← GameManagerService$DisplayListener$DisplayNotifyRunnable.sendResolutionChangedToGameLauncher()
+        ← GameManagerService$DisplayListener$DisplayNotifyRunnable.sendResolutionChangedToGos()
+        ← GameManagerService$DisplayListener.checkIfResolutionChanged()
+        ← GameManagerService$DisplayListener.checkIfVrrSettingChanged()
+        ← <com.samsung.android.game.GameManagerService$DisplayListener
+        ← GameManagerService$DisplayListener.onDisplayChanged()
+        ← GameManagerService$DisplayListener.sendVrrSettingChangedToGos()
+        ← GameManagerService$Lifecycle.onBootPhase()
+        ← GameManagerService$Lifecycle.onStart()
+        ← GameManagerService$Lifecycle.onUserStopped()
+        ← GameManagerService$PkgUpdateReceiver.onPackageRemoved()
+        ← GameManagerService$PkgUpdateReceiver.onPackageReplaced()
+        ← GameManagerService$PkgUpdateReceiver.removeFromDB()
+        ← GameManagerService$SecFamilyPkgChangeReceiver.onReceive()
+        ← GameManagerService.disableVrrControl()
+        ← GameManagerService.enableVrrControl()
+        ← GameManagerService.initGameManager()
+        ← GameManagerService.registerCallback()
+        ← GameManagerService.setPackageConfigurations()
+        ← GameManagerService.setPerformanceMode()
+        ← GameManagerService.setTargetFrameRate()
+        ← GameManagerService.unregisterCallback()
+        ← GameManagerService.identifyForegroundApp()
+        ← GameManagerService.identifyGamePackage()
+        ← GameManagerService.getAvailableRefreshRateList()
+        ← GameManagerService.getForegroundApp()
+        ← GameManagerService.getVersion()
+        ← GameManagerService.requestToRemoveRefreshRate()
+        ← GameManagerService.requestToSetRefreshRate()
+        ← GameManagerService.respondWithJson()
+        ← GameManagerService.getGameList()
+        ← GameManagerService.getGameListAsUser()
+        ← GameManagerService.checkPkgEnabledState()
+        ← GameManagerService.deleteAllGamePolicies()
+        ← GameManagerService.dumpGos()
+        ← GameManagerService.dumpGosState()
+        ← GameManagerService.onBootPhase()
+        ← GameManagerService.onUserStopped()
+        ← GameManagerService.onUserSwitched()
+        ← GameManagerService.sendPackageDataToSdhms()
+        ← GameManagerService.setAOSPGameMode()
+        ← GameManagerService.setPkgDataWithConfigurationImpl()
+        ← GosNotifyThread$1.onChange()
+        ← GosNotifyThread$1.sendVrrSettingChangedToGos()
+        ← GosNotifyThread$2.onReceive()
+        ← GosNotifyThread$NetworkReceiver.onReceive()
+        ← GosNotifyThread.notifyGosEnabledToGos()
+        ← GosNotifyThread.notifyPackageChangedToGos()
+        ← GosNotifyThread.notifyUserSwitchedToGos()
+        ← GosNotifyThread.notifyWifiConnectedToGos()
+        ← PkgDataHelper.getGamePkgData()
+        ← PkgDataHelper.dumpPkgDataHelper()
+        ← PkgDataHelper.notifyAppCreate()
+        ← PkgDataHelper.putPkgData()
+        ← PkgDataHelper.removePkgData()
+        ← PkgDataHelper.removeUser()
+        ← SemGameManager.isDynamicSurfaceScalingSupported()
+        ← SemGameManager.isForegroundGame()
+        ← SemGameManager.isGamePackage()
+        ← SemGameManager.setPackageConfigurations()
+        ← SemGameManager.setPerformanceMode()
+        ← SemGameManager.setTargetFrameRate()
+        ← SemGameManager.getTargetFrameRate()
+        ← SemGameManager.getForegroundApp()
+        ← SemGameManager.getTopActivityName()
+        ← SemGameManager.getVersion()
+        ← SemGameManager.requestWithJson()
+        ← SemGameManager.getGameList()
+        ← SystemHelper.callEnableWifiSwitch()
+        ← SystemHelper.callReleaseBlock()
+        ← SystemInfoCollector.getBrightnessInfo()
+        ← Util.isPkgEnabled()
+        ← Util.isPkgInstalled()
+        ← Util.writeFile()
+        ← DatabaseHelper.updateOrAddPkg()
+        ← DatabaseHelper.dumpAllActionLogs()
+        ← DatabaseHelper.addActionLog()
+        ← DatabaseHelper.loadPkgDataFromDb()
+        ← DatabaseHelper.onCreate()
+        ← DatabaseHelper.onUpgrade()
+        ← DatabaseHelper.refreshGameList()
+        ← DatabaseHelper.removeGame()
+        ← DatabaseHelper.removeUser()
+        ← DatabaseHelper.syncGameList()
+        ← NetworkConnector$NetworkTask.sendGet()
+        ← NetworkConnector.isNetworkConnected()
+        ← NetworkConnector.getPackageNamesForQuery()
+        ← NetworkConnector.getCategoryFromServer()
+        ← NetworkConnector.getSingleCategory()
+        ← ApBooster.setDvfsValue()
+        ← FgCheckThread$1.onCallbackDied()
+        ← <com.samsung.android.game.FgCheckThread: void <init>(boolean
+        ← GameManagerService$2.onServiceConnected()
+        ← GameManagerService$2.onServiceDisconnected()
+        ← GameManagerService.bindService()
+        ← GameManagerService.checkSettingPermission()
+        ← GameManagerService.setDfs()
+        ← GameManagerService.dumpGosDB()
+        ← SemPackageConfiguration.setCategory()
+        ← SemPackageConfiguration.setCategoryByUser()
+        ← SemPackageConfiguration.setDynamicSurfaceScaling()
+        ← SemPackageConfiguration.setOptimalAspectRatio()
+        ← SemPackageConfiguration.setPerformancePolicyForSsrm()
+        ← SystemInfoCollector.getGameVersionInfo()
+        ← AlarmReceiver.onReceive()
+        ← GameManagerService$1.handleMessage()
+        ← GameManagerService$MultiUserReceiver.onReceive()
+        ← <com.samsung.android.game.GameManagerService$PkgUpdateReceiv
+        ← GameManagerService$PkgUpdateReceiver.onPackageAdded()
+        ← GameManagerService$PkgUpdateReceiver.onReceive()
+        ← <com.samsung.android.game.GameManagerService$SecFamilyPkgCha
+        ← <com.samsung.android.game.GameManagerService: void <init>(an
+        ← GameManagerService.clearGosBind()
+        ← GameManagerService.dump()
+        ← GameManagerService.unbindService()
+        ← <com.samsung.android.game.SystemHelper: void <init>(android.
+        ← DatabaseHelper.getInstance()
+        ← DatabaseHelper.onDowngrade()
+        ← CategoryUpdater.parseCategory()
+        ← CategoryUpdater.getInstalledPkgList()
+        ← GameManagerService$SDHMSReceiver.onReceive()
+        ← <com.samsung.android.game.network.NetworkConnector: void <in
+        ← <com.samsung.android.game.network.RequestHeader: void <init>
+        ← ApBooster.callRelease()
+        ← SemGameManager.getGMSBinder()
+        ← SemGameManager.isAvailable()
+        ← <com.samsung.android.game.SemGameManager: void <init>()>
+        ← SystemHelper.getNetworkStats()
+        ← SystemHelper.getPidUidFromPackageName()
+        ← SystemHelper.getSysFsDataWithJson()
+        ← SystemInfoCollector.getAudioInfo()
+        ← SystemInfoCollector.isWifiConnected()
+        ← Util.getPackageVersionCode()
+        ← PerformancePolicyParser.parse()
+        ← Util.csvToInts()
+        ← DatabaseHelper.checkIfUserAlreadyPresent()
+          ← AlarmReceiver$Task.doInBackground()
+          ← AlarmReceiver$Task.onPostExecute()
+          ← <com.samsung.android.game.ApBooster: void access$000(com.sam
+          ← <com.samsung.android.game.ApBooster: void access$100(com.sam
+          ← <com.samsung.android.game.FgCheckThread: void access$700(com
+          ← <com.samsung.android.game.FgCheckThread: void access$400(com
+          ← <com.samsung.android.game.FgCheckThread: void access$900(com
+          ← <com.samsung.android.game.FgCheckThread: void access$800(com
+          ← <com.samsung.android.game.FgCheckThread: void access$600(com
+          ← GameManagerService.requestWithJson()
+          ← <com.samsung.android.game.GameManagerService: void access$90
+          ← <com.samsung.android.game.GameManagerService: void access$12
+          ← <com.samsung.android.game.GosNotifyThread: void access$400(c
+          ← <com.samsung.android.game.GosNotifyThread: void access$100(c
+          ← <com.samsung.android.game.GosNotifyThread: void access$300(c
+          ← <com.samsung.android.game.GosNotifyThread: void access$200(c
+          ← GameManagerService.getGamePkgDataIncServer()
+          ← PkgDataHelper.getGamePkgData()
+          ← GameSDKJsonData.validatePackageByGos()
+          ← ActivityTaskSupervisor.realStartActivityLocked()
+          ← CategoryUpdater.setCategoryToDB()
+          ← PkgDataHelper.preparePkgData()
+          ← TspStateController.isForegroundGame()
+          ← Pageboost$PageboostAppInfo.isGameApp()
+          ← RecordingActivityMonitor.updateSoundAppPolicy()
+          ← AudioGameManager.isGamePackager()
+          ← SemWifiTransportLayerUtils.isSemGamePackage()
+          ← AudioGameManager$AudioGameThread.run()
+          ← SystemInfoCollector.makeSystemInfoForFocusIn()
+          ← SystemInfoCollector.makeSystemInfoForFocusOut()
+          ← Util.writeFile()
+          ← GameManagerService.dumpActionLogs()
+          ← ActionLogger.addActionLogIfChanged()
+          ← ActionLogger.addActionLogSimply()
+          ← DatabaseHelper.addActionLogs()
+          ← GameManagerService.syncGameList()
+          ← <com.samsung.android.game.network.NetworkConnector$NetworkTa
+          ← NetworkConnector$NetworkTask.doInBackground()
+          ← <com.samsung.android.game.ApBooster: void access$200(com.sam
+          ← FgCheckThread$1.onCallbackDied()
+          ← <com.samsung.android.game.GameManagerService$Lifecycle: void
+          ← <com.samsung.android.game.GameManagerService: void access$10
+          ← ICollectionCache$GameAppsCache.update()
+          ← <com.android.server.chimera.ICollectionCache$GameAppsCache: 
+          ← WifiDisplayController.registerGameManagerCallback()
+          ← SortingMachine.isGame()
+          ← GameAppUtils.isGame()
+          ← DexController.isGameApp()
+          ← GameSDKVrr.disableGOSVrrControl()
+          ← GameSDKVrr.enableGOSVrrControl()
+          ← <com.samsung.android.game.SemGameManager: void <init>(androi
+          ← <com.samsung.android.server.audio.AudioGameManager: void <in
+            ← ApBooster$1.handleMessage()
+            ← GosNotifyThread$3.handleMessage()
+            ← GameSDKService.validateInitConditions()
+            ← LifeCycleManager.handleFocusedPackageResume()
+            ← LifeCycleManager.initiateForceAllowPackage()
+            ← ActivityTaskSupervisor.startSpecificActivity()
+            ← RootWindowContainer$AttachApplicationHelper.test()
+            ← TspStateController.updateWindowPolicyInner()
+            ← <com.android.server.am.Pageboost$PageboostAppInfo: void <ini
+            ← <com.android.server.am.Pageboost$PageboostAppInfo: void <ini
+            ← RecordingActivityMonitor.updateSnapshot()
+            ← AudioService$SamsungBroadcastReceiver.handleIntent()
+            ← AudioService$SetModeDeathHandler.setPackageType() [APPOPS]
+            ← SemApeController.sendBroadcastEnableApe()
+            ← <com.samsung.android.server.wifi.SemApeService$TrafficMonito
+            ← SemWifiOptimizer$5.noteResumeComponent()
+            ← <com.samsung.android.server.wifi.tcp.SemWifiPackageInfo: voi
+            ← SemWifiPackageInfo.updatePackageInfo()
+            ← ActionLogger.addActionLog()
+            ← ActionLogger.addActionLogs()
+            ← NetworkConnector$NetworkTask.doInBackground()
+            ← ICollectionCache$GameAppsCache.contains()
+            ← ICollectionCache$GameAppsCache.update()
+            ← <com.android.server.chimera.SystemRepositoryDefault: void <i
+            ← <com.android.server.display.WifiDisplayController: void -$$N
+            ← GestureDetectPerformance.execute()
+            ← DexController.getDexPolicyFlags()
+            ← GameSDKVrrManager.onFocusedPackagePause()
+            ← GameSDKVrrManager.onFocusedPackageResume()
+            ← GameSDKVrrManager.stop()
+            ← AudioService.onBootCompleted()
+              ← GameSDKService.initGameSDKWithJsonData()
+              ← LifeCycleManager.handleFocusedPackageChanged()
+              ← LifeCycleManager.handleResume()
+              ← EnsureActivitiesVisibleHelper.makeVisibleAndRestartIfNeeded()
+              ← RecentsAnimation.preloadRecentsActivity()
+              ← TaskFragment.resumeTopActivity()
+              ← RootWindowContainer$AttachApplicationHelper.test()
+              ← <com.android.server.wm.TspStateController: void -$$Nest$mupd
+              ← Pageboost.addPackage()
+              ← Pageboost.realupdatePackages()
+              ← Pageboost$PageboostAppDBHelper.restoreAppLRU()
+              ← RecordingActivityMonitor.onRecordingConfigurationChanged()
+              ← RecordingActivityMonitor.recorderEvent()
+              ← RecordingActivityMonitor.releaseRecorder()
+              ← AudioService$SamsungBroadcastReceiver.onReceive()
+              ← <com.samsung.android.server.wifi.SemApeController: void -$$N
+              ← SemApeController.setApeEnabled()
+              ← SemApeService$ApeHandler.handleMessage()
+              ← SemWifiTransportLayerMonitor$PackageUpdateHandler.updateMissingPackageInfo()
+              ← SemWifiTransportLayerMonitor$TcpMonitorHandler.handleMessage()
+              ← SemWifiTransportLayerMonitor.createWifiPackageInfo()
+              ← GameManagerService.printPkgMapToActionLog()
+              ← ICollectionCache$GameAppsCache.contains()
+              ← PolicyHandler.updateBigApps()
+              ← RepositoryFactory.getSystemRepository()
+              ← WifiDisplayController$34.onDisplayConnected()
+              ← <com.android.server.ssrm.fgapps.GestureDetectPerformance: vo
+              ← DexCompatController.getResolvedLaunchPolicyForPackage()
+              ← DexCompatController.updateDexCompatLaunchPolicy()
+              ← DexController.shouldAbortStartActivity()
+              ← DexController.getWarningStringFromDexPolicy()
+              ← LifeCycleManager.deactivateGameSDK()
+              ← <com.android.server.audio.AudioService: void -$$Nest$monBoot
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      gamesdk
+  Class:    com.samsung.android.gamesdk.subsystem.Logger
+  Method:   <com.samsung.android.gamesdk.subsystem.Logger: java.lang.String replaceForbiddenString(java.lang.String)>
+  Line:     81
+  Register: v0 := "com.att.iqi"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequ
+  Patterns: (none)
+  Flow:     [invoke] java.lang.String.replace() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← Logger.LOGD()
+      ← Logger.LOGE()
+      ← Logger.LOGI()
+      ← Logger.LOGV()
+      ← Logger.LOGW()
+        ← GameSDKService.filterApiCallings()
+        ← GameSDKService.filterApiCallingsWithPending()
+        ← LifeCycleManager$PackageLifeCycleHandler$1.handleMessage()
+        ← LifeCycleManager$PackageLifeCycleHandler.sendFinalizeMessage()
+        ← LifeCycleManager$PackageLifeCycleHandler.sendFocusChangeMessage()
+        ← LifeCycleManager$PackageLifeCycleHandler.sendInitMessage()
+        ← LifeCycleManager$PackageLifeCycleHandler.sendPauseMessage()
+        ← LifeCycleManager$PackageLifeCycleHandler.sendResumeMessage()
+        ← LifeCycleManager.checkFocusedPackageName()
+        ← LifeCycleManager.getPidFromPackageName()
+        ← TaskManager.flushTask()
+        ← TaskManager.registerTaskRegisterListener()
+        ← TaskManager.registerTaskSetCpuBoost()
+        ← TaskManager.registerTaskSetGameSDKVrrSetUsedTrue()
+        ← TaskManager.registerTaskSetGpuBoost()
+        ← TaskManager.registerTaskSetRefreshRate()
+        ← GameSDKJsonData.setGOSJsonData()
+        ← ThermalManager$ThermalWorkerThread.run()
+        ← GameSDKService.setCpuBoostMode()
+        ← GameSDKService.setGameSDKListener()
+        ← GameSDKService.setGpuBoostMode()
+        ← GameSDKService.getPackageNameFromPid()
+        ← GameSDKService.DecideDebugMode()
+        ← LifeCycleManager$GameSDKProcessObserver.onProcessDied()
+        ← LifeCycleManager$UsageStatsWatcher.notePauseComponent()
+        ← LifeCycleManager$UsageStatsWatcher.noteResumeComponent()
+        ← LifeCycleManager.getPidStatusSynchronously()
+        ← LifeCycleManager.isDeviceInteractive()
+        ← <com.samsung.android.gamesdk.core.LifeCycleManager: void <in
+        ← LifeCycleManager.activateGameSDK()
+        ← LifeCycleManager.deactivateGameSDK()
+        ← LifeCycleManager.handleFinalize()
+        ← LifeCycleManager.handleFocusedPackageChanged()
+        ← LifeCycleManager.handleFocusedPackagePause()
+        ← LifeCycleManager.handleFocusedPackageResume()
+        ← LifeCycleManager.handleInitialize()
+        ← LifeCycleManager.handlePause()
+        ← LifeCycleManager.handleResume()
+        ← LifeCycleManager.onActivate()
+        ← LifeCycleManager.setPidStatusSynchronously()
+        ← TaskManager.removeTask()
+        ← FreqControl.acquireMaxFrequencies()
+        ← FreqControl.acquireCpuMinFrequencies()
+        ← FreqControl.acquireGpuMinFrequencies()
+        ← FreqControl.callCpuBoostByTimeoutListener()
+        ← FreqControl.callGpuBoostByTimeoutListener()
+        ← FreqControl.releaseFrequencies()
+        ← FreqControl.releaseMinFrequencies()
+        ← FrequencyManager.initialize()
+        ← FrequencyManager.setCpuBoostMode()
+        ← FrequencyManager.setGpuBoostMode()
+        ← FrequencyManager.setFreqWithLevelsByUser()
+        ← FrequencyManager.onActivate()
+        ← FrequencyManager.onDeactivate()
+        ← FrequencyManager.releaseFrequencies()
+        ← FrequencyManager.setMaxFrequency()
+        ← CoreUsageChecker$ThreadGetLoad.run()
+        ← CoreUsageChecker.getCpuUsage()
+        ← CoreUsageChecker.getGpuUsage()
+        ← CoreUsageChecker.findMaxVarInSysFs()
+        ← CoreUsageChecker.getClusterInfo()
+        ← CoreUsageChecker.readNumberOfVarFromPath()
+        ← CoreUsageChecker.sumCpuFreqStats()
+        ← CoreUsageChecker.initCpuFreqInfo()
+        ← CoreUsageChecker.updateCpuUsage()
+        ← FrameCounter$ThreadGetFlip.run()
+        ← FrameCounter.getGpuFrameTime()
+        ← FrameCounter.getFlipCount()
+        ← FrameCounter.updateCurrentFps()
+        ← FrameCounter.updateFlipCountRecord()
+        ← GameSDKJsonData.checkEachJsonDataValid()
+        ← GameSDKJsonData.checkJsonDataValid()
+        ← GameSDKJsonData.validateGameSDKVersion()
+        ← GameSDKJsonData.validatePackageByGos()
+        ← ThermalGatherer.getChipsetVendor()
+        ← ThermalManager$WarningLevelManager.forceSendWarningLevel()
+        ← ThermalManager.onFocusedPackagePause()
+        ← ThermalManager.onFocusedPackageResume()
+        ← ThermalManager.registerListener()
+        ← ThermalManager.sendHighTempWarning()
+        ← ThermalManager.start()
+        ← ThermalManager.stop()
+        ← IO.readSysFs()
+        ← IO.readSysFsMultipleLines()
+        ← GameSDKVrrManager.isGameSDKVrrSupported()
+        ← GameSDKVrrManager.setRefreshRate()
+        ← GameSDKVrrManager.setRefreshRateImp()
+        ← GameSDKVrrManager.getCurrentRefreshRate()
+        ← GameSDKVrrManager.getSupportedRefreshRates()
+        ← GameSDKVrrManager.checkMultiWindowState()
+        ← GameSDKVrrManager.resetRefreshRate()
+        ← GameSDKVrrManager.sendCallBackVrrListener()
+        ← GameSDKVrrManager.setGameSDKVrrSetUsedTrue()
+        ← GameSDKService$1.onReceive()
+        ← GameSDKService.initGameSDKWithJsonData()
+        ← GameSDKService.isDeviceSupportsLRP()
+        ← GameSDKService.isGameSDKVrrSupported()
+        ← GameSDKService.registerDebugBridgePid()
+        ← GameSDKService.setGameSDKStateListener()
+        ← GameSDKService.getCurrentRefreshRate()
+        ← GameSDKService.isPMModeEnable()
+        ← GameSDKService.getSupportedRefreshRates()
+        ← GameSDKService.getVersion()
+        ← <com.samsung.android.gamesdk.GameSDKService: void <init>(and
+        ← GameSDKService.callVrrListener()
+        ← GameSDKService.finalGameSDK()
+        ← GameSDKService.resetRefreshRate()
+        ← GameSDKService.setRefreshRate()
+        ← GameSDKContextManager.loadContext()
+        ← GameSDKContextManager.removeContext()
+        ← GameSDKContextManager.storeContext()
+        ← LifeCycleManager$1.onReceive()
+        ← LifeCycleManager$2.onTaskFocusChanged()
+        ← FrameCounter.getFps()
+        ← FrameCounter.start()
+        ← FrameCounter.stop()
+        ← GameSDKJsonData.filterGOSJsonData()
+        ← GameSDKJsonData.validateGameSDKMode()
+        ← GameSDKVrrManager$1.onDisplayChanged()
+        ← GameSDKVrrManager.initialize()
+        ← GameSDKService.setDisableTMLevel()
+        ← GameSDKJsonData.checkJsonData()
+          ← GameSDKService.getCpuLoad()
+          ← GameSDKService.getFrameworkFPS()
+          ← GameSDKService.getGpuFrameTime()
+          ← GameSDKService.getGpuLoad()
+          ← GameSDKService.getHighPrecisionSkinTempLevel()
+          ← GameSDKService.getPrevFrameworkFPS()
+          ← GameSDKService.getClusterInfo()
+          ← GameSDKService.getCpuJTLevel()
+          ← GameSDKService.getGpuJTLevel()
+          ← GameSDKService.getSkinTempLevel()
+          ← GameSDKService.getTempLevel()
+          ← LifeCycleManager.initiateForceAllowPackage()
+          ← LifeCycleManager.dump()
+          ← <com.samsung.android.gamesdk.core.LifeCycleManager: void acc
+          ← <com.samsung.android.gamesdk.core.LifeCycleManager: void acc
+          ← <com.samsung.android.gamesdk.core.LifeCycleManager: void acc
+          ← <com.samsung.android.gamesdk.core.LifeCycleManager: void acc
+          ← <com.samsung.android.gamesdk.core.LifeCycleManager: void acc
+          ← FreqControl$TimerRunnable.run()
+          ← GameSDKService.onLazyInitialize()
+          ← <com.samsung.android.gamesdk.subsystem.CoreUsageChecker: voi
+          ← <com.samsung.android.gamesdk.subsystem.CoreUsageChecker: voi
+          ← <com.samsung.android.gamesdk.subsystem.FrameCounter: void ac
+          ← GameSDKService.validateInitConditions()
+          ← <com.samsung.android.gamesdk.thermal.ThermalGatherer: void <
+          ← <com.samsung.android.gamesdk.thermal.ThermalManager: void ac
+          ← GameSDKVrrManager.isGameSDKVrrSupported()
+          ← GameSDKVrrManager.needToUpdate()
+          ← GameSDKVrrManager.setRefreshRateWithoutSave()
+          ← GameSDKVrrManager.getCurrentRefreshRate()
+          ← LifeCycleManager$2.onTaskDescriptionChanged()
+          ← GameSDKService.initGameSDKWithVersion()
+            ← GameSDKService.dump()
+            ← <com.samsung.android.gamesdk.GameSDKService: boolean access$
+            ← <com.samsung.android.gamesdk.subsystem.CoreUsageChecker: voi
+            ← <com.samsung.android.gamesdk.thermal.ThermalGatherer: void <
+            ← ThermalManager$WarningLevelManager.sendWarningLevel()
+            ← <com.samsung.android.gamesdk.vrr.GameSDKVrrManager: void acc
+            ← GameSDKVrrManager.onFocusedPackageResume()
+            ← GameSDKVrrManager.dump()
+            ← GameSDKService.initGameSDK()
+              ← GameSDKService$2.onReceive()
+              ← <com.samsung.android.gamesdk.subsystem.CoreUsageChecker$Sing
+              ← <com.samsung.android.gamesdk.thermal.ThermalGatherer$Singlet
+              ← ThermalManager$WarningLevelManager.checkWarningLevel()
+              ← GameSDKVrrManager$2.onChange()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ProcessList
+  Method:   <com.android.server.am.ProcessList: void addProcessNameLocked(com.android.server.am.ProcessRecord)>
+  Line:     5003
+  Register: v1 := "com.att.iqi"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-eqz v1, :cond_14a → [other] iget-object v1, p1
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerService.cleanUpApplicationRecordLocked()
+      ← ProcessList.newProcessRecordLocked()
+        ← ActivityManagerService.attachApplicationLocked()
+        ← ActivityManagerService.handleAppDiedLocked()
+        ← ActivityManagerService.trimApplicationsLocked()
+        ← ProcessList.handleProcessStartedLocked()
+        ← ActivityManagerService.addAppLocked()
+        ← ActivityManagerService.setSystemProcess()
+        ← ProcessList.startProcessLocked()
+          ← ActivityManagerService.attachApplication()
+          ← ActivityManagerService.appDiedLocked()
+          ← ProcessList.removeProcessLocked()
+          ← ActivityManagerService.finishReceiver()
+          ← ActivityManagerService.setProcessLimit()
+          ← ActivityManagerService.trimApplications()
+          ← ActivityManagerService.unregisterReceiver()
+          ← ProcessList.handleProcessStartedLocked()
+          ← ProcessList.startProcessLocked()
+          ← ActivityManagerService.startInstrumentationOfSdkSandbox()
+          ← ActivityManagerService.addAppLocked()
+          ← SystemServer.startBootstrapServices()
+          ← ActivityManagerService.startProcessLocked()
+          ← ProcessList.startProcessLocked()
+            ← ActivityManagerService$AppDeathRecipient.binderDied()
+            ← ActivityManagerService.appDiedLocked()
+            ← ActivityManagerService$LocalService.killForegroundAppsForUser()
+            ← ActivityManagerService.systemReady()
+            ← ContentProviderHelper.processContentProviderPublishTimedOutLocked()
+            ← ProcessList.killPackageProcessesLSP()
+            ← ProcessList.removeProcessLocked()
+            ← ProcessList.killAllBackgroundProcessesExceptLSP()
+            ← <com.android.server.am.ActivityManagerService: void -$$Nest$
+            ← ReceiverList.binderDied()
+            ← <com.android.server.am.ProcessList: void lambda$handleProces
+            ← ProcessList.startProcessLocked()
+            ← ActivityManagerService.startInstrumentation()
+            ← ActivityManagerService.addAppLocked()
+            ← SystemServer.run()
+            ← ActivityManagerService$LocalService.startProcess()
+            ← ActivityManagerService.startIsolatedProcess()
+            ← ActivityManagerService.startProcessLocked()
+            ← ActivityManagerService.startSdkSandboxProcessLocked()
+              ← ActiveServices.realStartServiceLocked()
+              ← ContentProviderHelper.unstableProviderDied()
+              ← ProcessRecord.appDied()
+              ← <com.android.server.am.ProcessRecord: void lambda$killLocked
+              ← SystemServer.startOtherServices()
+              ← ActivityManagerService$MainHandler.handleMessage()
+              ← ActivityManagerService$LocalService.killPackageProcesses()
+              ← ActivityManagerService.forceStopPackageLocked()
+              ← ActivityManagerService.killProcessForMARs()
+              ← ActivityManagerService.killUid()
+              ← ActivityManagerService.killUidForPermissionChange()
+              ← ActivityManagerService.stopAppForUserInternal()
+              ← MARsPolicyManager.killAction()
+              ← ProcessList.killPackageProcessesLSP()
+              ← ActivityManagerService$LocalService.killProcess()
+              ← ActivityManagerService$LocalService.killProcessForDex()
+              ← ActivityManagerService.killProcessForChimera()
+              ← ActivityManagerServiceExt.forceKillProcessesForDeXExitLocked()
+              ← ActivityManagerServiceExt.killAllBackgroundProcessesExcept()
+              ← AppErrors.handleAppCrashLSPB()
+              ← AppErrors.crashApplicationInner()
+              ← ActivityManagerService.killAllBackgroundProcessesExcept()
+              ← ActivityManagerService$LocalService.trimApplications()
+              ← <com.android.server.am.ProcessList: void $r8$lambda$yAUAM7lp
+              ← ProcessList.startProcessLocked()
+              ← ActivityManagerService.addAppLocked()
+              ← SystemServer.main()
+              ← ActivityManagerService$LocalService.startIsolatedProcess()
+              ← ActiveServices.bringUpServiceLocked()
+              ← ActivityManagerService$LocalService.startProcess()
+              ← ActivityManagerService.bindBackupAgent()
+              ← BroadcastQueue.processNextBroadcastLocked()
+              ← ContentProviderHelper.getContentProviderImpl()
+
+  CALLEES (what this method invokes):
+      → SystemClock.uptimeMillis()
+      → UserHandle.getAppId()
+      → SparseArray.put()
+      → ActiveUids.get()
+      → ActiveUids.put()
+      → ActivityManagerService.boostPriorityForProcLockedSection()
+      → ActivityManagerService.noteUidProcessState()
+      → ActivityManagerService.resetPriorityAfterProcLockedSection()
+      → ActivityManagerServiceExt.setPersistent()
+      → EventLogTags.writeAmUidRunning()
+      → PendingTempAllowlists.indexOfKey()
+      → ProcessList$MyProcessMap.put()
+      → ProcessList.removeProcessNameLocked()
+      → ProcessRecord.isKilled()
+      → ProcessRecord.isPersistent()
+      → ProcessRecord.getKillTime()
+      → ProcessRecord.setRenderThreadTid()
+      → ProcessRecord.setUidRecord()
+      → ProcessStateRecord.setMaxAdj()
+      → UidRecord.getCurCapability()
+      → UidRecord.getCurProcState()
+      → UidRecord.getUid()
+      → <com.android.server.am.UidRecord: void <init>(int,com.androi
+      → UidRecord.addProcess()
+      → UidRecord.setCurAllowListed()
+      → UidRecord.setSetAllowListed()
+      → UidRecord.updateHasInternetPermission()
+        → ContainerHelpers.binarySearch()
+        → SparseArray.gc()
+        → GrowingArrayUtils.insert()
+        → GrowingArrayUtils.insert()
+        → SparseArray.get()
+        → ActivityTaskManagerInternal.onUidActive()
+        → ThreadPriorityBooster.boost()
+        → ArrayMap.size()
+        → ArrayMap.valueAt()
+        → SparseArray.size()
+        → SparseArray.valueAt()
+        → BatteryStatsService.noteUidProcessState()
+        → AppOpsService.updateUidProcState()
+        → ThreadPriorityBooster.reset()
+        → ProcessRecord.setPersistent()
+        → ProcessStateRecord.setCurrentSchedulingGroup()
+        → ProcessStateRecord.setSetSchedGroup()
+        → EventLog.writeEvent()
+        → SparseArray.indexOfKey()
+        → ProcessMap.put()
+        → ProcessRecord.getWindowProcessController()
+        → ActivityTaskManagerInternal.onProcessAdded()
+        → ProcessList.removeProcessNameLocked()
+        → <android.util.ArraySet: void <init>()>
+        → <com.android.server.am.UidObserverController$ChangeRecord: v
+        → UidRecord.reset()
+        → ArraySet.add()
+        → ActivityManager.checkUidPermission()
+          → SparseArray.get()
+          → Process.getThreadPriority()
+          → Process.setThreadPriority()
+          → ThreadLocal.get()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → Handler.post()
+          → SystemClock.elapsedRealtime()
+          → <com.android.server.am.BatteryStatsService$$ExternalSyntheti
+          → Handler.sendMessageDelayed()
+          → PooledLambda.obtainMessage()
+          → <com.android.server.appop.AppOpsService$$ExternalSyntheticLa
+          → AppOpsService$AttributedOp.onUidStateChanged()
+          → AppOpsService.getUidStateLocked()
+          → AppOpsService.commitUidPendingStateLocked()
+          → WindowProcessController.setPersistent()
+          → WindowProcessController.setCurrentSchedulingGroup()
+          → ArrayMap.get()
+          → ArrayMap.put()
+          → <android.util.SparseArray: void <init>(int)>
+          → ArraySet.remove()
+          → SparseArray.remove()
+          → ProcessMap.get()
+          → ActiveUids.remove()
+          → ActivityManagerService.enqueueUidChangeLocked()
+          → EventLogTags.writeAmUidStopped()
+          → FgsTempAllowList.removeUid()
+          → ProcessList$IsolatedUidRange.freeIsolatedUidLocked()
+          → ProcessList$MyProcessMap.remove()
+          → ProcessList.removeProcessFromAppZygoteLocked()
+          → ProcessRecord.getUidRecord()
+          → UidRecord.getNumOfProcs()
+          → UidRecord.removeProcess()
+          → <android.util.ArraySet: void <init>(int,boolean)>
+          → UidRecord.setCurProcState()
+          → ArraySet.indexOf()
+          → ArraySet.indexOfNull()
+          → ArraySet.allocArrays()
+          → ArraySet.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+            → Message.obtain()
+            → Message.setCallback()
+            → PooledLambdaImpl.acquire()
+            → PooledRunnable.recycleOnUse()
+            → AppOpsManager$OpEventProxyInfo.getUid()
+            → AppOpsManager$OpEventProxyInfo.getAttributionTag()
+            → AppOpsManager$OpEventProxyInfo.getPackageName()
+            → ArrayMap.keySet()
+            → AppOpsService$AttributedOp.isPaused()
+            → AppOpsService$AttributedOp.isRunning()
+            → AppOpsService$AttributedOp.finished()
+            → AppOpsService$AttributedOp.startedOrPaused()
+            → AppOpsService$InProgressStartOpEvent.getProxy()
+            → AppOpsService$InProgressStartOpEvent.getClientId()
+            → AppOpsService$InProgressStartOpEvent.getAttributionChainId()
+            → AppOpsService$InProgressStartOpEvent.getAttributionFlags()
+            → AppOpsService$InProgressStartOpEvent.getFlags()
+            → AppOpsService$InProgressStartOpEvent.getUidState()
+            → <java.util.ArrayList: void <init>(java.util.Collection)>
+            → List.get()
+            → <com.android.server.appop.AppOpsService$UidState: void <init
+            → AppOpsService.updatePendingStateIfNeededLocked()
+            → AppOpsManager.resolveFirstUnrestrictedUidState()
+            → Handler.sendMessage()
+            → ArrayMap.keyAt()
+            → ArraySet.size()
+            → ArraySet.valueAt()
+            → SparseBooleanArray.valueAt()
+            → SparseBooleanArray.keyAt()
+            → SparseBooleanArray.size()
+            → SparseIntArray.get()
+            → SparseIntArray.indexOfKey()
+            → PooledLambda.obtainMessage()
+            → <com.android.server.appop.AppOpsService$$ExternalSyntheticLa
+            → <com.android.server.appop.AppOpsService$$ExternalSyntheticLa
+            → AppOpsService$ModeCallback.isWatchingUid()
+            → <com.android.server.appop.AppOpsService$Op: int -$$Nest$fget
+            → ArrayMap.indexOfKey()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → ArrayUtils.newUnpaddedObjectArray()
+            → ArraySet.indexOf()
+            → ArraySet.removeAt()
+            → SparseArray.delete()
+            → ActivityTaskManagerInternal.onUidInactive()
+            → PowerManagerInternal.uidActive()
+            → PowerManagerInternal.uidGone()
+            → PowerManagerInternal.uidIdle()
+            → PowerManagerInternal.updateUidProcState()
+            → ActivityManagerService.isEphemeralLocked()
+            → ProcessList.killAppIfBgRestrictedAndCachedIdleLocked()
+            → UidObserverController.enqueueUidChange()
+            → UidRecord.isEphemeral()
+            → UidRecord.isIdle()
+            → UidRecord.getSetCapability()
+            → UidRecord.getSetProcState()
+            → UidRecord.setLastReportedChange()
+            → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+            → SparseBooleanArray.delete()
+            → ProcessMap.remove()
+            → ActivityTaskManagerInternal.onProcessRemoved()
+            → Handler.obtainMessage()
+            → Handler.removeMessages()
+            → HostingRecord.getDefiningUid()
+            → ProcessList$IsolatedUidRangeAllocator.getIsolatedUidRangeLocked()
+            → ProcessList.killAppZygoteIfNeededLocked()
+            → ProcessRecord.isRemoved()
+            → ProcessRecord.getHostingRecord()
+            → ArrayList.remove()
+            → ArrayList.size()
+            → ArraySet.binarySearch()
+              → <android.os.Message: void <init>()>
+              → ArrayUtils.size()
+              → PooledLambdaImpl$LambdaType.encode()
+              → PooledLambdaImpl.acquire()
+              → PooledLambdaImpl.setFlags()
+              → PooledLambdaImpl.setIfInBounds()
+              → Objects.requireNonNull()
+              → ArrayMap.getCollection()
+              → MapCollections.getKeySet()
+              → ArrayMap.isEmpty()
+              → AppOpsService$AttributedOp.finishOrPause()
+              → <android.util.ArrayMap: void <init>(int)>
+              → PooledLambda.obtainRunnable()
+              → <com.android.server.appop.AppOpsService$AttributedOp$$Extern
+              → <com.android.server.appop.AppOpsService$InProgressStartOpEve
+              → AppOpsService$InProgressStartOpEventPool.acquire()
+              → AppOpsService$Op.isRunning()
+              → <com.android.server.appop.AppOpsService: com.android.server.
+              → <com.android.server.appop.AppOpsService: void -$$Nest$msched
+              → AppOpsService.writePermissionAccessInformation()
+              → HistoricalRegistry.incrementOpAccessedCount()
+              → ArraySet.valueAtUnchecked()
+              → SparseIntArray.get()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ArraySet.shouldShrink()
+              → ArraySet.getNewShrunkenSize()
+              → ArraySet.clear()
+              → Context.getPackageManager()
+              → PackageManager.getPackagesForUid()
+              → PackageManagerInternal.isPackageEphemeral()
+              → UserHandle.getUserId()
+              → ActivityManagerService.getPackageManagerInternal()
+              → <com.android.server.am.ProcessList$$ExternalSyntheticLambda2
+              → UidRecord.forEachProcess()
+              → UidObserverController.getOrCreateChangeRecordLocked()
+              → UidObserverController.mergeWithPendingChange()
+              → ArrayList.add()
+              → ArrayMap.remove()
+              → SparseArray.removeReturnOld()
+              → AppZygote.getAppInfo()
+              → AppZygote.stopZygote()
+              → ProcessList$IsolatedUidRangeAllocator.freeUidRangeLocked()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.Pageboost
+  Method:   <com.android.server.am.Pageboost: void gatherLaunchTime(java.lang.String,int,int)>
+  Line:     1455
+  Register: v1 := "com.att.iqi"
+  Usage:    [invoke] invoke-virtual {p0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result v1 → [branch] if-nez v1, :cond_7b → [other] sget-object v1, L
+
+  CALLERS (who invokes this method):
+      ← ActivityMetricsLogger.logAppDisplayed()
+        ← <com.android.server.wm.ActivityMetricsLogger: void lambda$lo
+          ← <com.android.server.wm.ActivityMetricsLogger: void $r8$lambd
+            ← ActivityMetricsLogger$$ExternalSyntheticLambda5.run()
+
+  CALLEES (what this method invokes):
+      → Pageboost$VramdiskMlockManager.hasPinnedFile()
+      → Pageboost.isPageboostMinimized()
+      → Pageboost.sendMessage()
+        → ArrayList.isEmpty()
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putInt()
+        → Bundle.putString()
+        → Handler.obtainMessage()
+        → Handler.sendMessage()
+        → Handler.sendMessageDelayed()
+        → Message.setData()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ProcessRecord
+  Method:   <com.android.server.am.ProcessRecord: void toShortString(java.lang.StringBuilder)>
+  Line:     4945
+  Register: v1 := "com.att.iqi"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequ
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.replace() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← ProcessRecord.toShortString()
+      ← ProcessRecord.toString()
+        ← ActiveServices$ServiceDumper.dumpServiceLocalLocked()
+        ← ActivityManagerService.hasContentProviderConnection()
+        ← ActivityManagerService.checkBroadcastFromSystem()
+        ← ActivityManagerService.reportAbnormalUsage()
+        ← ActivityManagerService.trimApplicationsLocked()
+        ← ActivityManagerService.updateAppProcessCpuTimeLPr()
+        ← AppProfiler.recordPssSampleLPf()
+        ← BroadcastQueue.createBroadcastTraceTitle()
+        ← BroadcastQueue.maybeAddAllowBackgroundActivityStartsToken()
+        ← BroadcastQueue.postActivityStartTokenRemoval()
+        ← BroadcastRecord.dump()
+        ← ContentProviderConnection.toClientString()
+        ← OomAdjuster.applyOomAdjLSP()
+        ← OomAdjuster.updateAndTrimProcessLSP()
+        ← ProcessList.dumpProcessOomList()
+        ← ProcessList.removeProcessLocked()
+        ← ProcessList.startProcessLocked()
+        ← ProcessList.dumpLruEntryLocked()
+        ← ProcessRecord.killLocked()
+        ← ProcessStateRecord.makeAdjReason()
+        ← ReceiverList.dumpLocal()
+        ← ActivityManagerService.dumpProcessList()
+        ← ActivityManagerService.dumpOtherProcessesInfoLSP()
+        ← ActivityManagerService.handleProcessStartOrKillTimeoutLocked()
+        ← ContentProviderHelper.getContentProviderImpl()
+        ← ContentProviderHelper.checkContentProviderAccess()
+        ← ContentProviderHelper.checkAssociationAndPermissionLocked()
+        ← ProcessList.startProcessLocked()
+        ← ProcessList.handlePredecessorProcDied()
+          ← ActiveServices$ServiceDumper.dumpLocked()
+          ← ActiveServices$ServiceDumper.dumpWithClient()
+          ← ActivityManagerService.hasChimeraProtectedProc()
+          ← ActivityManagerService.broadcastIntentLocked()
+          ← ActivityManagerService.finishReceiver()
+          ← ActivityManagerService.setProcessLimit()
+          ← ActivityManagerService.trimApplications()
+          ← ActivityManagerService.unregisterReceiver()
+          ← <com.android.server.am.ActivityManagerService: void lambda$c
+          ← AppProfiler.collectPssInBackground()
+          ← BroadcastQueue.addBroadcastToHistoryLocked()
+          ← BroadcastQueue.enqueueBroadcastHelper()
+          ← BroadcastQueue.processNextBroadcastLocked()
+          ← BroadcastQueue.deliverToRegisteredReceiverLocked()
+          ← BroadcastQueue.finishReceiverLocked()
+          ← ActivityManagerServiceExt.broadcastRecordToStringLocked()
+          ← BroadcastDispatcher$Dumper.dump()
+          ← BroadcastQueue.dumpLocked()
+          ← ContentProviderConnection.toClientString()
+          ← ContentProviderConnection.toShortString()
+          ← OomAdjuster.performUpdateOomAdjLSP()
+          ← OomAdjuster.performUpdateOomAdjLSP()
+          ← OomAdjuster.updateOomAdjInnerLSP()
+          ← ProcessList.dumpOomLocked()
+          ← ProcessList.dumpProcessesLSP()
+          ← ActivityManagerService$LocalService.killForegroundAppsForUser()
+          ← ActivityManagerService.systemReady()
+          ← ContentProviderHelper.processContentProviderPublishTimedOutLocked()
+          ← ProcessList.killPackageProcessesLSP()
+          ← ProcessList.removeProcessLocked()
+          ← ProcessList.killAllBackgroundProcessesExceptLSP()
+          ← ProcessList.startProcessLocked()
+          ← ProcessList.dumpLruLocked()
+          ← DynamicHiddenApp.killTimeOverEmptyProcess()
+          ← ProcessRecord.killLocked()
+          ← ActiveServices.startServiceInnerLocked()
+          ← <com.android.server.am.AppProfiler: void lambda$doLowMemRepo
+          ← BroadcastFilter.dump()
+          ← ReceiverList.dump()
+          ← ActivityManagerService$MainHandler.handleMessage()
+          ← ProcessList$ProcStartHandler.handleMessage()
+          ← ContentProviderHelper.getContentProviderImpl()
+          ← ContentProviderHelper.getProviderMimeType()
+          ← ContentProviderHelper.getProviderMimeTypeAsync()
+          ← ActivityManagerService$LocalService.checkContentProviderAccess()
+          ← ActivityManagerService.startProcessLocked()
+          ← ProcessList.startProcessLocked()
+          ← <com.android.server.am.ProcessList: void -$$Nest$mhandlePred
+            ← ActivityManagerService.doDump()
+            ← ActivityManagerService.dumpEverything()
+            ← AppProfiler.reportMemUsage()
+            ← SystemRepositoryDefault.hasChimeraProtectedProc()
+            ← ActivityManagerService$LocalService.broadcastIntent()
+            ← ActivityManagerService.broadcastIntentInPackage()
+            ← ActivityManagerService.broadcastIntentLocked()
+            ← <com.android.server.am.ActivityManagerService: void -$$Nest$
+            ← ReceiverList.binderDied()
+            ← <com.android.server.am.ActivityManagerService: void $r8$lamb
+            ← <com.android.server.am.AppProfiler: void -$$Nest$mcollectPss
+            ← BroadcastQueue.enqueueOrderedBroadcastLocked()
+            ← BroadcastQueue.enqueueParallelBroadcastLocked()
+            ← BroadcastQueue.backgroundServicesFinishedLocked()
+            ← BroadcastQueue.broadcastTimeoutLocked()
+            ← BroadcastQueue.processNextBroadcast()
+            ← BroadcastQueue.sendPendingBroadcastsLocked()
+            ← BroadcastQueue.skipReceiverLocked()
+            ← ActivityManagerServiceExt.addAbortedBroadcastToHistoryLocked()
+            ← ActivityManagerServiceExt.addBroadcastSummaryHistoryLocked()
+            ← BroadcastDispatcher$Deferrals.dumpLocked()
+            ← BroadcastDispatcher$DeferredBootCompletedBroadcastPerUser.dump()
+            ← BroadcastDispatcher.dumpLocked()
+            ← ActivityManagerService.dumpBroadcastsLocked()
+            ← ContentProviderRecord.dump()
+            ← ContentProviderConnection.toShortString()
+            ← ContentProviderConnection.toString()
+            ← OomAdjuster.updateOomAdjLSP()
+            ← OomAdjuster.performUpdateOomAdjLSP()
+            ← OomAdjuster.performUpdateOomAdjPendingTargetsLocked()
+            ← SystemServer.startOtherServices()
+            ← ActivityManagerService$LocalService.killPackageProcesses()
+            ← ActivityManagerService.forceStopPackageLocked()
+            ← ActivityManagerService.killProcessForMARs()
+            ← ActivityManagerService.killUid()
+            ← ActivityManagerService.killUidForPermissionChange()
+            ← ActivityManagerService.stopAppForUserInternal()
+            ← MARsPolicyManager.killAction()
+            ← ProcessList.killPackageProcessesLSP()
+            ← ActivityManagerService$LocalService.killProcess()
+            ← ActivityManagerService$LocalService.killProcessForDex()
+            ← ActivityManagerService.killProcessForChimera()
+            ← ActivityManagerServiceExt.forceKillProcessesForDeXExitLocked()
+            ← ActivityManagerServiceExt.killAllBackgroundProcessesExcept()
+            ← AppErrors.handleAppCrashLSPB()
+            ← AppErrors.crashApplicationInner()
+            ← ActivityManagerService.killAllBackgroundProcessesExcept()
+            ← ActivityManagerService.addAppLocked()
+            ← ProcessList.startProcessLocked()
+            ← ActivityManagerService$LocalService.killProcessesForRemovedTask()
+            ← <com.android.server.am.ActivityManagerService: void lambda$k
+            ← <com.android.server.am.ActivityManagerService: void lambda$p
+            ← <com.android.server.am.ActivityManagerService: void lambda$u
+            ← AppErrors.killAppImmediateLSP()
+            ← BGProtectManager.checkKeptProcess()
+            ← <com.android.server.am.CachedAppOptimizer$FreezeHandler: voi
+            ← <com.android.server.am.CachedAppOptimizer$FreezeHandler: voi
+            ← CachedAppOptimizer.unfreezeAppInternalLSP()
+            ← ContentProviderHelper.removeDyingProviderLocked()
+            ← PhantomProcessList.killPhantomProcessGroupLocked()
+            ← ProcessList$ImperceptibleKillRunner.killProcessLocked()
+            ← ProcessList.killAppIfBgRestrictedAndCachedIdleLocked()
+            ← ProcessRecord.killLocked()
+            ← <com.android.server.am.ActiveServices: android.content.Compo
+            ← ActiveServices.startServiceLocked()
+            ← <com.android.server.am.AppProfiler: void $r8$lambda$-KoZoWW1
+            ← ContentProviderHelper.getContentProvider()
+            ← ContentProviderHelper.getContentProviderExternalUnchecked()
+            ← ActivityManagerService.getProviderMimeType()
+            ← ActivityManagerService.getProviderMimeTypeAsync()
+            ← ActivityManagerService$LocalService.startProcess()
+            ← ActivityManagerService.startIsolatedProcess()
+            ← ActivityManagerService.startProcessLocked()
+            ← ActivityManagerService.startSdkSandboxProcessLocked()
+              ← <com.android.server.am.ActivityManagerService: void -$$Nest$
+              ← ActivityManagerService$MainHandler$1.run()
+              ← ActivityManagerService$LocalService.broadcastIntentInPackage()
+              ← ActivityManagerService.broadcastIntentInPackage()
+              ← ActivityManagerService$LocalService.broadcastCloseSystemDialogs()
+              ← ActivityManagerService$LocalService.broadcastCloseSystemDialogs()
+              ← ActivityManagerService$LocalService.broadcastGlobalConfigurationChanged()
+              ← ActivityManagerService.broadcastIntentWithFeature()
+              ← ActivityManagerService.batterySendBroadcast()
+              ← ActivityManagerService.finishForceStopPackageForMARsLocked()
+              ← ActivityManagerService.finishForceStopPackageLocked()
+              ← AnrHelper.appNotResponding()
+              ← PreBootBroadcaster.sendNext()
+              ← UserController$Injector.broadcastIntent()
+              ← ActivityManagerService$LocalService.trimApplications()
+              ← ActivityManagerService$$ExternalSyntheticLambda20.accept()
+              ← AppProfiler$BgHandler.handleMessage()
+              ← FreecessController.dispatchPendingBroadcast()
+              ← ActivityManagerService.registerReceiverWithFeature()
+              ← ActivityManagerService.backgroundServicesFinishedLocked()
+              ← BroadcastQueue$BroadcastHandler.handleMessage()
+              ← <com.android.server.am.BroadcastQueue: void -$$Nest$mprocess
+              ← ActivityManagerService.sendPendingBroadcastsLocked()
+              ← BroadcastQueue.processCurBroadcastLocked()
+              ← BroadcastQueue.skipCurrentReceiverLocked()
+              ← ProviderMap.dumpProvidersByClassLocked()
+              ← ProviderMap.dumpProvider()
+              ← ProcessProviderRecord.dump()
+              ← OomAdjuster.updateOomAdjLocked()
+              ← OomAdjuster.updateOomAdjLSP()
+              ← OomAdjuster.updateOomAdjPendingTargetsLocked()
+              ← SystemServer.run()
+              ← ActivityManagerService$9.onReceive()
+              ← ActivityManagerService.forceStopPackageForMARsLocked()
+              ← ActivityManagerService.startInstrumentation()
+              ← ActivityManagerService.startInstrumentationOfSdkSandbox()
+              ← ActivityManagerService.finishInstrumentationLocked()
+              ← ActivityManagerService.forceStopPackageLocked()
+              ← ActivityManagerService.setDebugApp()
+              ← ActivityManagerServiceExt.forceStopPackageLocked()
+              ← <com.android.server.am.ProcessList: void lambda$handleProces
+              ← UserController$Injector.activityManagerForceStopPackage()
+              ← ActivityManagerService.killProcessForCalmMode()
+              ← MARsPolicyManager.killPackageProcs()
+              ← <com.android.server.am.ActivityManagerService: void lambda$s
+              ← ActivityManagerService$LocalService.stopAppForUser()
+              ← ActivityManagerService.stopAppForUser()
+              ← MARsPolicyManager.triggerAction()
+              ← ActivityManagerService.killAllBackgroundProcesses()
+              ← ActivityManagerService.killBackgroundProcesses()
+              ← ActivityManagerService.killPackageDependents()
+              ← SystemRepositoryDefault.killProcessForChimera()
+              ← <com.android.server.am.ActivityManagerServiceExt: void -$$Ne
+              ← ActivityManagerServiceExt.killProcessWhenDexExit()
+              ← ActivityManagerService$LocalService.killAllBackgroundProcessesExcept()
+              ← AppErrors.makeAppCrashingLocked()
+              ← AppErrors.crashApplication()
+              ← ActivityManagerService$LocalService.killAllBackgroundProcessesExcept()
+              ← ActivityManagerService.addAppLocked()
+              ← ProcessList.startProcessLocked()
+              ← <com.android.server.am.ActivityManagerService: void $r8$lamb
+              ← <com.android.server.am.ActivityManagerService: void $r8$lamb
+              ← <com.android.server.am.ActivityManagerService: void $r8$lamb
+              ← AppErrors.killAppAtUserRequestLocked()
+              ← <com.android.server.am.AppErrors: void lambda$scheduleAppCra
+              ← DynamicHiddenApp.checkKeptProcess()
+              ← <com.android.server.am.CachedAppOptimizer$FreezeHandler: voi
+              ← <com.android.server.am.CachedAppOptimizer$FreezeHandler: voi
+              ← CachedAppOptimizer.unfreezeAppLSP()
+              ← CachedAppOptimizer.unfreezeAppLSPDebug()
+              ← ActivityManagerService.cleanupDisabledPackageComponentsLocked()
+              ← ContentProviderHelper.cleanupAppInLaunchingProvidersLocked()
+              ← ProcessProviderRecord.onCleanupApplicationRecordLocked()
+              ← <com.android.server.am.ActivityManagerService: void lambda$u
+              ← ProcessList$ImperceptibleKillRunner.handleDeviceIdle()
+              ← ProcessList$ImperceptibleKillRunner.handleUidStateChanged()
+              ← OomAdjuster.idleUidsLocked()
+              ← <com.android.server.am.ProcessList: void lambda$killAppIfBgR
+              ← <com.android.server.am.ProcessList: void lambda$updateBackgr
+              ← ActivityManagerService.attachApplicationLocked()
+              ← ActivityManagerService.killProcessesBelowAdj()
+              ← <com.android.server.am.AppErrors: void lambda$handleAppCrash
+              ← BGProtectManager.updateNapProcessProtection()
+              ← DynamicHiddenApp.activeLaunchKillCheck()
+              ← ProcessErrorStateRecord.appNotResponding()
+              ← <com.android.server.am.ProcessErrorStateRecord: void lambda$
+              ← <com.android.server.am.ProcessErrorStateRecord: void lambda$
+              ← ProcessRecord.scheduleCrashLocked()
+              ← ActiveServices$4.run()
+              ← ActiveServices.startServiceLocked()
+              ← ActivityManagerService$LocalService.startServiceInPackage()
+              ← AppProfiler$$ExternalSyntheticLambda7.accept()
+              ← ActivityManagerService.getContentProvider()
+              ← ActivityManagerService.openContentUri()
+              ← ContentProviderHelper.getContentProviderExternal()
+              ← ContentProviderHelper.checkContentProviderUriPermission()
+              ← ActivityManagerService$LocalService.startIsolatedProcess()
+              ← ActiveServices.bringUpServiceLocked()
+              ← ActivityManagerService$LocalService.startProcess()
+              ← ActivityManagerService.bindBackupAgent()
+
+  CALLEES (what this method invokes):
+      → UserHandle.getAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.displaysolution.MdnieScenarioControlService$1
+  Method:   <com.samsung.android.displaysolution.MdnieScenarioControlService$1: void onForegroundActivitiesChanged(int,int,boolean)>
+  Line:     412
+  Register: p3 := "com.att.iqi"
+  Usage:    [invoke] invoke-virtual {v0, p3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.contains() → [other] move-result p3 → [branch] if-nez p3, :cond_c2 → [other] new-instance p3, 
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getRunningTasks()
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → Context.getSystemService()
+      → Handler.obtainMessage()
+      → Handler.sendEmptyMessage()
+      → Handler.sendEmptyMessageAtTime()
+      → Handler.sendMessage()
+      → Handler.removeMessages()
+      → SystemClock.uptimeMillis()
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → <com.samsung.android.displaysolution.MdnieScenarioControlSer
+      → List.size()
+      → List.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.WindowSurfaceController
+  Method:   <com.android.server.wm.WindowSurfaceController: void <init>(java.lang.String,int,int,com.android.server.wm.WindowStateAnimator,int)>
+  Line:     273
+  Register: p2 := "com.att.iqi"
+  Usage:    [invoke] invoke-virtual {p1, p2, p3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequ
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.replace()
+
+  CALLERS (who invokes this method):
+      ← WindowStateAnimator.createSurfaceLocked()
+        ← WindowManagerService.createSurfaceControl()
+          ← WindowManagerService.relayoutWindow()
+            ← Session.relayout()
+
+  CALLEES (what this method invokes):
+      → Process.myPid()
+      → SystemClock.uptimeMillis()
+      → Trace.traceBegin()
+      → Trace.traceEnd()
+      → SurfaceControl$Builder.build()
+      → SurfaceControl$Builder.setBLASTLayer()
+      → SurfaceControl$Builder.setCallsite()
+      → SurfaceControl$Builder.setFlags()
+      → SurfaceControl$Builder.setFormat()
+      → SurfaceControl$Builder.setMetadata()
+      → SurfaceControl$Builder.setName()
+      → SurfaceControl$Builder.setParent()
+      → WindowContainer.getSurfaceControl()
+      → WindowContainer.makeSurface()
+      → WindowState.getAttrs()
+        → SurfaceControl$Builder.isContainerLayer()
+        → SurfaceControl$Builder.isEffectLayer()
+        → <android.view.SurfaceControl: void <init>(android.view.Surfa
+        → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → SurfaceControl$Builder.setFlags()
+        → <android.util.SparseIntArray: void <init>()>
+        → SparseIntArray.put()
+        → WindowContainer.makeChildSurface()
+        → WindowContainer.getParent()
+          → <android.util.SparseIntArray: void <init>(int)>
+          → ContainerHelpers.binarySearch()
+          → GrowingArrayUtils.insert()
+            → ArrayUtils.newUnpaddedIntArray()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.ActivityRecord
+  Method:   <com.android.server.wm.ActivityRecord: java.lang.String toString()>
+  Line:     37729
+  Register: v3 := "com.att.iqi"
+  Usage:    [invoke] invoke-virtual {v2, v3, v4}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequ
+  Patterns: (none)
+  Flow:     [invoke] java.lang.String.replace()
+
+  CALLERS (who invokes this method):
+      ← ActivityRecord.getInputApplicationHandle()
+      ← DisplayContent.convertActivityResultToComponentName()
+      ← MultiWindowShellCommand.cmdTopTaskSupportsMultiWindow()
+        ← InputMonitor.populateInputWindowHandle()
+        ← InputMonitor.setFocusedAppLw()
+        ← <com.android.server.wm.WindowState: void <init>(com.android.
+        ← DisplayContent.setFocusedApp()
+          ← InputMonitor$UpdateInputForAllWindowsConsumer.accept()
+          ← <com.android.server.wm.WindowState: void <init>(com.android.
+          ← ActivityRecord.onDisplayChanged()
+          ← ActivityRecord.onRemovedFromDisplay()
+          ← ActivityRecord.transferFocusedAppIfNeeded()
+          ← ActivityRecordGroup.removeChild()
+          ← ActivityTaskManagerService.setFocusedTask()
+          ← ActivityTaskManagerService.setResumedActivityUncheckLocked()
+          ← FlexibleDisplayController.setFocusedAppIfNeeded()
+          ← TaskFragment.resumeTopActivity()
+          ← WindowManagerService.onPointerDownOutsideFocusLocked()
+          ← WindowOrganizerController.applyHierarchyOp()
+            ← InputMonitor$UpdateInputForAllWindowsConsumer.accept()
+            ← WindowManagerService.addWindow()
+            ← ActivityRecord.removeImmediately()
+            ← DisplayContent.removeAppToken()
+            ← ActivityRecord.makeInvisible()
+            ← ActivityRecord.removeFromActivityGroup()
+            ← ActivityRecord.reparentGroup()
+            ← ActivityRecordGroup.dismiss()
+            ← ActivityTaskManagerService.setFocusedTask()
+            ← WindowManagerService.handleTaskFocusChange()
+            ← ActivityRecord.moveFocusableActivityToTop()
+            ← Task.moveTaskToBack()
+            ← Task.reparent()
+            ← Task.adjustFocusToNextFocusableTask()
+            ← TaskDisplayArea.positionChildTaskAt()
+            ← TaskFragment.onActivityStateChanged()
+            ← Task.resumeTopActivityInnerLocked()
+            ← TaskFragment.resumeTopActivity()
+            ← <com.android.server.wm.WindowManagerService: void -$$Nest$mo
+            ← WindowManagerService.onPointerDownOutsideFocusLocked()
+            ← WindowOrganizerController.applyTransaction()
+              ← Session.addToDisplay()
+              ← Session.addToDisplayAsUser()
+              ← Session.addToDisplayWithoutInputChannel()
+              ← ActivityRecord.removeIfPossible()
+              ← ActivityRecord.updatePictureInPictureMode()
+              ← ActivityRecord.removeFromHistory()
+              ← EnsureActivitiesVisibleHelper.setActivityVisibilityState()
+              ← Task.removeChild()
+              ← ActivityRecord.finishIfPossible()
+              ← ActivityStarter.reparentActivitiesToActivityGroupIfNeeded()
+              ← TaskPositioningController.startMovingTask()
+              ← <com.android.server.wm.TaskPositioningController: void lambd
+              ← WindowState.handleTapOutsideFocusInsideSelf()
+              ← ActivityTaskManagerService$LocalService.setFocusedActivity()
+              ← ActivityTaskManagerService.setFocusedRootTask()
+              ← MultiTaskingBinder.startResizingFreeformTask()
+              ← RootWindowContainer.resumeHomeActivity()
+              ← Task.moveTaskToFront()
+              ← TaskDisplayArea.moveHomeActivityToTop()
+              ← MultiTaskingController.minimizeTaskLocked()
+              ← Task.moveTaskToBack()
+              ← Task.reparent()
+              ← ActivityRecord.destroyIfPossible()
+              ← Task.adjustFocusToNextFocusableTask()
+              ← Task.resumeNextFocusAfterReparent()
+              ← TaskDisplayArea.positionChildAt()
+              ← ActivityRecord.setState()
+              ← Task.resumeTopActivityUncheckedLocked()
+              ← <com.android.server.wm.Task: void lambda$resumeTopActivityIn
+              ← WindowManagerService$H.handleMessage()
+              ← WindowOrganizerController.finishTransition()
+              ← WindowOrganizerController.applyTransaction()
+
+  CALLEES (what this method invokes):
+      → ComponentName.flattenToShortString()
+      → Intent.getComponent()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.WindowState
+  Method:   <com.android.server.wm.WindowState: java.lang.String toString()>
+  Line:     24735
+  Register: v2 := "com.att.iqi"
+  Usage:    [invoke] invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequ
+  Patterns: (none)
+  Flow:     [invoke] java.lang.String.replace()
+
+  CALLERS (who invokes this method):
+      ← DisplayPolicy.updateSystemBarAttributes()
+      ← RootWindowContainer.reclaimSomeSurfaceMemory()
+      ← TspStateController.updateWindowPolicyInner()
+        ← DisplayPolicy$4.run()
+        ← DisplayPolicy.finishPostLayoutPolicyLw()
+        ← DisplayPolicy.focusChangedLw()
+        ← DisplayPolicy.resetSystemBarAttributes()
+        ← DisplayPolicy.setForceFreeformOverlappingWithNavBar()
+        ← DisplayPolicy.updateForceShowNavBarSettings()
+        ← InsetsStateController.onInsetsModified()
+        ← WindowManagerService.outOfMemoryWindow()
+        ← WindowStateAnimator.createSurfaceLocked()
+        ← <com.android.server.wm.TspStateController: void -$$Nest$mupd
+          ← DisplayContent.applySurfaceChangesTransaction()
+          ← DisplayContent.updateFocusedWindowLocked()
+          ← WindowManagerService$$ExternalSyntheticLambda23.accept()
+          ← TaskMotionController.flingToSnapTarget()
+          ← TaskMotionController.movePosition()
+          ← <com.android.server.wm.DisplayPolicy: void $r8$lambda$lznSHg
+          ← DisplayPolicy.switchUser()
+          ← InsetsPolicy.onInsetsModified()
+          ← <com.android.server.wm.InsetsStateController: void lambda$no
+          ← WindowManagerService.updateDisplayWindowRequestedVisibilities()
+          ← Session.outOfMemory()
+          ← WindowManagerService.createSurfaceControl()
+          ← TspStateController$H.handleMessage()
+            ← RootWindowContainer.applySurfaceChangesTransaction()
+            ← RootWindowContainer.updateFocusedWindowLocked()
+            ← TaskPositioner.onMotionInputEvent()
+            ← DisplayPolicy$$ExternalSyntheticLambda22.run()
+            ← DisplayContent.switchUser()
+            ← Session.updateRequestedVisibilities()
+            ← <com.android.server.wm.InsetsStateController: void $r8$lambd
+            ← WindowManagerService.relayoutWindow()
+              ← RootWindowContainer.performSurfacePlacementNoTrace()
+              ← WindowManagerService.updateFocusedWindowLocked()
+              ← <com.android.server.wm.TaskPositioner: boolean $r8$lambda$QW
+              ← InsetsStateController$$ExternalSyntheticLambda4.run()
+              ← Session.relayout()
+
+  CALLEES (what this method invokes):
+      → WindowState.getWindowTag()
+      → CharSequence.toString()
+        → WindowManager$LayoutParams.getTitle()
+        → CharSequence.length()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.att.iqi.libs.IQIServiceBroker
+  Method:   <com.att.iqi.libs.IQIServiceBroker: void <clinit>()>
+  Line:     369
+  Register: v1 := "com.att.iqi"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → <com.att.iqi.libs.IQIServiceBroker$1: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.att.iqi.libs.IQIServiceBroker
+  Method:   <com.att.iqi.libs.IQIServiceBroker: void disablePackage()>
+  Line:     1034
+  Register: v0 := "com.att.iqi"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1, v2}, Landroid/content/pm/PackageManager;->setApplicationEnabledSetting(L
+  Patterns: early_return, package_enable_disable
+  Flow:     [invoke] android.content.pm.PackageManager.setApplicationEnabledSetti
+
+  CALLERS (who invokes this method):
+      ← <com.att.iqi.libs.IQIServiceBroker: void -$$Nest$mdisablePac
+        ← IQIServiceBroker$6.handleMessage()
+        ← IQIServiceBroker$BinderService$1.onReceive()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+      → LogUtil.canLog()
+      → LogUtil.logd()
+

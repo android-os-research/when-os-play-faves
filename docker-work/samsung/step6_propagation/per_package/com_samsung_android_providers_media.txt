@@ -1,0 +1,93 @@
+######################################################################
+# Propagation: com.samsung.android.providers.media
+######################################################################
+
+JARs:                 framework, services
+Classes:              4
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.android.internal.util.DumpUtils
+  Method:   <com.android.internal.util.DumpUtils: boolean isSecMediaPackage(java.lang.String)>
+  Line:     1034
+  Register: v0 := "com.samsung.android.providers.media"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_24 → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isSecMediaPackage()
+        ← DumpUtils.isNonPlatformPackage()
+        ← DumpUtils.isSecMediaPackage()
+          ← DumpUtils$$ExternalSyntheticLambda3.test()
+          ← <com.android.internal.util.DumpUtils: boolean $r8$lambda$DiT
+            ← DumpUtils$$ExternalSyntheticLambda6.test()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.internal.util.jobs.DumpUtils
+  Method:   <com.android.internal.util.jobs.DumpUtils: boolean isSecMediaPackage(java.lang.String)>
+  Line:     955
+  Register: v0 := "com.samsung.android.providers.media"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isNonPlatformPackage()
+      ← DumpUtils.isSecMediaPackage()
+        ← DumpUtils.isNonPlatformPackage()
+        ← DumpUtils.isSecMediaPackage()
+          ← DumpUtils$$ExternalSyntheticLambda3.test()
+          ← <com.android.internal.util.jobs.DumpUtils: boolean $r8$lambd
+            ← DumpUtils$$ExternalSyntheticLambda6.test()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$1
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+  Line:     72
+  Register: v0 := "com.samsung.android.providers.media"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$3
+  Method:   <com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+  Line:     87
+  Register: v2 := "com.samsung.android.providers.media"
+  Usage:    [invoke] invoke-virtual {p0, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+

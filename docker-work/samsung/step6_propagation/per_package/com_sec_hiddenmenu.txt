@@ -1,0 +1,94 @@
+######################################################################
+# Propagation: com.sec.hiddenmenu
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        APPOPS
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.usb.UsbDeviceManager
+  Method:   <com.android.server.usb.UsbDeviceManager: void setCurrentFunctions(long)>
+  Line:     2768
+  Register: v2 := "com.sec.hiddenmenu"
+  Usage:    [invoke] invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] const-string/jumbo v2, "persist.sys.usb.q_config" → [invoke] android.os.Sys
+
+  CALLERS (who invokes this method):
+      ← SemUsbBackend.setUsbFunction()
+      ← UsbDeviceManager.startAccessoryMode()
+      ← UsbService.setCurrentFunctions()
+        ← SemUsbBackend.setMode() [APPOPS]
+        ← <com.android.server.usb.UsbDeviceManager: void -$$Nest$mstar
+        ← <com.android.server.usb.UsbDeviceManager: void <init>(androi
+        ← UsbService.setCurrentFunction()
+          ← UsbService.semSetMode() [APPOPS]
+          ← UsbDeviceManager$UsbUEventObserver.onUEvent()
+          ← <com.android.server.usb.UsbService: void <init>(android.cont
+            ← <com.android.server.usb.UsbService$Lifecycle: void lambda$on
+              ← <com.android.server.usb.UsbService$Lifecycle: void $r8$lambd
+
+  CALLEES (what this method invokes):
+      → UsbManager.usbFunctionsToString()
+      → SystemProperties.set()
+      → Slog.d()
+      → MetricsLogger.action()
+      → UsbDeviceManager$UsbHandler.sendMessage()
+      → UsbDeviceManager.findForegroundPackage()
+        → Slog.getInstance()
+        → Slog.addMsgToList()
+        → Handler.sendMessage()
+        → Handler.removeMessages()
+        → Message.obtain()
+        → ActivityManager.getRunningTasks()
+        → ComponentName.getPackageName()
+        → Context.getSystemService()
+        → SystemProperties.get()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.isEmpty()
+        → List.get()
+        → List.iterator()
+          → <android.util.sysfwutil.Slog: void <init>()>
+          → Process.myTid()
+          → Slog.dumpLogsToTheFile()
+          → Slog.localLogV()
+          → ZonedDateTime.format()
+          → ZonedDateTime.now()
+          → DateTimeFormatter.ofPattern()
+          → List.add()
+          → List.size()
+          → Locale.getDefault()
+          → Message.obtain()
+            → Slog.initParam()
+            → <java.util.ArrayList: void <init>()>
+            → CountingOutputStream.getCount()
+            → <android.util.sysfwutil.CountingOutputStream: void <init>(ja
+            → Slog.localLogE()
+            → Slog.updatePermissions()
+            → File.delete()
+            → File.getAbsolutePath()
+            → <java.io.File: void <init>(java.lang.String)>
+            → <java.io.FileOutputStream: void <init>(java.io.File,boolean)
+            → FileOutputStream.close()
+            → IOException.printStackTrace()
+            → List.clear()
+            → <java.util.zip.GZIPOutputStream: void <init>(java.io.OutputS
+            → GZIPOutputStream.close()
+            → GZIPOutputStream.write()
+            → <android.os.Message: void <init>()>
+              → SystemProperties.getInt()
+              → File.exists()
+              → File.getParentFile()
+              → File.length()
+              → <java.io.OutputStream: void <init>()>
+              → FileUtils.setPermissions()
+              → File.createNewFile()
+

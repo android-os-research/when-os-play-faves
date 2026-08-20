@@ -1,0 +1,77 @@
+######################################################################
+# Propagation: com.sec.android.app.clockpackage
+######################################################################
+
+JARs:                 framework, services
+Classes:              3
+Occurrences:          3
+Usage types:          unknown
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.pm.PackageSamsungUtils
+  Method:   <android.content.pm.PackageSamsungUtils: java.util.ArrayList getCachedLiveIconPackagesLocked(android.content.Context)>
+  Line:     71
+  Register: v1 := "com.sec.android.app.clockpackage"
+  Usage:    [unknown] .local v1, "defaultClockPkgName":Ljava/lang/String;
+  Patterns: (none)
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← PackageSamsungUtils.supportLiveIcon()
+        ← LauncherActivityInfo.semGetBadgedIconForIconTray()
+
+  CALLEES (what this method invokes):
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+      → ArrayList.add()
+      → ArrayList.size()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     114
+  Register: v37 := "com.sec.android.app.clockpackage"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: java.lang.String[] getConcentrationModeSuspendPackages(java.util.List,java.util.List,java.lang.String)>
+  Line:     16804
+  Register: v4 := "com.sec.android.app.clockpackage"
+  Usage:    [] 
+  Patterns: (none)
+
+  CALLERS (who invokes this method):
+      ← ApplicationPolicy.setConcentrationMode()
+
+  CALLEES (what this method invokes):
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.remove()
+      → List.toArray()
+      → List.iterator()
+

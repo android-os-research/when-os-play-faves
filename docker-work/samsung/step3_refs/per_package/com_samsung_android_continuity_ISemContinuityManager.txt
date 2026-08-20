@@ -1,0 +1,15 @@
+# com.samsung.android.continuity.ISemContinuityManager [NEW]
+# Refs: 11
+# JARs: framework
+
+<com.samsung.android.continuity.ISemContinuityManager$Stub$Proxy: boolean requestDownload(java.lang.String,com.samsung.android.continuity.ISemContinuitySimpleListener,int)>
+<com.samsung.android.continuity.ISemContinuityManager$Stub$Proxy: int getNearbyDeviceCount(int,int)>
+<com.samsung.android.continuity.ISemContinuityManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.continuity.ISemContinuityManager$Stub$Proxy: void cancelDownload(java.lang.String,int)>
+<com.samsung.android.continuity.ISemContinuityManager$Stub$Proxy: void clearLocalClip(int)>
+<com.samsung.android.continuity.ISemContinuityManager$Stub$Proxy: void registerContinuityCopyListener(com.samsung.android.continuity.ISemContinuitySimpleListener,int)>
+<com.samsung.android.continuity.ISemContinuityManager$Stub$Proxy: void setLocalClip(android.os.Bundle,int)>
+<com.samsung.android.continuity.ISemContinuityManager$Stub$Proxy: void unregisterContinuityCopyListener(int)>
+<com.samsung.android.continuity.ISemContinuityManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.continuity.ISemContinuityManager$Stub: com.samsung.android.continuity.ISemContinuityManager asInterface(android.os.IBinder)>
+<com.samsung.android.continuity.ISemContinuityManager$Stub: void <init>()>

@@ -1,0 +1,9 @@
+# android.hardware.input.IWirelessKeyboardShareChangedListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.input.IWirelessKeyboardShareChangedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.input.IWirelessKeyboardShareChangedListener$Stub$Proxy: void onWirelessKeyboardShareChanged(long,int,java.lang.String)>
+<android.hardware.input.IWirelessKeyboardShareChangedListener$Stub: android.hardware.input.IWirelessKeyboardShareChangedListener asInterface(android.os.IBinder)>
+<android.hardware.input.IWirelessKeyboardShareChangedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.input.IWirelessKeyboardShareChangedListener$Stub: void <init>()>

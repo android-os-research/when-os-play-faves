@@ -1,0 +1,15 @@
+# android.os.storage.IStorageEventListener [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.os.storage.IStorageEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.storage.IStorageEventListener$Stub$Proxy: void onDiskDestroyed(android.os.storage.DiskInfo)>
+<android.os.storage.IStorageEventListener$Stub$Proxy: void onDiskScanned(android.os.storage.DiskInfo,int)>
+<android.os.storage.IStorageEventListener$Stub$Proxy: void onStorageStateChanged(java.lang.String,java.lang.String,java.lang.String)>
+<android.os.storage.IStorageEventListener$Stub$Proxy: void onUsbMassStorageConnectionChanged(boolean)>
+<android.os.storage.IStorageEventListener$Stub$Proxy: void onVolumeForgotten(java.lang.String)>
+<android.os.storage.IStorageEventListener$Stub$Proxy: void onVolumeRecordChanged(android.os.storage.VolumeRecord)>
+<android.os.storage.IStorageEventListener$Stub$Proxy: void onVolumeStateChanged(android.os.storage.VolumeInfo,int,int)>
+<android.os.storage.IStorageEventListener$Stub: android.os.storage.IStorageEventListener asInterface(android.os.IBinder)>
+<android.os.storage.IStorageEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.storage.IStorageEventListener$Stub: void <init>()>

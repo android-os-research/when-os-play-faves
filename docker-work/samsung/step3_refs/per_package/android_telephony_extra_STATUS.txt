@@ -1,0 +1,6 @@
+# android.telephony.extra.STATUS [NEW]
+# Refs: 2
+# JARs: telephony-common
+
+<com.android.internal.telephony.AppSmsManager: boolean handleSmsReceivedIntent(android.content.Intent)>
+<com.android.internal.telephony.AppSmsManager: void removeExpiredTokenLocked()>

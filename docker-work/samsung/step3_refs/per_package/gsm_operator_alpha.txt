@@ -1,0 +1,10 @@
+# gsm.operator.alpha [NEW]
+# Refs: 6
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.List operator_alpha()>
+<android.internal.telephony.sysprop.TelephonyProperties: void operator_alpha(java.util.List)>
+<android.sysprop.TelephonyProperties: java.util.List operator_alpha()>
+<android.sysprop.TelephonyProperties: void operator_alpha(java.util.List)>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.List operator_alpha()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void operator_alpha(java.util.List)>

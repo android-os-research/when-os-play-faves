@@ -1,0 +1,9 @@
+# android.telephony.mbms.IDownloadStatusListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.telephony.mbms.IDownloadStatusListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.mbms.IDownloadStatusListener$Stub$Proxy: void onStatusUpdated(android.telephony.mbms.DownloadRequest,android.telephony.mbms.FileInfo,int)>
+<android.telephony.mbms.IDownloadStatusListener$Stub: android.telephony.mbms.IDownloadStatusListener asInterface(android.os.IBinder)>
+<android.telephony.mbms.IDownloadStatusListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.mbms.IDownloadStatusListener$Stub: void <init>()>

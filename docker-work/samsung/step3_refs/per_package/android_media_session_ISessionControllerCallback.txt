@@ -1,0 +1,16 @@
+# android.media.session.ISessionControllerCallback [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.media.session.ISessionControllerCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.session.ISessionControllerCallback$Stub$Proxy: void onEvent(java.lang.String,android.os.Bundle)>
+<android.media.session.ISessionControllerCallback$Stub$Proxy: void onExtrasChanged(android.os.Bundle)>
+<android.media.session.ISessionControllerCallback$Stub$Proxy: void onMetadataChanged(android.media.MediaMetadata)>
+<android.media.session.ISessionControllerCallback$Stub$Proxy: void onPlaybackStateChanged(android.media.session.PlaybackState)>
+<android.media.session.ISessionControllerCallback$Stub$Proxy: void onQueueChanged(android.content.pm.ParceledListSlice)>
+<android.media.session.ISessionControllerCallback$Stub$Proxy: void onQueueTitleChanged(java.lang.CharSequence)>
+<android.media.session.ISessionControllerCallback$Stub$Proxy: void onSessionDestroyed()>
+<android.media.session.ISessionControllerCallback$Stub$Proxy: void onVolumeInfoChanged(android.media.session.MediaController$PlaybackInfo)>
+<android.media.session.ISessionControllerCallback$Stub: android.media.session.ISessionControllerCallback asInterface(android.os.IBinder)>
+<android.media.session.ISessionControllerCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.session.ISessionControllerCallback$Stub: void <init>()>

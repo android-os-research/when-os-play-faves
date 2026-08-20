@@ -1,0 +1,7 @@
+# com.samsung.android.zippedOverlay [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.om.SemSamsungThemeUtils: boolean isZippedLocaleOverlay(com.android.server.pm.parsing.pkg.AndroidPackage)>
+<com.android.server.pm.ComputerEngine: java.util.List getInstalledApplications(long,int,int)>
+<com.android.server.pm.InstallPackageHelper: void assertOverlayIsValid(com.android.server.pm.parsing.pkg.AndroidPackage,int,int)>

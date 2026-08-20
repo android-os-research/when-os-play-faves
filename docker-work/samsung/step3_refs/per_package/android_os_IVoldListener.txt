@@ -1,0 +1,20 @@
+# android.os.IVoldListener [NEW]
+# Refs: 32
+# JARs: framework, services
+
+<android.os.IVoldListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IVoldListener$Stub$Proxy: void onDiskCreated(java.lang.String,int)>
+<android.os.IVoldListener$Stub$Proxy: void onDiskDestroyed(java.lang.String)>
+<android.os.IVoldListener$Stub$Proxy: void onDiskMetadataChanged(java.lang.String,long,java.lang.String,java.lang.String)>
+<android.os.IVoldListener$Stub$Proxy: void onDiskScanned(java.lang.String)>
+<android.os.IVoldListener$Stub$Proxy: void onEncryptionStateChanged(java.lang.String,java.lang.String,java.lang.String)>
+<android.os.IVoldListener$Stub$Proxy: void onVolumeCreated(java.lang.String,int,java.lang.String,java.lang.String,int)>
+<android.os.IVoldListener$Stub$Proxy: void onVolumeDestroyed(java.lang.String)>
+<android.os.IVoldListener$Stub$Proxy: void onVolumeInternalPathChanged(java.lang.String,java.lang.String)>
+<android.os.IVoldListener$Stub$Proxy: void onVolumeMetadataChanged(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>
+<android.os.IVoldListener$Stub$Proxy: void onVolumePathChanged(java.lang.String,java.lang.String)>
+<android.os.IVoldListener$Stub$Proxy: void onVolumeStateChanged(java.lang.String,int)>
+<android.os.IVoldListener$Stub$Proxy: void sendVoldMessage(java.lang.String)>
+<android.os.IVoldListener$Stub: android.os.IVoldListener asInterface(android.os.IBinder)>
+<android.os.IVoldListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IVoldListener$Stub: void <init>()>

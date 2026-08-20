@@ -1,0 +1,11 @@
+# android.telephony.data.IQualifiedNetworksService [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.telephony.data.IQualifiedNetworksService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.data.IQualifiedNetworksService$Stub$Proxy: void createNetworkAvailabilityProvider(int,android.telephony.data.IQualifiedNetworksServiceCallback)>
+<android.telephony.data.IQualifiedNetworksService$Stub$Proxy: void removeNetworkAvailabilityProvider(int)>
+<android.telephony.data.IQualifiedNetworksService$Stub$Proxy: void reportThrottleStatusChanged(int,java.util.List)>
+<android.telephony.data.IQualifiedNetworksService$Stub: android.telephony.data.IQualifiedNetworksService asInterface(android.os.IBinder)>
+<android.telephony.data.IQualifiedNetworksService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.data.IQualifiedNetworksService$Stub: void <init>()>

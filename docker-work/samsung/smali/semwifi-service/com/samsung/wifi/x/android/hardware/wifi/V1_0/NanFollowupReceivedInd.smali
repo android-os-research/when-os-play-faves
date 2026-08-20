@@ -1,0 +1,970 @@
+.class public final Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;
+.super Ljava/lang/Object;
+.source "NanFollowupReceivedInd.java"
+
+
+# instance fields
+.field public addr:[B
+
+.field public discoverySessionId:B
+
+.field public extendedServiceSpecificInfo:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList<",
+            "Ljava/lang/Byte;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public peerId:I
+
+.field public receivedInFaw:Z
+
+.field public serviceSpecificInfo:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList<",
+            "Ljava/lang/Byte;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 3
+
+    .line 4
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    .line 10
+    iput-byte v0, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->discoverySessionId:B
+
+    .line 15
+    iput v0, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->peerId:I
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [B
+
+    .line 19
+    iput-object v1, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->addr:[B
+
+    .line 24
+    iput-boolean v0, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->receivedInFaw:Z
+
+    .line 31
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->serviceSpecificInfo:Ljava/util/ArrayList;
+
+    .line 38
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->extendedServiceSpecificInfo:Ljava/util/ArrayList;
+
+    return-void
+.end method
+
+.method public static final readVectorFromParcel(Landroid/os/HwParcel;)Ljava/util/ArrayList;
+    .registers 13
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/HwParcel;",
+            ")",
+            "Ljava/util/ArrayList<",
+            "Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;",
+            ">;"
+        }
+    .end annotation
+
+    .line 110
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    const-wide/16 v1, 0x10
+
+    .line 111
+    invoke-virtual {p0, v1, v2}, Landroid/os/HwParcel;->readBuffer(J)Landroid/os/HwBlob;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x8
+
+    .line 114
+    invoke-virtual {v1, v2, v3}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result v2
+
+    mul-int/lit8 v3, v2, 0x30
+
+    int-to-long v5, v3
+
+    .line 116
+    invoke-virtual {v1}, Landroid/os/HwBlob;->handle()J
+
+    move-result-wide v7
+
+    const-wide/16 v9, 0x0
+
+    const/4 v11, 0x1
+
+    move-object v4, p0
+
+    .line 115
+    invoke-virtual/range {v4 .. v11}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
+
+    move-result-object v1
+
+    .line 119
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    const/4 v3, 0x0
+
+    :goto_24
+    if-ge v3, v2, :cond_37
+
+    .line 121
+    new-instance v4, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;
+
+    invoke-direct {v4}, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;-><init>()V
+
+    mul-int/lit8 v5, v3, 0x30
+
+    int-to-long v5, v5
+
+    .line 122
+    invoke-virtual {v4, p0, v1, v5, v6}, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
+
+    .line 123
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_24
+
+    :cond_37
+    return-object v0
+.end method
+
+.method public static final writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
+    .registers 9
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/HwParcel;",
+            "Ljava/util/ArrayList<",
+            "Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 176
+    new-instance v0, Landroid/os/HwBlob;
+
+    const/16 v1, 0x10
+
+    invoke-direct {v0, v1}, Landroid/os/HwBlob;-><init>(I)V
+
+    .line 178
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    const-wide/16 v2, 0x8
+
+    .line 179
+    invoke-virtual {v0, v2, v3, v1}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    const-wide/16 v2, 0xc
+
+    const/4 v4, 0x0
+
+    .line 180
+    invoke-virtual {v0, v2, v3, v4}, Landroid/os/HwBlob;->putBool(JZ)V
+
+    .line 181
+    new-instance v2, Landroid/os/HwBlob;
+
+    mul-int/lit8 v3, v1, 0x30
+
+    invoke-direct {v2, v3}, Landroid/os/HwBlob;-><init>(I)V
+
+    :goto_1d
+    if-ge v4, v1, :cond_2e
+
+    .line 183
+    invoke-virtual {p1, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;
+
+    mul-int/lit8 v5, v4, 0x30
+
+    int-to-long v5, v5
+
+    invoke-virtual {v3, v2, v5, v6}, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_1d
+
+    :cond_2e
+    const-wide/16 v3, 0x0
+
+    .line 185
+    invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
+
+    .line 188
+    invoke-virtual {p0, v0}, Landroid/os/HwParcel;->writeBuffer(Landroid/os/HwBlob;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final equals(Ljava/lang/Object;)Z
+    .registers 6
+
+    const/4 v0, 0x1
+
+    if-ne p0, p1, :cond_4
+
+    return v0
+
+    :cond_4
+    const/4 v1, 0x0
+
+    if-nez p1, :cond_8
+
+    return v1
+
+    .line 48
+    :cond_8
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    const-class v3, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;
+
+    if-eq v2, v3, :cond_11
+
+    return v1
+
+    .line 51
+    :cond_11
+    check-cast p1, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;
+
+    .line 52
+    iget-byte v2, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->discoverySessionId:B
+
+    iget-byte v3, p1, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->discoverySessionId:B
+
+    if-eq v2, v3, :cond_1a
+
+    return v1
+
+    .line 55
+    :cond_1a
+    iget v2, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->peerId:I
+
+    iget v3, p1, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->peerId:I
+
+    if-eq v2, v3, :cond_21
+
+    return v1
+
+    .line 58
+    :cond_21
+    iget-object v2, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->addr:[B
+
+    iget-object v3, p1, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->addr:[B
+
+    invoke-static {v2, v3}, Landroid/os/HidlSupport;->deepEquals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2c
+
+    return v1
+
+    .line 61
+    :cond_2c
+    iget-boolean v2, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->receivedInFaw:Z
+
+    iget-boolean v3, p1, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->receivedInFaw:Z
+
+    if-eq v2, v3, :cond_33
+
+    return v1
+
+    .line 64
+    :cond_33
+    iget-object v2, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->serviceSpecificInfo:Ljava/util/ArrayList;
+
+    iget-object v3, p1, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->serviceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-static {v2, v3}, Landroid/os/HidlSupport;->deepEquals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3e
+
+    return v1
+
+    .line 67
+    :cond_3e
+    iget-object p0, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->extendedServiceSpecificInfo:Ljava/util/ArrayList;
+
+    iget-object p1, p1, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->extendedServiceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-static {p0, p1}, Landroid/os/HidlSupport;->deepEquals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_49
+
+    return v1
+
+    :cond_49
+    return v0
+.end method
+
+.method public final hashCode()I
+    .registers 4
+
+    const/4 v0, 0x6
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    .line 75
+    iget-byte v1, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->discoverySessionId:B
+
+    .line 76
+    invoke-static {v1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->peerId:I
+
+    .line 77
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    iget-object v1, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->addr:[B
+
+    .line 78
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    iget-boolean v1, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->receivedInFaw:Z
+
+    .line 79
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    iget-object v1, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->serviceSpecificInfo:Ljava/util/ArrayList;
+
+    .line 80
+    invoke-static {v1}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    iget-object p0, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->extendedServiceSpecificInfo:Ljava/util/ArrayList;
+
+    .line 81
+    invoke-static {p0}, Landroid/os/HidlSupport;->deepHashCode(Ljava/lang/Object;)I
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    const/4 v1, 0x5
+
+    aput-object p0, v0, v1
+
+    .line 75
+    invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
+    .registers 23
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    const-wide/16 v2, 0x0
+
+    add-long v4, p3, v2
+
+    .line 132
+    invoke-virtual {v1, v4, v5}, Landroid/os/HwBlob;->getInt8(J)B
+
+    move-result v4
+
+    iput-byte v4, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->discoverySessionId:B
+
+    const-wide/16 v4, 0x4
+
+    add-long v4, p3, v4
+
+    .line 133
+    invoke-virtual {v1, v4, v5}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result v4
+
+    iput v4, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->peerId:I
+
+    const-wide/16 v4, 0x8
+
+    add-long v6, p3, v4
+
+    .line 136
+    iget-object v8, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->addr:[B
+
+    const/4 v9, 0x6
+
+    invoke-virtual {v1, v6, v7, v8, v9}, Landroid/os/HwBlob;->copyToInt8Array(J[BI)V
+
+    const-wide/16 v6, 0xe
+
+    add-long v6, p3, v6
+
+    .line 139
+    invoke-virtual {v1, v6, v7}, Landroid/os/HwBlob;->getBool(J)Z
+
+    move-result v6
+
+    iput-boolean v6, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->receivedInFaw:Z
+
+    const-wide/16 v6, 0x10
+
+    add-long v6, p3, v6
+
+    add-long v8, v6, v4
+
+    .line 141
+    invoke-virtual {v1, v8, v9}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result v8
+
+    mul-int/lit8 v9, v8, 0x1
+
+    int-to-long v11, v9
+
+    .line 143
+    invoke-virtual/range {p2 .. p2}, Landroid/os/HwBlob;->handle()J
+
+    move-result-wide v13
+
+    add-long v15, v6, v2
+
+    const/16 v17, 0x1
+
+    move-object/from16 v10, p1
+
+    .line 142
+    invoke-virtual/range {v10 .. v17}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
+
+    move-result-object v6
+
+    .line 146
+    iget-object v7, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->serviceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
+
+    const/4 v7, 0x0
+
+    move v9, v7
+
+    :goto_4e
+    if-ge v9, v8, :cond_63
+
+    mul-int/lit8 v10, v9, 0x1
+
+    int-to-long v10, v10
+
+    .line 149
+    invoke-virtual {v6, v10, v11}, Landroid/os/HwBlob;->getInt8(J)B
+
+    move-result v10
+
+    .line 150
+    iget-object v11, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->serviceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-static {v10}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+
+    move-result-object v10
+
+    invoke-virtual {v11, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v9, v9, 0x1
+
+    goto :goto_4e
+
+    :cond_63
+    const-wide/16 v8, 0x20
+
+    add-long v8, p3, v8
+
+    add-long/2addr v4, v8
+
+    .line 154
+    invoke-virtual {v1, v4, v5}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result v4
+
+    mul-int/lit8 v5, v4, 0x1
+
+    int-to-long v11, v5
+
+    .line 156
+    invoke-virtual/range {p2 .. p2}, Landroid/os/HwBlob;->handle()J
+
+    move-result-wide v13
+
+    add-long v15, v8, v2
+
+    const/16 v17, 0x1
+
+    move-object/from16 v10, p1
+
+    .line 155
+    invoke-virtual/range {v10 .. v17}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
+
+    move-result-object v1
+
+    .line 159
+    iget-object v2, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->extendedServiceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
+
+    :goto_82
+    if-ge v7, v4, :cond_97
+
+    mul-int/lit8 v2, v7, 0x1
+
+    int-to-long v2, v2
+
+    .line 162
+    invoke-virtual {v1, v2, v3}, Landroid/os/HwBlob;->getInt8(J)B
+
+    move-result v2
+
+    .line 163
+    iget-object v3, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->extendedServiceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-static {v2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_82
+
+    :cond_97
+    return-void
+.end method
+
+.method public final readFromParcel(Landroid/os/HwParcel;)V
+    .registers 5
+
+    const-wide/16 v0, 0x30
+
+    .line 105
+    invoke-virtual {p1, v0, v1}, Landroid/os/HwParcel;->readBuffer(J)Landroid/os/HwBlob;
+
+    move-result-object v0
+
+    const-wide/16 v1, 0x0
+
+    .line 106
+    invoke-virtual {p0, p1, v0, v1, v2}, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
+
+    return-void
+.end method
+
+.method public final toString()Ljava/lang/String;
+    .registers 3
+
+    .line 86
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "{"
+
+    .line 87
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ".discoverySessionId = "
+
+    .line 88
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 89
+    iget-byte v1, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->discoverySessionId:B
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .peerId = "
+
+    .line 90
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 91
+    iget v1, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->peerId:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .addr = "
+
+    .line 92
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 93
+    iget-object v1, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->addr:[B
+
+    invoke-static {v1}, Ljava/util/Arrays;->toString([B)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .receivedInFaw = "
+
+    .line 94
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 95
+    iget-boolean v1, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->receivedInFaw:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .serviceSpecificInfo = "
+
+    .line 96
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 97
+    iget-object v1, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->serviceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", .extendedServiceSpecificInfo = "
+
+    .line 98
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 99
+    iget-object p0, p0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->extendedServiceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p0, "}"
+
+    .line 100
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 101
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+    .registers 20
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    const-wide/16 v2, 0x0
+
+    add-long v4, p2, v2
+
+    .line 193
+    iget-byte v6, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->discoverySessionId:B
+
+    invoke-virtual {v1, v4, v5, v6}, Landroid/os/HwBlob;->putInt8(JB)V
+
+    const-wide/16 v4, 0x4
+
+    add-long v4, p2, v4
+
+    .line 194
+    iget v6, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->peerId:I
+
+    invoke-virtual {v1, v4, v5, v6}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    const-wide/16 v4, 0x8
+
+    add-long v6, p2, v4
+
+    .line 197
+    iget-object v8, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->addr:[B
+
+    if-eqz v8, :cond_a0
+
+    .line 199
+    array-length v9, v8
+
+    const/4 v10, 0x6
+
+    if-ne v9, v10, :cond_a0
+
+    .line 203
+    invoke-virtual {v1, v6, v7, v8}, Landroid/os/HwBlob;->putInt8Array(J[B)V
+
+    const-wide/16 v6, 0xe
+
+    add-long v6, p2, v6
+
+    .line 206
+    iget-boolean v8, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->receivedInFaw:Z
+
+    invoke-virtual {v1, v6, v7, v8}, Landroid/os/HwBlob;->putBool(JZ)V
+
+    .line 208
+    iget-object v6, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->serviceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+
+    move-result v6
+
+    const-wide/16 v7, 0x10
+
+    add-long v7, p2, v7
+
+    add-long v9, v7, v4
+
+    .line 209
+    invoke-virtual {v1, v9, v10, v6}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    const-wide/16 v9, 0xc
+
+    add-long v11, v7, v9
+
+    const/4 v13, 0x0
+
+    .line 210
+    invoke-virtual {v1, v11, v12, v13}, Landroid/os/HwBlob;->putBool(JZ)V
+
+    .line 211
+    new-instance v11, Landroid/os/HwBlob;
+
+    mul-int/lit8 v12, v6, 0x1
+
+    invoke-direct {v11, v12}, Landroid/os/HwBlob;-><init>(I)V
+
+    move v12, v13
+
+    :goto_4d
+    if-ge v12, v6, :cond_65
+
+    mul-int/lit8 v14, v12, 0x1
+
+    int-to-long v14, v14
+
+    .line 213
+    iget-object v13, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->serviceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v13, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Ljava/lang/Byte;
+
+    invoke-virtual {v13}, Ljava/lang/Byte;->byteValue()B
+
+    move-result v13
+
+    invoke-virtual {v11, v14, v15, v13}, Landroid/os/HwBlob;->putInt8(JB)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    const/4 v13, 0x0
+
+    goto :goto_4d
+
+    :cond_65
+    add-long/2addr v7, v2
+
+    .line 215
+    invoke-virtual {v1, v7, v8, v11}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
+
+    .line 218
+    iget-object v6, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->extendedServiceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+
+    move-result v6
+
+    const-wide/16 v7, 0x20
+
+    add-long v7, p2, v7
+
+    add-long/2addr v4, v7
+
+    .line 219
+    invoke-virtual {v1, v4, v5, v6}, Landroid/os/HwBlob;->putInt32(JI)V
+
+    add-long/2addr v9, v7
+
+    const/4 v4, 0x0
+
+    .line 220
+    invoke-virtual {v1, v9, v10, v4}, Landroid/os/HwBlob;->putBool(JZ)V
+
+    .line 221
+    new-instance v5, Landroid/os/HwBlob;
+
+    mul-int/lit8 v9, v6, 0x1
+
+    invoke-direct {v5, v9}, Landroid/os/HwBlob;-><init>(I)V
+
+    move v13, v4
+
+    :goto_84
+    if-ge v13, v6, :cond_9b
+
+    mul-int/lit8 v4, v13, 0x1
+
+    int-to-long v9, v4
+
+    .line 223
+    iget-object v4, v0, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->extendedServiceSpecificInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v13}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/Byte;
+
+    invoke-virtual {v4}, Ljava/lang/Byte;->byteValue()B
+
+    move-result v4
+
+    invoke-virtual {v5, v9, v10, v4}, Landroid/os/HwBlob;->putInt8(JB)V
+
+    add-int/lit8 v13, v13, 0x1
+
+    goto :goto_84
+
+    :cond_9b
+    add-long/2addr v7, v2
+
+    .line 225
+    invoke-virtual {v1, v7, v8, v5}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
+
+    return-void
+
+    .line 200
+    :cond_a0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Array element is not of the expected length"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public final writeToParcel(Landroid/os/HwParcel;)V
+    .registers 5
+
+    .line 169
+    new-instance v0, Landroid/os/HwBlob;
+
+    const/16 v1, 0x30
+
+    invoke-direct {v0, v1}, Landroid/os/HwBlob;-><init>(I)V
+
+    const-wide/16 v1, 0x0
+
+    .line 170
+    invoke-virtual {p0, v0, v1, v2}, Lcom/samsung/wifi/x/android/hardware/wifi/V1_0/NanFollowupReceivedInd;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+
+    .line 171
+    invoke-virtual {p1, v0}, Landroid/os/HwParcel;->writeBuffer(Landroid/os/HwBlob;)V
+
+    return-void
+.end method

@@ -1,0 +1,8 @@
+# com.samsung.android.multiwindow.activity.alias.targetactivity [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.wm.ActivityStartInterceptor: boolean interceptMultiWindowAliasActivityIfNeeded()>
+<com.android.server.wm.ActivityStarter: int startActivityInner(com.android.server.wm.ActivityRecord,com.android.server.wm.ActivityRecord,android.service.voice.IVoiceInteractionSession,com.android.internal.app.IVoiceInteractor,int,boolean,android.app.ActivityOptions,com.android.server.wm.Task,com.android.server.wm.TaskFragment,boolean,com.android.server.uri.NeededUriGrants)>
+<com.android.server.wm.AppPairController: boolean adjustStartIntents(android.window.WindowContainerTransaction,com.android.server.wm.WindowOrganizerController$CallerInfo)>
+<com.android.server.wm.AppPairController: void adjustStartTaskAndIntent(android.window.WindowContainerTransaction,com.android.server.wm.WindowOrganizerController$CallerInfo)>

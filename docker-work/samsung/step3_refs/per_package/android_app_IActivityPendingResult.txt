@@ -1,0 +1,9 @@
+# android.app.IActivityPendingResult [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.IActivityPendingResult$Stub$Proxy: boolean sendResult(int,java.lang.String,android.os.Bundle)>
+<android.app.IActivityPendingResult$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IActivityPendingResult$Stub: android.app.IActivityPendingResult asInterface(android.os.IBinder)>
+<android.app.IActivityPendingResult$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IActivityPendingResult$Stub: void <init>()>

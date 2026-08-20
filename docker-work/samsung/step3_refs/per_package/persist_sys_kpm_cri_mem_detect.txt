@@ -1,0 +1,5 @@
+# persist.sys.kpm_cri_mem_detect [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.am.KillPolicyManager: boolean isDetectCritcialLowEnabled()>

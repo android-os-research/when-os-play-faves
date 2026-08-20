@@ -1,0 +1,10 @@
+# android.app.IStopUserCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.IStopUserCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IStopUserCallback$Stub$Proxy: void userStopAborted(int)>
+<android.app.IStopUserCallback$Stub$Proxy: void userStopped(int)>
+<android.app.IStopUserCallback$Stub: android.app.IStopUserCallback asInterface(android.os.IBinder)>
+<android.app.IStopUserCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IStopUserCallback$Stub: void <init>()>

@@ -1,0 +1,63 @@
+######################################################################
+# Propagation: com.sec.android.autobackup
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.storage.DeviceStorageMonitorYuva
+  Method:   <com.android.server.storage.DeviceStorageMonitorYuva: void sendCancelUserMemLowNotification(int)>
+  Line:     470
+  Register: p1 := "com.sec.android.autobackup"
+  Usage:    [invoke] invoke-virtual {v0, p1, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName()
+
+  CALLERS (who invokes this method):
+      ← DeviceStorageMonitorYuva.intentBroadcastForUserLowMem()
+        ← DeviceStorageMonitorYuva.onUpdate()
+          ← DeviceStorageMonitorService.checkLow()
+            ← <com.android.server.storage.DeviceStorageMonitorService: voi
+              ← DeviceStorageMonitorService$1.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.storage.DeviceStorageMonitorYuva
+  Method:   <com.android.server.storage.DeviceStorageMonitorYuva: void sendUserMemLowNotification(int)>
+  Line:     545
+  Register: p1 := "com.sec.android.autobackup"
+  Usage:    [invoke] invoke-virtual {v0, p1, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName()
+
+  CALLERS (who invokes this method):
+      ← DeviceStorageMonitorYuva.intentBroadcastForUserLowMem()
+        ← DeviceStorageMonitorYuva.onUpdate()
+          ← DeviceStorageMonitorService.checkLow()
+            ← <com.android.server.storage.DeviceStorageMonitorService: voi
+              ← DeviceStorageMonitorService$1.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>(java.lang.String)>
+

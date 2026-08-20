@@ -1,0 +1,6 @@
+# ro.sys.kernelmemory.gmr.vendor_plugin [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.NandswapManager$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.am.GPUMemoryReclaimer: java.lang.String getVendorPluginName()>

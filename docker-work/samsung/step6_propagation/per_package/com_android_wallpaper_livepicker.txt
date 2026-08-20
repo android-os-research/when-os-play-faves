@@ -1,0 +1,1074 @@
+######################################################################
+# Propagation: com.android.wallpaper.livepicker
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        CALLER_ID, PERM_CHECK, PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wallpaper.WallpaperManagerService
+  Method:   <com.android.server.wallpaper.WallpaperManagerService: void clearWallpaperLocked(boolean,int,int,android.os.IRemoteCallback,java.lang.String)>
+  Line:     4094
+  Register: v2 := "com.android.wallpaper.livepicker"
+  Usage:    [invoke] invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v2 → [branch] if-eqz v2, :cond_b7 → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← WallpaperManagerService.clearWallpaper()
+      ← WallpaperManagerService.clearWallpaperLocked()
+        ← WallpaperManagerService.handleOMCWallpaperUpdatedLocked()
+        ← WallpaperManagerService.requestClearWallpaper()
+        ← WallpaperManagerService$MyPackageMonitor.doPackagesChangedLocked()
+        ← WallpaperManagerService$MyPackageMonitor.onPackageUpdateFinished()
+        ← <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+        ← <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+        ← WallpaperManagerService$WallpaperConnection.tryToRebind()
+        ← WallpaperManagerService.initImageWallpaperCropFile()
+        ← WallpaperManagerService.switchWallpaper()
+          ← WallpaperManagerService$SemCallback.handleOMCWallpaperUpdated()
+          ← WallpaperManagerService$MyPackageMonitor.onHandleForceStop()
+          ← WallpaperManagerService$MyPackageMonitor.onPackageModified()
+          ← WallpaperManagerService$MyPackageMonitor.onSomePackagesChanged()
+          ← <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+          ← <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+          ← <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+          ← WallpaperManagerService.systemReady()
+          ← WallpaperManagerService$1.onDisplayAdded()
+          ← WallpaperManagerService$SemCallback.switchDexWallpaper()
+          ← WallpaperManagerService$SemCallback.switchWallpaperByDisplayChanged()
+          ← WallpaperManagerService.completeUnlockUser()
+          ← WallpaperManagerService.switchUser()
+            ← WallpaperManagerService$SemCallback.updateOmcWallpaper()
+            ← OMCWallpaper.checkTSSActivation()
+            ← WallpaperManagerService$WallpaperConnection$$ExternalSyntheticLambda0.run()
+            ← WallpaperManagerService$WallpaperConnection$$ExternalSyntheticLambda2.run()
+            ← WallpaperManagerService$WallpaperConnection$$ExternalSyntheticLambda1.run()
+            ← <com.android.server.wallpaper.WallpaperManagerService: void 
+            ← DesktopMode.onRefreshWallpaperByUiMode()
+            ← SubDisplayMode$1.handleMessage()
+            ← <com.android.server.wallpaper.WallpaperManagerService: void 
+            ← WallpaperManagerService$4.onUserSwitching()
+            ← <com.android.server.wallpaper.WallpaperManagerService: void 
+              ← OMCWallpaper$1.handleMessage()
+              ← <com.android.server.wallpaper.WallpaperManagerService: void 
+              ← WallpaperManagerService$SemCallback.updateDesktopModeState()
+              ← <com.android.server.wallpaper.WallpaperManagerService: void 
+              ← <com.android.server.wallpaper.WallpaperManagerService: void 
+
+  CALLEES (what this method invokes):
+      → WallpaperManager.isDefaultOperatorWallpaper()
+      → ComponentName.getClassName()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putInt()
+      → IRemoteCallback.sendResult()
+      → WallpaperManagerService$WallpaperData.getWallpaperFile()
+      → WallpaperManagerService$WallpaperData.setCallingPackage()
+      → WallpaperManagerService$WallpaperDataManager.get()
+      → WallpaperManagerService$WallpaperDataManager.get()
+      → WallpaperManagerService$WallpaperDataManager.remove()
+      → WallpaperManagerService.bindComponentNow()
+      → WallpaperManagerService.bindWallpaperComponentLocked()
+      → WallpaperManagerService.isDefaultMultipack()
+      → WallpaperManagerService.getWallpaperSafeLocked()
+      → WallpaperManagerService.getDefaultWallpaperType()
+      → WallpaperManagerService.getDefaultMultiPackUri()
+      → WallpaperManagerService.cleanUpWallpaperData()
+      → WallpaperManagerService.clearWallpaperComponentLocked()
+      → WallpaperManagerService.initVideoWallpaper()
+      → WallpaperManagerService.loadSettingsLocked()
+      → WallpaperManagerService.notifyCallbacksLocked()
+      → WallpaperManagerService.notifyLockWallpaperChanged()
+      → WallpaperManagerService.notifyMultipackApplied()
+      → WallpaperManagerService.resetSemWallpaperData()
+      → WallpaperManagerService.resetWallpaperData()
+      → WallpaperManagerService.saveSettingsLocked()
+      → WallpaperManagerService.sendWindowWallpaperCommand()
+      → WhichChecker.isLock()
+      → WhichChecker.isPhone()
+      → WhichChecker.isSingleType()
+      → WhichChecker.isSubDisplay()
+      → WhichChecker.getMode()
+      → LegibilityColor.extractColor()
+      → Log.d()
+      → Log.i()
+      → Log.addLogString()
+      → SemWallpaperData.getIsPreloaded()
+      → SemWallpaperData.getWallpaperHistories()
+      → SemWallpaperData.getWhich()
+      → SemWallpaperData.getWpType()
+      → SemWallpaperData.setColorThemeData()
+      → SemWallpaperData.setUri()
+      → SemWallpaperData.setWallpaperHistories()
+      → SemWallpaperData.setWpType()
+      → File.delete()
+      → File.exists()
+      → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+      → NullPointerException.printStackTrace()
+        → SemWallpaperData.getAnimatedBackground()
+        → SemWallpaperData.getMotionBackground()
+        → SemWallpaperData.getVideoFirstFrameFile()
+        → WallpaperManagerService$WallpaperData.getPackageName()
+        → SemWallpaperData.getWallpaperTypeString()
+        → SemWallpaperData.setWallpaperHistory()
+        → SparseArray.get()
+        → WallpaperManagerService$WallpaperDataManager.getMode()
+        → SparseArray.remove()
+        → WallpaperManagerService.getLidState()
+        → WallpaperManagerService.bindWallpaperComponentLocked()
+        → SemWallpaperResourcesInfo.isDefaultMultipack()
+        → WallpaperManager.isDefaultOperatorWallpaper()
+        → CMFWallpaper.getDeviceColor()
+        → Debug.getCaller()
+        → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+        → WallpaperManagerService$WallpaperDataManager.put()
+        → WallpaperManagerService.getWallpaperDir()
+        → WallpaperManagerService.getWallpaperLockDir()
+        → WallpaperManagerService.ensureSaneWallpaperData()
+        → WallpaperManagerService.loadSettingsLocked()
+        → WhichChecker.isDex()
+        → WhichChecker.isVirtualDisplay()
+        → SemWallpaperManagerService.getCallStackString()
+        → SemWallpaperManagerService.putLog()
+        → SemWallpaperResourcesInfo.getDefaultWallpaperType()
+        → SemWallpaperResourcesInfo.getDefaultMultipackStyle()
+        → TextUtils.isEmpty()
+        → SemWallpaperData.setAnimatedBackground()
+        → SemWallpaperData.setAnimatedPkgName()
+        → SemWallpaperData.setExternalParams()
+        → SemWallpaperData.setMotionBackground()
+        → SemWallpaperData.setMotionPkgName()
+        → SemWallpaperData.setVideoColor()
+        → SemWallpaperData.setVideoFileName()
+        → SemWallpaperData.setVideoFirstFrameFile()
+        → SemWallpaperData.setVideoPkgName()
+        → File.getPath()
+        → WallpaperManagerService.detachWallpaperLocked()
+        → SemWallpaperResourcesInfo.getDefaultVideoWallpaperFileName()
+        → WallpaperManager.getInstance()
+        → WallpaperManager.getOMCVideoWallpaperFilePath()
+        → WallpaperManager.setVideoWallpaper()
+        → SemWallpaperData.getVideoDefaultHasBeenUsed()
+        → SemWallpaperData.setVideoDefaultHasBeenUsed()
+        → ComponentName.unflattenFromString()
+        → ComponentName.getPackageName()
+        → Rect.set()
+        → TypedXmlPullParser.next()
+        → TypedXmlPullParser.getAttributeValue()
+        → TypedXmlPullParser.getName()
+        → Xml.resolvePullParser()
+        → JournaledFile.chooseForRead()
+        → WallpaperManagerService$WallpaperData.cropExists()
+        → WallpaperManagerService$WallpaperData.sourceExists()
+        → WallpaperManagerService.makeJournaledFile()
+        → WallpaperManagerService.getDisplayDataOrCreate()
+        → WallpaperManagerService.makeWallpaperIdLocked()
+        → WallpaperManagerService.ensureSaneWallpaperDisplaySize()
+        → WallpaperManagerService.generateCrop()
+        → WallpaperManagerService.initLockWallpaperData()
+        → WallpaperManagerService.initializeFallbackWallpaper()
+        → WallpaperManagerService.migrateFromOld()
+        → WallpaperManagerService.parseWallpaperAttributes()
+        → WhichChecker.isSupportLock()
+        → LegibilityColor.initSemWallpaperColors()
+        → Log.v()
+        → SemWallpaperData.getWallpaperHistoryList()
+        → SemWallpaperData.parseWallpaperHistoryInfo()
+        → SemWallpaperManagerService.initializeThumnailFile()
+        → SemWallpaperManagerService.getFileName()
+        → SemWallpaperManagerService.generateResizedBitmap()
+        → <java.io.FileInputStream: void <init>(java.io.File)>
+        → IoUtils.closeQuietly()
+        → IWallpaperManagerCallback.onWallpaperChanged()
+        → Context.sendBroadcastAsUser()
+        → Intent.putExtra()
+        → Intent.putExtra()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → RemoteCallbackList.getBroadcastItem()
+        → RemoteCallbackList.beginBroadcast()
+        → RemoteCallbackList.finishBroadcast()
+        → <android.os.UserHandle: void <init>(int)>
+        → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+        → IWallpaperManagerCallback.onSemWallpaperChanged()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → IWallpaperManagerCallback.onSemMultipackApplied()
+        → Bitmap.isRecycled()
+        → SemWallpaperData.getCroppedBitmap()
+        → SemWallpaperData.setCroppedBitmap()
+        → SemWallpaperData.setLandscapeColors()
+        → FileUtils.sync()
+        → TypedXmlSerializer.endDocument()
+        → TypedXmlSerializer.startDocument()
+        → Xml.resolveSerializer()
+        → JournaledFile.chooseForWrite()
+        → JournaledFile.commit()
+        → JournaledFile.rollback()
+        → WallpaperManagerService.writeWallpaperAttributes()
+        → SubDisplayMode.getFolderStateBasedWhich()
+        → <java.io.FileOutputStream: void <init>(java.io.File,boolean)
+        → FileOutputStream.close()
+        → FileOutputStream.flush()
+        → RemoteException.toString()
+        → IWallpaperEngine.dispatchWallpaperCommand()
+        → WallpaperManagerService$WallpaperConnection.getDisplayConnectorOrCreate()
+        → LegibilityColor.support()
+        → LegibilityColor.extractColor()
+        → Log.getCodeInfoString()
+        → Log.toTimestampFormat()
+        → Log.getHistoryList()
+        → ArrayList.size()
+        → ArrayList.remove()
+        → ArrayList.add()
+        → HashMap.put()
+        → SemWallpaperData$WallpaperHistroy.clone()
+          → SemWallpaperData.getAnimatedPkgName()
+          → SemWallpaperData.getMotionPkgName()
+          → SemWallpaperData.getVideoPkgName()
+          → SemWallpaperData$WallpaperHistroy.addWallpaperHistoryData()
+          → SparseArray.get()
+          → SparseArray.delete()
+          → SubDisplayMode.getLidState()
+          → PendingIntent.getActivityAsUser()
+          → SemWallpaperResourcesInfo.getDefaultLiveWallpaperFileName()
+          → WallpaperInfo.supportsAmbientMode()
+          → WallpaperInfo.getPackageName()
+          → WallpaperManager.getDefaultWallpaperComponent()
+          → ComponentName.equals()
+          → Context.bindServiceAsUser()
+          → Context.getText()
+          → Intent.createChooser()
+          → Intent.putExtra()
+          → Intent.setComponent()
+          → IPackageManager.getServiceInfo()
+          → IPackageManager.checkPermission() [PERM_CHECK]
+          → IPackageManager.getPackageUid()
+          → IStatusBarService.isSysUiSafeModeEnabled()
+          → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+          → WallpaperManagerService.getWallpaperInfo()
+          → WallpaperManagerService.getDefaultPreloadedLiveWallpaperComponentName()
+          → WallpaperManagerService.changingToSame()
+          → WallpaperManagerService.rebindWallpaper()
+          → WallpaperManagerService.getLastWallpaper()
+          → WallpaperManagerService.getConvertedUserId()
+          → WallpaperManagerService.setKWPTypeLiveWallpaper()
+          → WallpaperManagerService.setLastWallpaper()
+          → WallpaperManagerService.updateFallbackConnection()
+          → SemWallpaperData.setIsPreloaded()
+          → SemWallpaperManagerService.getOldUserId()
+          → SemWallpaperManagerService.handleWallpaperBindingTimeout()
+          → Exception.getMessage()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → SemWallpaperResourcesInfo.getDefaultWallpaperType()
+          → <android.graphics.Rect: void <init>(int,int,int,int)>
+          → <android.os.RemoteCallbackList: void <init>()>
+          → <android.util.ArrayMap: void <init>()>
+          → WallpaperManagerService$WallpaperData.setDefaultWallpaperData()
+          → <com.samsung.server.wallpaper.SemWallpaperData: void <init>(
+          → SparseArray.put()
+          → SemWallpaperData.setIsDesktopWallpaper()
+          → SemWallpaperData.setWhich()
+          → Environment.getUserSystemDirectory()
+          → <java.io.File: void <init>(java.io.File,java.lang.String)>
+          → Rect.height()
+          → Rect.width()
+          → DesktopMode.isDesktopMode()
+          → DesktopMode.isDesktopSingleMode()
+          → SemWallpaperManagerService.getCallStackString()
+          → DateFormat.format()
+          → SimpleDateFormat.getDateTimeInstance()
+          → ArrayList.add()
+          → <java.util.Date: void <init>(long)>
+          → <android.app.SemWallpaperResourcesInfo$Item: java.lang.Integ
+          → <android.app.SemWallpaperResourcesInfo$Item: java.lang.Strin
+          → <android.app.SemWallpaperResourcesInfo$Item: java.util.Array
+          → SemWallpaperResourcesInfo.isBespokeCode()
+          → SemWallpaperResourcesInfo.isDefaultResource()
+          → Exception.printStackTrace()
+          → SemWallpaperResourcesInfo.isPhone()
+          → HashMap.get()
+          → CharSequence.length()
+          → Context.getMainThreadHandler()
+          → Context.unbindService()
+          → Handler.removeCallbacks()
+          → IWallpaperService.detach()
+          → SparseArray.clear()
+          → FgThread.getHandler()
+          → <com.android.server.wallpaper.WallpaperManagerService$$Exter
+          → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+          → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+          → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+          → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+          → WallpaperManagerService$WallpaperConnection.forEachDisplayConnector()
+          → WhichChecker.isWatchFaceDisplay()
+          → <android.app.SemWallpaperResourcesInfo$Item: boolean -$$Nest
+          → WallpaperManager.getDeviceColor()
+          → ArrayList.get()
+          → ErrnoException.rethrowAsIOException()
+          → Os.pread()
+          → TypedXmlPullParser.setInput()
+          → Xml.newBinaryPullParser()
+          → Xml.newFastPullParser()
+          → <java.io.BufferedInputStream: void <init>(java.io.InputStrea
+          → FileInputStream.getFD()
+          → <java.io.IOException: void <init>(java.lang.Throwable)>
+          → InputStream.markSupported()
+          → InputStream.read()
+          → InputStream.mark()
+          → InputStream.reset()
+          → Charset.name()
+          → File.renameTo()
+          → <com.android.internal.util.JournaledFile: void <init>(java.i
+          → File.getAbsolutePath()
+          → <java.io.File: void <init>(java.lang.String)>
+          → SparseArray.append()
+          → <com.android.server.wallpaper.WallpaperManagerService$Displa
+          → WallpaperManagerService.getMaximumSizeDimension()
+          → Bitmap.createScaledBitmap()
+          → Bitmap.compress()
+          → <android.graphics.BitmapFactory$Options: void <init>()>
+          → ImageDecoder.decodeBitmap()
+          → ImageDecoder.createSource()
+          → Rect.isEmpty()
+          → <android.graphics.Rect: void <init>(android.graphics.Rect)>
+          → Rect.offset()
+          → Rect.set()
+          → DisplayManager.getDisplay()
+          → FileUtils.copyFile()
+          → SELinux.restorecon()
+          → Display.getDisplayInfo()
+          → <android.view.DisplayInfo: void <init>()>
+          → GLHelper.getMaxTextureSize()
+          → <com.android.server.wallpaper.WallpaperManagerService$$Exter
+          → WallpaperManagerService$WallpaperData.getOrientation()
+          → WallpaperManagerService.scaleEstimateCrop()
+          → SemWallpaperUtils.decodeFileConsiderQMG()
+          → Rune.isFolder()
+          → Rune.isTablet()
+          → SemWallpaperData.isThemeContents()
+          → SemWallpaperData.getOrientation()
+          → SemWallpaperManagerService.getDisplayId()
+          → SemWallpaperManagerService.getOrientation()
+          → <java.io.BufferedOutputStream: void <init>(java.io.OutputStr
+          → BufferedOutputStream.flush()
+          → File.createNewFile()
+          → File.getAbsoluteFile()
+          → File.getName()
+          → <java.io.FileOutputStream: void <init>(java.io.File)>
+          → <android.app.WallpaperColors: void <init>(android.graphics.C
+          → <android.app.WallpaperColors: void <init>(java.util.Map,int)
+          → Color.valueOf()
+          → ArrayMap.put()
+          → <android.util.ArrayMap: void <init>(int)>
+          → TypedXmlPullParser.getAttributeBoolean()
+          → TypedXmlPullParser.getAttributeInt()
+          → TypedXmlPullParser.getAttributeInt()
+          → WallpaperManagerService.getAttributeFloat()
+          → WallpaperManagerService.getAttributeInt()
+          → WallpaperExtraBundleHelper.fromJson()
+          → <com.samsung.server.wallpaper.ColorThemeData: void <init>(ja
+          → SemWallpaperData.parseWallpaperHistoryInfo()
+          → SemWallpaperData.setCreationTime()
+          → SemWallpaperData.setIsCopied()
+          → SemWallpaperData.setLastCallingPackage()
+          → SemWallpaperData.setVideoFilePath()
+          → <java.util.ArrayList: void <init>()>
+          → <java.util.HashMap: void <init>(int)>
+          → List.add()
+          → Map.put()
+          → SemWallpaperColors.fromXml()
+          → SemWallpaperColors.getDeviceVersion()
+          → SemWallpaperColors.getXmlVersion()
+          → SemWallpaperColors.getSeedColors()
+          → WallpaperManagerService$SemCallback.notifySemWallpaperColors()
+          → LegibilityColor.getWallpaperColorPath()
+          → Log.e()
+          → SemWallpaperData.setPrimarySemColors()
+          → SemWallpaperManagerService.getStringFromFile()
+          → SemWallpaperData$WallpaperHistroy.getWallpaperHistoryDataList()
+          → IOException.printStackTrace()
+          → XmlPullParser.nextText()
+          → XmlPullParserException.printStackTrace()
+          → WallpaperManagerService$WallpaperData.getSemWallpaperData()
+          → SemWallpaperManagerService.getWallpaperDir()
+          → SemWallpaperManagerService.getWallpaperLockDir()
+          → SemWallpaperManagerService.generateResizedBitmap()
+          → ArrayMap.size()
+          → ArrayMap.valueAt()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → TypedXmlSerializer.setOutput()
+          → Xml.newBinarySerializer()
+          → Xml.newFastSerializer()
+          → WallpaperColors.getColorHints()
+          → WallpaperColors.getMainColors()
+          → WallpaperColors.getAllColors()
+          → ComponentName.flattenToShortString()
+          → Color.toArgb()
+          → ArrayMap.entrySet()
+          → TypedXmlSerializer.attribute()
+          → TypedXmlSerializer.attributeBoolean()
+          → TypedXmlSerializer.attributeFloat()
+          → TypedXmlSerializer.attributeInt()
+          → TypedXmlSerializer.attributeInterned()
+          → TypedXmlSerializer.endTag()
+          → TypedXmlSerializer.startTag()
+          → WallpaperExtraBundleHelper.toJson()
+          → ColorThemeData.getLuminanceNum()
+          → ColorThemeData.getSaturationNum()
+          → ColorThemeData.getColors()
+          → SemWallpaperData.getExternalParams()
+          → SemWallpaperData.getIsCopied()
+          → SemWallpaperData.getColorThemeData()
+          → SemWallpaperData.getCreationTime()
+          → SemWallpaperData.getLastCallingPackage()
+          → SemWallpaperData.getUri()
+          → SemWallpaperData.getVideoColor()
+          → SemWallpaperData.getVideoFileName()
+          → SemWallpaperData.getVideoFilePath()
+          → StringBuffer.toString()
+          → StringBuffer.append()
+          → <java.lang.StringBuffer: void <init>()>
+          → List.size()
+          → List.get()
+          → Map$Entry.getKey()
+          → Map$Entry.getValue()
+          → Map.size()
+          → Map.entrySet()
+          → Set.iterator()
+          → SubDisplayMode.getFolderStateBasedWhich()
+          → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+          → WallpaperManagerService$WallpaperConnection.isUsableDisplay()
+          → <com.android.server.wallpaper.WallpaperManagerService: andro
+          → AsyncTask.executeOnExecutor()
+          → LegibilityColor.getColorExtractor()
+          → StackTraceElement.toString()
+          → <java.lang.StringBuffer: void <init>(java.lang.String)>
+          → Thread.getStackTrace()
+          → Thread.currentThread()
+          → Calendar.getInstance()
+          → Calendar.get()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+          → <com.samsung.server.wallpaper.SemWallpaperData$WallpaperHist
+          → ArrayList.addAll()
+            → <com.samsung.server.wallpaper.SemWallpaperData$WallpaperHist
+            → <com.samsung.server.wallpaper.SemWallpaperData: void -$$Nest
+            → ContainerHelpers.binarySearch()
+            → SemWallpaperResourcesInfo.getDefaultLiveWallpaperResource()
+            → <android.service.wallpaper.IWallpaperConnection$Stub: void <
+            → <android.util.SparseArray: void <init>()>
+            → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+            → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+            → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+            → WallpaperManagerService$WallpaperConnection.initDisplayState()
+            → <android.app.WallpaperInfo: void <init>(android.content.Cont
+            → Context.getContentResolver()
+            → Intent.resolveTypeIfNeeded()
+            → IPackageManager.queryIntentServices()
+            → ParceledListSlice.getList()
+            → Log.w()
+            → <java.lang.IllegalArgumentException: void <init>(java.lang.T
+            → SemWallpaperResourcesInfo.getDefaultLiveWallpaperComponentName()
+            → Context.getPackageManager()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+            → SemPersonaManager.isSecureFolderId()
+            → DefaultWallpaper.setKWPTypeLiveWallpaper()
+            → SparseArray.size()
+            → <com.android.server.wallpaper.WallpaperManagerService$$Exter
+            → <com.android.server.wallpaper.WallpaperManagerService$$Exter
+            → <com.android.server.wallpaper.WallpaperManagerService$$Exter
+            → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+            → WallpaperManagerService.supportsMultiDisplay()
+            → Handler.sendEmptyMessageDelayed()
+            → Handler.removeMessages()
+            → HashMap.getOrDefault()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → StackTraceElement.getLineNumber()
+            → StackTraceElement.getClassName()
+            → StackTraceElement.getMethodName()
+            → <android.app.SemWallpaperResourcesInfo$Item: int -$$Nest$fge
+            → <android.app.SemWallpaperResourcesInfo$Item: int -$$Nest$fge
+            → FgThread.ensureThreadLocked()
+            → SparseArray.valueAt()
+            → Consumer.accept()
+            → <com.android.internal.util.BinaryXmlPullParser: void <init>(
+            → Xml.newPullParser()
+            → XmlUtils.makeTyped()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → Debug.getCallers()
+            → Display.getMaximumSizeDimension()
+            → ImageDecoder.decodeBitmapImpl()
+            → <android.graphics.ImageDecoder$FileSource: void <init>(java.
+            → SELinux.native_restorecon()
+            → File.getCanonicalPath()
+            → SemWallpaperUtils.decodeStreamConsiderQMG()
+            → <java.io.FileInputStream: void <init>(java.lang.String)>
+            → FileNotFoundException.printStackTrace()
+            → InputStream.close()
+            → SemFloatingFeature.getBoolean()
+            → SemFloatingFeature.getInstance()
+            → SystemProperties.get()
+            → SemWallpaperData.getWallpaperHistory()
+            → SemWallpaperManagerService.getDisplayId()
+            → <java.util.ArrayList: void <init>(int)>
+            → <java.util.HashMap: void <init>()>
+            → <android.app.WallpaperColors$$ExternalSyntheticLambda1: void
+            → WallpaperColors.hueDiff()
+            → WallpaperColors.score()
+            → WallpaperColors.hueProportions()
+            → WallpaperColors.colorToHueProportion()
+            → Cam.fromInt()
+            → ArrayList.sort()
+            → List.iterator()
+            → Map.get()
+            → Map.keySet()
+            → <android.graphics.Color: void <init>(float,float,float,float
+            → ColorSpace.get()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → TypedXmlPullParser.getAttributeBoolean()
+            → TypedXmlPullParser.getAttributeIndex()
+            → TypedXmlPullParser.getAttributeIndexOrThrow()
+            → TypedXmlPullParser.getAttributeInt()
+            → TypedXmlPullParser.getAttributeFloat()
+            → BundleAndJsonConverter.convertJsonToBundle()
+            → <com.samsung.android.wallpaper.utils.BundleAndJsonConverter:
+            → <android.app.SemWallpaperColors: void <init>(java.lang.Strin
+            → <com.android.server.wallpaper.WallpaperManagerService: int -
+            → <com.android.server.wallpaper.WallpaperManagerService: java.
+            → <com.android.server.wallpaper.WallpaperManagerService: void 
+            → WhichChecker.getType()
+            → File.mkdir()
+            → SemWallpaperManagerService.convertStreamToString()
+            → FileInputStream.close()
+            → SemWallpaperData$WallpaperHistroy$WallpaperHistoryData.getWallpaperHistoryData()
+            → ArrayList.isEmpty()
+            → Bitmap.createBitmap()
+            → Bitmap.getHeight()
+            → Bitmap.getWidth()
+            → Bitmap.recycle()
+            → BitmapFactory.decodeFile()
+            → DefaultWallpaper.getDefaultWallpaperBitmap()
+            → LockWallpaper.getWallpaperFile()
+            → OMCWallpaper.getOperatorWallpaperBitmap()
+            → SemWallpaperManagerService.getCroppedBitmapInfo()
+            → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+            → <com.android.internal.util.BinaryXmlSerializer: void <init>(
+            → <com.android.internal.util.FastXmlSerializer: void <init>()>
+            → XmlUtils.makeTyped()
+            → Collections.unmodifiableList()
+            → Collections.unmodifiableMap()
+            → ColorSpace$Connector.transform()
+            → ColorSpace.connect()
+            → ColorSpace.isSrgb()
+            → ArrayMap.getCollection()
+            → MapCollections.getEntrySet()
+            → BundleAndJsonConverter.convertBundleToJson()
+            → <android.os.Binder: void <init>()>
+            → Display.hasAccess()
+            → Display.getDisplayId()
+            → WallpaperManagerService.isVirtualWallpaperDisplay()
+            → <com.android.server.wallpaper.WallpaperManagerService: com.a
+            → WindowManagerInternal.shouldShowSystemDecorOnDisplay()
+            → AsyncTask$Status.ordinal()
+            → AsyncTask.onPreExecute()
+            → Executor.execute()
+            → AsyncTask.cancel()
+            → AsyncTask.isCancelled()
+            → LegibilityColor.makeColorExtractor()
+              → SemWallpaperData.getCurrentTimeString()
+              → SemWallpaperResourcesInfo.isWhichMatched()
+              → IWallpaperConnection$Stub.attachInterface()
+              → <android.util.SparseArray: void <init>(int)>
+              → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+              → WallpaperManagerService$WallpaperConnection.appendConnectorWithCondition()
+              → <com.android.server.wallpaper.WallpaperManagerService: boole
+              → PackageManager.getResourcesForApplication()
+              → ServiceInfo.loadXmlMetaData()
+              → Resources.obtainAttributes()
+              → TypedArray.getBoolean()
+              → TypedArray.getResourceId()
+              → TypedArray.getString()
+              → TypedArray.recycle()
+              → XmlResourceParser.next()
+              → XmlResourceParser.getName()
+              → XmlResourceParser.close()
+              → Xml.asAttributeSet()
+              → <org.xmlpull.v1.XmlPullParserException: void <init>(java.lan
+              → <android.app.SemWallpaperResourcesInfo$Item: android.app.Sem
+              → <android.content.ComponentName: void <init>(java.lang.String
+              → SemPersonaManager.checkContainerType()
+              → DefaultWallpaper.setKWPTypeLiveWallpaper()
+              → WallpaperInfo.supportsMultipleDisplays()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → <android.os.HandlerExecutor: void <init>(android.os.Handler)
+              → HandlerThread.getLooper()
+              → HandlerThread.start()
+              → Looper.setSlowLogThresholdMs()
+              → Looper.setTraceTag()
+              → <com.android.server.FgThread: void <init>()>
+              → <java.lang.AssertionError: void <init>()>
+              → XmlObjectFactory.newXmlPullParser()
+              → XmlPullParser.setFeature()
+              → <com.android.internal.util.XmlUtils$ForcedTypedXmlPullParser
+              → Bitmap.getNinePatchChunk()
+              → Bitmap.setDensity()
+              → ImageDecoder$Source.createImageDecoder()
+              → ImageDecoder.decodeBitmapInternal()
+              → ImageDecoder.computeDensity()
+              → ImageDecoder.callHeaderDecoded()
+              → ImageDecoder.close()
+              → ImageDecoder.nGetPadding()
+              → NinePatch.isNinePatchChunk()
+              → Throwable.addSuppressed()
+              → <android.graphics.ImageDecoder$Source: void <init>(android.g
+              → BitmapFactory.decodeStream()
+              → SemWallpaperUtils.isQMG()
+              → Method.invoke()
+              → Method.setAccessible()
+              → SemFloatingFeature.loge()
+              → Hashtable.get()
+              → SemWallpaperData$WallpaperHistroy.getCallingPackage() [CALLER_ID]
+              → Cam.getHue()
+              → Cam.getChroma()
+              → WallpaperColors.wrapDegrees()
+              → Cam.fromIntInFrame()
+              → ColorSpace$Named.ordinal()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → TypedXmlPullParser.getAttributeCount()
+              → TypedXmlPullParser.getAttributeName()
+              → TypedXmlPullParser.getAttributeNamespace()
+              → TypedXmlPullParser.getAttributeFloat()
+              → <android.util.JsonReader: void <init>(java.io.Reader)>
+              → JsonReader.close()
+              → BundleAndJsonConverter.putJsonObjectFieldsToBundle()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → ByteArrayInputStream.close()
+              → <java.io.InputStreamReader: void <init>(java.io.InputStream,
+              → SemWallpaperColors.workaround()
+              → SemWallpaperColors.xmlParser()
+              → WallpaperManagerService.getCurrentUserId()
+              → WallpaperManagerService.notifySemColorListeners()
+              → BufferedReader.readLine()
+              → <java.io.BufferedReader: void <init>(java.io.Reader)>
+              → BufferedReader.close()
+              → <java.io.InputStreamReader: void <init>(java.io.InputStream,
+              → SemWallpaperResourcesInfo.getDefaultImageFileName()
+              → Context.createPackageContext()
+              → Context.getResources()
+              → PackageManager$NameNotFoundException.printStackTrace()
+              → Resources.getIdentifier()
+              → BitmapFactory.decodeResource()
+              → WallpaperManager.getDefaultWallpaperFile()
+              → BitmapFactory.decodeStream()
+              → Log.w()
+              → <android.graphics.Point: void <init>(int,int)>
+              → <com.android.internal.util.FastXmlSerializer: void <init>(in
+              → <com.android.internal.util.XmlUtils$ForcedTypedXmlSerializer
+              → ColorSpace.fromXyz()
+              → ColorSpace.toXyz()
+              → ColorSpace.connect()
+              → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+              → <android.util.MapCollections$EntrySet: void <init>(android.u
+              → <android.util.JsonWriter: void <init>(java.io.Writer)>
+              → JsonWriter.close()
+              → JsonWriter.setIndent()
+              → BundleAndJsonConverter.writeBundleToJson()
+              → ByteArrayOutputStream.toByteArray()
+              → <java.io.ByteArrayOutputStream: void <init>()>
+              → ByteArrayOutputStream.close()
+              → <java.io.OutputStreamWriter: void <init>(java.io.OutputStrea
+              → <android.os.Binder: void <init>(java.lang.String)>
+              → VirtualDisplayMode.isVirtualWallpaperDisplay()
+              → FutureTask.cancel()
+              → AtomicBoolean.set()
+              → AtomicBoolean.get()
+              → <com.samsung.server.wallpaper.LegibilityColor$2: void <init>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wallpaper.WallpaperManagerService
+  Method:   <com.android.server.wallpaper.WallpaperManagerService: boolean isDefaultMultipack(int,int,java.lang.String)>
+  Line:     13546
+  Register: p0 := "com.android.wallpaper.livepicker"
+  Usage:    [invoke] invoke-virtual {p0, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-nez p0, :cond_26 → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← WallpaperManagerService.semGetUri()
+      ← WallpaperManagerService.clearWallpaperLocked()
+      ← WallpaperManagerService.switchUser()
+        ← WallpaperManagerService.clearWallpaper()
+        ← WallpaperManagerService.clearWallpaperLocked()
+        ← WallpaperManagerService$4.onUserSwitching()
+        ← <com.android.server.wallpaper.WallpaperManagerService: void 
+          ← WallpaperManagerService.handleOMCWallpaperUpdatedLocked()
+          ← WallpaperManagerService.requestClearWallpaper()
+          ← WallpaperManagerService$MyPackageMonitor.doPackagesChangedLocked()
+          ← WallpaperManagerService$MyPackageMonitor.onPackageUpdateFinished()
+          ← <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+          ← <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+          ← WallpaperManagerService$WallpaperConnection.tryToRebind()
+          ← WallpaperManagerService.initImageWallpaperCropFile()
+          ← WallpaperManagerService.switchWallpaper()
+          ← <com.android.server.wallpaper.WallpaperManagerService: void 
+            ← WallpaperManagerService$SemCallback.handleOMCWallpaperUpdated()
+            ← WallpaperManagerService$MyPackageMonitor.onHandleForceStop()
+            ← WallpaperManagerService$MyPackageMonitor.onPackageModified()
+            ← WallpaperManagerService$MyPackageMonitor.onSomePackagesChanged()
+            ← <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+            ← <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+            ← <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+            ← WallpaperManagerService.systemReady()
+            ← WallpaperManagerService$1.onDisplayAdded()
+            ← WallpaperManagerService$SemCallback.switchDexWallpaper()
+            ← WallpaperManagerService$SemCallback.switchWallpaperByDisplayChanged()
+            ← WallpaperManagerService.completeUnlockUser()
+            ← WallpaperManagerService$$ExternalSyntheticLambda12.run()
+              ← WallpaperManagerService$SemCallback.updateOmcWallpaper()
+              ← OMCWallpaper.checkTSSActivation()
+              ← WallpaperManagerService$WallpaperConnection$$ExternalSyntheticLambda0.run()
+              ← WallpaperManagerService$WallpaperConnection$$ExternalSyntheticLambda2.run()
+              ← WallpaperManagerService$WallpaperConnection$$ExternalSyntheticLambda1.run()
+              ← <com.android.server.wallpaper.WallpaperManagerService: void 
+              ← DesktopMode.onRefreshWallpaperByUiMode()
+              ← SubDisplayMode$1.handleMessage()
+              ← <com.android.server.wallpaper.WallpaperManagerService: void 
+
+  CALLEES (what this method invokes):
+      → SemWallpaperResourcesInfo.isDefaultMultipack()
+      → WallpaperManager.isDefaultOperatorWallpaper()
+      → WallpaperManagerService.getWallpaperSafeLocked()
+      → CMFWallpaper.getDeviceColor()
+        → SemWallpaperResourcesInfo.getDefaultWallpaperType()
+        → Debug.getCaller()
+        → <com.android.server.wallpaper.WallpaperManagerService$Wallpa
+        → WallpaperManagerService$WallpaperDataManager.get()
+        → WallpaperManagerService$WallpaperDataManager.put()
+        → WallpaperManagerService.getWallpaperDir()
+        → WallpaperManagerService.getWallpaperLockDir()
+        → WallpaperManagerService.ensureSaneWallpaperData()
+        → WallpaperManagerService.loadSettingsLocked()
+        → WallpaperManagerService.loadSettingsLocked()
+        → WhichChecker.isDex()
+        → WhichChecker.isLock()
+        → WhichChecker.isSubDisplay()
+        → WhichChecker.isVirtualDisplay()
+        → WhichChecker.getMode()
+        → Log.d()
+        → SemWallpaperManagerService.getCallStackString()
+        → SemWallpaperManagerService.putLog()
+          → SemWallpaperResourcesInfo.isPhone()
+          → HashMap.getOrDefault()
+          → <android.graphics.Rect: void <init>(int,int,int,int)>
+          → <android.os.RemoteCallbackList: void <init>()>
+          → <android.util.ArrayMap: void <init>()>
+          → WallpaperManagerService$WallpaperData.setDefaultWallpaperData()
+          → <com.samsung.server.wallpaper.SemWallpaperData: void <init>(
+          → SparseArray.get()
+          → WallpaperManagerService$WallpaperDataManager.getMode()
+          → Log.addLogString()
+          → SparseArray.put()
+          → SemWallpaperData.setIsDesktopWallpaper()
+          → SemWallpaperData.setWhich()
+          → Environment.getUserSystemDirectory()
+          → <java.io.File: void <init>(java.io.File,java.lang.String)>
+          → Rect.height()
+          → Rect.width()
+          → Rect.set()
+          → WallpaperManagerService.getLidState()
+          → DesktopMode.isDesktopMode()
+          → DesktopMode.isDesktopSingleMode()
+          → ComponentName.unflattenFromString()
+          → ComponentName.getPackageName()
+          → TypedXmlPullParser.next()
+          → TypedXmlPullParser.getAttributeValue()
+          → TypedXmlPullParser.getName()
+          → Xml.resolvePullParser()
+          → JournaledFile.chooseForRead()
+          → WallpaperManagerService$WallpaperData.cropExists()
+          → WallpaperManagerService$WallpaperData.sourceExists()
+          → WallpaperManagerService$WallpaperData.setCallingPackage()
+          → WallpaperManagerService$WallpaperDataManager.remove()
+          → WallpaperManagerService.makeJournaledFile()
+          → WallpaperManagerService.getDisplayDataOrCreate()
+          → WallpaperManagerService.makeWallpaperIdLocked()
+          → WallpaperManagerService.ensureSaneWallpaperDisplaySize()
+          → WallpaperManagerService.generateCrop()
+          → WallpaperManagerService.initLockWallpaperData()
+          → WallpaperManagerService.initializeFallbackWallpaper()
+          → WallpaperManagerService.migrateFromOld()
+          → WallpaperManagerService.parseWallpaperAttributes()
+          → WhichChecker.isSupportLock()
+          → LegibilityColor.initSemWallpaperColors()
+          → Log.v()
+          → SemWallpaperData.getWpType()
+          → SemWallpaperData.getWallpaperHistoryList()
+          → SemWallpaperData.parseWallpaperHistoryInfo()
+          → SemWallpaperManagerService.initializeThumnailFile()
+          → SemWallpaperManagerService.getFileName()
+          → SemWallpaperManagerService.generateResizedBitmap()
+          → File.exists()
+          → <java.io.FileInputStream: void <init>(java.io.File)>
+          → IoUtils.closeQuietly()
+          → Log.getCodeInfoString()
+          → SemWallpaperManagerService.getCallStackString()
+          → DateFormat.format()
+          → SimpleDateFormat.getDateTimeInstance()
+          → ArrayList.add()
+          → ArrayList.size()
+          → ArrayList.remove()
+          → <java.util.Date: void <init>(long)>
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → SemWallpaperData.setWpType()
+            → <com.samsung.server.wallpaper.SemWallpaperData$WallpaperHist
+            → SparseArray.get()
+            → SubDisplayMode.getFolderStateBasedWhich()
+            → Log.toTimestampFormat()
+            → Log.getHistoryList()
+            → ArrayList.add()
+            → HashMap.put()
+            → ContainerHelpers.binarySearch()
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → SubDisplayMode.getLidState()
+            → ErrnoException.rethrowAsIOException()
+            → Os.pread()
+            → TypedXmlPullParser.setInput()
+            → Xml.newBinaryPullParser()
+            → Xml.newFastPullParser()
+            → <java.io.BufferedInputStream: void <init>(java.io.InputStrea
+            → FileInputStream.getFD()
+            → <java.io.IOException: void <init>(java.lang.Throwable)>
+            → InputStream.markSupported()
+            → InputStream.read()
+            → InputStream.mark()
+            → InputStream.reset()
+            → Charset.name()
+            → File.delete()
+            → File.renameTo()
+            → WallpaperManagerService$WallpaperData.getPackageName()
+            → SemWallpaperData.getWallpaperTypeString()
+            → SemWallpaperData.setWallpaperHistory()
+            → SparseArray.remove()
+            → <com.android.internal.util.JournaledFile: void <init>(java.i
+            → File.getAbsolutePath()
+            → <java.io.File: void <init>(java.lang.String)>
+            → SparseArray.append()
+            → <com.android.server.wallpaper.WallpaperManagerService$Displa
+            → WallpaperManagerService.getMaximumSizeDimension()
+            → Bitmap.createScaledBitmap()
+            → Bitmap.compress()
+            → <android.graphics.BitmapFactory$Options: void <init>()>
+            → ImageDecoder.decodeBitmap()
+            → ImageDecoder.createSource()
+            → Rect.isEmpty()
+            → <android.graphics.Rect: void <init>(android.graphics.Rect)>
+            → Rect.offset()
+            → Rect.set()
+            → DisplayManager.getDisplay()
+            → FileUtils.copyFile()
+            → SELinux.restorecon()
+            → Display.getDisplayInfo()
+            → <android.view.DisplayInfo: void <init>()>
+            → GLHelper.getMaxTextureSize()
+            → <com.android.server.wallpaper.WallpaperManagerService$$Exter
+            → WallpaperManagerService$WallpaperData.getOrientation()
+            → WallpaperManagerService.scaleEstimateCrop()
+            → SemWallpaperUtils.decodeFileConsiderQMG()
+            → Rune.isFolder()
+            → Rune.isTablet()
+            → SemWallpaperData.getIsPreloaded()
+            → SemWallpaperData.isThemeContents()
+            → SemWallpaperData.getOrientation()
+            → SemWallpaperData.getWhich()
+            → SemWallpaperManagerService.getDisplayId()
+            → SemWallpaperManagerService.getOrientation()
+            → <java.io.BufferedOutputStream: void <init>(java.io.OutputStr
+            → BufferedOutputStream.flush()
+            → File.createNewFile()
+            → File.getAbsoluteFile()
+            → File.getName()
+            → File.getPath()
+            → <java.io.FileOutputStream: void <init>(java.io.File)>
+            → WallpaperManagerService.bindWallpaperComponentLocked()
+            → <android.app.WallpaperColors: void <init>(android.graphics.C
+            → <android.app.WallpaperColors: void <init>(java.util.Map,int)
+            → Color.valueOf()
+            → ArrayMap.put()
+            → <android.util.ArrayMap: void <init>(int)>
+            → TypedXmlPullParser.getAttributeBoolean()
+            → TypedXmlPullParser.getAttributeInt()
+            → TypedXmlPullParser.getAttributeInt()
+            → WallpaperManagerService.getAttributeFloat()
+            → WallpaperManagerService.getAttributeInt()
+            → WallpaperExtraBundleHelper.fromJson()
+            → <com.samsung.server.wallpaper.ColorThemeData: void <init>(ja
+            → SemWallpaperData.parseWallpaperHistoryInfo()
+            → SemWallpaperData.setAnimatedPkgName()
+            → SemWallpaperData.setColorThemeData()
+            → SemWallpaperData.setCreationTime()
+            → SemWallpaperData.setExternalParams()
+            → SemWallpaperData.setIsCopied()
+            → SemWallpaperData.setIsPreloaded()
+            → SemWallpaperData.setLastCallingPackage()
+            → SemWallpaperData.setMotionPkgName()
+            → SemWallpaperData.setUri()
+            → SemWallpaperData.setVideoColor()
+            → SemWallpaperData.setVideoDefaultHasBeenUsed()
+            → SemWallpaperData.setVideoFileName()
+            → SemWallpaperData.setVideoFilePath()
+            → SemWallpaperData.setVideoPkgName()
+            → <java.util.ArrayList: void <init>()>
+            → <java.util.HashMap: void <init>(int)>
+            → List.add()
+            → Map.put()
+            → SemWallpaperColors.fromXml()
+            → SemWallpaperColors.getDeviceVersion()
+            → SemWallpaperColors.getXmlVersion()
+            → SemWallpaperColors.getSeedColors()
+            → WallpaperManagerService$SemCallback.notifySemWallpaperColors()
+            → LegibilityColor.getWallpaperColorPath()
+            → LegibilityColor.extractColor()
+            → Log.e()
+            → SemWallpaperData.setPrimarySemColors()
+            → SemWallpaperManagerService.getStringFromFile()
+            → SemWallpaperData$WallpaperHistroy.getWallpaperHistoryDataList()
+            → IOException.printStackTrace()
+            → XmlPullParser.nextText()
+            → XmlPullParserException.printStackTrace()
+            → WallpaperManagerService$WallpaperData.getSemWallpaperData()
+            → SemWallpaperData.getAnimatedBackground()
+            → SemWallpaperData.getMotionBackground()
+            → SemWallpaperData.getVideoFirstFrameFile()
+            → SemWallpaperData.setAnimatedBackground()
+            → SemWallpaperData.setMotionBackground()
+            → SemWallpaperData.setVideoFirstFrameFile()
+            → SemWallpaperManagerService.getWallpaperDir()
+            → SemWallpaperManagerService.getWallpaperLockDir()
+            → SemWallpaperManagerService.generateResizedBitmap()
+            → StackTraceElement.toString()
+            → StringBuffer.toString()
+            → StringBuffer.append()
+            → <java.lang.StringBuffer: void <init>(java.lang.String)>
+            → Thread.getStackTrace()
+            → Thread.currentThread()
+            → StackTraceElement.getLineNumber()
+            → StackTraceElement.getClassName()
+            → StackTraceElement.getMethodName()
+              → ArrayMap.allocArrays()
+              → SubDisplayMode.getFolderStateBasedWhich()
+              → Calendar.getInstance()
+              → Calendar.get()
+              → <java.util.ArrayList: void <init>(java.util.Collection)>
+              → HashMap.get()
+              → <com.android.internal.util.BinaryXmlPullParser: void <init>(
+              → Xml.newPullParser()
+              → XmlUtils.makeTyped()
+              → SemWallpaperData.getAnimatedPkgName()
+              → SemWallpaperData.getMotionPkgName()
+              → SemWallpaperData.getVideoPkgName()
+              → SemWallpaperData$WallpaperHistroy.addWallpaperHistoryData()
+              → SparseArray.delete()
+              → GrowingArrayUtils.append()
+              → GrowingArrayUtils.append()
+              → Debug.getCallers()
+              → Display.getMaximumSizeDimension()
+              → ImageDecoder.decodeBitmapImpl()
+              → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+              → <android.graphics.ImageDecoder$FileSource: void <init>(java.
+              → SELinux.native_restorecon()
+              → File.getCanonicalPath()
+              → SemWallpaperUtils.decodeStreamConsiderQMG()
+              → <java.io.FileInputStream: void <init>(java.lang.String)>
+              → FileNotFoundException.printStackTrace()
+              → InputStream.close()
+              → SemFloatingFeature.getBoolean()
+              → SemFloatingFeature.getInstance()
+              → SystemProperties.get()
+              → TextUtils.isEmpty()
+              → SemWallpaperData.getWallpaperHistory()
+              → SemWallpaperManagerService.getDisplayId()
+              → WallpaperManagerService.bindWallpaperComponentLocked()
+              → Color.toArgb()
+              → <java.util.ArrayList: void <init>(int)>
+              → <java.util.HashMap: void <init>()>
+              → <android.app.WallpaperColors$$ExternalSyntheticLambda1: void
+              → WallpaperColors.hueDiff()
+              → WallpaperColors.score()
+              → WallpaperColors.hueProportions()
+              → WallpaperColors.colorToHueProportion()
+              → Cam.fromInt()
+              → ArrayList.iterator()
+              → ArrayList.sort()
+              → Iterator.hasNext()
+              → Iterator.next()
+              → List.iterator()
+              → Map$Entry.getKey()
+              → Map$Entry.getValue()
+              → Map.get()
+              → Map.entrySet()
+              → Map.keySet()
+              → Set.iterator()
+              → <android.graphics.Color: void <init>(float,float,float,float
+              → ColorSpace.get()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → TypedXmlPullParser.getAttributeBoolean()
+              → TypedXmlPullParser.getAttributeIndex()
+              → TypedXmlPullParser.getAttributeIndexOrThrow()
+              → TypedXmlPullParser.getAttributeInt()
+              → TypedXmlPullParser.getAttributeFloat()
+              → BundleAndJsonConverter.convertJsonToBundle()
+              → <com.samsung.android.wallpaper.utils.BundleAndJsonConverter:
+              → <android.app.SemWallpaperColors: void <init>(java.lang.Strin
+              → Exception.printStackTrace()
+              → <com.android.server.wallpaper.WallpaperManagerService: int -
+              → <com.android.server.wallpaper.WallpaperManagerService: java.
+              → <com.android.server.wallpaper.WallpaperManagerService: void 
+              → WhichChecker.getType()
+              → File.mkdir()
+              → LegibilityColor.support()
+              → LegibilityColor.extractColor()
+              → SemWallpaperManagerService.convertStreamToString()
+              → FileInputStream.close()
+              → SemWallpaperData$WallpaperHistroy$WallpaperHistoryData.getWallpaperHistoryData()
+              → ArrayList.isEmpty()
+              → Bitmap.createBitmap()
+              → Bitmap.getHeight()
+              → Bitmap.getWidth()
+              → Bitmap.recycle()
+              → BitmapFactory.decodeFile()
+              → Binder.clearCallingIdentity()
+              → Binder.restoreCallingIdentity()
+              → WhichChecker.isSingleType()
+              → DefaultWallpaper.getDefaultWallpaperBitmap()
+              → LockWallpaper.getWallpaperFile()
+              → Log.i()
+              → OMCWallpaper.getOperatorWallpaperBitmap()
+              → SemWallpaperData.setCroppedBitmap()
+              → SemWallpaperManagerService.getCroppedBitmapInfo()
+

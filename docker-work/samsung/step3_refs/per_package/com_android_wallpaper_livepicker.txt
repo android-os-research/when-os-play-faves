@@ -1,0 +1,6 @@
+# com.android.wallpaper.livepicker [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.wallpaper.WallpaperManagerService: boolean isDefaultMultipack(int,int,java.lang.String)>
+<com.android.server.wallpaper.WallpaperManagerService: void clearWallpaperLocked(boolean,int,int,android.os.IRemoteCallback,java.lang.String)>

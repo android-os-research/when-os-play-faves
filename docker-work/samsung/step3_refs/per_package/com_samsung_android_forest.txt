@@ -1,0 +1,9 @@
+# com.samsung.android.forest [NEW]
+# Refs: 5
+# JARs: framework, services
+
+<com.android.internal.app.SuspendedAppActivity: boolean isDigitalWellbingPackage(java.lang.String)>
+<com.android.server.enterprise.application.ApplicationPolicy: void endFocusMode()>
+<com.android.server.enterprise.application.ApplicationPolicy: void sendBroadcastToDigitalWellBeing(boolean)>
+<com.android.server.pm.PersonaServiceHelper$2: void <init>()>
+<com.android.server.pm.SuspendPackageHelper: java.lang.String[] setPackagesSuspended(com.android.server.pm.Computer,java.lang.String[],boolean,android.os.PersistableBundle,android.os.PersistableBundle,android.content.pm.SuspendDialogInfo,java.lang.String,int,int)>

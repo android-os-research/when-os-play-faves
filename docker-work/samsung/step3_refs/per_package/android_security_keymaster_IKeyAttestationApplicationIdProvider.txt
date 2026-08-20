@@ -1,0 +1,9 @@
+# android.security.keymaster.IKeyAttestationApplicationIdProvider [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.security.keymaster.IKeyAttestationApplicationIdProvider$Stub$Proxy: android.security.keymaster.KeyAttestationApplicationId getKeyAttestationApplicationId(int)>
+<android.security.keymaster.IKeyAttestationApplicationIdProvider$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.security.keymaster.IKeyAttestationApplicationIdProvider$Stub: android.security.keymaster.IKeyAttestationApplicationIdProvider asInterface(android.os.IBinder)>
+<android.security.keymaster.IKeyAttestationApplicationIdProvider$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.security.keymaster.IKeyAttestationApplicationIdProvider$Stub: void <init>()>

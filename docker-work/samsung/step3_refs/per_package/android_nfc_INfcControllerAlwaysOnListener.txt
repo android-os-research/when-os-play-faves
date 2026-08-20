@@ -1,0 +1,9 @@
+# android.nfc.INfcControllerAlwaysOnListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.nfc.INfcControllerAlwaysOnListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.nfc.INfcControllerAlwaysOnListener$Stub$Proxy: void onControllerAlwaysOnChanged(boolean)>
+<android.nfc.INfcControllerAlwaysOnListener$Stub: android.nfc.INfcControllerAlwaysOnListener asInterface(android.os.IBinder)>
+<android.nfc.INfcControllerAlwaysOnListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.nfc.INfcControllerAlwaysOnListener$Stub: void <init>()>

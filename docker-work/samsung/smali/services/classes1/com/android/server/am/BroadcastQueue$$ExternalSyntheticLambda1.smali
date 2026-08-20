@@ -1,0 +1,46 @@
+.class public final synthetic Lcom/android/server/am/BroadcastQueue$$ExternalSyntheticLambda1;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/am/BroadcastQueue;
+
+.field public final synthetic f$1:Lcom/android/server/am/ProcessRecord;
+
+.field public final synthetic f$2:Lcom/android/server/am/BroadcastRecord;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/android/server/am/BroadcastQueue;Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/BroadcastRecord;)V
+    .registers 4
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/am/BroadcastQueue$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/BroadcastQueue;
+
+    iput-object p2, p0, Lcom/android/server/am/BroadcastQueue$$ExternalSyntheticLambda1;->f$1:Lcom/android/server/am/ProcessRecord;
+
+    iput-object p3, p0, Lcom/android/server/am/BroadcastQueue$$ExternalSyntheticLambda1;->f$2:Lcom/android/server/am/BroadcastRecord;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .registers 3
+
+    iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/BroadcastQueue;
+
+    iget-object v1, p0, Lcom/android/server/am/BroadcastQueue$$ExternalSyntheticLambda1;->f$1:Lcom/android/server/am/ProcessRecord;
+
+    iget-object p0, p0, Lcom/android/server/am/BroadcastQueue$$ExternalSyntheticLambda1;->f$2:Lcom/android/server/am/BroadcastRecord;
+
+    invoke-static {v0, v1, p0}, Lcom/android/server/am/BroadcastQueue;->$r8$lambda$aTmIhyGrYPpOVgrfVLCZZVeYw7c(Lcom/android/server/am/BroadcastQueue;Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/BroadcastRecord;)V
+
+    return-void
+.end method

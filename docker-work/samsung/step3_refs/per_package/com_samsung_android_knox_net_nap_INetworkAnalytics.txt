@@ -1,0 +1,15 @@
+# com.samsung.android.knox.net.nap.INetworkAnalytics [NEW]
+# Refs: 11
+# JARs: knoxsdk
+
+<com.samsung.android.knox.net.nap.INetworkAnalytics$Stub$Proxy: int handleNAPClientCall(java.lang.String,android.os.Bundle,boolean)>
+<com.samsung.android.knox.net.nap.INetworkAnalytics$Stub$Proxy: int isProfileActivatedForUser(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.net.nap.INetworkAnalytics$Stub$Proxy: int registerNetworkMonitorProfile(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.net.nap.INetworkAnalytics$Stub$Proxy: int unregisterNetworkMonitorProfile(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.net.nap.INetworkAnalytics$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.net.nap.INetworkAnalytics$Stub$Proxy: java.lang.String getNPAVersion()>
+<com.samsung.android.knox.net.nap.INetworkAnalytics$Stub$Proxy: java.util.List getNetworkMonitorProfiles(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.net.nap.INetworkAnalytics$Stub$Proxy: java.util.List getProfiles(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.net.nap.INetworkAnalytics$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.net.nap.INetworkAnalytics$Stub: com.samsung.android.knox.net.nap.INetworkAnalytics asInterface(android.os.IBinder)>
+<com.samsung.android.knox.net.nap.INetworkAnalytics$Stub: void <init>()>

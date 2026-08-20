@@ -1,0 +1,12 @@
+# android.print.IPrintSpoolerClient [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.print.IPrintSpoolerClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.print.IPrintSpoolerClient$Stub$Proxy: void onAllPrintJobsForServiceHandled(android.content.ComponentName)>
+<android.print.IPrintSpoolerClient$Stub$Proxy: void onAllPrintJobsHandled()>
+<android.print.IPrintSpoolerClient$Stub$Proxy: void onPrintJobQueued(android.print.PrintJobInfo)>
+<android.print.IPrintSpoolerClient$Stub$Proxy: void onPrintJobStateChanged(android.print.PrintJobInfo)>
+<android.print.IPrintSpoolerClient$Stub: android.print.IPrintSpoolerClient asInterface(android.os.IBinder)>
+<android.print.IPrintSpoolerClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.print.IPrintSpoolerClient$Stub: void <init>()>

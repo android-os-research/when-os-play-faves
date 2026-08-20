@@ -1,0 +1,36 @@
+######################################################################
+# Propagation: com.sec.android.widgetapp.SPlannerAppWidget
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: (none)
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.pm.PackageSamsungUtils
+  Method:   <android.content.pm.PackageSamsungUtils: java.util.ArrayList getCachedLiveIconPackagesLocked(android.content.Context)>
+  Line:     100
+  Register: v3 := "com.sec.android.widgetapp.SPlannerAppWidget"
+  Usage:    [invoke] invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: (none)
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← PackageSamsungUtils.supportLiveIcon()
+        ← LauncherActivityInfo.semGetBadgedIconForIconTray()
+
+  CALLEES (what this method invokes):
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+      → ArrayList.add()
+      → ArrayList.size()
+        → SemFloatingFeature.loge()
+        → SemFloatingFeature.logw()
+        → Hashtable.get()
+

@@ -1,0 +1,9 @@
+# android.hardware.biometrics.IBiometricServiceLockoutResetCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.biometrics.IBiometricServiceLockoutResetCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.biometrics.IBiometricServiceLockoutResetCallback$Stub$Proxy: void onLockoutReset(int,android.os.IRemoteCallback)>
+<android.hardware.biometrics.IBiometricServiceLockoutResetCallback$Stub: android.hardware.biometrics.IBiometricServiceLockoutResetCallback asInterface(android.os.IBinder)>
+<android.hardware.biometrics.IBiometricServiceLockoutResetCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.biometrics.IBiometricServiceLockoutResetCallback$Stub: void <init>()>

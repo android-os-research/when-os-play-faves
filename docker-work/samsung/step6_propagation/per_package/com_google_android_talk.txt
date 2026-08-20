@@ -1,0 +1,148 @@
+######################################################################
+# Propagation: com.google.android.talk
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          (none)
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1272
+  Register: v11 := "com.google.android.talk"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.notification.PreferencesHelper
+  Method:   <com.android.server.notification.PreferencesHelper: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.notification.RankingHandler,com.android.server.notification.ZenModeHelper,com.android.server.notification.PermissionHelper,com.android.server.notification.NotificationChannelLogger,android.app.AppOpsManager,com.android.server.notification.SysUiStatsEvent$BuilderFactory,boolean)>
+  Line:     352
+  Register: v10 := "com.google.android.talk"
+  Usage:    [] 
+  Patterns: early_return, system_property_read
+  Flow:     [other] filled-new-array/range {v3 .. v28}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← NotificationManagerService.init()
+        ← NotificationManagerService.onStart()
+
+  CALLEES (what this method invokes):
+      → SystemProperties.getInt()
+      → <android.util.ArrayMap: void <init>()>
+      → PreferencesHelper.setHideContentAllowList()
+      → PreferencesHelper.syncChannelsBypassingDnd()
+      → PreferencesHelper.updateBadgingEnabled()
+      → PreferencesHelper.updateBubblesEnabled()
+      → PreferencesHelper.updateMediaNotificationFilteringEnabled()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.HashSet: void <init>()>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+        → HashSet.add()
+        → PreferencesHelper.updateChannelsBypassingDnd()
+        → ZenModeHelper.getNotificationPolicy()
+        → Context.getContentResolver()
+        → Settings$Secure.getIntForUser()
+        → SparseBooleanArray.get()
+        → SparseBooleanArray.keyAt()
+        → SparseBooleanArray.size()
+        → <android.util.SparseBooleanArray: void <init>()>
+        → SparseBooleanArray.put()
+        → PreferencesHelper.updateConfig()
+        → Settings$Global.getInt()
+          → ArrayMap.allocArrays()
+          → NotificationChannel.canBypassDnd()
+          → UserHandle.getUserId()
+          → ArrayMap.size()
+          → ArrayMap.valueAt()
+          → ArrayMap.values()
+          → ArraySet.add()
+          → ArraySet.size()
+          → ArraySet.removeAt()
+          → ArraySet.valueAt()
+          → <android.util.ArraySet: void <init>()>
+          → <android.util.Pair: void <init>(java.lang.Object,java.lang.O
+          → PermissionHelper.hasPermission()
+          → PreferencesHelper.channelIsLiveLocked()
+          → PreferencesHelper.getCurrentUserWithManagedProfile()
+          → PreferencesHelper.updateZenPolicy()
+          → Collection.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.contains()
+          → ZenModeHelper.getNotificationPolicy()
+          → SparseBooleanArray.get()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → <android.util.SparseBooleanArray: void <init>(int)>
+          → ContainerHelpers.binarySearch()
+          → GrowingArrayUtils.insert()
+          → GrowingArrayUtils.insert()
+          → RankingHandler.requestSort()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ArrayMap.getCollection()
+            → MapCollections.getValues()
+            → ArraySet.indexOf()
+            → ArraySet.indexOfNull()
+            → ArraySet.allocArrays()
+            → ArraySet.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → ArraySet.shouldShrink()
+            → ArraySet.getNewShrunkenSize()
+            → ArraySet.clear()
+            → ArraySet.valueAtUnchecked()
+            → <android.util.ArraySet: void <init>(int,boolean)>
+            → Binder.clearCallingIdentity()
+            → Binder.restoreCallingIdentity()
+            → PermissionManagerServiceInternal.checkPostNotificationsPermissionGrantedOrLegacyAccess()
+            → NotificationChannel.isDeleted()
+            → NotificationChannel.getImportance()
+            → NotificationChannel.getGroup()
+            → PreferencesHelper.isGroupBlocked()
+            → Context.getSystemService()
+            → UserManager.getProfileIds()
+            → PreferencesHelper.getCurrentUser()
+            → List.add()
+            → NotificationManager$Policy.getExceptionContacts()
+            → <android.app.NotificationManager$Policy: void <init>(int,int
+            → ZenModeHelper.setNotificationPolicy()
+            → ZenModeConfig.toNotificationPolicy()
+            → ArrayUtils.newUnpaddedIntArray()
+              → <android.util.ArrayMap$1: void <init>(android.util.ArrayMap)
+              → <android.util.MapCollections$ValuesCollection: void <init>(a
+              → ArraySet.binarySearch()
+              → NotificationChannelGroup.isBlocked()
+              → PreferencesHelper.getOrCreatePackagePreferencesLocked()
+              → Map.get()
+              → ActivityManager.getCurrentUser()
+              → ZenModeConfig.copy()
+              → ZenModeConfig.applyNotificationPolicy()
+              → ZenModeHelper.setConfigLocked()
+              → ZenModeConfig.getConversationSendersWithDefault()
+              → ZenModeConfig.sourceToPrioritySenders()
+

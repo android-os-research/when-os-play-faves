@@ -1,0 +1,1401 @@
+######################################################################
+# Propagation: com.samsung.android.honeyboard
+######################################################################
+
+JARs:                 framework, knoxsdk, services
+Classes:              16
+Occurrences:          21
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.widget.SearchView
+  Method:   <android.widget.SearchView: boolean semSetSviEnabled(boolean)>
+  Line:     5690
+  Register: v3 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {v0, v3, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageInfo.getLongVersionCode()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → SearchView.getContext()
+      → SearchView.isSystemLocaleSupported()
+        → PackageInfo.composeLongVersionCode()
+        → ContentResolver.query()
+        → Context.getContentResolver()
+        → Cursor.moveToNext()
+        → Cursor.getColumnIndex()
+        → Cursor.getInt()
+        → Cursor.close()
+        → Uri.parse()
+        → Throwable.addSuppressed()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+            → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+              → <java.lang.NullPointerException: void <init>(java.lang.Strin
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.widget.directwriting.DirectWritingServiceBinder
+  Method:   <android.widget.directwriting.DirectWritingServiceBinder: void requestBindService(android.content.Context,long,android.widget.directwriting.DirectWritingTriggerCallback)>
+  Line:     409
+  Register: v2 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← DirectWritingServiceBinder.bindService()
+        ← DirectWritingTrigger.callBindService()
+          ← DirectWritingTrigger.requestBindServiceIfHasTriggerRect()
+            ← DirectWritingTrigger.isNeedUpdatePointerIcon()
+              ← DirectWritingTrigger.onPenEvent()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.bindService()
+      → Context.getPackageName()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → DirectWritingServiceBinder.printBinderLog()
+      → IDirectWritingServiceCallbackImpl.setBinderCallback()
+        → DirectWritingLogger.logInfoForDebug()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.widget.directwriting.DirectWritingServiceBinder
+  Method:   <android.widget.directwriting.DirectWritingServiceBinder: void stopService(android.content.Context)>
+  Line:     1623
+  Register: v2 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.stopService()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.sec.clipboard.util.ClipboardPolicyObserver
+  Method:   <android.sec.clipboard.util.ClipboardPolicyObserver: java.lang.String getTopActivityPackageName()>
+  Line:     433
+  Register: v6 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [invoke] android.os.Binder.restoreCallingIdentity()
+
+  CALLERS (who invokes this method):
+      ← ClipboardPolicyObserver.isPackageAllowed()
+        ← ClipboardService$ClipboardImpl.isClipboardAllowed()
+          ← ClipboardService$ClipboardImpl.getPrimaryClip()
+          ← ClipboardService$ClipboardImpl.hasPrimaryClip()
+          ← ClipboardService$ClipboardImpl.checkAndSetPrimaryClip()
+            ← ClipboardService$ClipboardImpl.setPrimaryClip()
+            ← ClipboardService$ClipboardImpl.setPrimaryClipAsPackage()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getRunningTasks()
+      → ComponentName.getPackageName()
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → PackageManager.getPackagesForUid()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → List.size()
+      → List.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$1
+  Method:   <com.samsung.android.knox.EdmConstants$1: void <init>()>
+  Line:     71
+  Register: v0 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1
+  Method:   <com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1: void <init>()>
+  Line:     44
+  Register: v0 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.appconfig.ApplicationRestrictionsM
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.PerProcessNandswap$NandswapHandler
+  Method:   <com.android.server.am.PerProcessNandswap$NandswapHandler: int getNandswapNonActivityAppType(com.android.server.am.ProcessRecord,int,int)>
+  Line:     1217
+  Register: v6 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v6 → [branch] if-eqz v6, :cond_54 → [reassigned] v6 overwritten
+
+  CALLERS (who invokes this method):
+      ← PerProcessNandswap$NandswapHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Process.myPid()
+      → Process.getRss()
+      → PerProcessNandswap$LastNandswapStats.getName()
+      → PerProcessNandswap$LastNandswapStats.getRssAfterNandswap()
+      → <com.android.server.am.PerProcessNandswap$ZramInfo: boolean 
+      → <com.android.server.am.PerProcessNandswap: boolean -$$Nest$m
+      → PerProcessNandswap.isDebugEnabled()
+      → <com.android.server.am.PerProcessNandswap: void -$$Nest$mupd
+      → ProcessRecord.getPid()
+      → ProcessStateRecord.getCurAdj()
+      → LinkedHashMap.get()
+        → PerProcessNandswap$ZramInfo.isWritebackQuotaAvailable()
+        → PerProcessNandswap.isExpandAction()
+        → SystemProperties.getBoolean()
+        → PerProcessNandswap.updateLastNandswapStats()
+          → PerProcessNandswap$ZramInfo.isWritebackEnabled()
+          → PerProcessNandswap$ZramInfo.isWritebackLimitEnabled()
+          → PerProcessNandswap$ZramInfo.readZramWritebackLimit()
+          → PerProcessNandswap.isExpandActionEnabled()
+          → <com.android.server.am.PerProcessNandswap$LastNandswapStats:
+          → LinkedHashMap.put()
+          → LinkedHashMap.remove()
+            → File.exists()
+            → <java.io.File: void <init>(java.lang.String)>
+            → BufferedReader.readLine()
+            → <java.io.BufferedReader: void <init>(java.io.Reader)>
+            → BufferedReader.close()
+            → <java.io.FileReader: void <init>(java.lang.String)>
+            → Throwable.addSuppressed()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppManager$1
+  Method:   <com.android.server.chimera.ChimeraAppManager$1: void <init>(com.android.server.chimera.ChimeraAppManager)>
+  Line:     38
+  Register: p1 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppManager: void <init>(c
+        ← <com.android.server.chimera.ChimeraManager: void <init>(andr
+          ← <com.android.server.chimera.ChimeraManagerService: void <ini
+            ← SystemServer.startOtherServices()
+              ← SystemServer.run()
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.semclipboard.SemClipboardService
+  Method:   <com.android.server.semclipboard.SemClipboardService: android.net.Uri insertToClipboard(android.content.ClipData,int)>
+  Line:     1287
+  Register: v5 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {p0, v2, p2, v5, v1}, Lcom/android/server/semclipboard/SemClipboardService;->grantUri
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.semclipboard.SemClipboardService.grantUri
+
+  CALLERS (who invokes this method):
+      ← SemClipboardService.setPrimaryClip()
+        ← ClipboardService$ClipboardImpl.checkAndSetPrimaryClip()
+          ← ClipboardService$ClipboardImpl.setPrimaryClip()
+          ← ClipboardService$ClipboardImpl.setPrimaryClipAsPackage()
+
+  CALLEES (what this method invokes):
+      → ClipData$Item.getUri()
+      → ClipData$Item.getText()
+      → ClipData$Item.getHtmlText()
+      → ClipData.getItemAt()
+      → ClipData.getDescription()
+      → ClipData.getItemCount()
+      → ClipDescription.getExtras()
+      → ClipDescription.getMimeTypeCount()
+      → ClipDescription.getLabel()
+      → ClipDescription.getMimeType()
+      → ContentResolver.insert()
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → ContentValues.put()
+      → ContentValues.put()
+      → Context.getContentResolver()
+      → Uri.parse()
+      → Uri.toString()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → PersistableBundle.containsKey()
+      → PersistableBundle.getBoolean()
+      → Log.e()
+      → SemClipboardService.grantUriPermission()
+      → CharSequence.toString()
+      → Exception.getMessage()
+        → ArrayList.get()
+        → ArrayList.size()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → IUriGrantsManager.grantUriPermissionFromOwner()
+        → ContentProvider.getUriWithoutUserId()
+        → ContentProvider.getUserIdFromUri()
+        → Uri.getScheme()
+        → UserHandle.getUserId()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → ContainerHelpers.binarySearch()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.semclipboard.SemClipboardService
+  Method:   <com.android.server.semclipboard.SemClipboardService: void insertToClipboardForMigration(com.samsung.android.content.clipboard.data.SemClipData,int)>
+  Line:     1579
+  Register: v4 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {p0, v5, p1, v4, v3}, Lcom/android/server/semclipboard/SemClipboardService;->grantUri
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.semclipboard.SemClipboardService.grantUri → [invoke] com.android.server.semclipboard.SemClip
+
+  CALLERS (who invokes this method):
+      ← SemClipboardService.migrationSemClipboardAsUser()
+        ← SemClipboardService.migrationClipboardToKeyboard()
+          ← <com.android.server.semclipboard.SemClipboardService: void -
+            ← SemClipboardService$KNOXReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → ContentResolver.insert()
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → ContentValues.put()
+      → ContentValues.put()
+      → ContentValues.put()
+      → Context.getContentResolver()
+      → Uri.parse()
+      → Uri.toString()
+      → Log.e()
+      → SemClipboardService.grantUriPermission()
+      → SemClipData.isProtected()
+      → SemClipData.getClipType()
+      → SemClipData.getCallerUid()
+      → SemClipData.getTimestamp()
+      → SemHtmlClipData.getHtml()
+      → SemHtmlClipData.getPlainText()
+      → SemImageClipData.getContentUri()
+      → SemTextClipData.getText()
+      → SemUriClipData.getUri()
+      → CharSequence.toString()
+      → Exception.getMessage()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → IUriGrantsManager.grantUriPermissionFromOwner()
+        → ContentProvider.getUriWithoutUserId()
+        → ContentProvider.getUserIdFromUri()
+        → Uri.getScheme()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → UserHandle.getUserId()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → ContainerHelpers.binarySearch()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: boolean getKeyboardModeOverriden(int)>
+  Line:     33744
+  Register: v8 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {v8, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result-wide v8 → [invoke] android.os.Binder.restoreCallingIdentity() →
+
+  CALLEES (what this method invokes):
+      → ContentResolver.query()
+      → Context.getContentResolver()
+      → Cursor.moveToNext()
+      → Cursor.getColumnIndex()
+      → Cursor.getString()
+      → Cursor.close()
+      → Uri.parse()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: int setKeyboardMode(int)>
+  Line:     49412
+  Register: v2 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] iget-object v2, p0, Lcom/samsung/android/knox/custom/KnoxCus → [invoke] com
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+      → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+      → KnoxCustomManagerService$Injector.binderWithCleanCallingIdentity()
+      → KnoxCustomManagerService.enforceSystemPermission()
+      → KnoxCustomManagerService.getProcessName()
+      → KnoxsdkFileLog.d()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+        → Binder.withCleanCallingIdentity()
+        → EnterpriseDeviceManager.enforceActiveAdminPermission()
+        → KnoxCustomManagerService.getEDM()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → KnoxsdkFileLog.fileLog()
+        → SemLog.d()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → ExceptionUtils.propagate()
+          → FunctionalUtils$ThrowingSupplier.getOrThrow()
+          → EnterpriseDeviceManager.getService()
+          → IEnterpriseDeviceManager.enforceActiveAdminPermission()
+          → KnoxCustomManagerService$Injector.getEDM()
+          → Logger.log()
+            → ExceptionUtils.propagateIfInstanceOf()
+            → Preconditions.checkNotNull()
+            → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+            → ServiceManager.getService()
+            → IEnterpriseDeviceManager$Stub.asInterface()
+            → EnterpriseDeviceManager.getInstance()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.IEnterpriseDeviceManager$Stub$Prox
+              → Process.myPid()
+              → Process.myTid()
+              → Process.myUid()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.w()
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.DexOptHelper
+  Method:   <com.android.server.pm.DexOptHelper: void <init>(com.android.server.pm.PackageManagerService)>
+  Line:     156
+  Register: v6 := "com.samsung.android.honeyboard"
+  Usage:    [array_init] filled-new-array/range {v1 .. v6}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v1 .. v6}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← BackgroundDexOptService$Injector.getDexOptHelper()
+      ← <com.android.server.pm.PackageManagerService: void <init>(co
+        ← <com.android.server.pm.BackgroundDexOptService: void <init>(
+        ← PackageManagerService.main()
+          ← <com.android.server.pm.BackgroundDexOptService: void <init>(
+          ← SystemServer.startBootstrapServices()
+            ← <com.android.server.pm.PackageManagerService: com.android.se
+            ← SystemServer.run()
+              ← <com.android.server.pm.PackageManagerService: com.android.se
+              ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PersonaServiceHelper$1
+  Method:   <com.android.server.pm.PersonaServiceHelper$1: void <init>()>
+  Line:     45
+  Register: v1 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {p0, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PersonaServiceHelper: void <clinit>()
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.inputmethod.InputMethodManagerService
+  Method:   <com.android.server.inputmethod.InputMethodManagerService: boolean isHoneyboardInstalled()>
+  Line:     12976
+  Register: v1 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.inputmethod.InputMethodManagerService: b
+      ← InputMethodManagerService.isSamsungDefaultMethodID()
+      ← InputMethodManagerService.setDefaultInputMethod()
+        ← InputMethodManagerService$SwitchControlChangeObserver.setDefaultUniversalSwitchInputMethod()
+        ← <com.android.server.inputmethod.InputMethodManagerService: b
+        ← <com.android.server.inputmethod.InputMethodManagerService: v
+          ← InputMethodManagerService$SwitchControlChangeObserver.onChange()
+          ← InputMethodManagerService$DexDualViewModeChangeObserver.onChange()
+          ← InputMethodManagerService$KnoxDesktopModeReceiver.onReceive()
+            ← InputMethodManagerService.checkDisplayOfStartInputAndUpdateKeyboard()
+              ← InputMethodManagerService.attachNewInputLocked()
+
+  CALLEES (what this method invokes):
+      → InputMethodManagerService.isInstalledInputMethod()
+        → InputMethodInfo.getId()
+        → InputMethodUtils$InputMethodSettings.getEnabledInputMethodListLocked()
+        → List.size()
+        → List.get()
+          → InputMethodUtils$InputMethodSettings.getEnabledInputMethodListWithFilterLocked()
+            → InputMethodUtils$InputMethodSettings.createEnabledInputMethodListLocked()
+            → InputMethodUtils$InputMethodSettings.getEnabledInputMethodsAndSubtypeListLocked()
+              → ArrayMap.get()
+              → InputMethodInfo.isVrOnly()
+              → ArrayList.add()
+              → <java.util.ArrayList: void <init>()>
+              → Iterator.hasNext()
+              → Iterator.next()
+              → List.iterator()
+              → Predicate.test()
+              → InputMethodUtils$InputMethodSettings.getEnabledInputMethodsStr()
+              → InputMethodUtils$InputMethodSettings.buildInputMethodsAndSubtypeList()
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.inputmethod.InputMethodManagerService
+  Method:   <com.android.server.inputmethod.InputMethodManagerService: boolean isSKBDPacakge(java.lang.String)>
+  Line:     13525
+  Register: p0 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-static {p1, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequ
+  Patterns: string_compare, early_return
+  Flow:     [invoke] android.text.TextUtils.equals() → [other] move-result p0 → [other] return p0
+
+  CALLERS (who invokes this method):
+      ← InputMethodManagerService.isImeSwitcherDisabledPackage()
+        ← InputMethodManagerService.shouldShowImeSwitcherLocked()
+          ← InputMethodManagerService.getInputMethodNavButtonFlagsLocked()
+          ← InputMethodManagerService.updateSystemUiLocked()
+            ← InputMethodManagerService.attachNewInputLocked()
+            ← InputMethodManagerService.initializeImeLocked()
+            ← InputMethodManagerService.sendOnNavButtonFlagsChangedLocked()
+            ← InputMethodManagerService.handleMessage()
+            ← <com.android.server.inputmethod.InputMethodManagerService: v
+            ← InputMethodManagerService.finishSessionLocked()
+            ← InputMethodManagerService.handleSetInteractive()
+            ← InputMethodManagerService.reportPerceptibleAsync()
+            ← InputMethodManagerService.resetSystemUiLocked()
+            ← InputMethodManagerService.setImeWindowStatus()
+            ← InputMethodManagerService.setInputMethodLocked()
+            ← InputMethodManagerService.systemRunning()
+            ← InputMethodManagerService.updateImeWindowStatus()
+            ← InputMethodManagerService.updateSystemUiLocked()
+              ← InputMethodManagerService.startInputUncheckedLocked()
+              ← InputMethodManagerService.onSessionCreated()
+              ← InputMethodBindingController$2.onServiceConnected()
+              ← InputMethodManagerService.buildInputMethodListLocked()
+              ← <com.android.server.inputmethod.InputMethodManagerService: v
+              ← InputMethodManagerService.updateInputMethodsFromSettingsLocked()
+              ← InputMethodMenuController.hideInputMethodMenuLocked()
+              ← InputMethodMenuController.showInputMethodMenu()
+              ← InputMethodManagerService.executeOrSendMessage()
+              ← InputMethodManagerService$MyPackageMonitor.onFinishPackageChangesInternal()
+              ← InputMethodManagerService.clearClientSessionLocked()
+              ← InputMethodManagerService.clearClientSessionsLocked()
+              ← InputMethodBindingController.unbindCurrentMethod()
+              ← <com.android.server.inputmethod.InputMethodManagerService: v
+              ← InputMethodManagerService$DexDualViewModeChangeObserver.restorePreviousUsedInputMethod()
+              ← InputMethodManagerService$KnoxDesktopModeReceiver.restorePreviousUsedInputMethod()
+              ← InputMethodManagerService$SwitchControlChangeObserver.restorePreviousUsedInputMethod()
+              ← InputMethodManagerService$SwitchControlChangeObserver.setDefaultUniversalSwitchInputMethod()
+              ← InputMethodManagerService.setCurrentInputMethodSubtype()
+              ← InputMethodManagerService.switchToInputMethodLocked()
+              ← InputMethodManagerService.changeKeyboardForVZWResetSetting()
+              ← InputMethodManagerService.handleVoiceHWKey()
+              ← InputMethodManagerService.setDefaultIMEForKeyboard()
+              ← InputMethodManagerService.setDefaultInputMethod()
+              ← InputMethodManagerService.setInputMethodWithSubtypeIdLocked()
+              ← <com.android.server.inputmethod.InputMethodMenuController: v
+              ← <com.android.server.inputmethod.InputMethodManagerService$Li
+
+  CALLEES (what this method invokes):
+      → TextUtils.equals()
+        → CharSequence.charAt()
+        → CharSequence.length()
+
+────────────────────────────────────────────────────────────
+Occurrence #17
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.inputmethod.InputMethodUtils
+  Method:   <com.android.server.inputmethod.InputMethodUtils: java.lang.CharSequence getImeAndSubtypeDisplayName(android.content.Context,android.view.inputmethod.InputMethodInfo,android.view.inputmethod.InputMethodSubtype)>
+  Line:     1087
+  Register: v2 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v2 overwritten
+
+  CALLERS (who invokes this method):
+      ← InputMethodManagerService.updateSystemUiLocked()
+        ← InputMethodManagerService.handleMessage()
+        ← <com.android.server.inputmethod.InputMethodManagerService: v
+        ← InputMethodManagerService.finishSessionLocked()
+        ← InputMethodManagerService.handleSetInteractive()
+        ← InputMethodManagerService.reportPerceptibleAsync()
+        ← InputMethodManagerService.resetSystemUiLocked()
+        ← InputMethodManagerService.setImeWindowStatus()
+        ← InputMethodManagerService.setInputMethodLocked()
+        ← InputMethodManagerService.systemRunning()
+        ← InputMethodManagerService.updateImeWindowStatus()
+        ← InputMethodManagerService.updateSystemUiLocked()
+          ← InputMethodManagerService.executeOrSendMessage()
+          ← InputMethodManagerService$MyPackageMonitor.onFinishPackageChangesInternal()
+          ← InputMethodManagerService.clearClientSessionLocked()
+          ← InputMethodManagerService.clearClientSessionsLocked()
+          ← InputMethodBindingController.unbindCurrentMethod()
+          ← <com.android.server.inputmethod.InputMethodManagerService: v
+          ← InputMethodManagerService$DexDualViewModeChangeObserver.restorePreviousUsedInputMethod()
+          ← InputMethodManagerService$KnoxDesktopModeReceiver.restorePreviousUsedInputMethod()
+          ← InputMethodManagerService$SwitchControlChangeObserver.restorePreviousUsedInputMethod()
+          ← InputMethodManagerService$SwitchControlChangeObserver.setDefaultUniversalSwitchInputMethod()
+          ← InputMethodManagerService.setCurrentInputMethodSubtype()
+          ← InputMethodManagerService.switchToInputMethodLocked()
+          ← InputMethodManagerService.changeKeyboardForVZWResetSetting()
+          ← InputMethodManagerService.handleVoiceHWKey()
+          ← InputMethodManagerService.setDefaultIMEForKeyboard()
+          ← InputMethodManagerService.setDefaultInputMethod()
+          ← InputMethodManagerService.setInputMethodWithSubtypeIdLocked()
+          ← InputMethodManagerService.updateInputMethodsFromSettingsLocked()
+          ← <com.android.server.inputmethod.InputMethodMenuController: v
+          ← <com.android.server.inputmethod.InputMethodManagerService$Li
+          ← InputMethodMenuController.hideInputMethodMenuLocked()
+          ← InputMethodMenuController.showInputMethodMenu()
+            ← <com.android.server.inputmethod.InputMethodManagerService: v
+            ← InputMethodManagerService.onSessionCreated()
+            ← InputMethodManagerService.reportFullscreenMode()
+            ← InputMethodManagerService.scheduleSetActiveToClient()
+            ← InputMethodManagerService.unbindCurrentClientLocked()
+            ← InputMethodManagerService$MyPackageMonitor.onFinishPackageChanges()
+            ← InputMethodManagerService.reRequestCurrentClientSessionLocked()
+            ← InputMethodManagerService.removeClient()
+            ← InputMethodBindingController.clearCurMethodAndSessions()
+            ← InputMethodBindingController$2.onServiceConnected()
+            ← InputMethodManagerService.startInputOrWindowGainedFocusInternalLocked()
+            ← InputMethodManagerService.startInputUncheckedInnerLocked()
+            ← InputMethodManagerService.startInputUncheckedLocked()
+            ← InputMethodManagerService.handleShellCommandResetInputMethod()
+            ← InputMethodManagerService.resetCurrentMethodAndClientLocked()
+            ← InputMethodManagerService$InputMethodPrivilegedOperationsImpl.setImeWindowStatusAsync()
+            ← InputMethodManagerService$DexDualViewModeChangeObserver.onChange()
+            ← InputMethodManagerService$KnoxDesktopModeReceiver.onReceive()
+            ← InputMethodManagerService$SwitchControlChangeObserver.onChange()
+            ← InputMethodManagerService$KeyboardSubTypeReceiver.onReceive()
+            ← <com.android.server.inputmethod.InputMethodManagerService: b
+            ← InputMethodManagerService.handleShellCommandSetInputMethod()
+            ← InputMethodManagerService$VZWResetSettingReceiver.onReceive()
+            ← <com.android.server.inputmethod.InputMethodManagerService: v
+            ← <com.android.server.inputmethod.InputMethodManagerService: v
+            ← InputMethodManagerService.switchToNextInputMethod()
+            ← InputMethodManagerService.switchToPreviousInputMethod()
+            ← InputMethodManagerService.setInputMethod()
+            ← InputMethodManagerService.setInputMethodAndSubtype()
+            ← InputMethodManagerService$SettingsObserver.onChange()
+            ← InputMethodManagerService.buildInputMethodListLocked()
+            ← InputMethodManagerService.onUnlockUser()
+            ← InputMethodManagerService.updateFromSettingsLocked()
+            ← <com.android.server.inputmethod.InputMethodMenuController: v
+            ← <com.android.server.inputmethod.InputMethodManagerService$Li
+            ← InputMethodMenuController.hideInputMethodMenu()
+              ← InputMethodManagerService$LocalServiceImpl.onSessionForAccessibilityCreated()
+              ← InputMethodManagerService$LocalServiceImpl.unbindAccessibilityFromCurrentClient()
+              ← InputMethodManagerService$2.sessionCreated()
+              ← <com.android.server.inputmethod.InputMethodManagerService: v
+              ← InputMethodManagerService.prepareClientSwitchLocked()
+              ← InputMethodBindingController$2.onServiceDisconnected()
+              ← InputMethodManagerService$ClientDeathRecipient.binderDied()
+              ← <com.android.server.inputmethod.InputMethodBindingController
+              ← InputMethodManagerService.startInputOrWindowGainedFocusInternal()
+              ← <com.android.server.inputmethod.InputMethodManagerService: c
+              ← <com.android.server.inputmethod.InputMethodManagerService: i
+              ← InputMethodManagerService.switchUserOnHandlerLocked()
+              ← InputMethodManagerService.checkDisplayOfStartInputAndUpdateKeyboard()
+              ← InputMethodManagerService$LocalServiceImpl.switchToInputMethod()
+              ← <com.android.server.inputmethod.InputMethodManagerService: i
+              ← InputMethodManagerService$DemoResetReceiver.onReceive()
+              ← <com.android.server.inputmethod.InputMethodManagerService: b
+              ← <com.android.server.inputmethod.InputMethodManagerService: b
+              ← <com.android.server.inputmethod.InputMethodManagerService: v
+              ← <com.android.server.inputmethod.InputMethodManagerService: v
+              ← InputMethodManagerService.onActionLocaleChanged()
+              ← InputMethodManagerService.setAdditionalInputMethodSubtypes()
+              ← InputMethodMenuController$$ExternalSyntheticLambda0.onClick()
+              ← InputMethodManagerService$Lifecycle$$ExternalSyntheticLambda0.run()
+              ← InputMethodManagerService$ImmsBroadcastReceiverForAllUsers.onReceive()
+              ← InputMethodManagerService$LocalServiceImpl.onImeParentChanged()
+              ← InputMethodMenuController$1.onCancel()
+              ← InputMethodMenuController$2.onCheckedChanged()
+              ← InputMethodMenuController$3.onCheckedChanged()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → TextUtils.isEmpty()
+      → TextUtils.concat()
+      → InputMethodInfo.getServiceInfo()
+      → InputMethodInfo.isSystem()
+      → InputMethodInfo.loadLabel()
+      → InputMethodInfo.getPackageName()
+      → InputMethodSubtype.getDisplayName()
+        → CharSequence.length()
+        → SpannableStringBuilder.append()
+        → <android.text.SpannableStringBuilder: void <init>()>
+        → <android.text.SpannedString: void <init>(java.lang.CharSeque
+        → ResolveInfo.loadLabel()
+        → PackageManager.getText()
+        → TextUtils.equals()
+        → InputMethodSubtype.containsExtraValueKey()
+        → InputMethodSubtype.getExtraValueOf()
+        → InputMethodSubtype.getLocaleDisplayName()
+        → InputMethodSubtype.getLocaleFromContext()
+        → InputMethodSubtype.getLocaleObject()
+        → CharSequence.toString()
+          → <android.text.SpannedString: void <init>(java.lang.CharSeque
+          → CharSequence.charAt()
+          → InputMethodSubtype.getExtraValueHashMap()
+          → HashMap.containsKey()
+          → HashMap.get()
+          → LocaleDisplayNames.getInstance()
+          → LocaleDisplayNames.localeDisplayName()
+          → Locale.getDefault()
+          → Context.getResources()
+          → Configuration.getLocales()
+          → Resources.getConfiguration()
+          → LocaleList.get()
+          → SubtypeLocaleUtils.constructLocaleFromString()
+          → Locale.forLanguageTag()
+            → <android.text.SpannableStringInternal: void <init>(java.lang
+            → HashMap.put()
+            → <java.util.HashMap: void <init>()>
+            → <java.util.Locale: void <init>(java.lang.String)>
+            → <java.util.Locale: void <init>(java.lang.String,java.lang.St
+            → <java.util.Locale: void <init>(java.lang.String,java.lang.St
+
+────────────────────────────────────────────────────────────
+Occurrence #18
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter
+  Method:   <com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)>
+  Line:     542
+  Register: v7 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {v7, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [invoke] java.lang.String.equals()
+
+  CALLEES (what this method invokes):
+      → TextUtils.isEmpty()
+      → LayoutInflater.inflate()
+      → View.findViewById()
+      → InputMethodInfo.getPackageName()
+      → RadioButton.setChecked()
+      → TextView.setText()
+      → TextView.setVisibility()
+      → InputMethodMenuController$ImeSubtypeListAdapter.addSettingButton()
+      → InputMethodMenuController$ImeSubtypeListAdapter.clearSettingButton()
+      → List.size()
+      → List.get()
+        → CharSequence.length()
+        → KeyguardManager.isKeyguardLocked()
+        → KeyguardManager.isKeyguardSecure()
+        → Context.getResources()
+        → Context.getSystemService()
+        → IPackageManager$Stub.asInterface()
+        → IPackageManager.isOnlyCoreApps()
+        → Resources.getDrawable()
+        → Resources.getDrawable()
+        → Resources.getColor()
+        → Resources.getDimensionPixelSize()
+        → Resources.getString()
+        → Drawable.setTint()
+        → ServiceManager.getService()
+        → UserManager.isUserUnlocked()
+        → View.getPaddingBottom()
+        → View.getPaddingLeft()
+        → View.getPaddingTop()
+        → View.setPaddingRelative()
+        → <android.view.WindowManager$LayoutParams: void <init>()>
+        → ArrayAdapter.getContext()
+        → <android.widget.ImageView: void <init>(android.content.Conte
+        → ImageView.setBackground()
+        → ImageView.setImageDrawable()
+        → ImageView.setLayoutParams()
+        → <android.widget.LinearLayout: void <init>(android.content.Co
+        → LinearLayout.addView()
+        → LinearLayout.setClickable()
+        → LinearLayout.setContentDescription()
+        → LinearLayout.setEnabled()
+        → LinearLayout.setFocusable()
+        → LinearLayout.setGravity()
+        → LinearLayout.setId()
+        → LinearLayout.setLayoutParams()
+        → LinearLayout.setOnClickListener()
+        → <com.android.server.inputmethod.InputMethodMenuController$Im
+        → InputMethodMenuController$ImeSubtypeListAdapter.isSettingButtonEnabled()
+        → <com.android.server.inputmethod.InputMethodMenuController: j
+        → LinearLayout.removeView()
+          → ContentResolver.query()
+          → ContentValues.getAsBoolean()
+          → <android.content.ContentValues: void <init>()>
+          → Context.getContentResolver()
+          → Cursor.moveToFirst()
+          → Cursor.getCount()
+          → Cursor.close()
+          → DatabaseUtils.cursorRowToContentValues()
+          → Uri.parse()
+          → InputMethodMenuController$ImeSubtypeListAdapter.isHoneyboardSupported()
+          → Throwable.addSuppressed()
+          → ArrayList.add()
+          → ArrayList.get()
+          → <java.util.ArrayList: void <init>()>
+            → ArrayMap.get()
+            → Number.intValue()
+            → <android.util.ArrayMap: void <init>()>
+            → ContentValues.put()
+            → ContentValues.put()
+            → Cursor.getBlob()
+            → Cursor.getType()
+            → Cursor.getString()
+            → Cursor.getColumnNames()
+            → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+            → SemFloatingFeature.getInstance()
+            → SemFloatingFeature.getString()
+              → ArrayMap.indexOfKey()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.put()
+              → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+              → SemFloatingFeature.loge()
+              → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #19
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter
+  Method:   <com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter: boolean isHoneyboardSupported()>
+  Line:     628
+  Register: v0 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [invoke] java.lang.StringBuilder.append() → [other] return
+
+  CALLERS (who invokes this method):
+      ← InputMethodMenuController$ImeSubtypeListAdapter.isSettingButtonEnabled()
+        ← InputMethodMenuController$ImeSubtypeListAdapter.addSettingButton()
+          ← InputMethodMenuController$ImeSubtypeListAdapter.getView()
+
+  CALLEES (what this method invokes):
+      → <com.android.server.inputmethod.InputMethodMenuController: j
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getString()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #20
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.inputmethod.InputMethodMenuController
+  Method:   <com.android.server.inputmethod.InputMethodMenuController: void showInputMethodMenu(boolean,int)>
+  Line:     1356
+  Register: v12 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-virtual {v10, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.samsung.android.knox.SemEnterpriseDeviceManager.getAppli → [other] const-string/jumbo v4, "key_show_keyboar
+
+  CALLERS (who invokes this method):
+      ← InputMethodManagerService.handleMessage()
+        ← InputMethodManagerService.executeOrSendMessage()
+          ← <com.android.server.inputmethod.InputMethodManagerService: v
+          ← InputMethodManagerService.onSessionCreated()
+          ← InputMethodManagerService.reportFullscreenMode()
+          ← InputMethodManagerService.scheduleSetActiveToClient()
+          ← InputMethodManagerService.unbindCurrentClientLocked()
+            ← InputMethodManagerService$LocalServiceImpl.onSessionForAccessibilityCreated()
+            ← InputMethodManagerService$LocalServiceImpl.unbindAccessibilityFromCurrentClient()
+            ← InputMethodManagerService$2.sessionCreated()
+            ← <com.android.server.inputmethod.InputMethodManagerService: v
+            ← InputMethodManagerService.handleSetInteractive()
+            ← InputMethodManagerService.prepareClientSwitchLocked()
+            ← InputMethodBindingController$2.onServiceDisconnected()
+            ← InputMethodManagerService.resetCurrentMethodAndClientLocked()
+            ← InputMethodManagerService.setInputMethodLocked()
+              ← InputMethodManagerService$InputMethodPrivilegedOperationsImpl.reportFullscreenModeAsync()
+              ← InputMethodManagerService.startInputUncheckedLocked()
+              ← InputMethodManagerService$DexDualViewModeChangeObserver.onChange()
+              ← InputMethodManagerService$KnoxDesktopModeReceiver.onReceive()
+              ← InputMethodManagerService.switchUserOnHandlerLocked()
+              ← InputMethodManagerService.updateInputMethodsFromSettingsLocked()
+              ← InputMethodManagerService$DexDualViewModeChangeObserver.restorePreviousUsedInputMethod()
+              ← InputMethodManagerService$KnoxDesktopModeReceiver.restorePreviousUsedInputMethod()
+              ← InputMethodManagerService$SwitchControlChangeObserver.restorePreviousUsedInputMethod()
+              ← InputMethodManagerService$SwitchControlChangeObserver.setDefaultUniversalSwitchInputMethod()
+              ← InputMethodManagerService.setCurrentInputMethodSubtype()
+              ← InputMethodManagerService.switchToInputMethodLocked()
+              ← InputMethodManagerService.changeKeyboardForVZWResetSetting()
+              ← InputMethodManagerService.handleVoiceHWKey()
+              ← InputMethodManagerService.setDefaultIMEForKeyboard()
+              ← InputMethodManagerService.setDefaultInputMethod()
+              ← InputMethodManagerService.setInputMethodWithSubtypeIdLocked()
+              ← <com.android.server.inputmethod.InputMethodMenuController: v
+
+  CALLEES (what this method invokes):
+      → ActivityThread.currentActivityThread()
+      → ActivityThread.getSystemUiContext()
+      → AlertDialog$Builder.create()
+      → AlertDialog$Builder.setCustomTitle()
+      → AlertDialog$Builder.setIcon()
+      → AlertDialog$Builder.setOnCancelListener()
+      → AlertDialog$Builder.setSingleChoiceItems()
+      → AlertDialog$Builder.setView()
+      → AlertDialog$Builder.getContext()
+      → <android.app.AlertDialog$Builder: void <init>(android.conten
+      → AlertDialog.getWindow()
+      → AlertDialog.getListView()
+      → AlertDialog.setCanceledOnTouchOutside()
+      → AlertDialog.setOnShowListener()
+      → AlertDialog.show()
+      → Context.getResources()
+      → Context.obtainStyledAttributes()
+      → Context.getWindowContextToken()
+      → Context.getSystemService()
+      → Resources.getConfiguration()
+      → Resources.getString()
+      → TypedArray.getDrawable()
+      → TypedArray.recycle()
+      → Bundle.getBundle()
+      → Bundle.getBoolean()
+      → ArrayMap.get()
+      → LayoutInflater.inflate()
+      → View.findViewById()
+      → View.setVisibility()
+      → Window.getAttributes()
+      → Window.setAttributes()
+      → Window.setHideOverlayWindows()
+      → Window.setType()
+      → WindowManager$LayoutParams.setTitle()
+      → InputMethodInfo.getId()
+      → InputMethodInfo.getPackageName()
+      → InputMethodSubtype.hashCode()
+      → ListView.setEnabled()
+      → Switch.semSetSamsungBasicInteraction()
+      → Switch.setChecked()
+      → Switch.setEnabled()
+      → Switch.setOnCheckedChangeListener()
+      → TextView.semGetHoverPopup()
+      → TextView.getText()
+      → TextView.semSetHoverPopupType()
+      → TextView.setContentDescription()
+      → TextView.setText()
+      → InputMethodManagerService.getCurrentInputMethodSubtypeLocked()
+      → InputMethodManagerService.getShowImeWithHardKeyboardValue()
+      → InputMethodManagerService.isDEXStandAloneMode()
+      → InputMethodManagerService.isHWAccessoryKeyboard()
+      → InputMethodManagerService.getSelectedMethodIdLocked()
+      → InputMethodManagerService.sendOnNavButtonFlagsChangedLocked()
+      → InputMethodManagerService.updateSystemUiLocked()
+      → <com.android.server.inputmethod.InputMethodMenuController$$E
+      → <com.android.server.inputmethod.InputMethodMenuController$1:
+      → <com.android.server.inputmethod.InputMethodMenuController$2:
+      → <com.android.server.inputmethod.InputMethodMenuController$3:
+      → <com.android.server.inputmethod.InputMethodMenuController$4:
+      → <com.android.server.inputmethod.InputMethodMenuController$Im
+      → InputMethodMenuController.getContextThemeWrapper()
+      → InputMethodMenuController.applyStringWithIcon()
+      → InputMethodMenuController.isSamsungIme()
+      → InputMethodMenuController.isScreenLocked()
+      → InputMethodMenuController.isVisibleShowKeyboardSwitch()
+      → InputMethodMenuController.isVoiceInputDisable()
+      → InputMethodMenuController.getInputMethodSwitchDialogTitleXmlId()
+      → InputMethodMenuController.hideInputMethodMenuLocked()
+      → InputMethodMenuController.sendSALogging()
+      → InputMethodSubtypeSwitchingController.getSortedInputMethodAndSubtypeListForImeMenuLocked()
+      → InputMethodUtils$InputMethodSettings.isShowImeWithHardKeyboardEnabled()
+      → InputMethodUtils$InputMethodSettings.isShowKeyboardButton()
+      → InputMethodUtils$InputMethodSettings.getCurrentUserId()
+      → InputMethodUtils$InputMethodSettings.getSelectedInputMethodSubtypeId()
+      → InputMethodUtils$InputMethodSettings.getSelectedInputMethod()
+      → InputMethodUtils.getSubtypeIdFromHashCode()
+      → SemDesktopModeManager.isDesktopMode()
+      → SemEnterpriseDeviceManager.getApplicationRestrictions()
+      → SemEnterpriseDeviceManager.getInstance()
+      → SemHoverPopupWindow.setContent()
+      → SemHoverPopupWindow.setGravity()
+      → CharSequence.toString()
+      → List.add()
+      → List.isEmpty()
+      → List.size()
+      → List.get()
+      → List.remove()
+      → List.clear()
+        → <android.app.AlertDialog: com.android.internal.app.AlertCont
+        → <android.app.AlertDialog: void <init>(android.content.Contex
+        → AlertDialog.setCancelable()
+        → AlertDialog.setOnCancelListener()
+        → AlertDialog.setOnDismissListener()
+        → AlertDialog.setOnKeyListener()
+        → AlertController$AlertParams.apply()
+        → <android.app.AlertDialog$Builder: void <init>(android.conten
+        → AlertDialog.resolveDialogTheme()
+        → AlertController.getListView()
+        → ArrayMap.indexOfKey()
+        → InputMethodInfo.getSubtypeCount()
+        → InputMethodUtils$InputMethodSettings.isSubtypeSelected()
+        → InputMethodUtils$InputMethodSettings.getEnabledInputMethodSubtypeListLocked()
+        → InputMethodUtils.findLastResortApplicableSubtypeLocked()
+        → InputMethodUtils.isValidSubtypeId()
+        → InputMethodUtils.getSubtypes()
+        → ArrayList.get()
+        → InputMethodManagerService.getDexSettingsValue()
+        → InputMethodManagerService.isDexSetting()
+        → SemDesktopModeManager.getDesktopModeState()
+        → SemDesktopModeState.getDisplayType()
+        → SamsungIMMSHWKeyboard.isHWAccessoryKeyboard()
+        → InputMethodBindingController.getSelectedMethodId()
+        → IInputMethodInvoker.onNavButtonFlagsChanged()
+        → InputMethodBindingController.getCurMethod()
+        → InputMethodManagerService.getInputMethodNavButtonFlagsLocked()
+        → InputMethodManagerService.updateSystemUiLocked()
+        → <com.android.server.inputmethod.InputMethodMenuController$Im
+        → <android.view.ContextThemeWrapper: void <init>(android.conte
+        → Resources.getDrawable()
+        → Resources.getColor()
+        → Drawable.getIntrinsicHeight()
+        → Drawable.getIntrinsicWidth()
+        → Drawable.setBounds()
+        → Drawable.setTint()
+        → <android.text.SpannableString: void <init>(java.lang.CharSeq
+        → SpannableString.setSpan()
+        → <android.text.style.ImageSpan: void <init>(android.graphics.
+        → KeyguardManager.isKeyguardLocked()
+        → KeyguardManager.isKeyguardSecure()
+        → InputMethodManagerService.isDeskTopMode()
+        → SemEmergencyManager.isEmergencyMode()
+        → InputMethodManagerService.isPasswordInputType()
+        → AlertDialog.dismiss()
+        → InputMethodMenuController.sendSALogging()
+        → InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList.getSortedInputMethodAndSubtypeList()
+        → SystemProperties.get()
+        → Settings$Secure.getIntForUser()
+        → InputMethodUtils$InputMethodSettings.getBoolean()
+        → InputMethodUtils$InputMethodSettings.getSelectedInputMethodSubtypeHashCode()
+        → InputMethodUtils$InputMethodSettings.getString()
+        → InputMethodInfo.getSubtypeAt()
+        → <android.os.Bundle: void <init>()>
+        → RemoteException.rethrowFromSystemServer()
+        → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+        → IEDMProxy.getApplicationRestrictions()
+        → <com.samsung.android.knox.SemEnterpriseDeviceManager: void <
+          → AlertDialog.getContext()
+          → <android.app.Dialog: void <init>(android.content.Context,int
+          → Window.alwaysReadCloseOnTouchAttr()
+          → AlertController.create()
+          → AlertController$AlertParams.createListView()
+          → AlertController.getIconAttributeResId()
+          → AlertController.setButton()
+          → AlertController.setCustomTitle()
+          → AlertController.setIcon()
+          → AlertController.setIcon()
+          → AlertController.setInverseBackgroundForced()
+          → AlertController.setMessage()
+          → AlertController.setTitle()
+          → AlertController.setView()
+          → AlertController.setView()
+          → AlertController.setView()
+          → Context.getTheme()
+          → Resources$Theme.resolveAttribute()
+          → <android.util.TypedValue: void <init>()>
+          → <com.android.internal.app.AlertController$AlertParams: void 
+          → ResourceId.isValid()
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → InputMethodSubtypeArray.getCount()
+          → InputMethodSubtype.sort()
+          → InputMethodUtils$InputMethodSettings.getEnabledInputMethodSubtypeListLocked()
+          → InputMethodUtils.getImplicitlyApplicableSubtypesLocked()
+          → TextUtils.isEmpty()
+          → InputMethodSubtype.getLocale()
+          → InputMethodSubtype.getMode()
+          → InputMethodUtils.getLanguageFromLocaleString()
+          → Locale.toString()
+          → ArrayList.add()
+          → <java.util.ArrayList: void <init>()>
+          → Context.getContentResolver()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → InputMethodManagerService.getDexSettings()
+          → IDesktopMode.getDesktopModeState()
+          → IInputMethod.onNavButtonFlagsChanged()
+          → IInputMethodInvoker.logRemoteException()
+          → ConcurrentUtils.waitForFutureNoInterrupt()
+          → InputMethodManagerService.shouldShowImeSwitcherLocked()
+          → OverlayableSystemBooleanResourceWrapper.get()
+          → Notification$Builder.build()
+          → Notification$Builder.setContentIntent()
+          → Notification$Builder.setContentText()
+          → Notification$Builder.setContentTitle()
+          → NotificationManager.cancelAsUser()
+          → NotificationManager.notifyAsUser()
+          → Resources.getText()
+          → InputMethodManagerService.getCurTokenLocked()
+          → InputMethodManagerService.isKeyguardLocked()
+          → InputMethodManagerService.checkIMEMarkerLocation()
+          → InputMethodUtils.getImeAndSubtypeDisplayName()
+          → StatusBarManagerService.setImeWindowStatus()
+          → LayoutInflater.from()
+          → <android.widget.ArrayAdapter: void <init>(android.content.Co
+          → InputMethodMenuController$ImeSubtypeListAdapter.isKidsModeRunning()
+          → <android.content.ContextWrapper: void <init>(android.content
+          → <android.text.SpannableString: void <init>(java.lang.CharSeq
+          → SpannableStringInternal.setSpan()
+          → <android.text.style.ImageSpan: void <init>(android.graphics.
+          → Settings$System.getIntForUser()
+          → Elog.d()
+          → SemEmergencyManager.loadFloatingFeatures()
+          → <com.android.server.inputmethod.InputMethodMenuController$$E
+          → <java.lang.Thread: void <init>(java.lang.Runnable)>
+          → Thread.start()
+          → ArraySet.add()
+          → ArraySet.contains()
+          → ArraySet.remove()
+          → ArraySet.size()
+          → <android.util.ArraySet: void <init>()>
+          → InputMethodInfo.getServiceInfo()
+          → InputMethodInfo.shouldShowInInputMethodPicker()
+          → InputMethodInfo.loadLabel()
+          → InputMethodSubtype.isAuxiliary()
+          → InputMethodSubtype.overridesImplicitlyEnabledSubtype()
+          → InputMethodSubtype.getDisplayName()
+          → <com.android.server.inputmethod.InputMethodSubtypeSwitchingC
+          → InputMethodUtils$InputMethodSettings.getEnabledInputMethodListLocked()
+          → ArrayList.isEmpty()
+          → ArrayList.size()
+          → Collections.emptyList()
+          → Collections.sort()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.iterator()
+          → InputMethodUtils$InputMethodSettings.getInt()
+          → Settings$Secure.getStringForUser()
+          → ArrayMap.containsKey()
+          → InputMethodSubtypeArray.get()
+          → <android.os.DeadSystemRuntimeException: void <init>()>
+          → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+          → ServiceManager.getService()
+          → IEDMProxy$Stub.asInterface()
+            → Activity.getActivityInfo()
+            → <android.app.Dialog$$ExternalSyntheticLambda0: void <init>(a
+            → <android.app.Dialog$$ExternalSyntheticLambda1: void <init>(a
+            → <android.app.Dialog$$ExternalSyntheticLambda2: void <init>(a
+            → <android.app.Dialog$ListenersHandler: void <init>(android.ap
+            → Dialog.getActivityContext()
+            → Context.getPackageManager()
+            → Context.getSystemService()
+            → Context.getPackageName()
+            → PackageManager.getApplicationInfo() [PKG_QUERY]
+            → Bundle.getString()
+            → <android.os.Handler: void <init>()>
+            → Window.setCallback()
+            → Window.setGravity()
+            → Window.setOnWindowDismissedCallback()
+            → Window.setOnWindowSwipeDismissedCallback()
+            → Window.setWindowManager()
+            → <com.android.internal.policy.PhoneWindow: void <init>(androi
+            → TypedArray.getInt()
+            → <com.android.internal.app.AlertController: void <init>(andro
+            → <com.android.internal.app.MicroAlertController: void <init>(
+            → <android.widget.SimpleCursorAdapter: void <init>(android.con
+            → <com.android.internal.app.AlertController$AlertParams$1: voi
+            → <com.android.internal.app.AlertController$AlertParams$2: voi
+            → <com.android.internal.app.AlertController$AlertParams$3: voi
+            → <com.android.internal.app.AlertController$AlertParams$4: voi
+            → AlertController$AlertParams$OnPrepareListViewListener.onPrepareListView()
+            → <com.android.internal.app.AlertController$CheckedItemAdapter
+            → AlertController$RecycleListView.setChoiceMode()
+            → AlertController$RecycleListView.setOnItemClickListener()
+            → AlertController$RecycleListView.setOnItemSelectedListener()
+            → <com.android.internal.app.AlertController: int -$$Nest$fgetm
+            → <com.android.internal.app.AlertController: int -$$Nest$fgetm
+            → <com.android.internal.app.AlertController: int -$$Nest$fgetm
+            → <com.android.internal.app.AlertController: int -$$Nest$fgetm
+            → <com.android.internal.app.AlertController: void -$$Nest$fput
+            → <com.android.internal.app.AlertController: void -$$Nest$fput
+            → Handler.obtainMessage()
+            → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+            → ImageView.setImageDrawable()
+            → ImageView.setVisibility()
+            → ImageView.setImageResource()
+            → Window.setTitle()
+            → ResourcesImpl$ThemeImpl.resolveAttribute()
+            → ArrayMap.binarySearchHashes()
+            → HashSet.contains()
+            → HashSet.remove()
+            → HashSet.iterator()
+            → <java.util.HashSet: void <init>(java.util.Collection)>
+            → InputMethodUtils$InputMethodSettings.getEnabledInputMethodsAndSubtypeListLocked()
+            → ArrayList.iterator()
+            → Configuration.getLocales()
+            → LocaleList.equals()
+            → InputMethodUtils.getImplicitlyApplicableSubtypesLockedImpl()
+            → <java.util.ArrayList: void <init>(java.util.Collection)>
+            → CharSequence.length()
+            → ContentResolver.call()
+            → <android.os.Bundle: void <init>(int)>
+            → Bundle.putString()
+            → IInputMethodInvoker.getCallerMethodName()
+            → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+            → <java.lang.RuntimeException: void <init>(java.lang.String,ja
+            → Thread.currentThread()
+            → Thread.interrupt()
+            → Future.get()
+            → InputMethodSubtype.containsExtraValueKey()
+            → <com.android.server.inputmethod.InputMethodManagerService$$E
+            → InputMethodManagerService.isImeSwitcherDisabledPackage()
+            → InputMethodManagerService.isScreenLocked()
+            → InputMethodMenuController.getSwitchingDialogLocked()
+            → InputMethodUtils$InputMethodSettings.getEnabledInputMethodListWithFilterLocked()
+            → WindowManagerInternal.isHardKeyboardAvailable()
+            → WindowManagerInternal.isKeyguardShowingAndNotOccluded()
+            → AtomicBoolean.get()
+            → InputMethodBindingController.getCurToken()
+            → Configuration.isLayoutSizeAtLeast()
+            → Settings$Global.getInt()
+            → IWindowManager.hasNavigationBar()
+            → InputMethodManagerService.hasNavigationBarGesture()
+            → TextUtils.concat()
+            → InputMethodInfo.isSystem()
+            → Handler.post()
+            → <com.android.server.statusbar.StatusBarManagerService$$Exter
+            → <com.android.server.statusbar.StatusBarManagerService$UiStat
+            → StatusBarManagerService.getUiState()
+            → StatusBarManagerService.enforceStatusBar()
+            → <android.widget.ArrayAdapter: void <init>(android.content.Co
+            → ComponentName.equals()
+            → <android.content.ComponentName: void <init>(java.lang.String
+            → Intent.addCategory()
+            → <android.content.Intent: void <init>(java.lang.String)>
+            → PackageManager.resolveActivity()
+            → ArrayAdapter.getContext()
+            → <com.android.server.inputmethod.InputMethodMenuController: j
+            → <android.text.SpannableStringInternal: void <init>(java.lang
+            → <android.text.style.DynamicDrawableSpan: void <init>(int)>
+            → SemFloatingFeature.getBoolean()
+            → SemFloatingFeature.getInstance()
+            → ArraySet.indexOf()
+            → ArraySet.indexOfNull()
+            → ArraySet.allocArrays()
+            → ArraySet.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → ArraySet.indexOf()
+            → ArraySet.removeAt()
+            → <android.util.ArraySet: void <init>(int,boolean)>
+            → ResolveInfo.loadLabel()
+            → PackageManager.getText()
+            → TextUtils.equals()
+            → InputMethodSubtype.getExtraValueOf()
+            → InputMethodSubtype.getLocaleDisplayName()
+            → InputMethodSubtype.getLocaleFromContext()
+            → InputMethodSubtype.getLocaleObject()
+            → InputMethodSubtypeSwitchingController$ImeSubtypeListItem.parseLanguageFromLocaleString()
+            → InputMethodSubtypeArray.unmarshall()
+            → InputMethodSubtypeArray.decompress()
+            → <java.lang.ArrayIndexOutOfBoundsException: void <init>()>
+            → <android.os.DeadSystemException: void <init>()>
+            → IBinder.queryLocalInterface()
+            → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → <java.lang.ref.WeakReference: void <init>(java.lang.Object)>
+              → ContextWrapper.getBaseContext()
+              → Context.getApplicationInfo() [PKG_QUERY]
+              → ApplicationInfo.isOnBackInvokedCallbackEnabled()
+              → <android.view.Window: void <init>(android.content.Context)>
+              → <android.window.ProxyOnBackInvokedDispatcher: void <init>(bo
+              → <com.android.internal.policy.PhoneWindow$1: void <init>(com.
+              → <com.android.internal.policy.PhoneWindow$PhoneWindowMenuCall
+              → PhoneWindow.updateDeviceDefaultNavigationBarColor()
+              → TypedArray.getBoolean()
+              → TypedArray.getResourceId()
+              → Window.requestFeature()
+              → <com.android.internal.app.AlertController$1: void <init>(com
+              → <com.android.internal.app.AlertController$ButtonHandler: voi
+              → <android.widget.ResourceCursorAdapter: void <init>(android.c
+              → SimpleCursorAdapter.findColumns()
+              → <android.widget.ArrayAdapter: void <init>(android.content.Co
+              → Cursor.getColumnIndexOrThrow()
+              → <android.widget.CursorAdapter: void <init>(android.content.C
+              → AlertController$AlertParams$2.getCursor()
+              → AssetManager.getThemeValue()
+              → ContainerHelpers.binarySearch()
+              → InputMethodUtils$InputMethodSettings.getEnabledInputMethodsStr()
+              → InputMethodUtils$InputMethodSettings.buildInputMethodsAndSubtypeList()
+              → LocaleList.get()
+              → ArrayMap.size()
+              → ArrayMap.put()
+              → ArrayMap.values()
+              → <android.util.ArrayMap: void <init>()>
+              → InputMethodSubtype.isAsciiCapable()
+              → LocaleUtils.filterByLanguage()
+              → Collection.iterator()
+              → StackTraceElement.getMethodName()
+              → Thread.getStackTrace()
+              → InputMethodSubtype.getExtraValueHashMap()
+              → HashMap.containsKey()
+              → InputMethodManagerService.isSKBDPacakge()
+              → InputMethodUtils$InputMethodSettings.createEnabledInputMethodListLocked()
+              → SpannableStringBuilder.append()
+              → <android.text.SpannableStringBuilder: void <init>()>
+              → <android.text.SpannedString: void <init>(java.lang.CharSeque
+              → StatusBarManagerService$UiState.setImeWindowState()
+              → SparseArray.get()
+              → SparseArray.put()
+              → <com.android.server.statusbar.StatusBarManagerService$UiStat
+              → Context.enforceCallingOrSelfPermission()
+              → StatusBarManagerService.makeStatusBarHistory()
+              → <android.widget.ArrayAdapter: void <init>(android.content.Co
+              → <android.text.style.ReplacementSpan: void <init>()>
+              → SemFloatingFeature.loge()
+              → Hashtable.get()
+              → ArraySet.binarySearch()
+              → ArraySet.shouldShrink()
+              → ArraySet.getNewShrunkenSize()
+              → ArraySet.clear()
+              → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+              → CharSequence.charAt()
+              → HashMap.get()
+              → LocaleDisplayNames.getInstance()
+              → LocaleDisplayNames.localeDisplayName()
+              → Locale.getDefault()
+              → SubtypeLocaleUtils.constructLocaleFromString()
+              → Locale.forLanguageTag()
+              → Parcel.obtain()
+              → Parcel.createTypedArray()
+              → Parcel.recycle()
+              → Parcel.setDataPosition()
+              → Parcel.unmarshall()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → ByteArrayInputStream.close()
+              → Throwable.addSuppressed()
+              → GZIPInputStream.read()
+              → <java.util.zip.GZIPInputStream: void <init>(java.io.InputStr
+              → GZIPInputStream.close()
+              → <android.os.DeadObjectException: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #21
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter$1
+  Method:   <com.android.server.inputmethod.InputMethodMenuController$ImeSubtypeListAdapter$1: void onClick(android.view.View)>
+  Line:     53
+  Register: v0 := "com.samsung.android.honeyboard"
+  Usage:    [invoke] invoke-direct {p1, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] new-instance v0, Landroid/content/Intent; → [invoke] android.c
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.sendBroadcastAsUser()
+      → Context.startActivityAsUser()
+      → Intent.addCategory()
+      → Intent.putExtra()
+      → Intent.setComponent()
+      → Intent.setFlags()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UserHandle.of()
+      → ArrayAdapter.getContext()
+      → InputMethodManagerInternal.get()
+      → InputMethodManagerInternal.hideCurrentInputMethod()
+      → <com.android.server.inputmethod.InputMethodMenuController$Im
+        → LocalServices.getService()
+          → ArrayMap.get()
+            → ArrayMap.indexOfKey()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+

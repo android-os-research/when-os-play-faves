@@ -1,0 +1,13 @@
+# com.samsung.android.media.IResourceManagerObserver [NEW]
+# Refs: 9
+# JARs: framework
+
+<com.samsung.android.media.IResourceManagerObserver$Stub$Proxy: com.samsung.android.media.GetCodecCapacityReturn getCodecCapacity(int)>
+<com.samsung.android.media.IResourceManagerObserver$Stub$Proxy: com.samsung.android.media.GetResourceInfoReturn getResourceInfo(int)>
+<com.samsung.android.media.IResourceManagerObserver$Stub$Proxy: int enableObserver(int,int)>
+<com.samsung.android.media.IResourceManagerObserver$Stub$Proxy: int setResourcePriority(int)>
+<com.samsung.android.media.IResourceManagerObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.media.IResourceManagerObserver$Stub$Proxy: void disconnect()>
+<com.samsung.android.media.IResourceManagerObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.media.IResourceManagerObserver$Stub: com.samsung.android.media.IResourceManagerObserver asInterface(android.os.IBinder)>
+<com.samsung.android.media.IResourceManagerObserver$Stub: void <init>()>

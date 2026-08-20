@@ -1,0 +1,8 @@
+# android.bluetooth.profile.extra.STATE [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.audio.BtHelper: void receiveBtEvent(android.content.Intent)>
+<com.android.server.inputmethod.SamsungIMMSHWKeyboard$BTKeyboardReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.media.BluetoothRouteProvider$DeviceStateChangedReceiver: void handleConnectionStateChanged(int,android.content.Intent,android.bluetooth.BluetoothDevice)>
+<com.samsung.android.server.battery.BluetoothDeviceBatteryManager$1: void onReceive(android.content.Context,android.content.Intent)>

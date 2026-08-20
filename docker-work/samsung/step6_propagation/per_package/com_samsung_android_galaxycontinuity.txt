@@ -1,0 +1,62 @@
+######################################################################
+# Propagation: com.samsung.android.galaxycontinuity
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.SemApeService
+  Method:   <com.samsung.android.server.wifi.SemApeService: void <init>(android.content.Context,android.os.HandlerThread,com.samsung.android.server.wifi.SemClientModeManager)>
+  Line:     623
+  Register: p0 := "com.samsung.android.galaxycontinuity"
+  Usage:    [invoke] invoke-interface {v1, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.List.add() → [reassigned] p0 overwritten
+
+  CALLEES (what this method invokes):
+      → HandlerThread.getLooper()
+      → <com.samsung.android.server.wifi.SemApeService$1: void <init
+      → <com.samsung.android.server.wifi.SemApeService$2: void <init
+      → <com.samsung.android.server.wifi.SemApeService$ApeHandler: v
+      → <com.samsung.android.server.wifi.SemApeService$Stats: void <
+      → SemApeService.logi()
+      → SemApeService.registerBroadcastReceivers()
+      → SemApeService.registerNetworkCallbacks()
+      → SemApeService.registerPrimaryInterfaceListener()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → <java.util.LinkedList: void <init>()>
+      → List.add()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <android.net.ConnectivityManager$NetworkCallback: void <init
+        → <android.os.Handler: void <init>(android.os.Looper)>
+        → Context.registerReceiver()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → Context.getSystemService()
+        → ConnectivityManager.registerNetworkCallback()
+        → NetworkRequest$Builder.build()
+        → NetworkRequest$Builder.addTransportType()
+        → NetworkRequest$Builder.removeCapability()
+        → NetworkRequest$Builder.setUids()
+        → <android.net.NetworkRequest$Builder: void <init>()>
+        → <com.samsung.android.server.wifi.SemApeService$NetworkCallba
+        → <com.samsung.android.server.wifi.SemApeService$$ExternalSynt
+        → SemApeService.logd()
+        → SemClientModeManager.registerPrimaryInterfaceListener()
+          → <com.samsung.android.server.wifi.SemApeService$NetworkCallba
+          → <com.samsung.android.server.wifi.SemClientModeManager$$Exter
+          → SemWifiThreadRunner.post()
+            → Handler.post()
+

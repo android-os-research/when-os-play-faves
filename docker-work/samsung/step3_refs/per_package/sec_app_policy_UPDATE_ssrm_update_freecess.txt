@@ -1,0 +1,6 @@
+# sec.app.policy.UPDATE.ssrm_update_freecess [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.am.FreecessTrigger$1: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.am.FreecessTrigger: void registerReceiver()>

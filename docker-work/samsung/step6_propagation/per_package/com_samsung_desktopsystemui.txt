@@ -1,0 +1,65 @@
+######################################################################
+# Propagation: com.samsung.desktopsystemui
+######################################################################
+
+JARs:                 framework, services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.bio.face.SemBioFaceManager
+  Method:   <com.samsung.android.bio.face.SemBioFaceManager: boolean isKeyguard(java.lang.String)>
+  Line:     1431
+  Register: v0 := "com.samsung.desktopsystemui"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_11 → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemBioFaceManager.getSecurityLevel()
+      ← SemBioFaceManager.authenticate()
+        ← SemBioFaceManager.getSecurityLevel()
+        ← SemBioFaceManager.authenticate()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: void migrateApplicationRestrictions()>
+  Line:     41033
+  Register: v3 := "com.samsung.desktopsystemui"
+  Usage:    [invoke] invoke-virtual {v7, v3, v8}, Lcom/samsung/android/knox/localservice/ApplicationRestrictionsInternal;
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.localservice.ApplicationRestriction → [invoke] com.samsung.android.knox.localservice.A
+
+  CALLERS (who invokes this method):
+      ← KnoxCustomManagerService.systemReady()
+
+  CALLEES (what this method invokes):
+      → Bundle.getBundle()
+      → Bundle.containsKey()
+      → Bundle.isEmpty()
+      → Bundle.putBundle()
+      → Bundle.remove()
+      → LocalServices.getService()
+      → KnoxsdkFileLog.d()
+      → KnoxsdkFileLog.e()
+      → ApplicationRestrictionsInternal.getApplicationRestrictionsInternal()
+      → ApplicationRestrictionsInternal.setApplicationRestrictionsInternal()
+        → ArrayMap.get()
+        → KnoxsdkFileLog.fileLog()
+        → SemLog.d()
+        → SemLog.e()
+          → ArrayMap.indexOfKey()
+          → Logger.log()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+              → ArrayMap.binarySearchHashes()
+

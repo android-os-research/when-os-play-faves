@@ -1,0 +1,13 @@
+# com.android.ims.internal.uce.options.IOptionsService [NEW]
+# Refs: 9
+# JARs: framework
+
+<com.android.ims.internal.uce.options.IOptionsService$Stub$Proxy: com.android.ims.internal.uce.common.StatusCode addListener(int,com.android.ims.internal.uce.options.IOptionsListener,com.android.ims.internal.uce.common.UceLong)>
+<com.android.ims.internal.uce.options.IOptionsService$Stub$Proxy: com.android.ims.internal.uce.common.StatusCode getContactCap(int,java.lang.String,int)>
+<com.android.ims.internal.uce.options.IOptionsService$Stub$Proxy: com.android.ims.internal.uce.common.StatusCode getContactListCap(int,java.lang.String[],int)>
+<com.android.ims.internal.uce.options.IOptionsService$Stub$Proxy: com.android.ims.internal.uce.common.StatusCode getMyInfo(int,int)>
+<com.android.ims.internal.uce.options.IOptionsService$Stub$Proxy: com.android.ims.internal.uce.common.StatusCode getVersion(int)>
+<com.android.ims.internal.uce.options.IOptionsService$Stub$Proxy: com.android.ims.internal.uce.common.StatusCode removeListener(int,com.android.ims.internal.uce.common.UceLong)>
+<com.android.ims.internal.uce.options.IOptionsService$Stub$Proxy: com.android.ims.internal.uce.common.StatusCode responseIncomingOptions(int,int,int,java.lang.String,com.android.ims.internal.uce.options.OptionsCapInfo,boolean)>
+<com.android.ims.internal.uce.options.IOptionsService$Stub$Proxy: com.android.ims.internal.uce.common.StatusCode setMyInfo(int,com.android.ims.internal.uce.common.CapInfo,int)>
+<com.android.ims.internal.uce.options.IOptionsService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>

@@ -1,0 +1,11 @@
+# android.view.ISurfaceControlViewHost [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.view.ISurfaceControlViewHost$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.ISurfaceControlViewHost$Stub$Proxy: void onConfigurationChanged(android.content.res.Configuration)>
+<android.view.ISurfaceControlViewHost$Stub$Proxy: void onDispatchDetachedFromWindow()>
+<android.view.ISurfaceControlViewHost$Stub$Proxy: void onInsetsChanged(android.view.InsetsState,android.graphics.Rect)>
+<android.view.ISurfaceControlViewHost$Stub: android.view.ISurfaceControlViewHost asInterface(android.os.IBinder)>
+<android.view.ISurfaceControlViewHost$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.ISurfaceControlViewHost$Stub: void <init>()>

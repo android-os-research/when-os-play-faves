@@ -1,0 +1,12 @@
+# com.samsung.android.app.ISemDualAppManager [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.samsung.android.app.ISemDualAppManager$Stub$Proxy: android.os.Bundle updateDualAppData(java.lang.String,int,android.os.Bundle)>
+<com.samsung.android.app.ISemDualAppManager$Stub$Proxy: boolean isInstalledWhitelistedPackage(java.lang.String)>
+<com.samsung.android.app.ISemDualAppManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.app.ISemDualAppManager$Stub$Proxy: java.lang.String[] getAllWhitelistedPackages()>
+<com.samsung.android.app.ISemDualAppManager$Stub$Proxy: java.util.List getAllInstalledWhitelistedPackages()>
+<com.samsung.android.app.ISemDualAppManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.app.ISemDualAppManager$Stub: com.samsung.android.app.ISemDualAppManager asInterface(android.os.IBinder)>
+<com.samsung.android.app.ISemDualAppManager$Stub: void <init>()>

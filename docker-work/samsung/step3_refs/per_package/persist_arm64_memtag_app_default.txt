@@ -1,0 +1,5 @@
+# persist.arm64.memtag.app_default [NEW]
+# Refs: 1
+# JARs: framework
+
+<com.android.internal.os.Zygote: int getRequestedMemtagLevel(android.content.pm.ApplicationInfo,android.content.pm.ProcessInfo,com.android.internal.compat.IPlatformCompat)>

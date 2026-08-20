@@ -1,0 +1,19 @@
+# com.gsma.services.rcs.sharing.geoloc.IGeolocSharing [NEW]
+# Refs: 15
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: com.gsma.services.rcs.Geoloc getGeoloc()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: com.gsma.services.rcs.contact.ContactId getRemoteContact()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: com.gsma.services.rcs.sharing.geoloc.GeolocSharing$ReasonCode getReasonCode()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: com.gsma.services.rcs.sharing.geoloc.GeolocSharing$State getState()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: int getDirection()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: java.lang.String getMaapTrafficType()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: java.lang.String getSharingId()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: long getTimeStamp()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: void abortSharing()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: void acceptInvitation()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub$Proxy: void rejectInvitation()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub: com.gsma.services.rcs.sharing.geoloc.IGeolocSharing asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharing$Stub: void <init>()>

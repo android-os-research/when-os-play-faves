@@ -1,0 +1,14 @@
+# com.samsung.android.server.wifi.mobilewips [NEW]
+# Refs: 10
+# JARs: knoxsdk, semwifi-service
+
+<com.samsung.android.knox.EdmConstants$1: void <init>()>
+<com.samsung.android.knox.appconfig.ApplicationRestrictionsManager$1: void <init>()>
+<com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService$2: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService$ServiceHandler: void startWipsService()>
+<com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService$ServiceHandler: void stopWipsService()>
+<com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService: boolean checkMwipsPackageVersion()>
+<com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService: int getWipsPid()>
+<com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService: void registerPackageReceiver()>
+<com.samsung.android.server.wifi.mobilewips.SemMobileWipsFrameworkService: void turnOnWips(int)>
+<com.samsung.android.server.wifi.mobilewips.SemMobileWipsWifiScanner: void <init>(com.samsung.android.server.wifi.mobilewips.ISemMobileWipsFrameworkServiceCallback,android.net.wifi.WifiScanner)>

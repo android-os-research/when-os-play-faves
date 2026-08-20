@@ -1,0 +1,10 @@
+# android.os.IHintManager [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.IHintManager$Stub$Proxy: android.os.IHintSession createHintSession(android.os.IBinder,int[],long)>
+<android.os.IHintManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IHintManager$Stub$Proxy: long getHintSessionPreferredRate()>
+<android.os.IHintManager$Stub: android.os.IHintManager asInterface(android.os.IBinder)>
+<android.os.IHintManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IHintManager$Stub: void <init>()>

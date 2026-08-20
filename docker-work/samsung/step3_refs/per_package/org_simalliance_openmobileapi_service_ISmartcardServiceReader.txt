@@ -1,0 +1,11 @@
+# org.simalliance.openmobileapi.service.ISmartcardServiceReader [NEW]
+# Refs: 7
+# JARs: org.simalliance.openmobileapi
+
+<org.simalliance.openmobileapi.service.ISmartcardServiceReader$Stub$Proxy: boolean isSecureElementPresent()>
+<org.simalliance.openmobileapi.service.ISmartcardServiceReader$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<org.simalliance.openmobileapi.service.ISmartcardServiceReader$Stub$Proxy: org.simalliance.openmobileapi.service.ISmartcardServiceSession openSession(org.simalliance.openmobileapi.service.SmartcardError)>
+<org.simalliance.openmobileapi.service.ISmartcardServiceReader$Stub$Proxy: void closeSessions(org.simalliance.openmobileapi.service.SmartcardError)>
+<org.simalliance.openmobileapi.service.ISmartcardServiceReader$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<org.simalliance.openmobileapi.service.ISmartcardServiceReader$Stub: org.simalliance.openmobileapi.service.ISmartcardServiceReader asInterface(android.os.IBinder)>
+<org.simalliance.openmobileapi.service.ISmartcardServiceReader$Stub: void <init>()>

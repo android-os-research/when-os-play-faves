@@ -1,0 +1,6 @@
+# vendor.wifiap.axmode [NEW]
+# Refs: 2
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.ap.SemSoftApConfiguration: android.net.wifi.SoftApConfiguration setSoftApConfiguration(android.net.wifi.SoftApConfiguration)>
+<com.samsung.android.server.wifi.ap.SemWifiApServiceImpl: boolean setLocalOnlyHotspotEnabled(boolean,java.lang.String,java.lang.String,int)>

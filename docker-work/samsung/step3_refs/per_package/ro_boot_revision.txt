@@ -1,0 +1,10 @@
+# ro.boot.revision [NEW]
+# Refs: 6
+# JARs: hqm, services, telephony-common
+
+<c.k: java.lang.String g()>
+<com.android.internal.telephony.metrics.TelephonyMetrics: com.android.internal.telephony.nano.TelephonyProto$TelephonyLog buildProto()>
+<com.android.internal.telephony.metrics.TelephonyMetrics: void printAllMetrics(java.io.PrintWriter)>
+<com.android.server.location.gnss.GnssMetrics: java.lang.String dumpGnssMetricsAsProtoString()>
+<com.android.server.location.gnss.GnssMetrics: java.lang.String dumpGnssMetricsAsText()>
+<com.android.server.locksettings.SyntheticPasswordManager: android.hardware.weaver.V1_0.IWeaver getWeaverService()>

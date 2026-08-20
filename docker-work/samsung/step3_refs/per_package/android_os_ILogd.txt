@@ -1,0 +1,10 @@
+# android.os.ILogd [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.ILogd$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.ILogd$Stub$Proxy: void approve(int,int,int,int)>
+<android.os.ILogd$Stub$Proxy: void decline(int,int,int,int)>
+<android.os.ILogd$Stub: android.os.ILogd asInterface(android.os.IBinder)>
+<android.os.ILogd$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.ILogd$Stub: void <init>()>

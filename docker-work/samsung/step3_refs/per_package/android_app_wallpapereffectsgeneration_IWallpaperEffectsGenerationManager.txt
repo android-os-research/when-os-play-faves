@@ -1,0 +1,10 @@
+# android.app.wallpapereffectsgeneration.IWallpaperEffectsGenerationManager [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.wallpapereffectsgeneration.IWallpaperEffectsGenerationManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.wallpapereffectsgeneration.IWallpaperEffectsGenerationManager$Stub$Proxy: void generateCinematicEffect(android.app.wallpapereffectsgeneration.CinematicEffectRequest,android.app.wallpapereffectsgeneration.ICinematicEffectListener)>
+<android.app.wallpapereffectsgeneration.IWallpaperEffectsGenerationManager$Stub$Proxy: void returnCinematicEffectResponse(android.app.wallpapereffectsgeneration.CinematicEffectResponse)>
+<android.app.wallpapereffectsgeneration.IWallpaperEffectsGenerationManager$Stub: android.app.wallpapereffectsgeneration.IWallpaperEffectsGenerationManager asInterface(android.os.IBinder)>
+<android.app.wallpapereffectsgeneration.IWallpaperEffectsGenerationManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.wallpapereffectsgeneration.IWallpaperEffectsGenerationManager$Stub: void <init>()>

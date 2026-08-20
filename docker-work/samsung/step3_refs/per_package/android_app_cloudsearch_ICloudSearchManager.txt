@@ -1,0 +1,10 @@
+# android.app.cloudsearch.ICloudSearchManager [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.cloudsearch.ICloudSearchManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.cloudsearch.ICloudSearchManager$Stub$Proxy: void returnResults(android.os.IBinder,java.lang.String,android.app.cloudsearch.SearchResponse)>
+<android.app.cloudsearch.ICloudSearchManager$Stub$Proxy: void search(android.app.cloudsearch.SearchRequest,android.app.cloudsearch.ICloudSearchManagerCallback)>
+<android.app.cloudsearch.ICloudSearchManager$Stub: android.app.cloudsearch.ICloudSearchManager asInterface(android.os.IBinder)>
+<android.app.cloudsearch.ICloudSearchManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.cloudsearch.ICloudSearchManager$Stub: void <init>()>

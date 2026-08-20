@@ -1,0 +1,6 @@
+# persist.demo.remoterotation [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.display.VirtualDisplayAdapter$VirtualDisplayDevice: com.android.server.display.DisplayDeviceInfo getDisplayDeviceInfoLocked()>
+<com.android.server.wm.DisplayRotation: void configure(int,int)>

@@ -1,0 +1,31 @@
+######################################################################
+# Propagation: com.samsung.android.wearable.samsungaccount
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.continuity.AbstractPreconditionObserver
+  Method:   <com.samsung.android.server.continuity.AbstractPreconditionObserver: void <clinit>()>
+  Line:     214
+  Register: v0 := "com.samsung.android.wearable.samsungaccount"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [field_store] com.samsung.android.server.continuity.AbstractPreconditionOb
+
+  CALLEES (what this method invokes):
+      → SemFloatingFeature.getInstance()
+      → SemFloatingFeature.getInt()
+      → Utils.isWatch()
+        → SemFloatingFeature.loge()
+        → Hashtable.get()
+        → SystemProperties.get()
+

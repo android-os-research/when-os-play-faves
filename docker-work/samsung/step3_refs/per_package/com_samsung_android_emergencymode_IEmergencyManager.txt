@@ -1,0 +1,22 @@
+# com.samsung.android.emergencymode.IEmergencyManager [NEW]
+# Refs: 18
+# JARs: framework
+
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: boolean addAppToLauncher(java.lang.String,boolean)>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: boolean checkInvalidBroadcast(java.lang.String,java.lang.String)>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: boolean checkInvalidProcess(java.lang.String)>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: boolean checkModeType(int)>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: boolean checkValidIntentAction(java.lang.String,java.lang.String)>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: boolean checkValidPackage(java.lang.String,java.lang.String,int)>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: boolean isEmergencyMode()>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: boolean isModifying()>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: boolean isScreenOn()>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: boolean isUserPackageBlocked()>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: boolean needMobileDataBlock()>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: int getEmergencyState()>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: void setLocationProviderEnabled(boolean)>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub$Proxy: void setUserPackageBlocked(boolean)>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub: com.samsung.android.emergencymode.IEmergencyManager asInterface(android.os.IBinder)>
+<com.samsung.android.emergencymode.IEmergencyManager$Stub: void <init>()>

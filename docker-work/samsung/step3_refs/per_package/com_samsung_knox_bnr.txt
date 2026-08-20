@@ -1,0 +1,7 @@
+# com.samsung.knox.bnr [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.backup.UserBackupManagerService: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.backup.internal.LifecycleOperationStorage)>
+<com.android.server.backup.UserBackupManagerService: void <init>(int,android.content.Context,com.android.server.backup.BackupManagerService,android.os.HandlerThread,java.io.File,java.io.File,com.android.server.backup.TransportManager)>
+<com.android.server.enterprise.application.ApplicationPolicy: void <clinit>()>

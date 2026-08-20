@@ -1,0 +1,13 @@
+# com.mediatek.common.carrierexpress.ICarrierExpressService [NEW]
+# Refs: 9
+# JARs: mediatek-common
+
+<com.mediatek.common.carrierexpress.ICarrierExpressService$Stub$Proxy: java.lang.String getActiveOpPack()>
+<com.mediatek.common.carrierexpress.ICarrierExpressService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.common.carrierexpress.ICarrierExpressService$Stub$Proxy: java.lang.String getOpPackFromSimInfo(java.lang.String)>
+<com.mediatek.common.carrierexpress.ICarrierExpressService$Stub$Proxy: java.util.List getOperatorSubIdList(java.lang.String)>
+<com.mediatek.common.carrierexpress.ICarrierExpressService$Stub$Proxy: java.util.Map getAllOpPackList()>
+<com.mediatek.common.carrierexpress.ICarrierExpressService$Stub$Proxy: void setOpPackActive(java.lang.String,java.lang.String,int,java.lang.String)>
+<com.mediatek.common.carrierexpress.ICarrierExpressService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.common.carrierexpress.ICarrierExpressService$Stub: com.mediatek.common.carrierexpress.ICarrierExpressService asInterface(android.os.IBinder)>
+<com.mediatek.common.carrierexpress.ICarrierExpressService$Stub: void <init>()>

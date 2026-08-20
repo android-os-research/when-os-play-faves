@@ -1,0 +1,11 @@
+# com.sec.vsim.app.jansky.IContactsSyncUpdatesListener [NEW]
+# Refs: 7
+# JARs: vsimmanager
+
+<com.sec.vsim.app.jansky.IContactsSyncUpdatesListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.vsim.app.jansky.IContactsSyncUpdatesListener$Stub$Proxy: void onContactDownloaded(android.os.Bundle)>
+<com.sec.vsim.app.jansky.IContactsSyncUpdatesListener$Stub$Proxy: void onContactUploaded(android.os.Bundle)>
+<com.sec.vsim.app.jansky.IContactsSyncUpdatesListener$Stub$Proxy: void onUpdatedContactUploaded(android.os.Bundle)>
+<com.sec.vsim.app.jansky.IContactsSyncUpdatesListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.vsim.app.jansky.IContactsSyncUpdatesListener$Stub: com.sec.vsim.app.jansky.IContactsSyncUpdatesListener asInterface(android.os.IBinder)>
+<com.sec.vsim.app.jansky.IContactsSyncUpdatesListener$Stub: void <init>()>

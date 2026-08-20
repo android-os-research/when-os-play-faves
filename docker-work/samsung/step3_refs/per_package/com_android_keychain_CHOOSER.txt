@@ -1,0 +1,5 @@
+# com.android.keychain.CHOOSER [NEW]
+# Refs: 1
+# JARs: framework
+
+<android.security.KeyChain: void choosePrivateKeyAlias(android.app.Activity,android.security.KeyChainAliasCallback,java.lang.String[],java.security.Principal[],android.net.Uri,java.lang.String)>

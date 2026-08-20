@@ -1,0 +1,6 @@
+# android.car.systemuser.bootuseroverrideid [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.sysprop.CarProperties: java.util.Optional boot_user_override_id()>
+<android.sysprop.CarProperties: void boot_user_override_id(java.lang.Integer)>

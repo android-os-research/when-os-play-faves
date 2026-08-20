@@ -1,0 +1,52 @@
+######################################################################
+# Propagation: com.android.dynsystem
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.os.image.DynamicSystemClient
+  Method:   <android.os.image.DynamicSystemClient: void bind()>
+  Line:     324
+  Register: v1 := "com.android.dynsystem"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Landroid/os/image/DynamicSystemClient;-> → 
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.os.image.DynamicSystemClient
+  Method:   <android.os.image.DynamicSystemClient: void start(android.net.Uri,long,long)>
+  Line:     436
+  Register: v1 := "com.android.dynsystem"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← DynamicSystemClient.start()
+
+  CALLEES (what this method invokes):
+      → Context.startActivity()
+      → Intent.putExtra()
+      → Intent.setAction()
+      → Intent.setClassName()
+      → Intent.setData()
+      → Intent.setFlags()
+      → <android.content.Intent: void <init>()>
+

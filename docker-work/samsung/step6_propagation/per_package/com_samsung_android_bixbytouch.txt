@@ -1,0 +1,88 @@
+######################################################################
+# Propagation: com.samsung.android.bixbytouch
+######################################################################
+
+JARs:                 framework
+Classes:              3
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     230
+  Register: v41 := "com.samsung.android.bixbytouch"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.widget.SemPressGestureDetector$5
+  Method:   <com.samsung.android.widget.SemPressGestureDetector$5: void run()>
+  Line:     54
+  Register: v2 := "com.samsung.android.bixbytouch"
+  Usage:    [invoke] invoke-static {v1, v2}, Lcom/samsung/android/widget/SemPressGestureDetector;->-$$Nest$mmatchPackage(
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.widget.SemPressGestureDetector.-$$Nest$m
+
+  CALLEES (what this method invokes):
+      → <com.samsung.android.widget.SemPressGestureDetector: boolean
+      → <com.samsung.android.widget.SemPressGestureDetector: boolean
+      → <com.samsung.android.widget.SemPressGestureDetector: void -$
+      → Exception.printStackTrace()
+        → SemPressGestureDetector.isLauncherApp()
+        → SemPressGestureDetector.matchPackage()
+          → Context.getPackageManager()
+          → Intent.addCategory()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → PackageManager.resolveActivity()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.widget.SemPressGestureDetector$4
+  Method:   <com.samsung.android.widget.SemPressGestureDetector$4: void run()>
+  Line:     50
+  Register: v1 := "com.samsung.android.bixbytouch"
+  Usage:    [invoke] invoke-static {v0, v1}, Lcom/samsung/android/widget/SemPressGestureDetector;->-$$Nest$smgetAppVersio
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.widget.SemPressGestureDetector.-$$Nest$s → [invoke] com.samsung.android.widget.SemPressGest
+
+  CALLEES (what this method invokes):
+      → Context.getContentResolver()
+      → Context.checkSelfPermission()
+      → Settings$Secure.putInt()
+      → Settings$Secure.getInt()
+      → <com.samsung.android.widget.SemPressGestureDetector: android
+      → <com.samsung.android.widget.SemPressGestureDetector: long -$
+      → <com.samsung.android.widget.SemPressGestureDetector: long -$
+      → <com.samsung.android.widget.SemPressGestureDetector: void -$
+      → <com.samsung.android.widget.SemPressGestureDetector: void -$
+      → <com.samsung.android.widget.SemPressGestureDetector: void -$
+      → <com.samsung.android.widget.SemPressGestureDetector: void -$
+      → <com.samsung.android.widget.SemPressGestureDetector: void -$
+      → <com.samsung.android.widget.SemPressGestureDetector: void -$
+      → Exception.printStackTrace()
+        → SemPressGestureDetector.getAppVersionCode()
+          → Context.getPackageManager()
+          → PackageInfo.getLongVersionCode()
+          → PackageManager$NameNotFoundException.printStackTrace()
+          → PackageManager.getPackageInfo() [PKG_QUERY]
+            → PackageInfo.composeLongVersionCode()
+

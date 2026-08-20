@@ -1,0 +1,7 @@
+# sys.dualapp.profile_id [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<com.android.server.DualAppManagerService: boolean writeDualAppProfileId(android.content.Context)>
+<com.android.server.am.MARsPolicyManager: void postInit(boolean)>
+<com.samsung.android.app.SemDualAppManager: int getDualAppProfileId()>

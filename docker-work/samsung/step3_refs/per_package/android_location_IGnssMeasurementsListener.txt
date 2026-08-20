@@ -1,0 +1,10 @@
+# android.location.IGnssMeasurementsListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.location.IGnssMeasurementsListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.IGnssMeasurementsListener$Stub$Proxy: void onGnssMeasurementsReceived(android.location.GnssMeasurementsEvent)>
+<android.location.IGnssMeasurementsListener$Stub$Proxy: void onStatusChanged(int)>
+<android.location.IGnssMeasurementsListener$Stub: android.location.IGnssMeasurementsListener asInterface(android.os.IBinder)>
+<android.location.IGnssMeasurementsListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.IGnssMeasurementsListener$Stub: void <init>()>

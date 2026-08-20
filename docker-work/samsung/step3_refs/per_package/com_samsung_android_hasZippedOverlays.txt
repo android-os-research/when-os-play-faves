@@ -1,0 +1,6 @@
+# com.samsung.android.hasZippedOverlays [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.pm.PackageManagerService: void bindLocaleServiceAndCallOnPackageInstalled(int,int,java.lang.String,boolean)>
+<com.samsung.android.server.pm.install.PrePackageInstallerBase: boolean isLocaleOptimizedPackage(java.lang.String)>

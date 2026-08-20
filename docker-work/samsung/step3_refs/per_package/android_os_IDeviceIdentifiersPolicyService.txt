@@ -1,0 +1,10 @@
+# android.os.IDeviceIdentifiersPolicyService [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.IDeviceIdentifiersPolicyService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IDeviceIdentifiersPolicyService$Stub$Proxy: java.lang.String getSerial()>
+<android.os.IDeviceIdentifiersPolicyService$Stub$Proxy: java.lang.String getSerialForPackage(java.lang.String,java.lang.String)>
+<android.os.IDeviceIdentifiersPolicyService$Stub: android.os.IDeviceIdentifiersPolicyService asInterface(android.os.IBinder)>
+<android.os.IDeviceIdentifiersPolicyService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IDeviceIdentifiersPolicyService$Stub: void <init>()>

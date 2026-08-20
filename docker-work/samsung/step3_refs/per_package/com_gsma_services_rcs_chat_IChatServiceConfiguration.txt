@@ -1,0 +1,23 @@
+# com.gsma.services.rcs.chat.IChatServiceConfiguration [NEW]
+# Refs: 19
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: boolean isChatSf()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: boolean isChatWarnSF()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: boolean isGroupChatSupported()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: boolean isRespondToDisplayReportsEnabled()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: boolean isSmsFallback()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: int getChatTimeout()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: int getGeolocExpirationTime()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: int getGeolocLabelMaxLength()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: int getGroupChatMaxParticipants()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: int getGroupChatMessageMaxLength()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: int getGroupChatMinParticipants()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: int getGroupChatSubjectMaxLength()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: int getIsComposingTimeout()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: int getOneToOneChatMessageMaxLength()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub$Proxy: void setRespondToDisplayReports(boolean)>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub: com.gsma.services.rcs.chat.IChatServiceConfiguration asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.chat.IChatServiceConfiguration$Stub: void <init>()>

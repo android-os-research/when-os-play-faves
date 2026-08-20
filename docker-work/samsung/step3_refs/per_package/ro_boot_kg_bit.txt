@@ -1,0 +1,7 @@
+# ro.boot.kg.bit [NEW]
+# Refs: 3
+# JARs: services
+
+<com.samsung.android.knoxguard.service.KnoxGuardSeService: boolean isKgOtpBitStateEnabled()>
+<com.samsung.android.knoxguard.service.utils.IntegritySeUtil: boolean checkTaIntegrity(int)>
+<com.samsung.android.knoxguard.service.utils.Utils: boolean needClientHealthCheck()>

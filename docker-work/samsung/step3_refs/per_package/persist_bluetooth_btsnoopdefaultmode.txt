@@ -1,0 +1,6 @@
+# persist.bluetooth.btsnoopdefaultmode [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.sysprop.BluetoothProperties: java.util.Optional snoop_default_mode()>
+<android.sysprop.BluetoothProperties: void snoop_default_mode(android.sysprop.BluetoothProperties$snoop_default_mode_values)>

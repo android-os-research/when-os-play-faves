@@ -1,0 +1,6 @@
+# ro.boottime.zygote [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.Watchdog: java.lang.String[] readTimeoutHistory()>
+<com.android.server.Watchdog: void writeTimeoutHistory(java.lang.Iterable)>

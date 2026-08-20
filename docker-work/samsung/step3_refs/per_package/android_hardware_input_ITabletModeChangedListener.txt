@@ -1,0 +1,9 @@
+# android.hardware.input.ITabletModeChangedListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.input.ITabletModeChangedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.input.ITabletModeChangedListener$Stub$Proxy: void onTabletModeChanged(long,boolean)>
+<android.hardware.input.ITabletModeChangedListener$Stub: android.hardware.input.ITabletModeChangedListener asInterface(android.os.IBinder)>
+<android.hardware.input.ITabletModeChangedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.input.ITabletModeChangedListener$Stub: void <init>()>

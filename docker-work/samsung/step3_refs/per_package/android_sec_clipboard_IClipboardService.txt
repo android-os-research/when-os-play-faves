@@ -1,0 +1,18 @@
+# android.sec.clipboard.IClipboardService [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.sec.clipboard.IClipboardService$Stub$Proxy: boolean hasPrimaryClip(java.lang.String,int)>
+<android.sec.clipboard.IClipboardService$Stub$Proxy: boolean isEnabled(int)>
+<android.sec.clipboard.IClipboardService$Stub$Proxy: boolean pasteClipData(android.content.ClipData,java.lang.String,int)>
+<android.sec.clipboard.IClipboardService$Stub$Proxy: com.samsung.android.content.clipboard.data.SemClipData getPrimarySemClip(java.lang.String,int)>
+<android.sec.clipboard.IClipboardService$Stub$Proxy: int getFilter()>
+<android.sec.clipboard.IClipboardService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.sec.clipboard.IClipboardService$Stub$Proxy: void addClipboardEventListener(com.samsung.android.content.clipboard.IOnClipboardEventListener,java.lang.String)>
+<android.sec.clipboard.IClipboardService$Stub$Proxy: void removeClipboardEventListener(com.samsung.android.content.clipboard.IOnClipboardEventListener)>
+<android.sec.clipboard.IClipboardService$Stub$Proxy: void setPrimaryClip(android.content.ClipData,int)>
+<android.sec.clipboard.IClipboardService$Stub$Proxy: void setPrimarySemClip(com.samsung.android.content.clipboard.data.SemClipData,java.lang.String,int)>
+<android.sec.clipboard.IClipboardService$Stub$Proxy: void updateFilter(int,android.sec.clipboard.IClipboardDataPasteEvent)>
+<android.sec.clipboard.IClipboardService$Stub: android.sec.clipboard.IClipboardService asInterface(android.os.IBinder)>
+<android.sec.clipboard.IClipboardService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.sec.clipboard.IClipboardService$Stub: void <init>()>

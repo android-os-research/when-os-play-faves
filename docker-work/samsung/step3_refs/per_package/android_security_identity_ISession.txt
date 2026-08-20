@@ -1,0 +1,13 @@
+# android.security.identity.ISession [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.security.identity.ISession$Stub$Proxy: android.security.identity.ICredential getCredentialForPresentation(java.lang.String)>
+<android.security.identity.ISession$Stub$Proxy: byte[] getEphemeralKeyPair()>
+<android.security.identity.ISession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.security.identity.ISession$Stub$Proxy: long getAuthChallenge()>
+<android.security.identity.ISession$Stub$Proxy: void setReaderEphemeralPublicKey(byte[])>
+<android.security.identity.ISession$Stub$Proxy: void setSessionTranscript(byte[])>
+<android.security.identity.ISession$Stub: android.security.identity.ISession asInterface(android.os.IBinder)>
+<android.security.identity.ISession$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.security.identity.ISession$Stub: void <init>()>

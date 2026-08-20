@@ -1,0 +1,13 @@
+# com.mediatek.datashaping.IDataShapingManager [NEW]
+# Refs: 9
+# JARs: mediatek-framework
+
+<com.mediatek.datashaping.IDataShapingManager$Stub$Proxy: boolean isDataShapingWhitelistApp(java.lang.String)>
+<com.mediatek.datashaping.IDataShapingManager$Stub$Proxy: boolean openLteDataUpLinkGate(boolean)>
+<com.mediatek.datashaping.IDataShapingManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.datashaping.IDataShapingManager$Stub$Proxy: void disableDataShaping()>
+<com.mediatek.datashaping.IDataShapingManager$Stub$Proxy: void enableDataShaping()>
+<com.mediatek.datashaping.IDataShapingManager$Stub$Proxy: void setDeviceIdleMode(boolean)>
+<com.mediatek.datashaping.IDataShapingManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.datashaping.IDataShapingManager$Stub: com.mediatek.datashaping.IDataShapingManager asInterface(android.os.IBinder)>
+<com.mediatek.datashaping.IDataShapingManager$Stub: void <init>()>

@@ -1,0 +1,17 @@
+# com.samsung.android.messaging [NEW]
+# Refs: 13
+# JARs: framework, services
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<android.content.pm.ASKSManager: boolean isBlockTarget(int,java.lang.String)>
+<com.android.internal.policy.PhoneFallbackEventHandler: boolean onKeyDown(int,android.view.KeyEvent)>
+<com.android.server.accessibility.autoaction.actiontype.Zoom: void performCornerAction(int)>
+<com.android.server.accessibility.autoaction.actiontype.Zoom: void zoom(int,int,float,int)>
+<com.android.server.am.PerProcessNandswap: void <clinit>()>
+<com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnFirewallHelper: java.util.List getDefaultRouteAppUidList()>
+<com.android.server.notification.NotificationReminder: java.lang.String getCallAndMsgPackage(android.content.Context)>
+<com.android.server.notification.PreferencesHelper: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.notification.RankingHandler,com.android.server.notification.ZenModeHelper,com.android.server.notification.PermissionHelper,com.android.server.notification.NotificationChannelLogger,android.app.AppOpsManager,com.android.server.notification.SysUiStatsEvent$BuilderFactory,boolean)>
+<com.android.server.pm.DexOptHelper: void <init>(com.android.server.pm.PackageManagerService)>
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxPhoneOrMessageIcon(java.lang.String)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>

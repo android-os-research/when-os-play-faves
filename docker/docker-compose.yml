@@ -1,0 +1,29 @@
+# Two services: an Ollama model server and the analysis pipeline.
+#
+# The pipeline uses `network_mode: "service:ollama"`, so it shares Ollama's
+# network namespace and the pipeline's unmodified default Ollama host
+# (localhost:11434) reaches the Ollama service — no pipeline-script changes.
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama-models:/root/.ollama          # persist pulled models
+      - ../Modelfile:/models/Modelfile:ro     # 24B definition (default)
+      - ../Modelfile.8b:/models/Modelfile.8b:ro  # 8B definition (--lite)
+    restart: unless-stopped
+
+  pipeline:
+    build:
+      context: ..                # repo root, so COPY scripts/ examples/ works
+      dockerfile: docker/Dockerfile
+    image: ndss-artifact-pipeline
+    depends_on:
+      - ollama
+    network_mode: "service:ollama"
+    volumes:
+      - ../docker-work:/artifact/work  # results appear on the host under ./docker-work
+    command: ["sleep", "infinity"]
+
+volumes:
+  ollama-models:

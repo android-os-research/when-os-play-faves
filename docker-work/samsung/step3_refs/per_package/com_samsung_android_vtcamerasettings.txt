@@ -1,0 +1,8 @@
+# com.samsung.android.vtcamerasettings [NEW]
+# Refs: 4
+# JARs: services
+
+<com.samsung.android.camera.CameraServiceWorker$DeviceInjectorRequirementChecker: void notifyDeviceInjectorAvailabilityChanged()>
+<com.samsung.android.camera.requestinjector.RequestInjectorService$1: void onCameraDeviceStateChanged(java.lang.String,int,int,java.lang.String,int)>
+<com.samsung.android.camera.requestinjector.RequestInjectorService: void tryRegisterCameraOpenListener()>
+<com.samsung.android.camera.requestinjector.VtCameraProviderObserver: boolean providerExistOrNot()>

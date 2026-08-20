@@ -1,0 +1,9 @@
+# android.app.search.ISearchCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.search.ISearchCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.search.ISearchCallback$Stub$Proxy: void onResult(android.content.pm.ParceledListSlice)>
+<android.app.search.ISearchCallback$Stub: android.app.search.ISearchCallback asInterface(android.os.IBinder)>
+<android.app.search.ISearchCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.search.ISearchCallback$Stub: void <init>()>

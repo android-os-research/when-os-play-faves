@@ -1,0 +1,8 @@
+# android.uid.system [NEW]
+# Refs: 4
+# JARs: semwifi-service, services
+
+<com.android.server.pm.PackageManagerService: void <init>(com.android.server.pm.PackageManagerServiceInjector,boolean,boolean,java.lang.String,boolean,boolean,int,java.lang.String)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantRuntimePermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,android.content.pm.PackageInfo,java.util.Set,boolean,boolean,boolean,int)>
+<com.samsung.android.server.wifi.diagnostics.PatternAbnormalDisconnect: java.lang.String getCallingUid(com.samsung.android.server.wifi.diagnostics.ReportData)>
+<com.samsung.android.server.wifi.diagnostics.WifiIssuePattern: boolean isApiCalledByNonSystemUid(java.lang.String)>

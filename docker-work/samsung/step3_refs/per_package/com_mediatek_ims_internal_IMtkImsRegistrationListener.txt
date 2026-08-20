@@ -1,0 +1,11 @@
+# com.mediatek.ims.internal.IMtkImsRegistrationListener [NEW]
+# Refs: 7
+# JARs: mediatek-ims-base
+
+<com.mediatek.ims.internal.IMtkImsRegistrationListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.ims.internal.IMtkImsRegistrationListener$Stub$Proxy: void onRedirectIncomingCallIndication(int,java.lang.String[])>
+<com.mediatek.ims.internal.IMtkImsRegistrationListener$Stub$Proxy: void onRegistrationErrorCodeIndication(int)>
+<com.mediatek.ims.internal.IMtkImsRegistrationListener$Stub$Proxy: void onRegistrationImsStateChanged(int,android.net.Uri[],int,android.telephony.ims.ImsReasonInfo)>
+<com.mediatek.ims.internal.IMtkImsRegistrationListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.ims.internal.IMtkImsRegistrationListener$Stub: com.mediatek.ims.internal.IMtkImsRegistrationListener asInterface(android.os.IBinder)>
+<com.mediatek.ims.internal.IMtkImsRegistrationListener$Stub: void <init>()>

@@ -1,0 +1,9 @@
+# android.telephony.gba.IGbaService [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.telephony.gba.IGbaService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.gba.IGbaService$Stub$Proxy: void authenticationRequest(android.telephony.gba.GbaAuthRequest)>
+<android.telephony.gba.IGbaService$Stub: android.telephony.gba.IGbaService asInterface(android.os.IBinder)>
+<android.telephony.gba.IGbaService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.gba.IGbaService$Stub: void <init>()>

@@ -1,0 +1,6 @@
+# android.hardware.ram.low [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<com.android.internal.telephony.metrics.PersistAtomsStorage: void <init>(android.content.Context)>
+<com.android.server.SystemConfig: void readPermissionsFromXml(org.xmlpull.v1.XmlPullParser,java.io.File,int)>

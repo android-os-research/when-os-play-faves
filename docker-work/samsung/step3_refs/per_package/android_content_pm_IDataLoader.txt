@@ -1,0 +1,13 @@
+# android.content.pm.IDataLoader [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.content.pm.IDataLoader$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.IDataLoader$Stub$Proxy: void create(int,android.content.pm.DataLoaderParamsParcel,android.content.pm.FileSystemControlParcel,android.content.pm.IDataLoaderStatusListener)>
+<android.content.pm.IDataLoader$Stub$Proxy: void destroy(int)>
+<android.content.pm.IDataLoader$Stub$Proxy: void prepareImage(int,android.content.pm.InstallationFileParcel[],java.lang.String[])>
+<android.content.pm.IDataLoader$Stub$Proxy: void start(int)>
+<android.content.pm.IDataLoader$Stub$Proxy: void stop(int)>
+<android.content.pm.IDataLoader$Stub: android.content.pm.IDataLoader asInterface(android.os.IBinder)>
+<android.content.pm.IDataLoader$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.IDataLoader$Stub: void <init>()>

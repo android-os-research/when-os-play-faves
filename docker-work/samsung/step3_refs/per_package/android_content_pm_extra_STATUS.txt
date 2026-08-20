@@ -1,0 +1,21 @@
+# android.content.pm.extra.STATUS [NEW]
+# Refs: 17
+# JARs: services
+
+<com.android.server.backup.utils.RestoreUtils: boolean installApk(java.io.InputStream,android.content.Context,com.android.server.backup.restore.RestoreDeleteObserver,java.util.HashMap,java.util.HashMap,com.android.server.backup.FileMetadata,java.lang.String,com.android.server.backup.utils.BytesReadListener,int)>
+<com.android.server.backup.utils.RestoreUtils: boolean installApkSplitSupport(java.io.InputStream,android.content.Context,com.android.server.backup.restore.RestoreDeleteObserver,java.util.HashMap,java.util.HashMap,com.android.server.backup.FileMetadata,java.lang.String,com.android.server.backup.utils.BytesReadListener,int,int)>
+<com.android.server.devicepolicy.DevicePolicyManagerService$3: void send(int,android.content.Intent,java.lang.String,android.os.IBinder,android.content.IIntentReceiver,java.lang.String,android.os.Bundle)>
+<com.android.server.enterprise.application.ApplicationPolicy$4: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.pm.InstallPackageHelper: void onRestoreComplete(int,android.content.Context,android.content.IntentSender)>
+<com.android.server.pm.PackageInstallerService$PackageDeleteObserverAdapter: void onPackageDeleted(java.lang.String,int,java.lang.String)>
+<com.android.server.pm.PackageInstallerService$PackageDeleteObserverAdapter: void onUserActionRequired(android.content.Intent)>
+<com.android.server.pm.PackageInstallerSession: void sendOnPackageInstalled(android.content.Context,android.content.IntentSender,int,boolean,int,java.lang.String,int,java.lang.String,android.os.Bundle)>
+<com.android.server.pm.PackageInstallerSession: void sendOnUserActionRequired(android.content.Context,android.content.IntentSender,int,android.content.Intent)>
+<com.android.server.pm.PackageInstallerSession: void sendPendingStreaming(android.content.Context,android.content.IntentSender,int,java.lang.String)>
+<com.android.server.pm.PackageManagerShellCommand: int doCommitSession(int,boolean)>
+<com.android.server.pm.PackageManagerShellCommand: int runInstallExisting()>
+<com.android.server.pm.PackageManagerShellCommand: int runUninstall()>
+<com.android.server.pm.PackageManagerShellCommand: int uninstallSystemUpdates(java.lang.String)>
+<com.android.server.rollback.Rollback: void lambda$commit$0(android.content.Intent,android.content.Context,android.content.IntentSender,java.util.List)>
+<com.att.iqi.libs.IQIPackageInstaller$3: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.pm.install.PrePackageInstallerBase: void installPreloadPackage(java.io.File)>

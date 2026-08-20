@@ -1,0 +1,9 @@
+# com.samsung.android.smartface.ISmartFaceClient [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.smartface.ISmartFaceClient$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.smartface.ISmartFaceClient$Stub$Proxy: void onInfo(int,com.samsung.android.smartface.FaceInfo,int)>
+<com.samsung.android.smartface.ISmartFaceClient$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.smartface.ISmartFaceClient$Stub: com.samsung.android.smartface.ISmartFaceClient asInterface(android.os.IBinder)>
+<com.samsung.android.smartface.ISmartFaceClient$Stub: void <init>()>

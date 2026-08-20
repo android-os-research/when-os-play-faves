@@ -1,0 +1,6 @@
+# power.battery_input.suspended [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.sysprop.PowerProperties: java.util.Optional battery_input_suspended()>
+<android.sysprop.PowerProperties: void battery_input_suspended(java.lang.Boolean)>

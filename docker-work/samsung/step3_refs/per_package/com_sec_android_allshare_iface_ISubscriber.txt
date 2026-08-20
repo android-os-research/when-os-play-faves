@@ -1,0 +1,14 @@
+# com.sec.android.allshare.iface.ISubscriber [NEW]
+# Refs: 10
+# JARs: framework
+
+<com.sec.android.allshare.iface.ISubscriber$Stub$Proxy: boolean requestCVAsync(java.lang.String,com.sec.android.allshare.iface.CVMessage)>
+<com.sec.android.allshare.iface.ISubscriber$Stub$Proxy: boolean subscribeEvent(java.lang.String,com.sec.android.allshare.iface.CVMessage)>
+<com.sec.android.allshare.iface.ISubscriber$Stub$Proxy: com.sec.android.allshare.iface.CVMessage requestCVSync(java.lang.String,com.sec.android.allshare.iface.CVMessage)>
+<com.sec.android.allshare.iface.ISubscriber$Stub$Proxy: java.lang.String getCaptionFilePathFromURI(java.lang.String)>
+<com.sec.android.allshare.iface.ISubscriber$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.android.allshare.iface.ISubscriber$Stub$Proxy: java.lang.String getServiceVersion()>
+<com.sec.android.allshare.iface.ISubscriber$Stub$Proxy: void unsubscribeEvent(java.lang.String,com.sec.android.allshare.iface.CVMessage)>
+<com.sec.android.allshare.iface.ISubscriber$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.android.allshare.iface.ISubscriber$Stub: com.sec.android.allshare.iface.ISubscriber asInterface(android.os.IBinder)>
+<com.sec.android.allshare.iface.ISubscriber$Stub: void <init>()>

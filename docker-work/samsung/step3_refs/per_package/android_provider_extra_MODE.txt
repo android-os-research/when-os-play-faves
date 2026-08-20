@@ -1,0 +1,6 @@
+# android.provider.extra.MODE [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.provider.ContactsContract$QuickContact: android.content.Intent composeQuickContactsIntent(android.content.Context,android.graphics.Rect,android.net.Uri,int,java.lang.String[])>
+<android.provider.ContactsContract$QuickContact: android.content.Intent rebuildManagedQuickContactsIntent(java.lang.String,long,boolean,long,android.content.Intent)>

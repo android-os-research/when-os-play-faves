@@ -1,0 +1,14 @@
+# com.samsung.cmfa.AuthTouch.IAuthFactorTouchService [NEW]
+# Refs: 10
+# JARs: framework
+
+<com.samsung.cmfa.AuthTouch.IAuthFactorTouchService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.cmfa.AuthTouch.IAuthFactorTouchService$Stub$Proxy: void onPointerEvent(android.view.MotionEvent)>
+<com.samsung.cmfa.AuthTouch.IAuthFactorTouchService$Stub$Proxy: void registerAuthTouchEnableListener(com.samsung.cmfa.AuthTouch.IAuthTouchEnableListener)>
+<com.samsung.cmfa.AuthTouch.IAuthFactorTouchService$Stub$Proxy: void registerAuthTouchEventListener(com.samsung.cmfa.AuthTouch.IAuthTouchEventListener)>
+<com.samsung.cmfa.AuthTouch.IAuthFactorTouchService$Stub$Proxy: void setTouchEvent(boolean,boolean)>
+<com.samsung.cmfa.AuthTouch.IAuthFactorTouchService$Stub$Proxy: void unregisterAuthTouchEnableListener(com.samsung.cmfa.AuthTouch.IAuthTouchEnableListener)>
+<com.samsung.cmfa.AuthTouch.IAuthFactorTouchService$Stub$Proxy: void unregisterAuthTouchEventListener(com.samsung.cmfa.AuthTouch.IAuthTouchEventListener)>
+<com.samsung.cmfa.AuthTouch.IAuthFactorTouchService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.cmfa.AuthTouch.IAuthFactorTouchService$Stub: com.samsung.cmfa.AuthTouch.IAuthFactorTouchService asInterface(android.os.IBinder)>
+<com.samsung.cmfa.AuthTouch.IAuthFactorTouchService$Stub: void <init>()>

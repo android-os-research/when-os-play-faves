@@ -1,0 +1,53 @@
+######################################################################
+# Propagation: www.google.com
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              2
+Occurrences:          2
+Usage types:          field_store, invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.wcm.Constant
+  Method:   <com.samsung.android.server.wifi.wcm.Constant: void <clinit>()>
+  Line:     605
+  Register: v0 := "www.google.com"
+  Usage:    [field_store] sput-object v0, Lcom/samsung/android/server/wifi/wcm/Constant;->DEFAULT_URL_STRING:Ljava/lang/String
+  Patterns: early_return
+  Flow:     [field_store] com.samsung.android.server.wifi.wcm.Constant.DEFAULT_URL_STR → [other] const-wide/16 v0, 0x3e8 → [other] s
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.wcm.SemDnsPinger
+  Method:   <com.samsung.android.server.wifi.wcm.SemDnsPinger: int pingDnsAsync(java.net.InetAddress,int,int)>
+  Line:     3163
+  Register: v1 := "www.google.com"
+  Usage:    [invoke] invoke-direct {p0, v1}, Lcom/samsung/android/server/wifi/wcm/SemDnsPinger;->updateDnsResultMap(Ljava
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.server.wifi.wcm.SemDnsPinger.updateDnsRe → [invoke] com.samsung.android.server.wifi.wcm.Sem
+
+  CALLERS (who invokes this method):
+      ← DnsThread$DnsCheck.requestDnsQuerying()
+        ← DnsThread$DnsPingerHandler.sendDnsPing()
+          ← DnsThread.run()
+
+  CALLEES (what this method invokes):
+      → <com.samsung.android.server.wifi.wcm.SemDnsPinger$DnsArg: vo
+      → SemDnsPinger.obtainMessage()
+      → SemDnsPinger.sendMessageDelayed()
+      → SemDnsPinger.updateDnsResultMap()
+      → AtomicInteger.get()
+      → AtomicInteger.incrementAndGet()
+        → InetAddress.getAddress()
+        → HashMap.get()
+        → List.size()
+        → List.get()
+        → List.remove()
+

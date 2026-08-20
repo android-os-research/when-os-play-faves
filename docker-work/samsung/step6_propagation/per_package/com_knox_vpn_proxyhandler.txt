@@ -1,0 +1,273 @@
+######################################################################
+# Propagation: com.knox.vpn.proxyhandler
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: allowlist_check, early_return, string_compare
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnPacProcessor
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnPacProcessor: void bindProxyService(java.lang.String,int)>
+  Line:     634
+  Register: p1 := "com.knox.vpn.proxyhandler"
+  Usage:    [invoke] invoke-virtual {p0, p1, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: allowlist_check, early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] sget-object p1, Lcom/android/server/enterprise/vpn/knoxvpn/K → 
+
+  CALLERS (who invokes this method):
+      ← KnoxVpnPacProcessor$KnoxVpnPacConnection.onServiceDisconnected()
+      ← KnoxVpnPacProcessor.bindProxyService()
+      ← KnoxVpnPacProcessor.setCurrentProxyScript()
+        ← KnoxVpnPacProcessor$KnoxVpnPacConnection.onServiceConnected()
+
+  CALLEES (what this method invokes):
+      → Context.bindServiceAsUser()
+      → Context.unbindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → <android.os.UserHandle: void <init>(int)>
+      → <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnPacProcess
+      → HashMap.containsKey()
+      → HashMap.get()
+      → HashMap.put()
+      → HashMap.remove()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnApiValidation
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnApiValidation: int addContainerPackagesToVpnValidation(com.samsung.android.knox.net.vpn.KnoxVpnContext,int,java.lang.String[],java.lang.String)>
+  Line:     1126
+  Register: v6 := "com.knox.vpn.proxyhandler"
+  Usage:    [invoke] invoke-virtual {v13, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equalsIgnoreCase() → [other] move-result v6 → [branch] if-eqz v6, :cond_104 → [reassigned] v6 
+
+  CALLEES (what this method invokes):
+      → UserHandle.getAppId()
+      → UserHandle.getUserId()
+      → EdmStorageProviderBase.getMUMContainerOwnerUid()
+      → KnoxVpnApiValidation.isUserTypeAppSeparation()
+      → KnoxVpnHelper.checkIfUidIsBlackListed()
+      → KnoxVpnHelper.isWideVpnExists()
+      → KnoxVpnHelper.removeExemptedListToDatabase()
+      → KnoxVpnHelper.checkIfProfileHasChainingFeature()
+      → KnoxVpnHelper.getAdminIdForUserVpn()
+      → KnoxVpnHelper.getUIDForPackage()
+      → KnoxVpnHelper.getPersonifiedName()
+      → KnoxVpnHelper.getProfileOwningThePackage()
+      → KnoxVpnHelper.getProfileOwningTheUid()
+      → KnoxVpnHelper.getProfileOwningTheUidWithNoInternetPermission()
+      → KnoxVpnHelper.updateUidsToVpnUidRange()
+      → VpnProfileConfig.getProfileEntry()
+      → VpnProfileInfo.getActivateState()
+      → VpnProfileInfo.getAdminId()
+      → VpnProfileInfo.getRouteType()
+      → VpnProfileInfo.getProfileName()
+      → VpnProfileInfo.getExemptPackageList()
+      → VpnProfileInfo.removeUidFromExemptList()
+      → KnoxVpnContext.getPersonaId()
+      → HashSet.contains()
+      → HashSet.isEmpty()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → EdmStorageProviderBase.getInt()
+        → UserInfo.isUserTypeAppSeparation()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → UserManager.getUserInfo()
+        → KnoxVpnApiValidation.getUserManager()
+        → KnoxVpnStorageProvider.getDataByFields()
+        → ArrayList.size()
+        → KnoxVpnStorageProvider.deleteDataByFields()
+        → VpnProfileInfo.getChainingEnabled()
+        → VpnPackageInfo.getPackageName()
+        → VpnProfileConfig.getProfileEntries()
+        → VpnProfileInfo.getPackageList()
+        → Collection.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → KnoxVpnHelper.getPackageManager()
+        → ContentValues.getAsString()
+        → ArrayList.iterator()
+        → IVpnManager.resetUidListInNetworkCapabilities()
+        → IVpnManager.updateUidRangesToPerAppVpn()
+        → <com.android.server.audio.AudioService$$ExternalSyntheticLam
+        → KnoxVpnHelper.getVpnManagerService()
+        → KnoxVpnHelper.getRegularPackageName()
+        → KnoxVpnHelper.addUidsToVpnUidRange()
+        → KnoxVpnHelper.applyBlockingRulesToUidRange()
+        → VpnPackageInfo.getCid()
+        → VpnPackageInfo.getUid()
+        → VpnProfileInfo.getPersonaId()
+        → VpnProfileInfo.getVendorPkgName()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → <java.util.HashSet: void <init>()>
+        → List.stream()
+        → Set.add()
+        → Set.isEmpty()
+        → IntStream.toArray()
+        → Stream.mapToInt()
+        → ConcurrentHashMap.containsKey()
+        → ConcurrentHashMap.get()
+        → HashSet.remove()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → EdmStorageProviderBase.getIntList()
+          → List.size()
+          → List.get()
+          → Context.getSystemService()
+          → EdmStorageProvider.getDataByFields()
+          → EdmStorageProvider.deleteDataByFields()
+          → ConcurrentHashMap.values()
+          → AppGlobals.getPackageManager()
+          → ArrayMap.get()
+          → IVpnManager$Stub.asInterface()
+          → ServiceManager.getService()
+          → IVpnManager.updateUidRangesToUserVpn()
+          → IVpnManager.updateUidRangesToUserVpnWithBlackList()
+          → KnoxVpnHelper.getNonChainedVendoUid()
+          → VpnProfileInfo.getVendorUid()
+          → Set.iterator()
+          → IVpnManager.applyBlockingRulesToUidRange()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → Cursor.isNull()
+            → Cursor.moveToNext()
+            → Cursor.getInt()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → EdmStorageProviderBase.getCursor()
+            → <java.util.ArrayList: void <init>()>
+            → List.add()
+            → EdmStorageProviderBase.getDataByFields()
+            → EdmStorageProviderBase.deleteDataByFields()
+            → ActivityThread.getPackageManager()
+            → ArrayMap.indexOfKey()
+            → <android.net.IVpnManager$Stub$Proxy: void <init>(android.os.
+            → IBinder.queryLocalInterface()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → EdmStorageProviderBase.getCursor()
+              → EdmStorageProviderBase.formatContentValues()
+              → ContentValues.put()
+              → EdmStorageProviderBase.getValues()
+              → EdmStorageProviderBase.delete()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnApiValidation
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnApiValidation: int addPackagesToVpnValidation(com.samsung.android.knox.net.vpn.KnoxVpnContext,java.lang.String[],java.lang.String)>
+  Line:     1684
+  Register: v9 := "com.knox.vpn.proxyhandler"
+  Usage:    [invoke] invoke-virtual {v12, v9}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equalsIgnoreCase() → [other] move-result v9 → [branch] if-eqz v9, :cond_f3 → [reassigned] v9 o
+
+  CALLEES (what this method invokes):
+      → Process.myPid()
+      → UserHandle.getUserId()
+      → AuditLog.logAsUser()
+      → KnoxVpnHelper.checkIfUidIsBlackListed()
+      → KnoxVpnHelper.isWideVpnExists()
+      → KnoxVpnHelper.removeExemptedListToDatabase()
+      → KnoxVpnHelper.checkIfProfileHasChainingFeature()
+      → KnoxVpnHelper.getAdminIdForUserVpn()
+      → KnoxVpnHelper.getUIDForPackage()
+      → KnoxVpnHelper.getPersonifiedName()
+      → KnoxVpnHelper.getProfileOwningThePackage()
+      → KnoxVpnHelper.getProfileOwningTheUid()
+      → KnoxVpnHelper.getProfileOwningTheUidWithNoInternetPermission()
+      → KnoxVpnHelper.updateUidsToVpnUidRange()
+      → VpnProfileConfig.getProfileEntry()
+      → VpnProfileInfo.getActivateState()
+      → VpnProfileInfo.getAdminId()
+      → VpnProfileInfo.getRouteType()
+      → VpnProfileInfo.getProfileName()
+      → VpnProfileInfo.getExemptPackageList()
+      → VpnProfileInfo.removeUidFromExemptList()
+      → KnoxVpnContext.getPersonaId()
+      → HashSet.contains()
+      → HashSet.isEmpty()
+        → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+        → IEDMProxy.AuditLoggerAsUser()
+        → KnoxVpnStorageProvider.getDataByFields()
+        → ArrayList.size()
+        → KnoxVpnStorageProvider.deleteDataByFields()
+        → VpnProfileInfo.getChainingEnabled()
+        → VpnPackageInfo.getPackageName()
+        → VpnProfileConfig.getProfileEntries()
+        → VpnProfileInfo.getPackageList()
+        → Collection.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → KnoxVpnHelper.getPackageManager()
+        → ContentValues.getAsString()
+        → ArrayList.iterator()
+        → IVpnManager.resetUidListInNetworkCapabilities()
+        → IVpnManager.updateUidRangesToPerAppVpn()
+        → <com.android.server.audio.AudioService$$ExternalSyntheticLam
+        → KnoxVpnHelper.getVpnManagerService()
+        → KnoxVpnHelper.getRegularPackageName()
+        → KnoxVpnHelper.addUidsToVpnUidRange()
+        → KnoxVpnHelper.applyBlockingRulesToUidRange()
+        → VpnPackageInfo.getCid()
+        → VpnPackageInfo.getUid()
+        → VpnProfileInfo.getPersonaId()
+        → VpnProfileInfo.getVendorPkgName()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → <java.util.HashSet: void <init>()>
+        → List.stream()
+        → Set.add()
+        → Set.isEmpty()
+        → IntStream.toArray()
+        → Stream.mapToInt()
+        → ConcurrentHashMap.containsKey()
+        → ConcurrentHashMap.get()
+        → HashSet.remove()
+          → ServiceManager.getService()
+          → IEDMProxy$Stub.asInterface()
+          → EdmStorageProvider.getDataByFields()
+          → EdmStorageProvider.deleteDataByFields()
+          → ConcurrentHashMap.values()
+          → AppGlobals.getPackageManager()
+          → ArrayMap.get()
+          → IVpnManager$Stub.asInterface()
+          → IVpnManager.updateUidRangesToUserVpn()
+          → IVpnManager.updateUidRangesToUserVpnWithBlackList()
+          → KnoxVpnHelper.getNonChainedVendoUid()
+          → VpnProfileInfo.getVendorUid()
+          → Set.iterator()
+          → IVpnManager.applyBlockingRulesToUidRange()
+            → IBinder.queryLocalInterface()
+            → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+            → EdmStorageProviderBase.getDataByFields()
+            → EdmStorageProviderBase.deleteDataByFields()
+            → ActivityThread.getPackageManager()
+            → ArrayMap.indexOfKey()
+            → <android.net.IVpnManager$Stub$Proxy: void <init>(android.os.
+              → <android.content.ContentValues: void <init>()>
+              → ContentValues.put()
+              → EdmStorageProviderBase.getValues()
+              → EdmStorageProviderBase.delete()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+

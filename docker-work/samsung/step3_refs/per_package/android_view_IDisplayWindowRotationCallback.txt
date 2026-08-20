@@ -1,0 +1,9 @@
+# android.view.IDisplayWindowRotationCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.IDisplayWindowRotationCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IDisplayWindowRotationCallback$Stub$Proxy: void continueRotateDisplay(int,android.window.WindowContainerTransaction)>
+<android.view.IDisplayWindowRotationCallback$Stub: android.view.IDisplayWindowRotationCallback asInterface(android.os.IBinder)>
+<android.view.IDisplayWindowRotationCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IDisplayWindowRotationCallback$Stub: void <init>()>

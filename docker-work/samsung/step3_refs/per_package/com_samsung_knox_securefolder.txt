@@ -1,0 +1,36 @@
+# com.samsung.knox.securefolder [NEW]
+# Refs: 33
+# JARs: framework, services
+
+<android.content.om.SamsungThemeConstants: void <clinit>()>
+<com.android.server.backup.UserBackupManagerService: void <init>(android.content.Context,android.content.pm.PackageManager,com.android.server.backup.internal.LifecycleOperationStorage)>
+<com.android.server.backup.UserBackupManagerService: void <init>(int,android.content.Context,com.android.server.backup.BackupManagerService,android.os.HandlerThread,java.io.File,java.io.File,com.android.server.backup.TransportManager)>
+<com.android.server.bridge.BridgeProxy: void <init>(int)>
+<com.android.server.bridge.operations.RCPDumpState: void dumpBackupAndRestoreHistory(java.io.PrintWriter,int)>
+<com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl$MyPackageMonitor: void onSomePackagesChanged()>
+<com.android.server.enterprise.application.ApplicationIconDb: void updateSecureFolderCustomizedInfo(android.database.sqlite.SQLiteDatabase)>
+<com.android.server.enterprise.application.ApplicationPolicy: java.lang.String[] getConcentrationModeSuspendPackages(java.util.List,java.util.List,java.lang.String)>
+<com.android.server.knox.ContainerDependencyWrapper: void deactivateSecureFolderAdmin(android.content.Context,android.content.ComponentName)>
+<com.android.server.knox.SeamLessSwitchHandler: boolean isPackageEnabled(java.lang.String,int)>
+<com.android.server.knox.SeamLessSwitchHandler: void launchFolderContainerOrHome(int,boolean)>
+<com.android.server.knox.SeamLessSwitchHandler: void launchSecureFolderAppsAtLockscreen(android.content.ComponentName)>
+<com.android.server.pm.PersonaManagerService: boolean isContainerService(int)>
+<com.android.server.pm.PersonaManagerService: boolean isSecureFolderSupported()>
+<com.android.server.pm.PersonaManagerService: byte[] getKnoxIcon(java.lang.String,java.lang.String,int)>
+<com.android.server.pm.PersonaManagerService: byte[] getSecureFolderIcon()>
+<com.android.server.pm.PersonaManagerService: java.lang.String getSecureFolderName()>
+<com.android.server.pm.PersonaManagerService: void <clinit>()>
+<com.android.server.pm.PersonaManagerService: void resetSecureFolderAdmin(android.content.Context)>
+<com.android.server.pm.PersonaManagerService: void systemReady()>
+<com.android.server.pm.PersonaServiceHelper$2: void <init>()>
+<com.android.server.pm.PersonaServiceProxy$2: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.pm.UserManagerService: void resetDefaultIconandName(int)>
+<com.samsung.android.knox.SemPersonaManager: android.util.Pair getCustomBadgeForCustomContainer(android.os.UserHandle,int,android.content.Context)>
+<com.samsung.android.knox.SemPersonaManager: boolean isKnoxIcon(java.lang.String,java.lang.String)>
+<com.samsung.android.knox.SemPersonaManager: boolean isSecureFolderMetaDataEnabled()>
+<com.samsung.android.knox.SemPersonaManager: byte[] getKnoxIcon(int)>
+<com.samsung.android.knox.SemPersonaManager: byte[] getKnoxIcon(java.lang.String,java.lang.String,int)>
+<com.samsung.android.knox.SemPersonaManager: java.lang.String getContainerName(int,android.content.Context)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+<com.samsung.android.knox.analytics.activation.ActivationMonitor: void <clinit>()>
+<com.samsung.android.server.pm.install.SilentUninstallerList: void <init>()>

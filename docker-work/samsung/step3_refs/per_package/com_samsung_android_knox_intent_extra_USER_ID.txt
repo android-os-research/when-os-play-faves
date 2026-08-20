@@ -1,0 +1,16 @@
+# com.samsung.android.knox.intent.extra.USER_ID [NEW]
+# Refs: 12
+# JARs: services
+
+<com.android.server.enterprise.application.ApplicationPolicy: boolean changeApplicationNameForUid(java.lang.String,java.lang.String,int)>
+<com.android.server.enterprise.application.ApplicationPolicy: boolean isApplicationForceStopDisabled(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,boolean)>
+<com.android.server.enterprise.application.ApplicationPolicy: boolean isApplicationStartDisabledAsUser(java.lang.String,int)>
+<com.android.server.enterprise.application.ApplicationPolicy: boolean setApplicationUninstallationMode(com.samsung.android.knox.ContextInfo,int)>
+<com.android.server.enterprise.application.ApplicationPolicy: void _setApplicationUninstallationDisabled(int,java.lang.String,boolean)>
+<com.android.server.enterprise.application.ApplicationPolicy: void onAdminRemoved(int)>
+<com.android.server.enterprise.certificate.CertificatePolicy: void notifyCertificateFailureAsUser(java.lang.String,java.lang.String,boolean,int)>
+<com.android.server.enterprise.certificate.CertificatePolicy: void notifyCertificateRemovedAsUser(java.lang.String,int)>
+<com.android.server.enterprise.geofencing.GeofenceService$GeofencingHandler: void handleMessage(android.os.Message)>
+<com.android.server.enterprise.geofencing.GeofenceService: void deviceLocationUnavailableMessage(int)>
+<com.android.server.enterprise.geofencing.GeofenceService: void sendIntenttoAdmins(java.util.List)>
+<com.android.server.wm.DisplayContent: void sendApplicationFocusMonitoringIntent(java.lang.String,java.lang.String,int,boolean)>

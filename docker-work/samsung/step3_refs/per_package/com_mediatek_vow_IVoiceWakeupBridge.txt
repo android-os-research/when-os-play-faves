@@ -1,0 +1,11 @@
+# com.mediatek.vow.IVoiceWakeupBridge [NEW]
+# Refs: 7
+# JARs: mediatek-framework
+
+<com.mediatek.vow.IVoiceWakeupBridge$Stub$Proxy: int startRecognition(int,android.hardware.soundtrigger.SoundTrigger$KeyphraseSoundModel,android.hardware.soundtrigger.IRecognitionStatusCallback,android.hardware.soundtrigger.SoundTrigger$RecognitionConfig)>
+<com.mediatek.vow.IVoiceWakeupBridge$Stub$Proxy: int stopRecognition(int,android.hardware.soundtrigger.IRecognitionStatusCallback)>
+<com.mediatek.vow.IVoiceWakeupBridge$Stub$Proxy: int unloadKeyphraseModel(int)>
+<com.mediatek.vow.IVoiceWakeupBridge$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.vow.IVoiceWakeupBridge$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.vow.IVoiceWakeupBridge$Stub: com.mediatek.vow.IVoiceWakeupBridge asInterface(android.os.IBinder)>
+<com.mediatek.vow.IVoiceWakeupBridge$Stub: void <init>()>

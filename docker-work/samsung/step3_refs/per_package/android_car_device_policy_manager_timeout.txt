@@ -1,0 +1,6 @@
+# android.car.device_policy_manager_timeout [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.sysprop.CarProperties: java.util.Optional device_policy_manager_timeout()>
+<android.sysprop.CarProperties: void device_policy_manager_timeout(java.lang.Integer)>

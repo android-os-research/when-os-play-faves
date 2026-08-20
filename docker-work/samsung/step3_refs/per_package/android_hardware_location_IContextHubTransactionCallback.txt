@@ -1,0 +1,10 @@
+# android.hardware.location.IContextHubTransactionCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.hardware.location.IContextHubTransactionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.location.IContextHubTransactionCallback$Stub$Proxy: void onQueryResponse(int,java.util.List)>
+<android.hardware.location.IContextHubTransactionCallback$Stub$Proxy: void onTransactionComplete(int)>
+<android.hardware.location.IContextHubTransactionCallback$Stub: android.hardware.location.IContextHubTransactionCallback asInterface(android.os.IBinder)>
+<android.hardware.location.IContextHubTransactionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.location.IContextHubTransactionCallback$Stub: void <init>()>

@@ -1,0 +1,9 @@
+# android.os.ICancellationSignal [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.os.ICancellationSignal$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.ICancellationSignal$Stub$Proxy: void cancel()>
+<android.os.ICancellationSignal$Stub: android.os.ICancellationSignal asInterface(android.os.IBinder)>
+<android.os.ICancellationSignal$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.ICancellationSignal$Stub: void <init>()>

@@ -1,0 +1,7 @@
+# com.vzw.hss.myverizon [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.pm.PackageManagerService: void systemReady()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultPermissionsToVerizonApp(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultPermissionsToVerizonAppForVPP(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>

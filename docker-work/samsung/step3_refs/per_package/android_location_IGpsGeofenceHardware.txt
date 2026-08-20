@@ -1,0 +1,13 @@
+# android.location.IGpsGeofenceHardware [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.location.IGpsGeofenceHardware$Stub$Proxy: boolean addCircularHardwareGeofence(int,double,double,double,int,int,int,int)>
+<android.location.IGpsGeofenceHardware$Stub$Proxy: boolean isHardwareGeofenceSupported()>
+<android.location.IGpsGeofenceHardware$Stub$Proxy: boolean pauseHardwareGeofence(int)>
+<android.location.IGpsGeofenceHardware$Stub$Proxy: boolean removeHardwareGeofence(int)>
+<android.location.IGpsGeofenceHardware$Stub$Proxy: boolean resumeHardwareGeofence(int,int)>
+<android.location.IGpsGeofenceHardware$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.IGpsGeofenceHardware$Stub: android.location.IGpsGeofenceHardware asInterface(android.os.IBinder)>
+<android.location.IGpsGeofenceHardware$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.IGpsGeofenceHardware$Stub: void <init>()>

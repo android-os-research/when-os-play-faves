@@ -1,0 +1,11 @@
+# android.os.IHintSession [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.os.IHintSession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IHintSession$Stub$Proxy: void close()>
+<android.os.IHintSession$Stub$Proxy: void reportActualWorkDuration(long[],long[])>
+<android.os.IHintSession$Stub$Proxy: void updateTargetWorkDuration(long)>
+<android.os.IHintSession$Stub: android.os.IHintSession asInterface(android.os.IBinder)>
+<android.os.IHintSession$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IHintSession$Stub: void <init>()>

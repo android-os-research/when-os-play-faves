@@ -1,0 +1,73 @@
+.class public Lcom/android/server/wm/BlurController$2;
+.super Landroid/content/BroadcastReceiver;
+.source "BlurController.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/wm/BlurController;-><init>(Landroid/content/Context;Landroid/os/PowerManager;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic this$0:Lcom/android/server/wm/BlurController;
+
+.field public final synthetic val$powerManager:Landroid/os/PowerManager;
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/wm/BlurController;Landroid/os/PowerManager;)V
+    .registers 3
+
+    .line 67
+    iput-object p1, p0, Lcom/android/server/wm/BlurController$2;->this$0:Lcom/android/server/wm/BlurController;
+
+    iput-object p2, p0, Lcom/android/server/wm/BlurController$2;->val$powerManager:Landroid/os/PowerManager;
+
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .registers 3
+
+    .line 70
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "android.os.action.POWER_SAVE_MODE_CHANGED"
+
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1c
+
+    .line 73
+    iget-object p1, p0, Lcom/android/server/wm/BlurController$2;->this$0:Lcom/android/server/wm/BlurController;
+
+    iget-object p2, p0, Lcom/android/server/wm/BlurController$2;->val$powerManager:Landroid/os/PowerManager;
+
+    invoke-virtual {p2}, Landroid/os/PowerManager;->isPowerSaveMode()Z
+
+    move-result p2
+
+    invoke-static {p1, p2}, Lcom/android/server/wm/BlurController;->-$$Nest$fputmInPowerSaveMode(Lcom/android/server/wm/BlurController;Z)V
+
+    .line 74
+    iget-object p0, p0, Lcom/android/server/wm/BlurController$2;->this$0:Lcom/android/server/wm/BlurController;
+
+    invoke-static {p0}, Lcom/android/server/wm/BlurController;->-$$Nest$mupdateBlurEnabled(Lcom/android/server/wm/BlurController;)V
+
+    :cond_1c
+    return-void
+.end method

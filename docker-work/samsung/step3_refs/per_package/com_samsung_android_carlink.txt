@@ -1,0 +1,9 @@
+# com.samsung.android.carlink [NEW]
+# Refs: 5
+# JARs: services
+
+<com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils: android.content.Intent repackIntent(android.content.Intent)>
+<com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils: boolean isCarLinkIntent(android.content.Intent)>
+<com.android.server.baiducarlife.BaiduCarlifeADBConnectUtils: boolean isSamsungCarlifePkg(java.lang.String)>
+<com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+<com.android.server.wm.ActivityStartInterceptor: android.content.Intent createCarlifeHomeIntent(int,java.lang.String)>

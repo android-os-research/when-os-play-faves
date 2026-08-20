@@ -1,0 +1,10 @@
+# com.sec.ims.IImsRegistrationListener [NEW]
+# Refs: 6
+# JARs: imsmanager
+
+<com.sec.ims.IImsRegistrationListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.IImsRegistrationListener$Stub$Proxy: void onDeregistered(com.sec.ims.ImsRegistration,com.sec.ims.ImsRegistrationError)>
+<com.sec.ims.IImsRegistrationListener$Stub$Proxy: void onRegistered(com.sec.ims.ImsRegistration)>
+<com.sec.ims.IImsRegistrationListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.IImsRegistrationListener$Stub: com.sec.ims.IImsRegistrationListener asInterface(android.os.IBinder)>
+<com.sec.ims.IImsRegistrationListener$Stub: void <init>()>

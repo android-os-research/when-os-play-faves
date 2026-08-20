@@ -1,0 +1,25 @@
+# com.samsung.android.knox.datetime.IDateTimePolicy [NEW]
+# Refs: 21
+# JARs: knoxsdk
+
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: boolean getAutomaticTime(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: boolean getDaylightSavingTime(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: boolean isDateTimeChangeEnabled(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: boolean setAutomaticTime(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: boolean setDateFormat(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: boolean setDateTime(com.samsung.android.knox.ContextInfo,long)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: boolean setDateTimeChangeEnabled(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: boolean setNtpInfo(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.datetime.NtpInfo)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: boolean setTimeFormat(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: boolean setTimeZone(com.samsung.android.knox.ContextInfo,java.lang.String)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: com.samsung.android.knox.datetime.NtpInfo getNtpInfo(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: java.lang.String getDateFormat(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: java.lang.String getNtpServer()>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: java.lang.String getTimeFormat(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: java.lang.String getTimeZone(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: long getDateTime(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub$Proxy: long getNtpTimeout()>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub: com.samsung.android.knox.datetime.IDateTimePolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.datetime.IDateTimePolicy$Stub: void <init>()>

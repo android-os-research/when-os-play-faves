@@ -1,0 +1,6 @@
+# com.synchronoss.dcs.att.r2g [NEW]
+# Refs: 2
+# JARs: semwifi-service, services
+
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultPermissionsToAttApp(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.samsung.android.server.wifi.SemWifiConnectivityMonitor: boolean isIgnorableNetwork(java.lang.String,int)>

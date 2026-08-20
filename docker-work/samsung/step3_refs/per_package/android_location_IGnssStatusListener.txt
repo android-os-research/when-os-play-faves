@@ -1,0 +1,12 @@
+# android.location.IGnssStatusListener [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.location.IGnssStatusListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.location.IGnssStatusListener$Stub$Proxy: void onFirstFix(int)>
+<android.location.IGnssStatusListener$Stub$Proxy: void onGnssStarted()>
+<android.location.IGnssStatusListener$Stub$Proxy: void onGnssStopped()>
+<android.location.IGnssStatusListener$Stub$Proxy: void onSvStatusChanged(android.location.GnssStatus)>
+<android.location.IGnssStatusListener$Stub: android.location.IGnssStatusListener asInterface(android.os.IBinder)>
+<android.location.IGnssStatusListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.location.IGnssStatusListener$Stub: void <init>()>

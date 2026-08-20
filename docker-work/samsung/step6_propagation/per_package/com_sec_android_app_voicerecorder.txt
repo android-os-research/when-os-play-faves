@@ -1,0 +1,122 @@
+######################################################################
+# Propagation: com.sec.android.app.voicerecorder
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.audio.MediaFocusControl
+  Method:   <com.android.server.audio.MediaFocusControl: void removeFocusStackEntryOnDeath(android.os.IBinder)>
+  Line:     5198
+  Register: v7 := "com.sec.android.app.voicerecorder"
+  Usage:    [invoke] invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [invoke] android.util.Log.i() → [other] new-instance v6, Lcom/android/server/audio/
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.audio.MediaFocusControl: void -$$Nest$mr
+        ← MediaFocusControl$AudioFocusDeathHandler.binderDied()
+
+  CALLEES (what this method invokes):
+      → <com.android.server.audio.AudioEventLogger$StringEvent: void
+      → AudioEventLogger.log()
+      → AudioSystemAdapter.getDefaultAdapter()
+      → AudioSystemAdapter.setForceUse()
+      → FocusRequester.toAudioFocusInfo()
+      → FocusRequester.hasSameBinder()
+      → FocusRequester.getClientUid()
+      → FocusRequester.getClientId()
+      → FocusRequester.getPackageName()
+      → FocusRequester.release()
+      → MediaFocusControl.notifyExtPolicyFocusLoss_syncAf()
+      → MediaFocusControl.notifyTopOfAudioFocusStack()
+      → SemAudioSystem.setPolicyParameters()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Iterator.remove()
+      → Stack.isEmpty()
+      → Stack.peek()
+      → Stack.iterator()
+        → <com.android.server.audio.AudioEventLogger$Event: void <init
+        → LinkedList.add()
+        → LinkedList.size()
+        → LinkedList.removeFirst()
+        → AudioSystem.getNumStreamTypes()
+        → AudioSystem.setRoutingCallback()
+        → AudioSystem.setVolumeRangeInitRequestCallback()
+        → <com.android.server.audio.AudioSystemAdapter: void <init>()>
+        → <java.util.concurrent.ConcurrentHashMap: void <init>(int)>
+        → AudioSystem.setForceUse()
+        → AudioSystemAdapter.invalidateRoutingCache()
+        → <android.media.AudioFocusInfo: void <init>(android.media.Aud
+        → IBinder.unlinkToDeath()
+        → AudioFocusInfo.getGainRequest()
+        → AudioFocusInfo.getPackageName()
+        → IAudioPolicyCallback.asBinder()
+        → IAudioPolicyCallback.notifyAudioFocusLoss()
+        → AudioService.notifyCarLifeEvent()
+        → ArrayList.iterator()
+        → Handler.obtainMessage()
+        → Handler.sendMessageDelayed()
+        → Handler.removeMessages()
+        → FocusRequester.handleFocusGain()
+        → MediaFocusControl.canReassignAudioFocus()
+        → MediaFocusControl.isDelayLossApp()
+        → MediaFocusControl.isLockedFocusOwner()
+        → ArrayList.isEmpty()
+        → Stack.empty()
+        → AudioSystem.setParameters()
+          → ConcurrentHashMap.clear()
+          → AudioAttributes$Builder.build()
+          → <android.media.AudioAttributes$Builder: void <init>()>
+          → AudioService.sendBroadcastToSoundEventReceiver()
+          → IAudioFocusDispatcher.dispatchAudioFocusChange()
+          → MediaFocusControl.notifyExtPolicyFocusGrant_syncAf()
+          → MediaFocusControl.restoreVShapedPlayers()
+          → AudioSettingsHelper.checkAppCategory()
+          → FocusRequester.hasSameClient()
+          → FocusRequester.isLockedFocusOwner()
+            → <android.media.AudioAttributes: int -$$Nest$fgetmFlags(andro
+            → <android.media.AudioAttributes: int -$$Nest$fgetmUsage(andro
+            → <android.media.AudioAttributes: void -$$Nest$fputmBundle(and
+            → <android.media.AudioAttributes: void -$$Nest$fputmContentTyp
+            → <android.media.AudioAttributes: void -$$Nest$fputmFlags(andr
+            → <android.media.AudioAttributes: void -$$Nest$fputmFormattedT
+            → <android.media.AudioAttributes: void -$$Nest$fputmSource(and
+            → <android.media.AudioAttributes: void -$$Nest$fputmTags(andro
+            → <android.media.AudioAttributes: void -$$Nest$fputmUsage(andr
+            → <android.media.AudioAttributes: void <init>(android.media.Au
+            → <android.os.Bundle: void <init>(android.os.Bundle)>
+            → TextUtils.join()
+            → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+            → HashSet.clone()
+            → <java.util.HashSet: void <init>()>
+            → Intent.putExtra()
+            → Intent.putExtra()
+            → Intent.setComponent()
+            → <android.content.Intent: void <init>(java.lang.String)>
+            → AudioService$SoundEventReceiver.hasEventType()
+            → AudioService.sendMsg()
+            → IAudioPolicyCallback.notifyAudioFocusGrant()
+            → Handler.removeEqualMessages()
+            → <com.android.server.audio.MediaFocusControl$ForgetFadeUidInf
+            → PlayerFocusEnforcer.restoreVShapedPlayers()
+            → <com.samsung.android.server.audio.AudioSettingsHelper$$Exter
+            → CopyOnWriteArrayList.isEmpty()
+            → CopyOnWriteArrayList.stream()
+            → Stream.anyMatch()
+              → Iterable.iterator()
+              → Handler.obtainMessage()
+              → Handler.hasMessages()
+              → Handler.sendMessageAtTime()
+              → Handler.removeMessages()
+              → SystemClock.uptimeMillis()
+

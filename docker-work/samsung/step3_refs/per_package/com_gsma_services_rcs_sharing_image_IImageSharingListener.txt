@@ -1,0 +1,11 @@
+# com.gsma.services.rcs.sharing.image.IImageSharingListener [NEW]
+# Refs: 7
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.sharing.image.IImageSharingListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.sharing.image.IImageSharingListener$Stub$Proxy: void onDeleted(com.gsma.services.rcs.contact.ContactId,java.util.List)>
+<com.gsma.services.rcs.sharing.image.IImageSharingListener$Stub$Proxy: void onProgressUpdate(com.gsma.services.rcs.contact.ContactId,java.lang.String,long,long)>
+<com.gsma.services.rcs.sharing.image.IImageSharingListener$Stub$Proxy: void onStateChanged(com.gsma.services.rcs.contact.ContactId,java.lang.String,int,int)>
+<com.gsma.services.rcs.sharing.image.IImageSharingListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.sharing.image.IImageSharingListener$Stub: com.gsma.services.rcs.sharing.image.IImageSharingListener asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.sharing.image.IImageSharingListener$Stub: void <init>()>

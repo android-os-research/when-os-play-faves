@@ -1,0 +1,9 @@
+# com.sec.android.iaft.callback.IIAFTCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.sec.android.iaft.callback.IIAFTCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.android.iaft.callback.IIAFTCallback$Stub$Proxy: void traceResult(java.lang.String,int,int,int,int)>
+<com.sec.android.iaft.callback.IIAFTCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.android.iaft.callback.IIAFTCallback$Stub: com.sec.android.iaft.callback.IIAFTCallback asInterface(android.os.IBinder)>
+<com.sec.android.iaft.callback.IIAFTCallback$Stub: void <init>()>

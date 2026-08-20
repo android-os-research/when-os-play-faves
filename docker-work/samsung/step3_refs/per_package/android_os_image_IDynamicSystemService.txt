@@ -1,0 +1,23 @@
+# android.os.image.IDynamicSystemService [NEW]
+# Refs: 19
+# JARs: framework
+
+<android.os.image.IDynamicSystemService$Stub$Proxy: android.gsi.GsiProgress getInstallationProgress()>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean abort()>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean closePartition()>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean finishInstallation()>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean getAvbPublicKey(android.gsi.AvbPublicKey)>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean isEnabled()>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean isInUse()>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean isInstalled()>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean remove()>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean setAshmem(android.os.ParcelFileDescriptor,long)>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean setEnable(boolean,boolean)>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean startInstallation(java.lang.String)>
+<android.os.image.IDynamicSystemService$Stub$Proxy: boolean submitFromAshmem(long)>
+<android.os.image.IDynamicSystemService$Stub$Proxy: int createPartition(java.lang.String,long,boolean)>
+<android.os.image.IDynamicSystemService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.image.IDynamicSystemService$Stub$Proxy: long suggestScratchSize()>
+<android.os.image.IDynamicSystemService$Stub: android.os.image.IDynamicSystemService asInterface(android.os.IBinder)>
+<android.os.image.IDynamicSystemService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.image.IDynamicSystemService$Stub: void <init>()>

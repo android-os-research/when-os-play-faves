@@ -1,0 +1,19 @@
+# android.hardware.type.watch [NEW]
+# Refs: 15
+# JARs: framework, services, telephony-common
+
+<android.app.ActivityTaskManager: boolean supportsMultiWindow(android.content.Context,boolean)>
+<android.app.LauncherActivity: void onCreate(android.os.Bundle)>
+<com.android.internal.policy.PhoneWindow: boolean requestFeature(int)>
+<com.android.internal.telephony.SemPhoneFactory: void makeSemTelephonyDatabaseHelper(android.content.Context)>
+<com.android.server.GestureLauncherService: void onBootPhase(int)>
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.UiModeManagerService: void onStart()>
+<com.android.server.devicepolicy.DevicePolicyManagerService: void <init>(com.android.server.devicepolicy.DevicePolicyManagerService$Injector,com.android.server.devicepolicy.PolicyPathProvider)>
+<com.android.server.location.gnss.GnssLocationProvider: void lambda$handleDownloadPsdsData$6(int)>
+<com.android.server.locksettings.LockSettingsService: void migrateOldData()>
+<com.android.server.notification.ZenModeHelper: void showZenUpgradeNotification(int)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultPermissionsToDefaultSystemDialerApp(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,java.lang.String,int)>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.android.server.policy.PhoneWindowManager: void init(android.content.Context,android.view.IWindowManager,com.android.server.policy.WindowManagerPolicy$WindowManagerFuncs)>
+<com.android.server.usb.UsbDeviceManager$UsbHandler: void updateUsbNotification(boolean)>

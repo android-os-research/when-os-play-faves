@@ -1,0 +1,101 @@
+######################################################################
+# Propagation: com.sds.squaremessenger
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.statusbar.StatusBarManagerService
+  Method:   <com.android.server.statusbar.StatusBarManagerService: void <init>(android.content.Context)>
+  Line:     684
+  Register: v6 := "com.sds.squaremessenger"
+  Usage:    [invoke] invoke-static {v5, v6, v7}, Ljava/util/List;->of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Obje
+  Patterns: early_return
+  Flow:     [invoke] java.util.List.of()
+
+  CALLERS (who invokes this method):
+      ← SystemServer.startOtherServices()
+        ← SystemServer.run()
+          ← SystemServer.main()
+
+  CALLEES (what this method invokes):
+      → Context.getSystemService()
+      → DisplayManager.registerDisplayListener()
+      → <android.os.Binder: void <init>()>
+      → <android.os.Handler: void <init>()>
+      → <android.util.ArrayMap: void <init>()>
+      → <android.util.SparseArray: void <init>()>
+      → SparseArray.put()
+      → <com.android.internal.statusbar.IStatusBarService$Stub: void
+      → LocalServices.getService()
+      → LocalServices.addService()
+      → <com.android.server.statusbar.SessionMonitor: void <init>(an
+      → <com.android.server.statusbar.StatusBarManagerService$1: voi
+      → <com.android.server.statusbar.StatusBarManagerService$2: voi
+      → <com.android.server.statusbar.StatusBarManagerService$3: voi
+      → <com.android.server.statusbar.StatusBarManagerService$UiStat
+      → <com.android.server.statusbar.TileRequestTracker: void <init
+      → SemDesktopModeManager.registerListener()
+      → <java.util.ArrayList: void <init>()>
+      → List.of()
+      → <java.util.concurrent.ConcurrentHashMap: void <init>()>
+        → <android.os.Binder: void <init>(java.lang.String)>
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+        → <android.util.SparseArray: void <init>(int)>
+        → ContainerHelpers.binarySearch()
+        → SparseArray.gc()
+        → GrowingArrayUtils.insert()
+        → GrowingArrayUtils.insert()
+        → IStatusBarService$Stub.attachInterface()
+        → ArrayMap.get()
+        → ArrayMap.containsKey()
+        → ArrayMap.put()
+        → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → <java.util.HashMap: void <init>()>
+        → <java.util.HashSet: void <init>()>
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Map.put()
+        → Set.iterator()
+        → <com.android.server.statusbar.StatusBarManagerService$UiStat
+        → Context.registerReceiverAsUser()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → IntentFilter.addDataScheme()
+        → <android.util.ArraySet: void <init>()>
+        → <android.util.SparseArrayMap: void <init>()>
+        → <com.android.server.statusbar.TileRequestTracker$1: void <in
+        → RemoteException.rethrowFromSystemServer()
+        → IDesktopMode.registerDesktopModeListener()
+        → <com.samsung.android.desktopmode.SemDesktopModeManager$Deskt
+        → Map.containsKey()
+          → Binder.getNativeBBinderHolder()
+          → NativeAllocationRegistry.registerNativeAllocation()
+          → ArrayMap.allocArrays()
+          → ArrayUtils.newUnpaddedObjectArray()
+          → ArrayMap.indexOfKey()
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <android.view.InsetsVisibilities: void <init>()>
+          → <android.util.ArraySet: void <init>(int,boolean)>
+          → <android.content.BroadcastReceiver: void <init>()>
+          → <android.os.DeadSystemRuntimeException: void <init>()>
+          → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+          → <com.samsung.android.desktopmode.IDesktopModeListener$Stub: 
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ArrayMap.binarySearchHashes()
+            → ArraySet.allocArrays()
+            → <android.os.DeadSystemException: void <init>()>
+            → IDesktopModeListener$Stub.attachInterface()
+              → <android.os.DeadObjectException: void <init>()>
+

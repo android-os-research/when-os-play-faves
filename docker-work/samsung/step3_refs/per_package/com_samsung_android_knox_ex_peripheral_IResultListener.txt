@@ -1,0 +1,10 @@
+# com.samsung.android.knox.ex.peripheral.IResultListener [NEW]
+# Refs: 6
+# JARs: knoxsdk
+
+<com.samsung.android.knox.ex.peripheral.IResultListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.ex.peripheral.IResultListener$Stub$Proxy: void onFail(int,java.lang.String)>
+<com.samsung.android.knox.ex.peripheral.IResultListener$Stub$Proxy: void onSuccess(android.os.Bundle)>
+<com.samsung.android.knox.ex.peripheral.IResultListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.ex.peripheral.IResultListener$Stub: com.samsung.android.knox.ex.peripheral.IResultListener asInterface(android.os.IBinder)>
+<com.samsung.android.knox.ex.peripheral.IResultListener$Stub: void <init>()>

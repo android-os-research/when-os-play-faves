@@ -1,0 +1,24 @@
+# android.hardware.location.IContextHubService [NEW]
+# Refs: 20
+# JARs: framework
+
+<android.hardware.location.IContextHubService$Stub$Proxy: android.hardware.location.ContextHubInfo getContextHubInfo(int)>
+<android.hardware.location.IContextHubService$Stub$Proxy: android.hardware.location.IContextHubClient createClient(int,android.hardware.location.IContextHubClientCallback,java.lang.String,java.lang.String)>
+<android.hardware.location.IContextHubService$Stub$Proxy: android.hardware.location.IContextHubClient createPendingIntentClient(int,android.app.PendingIntent,long,java.lang.String)>
+<android.hardware.location.IContextHubService$Stub$Proxy: android.hardware.location.NanoAppInstanceInfo getNanoAppInstanceInfo(int)>
+<android.hardware.location.IContextHubService$Stub$Proxy: int loadNanoApp(int,android.hardware.location.NanoApp)>
+<android.hardware.location.IContextHubService$Stub$Proxy: int registerCallback(android.hardware.location.IContextHubCallback)>
+<android.hardware.location.IContextHubService$Stub$Proxy: int sendMessage(int,int,android.hardware.location.ContextHubMessage)>
+<android.hardware.location.IContextHubService$Stub$Proxy: int unloadNanoApp(int)>
+<android.hardware.location.IContextHubService$Stub$Proxy: int[] findNanoAppOnHub(int,android.hardware.location.NanoAppFilter)>
+<android.hardware.location.IContextHubService$Stub$Proxy: int[] getContextHubHandles()>
+<android.hardware.location.IContextHubService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.location.IContextHubService$Stub$Proxy: java.util.List getContextHubs()>
+<android.hardware.location.IContextHubService$Stub$Proxy: void disableNanoApp(int,android.hardware.location.IContextHubTransactionCallback,long)>
+<android.hardware.location.IContextHubService$Stub$Proxy: void enableNanoApp(int,android.hardware.location.IContextHubTransactionCallback,long)>
+<android.hardware.location.IContextHubService$Stub$Proxy: void loadNanoAppOnHub(int,android.hardware.location.IContextHubTransactionCallback,android.hardware.location.NanoAppBinary)>
+<android.hardware.location.IContextHubService$Stub$Proxy: void queryNanoApps(int,android.hardware.location.IContextHubTransactionCallback)>
+<android.hardware.location.IContextHubService$Stub$Proxy: void unloadNanoAppFromHub(int,android.hardware.location.IContextHubTransactionCallback,long)>
+<android.hardware.location.IContextHubService$Stub: android.hardware.location.IContextHubService asInterface(android.os.IBinder)>
+<android.hardware.location.IContextHubService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.location.IContextHubService$Stub: void <init>()>

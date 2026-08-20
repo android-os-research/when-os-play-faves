@@ -1,0 +1,13 @@
+# com.samsung.android.mcfserver [NEW]
+# Refs: 15
+# JARs: mcfsdk, semwifi-service, services
+
+<com.android.server.chimera.ChimeraAppClassifier$1: void <init>()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultSystemHandlerPermissions(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.samsung.android.mcf.McfAdapter: long getServiceVersionCode(android.content.Context)>
+<com.samsung.android.mcf.McfContext: boolean a(com.samsung.android.mcf.McfContext$EventListener)>
+<com.samsung.android.mcf.common.Utils: boolean hasNoPermission(android.content.Context,java.lang.String)>
+<com.samsung.android.mcf.common.Utils: boolean isMcfInstalled(android.content.Context)>
+<com.samsung.android.mcf.common.Utils: java.util.ArrayList getServerDeniedPermissions(android.content.Context)>
+<com.samsung.android.mcf.common.Utils: long getMcfVersionCode(android.content.Context)>
+<com.samsung.android.server.wifi.p2p.SemWifiP2pServiceImpl: boolean isAllowedPackageForNextAction(java.lang.String)>

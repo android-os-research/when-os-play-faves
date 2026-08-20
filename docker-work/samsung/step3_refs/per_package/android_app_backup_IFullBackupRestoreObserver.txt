@@ -1,0 +1,15 @@
+# android.app.backup.IFullBackupRestoreObserver [NEW]
+# Refs: 11
+# JARs: framework
+
+<android.app.backup.IFullBackupRestoreObserver$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.backup.IFullBackupRestoreObserver$Stub$Proxy: void onBackupPackage(java.lang.String)>
+<android.app.backup.IFullBackupRestoreObserver$Stub$Proxy: void onEndBackup()>
+<android.app.backup.IFullBackupRestoreObserver$Stub$Proxy: void onEndRestore()>
+<android.app.backup.IFullBackupRestoreObserver$Stub$Proxy: void onRestorePackage(java.lang.String)>
+<android.app.backup.IFullBackupRestoreObserver$Stub$Proxy: void onStartBackup()>
+<android.app.backup.IFullBackupRestoreObserver$Stub$Proxy: void onStartRestore()>
+<android.app.backup.IFullBackupRestoreObserver$Stub$Proxy: void onTimeout()>
+<android.app.backup.IFullBackupRestoreObserver$Stub: android.app.backup.IFullBackupRestoreObserver asInterface(android.os.IBinder)>
+<android.app.backup.IFullBackupRestoreObserver$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.backup.IFullBackupRestoreObserver$Stub: void <init>()>

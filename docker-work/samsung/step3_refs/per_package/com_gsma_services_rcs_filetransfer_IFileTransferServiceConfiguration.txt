@@ -1,0 +1,20 @@
+# com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration [NEW]
+# Refs: 16
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: boolean isAutoAcceptEnabled()>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: boolean isAutoAcceptInRoamingEnabled()>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: boolean isAutoAcceptModeChangeable()>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: boolean isGroupFileTransferSupported()>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: int getImageResizeOption()>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: int getMaxFileTransfers()>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: long getMaxAudioMessageLength()>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: long getMaxSize()>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: long getWarnSize()>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: void setAutoAccept(boolean)>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: void setAutoAcceptInRoaming(boolean)>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub$Proxy: void setImageResizeOption(int)>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub: com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.filetransfer.IFileTransferServiceConfiguration$Stub: void <init>()>

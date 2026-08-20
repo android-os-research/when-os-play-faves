@@ -1,0 +1,9 @@
+# android.media.IMediaScannerListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.IMediaScannerListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IMediaScannerListener$Stub$Proxy: void scanCompleted(java.lang.String,android.net.Uri)>
+<android.media.IMediaScannerListener$Stub: android.media.IMediaScannerListener asInterface(android.os.IBinder)>
+<android.media.IMediaScannerListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IMediaScannerListener$Stub: void <init>()>

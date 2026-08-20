@@ -1,0 +1,9 @@
+# com.samsung.android.knox.permission.KNOX_LDAP [NEW]
+# Refs: 5
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.email.LDAPAccountPolicy: com.samsung.android.knox.ContextInfo enforceLDAPPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.email.LDAPAccountPolicy: void <init>(android.content.Context)>
+<com.android.server.enterprise.email.LDAPAccountPolicy: void sendBroadcastCreateLDAPAcctResultIntent(int,int,long)>
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

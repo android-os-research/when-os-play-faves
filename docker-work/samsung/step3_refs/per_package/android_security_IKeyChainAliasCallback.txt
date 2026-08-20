@@ -1,0 +1,9 @@
+# android.security.IKeyChainAliasCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.security.IKeyChainAliasCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.security.IKeyChainAliasCallback$Stub$Proxy: void alias(java.lang.String)>
+<android.security.IKeyChainAliasCallback$Stub: android.security.IKeyChainAliasCallback asInterface(android.os.IBinder)>
+<android.security.IKeyChainAliasCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.security.IKeyChainAliasCallback$Stub: void <init>()>

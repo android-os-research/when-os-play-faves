@@ -1,0 +1,16 @@
+# android.view.accessibility.IWindowMagnificationConnection [NEW]
+# Refs: 12
+# JARs: framework
+
+<android.view.accessibility.IWindowMagnificationConnection$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.accessibility.IWindowMagnificationConnection$Stub$Proxy: void disableWindowMagnification(int,android.view.accessibility.IRemoteMagnificationAnimationCallback)>
+<android.view.accessibility.IWindowMagnificationConnection$Stub$Proxy: void enableWindowMagnification(int,float,float,float,float,float,android.view.accessibility.IRemoteMagnificationAnimationCallback)>
+<android.view.accessibility.IWindowMagnificationConnection$Stub$Proxy: void moveWindowMagnifier(int,float,float)>
+<android.view.accessibility.IWindowMagnificationConnection$Stub$Proxy: void moveWindowMagnifierToPosition(int,float,float,android.view.accessibility.IRemoteMagnificationAnimationCallback)>
+<android.view.accessibility.IWindowMagnificationConnection$Stub$Proxy: void removeMagnificationButton(int)>
+<android.view.accessibility.IWindowMagnificationConnection$Stub$Proxy: void setConnectionCallback(android.view.accessibility.IWindowMagnificationConnectionCallback)>
+<android.view.accessibility.IWindowMagnificationConnection$Stub$Proxy: void setScale(int,float)>
+<android.view.accessibility.IWindowMagnificationConnection$Stub$Proxy: void showMagnificationButton(int,int)>
+<android.view.accessibility.IWindowMagnificationConnection$Stub: android.view.accessibility.IWindowMagnificationConnection asInterface(android.os.IBinder)>
+<android.view.accessibility.IWindowMagnificationConnection$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.accessibility.IWindowMagnificationConnection$Stub: void <init>()>

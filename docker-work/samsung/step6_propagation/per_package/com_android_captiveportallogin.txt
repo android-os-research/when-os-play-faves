@@ -1,0 +1,22 @@
+######################################################################
+# Propagation: com.android.captiveportallogin
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.firewall.FirewallUtils
+  Method:   <com.android.server.enterprise.firewall.FirewallUtils: void <clinit>()>
+  Line:     24
+  Register: v4 := "com.android.captiveportallogin"
+  Usage:    [] 
+  Patterns: early_return
+

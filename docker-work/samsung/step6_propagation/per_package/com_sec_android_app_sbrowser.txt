@@ -1,0 +1,704 @@
+######################################################################
+# Propagation: com.sec.android.app.sbrowser
+######################################################################
+
+JARs:                 framework, knoxsdk, services
+Classes:              13
+Occurrences:          14
+Usage types:          array_init, field_store, invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.sec.enterprise.proxy.EnterpriseProxyConstants$1
+  Method:   <android.sec.enterprise.proxy.EnterpriseProxyConstants$1: void <init>()>
+  Line:     38
+  Register: v0 := "com.sec.android.app.sbrowser"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Landroid/sec/enterprise/proxy/EnterpriseProxyConstants$1;->add(Ljava/lang/O
+  Patterns: early_return
+  Flow:     [invoke] android.sec.enterprise.proxy.EnterpriseProxyConstants$1.add(
+
+  CALLERS (who invokes this method):
+      ← <android.sec.enterprise.proxy.EnterpriseProxyConstants: void
+
+  CALLEES (what this method invokes):
+      → EnterpriseProxyConstants$1.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1334
+  Register: v42 := "com.sec.android.app.sbrowser"
+  Usage:    [array_init] filled-new-array/range {v5 .. v42}, [Ljava/lang/String;
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.application.ApplicationPolicy
+  Method:   <com.samsung.android.knox.application.ApplicationPolicy: void disableAndroidBrowser()>
+  Line:     26170
+  Register: v0 := "com.sec.android.app.sbrowser"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/samsung/android/knox/application/ApplicationPolicy;->setApplicatio
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.application.ApplicationPolicy.setAp → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → ApplicationPolicy.setApplicationState()
+      → ApplicationPolicy.logUsage()
+        → AccessController.throwIfParentInstance()
+        → ApplicationPolicy.getService()
+        → IApplicationPolicy.setApplicationState()
+        → EnterpriseLicenseManager.log()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → ServiceManager.getService()
+          → IApplicationPolicy$Stub.asInterface()
+          → EnterpriseLicenseManager.getService()
+          → IEnterpriseLicense.log()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.application.IApplicationPolicy$Stu
+            → IEnterpriseLicense$Stub.asInterface()
+              → <com.samsung.android.knox.license.IEnterpriseLicense$Stub$Pr
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.application.ApplicationPolicy
+  Method:   <com.samsung.android.knox.application.ApplicationPolicy: void enableAndroidBrowser()>
+  Line:     28460
+  Register: v0 := "com.sec.android.app.sbrowser"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/samsung/android/knox/application/ApplicationPolicy;->setApplicatio
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.application.ApplicationPolicy.setAp → [reassigned] v0 overwritten
+
+  CALLEES (what this method invokes):
+      → ApplicationPolicy.setApplicationState()
+      → ApplicationPolicy.logUsage()
+        → AccessController.throwIfParentInstance()
+        → ApplicationPolicy.getService()
+        → IApplicationPolicy.setApplicationState()
+        → EnterpriseLicenseManager.log()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → ServiceManager.getService()
+          → IApplicationPolicy$Stub.asInterface()
+          → EnterpriseLicenseManager.getService()
+          → IEnterpriseLicense.log()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.application.IApplicationPolicy$Stu
+            → IEnterpriseLicense$Stub.asInterface()
+              → <com.samsung.android.knox.license.IEnterpriseLicense$Stub$Pr
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+  Line:     3531
+  Register: v5 := "com.sec.android.app.sbrowser"
+  Usage:    [invoke] invoke-virtual {v5, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.DualAppManagerService.isInstalledWhitelis → [other] move-result v2 → [branch] if-eqz v2, :co
+
+  CALLERS (who invokes this method):
+      ← DualAppManagerService.startDAChooserActivity()
+      ← ActivityStartController.startActivityInPackage()
+        ← ActivityTaskManagerService.startActivityAsUser()
+        ← ActivityTaskManagerService$LocalService.startActivityInPackage()
+        ← ActivityTaskSupervisor.startActivityFromRecents()
+        ← DexCompatController.startActivityAsToggleFreeform()
+          ← <com.android.server.wm.ActivityTaskManagerService: int -$$Ne
+          ← ActivityTaskManagerService.startActivityAsUser()
+          ← ActivityTaskManagerService.startActivityFromRecents()
+          ← AppTaskImpl.moveToFront()
+          ← <com.android.server.wm.RestartAppPolicy: void lambda$restart
+          ← <com.android.server.wm.WindowOrganizerController: int lambda
+          ← <com.android.server.wm.DexCompatController: void -$$Nest$mst
+            ← ActivityTaskManagerService$LocalService.startActivityAsUser()
+            ← ActivityManagerService.startActivityAsUserWithFeature()
+            ← ActivityTaskManagerService.startActivity()
+            ← ActivityTaskManagerServiceExt.startAppLockActivity()
+            ← AppContinuityGuideConfirmDialog$ClingWindowView.startSettingActivity()
+            ← ActivityManagerService.startActivityFromRecents()
+            ← DexController.bringTaskToForeground()
+            ← DexMetaKeyPolicy$MetaKeyBoundsProvider.applyBounds()
+            ← <com.android.server.wm.StartActivityFromRecentsInfo: void la
+            ← <com.android.server.wm.RestartAppPolicy: void $r8$lambda$VPi
+            ← <com.android.server.wm.WindowOrganizerController: int $r8$la
+            ← DexCompatController$H.handleMessage()
+              ← ActivityManagerService.startActivityAsUser()
+              ← ActivityManagerShellCommand.runStartActivity()
+              ← ActivityManagerService.startActivity()
+              ← ActivityManagerService.startActivityWithFeature()
+              ← ActivityTaskManagerService.setResumedActivityUncheckLocked()
+              ← KeyguardController.keyguardGoingAway()
+              ← <com.android.server.wm.AppContinuityGuideConfirmDialog$Cling
+              ← AppErrors.crashApplicationInner()
+              ← ActivityTaskManagerService$LocalService.bringTaskToForeground()
+              ← DexMetaKeyPolicy.handleMetaKeyEvent()
+              ← <com.android.server.wm.StartActivityFromRecentsInfo: void $r
+              ← RestartAppPolicy$$ExternalSyntheticLambda0.run()
+              ← WindowOrganizerController$$ExternalSyntheticLambda10.getAsInt()
+
+  CALLEES (what this method invokes):
+      → ComponentName.equals()
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getString()
+      → Intent.getComponent()
+      → Intent.addFlags()
+      → Intent.createChooser()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → Intent.getData()
+      → Intent.hasCategory()
+      → Intent.getAction()
+      → Intent.getDataString()
+      → Intent.getPackage()
+      → Intent.getType()
+      → <android.content.Intent: void <init>()>
+      → Uri.getScheme()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Log.d()
+      → DualAppManagerService.isInstalledWhitelistedPackageInternal()
+      → DualAppManagerService.mayForwardShare()
+      → DualAppManagerService.changeUriForDualApp()
+      → SemDualAppManager.isChinaDualApp()
+      → SemDualAppManager.isChooserRequired()
+      → SemDualAppManager.isDualAppId()
+      → Exception.printStackTrace()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+      → List.size()
+      → List.toArray()
+        → Log.println_native()
+        → Log.e()
+        → HashMap.containsKey()
+        → Intent.putExtra()
+        → Intent.setAction()
+        → Intent.getExtras()
+        → Intent.clone()
+        → Bundle.getParcelable()
+        → TextUtils.isEmpty()
+        → DualAppManagerService.hasExternalAppDirPath()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → ClipData.fixUris()
+        → ContentProvider.maybeAddUserId()
+        → Intent.getClipData()
+        → Intent.putExtra()
+        → Intent.setDataAndType()
+        → Intent.getExtra()
+        → Intent.getParcelableArrayListExtra()
+        → SemDualAppManager.shouldAddUserId()
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+          → CharSequence.length()
+          → ClipData.collectUris()
+          → Uri.getPath()
+          → List.iterator()
+          → Intent.fixUris()
+          → ArrayList.get()
+          → Uri.getAuthority()
+            → ClipData$Item.getIntent()
+            → ClipData$Item.getUri()
+            → ClipData.getItemAt()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.BGProtectManager
+  Method:   <com.android.server.am.BGProtectManager: int isWebviewProcess(com.android.server.am.ProcessRecord)>
+  Line:     1544
+  Register: v0 := "com.sec.android.app.sbrowser"
+  Usage:    [invoke] invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← BGProtectManager.resetKillExceptFlag()
+      ← BGProtectManager.setLmkdProtectFlag()
+        ← DynamicHiddenApp.resetKillExceptFlag()
+        ← DynamicHiddenApp.setLmkdProtectFlagAndCameraProc()
+          ← ActivityManagerService$26.run()
+          ← ProcessList.handleProcessStartedLocked()
+            ← ActivityManagerService.attachApplicationLocked()
+            ← ProcessList.handleProcessStartedLocked()
+            ← ProcessList.startProcessLocked()
+              ← ActivityManagerService.attachApplication()
+              ← <com.android.server.am.ProcessList: void lambda$handleProces
+              ← ProcessList.startProcessLocked()
+
+  CALLEES (what this method invokes):
+      → HostingRecord.usesWebviewZygote()
+      → HostingRecord.getName()
+      → ProcessRecord.getHostingRecord()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DesktopModeKillPolicyManager
+  Method:   <com.android.server.desktopmode.DesktopModeKillPolicyManager: void <clinit>()>
+  Line:     90
+  Register: v1 := "com.sec.android.app.sbrowser"
+  Usage:    [invoke] invoke-static/range {v1 .. v8}, Ljava/util/Set;->of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/O
+  Patterns: early_return
+  Flow:     [invoke] java.util.Set.of()
+
+  CALLEES (what this method invokes):
+      → Set.of()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.hardware.display.AdaptiveDisplayColorService
+  Method:   <com.samsung.android.hardware.display.AdaptiveDisplayColorService: void <init>(android.content.Context)>
+  Line:     759
+  Register: v14 := "com.sec.android.app.sbrowser"
+  Usage:    [field_store] iput-object v14, v0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->SBROWSER_NA
+  Patterns: string_compare, early_return
+  Flow:     [other] filled-new-array/range {v15 .. v23}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.hardware.display.SemMdnieManagerService
+
+  CALLEES (what this method invokes):
+      → ActivityManagerNative.getDefault()
+      → IActivityManager.registerProcessObserver()
+      → ContentResolver.registerContentObserver()
+      → Context.getContentResolver()
+      → Context.registerReceiver()
+      → Context.getPackageManager()
+      → Context.getResources()
+      → Context.getSystemService()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → PackageManager.hasSystemFeature()
+      → Resources.getBoolean()
+      → Resources.getInteger()
+      → Resources.getIntArray()
+      → Resources.getStringArray()
+      → SensorManager.getDefaultSensor()
+      → <android.hardware.SystemSensorManager: void <init>(android.c
+      → SContextManager.isAvailableService()
+      → Handler.getLooper()
+      → HandlerThread.getLooper()
+      → <android.os.HandlerThread: void <init>(java.lang.String)>
+      → HandlerThread.start()
+      → Settings$System.getUriFor()
+      → <com.samsung.android.cover.CoverManager: void <init>(android
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+      → AdaptiveDisplayColorService.setting_is_changed()
+        → ActivityManager.getService()
+        → Sensor.isWakeUpSensor()
+        → SensorManager.getSensorList()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.size()
+        → List.get()
+        → List.iterator()
+        → Context.getApplicationInfo() [PKG_QUERY]
+        → Context.getOpPackageName()
+        → Sensor.getHandle()
+        → <android.hardware.Sensor: void <init>()>
+        → <android.hardware.SensorManager: void <init>()>
+        → SystemSensorManager.nativeGetSensorAtIndex()
+        → SystemSensorManager.nativeCreate()
+        → SystemSensorManager.nativeClassInit()
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+        → HashMap.put()
+        → <java.util.HashMap: void <init>()>
+        → Optional.empty()
+        → SemContextManager.isAvailableService()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <java.lang.Thread: void <init>(java.lang.String)>
+        → <android.os.Binder: void <init>()>
+        → CoverManager.initSystemFeature()
+        → <java.util.concurrent.CopyOnWriteArrayList: void <init>()>
+        → <android.app.IProcessObserver$Stub: void <init>()>
+        → <com.samsung.android.cover.CoverManager$StateListener: void 
+        → <android.os.Handler: void <init>(android.os.Looper,android.o
+        → <com.samsung.android.hardware.display.AdaptiveDisplayColorSe
+        → <android.database.ContentObserver: void <init>(android.os.Ha
+        → IProcessObserver.onForegroundActivitiesChanged()
+        → Settings$System.getInt()
+        → CoverManager.registerListener()
+        → CoverManager.unregisterListener()
+        → AdaptiveDisplayColorService.enableRgbSensor()
+          → Sensor.getType()
+          → SensorManager.getFullSensorList()
+          → SparseArray.get()
+          → SparseArray.append()
+          → Collections.unmodifiableList()
+          → List.add()
+          → <android.util.SparseArray: void <init>()>
+          → SystemProperties.get()
+          → SemContextManager.getAvailableServiceMap()
+          → Map.containsKey()
+          → <android.os.Binder: void <init>(java.lang.String)>
+          → IProcessObserver$Stub.attachInterface()
+          → <android.content.BroadcastReceiver: void <init>()>
+          → <android.content.ComponentName: void <init>(java.lang.String
+          → Context.getPackageName()
+          → Process.myUid()
+          → CoverListenerDelegate.getListener()
+          → <com.samsung.android.cover.CoverListenerDelegate: void <init
+          → CoverManager.isSupportCover()
+          → CoverManager.getService()
+          → ICoverManager.registerCallback()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → CopyOnWriteArrayList.add()
+          → CopyOnWriteArrayList.iterator()
+          → ICoverManager.unregisterCallback()
+          → CopyOnWriteArrayList.remove()
+          → SensorManager.registerListener()
+          → SensorManager.unregisterListener()
+          → <android.hardware.scontext.SContextEnvironmentAdaptiveDispla
+          → SContextManager.registerListener()
+          → SContextManager.unregisterListener()
+          → Handler.removeMessages()
+          → AdaptiveDisplayColorService.initRgbAverage()
+          → File.exists()
+          → <java.io.File: void <init>(java.lang.String)>
+            → SparseArray.get()
+            → SparseArray.gc()
+            → SparseArray.put()
+            → GrowingArrayUtils.append()
+            → GrowingArrayUtils.append()
+            → <android.util.SparseArray: void <init>(int)>
+            → ISemContextService.getAvailableServiceMap()
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+            → Context.getMainLooper()
+            → <com.samsung.android.cover.CoverListenerDelegate$ListenerDel
+            → <com.samsung.android.cover.ICoverManagerCallback$Stub: void 
+            → ServiceManager.getService()
+            → ICoverManager$Stub.asInterface()
+            → SensorManager.registerListenerImpl()
+            → SensorManager.getDelay()
+            → SensorManager.unregisterListenerImpl()
+            → <android.hardware.scontext.SContextAttribute: void <init>()>
+            → SContextEnvironmentAdaptiveDisplayAttribute.setAttribute()
+            → SContextManager.addListenerAttribute()
+            → SContextManager.registerListener()
+            → SContext.getServiceName()
+            → SContextManager.getListenerDelegate()
+            → SContextManager.checkListenerAndService()
+            → SemContextManager.unregisterListener()
+              → ContainerHelpers.binarySearch()
+              → GrowingArrayUtils.insert()
+              → GrowingArrayUtils.insert()
+              → ArrayUtils.newUnpaddedObjectArray()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → ICoverManagerCallback$Stub.attachInterface()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.cover.ICoverManager$Stub$Proxy: void <i
+              → <com.samsung.android.hardware.context.SemContextAttribute: v
+              → SContextAttribute.setAttribute()
+              → Bundle.getFloat()
+              → Bundle.getInt()
+              → <android.os.Bundle: void <init>()>
+              → Bundle.putFloat()
+              → Bundle.putInt()
+              → <android.hardware.scontext.SContextActivityCalibrationAttrib
+              → <android.hardware.scontext.SContextActivityLocationLoggingAt
+              → <android.hardware.scontext.SContextActivityNotificationAttri
+              → <android.hardware.scontext.SContextActivityNotificationExAtt
+              → <android.hardware.scontext.SContextApproachAttribute: void <
+              → <android.hardware.scontext.SContextAutoBrightnessAttribute: 
+              → <android.hardware.scontext.SContextAutoRotationAttribute: vo
+              → <android.hardware.scontext.SContextDevicePhysicalContextMoni
+              → <android.hardware.scontext.SContextEnvironmentAttribute: voi
+              → <android.hardware.scontext.SContextExerciseAttribute: void <
+              → <android.hardware.scontext.SContextFlatMotionForTableModeAtt
+              → <android.hardware.scontext.SContextInactiveTimerAttribute: v
+              → <android.hardware.scontext.SContextMovementForPositioningAtt
+              → <android.hardware.scontext.SContextPedometerAttribute: void 
+              → <android.hardware.scontext.SContextSLocationCoreAttribute: v
+              → <android.hardware.scontext.SContextShakeMotionAttribute: voi
+              → <android.hardware.scontext.SContextSleepMonitorAttribute: vo
+              → <android.hardware.scontext.SContextSpecificPoseAlertAttribut
+              → <android.hardware.scontext.SContextStepCountAlertAttribute: 
+              → <android.hardware.scontext.SContextStepLevelMonitorAttribute
+              → <android.hardware.scontext.SContextTemperatureAlertAttribute
+              → SContextAttribute.checkAttribute()
+              → <android.hardware.scontext.SContextManager$SContextListenerD
+              → SContextManager.setReferenceData()
+              → SemContextManager.registerListener()
+              → SemContextManager.setClientInfo()
+              → SContextManager$SContextListenerDelegate.getListener()
+              → CopyOnWriteArrayList.isEmpty()
+              → ISemContextService.unregisterCallback()
+              → SemContext.getServiceName()
+              → SemContextManager$ListenerDelegate.clear()
+              → SemContextManager.checkListenerAndService()
+              → SemContextManager.getListenerDelegate()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: java.lang.Integer lambda$setBrowserHomepage$59(java.lang.String)>
+  Line:     9270
+  Register: p1 := "com.sec.android.app.sbrowser"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: (none)
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] new-instance p1, Landroid/os/UserHandle; → [invoke] android.os.Us
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.custom.KnoxCustomManagerService: j
+        ← KnoxCustomManagerService$$ExternalSyntheticLambda99.getOrThrow()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.os.UserHandle: void <init>(int)>
+      → SemCscFeature.getBoolean()
+      → SemCscFeature.getInstance()
+        → Hashtable.get()
+        → <com.samsung.android.feature.SemCscFeature: void <init>()>
+          → SystemProperties.get()
+          → SemCscFeature.loadFeatureFile()
+          → Exception.toString()
+          → <java.util.Hashtable: void <init>()>
+            → SemCscFeature.loadFeatureFile()
+              → TextUtils.isEmpty()
+              → SemCscFeature.isElementWithCountryISO()
+              → SemCscFeature.isXmlEncoded()
+              → SemCscFeature.needToSkipElement()
+              → SemCscFeature.decode()
+              → <java.io.ByteArrayInputStream: void <init>(byte[])>
+              → File.exists()
+              → File.length()
+              → <java.io.File: void <init>(java.lang.String)>
+              → <java.io.FileInputStream: void <init>(java.io.File)>
+              → FileNotFoundException.toString()
+              → IOException.toString()
+              → InputStream.available()
+              → InputStream.read()
+              → InputStream.close()
+              → Map.put()
+              → Map.clear()
+              → XmlPullParser.getEventType()
+              → XmlPullParser.next()
+              → XmlPullParser.getName()
+              → XmlPullParser.getText()
+              → XmlPullParser.setInput()
+              → XmlPullParserException.toString()
+              → XmlPullParserFactory.newPullParser()
+              → XmlPullParserFactory.newInstance()
+              → XmlPullParserFactory.setNamespaceAware()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.WindowProcessController
+  Method:   <com.android.server.wm.WindowProcessController: void <clinit>()>
+  Line:     256
+  Register: v2 := "com.sec.android.app.sbrowser"
+  Usage:    [array_init] filled-new-array {v1, v2, v3}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.smartcard.SmartCardBrowserPolicy
+  Method:   <com.android.server.enterprise.smartcard.SmartCardBrowserPolicy: void broadcastIntentAsUser(boolean,int,int)>
+  Line:     121
+  Register: v1 := "com.sec.android.app.sbrowser"
+  Usage:    [invoke] invoke-virtual {p2, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] move-result-wide v0 → [invoke] android.os.Binder.restoreCallingId
+
+  CALLERS (who invokes this method):
+      ← SmartCardBrowserPolicy.disableAuthentication()
+      ← SmartCardBrowserPolicy.enableAuthentication()
+      ← SmartCardBrowserPolicy.onAdminRemoved()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <android.os.UserHandle: void <init>(int)>
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.certificate.CertificatePolicy
+  Method:   <com.android.server.enterprise.certificate.CertificatePolicy: boolean setPrivateKeyGrant(java.lang.String,int,java.lang.String,java.lang.String,boolean)>
+  Line:     7231
+  Register: p0 := "com.sec.android.app.sbrowser"
+  Usage:    [invoke] invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-exception p0 → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← CertificatePolicy.addPermissionApplicationPrivateKey()
+      ← CertificatePolicy.clearPermissionApplicationPrivateKey()
+      ← CertificatePolicy.removePermissionApplicationPrivateKey()
+        ← CertificatePolicy.clearPermissionApplicationPrivateKey()
+
+  CALLEES (what this method invokes):
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <android.os.UserHandle: void <init>(int)>
+      → IKeyChainService.setGrant()
+      → KeyChain$KeyChainConnection.getService()
+      → KeyChain$KeyChainConnection.close()
+      → KeyChain.bindAsUser()
+      → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+      → PackageManagerAdapter.getInstance()
+      → UniversalCredentialUtil$UcmUriBuilder.setAlias()
+      → UniversalCredentialUtil$UcmUriBuilder.setResourceId()
+      → UniversalCredentialUtil$UcmUriBuilder.setUid()
+      → UniversalCredentialUtil$UcmUriBuilder.build()
+      → <com.samsung.android.knox.ucm.core.UniversalCredentialUtil$U
+        → Context.unbindService()
+        → KeyChain.bindAsUser()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Exception.printStackTrace()
+        → IPackageManager$Stub.asInterface()
+        → ServiceManager.getService()
+        → <com.android.server.enterprise.adapterlayer.PackageManagerAd
+        → <java.lang.NullPointerException: void <init>(java.lang.Strin
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → Uri$Builder.build()
+        → Uri$Builder.appendPath()
+        → Uri$Builder.authority()
+        → Uri$Builder.path()
+        → Uri$Builder.scheme()
+        → <android.net.Uri$Builder: void <init>()>
+        → Uri.toString()
+        → Process.myUid()
+        → ContextInfo$$ExternalSyntheticOutline0.m()
+          → Context.getPackageManager()
+          → Context.bindServiceAsUser()
+          → Context.bindServiceAsUser()
+          → Intent.resolveSystemService()
+          → Intent.setComponent()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → UserManager.get()
+          → UserManager.isUserUnlocked()
+          → <android.security.KeyChain$1: void <init>(java.util.concurre
+          → <android.security.KeyChain$KeyChainConnection: void <init>(a
+          → KeyChain.ensureNotOnMainThread()
+          → <java.lang.AssertionError: void <init>(java.lang.Object)>
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → <java.util.concurrent.CountDownLatch: void <init>(int)>
+          → CountDownLatch.await()
+          → AtomicReference.get()
+          → <java.util.concurrent.atomic.AtomicReference: void <init>()>
+          → Uri$Builder.hasSchemeOrAuthority()
+          → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+          → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+          → Uri$PathPart.makeAbsolute()
+          → <java.lang.UnsupportedOperationException: void <init>(java.l
+          → Uri$Builder.path()
+          → Uri$PathPart.appendDecodedSegment()
+          → Uri$Builder.authority()
+          → Uri$Part.fromDecoded()
+          → Uri$PathPart.fromDecoded()
+            → Context.getMainLooper()
+            → Looper.myLooper()
+            → <android.net.Uri$HierarchicalUri: void <init>(java.lang.Stri
+            → <android.net.Uri$OpaqueUri: void <init>(java.lang.String,and
+            → <android.net.Uri$PathPart: void <init>(java.lang.String,java
+            → Uri$PathPart.appendEncodedSegment()
+            → Uri.encode()
+            → Uri$Part.from()
+            → Uri$PathPart.from()
+              → ThreadLocal.get()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+              → Uri$Part.nonNull()
+              → <android.net.Uri: void <init>(android.net.Uri-IA)>
+              → <android.net.Uri$AbstractPart: void <init>(java.lang.String,
+              → Uri$PathPart.fromEncoded()
+              → Uri$PathPart.getEncoded()
+              → Uri.encode()
+              → <android.net.Uri$Part: void <init>(java.lang.String,java.lan
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnConstants
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnConstants: void <clinit>()>
+  Line:     508
+  Register: v2 := "com.sec.android.app.sbrowser"
+  Usage:    [array_init] filled-new-array {v0, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v2, v4, v6, v7}, [Ljava/lang/String;
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.dar.sdp.engine.SdpServiceKeeper
+  Method:   <com.android.server.knox.dar.sdp.engine.SdpServiceKeeper: void initWhitelist()>
+  Line:     734
+  Register: v0 := "com.sec.android.app.sbrowser"
+  Usage:    [invoke] invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.List.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.knox.dar.sdp.engine.SdpServiceKeeper: vo
+        ← <com.android.server.knox.dar.sdp.SdpManagerImpl: void <init>
+        ← SdpServiceKeeper.getInstance()
+
+  CALLEES (what this method invokes):
+      → List.add()
+

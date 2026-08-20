@@ -1,0 +1,8 @@
+# gsm.sim.operator.alpha [NEW]
+# Refs: 4
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.List icc_operator_alpha()>
+<android.internal.telephony.sysprop.TelephonyProperties: void icc_operator_alpha(java.util.List)>
+<android.sysprop.TelephonyProperties: java.util.List icc_operator_alpha()>
+<android.sysprop.TelephonyProperties: void icc_operator_alpha(java.util.List)>

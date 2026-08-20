@@ -1,0 +1,6 @@
+# android.hardware.display.category.PRESENTATION [NEW]
+# Refs: 2
+# JARs: framework, uibc_java
+
+<android.media.MediaRouter$Static: android.view.Display[] getAllPresentationDisplays()>
+<com.samsung.android.wfd.WFDMode: android.view.Display getPresentationDisplay()>

@@ -1,0 +1,11 @@
+# android.os.IExternalVibratorService [NEW]
+# Refs: 7
+# JARs: framework
+
+<android.os.IExternalVibratorService$Stub$Proxy: boolean shouldIgnoreExternalVibrationLocked(int,int,int,int)>
+<android.os.IExternalVibratorService$Stub$Proxy: int onExternalVibrationStart(android.os.ExternalVibration)>
+<android.os.IExternalVibratorService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IExternalVibratorService$Stub$Proxy: void onExternalVibrationStop(android.os.ExternalVibration)>
+<android.os.IExternalVibratorService$Stub: android.os.IExternalVibratorService asInterface(android.os.IBinder)>
+<android.os.IExternalVibratorService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IExternalVibratorService$Stub: void <init>()>

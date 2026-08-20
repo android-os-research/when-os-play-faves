@@ -1,0 +1,23 @@
+######################################################################
+# Propagation: com.google.android.syncadapters.calendar
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          array_init
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.google.ChinaGmsToggleUtils
+  Method:   <com.samsung.android.server.pm.google.ChinaGmsToggleUtils: void <clinit>()>
+  Line:     32
+  Register: v2 := "com.google.android.syncadapters.calendar"
+  Usage:    [array_init] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+

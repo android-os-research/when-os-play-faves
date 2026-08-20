@@ -1,0 +1,10 @@
+# android.hardware.ISerialManager [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.hardware.ISerialManager$Stub$Proxy: android.os.ParcelFileDescriptor openSerialPort(java.lang.String)>
+<android.hardware.ISerialManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.ISerialManager$Stub$Proxy: java.lang.String[] getSerialPorts()>
+<android.hardware.ISerialManager$Stub: android.hardware.ISerialManager asInterface(android.os.IBinder)>
+<android.hardware.ISerialManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.ISerialManager$Stub: void <init>()>

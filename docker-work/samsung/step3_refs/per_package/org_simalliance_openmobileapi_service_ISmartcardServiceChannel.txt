@@ -1,0 +1,14 @@
+# org.simalliance.openmobileapi.service.ISmartcardServiceChannel [NEW]
+# Refs: 10
+# JARs: org.simalliance.openmobileapi
+
+<org.simalliance.openmobileapi.service.ISmartcardServiceChannel$Stub$Proxy: boolean isBasicChannel()>
+<org.simalliance.openmobileapi.service.ISmartcardServiceChannel$Stub$Proxy: boolean isClosed()>
+<org.simalliance.openmobileapi.service.ISmartcardServiceChannel$Stub$Proxy: boolean selectNext(org.simalliance.openmobileapi.service.SmartcardError)>
+<org.simalliance.openmobileapi.service.ISmartcardServiceChannel$Stub$Proxy: byte[] getSelectResponse()>
+<org.simalliance.openmobileapi.service.ISmartcardServiceChannel$Stub$Proxy: byte[] transmit(byte[],org.simalliance.openmobileapi.service.SmartcardError)>
+<org.simalliance.openmobileapi.service.ISmartcardServiceChannel$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<org.simalliance.openmobileapi.service.ISmartcardServiceChannel$Stub$Proxy: void close(org.simalliance.openmobileapi.service.SmartcardError)>
+<org.simalliance.openmobileapi.service.ISmartcardServiceChannel$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<org.simalliance.openmobileapi.service.ISmartcardServiceChannel$Stub: org.simalliance.openmobileapi.service.ISmartcardServiceChannel asInterface(android.os.IBinder)>
+<org.simalliance.openmobileapi.service.ISmartcardServiceChannel$Stub: void <init>()>

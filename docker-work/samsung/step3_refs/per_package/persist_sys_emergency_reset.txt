@@ -1,0 +1,8 @@
+# persist.sys.emergency_reset [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.BootReceiver: boolean isNotRescueParty()>
+<com.android.server.RescueParty: boolean isDisabled()>
+<com.android.server.am.ActivityManagerService: void showRescuePartyDialog()>
+<com.android.server.wm.WindowManagerService: boolean detectSafeMode()>

@@ -1,0 +1,9 @@
+# android.hardware.input.IInputDevicesChangedListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.input.IInputDevicesChangedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.input.IInputDevicesChangedListener$Stub$Proxy: void onInputDevicesChanged(int[])>
+<android.hardware.input.IInputDevicesChangedListener$Stub: android.hardware.input.IInputDevicesChangedListener asInterface(android.os.IBinder)>
+<android.hardware.input.IInputDevicesChangedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.input.IInputDevicesChangedListener$Stub: void <init>()>

@@ -1,0 +1,5 @@
+# persist.sys.max_profiles [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.pm.UserManagerService: int getMaxUsersOfTypePerParent(com.android.server.pm.UserTypeDetails)>

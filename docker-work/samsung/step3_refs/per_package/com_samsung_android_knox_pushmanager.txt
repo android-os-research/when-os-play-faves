@@ -1,0 +1,6 @@
+# com.samsung.android.knox.pushmanager [NEW]
+# Refs: 2
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.license.EnterpriseLicenseService: void sendDeviceRegistrationIntentToKpmAgent(java.lang.String,java.lang.String)>
+<com.samsung.android.knox.kpm.KnoxPushService: boolean bindService()>

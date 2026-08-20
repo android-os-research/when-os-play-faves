@@ -1,0 +1,7 @@
+# android.app.ambientcontext.AmbientContextDetectionResultBundleKey [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.service.ambientcontext.AmbientContextDetectionService$1: void lambda$startDetection$0(android.os.RemoteCallback,android.service.ambientcontext.AmbientContextDetectionResult)>
+<com.android.server.ambientcontext.AmbientContextManagerPerUserService: void lambda$createDetectionResultRemoteCallback$1(android.os.Bundle)>
+<com.android.server.ambientcontext.AmbientContextShellCommand$TestableCallbackInternal: void lambda$createRemoteDetectionResultCallback$0(android.os.Bundle)>

@@ -1,0 +1,19 @@
+# android.os.IThermalService [NEW]
+# Refs: 15
+# JARs: framework
+
+<android.os.IThermalService$Stub$Proxy: android.os.CoolingDevice[] getCurrentCoolingDevices()>
+<android.os.IThermalService$Stub$Proxy: android.os.CoolingDevice[] getCurrentCoolingDevicesWithType(int)>
+<android.os.IThermalService$Stub$Proxy: android.os.Temperature[] getCurrentTemperatures()>
+<android.os.IThermalService$Stub$Proxy: android.os.Temperature[] getCurrentTemperaturesWithType(int)>
+<android.os.IThermalService$Stub$Proxy: boolean registerThermalEventListener(android.os.IThermalEventListener)>
+<android.os.IThermalService$Stub$Proxy: boolean registerThermalEventListenerWithType(android.os.IThermalEventListener,int)>
+<android.os.IThermalService$Stub$Proxy: boolean registerThermalStatusListener(android.os.IThermalStatusListener)>
+<android.os.IThermalService$Stub$Proxy: boolean unregisterThermalEventListener(android.os.IThermalEventListener)>
+<android.os.IThermalService$Stub$Proxy: boolean unregisterThermalStatusListener(android.os.IThermalStatusListener)>
+<android.os.IThermalService$Stub$Proxy: float getThermalHeadroom(int)>
+<android.os.IThermalService$Stub$Proxy: int getCurrentThermalStatus()>
+<android.os.IThermalService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IThermalService$Stub: android.os.IThermalService asInterface(android.os.IBinder)>
+<android.os.IThermalService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IThermalService$Stub: void <init>()>

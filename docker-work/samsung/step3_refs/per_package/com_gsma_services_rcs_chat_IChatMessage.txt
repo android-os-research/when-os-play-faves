@@ -1,0 +1,23 @@
+# com.gsma.services.rcs.chat.IChatMessage [NEW]
+# Refs: 19
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: boolean isExpiredDelivery()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: boolean isRead()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: com.gsma.services.rcs.contact.ContactId getContact()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: int getDirection()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: int getReasonCode()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: int getStatus()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: java.lang.String getChatId()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: java.lang.String getContent()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: java.lang.String getId()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: java.lang.String getMaapTrafficType()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: java.lang.String getMimeType()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: long getTimestamp()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: long getTimestampDelivered()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: long getTimestampDisplayed()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub$Proxy: long getTimestampSent()>
+<com.gsma.services.rcs.chat.IChatMessage$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.chat.IChatMessage$Stub: com.gsma.services.rcs.chat.IChatMessage asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.chat.IChatMessage$Stub: void <init>()>

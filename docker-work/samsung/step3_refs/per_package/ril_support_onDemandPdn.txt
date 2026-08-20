@@ -1,0 +1,7 @@
+# ril.support.onDemandPdn [NEW]
+# Refs: 3
+# JARs: framework, telephony-common
+
+<com.samsung.internal.telephony.sysprop.SemDataProps: java.util.Optional support_on_demand_pdn()>
+<com.samsung.telephony.sysprop.SemDataProps: java.util.Optional support_on_demand_pdn()>
+<com.samsung.telephony.sysprop.SemDataProps: void support_on_demand_pdn(java.lang.Integer)>

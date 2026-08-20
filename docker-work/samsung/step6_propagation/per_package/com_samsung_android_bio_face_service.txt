@@ -1,0 +1,82 @@
+######################################################################
+# Propagation: com.samsung.android.bio.face.service
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.biometrics.SemBioAnalyticsManager
+  Method:   <com.android.server.biometrics.SemBioAnalyticsManager: void faceHandleData(com.android.server.biometrics.SemBioAnalyticsManager$EventData)>
+  Line:     693
+  Register: v6 := "com.samsung.android.bio.face.service"
+  Usage:    [invoke] invoke-virtual {v2, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Strin
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] new-instance p1, Ljava/lang/StringBuilder; → [invoke] java.lang.S
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+          ← SemBioAnalyticsManager$$ExternalSyntheticLambda2.run()
+
+  CALLEES (what this method invokes):
+      → <android.content.ContentValues: void <init>()>
+      → ContentValues.put()
+      → Context.sendBroadcast()
+      → Intent.putExtra()
+      → Intent.putExtras()
+      → Intent.setAction()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putString()
+      → SemBioAnalyticsManager$DQAManager.faceHandleDqaData()
+      → SemBioAnalyticsManager$EventData.toString()
+      → Exception.getMessage()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.put()
+        → SemBioAnalyticsManager$DQAManager.needToSaveBigFeatures()
+        → SemBioAnalyticsManager$DQAManager.faceGetDqaDataFormatToSave()
+        → SemBioAnalyticsManager$DQAManager.sendFaceBigData()
+        → SemBioAnalyticsManager$DQAManager.writeDqaDataToFile()
+        → Map.containsKey()
+        → Map.get()
+        → Map.put()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <com.android.server.biometrics.SemBioAnalyticsManager: boole
+          → Exception.toString()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → Map.keySet()
+          → Set.iterator()
+          → Context.getSystemService()
+          → SemHqmManager.sendHWParamToHQM()
+          → Handler.post()
+          → <com.android.server.biometrics.SemBioAnalyticsManager$DQAMan
+          → SemBioFgThread.getHandler()
+          → SemBioFgThread.get()
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → ISemHqmManager.sendHWParamToHQM()
+            → SemHqmManager.printExceptionTrace()
+            → HandlerThread.getThreadHandler()
+            → HandlerThread.start()
+            → <com.android.server.biometrics.SemBioFgThread: void <init>()
+              → ContainerHelpers.binarySearch()
+              → Exception.printStackTrace()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → HandlerThread.getLooper()
+              → <com.android.server.ServiceThread: void <init>(java.lang.Str
+

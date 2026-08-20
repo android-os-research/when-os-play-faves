@@ -1,0 +1,18 @@
+# android.content.pm.ICrossProfileApps [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.content.pm.ICrossProfileApps$Stub$Proxy: boolean canConfigureInteractAcrossProfiles(java.lang.String)>
+<android.content.pm.ICrossProfileApps$Stub$Proxy: boolean canInteractAcrossProfiles(java.lang.String)>
+<android.content.pm.ICrossProfileApps$Stub$Proxy: boolean canRequestInteractAcrossProfiles(java.lang.String)>
+<android.content.pm.ICrossProfileApps$Stub$Proxy: boolean canUserAttemptToConfigureInteractAcrossProfiles(java.lang.String)>
+<android.content.pm.ICrossProfileApps$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.pm.ICrossProfileApps$Stub$Proxy: java.util.List getTargetUserProfiles(java.lang.String)>
+<android.content.pm.ICrossProfileApps$Stub$Proxy: void clearInteractAcrossProfilesAppOps()>
+<android.content.pm.ICrossProfileApps$Stub$Proxy: void resetInteractAcrossProfilesAppOps(java.util.List)>
+<android.content.pm.ICrossProfileApps$Stub$Proxy: void setInteractAcrossProfilesAppOp(java.lang.String,int)>
+<android.content.pm.ICrossProfileApps$Stub$Proxy: void startActivityAsUser(android.app.IApplicationThread,java.lang.String,java.lang.String,android.content.ComponentName,int,boolean,android.os.IBinder,android.os.Bundle)>
+<android.content.pm.ICrossProfileApps$Stub$Proxy: void startActivityAsUserByIntent(android.app.IApplicationThread,java.lang.String,java.lang.String,android.content.Intent,int,android.os.IBinder,android.os.Bundle)>
+<android.content.pm.ICrossProfileApps$Stub: android.content.pm.ICrossProfileApps asInterface(android.os.IBinder)>
+<android.content.pm.ICrossProfileApps$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.pm.ICrossProfileApps$Stub: void <init>()>

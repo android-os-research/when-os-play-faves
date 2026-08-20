@@ -1,0 +1,9 @@
+# com.samsung.android.mcf.continuity.interfaces.IContinuitySyncCloudCallback [NEW]
+# Refs: 5
+# JARs: services
+
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySyncCloudCallback$Stub$a: java.lang.String a()>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySyncCloudCallback$Stub$a: void onCallback(android.os.Message)>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySyncCloudCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySyncCloudCallback$Stub: com.samsung.android.mcf.continuity.interfaces.IContinuitySyncCloudCallback asInterface(android.os.IBinder)>
+<com.samsung.android.mcf.continuity.interfaces.IContinuitySyncCloudCallback$Stub: void <init>()>

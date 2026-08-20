@@ -1,0 +1,9 @@
+# com.samsung.android.knox.permission.KNOX_VPN [NEW]
+# Refs: 5
+# JARs: knoxsdk, services
+
+<com.android.server.enterprise.utils.Utils: void <clinit>()>
+<com.android.server.enterprise.vpn.VpnInfoPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndKnoxVpnPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.vpn.VpnInfoPolicy: com.samsung.android.knox.ContextInfo enforceOwnerOnlyAndVpnPermission(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.vpn.VpnInfoPolicy: com.samsung.android.knox.ContextInfo enforceVpnPermission(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.EnterpriseDeviceAdminInfo: void <clinit>()>

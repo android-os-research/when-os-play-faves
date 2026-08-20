@@ -1,0 +1,9 @@
+# com.sec.ims.openapi.ISipDialogListener [NEW]
+# Refs: 5
+# JARs: imsmanager
+
+<com.sec.ims.openapi.ISipDialogListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.openapi.ISipDialogListener$Stub$Proxy: void onSipReceived(java.lang.String)>
+<com.sec.ims.openapi.ISipDialogListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.openapi.ISipDialogListener$Stub: com.sec.ims.openapi.ISipDialogListener asInterface(android.os.IBinder)>
+<com.sec.ims.openapi.ISipDialogListener$Stub: void <init>()>

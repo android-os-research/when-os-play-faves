@@ -1,0 +1,34 @@
+.class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda1;
+.super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/util/function/LongConsumer;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/DisplayContent;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayContent;)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/DisplayContent;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final accept(J)V
+    .registers 3
+
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/DisplayContent;
+
+    invoke-static {p0, p1, p2}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$y8Vu1-ycjLLU2x3TV8E5zzlmAlQ(Lcom/android/server/wm/DisplayContent;J)V
+
+    return-void
+.end method

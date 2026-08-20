@@ -1,0 +1,6 @@
+# com.samsung.android.service.wallpaper.LiveWallpaperService [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.am.MARsPolicyManager: void onSpecialBindServiceActions(java.lang.String,java.lang.String,int,java.lang.String)>
+<com.android.server.wallpaper.WallpaperManagerService: boolean bindWallpaperComponentLocked(android.content.ComponentName,boolean,boolean,com.android.server.wallpaper.WallpaperManagerService$WallpaperData,android.os.IRemoteCallback,android.app.WallpaperInfo)>

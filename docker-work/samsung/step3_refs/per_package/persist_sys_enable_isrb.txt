@@ -1,0 +1,13 @@
+# persist.sys.enable_isrb [NEW]
+# Refs: 9
+# JARs: framework, services
+
+<com.android.server.BootReceiver: void setISRBmode()>
+<com.android.server.RescueParty: void executeRescueLevelInternal(android.content.Context,int,java.lang.String)>
+<com.android.server.SystemServer: void startCoreServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.isrb.IsrbManagerServiceImpl$ServiceHandler: void handleMessage(android.os.Message)>
+<com.android.server.isrb.IsrbManagerServiceImpl: void rebootExitisrbInternal()>
+<com.android.server.isrb.IsrbManagerServiceImpl: void setIsrbEnable(boolean)>
+<com.android.server.isrb.IsrbManagerServiceImpl: void systemBootComplete()>
+<com.android.server.power.ShutdownThread: void shutdownInner(android.content.Context)>
+<com.samsung.isrb.IsrbHooks: void init()>

@@ -1,0 +1,8 @@
+# ro.com.android.dataroaming [NEW]
+# Refs: 4
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.Optional data_roaming()>
+<android.sysprop.TelephonyProperties: java.util.Optional data_roaming()>
+<com.android.internal.telephony.data.DataSettingsManager: boolean isDefaultDataRoamingEnabled()>
+<com.android.internal.telephony.dataconnection.DataEnabledSettings: boolean getDefaultDataRoamingEnabled()>

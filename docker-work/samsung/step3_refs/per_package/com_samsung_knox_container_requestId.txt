@@ -1,0 +1,6 @@
+# com.samsung.knox.container.requestId [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.container.KnoxMUMContainerPolicy: int createContainer(com.samsung.android.knox.ContextInfo,com.samsung.android.knox.container.CreationParams,int)>
+<com.android.server.wm.PersonaActivityHelper: android.content.Intent notifyStartActivityAsUser(android.content.Intent,java.lang.String,int,android.os.Bundle)>

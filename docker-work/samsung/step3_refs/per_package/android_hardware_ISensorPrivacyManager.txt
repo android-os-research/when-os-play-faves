@@ -1,0 +1,23 @@
+# android.hardware.ISensorPrivacyManager [NEW]
+# Refs: 19
+# JARs: framework
+
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: boolean isCombinedToggleSensorPrivacyEnabled(int)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: boolean isSensorPrivacyEnabled()>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: boolean isToggleSensorPrivacyEnabled(int,int)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: boolean requiresAuthentication()>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: boolean supportsSensorToggle(int,int)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: void addSensorPrivacyListener(android.hardware.ISensorPrivacyListener)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: void addToggleSensorPrivacyListener(android.hardware.ISensorPrivacyListener)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: void removeSensorPrivacyListener(android.hardware.ISensorPrivacyListener)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: void removeToggleSensorPrivacyListener(android.hardware.ISensorPrivacyListener)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: void setSensorPrivacy(boolean)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: void setToggleSensorPrivacy(int,int,int,boolean)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: void setToggleSensorPrivacyForProfileGroup(int,int,int,boolean)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: void setToggleSensorPrivacyForProfileGroupWithConfirmPopup(int,int,int,boolean)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: void showSensorUseDialog(int)>
+<android.hardware.ISensorPrivacyManager$Stub$Proxy: void suppressToggleSensorPrivacyReminders(int,int,android.os.IBinder,boolean)>
+<android.hardware.ISensorPrivacyManager$Stub: android.hardware.ISensorPrivacyManager asInterface(android.os.IBinder)>
+<android.hardware.ISensorPrivacyManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.ISensorPrivacyManager$Stub: void <init>()>

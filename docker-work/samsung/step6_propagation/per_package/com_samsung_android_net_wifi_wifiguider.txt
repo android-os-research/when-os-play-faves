@@ -1,0 +1,69 @@
+######################################################################
+# Propagation: com.samsung.android.net.wifi.wifiguider
+######################################################################
+
+JARs:                 semwifi-service
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.diagnostics.WifiGuiderManagementService$DiagnosisClientMode$DefaultState
+  Method:   <com.samsung.android.server.wifi.diagnostics.WifiGuiderManagementService$DiagnosisClientMode$DefaultState: void <init>(com.samsung.android.server.wifi.diagnostics.WifiGuiderManagementService$DiagnosisClientMode)>
+  Line:     39
+  Register: p0 := "com.samsung.android.net.wifi.wifiguider"
+  Usage:    [invoke] invoke-virtual {p1, p0, v0}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName()
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.server.wifi.diagnostics.WifiGuiderManag
+        ← <com.samsung.android.server.wifi.diagnostics.WifiGuiderManag
+          ← SemWifiInjector.getWifiGuiderManagementService()
+            ← SemWifiServiceImpl.handleLazyBootCompleted()
+              ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void $r
+
+  CALLEES (what this method invokes):
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → <com.android.internal.util.State: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      semwifi-service
+  Class:    com.samsung.android.server.wifi.diagnostics.WifiGuiderManagementService$DiagnosisClientMode
+  Method:   <com.samsung.android.server.wifi.diagnostics.WifiGuiderManagementService$DiagnosisClientMode: void setupClientPackageMonitor()>
+  Line:     552
+  Register: v7 := "com.samsung.android.net.wifi.wifiguider"
+  Usage:    [invoke] invoke-virtual {v3, v7, v8}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [invoke] android.content.IntentFilter.addDataSchemeS
+
+  CALLERS (who invokes this method):
+      ← WifiGuiderManagementService$DiagnosisClientMode.start()
+        ← WifiGuiderManagementService.checkAndStart()
+          ← SemWifiServiceImpl.handleLazyBootCompleted()
+          ← WifiGuiderManagementService.handleUserUnlock()
+            ← <com.samsung.android.server.wifi.SemWifiServiceImpl: void $r
+            ← SemWifiServiceImpl.handleUserUnlock()
+              ← SemWifiServiceImpl$$ExternalSyntheticLambda6.onLazyBootCompleted()
+              ← SemWifiService.onUserUnlocking()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiverAsUser()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → <com.samsung.android.server.wifi.diagnostics.WifiGuiderManag
+      → <com.samsung.android.server.wifi.diagnostics.WifiGuiderManag
+      → WifiGuiderManagementService$DiagnosisClientMode.getHandler()
+      → <com.samsung.android.server.wifi.diagnostics.WifiGuiderManag
+        → <android.content.BroadcastReceiver: void <init>()>
+

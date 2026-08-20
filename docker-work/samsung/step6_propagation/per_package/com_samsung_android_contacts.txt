@@ -1,0 +1,122 @@
+######################################################################
+# Propagation: com.samsung.android.contacts
+######################################################################
+
+JARs:                 framework, services
+Classes:              3
+Occurrences:          3
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        PKG_MGMT
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1320
+  Register: v35 := "com.samsung.android.contacts"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.StandaloneModeChanger
+  Method:   <com.android.server.desktopmode.StandaloneModeChanger: boolean usingNativeInCallUi()>
+  Line:     2426
+  Register: v1 := "com.samsung.android.contacts"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-nez v1, :cond_71 → [other] new-instance v1, La
+
+  CALLERS (who invokes this method):
+      ← StandaloneModeChanger.handleOnConfigurationChanged()
+        ← StandaloneModeChanger.verifyCurrentState()
+        ← <com.android.server.desktopmode.StandaloneModeChanger: void 
+          ← StandaloneModeChanger.handleStopLoadingScreen()
+          ← <com.android.server.desktopmode.StandaloneModeChanger: void 
+            ← <com.android.server.desktopmode.StandaloneModeChanger: void 
+            ← StandaloneModeChanger$$ExternalSyntheticLambda2.run()
+              ← StandaloneModeChanger$ModeChangeHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → PackageManager.queryIntentServices()
+      → Settings$System.getIntForUser()
+      → DefaultDialerManager.getDefaultDialerApplication()
+      → IStateManager.getState()
+      → Log.d()
+      → State.getCurrentUserId()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+        → RoleManager.getRoleHoldersAsUser()
+        → Context.getSystemService()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → UserHandle.of()
+        → CollectionUtils.firstOrNull()
+        → Log.save()
+          → CollectionUtils.isEmpty()
+          → List.get()
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+            → CollectionUtils.size()
+            → ArrayDeque.size()
+            → ArrayDeque.removeFirst()
+            → ArrayDeque.addLast()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+              → Collection.size()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.devicepolicy.KnoxUtils
+  Method:   <com.android.server.devicepolicy.KnoxUtils: void disableDialerComponent(int)>
+  Line:     180
+  Register: v1 := "com.samsung.android.contacts"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → KnoxUtils.getContactsPackageName()
+      → KnoxUtils.disableComponent()
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+        → IPackageManager$Stub.asInterface()
+        → ServiceManager.getService()
+        → KnoxUtils.setComponentEnabledSetting() [PKG_MGMT]
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+          → ComponentName.toShortString()
+          → IPackageManager.setComponentEnabledSetting() [PKG_MGMT]
+

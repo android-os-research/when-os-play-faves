@@ -1,0 +1,12 @@
+# com.sec.android.app.voicenote [NEW]
+# Refs: 8
+# JARs: framework, services
+
+<android.content.om.SamsungThemeConstants$1: void <init>()>
+<com.android.server.audio.AudioService: void setStreamVolumeWithAttribution(int,int,int,java.lang.String,java.lang.String,java.lang.String,int,boolean,int)>
+<com.android.server.audio.MediaFocusControl: void removeFocusStackEntryOnDeath(android.os.IBinder)>
+<com.android.server.knox.SeamLessSwitchHandler: boolean isAllowedAppsInLockscreen(android.content.ComponentName)>
+<com.android.server.sensorprivacy.SensorPrivacyService$SensorPrivacyServiceImpl: void onSensorUseStarted(int,java.lang.String,int)>
+<com.android.server.voicenote.VoiceNoteService: void <init>(android.content.Context)>
+<com.android.server.voicenote.VoiceNoteService: void backgroundWhitelist(android.content.Context)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>

@@ -1,0 +1,13 @@
+# android.os.IDumpstateListener [NEW]
+# Refs: 18
+# JARs: framework, services
+
+<android.os.IDumpstateListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IDumpstateListener$Stub$Proxy: void onError(int)>
+<android.os.IDumpstateListener$Stub$Proxy: void onFinished()>
+<android.os.IDumpstateListener$Stub$Proxy: void onProgress(int)>
+<android.os.IDumpstateListener$Stub$Proxy: void onScreenshotTaken(boolean)>
+<android.os.IDumpstateListener$Stub$Proxy: void onUiIntensiveBugreportDumpsFinished()>
+<android.os.IDumpstateListener$Stub: android.os.IDumpstateListener asInterface(android.os.IBinder)>
+<android.os.IDumpstateListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IDumpstateListener$Stub: void <init>()>

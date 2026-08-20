@@ -1,0 +1,88 @@
+######################################################################
+# Propagation: com.samsung.android.app.mobiledoctor
+######################################################################
+
+JARs:                 services
+Classes:              2
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PKG_QUERY, SIG_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.PACMService$2
+  Method:   <com.android.server.PACMService$2: void onReceive(android.content.Context,android.content.Intent)>
+  Line:     164
+  Register: p2 := "com.samsung.android.app.mobiledoctor"
+  Usage:    [invoke] invoke-static {p1, p2}, Lcom/android/server/PACMService;->-$$Nest$misPackageInstalled(Lcom/android/s
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.android.server.PACMService.-$$Nest$misPackageInstalled() → [invoke] java.lang.String.equals() → [reassigned
+
+  CALLEES (what this method invokes):
+      → Intent.getExtras()
+      → Intent.getAction()
+      → Bundle.getString()
+      → <com.android.server.PACMService: boolean -$$Nest$misPackageI
+      → <com.android.server.PACMService: java.lang.Object -$$Nest$fg
+      → <com.android.server.PACMService: java.lang.String -$$Nest$fg
+      → <com.android.server.PACMService: java.util.HashSet -$$Nest$f
+      → <com.android.server.PACMService: void -$$Nest$fputmEmTokenSt
+      → HashSet.clear()
+        → PACMService.isPackageInstalled()
+          → Context.getPackageManager()
+          → PackageManager.getPackageInfo() [PKG_QUERY]
+          → PackageManager.checkSignatures() [SIG_CHECK]
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ProcessList
+  Method:   <com.android.server.am.ProcessList: boolean isMobileDoctorInMaintenanceMode(com.android.server.am.ProcessRecord)>
+  Line:     11800
+  Register: v2 := "com.samsung.android.app.mobiledoctor"
+  Usage:    [invoke] invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← ProcessList.startProcessLocked()
+        ← ActivityManagerService.addAppLocked()
+        ← ProcessList.startProcessLocked()
+          ← ActivityManagerService.startInstrumentationOfSdkSandbox()
+          ← ActivityManagerService.addAppLocked()
+          ← ProcessList.startProcessLocked()
+          ← ProcessList.startProcessLocked()
+            ← ActivityManagerService.startInstrumentation()
+            ← ActivityManagerService.addAppLocked()
+            ← ActivityManagerService.startProcessLocked()
+            ← ProcessList.startProcessLocked()
+            ← ActivityManagerService.attachApplicationLocked()
+            ← ActivityManagerService.cleanUpApplicationRecordLocked()
+            ← ActivityManagerService.finishBooting()
+              ← ActivityManagerService.addAppLocked()
+              ← ActivityManagerService$LocalService.startProcess()
+              ← ActivityManagerService.startIsolatedProcess()
+              ← ActivityManagerService.startProcessLocked()
+              ← ActivityManagerService.startSdkSandboxProcessLocked()
+              ← ActivityManagerService.attachApplication()
+              ← ActivityManagerService.handleAppDiedLocked()
+              ← ActivityManagerService.trimApplicationsLocked()
+              ← ProcessList.handleProcessStartedLocked()
+              ← ActivityManagerService$LocalService.finishBooting()
+              ← ActivityManagerService.bootAnimationComplete()
+              ← ActivityManagerService.ensureBootCompleted()
+
+  CALLEES (what this method invokes):
+      → PackageManagerInternal.isPlatformSigned()
+      → UserHandle.getUserId()
+      → ActivityManagerService.getPackageManagerInternal()
+        → LocalServices.getService()
+          → ArrayMap.get()
+            → ArrayMap.indexOfKey()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+

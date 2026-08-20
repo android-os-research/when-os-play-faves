@@ -1,0 +1,13 @@
+# com.samsung.android.game.gos.GameIntentService [NEW]
+# Refs: 9
+# JARs: gamemanager
+
+<com.samsung.android.game.FgCheckThread: void notifyFocusInOut(com.samsung.android.game.PkgWithUserId,int,boolean)>
+<com.samsung.android.game.GameManagerService$DisplayListener$DisplayNotifyRunnable: void sendResolutionChangedToGos()>
+<com.samsung.android.game.GameManagerService$DisplayListener: void sendVrrSettingChangedToGos()>
+<com.samsung.android.game.GosNotifyThread$1: void sendVrrSettingChangedToGos()>
+<com.samsung.android.game.GosNotifyThread$2: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.game.GosNotifyThread: void notifyGosEnabledToGos()>
+<com.samsung.android.game.GosNotifyThread: void notifyPackageChangedToGos(int,java.lang.String,int)>
+<com.samsung.android.game.GosNotifyThread: void notifyUserSwitchedToGos()>
+<com.samsung.android.game.GosNotifyThread: void notifyWifiConnectedToGos()>

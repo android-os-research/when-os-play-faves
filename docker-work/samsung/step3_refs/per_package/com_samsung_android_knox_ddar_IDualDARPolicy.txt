@@ -1,0 +1,20 @@
+# com.samsung.android.knox.ddar.IDualDARPolicy [NEW]
+# Refs: 16
+# JARs: knoxsdk
+
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: android.os.Bundle getConfig(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: boolean clearPolicy(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: boolean clearResetPasswordTokenForInner(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: boolean isActivePasswordSufficientForInner(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: boolean isResetPasswordTokenActiveForInner(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: boolean resetPasswordWithTokenForInner(com.samsung.android.knox.ContextInfo,java.lang.String,byte[])>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: boolean setPasswordMinimumLengthForInner(com.samsung.android.knox.ContextInfo,int)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: boolean setResetPasswordTokenForInner(com.samsung.android.knox.ContextInfo,byte[])>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: int getPasswordMinimumLengthForInner(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: int setConfig(com.samsung.android.knox.ContextInfo,android.os.Bundle)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: java.lang.String getClientInfo(int)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub$Proxy: void setClientInfo(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub: com.samsung.android.knox.ddar.IDualDARPolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.ddar.IDualDARPolicy$Stub: void <init>()>

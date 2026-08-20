@@ -1,0 +1,18 @@
+# android.hardware.location.IGeofenceHardware [NEW]
+# Refs: 14
+# JARs: framework
+
+<android.hardware.location.IGeofenceHardware$Stub$Proxy: boolean addCircularFence(int,android.hardware.location.GeofenceHardwareRequestParcelable,android.hardware.location.IGeofenceHardwareCallback)>
+<android.hardware.location.IGeofenceHardware$Stub$Proxy: boolean pauseGeofence(int,int)>
+<android.hardware.location.IGeofenceHardware$Stub$Proxy: boolean registerForMonitorStateChangeCallback(int,android.hardware.location.IGeofenceHardwareMonitorCallback)>
+<android.hardware.location.IGeofenceHardware$Stub$Proxy: boolean removeGeofence(int,int)>
+<android.hardware.location.IGeofenceHardware$Stub$Proxy: boolean resumeGeofence(int,int,int)>
+<android.hardware.location.IGeofenceHardware$Stub$Proxy: boolean unregisterForMonitorStateChangeCallback(int,android.hardware.location.IGeofenceHardwareMonitorCallback)>
+<android.hardware.location.IGeofenceHardware$Stub$Proxy: int getStatusOfMonitoringType(int)>
+<android.hardware.location.IGeofenceHardware$Stub$Proxy: int[] getMonitoringTypes()>
+<android.hardware.location.IGeofenceHardware$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.location.IGeofenceHardware$Stub$Proxy: void setFusedGeofenceHardware(android.location.IFusedGeofenceHardware)>
+<android.hardware.location.IGeofenceHardware$Stub$Proxy: void setGpsGeofenceHardware(android.location.IGpsGeofenceHardware)>
+<android.hardware.location.IGeofenceHardware$Stub: android.hardware.location.IGeofenceHardware asInterface(android.os.IBinder)>
+<android.hardware.location.IGeofenceHardware$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.location.IGeofenceHardware$Stub: void <init>()>

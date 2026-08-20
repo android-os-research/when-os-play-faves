@@ -1,0 +1,9 @@
+# android.app.usage.ICacheQuotaService [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.usage.ICacheQuotaService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.usage.ICacheQuotaService$Stub$Proxy: void computeCacheQuotaHints(android.os.RemoteCallback,java.util.List)>
+<android.app.usage.ICacheQuotaService$Stub: android.app.usage.ICacheQuotaService asInterface(android.os.IBinder)>
+<android.app.usage.ICacheQuotaService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.usage.ICacheQuotaService$Stub: void <init>()>

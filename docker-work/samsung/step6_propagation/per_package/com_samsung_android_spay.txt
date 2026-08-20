@@ -1,0 +1,830 @@
+######################################################################
+# Propagation: com.samsung.android.spay
+######################################################################
+
+JARs:                 framework, service-samsung-payment, services
+Classes:              12
+Occurrences:          18
+Usage types:          field_store, invoke, move
+Enforcement patterns: allowlist_check, early_return, package_enable_disable, string_compare, system_property_read
+Security tags:        PKG_MGMT, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1183
+  Register: v5 := "com.samsung.android.spay"
+  Usage:    [field_store] aput-object v5, v2, v1
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      service-samsung-payment
+  Class:    com.android.server.spay.UpdateReceiver$2
+  Method:   <com.android.server.spay.UpdateReceiver$2: void handleMessage(android.os.Message)>
+  Line:     139
+  Register: v7 := "com.samsung.android.spay"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.android.server.spay.Utils.backgroundWhitelist() → [invoke] java.lang.StringBuilder.append() → [invoke] java
+
+  CALLEES (what this method invokes):
+      → Bundle.getString()
+      → Message.getData()
+      → <com.android.server.spay.UpdateReceiver: android.content.Con
+      → UpdateReceiver.triggerPFInstall()
+      → Utils.backgroundWhitelist()
+        → <android.os.Bundle: void <init>()>
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → Context.sendBroadcastAsUser()
+        → Intent.addFlags()
+        → Intent.setAction()
+        → Intent.setComponent()
+        → <android.content.Intent: void <init>()>
+        → Utils.backgroundWhitelist()
+          → ActivityManager.getService()
+          → IActivityManager.backgroundAllowlistUid()
+          → Context.getPackageManager()
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → Utils.hasValidSignature()
+          → Exception.toString()
+          → Exception.printStackTrace()
+          → ArrayList.add()
+          → ArrayList.contains()
+          → ArrayList.toString()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+            → Signature.equals()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      service-samsung-payment
+  Class:    com.android.server.spay.UpdateReceiver
+  Method:   <com.android.server.spay.UpdateReceiver: ???>
+  Line:     128
+  Register: v2 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      service-samsung-payment
+  Class:    com.android.server.spay.Utils
+  Method:   <com.android.server.spay.Utils: boolean backgroundWhitelist(android.content.Context,java.lang.String,boolean)>
+  Line:     110
+  Register: v3 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v3 → [branch] if-nez v3, :cond_43 → [other] move-result v3 → [b
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.spay.PaymentManagerService: void <init>(
+      ← Utils.backgroundWhitelist()
+        ← <com.android.server.SystemServer: void lambda$startOtherServ
+        ← UpdateReceiver$2.handleMessage()
+          ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+            ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → IActivityManager.backgroundAllowlistUid()
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → Utils.hasValidSignature()
+      → Exception.toString()
+      → Exception.printStackTrace()
+      → ArrayList.add()
+      → ArrayList.contains()
+      → ArrayList.toString()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → Signature.equals()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      service-samsung-payment
+  Class:    com.android.server.spay.PaymentManagerService
+  Method:   <com.android.server.spay.PaymentManagerService: void <init>(android.content.Context)>
+  Line:     146
+  Register: v3 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-virtual {v0, v3, v2}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [invoke] com.android.server.spay.Utils.backgroundWhi
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.SystemServer: void lambda$startOtherServ
+        ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+          ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → IntentFilter.setPriority()
+      → <android.spay.IPaymentManager$Stub: void <init>()>
+      → PaymentManagerService.disableSpay()
+      → <com.android.server.spay.UpdateReceiver: void <init>()>
+      → Utils.backgroundWhitelist()
+      → <java.util.HashMap: void <init>()>
+        → <android.os.Binder: void <init>()>
+        → IPaymentManager$Stub.attachInterface()
+        → Context.getPackageManager()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → PackageManager.getApplicationEnabledSetting()
+        → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+        → IllegalArgumentException.printStackTrace()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → Looper.getMainLooper()
+        → <com.android.server.spay.UpdateReceiver$2: void <init>(com.a
+        → ActivityManager.getService()
+        → IActivityManager.backgroundAllowlistUid()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → Utils.hasValidSignature()
+        → Exception.toString()
+        → Exception.printStackTrace()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → ArrayList.toString()
+          → <android.os.Binder: void <init>(java.lang.String)>
+          → <android.os.Handler: void <init>(android.os.Looper)>
+          → Signature.equals()
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      service-samsung-payment
+  Class:    com.android.server.spay.PaymentManagerService
+  Method:   <com.android.server.spay.PaymentManagerService: ???>
+  Line:     476
+  Register: v2 := "com.samsung.android.spay"
+  Usage:    [move] move-object v4, v2
+  Patterns: early_return, package_enable_disable
+  Flow:     [other] move-object v4, v2 → [invoke] android.content.pm.PackageManager.getPackageInfo() → [invoke] android.content.pm.P
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.DualAppManagerService
+  Method:   <com.android.server.DualAppManagerService: android.content.Intent startDAChooserActivity(android.content.Intent,int,int,java.lang.String,int)>
+  Line:     3180
+  Register: v7 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-virtual {v7, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] com.android.server.DualAppManagerService.isInstalledWhitelis → [other] move-result v2 → [branch] if-eqz v2, :co
+
+  CALLERS (who invokes this method):
+      ← DualAppManagerService.startDAChooserActivity()
+      ← ActivityStartController.startActivityInPackage()
+        ← ActivityTaskManagerService.startActivityAsUser()
+        ← ActivityTaskManagerService$LocalService.startActivityInPackage()
+        ← ActivityTaskSupervisor.startActivityFromRecents()
+        ← DexCompatController.startActivityAsToggleFreeform()
+          ← <com.android.server.wm.ActivityTaskManagerService: int -$$Ne
+          ← ActivityTaskManagerService.startActivityAsUser()
+          ← ActivityTaskManagerService.startActivityFromRecents()
+          ← AppTaskImpl.moveToFront()
+          ← <com.android.server.wm.RestartAppPolicy: void lambda$restart
+          ← <com.android.server.wm.WindowOrganizerController: int lambda
+          ← <com.android.server.wm.DexCompatController: void -$$Nest$mst
+            ← ActivityTaskManagerService$LocalService.startActivityAsUser()
+            ← ActivityManagerService.startActivityAsUserWithFeature()
+            ← ActivityTaskManagerService.startActivity()
+            ← ActivityTaskManagerServiceExt.startAppLockActivity()
+            ← AppContinuityGuideConfirmDialog$ClingWindowView.startSettingActivity()
+            ← ActivityManagerService.startActivityFromRecents()
+            ← DexController.bringTaskToForeground()
+            ← DexMetaKeyPolicy$MetaKeyBoundsProvider.applyBounds()
+            ← <com.android.server.wm.StartActivityFromRecentsInfo: void la
+            ← <com.android.server.wm.RestartAppPolicy: void $r8$lambda$VPi
+            ← <com.android.server.wm.WindowOrganizerController: int $r8$la
+            ← DexCompatController$H.handleMessage()
+              ← ActivityManagerService.startActivityAsUser()
+              ← ActivityManagerShellCommand.runStartActivity()
+              ← ActivityManagerService.startActivity()
+              ← ActivityManagerService.startActivityWithFeature()
+              ← ActivityTaskManagerService.setResumedActivityUncheckLocked()
+              ← KeyguardController.keyguardGoingAway()
+              ← <com.android.server.wm.AppContinuityGuideConfirmDialog$Cling
+              ← AppErrors.crashApplicationInner()
+              ← ActivityTaskManagerService$LocalService.bringTaskToForeground()
+              ← DexMetaKeyPolicy.handleMetaKeyEvent()
+              ← <com.android.server.wm.StartActivityFromRecentsInfo: void $r
+              ← RestartAppPolicy$$ExternalSyntheticLambda0.run()
+              ← WindowOrganizerController$$ExternalSyntheticLambda10.getAsInt()
+
+  CALLEES (what this method invokes):
+      → ComponentName.equals()
+      → ComponentName.getClassName()
+      → ComponentName.getPackageName()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.getString()
+      → Intent.getComponent()
+      → Intent.addFlags()
+      → Intent.createChooser()
+      → Intent.putExtra()
+      → Intent.setClassName()
+      → Intent.getData()
+      → Intent.hasCategory()
+      → Intent.getAction()
+      → Intent.getDataString()
+      → Intent.getPackage()
+      → Intent.getType()
+      → <android.content.Intent: void <init>()>
+      → Uri.getScheme()
+      → Binder.getCallingUid() [UID_CHECK]
+      → Log.d()
+      → DualAppManagerService.isInstalledWhitelistedPackageInternal()
+      → DualAppManagerService.mayForwardShare()
+      → DualAppManagerService.changeUriForDualApp()
+      → SemDualAppManager.isChinaDualApp()
+      → SemDualAppManager.isChooserRequired()
+      → SemDualAppManager.isDualAppId()
+      → Exception.printStackTrace()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+      → List.size()
+      → List.toArray()
+        → Log.println_native()
+        → Log.e()
+        → HashMap.containsKey()
+        → Intent.putExtra()
+        → Intent.setAction()
+        → Intent.getExtras()
+        → Intent.clone()
+        → Bundle.getParcelable()
+        → TextUtils.isEmpty()
+        → DualAppManagerService.hasExternalAppDirPath()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → ClipData.fixUris()
+        → ContentProvider.maybeAddUserId()
+        → Intent.getClipData()
+        → Intent.putExtra()
+        → Intent.setDataAndType()
+        → Intent.getExtra()
+        → Intent.getParcelableArrayListExtra()
+        → SemDualAppManager.shouldAddUserId()
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+          → CharSequence.length()
+          → ClipData.collectUris()
+          → Uri.getPath()
+          → List.iterator()
+          → Intent.fixUris()
+          → ArrayList.get()
+          → Uri.getAuthority()
+            → ClipData$Item.getIntent()
+            → ClipData$Item.getUri()
+            → ClipData.getItemAt()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.biometrics.Utils
+  Method:   <com.android.server.biometrics.Utils: boolean isRuneStoneApp(android.content.Context,java.lang.String)>
+  Line:     2404
+  Register: p0 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [branch] if-eqz p0, :cond_2d → [reassigned] p0 overwritten
+
+  CALLERS (who invokes this method):
+      ← SemBioAnalyticsManager.fpHandleData()
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+        ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+          ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+          ← <com.android.server.biometrics.SemBioAnalyticsManager: void 
+            ← SemBioAnalyticsManager$$ExternalSyntheticLambda1.run()
+            ← SemBioAnalyticsManager$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → Utils.hasInternalPermission()
+        → Context.checkCallingOrSelfPermission()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.FreecessController
+  Method:   <com.android.server.am.FreecessController: void freezeBgPackageLocked(java.lang.String,int)>
+  Line:     6601
+  Register: v3 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v3 → [branch] if-eqz v3, :cond_8e → [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← FreecessController.lcdOnFreezePackage()
+        ← FreecessHandler$MainHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → UserHandle.getUserId()
+      → ActivityManagerService.isPendingBroadcastPackageLocked()
+      → FreecessController.freezeAction()
+      → FreecessController.getMonitorPacketFlag()
+      → FreecessController.getRestrictNetworkFlag()
+      → FreecessController.isReceivingTouchEvent()
+      → FreecessController.getPackageStatus()
+      → MARsPolicyManager.isMARsTarget()
+      → MARsPolicyManager.getInstance()
+      → MARsPolicyManager.getAutorunForFreezedPackage()
+      → MARsPolicyManager.addDebugInfoToHistory()
+      → WindowManagerService.hasFloatingOrOnScreenWindow()
+        → BroadcastQueue.isPendingBroadcastPackageLocked()
+        → FreecessController.sendFreecessSignal()
+        → FreecessController.sendFreecessSignal()
+        → FreecessController.addUidToReleaseRestrictionList()
+        → FreecessController.closeSocketsForFreecessFirewallChain()
+        → FreecessController.stepLcdOnFreezedState()
+        → FreecessController.updateFreezedStatusByFreezeType()
+        → FreecessController.updateFreezedUidFirewall()
+        → FreecessHandler.getInstance()
+        → FreecessHandler.sendFreecessSettlementMsg()
+        → FreecessHandler.sendOnFreezeStateChanged()
+        → FreecessHandler.sendUpdateBTMsg()
+        → FreecessPkgMap.getByUid()
+        → FreecessPkgMap.getByUserId()
+        → FreecessPkgMap.put()
+        → FreecessPkgStatus.isFreezeProtected()
+        → ArrayList.size()
+        → FreecessController.getFreecessEnhancementEnabledState()
+        → MARsPolicyManager.isChinaPolicyEnabled()
+        → InputManagerService.isUidTouched()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getPackageInfo() [PKG_QUERY]
+        → FreecessController.updateAllowListForFreecess()
+        → FreecessPkgMap.sizeByUserId()
+        → <com.android.server.am.FreecessPkgStatus: void <init>(java.l
+        → MARsPolicyManager.getMARsPackageInfo()
+        → <com.android.server.am.MARsPolicyManager$MARsPolicyManagerHo
+        → MARsPackageInfo.getFASEnabled()
+        → MARsPolicyManager$HistoryBuffer.put()
+        → MARsPolicyManager.formatDateTimeWithoutYear()
+        → WindowContainer.forAllWindows()
+        → <com.android.server.wm.WindowManagerService$$ExternalSynthet
+        → WindowManagerService.isFloatingWindowOpsLocked()
+        → WindowManagerService.boostPriorityForLockedSection()
+        → WindowManagerService.resetPriorityAfterLockedSection()
+        → WindowState.isOnScreen()
+        → WindowState.getOwningUid()
+        → ArrayList.get()
+        → <java.util.ArrayList: void <init>()>
+          → FreecessController.writeDevFile()
+          → FreecessController.releaseRestriction()
+          → Set.add()
+          → Set.contains()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → INetworkManagementService$Stub.asInterface()
+          → INetworkManagementService.closeSocketsForFreecess()
+          → ServiceManager.getService()
+          → FreecessController.checkImportantPackage()
+          → FreecessController.covertLcdOnFreezedState()
+          → FreecessHandler.sendChangeToFreezeableMsg()
+          → FreecessHandler.sendChangeToFrozenMsg()
+          → FreecessHandler.sendLcdOnFreezeTriggerMsg()
+          → INetworkManagementService.setFirewallUidRule()
+          → MARsPolicyManager.addNetDebugInfoToHistory()
+          → <com.android.server.am.FreecessHandler$FreecessHandlerHolder
+          → <android.os.Bundle: void <init>()>
+          → Bundle.putBoolean()
+          → Bundle.putInt()
+          → Bundle.putString()
+          → Handler.obtainMessage()
+          → Handler.sendMessage()
+          → Handler.sendMessageDelayed()
+          → Message.setData()
+          → Handler.hasMessages()
+          → SparseArray.get()
+          → ArrayMap.get()
+          → ArrayMap.put()
+          → <android.util.SparseArray: void <init>(int)>
+          → SparseArray.put()
+          → SystemClock.elapsedRealtime()
+          → NativeInputManagerService.isUidTouched()
+          → ActivityThread.getPackageManager()
+          → ArrayList.iterator()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → ArrayMap.size()
+          → MARsPkgMap.totalSize()
+          → MARsPkgMap.get()
+          → SimpleDateFormat.format()
+          → <java.text.SimpleDateFormat: void <init>(java.lang.String)>
+          → <java.util.Date: void <init>(long)>
+          → WindowContainer$ForAllWindowsConsumerWrapper.release()
+          → WindowContainer.forAllWindows()
+          → WindowContainer.obtainConsumerWrapper()
+          → WindowManagerThreadPriorityBooster.boost()
+          → WindowManagerThreadPriorityBooster.reset()
+          → ActivityRecord.isVisible()
+          → WallpaperWindowToken.isVisible()
+          → WindowContainer.isAnimating()
+          → WindowContainer.asWallpaperToken()
+          → WindowState.isParentWindowHidden()
+          → WindowState.isVisibleByPolicy()
+            → Context.getSystemService()
+            → CustomFrequencyManager.requestFreezeSlowdown()
+            → SystemClock.uptimeMillis()
+            → ActivityManagerService.checkProcDiedOrComponentExecutingForFreeze()
+            → FreecessController.getAllRunningPackagePids()
+            → FreecessHandler.sendProcPostMonitoringMsg()
+            → ProcessRecord.getPid()
+            → Exception.printStackTrace()
+            → ArrayList.add()
+            → ArrayList.contains()
+            → ArrayList.isEmpty()
+            → HashMap.containsKey()
+            → HashMap.get()
+            → HashMap.put()
+            → HashMap.remove()
+            → HashSet.add()
+            → HashSet.contains()
+            → HashSet.remove()
+            → ConcurrentHashMap.get()
+            → ConcurrentHashMap.put()
+            → ConcurrentHashMap.remove()
+            → Set.remove()
+            → IBinder.queryLocalInterface()
+            → <android.os.INetworkManagementService$Stub$Proxy: void <init
+            → FreecessController.getAngryBirdEnabled()
+            → FreecessController.isInFreecessExcludeList()
+            → FilterManager.getInstance()
+            → FilterManager.filterForSpecificPolicy()
+            → Handler.obtainMessage()
+            → Handler.hasMessages()
+            → FreecessController.getInstance()
+            → MARsPolicyManager$NetHistoryBuffer.put()
+            → SparseArray.get()
+            → ArrayMap.indexOfKey()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → ArrayUtils.newUnpaddedObjectArray()
+            → ContainerHelpers.binarySearch()
+            → SparseArray.gc()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → ArrayMap.valueAt()
+            → SparseArray.size()
+            → Pools$SynchronizedPool.release()
+            → <com.android.server.wm.WindowContainer: android.util.Pools$S
+            → Pools$SynchronizedPool.acquire()
+            → <com.android.server.wm.WindowContainer$ForAllWindowsConsumer
+            → WindowContainer$ForAllWindowsConsumerWrapper.setConsumer()
+            → Process.myTid()
+            → ThreadPriorityBooster.boost()
+            → ThreadPriorityBooster.reset()
+            → WindowToken.isClientVisible()
+            → WindowContainer.isAnimating()
+            → WindowState.getParentWindow()
+              → CustomFrequencyManager.getCfmsService()
+              → ICustomFrequencyManager.requestFreezeSlowdown()
+              → RemoteException.printStackTrace()
+              → ActivityManagerService.getProcessRecordFromPidLocked()
+              → ActivityManagerService.getReasonProcShouldNotBeFrozen()
+              → FreecessController.getPidProcessName()
+              → FreecessController.readAcctFile()
+              → File.isDirectory()
+              → File.list()
+              → <java.io.File: void <init>(java.lang.String)>
+              → UserHandle.isApp()
+              → BlueToothConnectedFilter.isInBTAllowList()
+              → BlueToothConnectedFilter.getInstance()
+              → <com.android.server.am.mars.filter.FilterManager$FilterManag
+              → FilterManager.filter()
+              → <com.android.server.am.FreecessController$FreecessController
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+              → Pools$SimplePool.release()
+              → Pools$SimplePool.acquire()
+              → <com.android.server.wm.WindowContainer$ForAllWindowsConsumer
+              → Process.getThreadPriority()
+              → Process.setThreadPriority()
+              → ThreadLocal.get()
+              → WindowContainer.getAnimatingContainer()
+              → WindowContainer.getParent()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.ChimeraAppClassifier$2
+  Method:   <com.android.server.chimera.ChimeraAppClassifier$2: void <init>()>
+  Line:     32
+  Register: v0 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.chimera.ChimeraAppClassifier: void <clin
+
+  CALLEES (what this method invokes):
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.spay.UpdateReceiver$2
+  Method:   <com.android.server.spay.UpdateReceiver$2: void handleMessage(android.os.Message)>
+  Line:     137
+  Register: v6 := "com.samsung.android.spay"
+  Usage:    [] 
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.android.server.spay.Utils.backgroundWhitelist() → [invoke] java.lang.StringBuilder.append() → [invoke] java
+
+  CALLEES (what this method invokes):
+      → Bundle.getString()
+      → Message.getData()
+      → <com.android.server.spay.UpdateReceiver: android.content.Con
+      → UpdateReceiver.triggerPFInstall()
+      → Utils.backgroundWhitelist()
+        → <android.os.Bundle: void <init>()>
+        → <android.content.ComponentName: void <init>(java.lang.String
+        → Context.sendBroadcastAsUser()
+        → Intent.addFlags()
+        → Intent.setAction()
+        → Intent.setComponent()
+        → <android.content.Intent: void <init>()>
+        → Utils.backgroundWhitelist()
+          → ActivityManager.getService()
+          → IActivityManager.backgroundAllowlistUid()
+          → Context.getPackageManager()
+          → PackageManager.getApplicationInfo() [PKG_QUERY]
+          → Utils.hasValidSignature()
+          → Exception.toString()
+          → Exception.printStackTrace()
+          → ArrayList.add()
+          → ArrayList.contains()
+          → ArrayList.toString()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+            → Signature.equals()
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.spay.UpdateReceiver
+  Method:   <com.android.server.spay.UpdateReceiver: void triggerPFInstall(android.content.Context)>
+  Line:     116
+  Register: v1 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← UpdateReceiver$2.handleMessage()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.setAction()
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.spay.Utils
+  Method:   <com.android.server.spay.Utils: boolean backgroundWhitelist(android.content.Context,java.lang.String,boolean)>
+  Line:     96
+  Register: v2 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v3 → [branch] if-nez v3, :cond_43 → [other] move-result v3 → [b
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.spay.PaymentManagerService: void <init>(
+      ← Utils.backgroundWhitelist()
+        ← <com.android.server.SystemServer: void lambda$startOtherServ
+        ← UpdateReceiver$2.handleMessage()
+          ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+            ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getService()
+      → IActivityManager.backgroundAllowlistUid()
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → Utils.hasValidSignature()
+      → Exception.toString()
+      → Exception.printStackTrace()
+      → ArrayList.add()
+      → ArrayList.contains()
+      → ArrayList.toString()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → Signature.equals()
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.spay.PaymentManagerService
+  Method:   <com.android.server.spay.PaymentManagerService: void <init>(android.content.Context)>
+  Line:     143
+  Register: v3 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-virtual {v0, v3, v2}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/St
+  Patterns: early_return
+  Flow:     [invoke] android.content.IntentFilter.addDataSchemeSpecificPart() → [invoke] com.android.server.spay.Utils.backgroundWhi
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.SystemServer: void lambda$startOtherServ
+        ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+          ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → Context.registerReceiver()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → IntentFilter.addDataScheme()
+      → IntentFilter.addDataSchemeSpecificPart()
+      → IntentFilter.setPriority()
+      → <android.spay.IPaymentManager$Stub: void <init>()>
+      → PaymentManagerService.disableSpay()
+      → <com.android.server.spay.UpdateReceiver: void <init>()>
+      → Utils.backgroundWhitelist()
+      → <java.util.HashMap: void <init>()>
+        → <android.os.Binder: void <init>()>
+        → IPaymentManager$Stub.attachInterface()
+        → Context.getPackageManager()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → PackageManager.getApplicationEnabledSetting()
+        → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+        → IllegalArgumentException.printStackTrace()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → Looper.getMainLooper()
+        → <com.android.server.spay.UpdateReceiver$2: void <init>(com.a
+        → ActivityManager.getService()
+        → IActivityManager.backgroundAllowlistUid()
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+        → Utils.hasValidSignature()
+        → Exception.toString()
+        → Exception.printStackTrace()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → ArrayList.toString()
+          → <android.os.Binder: void <init>(java.lang.String)>
+          → <android.os.Handler: void <init>(android.os.Looper)>
+          → Signature.equals()
+            → Binder.getNativeBBinderHolder()
+            → NativeAllocationRegistry.registerNativeAllocation()
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.spay.PaymentManagerService
+  Method:   <com.android.server.spay.PaymentManagerService: void disableSpay(android.content.Context)>
+  Line:     342
+  Register: v1 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-virtual {p1, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return, package_enable_disable
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [invoke] android.content.pm.PackageManager.getApplicationE
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.spay.PaymentManagerService: void <init>(
+        ← <com.android.server.SystemServer: void lambda$startOtherServ
+          ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+            ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → PackageManager.getApplicationEnabledSetting()
+      → PackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+      → IllegalArgumentException.printStackTrace()
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.wm.DisplayPolicyExt
+  Method:   <com.android.server.wm.DisplayPolicyExt: void addWindowLw(com.android.server.wm.WindowState,android.view.WindowManager$LayoutParams)>
+  Line:     289
+  Register: v1 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.lang.String.startsWith()
+
+  CALLERS (who invokes this method):
+      ← DisplayPolicy.addWindowLw()
+        ← DisplayPolicy.restoreDefaultNavigationBar()
+        ← DisplayPolicy.restoreDefaultNotificationShade()
+        ← DisplayPolicy.restoreDefaultStatusBar()
+        ← WindowManagerService.addWindow()
+          ← Session.addToDisplay()
+          ← Session.addToDisplayAsUser()
+          ← Session.addToDisplayWithoutInputChannel()
+
+  CALLEES (what this method invokes):
+      → WindowManagerPolicyExt.notifyRequestedGameToolsWin()
+      → CustomLetterboxConfiguration.performEnhancedControllerIfNonNull()
+      → <com.android.server.wm.DisplayPolicyExt$$ExternalSyntheticLa
+      → OneHandOpPolicy.addWindowLw()
+      → PopOverController.addPopOverWindowLw()
+      → PopOverState.hasOptions()
+        → SparseArray.get()
+        → CustomLetterboxConfiguration.getInstance()
+        → CustomLetterboxEnhancedController.isAvailable()
+        → Consumer.accept()
+        → ArraySet.add()
+        → ArraySet.isEmpty()
+        → ActivityRecord.findMainWindow()
+        → PopOverController.isChildDimmingDialog()
+        → PopOverController.updatePopOverDimAttributesLw()
+          → SparseArray.get()
+          → ArraySet.indexOf()
+          → ArraySet.indexOfNull()
+          → ArraySet.allocArrays()
+          → ArraySet.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → ArrayList.size()
+          → ArrayList.get()
+          → WindowManager$LayoutParams.isFullscreen()
+          → ConfigurationContainer.getConfiguration()
+          → PopOverState.isRemoveOutlineEffectSet()
+            → ContainerHelpers.binarySearch()
+            → ArraySet.binarySearch()
+
+────────────────────────────────────────────────────────────
+Occurrence #17
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.input.InputManagerService
+  Method:   <com.android.server.input.InputManagerService: boolean isSpayFullAppInstalled()>
+  Line:     9964
+  Register: v1 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-virtual {p0, v1, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/Stri
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getApplicationInfo() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← InputManagerService.initTspCmdForSpay()
+        ← InputManagerService.systemRunning()
+          ← <com.android.server.SystemServer: void lambda$startOtherServ
+            ← <com.android.server.SystemServer: void $r8$lambda$yywHzndPMj
+              ← SystemServer$$ExternalSyntheticLambda8.run()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getApplicationInfo() [PKG_QUERY]
+      → Bundle.getBoolean()
+
+────────────────────────────────────────────────────────────
+Occurrence #18
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.dar.sdp.engine.SdpServiceKeeper
+  Method:   <com.android.server.knox.dar.sdp.engine.SdpServiceKeeper: void initWhitelist()>
+  Line:     727
+  Register: v0 := "com.samsung.android.spay"
+  Usage:    [invoke] invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.List.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.knox.dar.sdp.engine.SdpServiceKeeper: vo
+        ← <com.android.server.knox.dar.sdp.SdpManagerImpl: void <init>
+        ← SdpServiceKeeper.getInstance()
+
+  CALLEES (what this method invokes):
+      → List.add()
+

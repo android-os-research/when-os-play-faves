@@ -1,0 +1,12 @@
+# android.os.IIncidentReportStatusListener [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.os.IIncidentReportStatusListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IIncidentReportStatusListener$Stub$Proxy: void onReportFailed()>
+<android.os.IIncidentReportStatusListener$Stub$Proxy: void onReportFinished()>
+<android.os.IIncidentReportStatusListener$Stub$Proxy: void onReportSectionStatus(int,int)>
+<android.os.IIncidentReportStatusListener$Stub$Proxy: void onReportStarted()>
+<android.os.IIncidentReportStatusListener$Stub: android.os.IIncidentReportStatusListener asInterface(android.os.IBinder)>
+<android.os.IIncidentReportStatusListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IIncidentReportStatusListener$Stub: void <init>()>

@@ -1,0 +1,6 @@
+# ro.build.ab_update [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.devicepolicy.DevicePolicyManagerService: boolean isDeviceAB()>
+<com.android.server.recoverysystem.RecoverySystemService: boolean isAbDevice()>

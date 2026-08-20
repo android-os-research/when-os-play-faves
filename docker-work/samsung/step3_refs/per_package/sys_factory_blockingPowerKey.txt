@@ -1,0 +1,6 @@
+# sys.factory.blockingPowerKey [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.os.FactoryTest: boolean needBlockingPowerKey()>
+<android.os.FactoryTest: boolean setBlockingPowerKey(android.content.Context,boolean)>

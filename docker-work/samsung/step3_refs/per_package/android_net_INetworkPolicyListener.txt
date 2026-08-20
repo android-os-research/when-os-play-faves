@@ -1,0 +1,12 @@
+# android.net.INetworkPolicyListener [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.net.INetworkPolicyListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.INetworkPolicyListener$Stub$Proxy: void onBlockedReasonChanged(int,int,int)>
+<android.net.INetworkPolicyListener$Stub$Proxy: void onMeteredIfacesChanged(java.lang.String[])>
+<android.net.INetworkPolicyListener$Stub$Proxy: void onRestrictBackgroundChanged(boolean)>
+<android.net.INetworkPolicyListener$Stub$Proxy: void onSubscriptionOverride(int,int,int,int[])>
+<android.net.INetworkPolicyListener$Stub$Proxy: void onSubscriptionPlansChanged(int,android.telephony.SubscriptionPlan[])>
+<android.net.INetworkPolicyListener$Stub$Proxy: void onUidPoliciesChanged(int,int)>
+<android.net.INetworkPolicyListener$Stub$Proxy: void onUidRulesChanged(int,int)>

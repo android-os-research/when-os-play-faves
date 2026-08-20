@@ -1,0 +1,95 @@
+######################################################################
+# Propagation: com.sec.epdg
+######################################################################
+
+JARs:                 EpdgManager, services
+Classes:              2
+Occurrences:          4
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      EpdgManager
+  Class:    com.sec.epdg.EpdgManager
+  Method:   <com.sec.epdg.EpdgManager: void connectService()>
+  Line:     589
+  Register: v1 := "com.sec.epdg"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Lcom/sec/epdg/EpdgManager;->mContext:Lan → 
+
+  CALLERS (who invokes this method):
+      ← EpdgManager$3.onServiceConnected()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → EpdgManager.getContext()
+      → EpdgManager.getEpdgService()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      EpdgManager
+  Class:    com.sec.epdg.EpdgManager
+  Method:   <com.sec.epdg.EpdgManager: void startService(android.content.Intent)>
+  Line:     1572
+  Register: v0 := "com.sec.epdg"
+  Usage:    [invoke] invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v0, p0, Lcom/sec/epdg/EpdgManager;->mContext:Lan → 
+
+  CALLEES (what this method invokes):
+      → Context.startService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → EpdgManager.getContext()
+      → EpdgManager.getEpdgService()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      EpdgManager
+  Class:    com.sec.epdg.EpdgManager
+  Method:   <com.sec.epdg.EpdgManager: void stopService()>
+  Line:     1636
+  Register: v1 := "com.sec.epdg"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Lcom/sec/epdg/EpdgManager;->mContext:Lan → 
+
+  CALLEES (what this method invokes):
+      → Context.stopService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → EpdgManager.getContext()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.alarm.AppSyncInfo$PackageList
+  Method:   <com.android.server.alarm.AppSyncInfo$PackageList: void loadAppSyncBlockList()>
+  Line:     793
+  Register: v0 := "com.sec.epdg"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Lcom/android/server/alarm/AppSyncInfo$PackageList;->add(Ljava/lang/String;)
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.alarm.AppSyncInfo$PackageList.add() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.alarm.AppSyncInfo: void <init>(android.c
+        ← AppSyncInfo.createAppSync()
+          ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+            ← <com.android.server.alarm.AlarmManagerService: void <init>(a
+
+  CALLEES (what this method invokes):
+      → AppSyncInfo$PackageList.add()
+        → ArrayList.add()
+        → ArrayList.contains()
+        → HashSet.add()
+        → HashSet.contains()
+

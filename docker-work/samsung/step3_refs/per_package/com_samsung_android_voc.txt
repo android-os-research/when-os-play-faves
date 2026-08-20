@@ -1,0 +1,11 @@
+# com.samsung.android.voc [NEW]
+# Refs: 7
+# JARs: framework, services
+
+<android.app.ApplicationErrorReport: android.content.ComponentName getErrorReportReceiver(android.content.Context,java.lang.String,int)>
+<com.android.server.BootReceiver: void sendToMembers(android.content.Context,java.lang.String,java.lang.String)>
+<com.android.server.SystemServer: void run()>
+<com.android.server.biometrics.Utils: boolean isSamsungMembersApp(android.content.Context,java.lang.String)>
+<com.android.server.pm.PersonaServiceHelper$3: void <init>()>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+<com.sec.android.iaft.IAFDDiagnosis: int getRepairType(int,java.lang.String)>

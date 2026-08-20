@@ -1,0 +1,21 @@
+# fingerprint.aidl.TestHal [NEW]
+# Refs: 17
+# JARs: services
+
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: android.hardware.biometrics.common.ICancellationSignal authenticate(long)>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: android.hardware.biometrics.common.ICancellationSignal detectInteraction()>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: android.hardware.biometrics.common.ICancellationSignal enroll(android.hardware.keymaster.HardwareAuthToken)>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void close()>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void enumerateEnrollments()>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void generateChallenge()>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void getAuthenticatorId()>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void invalidateAuthenticatorId()>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void onContextChanged(android.hardware.biometrics.common.OperationContext)>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void onPointerDown(int,int,int,float,float)>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void onPointerUp(int)>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void onUiReady()>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void removeEnrollments(int[])>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void resetLockout(android.hardware.keymaster.HardwareAuthToken)>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal$1: void revokeChallenge(long)>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal: android.hardware.biometrics.fingerprint.ISession createSession(int,int,android.hardware.biometrics.fingerprint.ISessionCallback)>
+<com.android.server.biometrics.sensors.fingerprint.aidl.TestHal: android.hardware.biometrics.fingerprint.SensorProps[] getSensorProps()>

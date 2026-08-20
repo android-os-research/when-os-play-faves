@@ -1,0 +1,13 @@
+# android.telephony.ims.aidl.IImsSmsListener [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.telephony.ims.aidl.IImsSmsListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IImsSmsListener$Stub$Proxy: void onReceiveSmsDeliveryReportAck(int,int)>
+<android.telephony.ims.aidl.IImsSmsListener$Stub$Proxy: void onSendSmsResponse(int,int,int,int,int,int)>
+<android.telephony.ims.aidl.IImsSmsListener$Stub$Proxy: void onSendSmsResult(int,int,int,int,int)>
+<android.telephony.ims.aidl.IImsSmsListener$Stub$Proxy: void onSmsReceived(int,java.lang.String,byte[])>
+<android.telephony.ims.aidl.IImsSmsListener$Stub$Proxy: void onSmsStatusReportReceived(int,java.lang.String,byte[])>
+<android.telephony.ims.aidl.IImsSmsListener$Stub: android.telephony.ims.aidl.IImsSmsListener asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IImsSmsListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IImsSmsListener$Stub: void <init>()>

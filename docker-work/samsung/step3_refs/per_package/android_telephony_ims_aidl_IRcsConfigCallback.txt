@@ -1,0 +1,13 @@
+# android.telephony.ims.aidl.IRcsConfigCallback [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.telephony.ims.aidl.IRcsConfigCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IRcsConfigCallback$Stub$Proxy: void onAutoConfigurationErrorReceived(int,java.lang.String)>
+<android.telephony.ims.aidl.IRcsConfigCallback$Stub$Proxy: void onConfigurationChanged(byte[])>
+<android.telephony.ims.aidl.IRcsConfigCallback$Stub$Proxy: void onConfigurationReset()>
+<android.telephony.ims.aidl.IRcsConfigCallback$Stub$Proxy: void onPreProvisioningReceived(byte[])>
+<android.telephony.ims.aidl.IRcsConfigCallback$Stub$Proxy: void onRemoved()>
+<android.telephony.ims.aidl.IRcsConfigCallback$Stub: android.telephony.ims.aidl.IRcsConfigCallback asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IRcsConfigCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IRcsConfigCallback$Stub: void <init>()>

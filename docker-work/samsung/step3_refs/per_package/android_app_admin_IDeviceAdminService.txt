@@ -1,0 +1,8 @@
+# android.app.admin.IDeviceAdminService [NEW]
+# Refs: 4
+# JARs: framework
+
+<android.app.admin.IDeviceAdminService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.admin.IDeviceAdminService$Stub: android.app.admin.IDeviceAdminService asInterface(android.os.IBinder)>
+<android.app.admin.IDeviceAdminService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.admin.IDeviceAdminService$Stub: void <init>()>

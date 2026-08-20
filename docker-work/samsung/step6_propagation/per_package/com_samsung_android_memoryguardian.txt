@@ -1,0 +1,43 @@
+######################################################################
+# Propagation: com.samsung.android.memoryguardian
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.chimera.SettingRepositoryDefault
+  Method:   <com.android.server.chimera.SettingRepositoryDefault: void initialize()>
+  Line:     313
+  Register: v4 := "com.samsung.android.memoryguardian"
+  Usage:    [invoke] invoke-interface {v3, v4}, Lcom/android/server/chimera/SystemRepository;->isPackageInstalled(Ljava/l
+  Patterns: string_compare, early_return
+  Flow:     [invoke] com.android.server.chimera.SystemRepository.isPackageInstall → [other] aget-object v4, v0, v1 → [invoke] java.l
+
+  CALLERS (who invokes this method):
+      ← SettingRepositoryDefault.enableCustomMode()
+
+  CALLEES (what this method invokes):
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → ChimeraCommonUtil.getRamSizeGb()
+      → SystemRepository.isPackageInstalled()
+      → SystemRepository.getSystemProperty()
+      → SystemRepository.sendBroadcast()
+        → ChimeraCommonUtil.getTotalMemorySizeKb()
+          → BufferedReader.readLine()
+          → <java.io.BufferedReader: void <init>(java.io.Reader,int)>
+          → BufferedReader.close()
+          → <java.io.FileReader: void <init>(java.lang.String)>
+          → FileReader.close()
+          → IOException.printStackTrace()
+          → Throwable.addSuppressed()
+

@@ -1,0 +1,10 @@
+# android.telephony.ims.aidl.IOptionsRequestCallback [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.telephony.ims.aidl.IOptionsRequestCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.telephony.ims.aidl.IOptionsRequestCallback$Stub$Proxy: void respondToCapabilityRequest(android.telephony.ims.RcsContactUceCapability,boolean)>
+<android.telephony.ims.aidl.IOptionsRequestCallback$Stub$Proxy: void respondToCapabilityRequestWithError(int,java.lang.String)>
+<android.telephony.ims.aidl.IOptionsRequestCallback$Stub: android.telephony.ims.aidl.IOptionsRequestCallback asInterface(android.os.IBinder)>
+<android.telephony.ims.aidl.IOptionsRequestCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.telephony.ims.aidl.IOptionsRequestCallback$Stub: void <init>()>

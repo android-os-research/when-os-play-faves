@@ -1,0 +1,1152 @@
+######################################################################
+# Propagation: com.google.android.packageinstaller
+######################################################################
+
+JARs:                 duraspeed, services
+Classes:              7
+Occurrences:          8
+Usage types:          array_init, invoke
+Enforcement patterns: early_return, signature_check, string_compare, system_property_read
+Security tags:        PERM_CHECK, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      duraspeed
+  Class:    com.mediatek.duraspeed.collector.q
+  Method:   <com.mediatek.duraspeed.collector.q: void <clinit>()>
+  Line:     87
+  Register: v14 := "com.google.android.packageinstaller"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageInstallerSession
+  Method:   <com.android.server.pm.PackageInstallerSession: void verifyNonStaged()>
+  Line:     20482
+  Register: v0 := "com.google.android.packageinstaller"
+  Usage:    [invoke] invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-eqz v0, :cond_31 → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← PackageInstallerSession.verify()
+        ← <com.android.server.pm.PackageInstallerSession: void -$$Nest
+        ← PackageInstallerSession.handleInstall()
+          ← PackageInstallerSession$StagedSession.verifySession()
+          ← <com.android.server.pm.PackageInstallerSession: void -$$Nest
+            ← PackageInstallerSession$4.handleMessage()
+
+  CALLEES (what this method invokes):
+      → ASKSManager.getASKSManager()
+      → IASKSManager.isTrustedStore()
+      → <com.android.server.pm.PackageInstallerSession$$ExternalSynt
+      → PackageInstallerSession.checkUnknownSourcePackage()
+      → PackageInstallerSession.markStageDirInUseLocked()
+      → PackageInstallerSession.startUnknownSourceConfirmDialog()
+      → PackageSessionProvider.getSessionVerifier()
+      → PackageSessionVerifier.verify()
+      → PackageInstallTimeLogger.hasInstallTimeInfo()
+      → PackageInstallTimeLogger.updateInstallTag()
+      → PackageInstallTimeLogger.updatePackageInfo()
+        → IASKSManager$Stub.asInterface()
+        → ServiceManager.getService()
+        → IASKSManager.checkUnknownSourcePackage()
+        → PackageParser.parsePackage()
+        → <android.content.pm.PackageParser: void <init>()>
+        → SigningDetails.getSignatures()
+        → Uri.toString()
+        → File.getAbsolutePath()
+        → ArrayList.add()
+        → ArrayList.size()
+        → ArrayList.get()
+        → ArrayList.toArray()
+        → <java.util.ArrayList: void <init>()>
+        → <com.android.server.pm.PackageManagerException: void <init>(
+        → Handler.post()
+        → <com.android.server.pm.PackageInstallerSession$$ExternalSynt
+        → <com.android.server.pm.PackageSessionVerifier$$ExternalSynth
+        → ArrayMap.get()
+        → PackageInstallTimeLogger.getCurrentTime()
+          → <android.content.pm.IASKSManager$Stub$Proxy: void <init>(and
+          → IBinder.queryLocalInterface()
+          → <java.lang.Exception: void <init>(java.lang.String)>
+          → ArrayMap.indexOfKey()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+              → ArrayMap.binarySearchHashes()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageManagerService
+  Method:   <com.android.server.pm.PackageManagerService: boolean checkUnknownSourcePackage(java.lang.String)>
+  Line:     9610
+  Register: v5 := "com.google.android.packageinstaller"
+  Usage:    [invoke] invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return, signature_check
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v5 → [branch] if-nez v5, :cond_31 → [reassigned] v5 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PackageManagerService: java.lang.Bool
+        ← <com.android.server.pm.PackageManagerService: java.lang.Bool
+          ← PackageManagerService$$ExternalSyntheticLambda58.apply()
+
+  CALLEES (what this method invokes):
+      → ASKSManager.getASKSManager()
+      → IASKSManager.checkUnknownSourcePackage()
+      → SigningDetails.getSignatures()
+      → PackageSetting.getInstallSource()
+      → PackageSetting.getSignatures()
+      → PackageSetting.getPkg()
+      → Settings.getPackageLPr()
+      → ParsedService.getPermission()
+      → PkgWithoutStateAppInfo.getTargetSdkVersion()
+      → PkgWithoutStateAppInfo.getBaseApkPath()
+      → PkgWithoutStatePackageInfo.getRequestedPermissions()
+      → PkgWithoutStatePackageInfo.getServices()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+      → List.size()
+      → List.get()
+      → List.toArray()
+        → IASKSManager$Stub.asInterface()
+        → ServiceManager.getService()
+        → WatchedArrayMap.get()
+          → <android.content.pm.IASKSManager$Stub$Proxy: void <init>(and
+          → IBinder.queryLocalInterface()
+          → ArrayMap.get()
+            → ArrayMap.indexOfKey()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageManagerService
+  Method:   <com.android.server.pm.PackageManagerService: boolean isObsoleteUnknownSourcePackage(java.lang.String)>
+  Line:     16351
+  Register: p0 := "com.google.android.packageinstaller"
+  Usage:    [invoke] invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [other] xor-int/2addr p0, p1 → [other] return p0 → [other]
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.PackageManagerService: java.lang.Bool
+        ← <com.android.server.pm.PackageManagerService: java.lang.Bool
+          ← PackageManagerService$$ExternalSyntheticLambda57.apply()
+
+  CALLEES (what this method invokes):
+      → PackageSetting.getInstallSource()
+      → PackageSetting.getPkg()
+      → Settings.getPackageLPr()
+        → WatchedArrayMap.get()
+          → ArrayMap.get()
+            → ArrayMap.indexOfKey()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.PackageInstallerService
+  Method:   <com.android.server.pm.PackageInstallerService: int createSessionInternal(android.content.pm.PackageInstaller$SessionParams,java.lang.String,java.lang.String,int)>
+  Line:     2872
+  Register: v13 := "com.google.android.packageinstaller"
+  Usage:    [invoke] invoke-virtual {v1, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v13 → [branch] if-eqz v13, :cond_2b3 → [reassigned] v13 overwri
+
+  CALLERS (who invokes this method):
+      ← PackageInstallerService.createSession()
+        ← PrePackageInstallerBase.installPreloadPackage()
+          ← PrePackageInstallerBase.installPreloadPackageList()
+            ← PrePackageInstallerBase.startPrePackageInstall()
+              ← <com.samsung.android.server.pm.install.PrePackageInstallerBa
+
+  CALLEES (what this method invokes):
+      → ActivityManager.getLauncherLargeIconSize()
+      → AppOpsManager.checkPackage()
+      → NotificationManager.notify()
+      → Context.checkCallingOrSelfPermission()
+      → Context.getSystemService()
+      → Context.getString()
+      → Context.enforceCallingOrSelfPermission()
+      → PackageInstaller$SessionParams.setSize()
+      → PackageManagerInternal.isPlatformSigned()
+      → Bitmap.createScaledBitmap()
+      → Bitmap.getHeight()
+      → Bitmap.getWidth()
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → HandlerThread.getLooper()
+      → Process.myPid()
+      → ServiceManager.getService()
+      → TextUtils.equals()
+      → TextUtils.trimToSize()
+      → SparseArray.put()
+      → SparseIntArray.get()
+      → InstallLocationUtils.fitsOnExternal()
+      → InstallLocationUtils.fitsOnInternal()
+      → InstallLocationUtils.resolveInstallVolume()
+      → ApexManager.isApexSupported()
+      → Computer.getApplicationInfo() [PKG_QUERY]
+      → Computer.checkUidPermission()
+      → Computer.getFlagsForUid()
+      → Computer.getPackagesForUid()
+      → Computer.enforceCrossUserPermission()
+      → InstallSource.create()
+      → <com.android.server.pm.PackageInstallerService$Callbacks: vo
+      → PackageInstallerService.buildNotification()
+      → PackageInstallerService.checkSettingsForDirectSdInstall()
+      → PackageInstallerService.isCalledBySystemOrShell()
+      → PackageInstallerService.isSdCardAvailableAndMounted()
+      → PackageInstallerService.isStagedInstallerAllowed()
+      → PackageInstallerService.allocateSessionIdLocked()
+      → PackageInstallerService.getSessionCount()
+      → PackageInstallerService.buildSessionDir()
+      → PackageInstallerService.buildExternalStageCid()
+      → PackageInstallerSession.isSystemDataLoaderInstallation()
+      → PackageInstallerSession.getInstallSource()
+      → <com.android.server.pm.PackageInstallerSession: void <init>(
+      → PackageManagerService.isCallerVerifier()
+      → PackageManagerService.isUserRestricted()
+      → PackageManagerService.snapshotComputer()
+      → PackageManagerService.addInstallerPackageName()
+      → RequestThrottle.schedule()
+      → IRestrictionPolicy$Stub.asInterface()
+      → IRestrictionPolicy.showRestrictionToast()
+      → <java.io.IOException: void <init>(java.lang.String)>
+      → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+      → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+      → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → CharSequence.charAt()
+        → CharSequence.length()
+        → TextUtils.isEmpty()
+        → Preconditions.checkArgument()
+        → CharSequence.subSequence()
+        → Character.isHighSurrogate()
+        → Character.isLowSurrogate()
+        → ContainerHelpers.binarySearch()
+        → SparseArray.gc()
+        → GrowingArrayUtils.insert()
+        → GrowingArrayUtils.insert()
+        → SparseIntArray.get()
+        → Context.getSystemService()
+        → StorageManager.getPrimaryVolume()
+        → StorageManager.getVolumeList()
+        → StorageManager.getStorageBytesUntilLow()
+        → StorageVolume.isRemovable()
+        → StorageVolume.getPathFile()
+        → StorageVolume.getPath()
+        → StorageVolume.getSubSystem()
+        → InstallLocationUtils.hasActiveContainer()
+        → Environment.getDataDirectory()
+        → StorageManager.getUuidForPath()
+        → StorageManager.getAllocatableBytes()
+        → InstallLocationUtils.translateAllocateFlags()
+        → InstallLocationUtils.getDefaultTestableInterface()
+        → InstallLocationUtils.resolveInstallVolume()
+        → InstallSource.create()
+        → PackageInstallerService$Callbacks.notifySessionCreated()
+        → Notification$BigTextStyle.bigText()
+        → <android.app.Notification$BigTextStyle: void <init>()>
+        → Notification$Builder.build()
+        → Notification$Builder.setColor()
+        → Notification$Builder.setContentText()
+        → Notification$Builder.setContentTitle()
+        → Notification$Builder.setSmallIcon()
+        → Notification$Builder.setStyle()
+        → <android.app.Notification$Builder: void <init>(android.conte
+        → Context.getResources()
+        → Resources.getColor()
+        → Resources.getString()
+        → Context.getContentResolver()
+        → Settings$System.getInt()
+        → StorageVolume.getState()
+        → SystemConfig.getInstance()
+        → SystemConfig.getWhitelistedStagedInstallers()
+        → Set.contains()
+        → SparseBooleanArray.get()
+        → SparseBooleanArray.put()
+        → Random.nextInt()
+        → SparseArray.size()
+        → SparseArray.valueAt()
+        → PackageInstallerSession.getInstallerUid()
+        → Environment.getDataStagingDirectory()
+        → PackageInstallerService.tryParseSessionId()
+        → PackageInstallerService.buildTmpSessionDir()
+        → File.getName()
+        → <java.io.File: void <init>(java.io.File,java.lang.String)>
+        → <java.lang.RuntimeException: void <init>(java.lang.String)>
+        → Objects.equals()
+        → ComponentName.getPackageName()
+        → DataLoaderParams.getComponentName()
+        → PackageInstallerSession.isDataLoaderInstallation()
+        → <android.content.pm.IPackageInstallerSession$Stub: void <ini
+        → <android.os.Handler: void <init>(android.os.Looper,android.o
+        → UserHandle.getSharedAppGid()
+        → IncrementalManager.isAllowed()
+        → <android.util.ArrayMap: void <init>()>
+        → ArrayMap.putAll()
+        → ArraySet.add()
+        → <android.util.ArraySet: void <init>()>
+        → ArraySet.ensureCapacity()
+        → <android.util.SparseArray: void <init>()>
+        → Computer.getPackageUid()
+        → <com.android.server.pm.PackageInstallerSession$4: void <init
+        → <com.android.server.pm.PackageInstallerSession$FileEntry: vo
+        → <com.android.server.pm.PackageInstallerSession$StagedSession
+        → PackageInstallerSession.hasParentSessionId()
+        → PackageInstallerSession.isApexSession()
+        → PackageInstallerSession.isDataLoaderInstallation()
+        → PackageInstallerSession.isIncrementalInstallation()
+        → PackageInstallerSession.isMultiPackage()
+        → PackageInstallerSession.isStaged()
+        → PackageInstallerSession.isSystemDataLoaderInstallation()
+        → PackageInstallTimeLogger.createInstallTimeInfo()
+        → PackageInstallTimeLogger.updateInstallTag()
+        → <java.security.SecureRandom: void <init>()>
+        → <java.util.ArrayList: void <init>()>
+        → Objects.requireNonNull()
+        → <java.util.concurrent.atomic.AtomicBoolean: void <init>(bool
+        → AtomicBoolean.set()
+        → <java.util.concurrent.atomic.AtomicInteger: void <init>()>
+        → UserHandle.getUserId()
+        → Bundle.getBoolean()
+        → UserManagerService.getUserRestrictions()
+        → Computer.use()
+        → Computer.getVersion()
+        → PackageManagerService.rebuildSnapshot()
+        → Thread.holdsLock()
+        → AtomicInteger.get()
+        → AtomicReference.get()
+        → AtomicReference.set()
+        → Settings.addInstallerPackageNames()
+        → Handler.post()
+        → AtomicInteger.incrementAndGet()
+        → IBinder.queryLocalInterface()
+        → <com.samsung.android.knox.restriction.IRestrictionPolicy$Stu
+          → StorageVolume.getActivitySecureContainer()
+          → <com.android.internal.content.InstallLocationUtils$1: void <
+          → <android.content.pm.PackageInstaller$SessionParams: void <in
+          → InstallLocationUtils.resolveInstallVolume()
+          → InstallSource.createInternal()
+          → InstallSource.intern()
+          → Handler.obtainMessage()
+          → Message.sendToTarget()
+          → Notification.secSafeCharSequence()
+          → <android.app.Notification$Style: void <init>()>
+          → SystemConfig.isSystemProcess()
+          → <com.android.server.SystemConfig: void <init>()>
+          → GrowingArrayUtils.insert()
+          → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+          → PackageInstallerService.getTmpSessionDir()
+          → <android.content.ComponentName: void <init>(java.lang.String
+          → IPackageInstallerSession$Stub.attachInterface()
+          → <android.os.Binder: void <init>()>
+          → SystemProperties.getBoolean()
+          → IncrementalManager.isFeatureEnabled()
+          → <android.util.ArrayMap: void <init>(int,boolean)>
+          → ArrayMap.keyAt()
+          → ArrayMap.put()
+          → ArrayMap.valueAt()
+          → ArrayMap.ensureCapacity()
+          → ArraySet.indexOf()
+          → ArraySet.indexOfNull()
+          → ArraySet.allocArrays()
+          → ArraySet.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <android.util.ArraySet: void <init>(int,boolean)>
+          → <android.util.SparseArray: void <init>(int)>
+          → DataLoaderParams.getType()
+          → ArrayMap.size()
+          → <com.samsung.android.server.pm.install.PackageInstallTimeLog
+          → PackageInstallTimeLogger.getCurrentTime()
+          → PackageInstallTimeLogger.removeExpiredTimeInfo()
+          → ArrayMap.get()
+          → ArrayList.add()
+          → BundleUtils.clone()
+          → UserManagerService.getEffectiveUserRestrictions()
+          → UserManagerService.checkManageOrInteractPermissionIfCallerInOtherProfileGroup()
+          → SystemClock.currentTimeMicro()
+          → Computer.getUsed()
+          → <com.android.server.pm.ComputerEngine: void <init>(com.andro
+          → <com.android.server.pm.PackageManagerService$Snapshot: void 
+          → SnapshotStatistics.rebuild()
+          → WatchedArraySet.add()
+            → <com.android.internal.content.InstallLocationUtils$TestableI
+            → ApplicationInfo.isSystemApp()
+            → StorageManager.getVolumes()
+            → VolumeInfo.isMountedWritable()
+            → ArrayMap.containsKey()
+            → ArrayMap.keySet()
+            → InstallLocationUtils$TestableInterface.getExistingAppInfo()
+            → InstallLocationUtils$TestableInterface.getStorageManager()
+            → InstallLocationUtils$TestableInterface.getAllow3rdPartyOnInternalConfig()
+            → InstallLocationUtils$TestableInterface.getForceAllowOnExternalSetting()
+            → InstallLocationUtils.checkFitOnVolume()
+            → <java.io.File: void <init>(java.lang.String)>
+            → Iterator.hasNext()
+            → Iterator.next()
+            → List.iterator()
+            → Set.iterator()
+            → <com.android.server.pm.InstallSource: void <init>(java.lang.
+            → Handler.sendMessage()
+            → Notification.removeTextSizeSpans()
+            → CharSequence.toString()
+            → Process.myUid()
+            → <android.util.TimingsTraceLog: void <init>(java.lang.String,
+            → TimingsTraceLog.traceBegin()
+            → TimingsTraceLog.traceEnd()
+            → SystemConfig.readAllPermissions()
+            → SystemConfig.readPublicNativeLibrariesList()
+            → Environment.getDataAppDirectory()
+            → <android.os.Binder: void <init>(java.lang.String)>
+            → IncrementalManager.nativeIsEnabled()
+            → ArrayMap.allocArrays()
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.freeArrays()
+            → ArraySet.binarySearch()
+            → ArrayUtils.newUnpaddedObjectArray()
+            → <com.samsung.android.server.pm.install.PackageInstallTimeLog
+            → ArrayMap.remove()
+            → ArrayMap.entrySet()
+            → Map$Entry.getKey()
+            → Map$Entry.getValue()
+            → ArrayMap.indexOfKey()
+            → <android.os.Bundle: void <init>()>
+            → <android.os.Bundle: void <init>(android.os.Bundle)>
+            → RestrictionsSet.getRestrictions()
+            → RestrictionsSet.updateRestrictions()
+            → UserManagerService.computeEffectiveUserRestrictionsLR()
+            → UserHandle.getCallingUserId()
+            → UserManagerService.hasManageUsersPermission()
+            → UserManagerService.hasPermissionGranted()
+            → UserManagerService.isSameProfileGroupNoChecks()
+            → <com.android.server.pm.ComputerEngine$Settings: void <init>(
+            → PackageManagerService.getDefaultAppProvider()
+            → PackageManagerService.getDexManager()
+            → ComponentName.clone()
+            → <android.content.pm.ActivityInfo: void <init>(android.conten
+            → <android.content.pm.ApplicationInfo: void <init>(android.con
+            → <android.content.pm.ResolveInfo: void <init>(android.content
+            → AppsFilterImpl.snapshot()
+            → InstantAppRegistry.snapshot()
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: android.conten
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → <com.android.server.pm.PackageManagerService: com.android.se
+            → Settings.snapshot()
+            → SharedLibrariesImpl.snapshot()
+            → ComponentResolver.snapshot()
+            → SnapshotCache.snapshot()
+            → WatchedSparseBooleanArray.snapshot()
+            → <java.lang.IllegalArgumentException: void <init>()>
+            → EventLogTags.writePmSnapshotRebuild()
+            → SnapshotStatistics$BinMap.getBin()
+            → <com.android.server.pm.SnapshotStatistics$Stats: void -$$Nes
+            → WatchedArraySet.onChanged()
+            → WatchedArraySet.registerChild()
+              → ArrayMap.getCollection()
+              → MapCollections.getKeySet()
+              → <android.text.SpannableStringBuilder: void <init>(java.lang.
+              → SpannableStringBuilder.setSpan()
+              → Spanned.getSpanEnd()
+              → Spanned.getSpanFlags()
+              → Spanned.getSpanStart()
+              → Spanned.length()
+              → Spanned.getSpans()
+              → CharacterStyle.getUnderlying()
+              → TextAppearanceSpan.getLinkTextColor()
+              → TextAppearanceSpan.getTextColor()
+              → TextAppearanceSpan.getTextStyle()
+              → TextAppearanceSpan.getFamily()
+              → <android.text.style.TextAppearanceSpan: void <init>(java.lan
+              → <android.util.TimingsTraceLog: void <init>(java.lang.String,
+              → SystemClock.elapsedRealtime()
+              → Trace.traceBegin()
+              → TimingsTraceLog.assertSameThread()
+              → Trace.traceEnd()
+              → TimingsTraceLog.logDuration()
+              → Environment.buildPath()
+              → Environment.getApexDirectory()
+              → Environment.getOdmDirectory()
+              → Environment.getOemDirectory()
+              → Environment.getProductDirectory()
+              → Environment.getRootDirectory()
+              → Environment.getSystemExtDirectory()
+              → Environment.getVendorDirectory()
+              → FileUtils.listFilesOrEmpty()
+              → SystemProperties.get()
+              → SystemProperties.get()
+              → Xml.newPullParser()
+              → SystemConfig.SEServiceFeature()
+              → SystemConfig.readAerSupportedFromXml()
+              → SystemConfig.readPermissions()
+              → File.isFile()
+              → File.getPath()
+              → SystemConfig.readPublicLibrariesListFile()
+              → File.listFiles()
+              → Binder.getNativeBBinderHolder()
+              → NativeAllocationRegistry.registerNativeAllocation()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → ArrayMap.binarySearchHashes()
+              → ArrayMap.removeAt()
+              → MapCollections.getEntrySet()
+              → SparseArray.get()
+              → SparseArray.delete()
+              → BundleUtils.isEmpty()
+              → UserRestrictionsUtils.areEqual()
+              → RestrictionsSet.mergeAll()
+              → RestrictionsSet.isEmpty()
+              → UserManagerService.getDevicePolicyLocalRestrictionsForTargetUserLR()
+              → UserRestrictionsUtils.nonNull()
+              → UserRestrictionsUtils.merge()
+              → UserManagerService.hasManageUsersPermission()
+              → ActivityManager.checkComponentPermission()
+              → UserManagerService.getUserInfoLU()
+              → <com.android.server.utils.SnapshotCache$Statistics: java.uti
+              → <com.android.server.utils.SnapshotCache$Statistics: java.uti
+              → SnapshotCache.createSnapshot()
+              → WatchableImpl.seal()
+              → <com.android.server.utils.WatchedSparseBooleanArray: void <i
+              → EventLog.writeEvent()
+              → SnapshotStatistics$Stats.rebuild()
+              → WatchableImpl.dispatchChange()
+              → Watchable.registerObserver()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.pm.ComputerEngine
+  Method:   <com.android.server.pm.ComputerEngine: java.util.List queryIntentActivitiesInternal(android.content.Intent,java.lang.String,long,long,int,int,boolean,boolean)>
+  Line:     21699
+  Register: v0 := "com.google.android.packageinstaller"
+  Usage:    [invoke] invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v0 → [branch] if-nez v0, :cond_266 → [other] iget-object v0, v1
+
+  CALLERS (who invokes this method):
+      ← ComputerEngine.findInstallFailureActivity()
+      ← ComputerEngine.queryIntentActivitiesInternal()
+      ← ComputerEngine.queryIntentActivitiesInternal()
+        ← ComputerEngine.applyPostResolutionFilter()
+        ← ComputerEngine.getHomeActivitiesAsUser()
+          ← ComputerEngine.queryIntentActivitiesInternalBody()
+          ← ComputerEngine.getDefaultHomeActivity()
+            ← ComputerEngine.canViewInstantApps()
+              ← ComputerEngine.isInstantAppInternalBody()
+              ← ComputerEngine.shouldFilterApplication()
+              ← ComputerEngine.canonicalToCurrentPackageNames()
+              ← ComputerEngine.currentToCanonicalPackageNames()
+              ← ComputerEngine.getAllPackages()
+              ← ComputerEngine.updateFlagsForResolve()
+
+  CALLEES (what this method invokes):
+      → ComponentName.getPackageName()
+      → Intent.getComponent()
+      → Intent.getSelector()
+      → Intent.getAction()
+      → Intent.getPackage()
+      → <android.content.pm.ResolveInfo: void <init>()>
+      → Binder.getCallingUid() [UID_CHECK]
+      → ServiceManager.getService()
+      → UserHandle.getUserId()
+      → DualAppManagerService.isSelfContainedAction()
+      → DualAppManagerService.mayForwardIntent()
+      → DualAppManagerService.shouldForwardToOwner()
+      → ComputerEngine.getActivityInfo()
+      → ComputerEngine.isImplicitImageCaptureIntentAndNotSetByDpc()
+      → ComputerEngine.isInstantApp()
+      → ComputerEngine.shouldFilterApplication()
+      → ComputerEngine.queryIntentActivitiesInternalBody()
+      → ComputerEngine.getPackageStateInternal()
+      → ComputerEngine.getApplicationPolicy()
+      → ComputerEngine.getInstantAppPackageName()
+      → ComputerEngine.applyPostResolutionFilter()
+      → ComputerEngine.maybeAddInstantAppInstaller()
+      → ComputerEngine.updateFlagsForResolve()
+      → ComputerEngine.enforceCrossUserPermission()
+      → PackageManagerServiceInjector.getCompatibility()
+      → PackageManagerServiceUtils.applyEnforceIntentFilterMatching()
+      → SProtect.checkForHiddenPackage()
+      → UserManagerService.exists()
+      → ComponentResolverApi.queryActivities()
+      → SemDualAppManager.isDualAppId()
+      → ApplicationPolicyInternal.getApplicationNameFromDb()
+      → IRestrictionPolicy$Stub.asInterface()
+      → IRestrictionPolicy.isShareListAllowedAsUser()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.ArrayList: void <init>(int)>
+      → Collections.emptyList()
+      → List.add()
+      → List.size()
+      → List.get()
+      → List.sort()
+        → DualAppManagerService.getAllPkgNameByUid()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → List.iterator()
+        → Intent.hasCategory()
+        → Context.getPackageManager()
+        → PackageManager.getNameForUid()
+        → SemDualAppManager.isInstalledWhitelistedPackage()
+        → SemDualAppManager.isWhitelistedPackage()
+        → SemDualAppManager.getInstance()
+        → ComputerEngine.getActivityInfoInternal()
+        → Intent.isImplicitImageCaptureIntent()
+        → ComputerEngine.isPersistentPreferredActivitySetByDpm()
+        → ComputerEngine.isInstantAppInternal()
+        → ComputerEngine.shouldFilterApplication()
+        → Intent.hasWebURI()
+        → DualAppManagerService.addDualAppResolveInfo()
+        → ComputerEngine.querySkipCurrentProfileIntents()
+        → ComputerEngine.getProfileParent()
+        → ComputerEngine.hasNonNegativePriority()
+        → ComputerEngine.isInstantAppResolutionAllowed()
+        → ComputerEngine.getCrossProfileDomainPreferredLpr()
+        → ComputerEngine.queryCrossProfileIntents()
+        → ComputerEngine.filterCandidatesWithDomainPreferredActivitiesLPr()
+        → ComputerEngine.filterIfNotSystemUser()
+        → ComputerEngine.getMatchingCrossProfileIntentFilters()
+        → ComputerEngine.queryCrossProfileIntentsforKnox()
+        → <com.android.server.pm.QueryIntentActivitiesResult: void <in
+        → <com.android.server.pm.QueryIntentActivitiesResult: void <in
+        → AndroidPackageApi.getActivities()
+        → PackageState.getAndroidPackage()
+        → ComponentResolverApi.queryActivities()
+        → SemDualAppManager.getDualAppProfileId()
+        → List.addAll()
+        → List.isEmpty()
+        → ComputerEngine$Settings.getPackage()
+        → ComputerEngine.resolveInternalPackageNameInternalLocked()
+        → PackageManagerServiceInjector.getLocalService()
+        → Process.isIsolated()
+        → UserHandle.getAppId()
+        → ComputerEngine$Settings.getSettingBase()
+        → ComputerEngine.getIsolatedOwner()
+        → PackageStateInternal.getPkg()
+        → PackageStateInternal.getUserStateOrDefault()
+        → PackageUserState.isInstantApp()
+        → PkgWithoutStatePackageInfo.getPackageName()
+        → Intent.isWebIntent()
+        → Intent.getFlags()
+        → <android.content.IntentFilter: void <init>()>
+        → ApplicationInfo.isInstantApp()
+        → <android.content.pm.AuxiliaryResolveInfo: void <init>(androi
+        → ResolveInfo.getComponentInfo()
+        → ResolveInfo.resolveIconResId()
+        → ResolveInfo.resolveLabelResId()
+        → <android.content.pm.ResolveInfo: void <init>(android.content
+        → ArrayUtils.contains()
+        → AppsFilterSnapshot.shouldFilterApplication()
+        → ComputerEngine.findInstallFailureActivity()
+        → ComputerEngine.instantAppInstallerActivity()
+        → ComputerEngine.areWebInstantAppsDisabled()
+        → List.remove()
+        → List.set()
+        → Intent.getData()
+        → IntentFilter.addAction()
+        → IntentFilter.addDataPath()
+        → <android.content.pm.InstantAppRequest: void <init>(android.c
+        → InstantAppResolveInfo$InstantAppDigest.getDigestPrefixSecure()
+        → Uri.getPath()
+        → Trace.traceBegin()
+        → Trace.traceEnd()
+        → InstantAppResolver.doInstantAppResolutionPhaseOne()
+        → InstantAppResolver.parseDigest()
+        → PackageManagerServiceUtils.hasAnyDomainApproval()
+        → PackageUserStateUtils.isEnabled()
+        → PackageInfoWithoutStateUtils.generateDelegateActivityInfo()
+        → UUID.toString()
+        → UUID.randomUUID()
+        → ComputerEngine.canViewInstantApps()
+        → ComputerEngine.safeMode()
+        → ComputerEngine.updateFlagsForComponent()
+        → ComputerEngine.enforceCrossUserPermission()
+        → PackageManagerServiceInjector$Singleton.get()
+        → ActivityManager.checkComponentPermission()
+        → ComponentInfo.getComponentName()
+        → PlatformCompat.isChangeEnabledInternal()
+        → <com.android.server.pm.PackageManagerServiceUtils$$ExternalS
+        → ParsedComponent.getComponentName()
+        → ParsedComponent.getIntents()
+        → ComponentResolverApi.getActivity()
+        → ComponentResolverApi.getReceiver()
+        → ComponentResolverApi.getService()
+        → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+        → List.stream()
+        → Stream.anyMatch()
+        → SProtect.isAppLockEnabled()
+        → SProtect.isHiddenBySprotect()
+        → UserManagerService$LocalService.exists()
+        → IBinder.queryLocalInterface()
+        → <com.samsung.android.knox.restriction.IRestrictionPolicy$Stu
+          → Log.e()
+          → Exception.printStackTrace()
+          → HashMap.entrySet()
+          → Map$Entry.getKey()
+          → Map$Entry.getValue()
+          → Set.iterator()
+          → UserHandle.myUserId()
+          → ISemDualAppManager.isInstalledWhitelistedPackage()
+          → SemDualAppManager.isDualAppIdInternal()
+          → SemDualAppManager.getDualAppService()
+          → SemDualAppManager.getAllWhitelistedPackages()
+          → <com.samsung.android.app.SemDualAppManager: void <init>()>
+          → ComputerEngine.getActivityInfoInternalBody()
+          → ComputerEngine.isRecentsAccessingChildProfiles()
+          → IntentResolver.queryIntent()
+          → ComputerEngine$Settings.getPersistentPreferredActivities()
+          → ComputerEngine.isInstantAppInternalBody()
+          → Process.isSdkSandboxUid()
+          → Process.getAppUidForSdkSandboxUid()
+          → UserHandle.getUid()
+          → ComputerEngine.isCallerSameApp()
+          → ComputerEngine.isComponentVisibleToInstantApp()
+          → InstantAppRegistry.isInstantAccessGranted()
+          → PackageState.getAppId()
+          → PackageState.getPackageName()
+          → ParsedInstrumentation.getTargetPackage()
+          → ParsingPackageRead.isVisibleToInstantApps()
+          → WatchedArrayMap.get()
+          → HashMap.isEmpty()
+          → ComputerEngine.createForwardingResolveInfo()
+          → CrossProfileIntentFilter.getFlags()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → UserManagerService.getProfileParent()
+          → Uri.getHost()
+          → TextUtils.isEmpty()
+          → ComputerEngine.isInstantAppResolutionAllowedBody()
+          → ComputerEngine.createForwardingResolveInfoUnchecked()
+          → <com.android.server.pm.CrossProfileDomainInfo: void <init>(a
+          → UserManagerService.hasUserRestriction()
+          → <com.android.server.pm.WatchedIntentFilter: void <init>()>
+          → DomainVerificationManagerInternal.approvalLevelForDomain()
+          → SparseBooleanArray.get()
+          → <android.util.SparseBooleanArray: void <init>()>
+          → SparseBooleanArray.put()
+          → ComputerEngine.isUserEnabled()
+          → CrossProfileIntentFilter.getTargetUserId()
+          → Collections.singletonList()
+          → ComputerEngine.filterCandidatesWithDomainPreferredActivitiesLPrBody()
+          → CollectionUtils.size()
+          → ComputerEngine$Settings.getCrossProfileIntentResolver()
+          → SystemProperties.get()
+          → Settings.getPackageLPr()
+          → SharedLibraryInfo.getDeclaringPackage()
+          → SharedLibraryInfo.getName()
+          → SharedLibraryInfo.getPackageName()
+          → SharedLibraryInfo.getLongVersion()
+          → VersionedPackage.getLongVersionCode()
+          → LongSparseLongArray.indexOfKey()
+          → LongSparseLongArray.size()
+          → <android.util.LongSparseLongArray: void <init>()>
+          → LongSparseLongArray.append()
+          → ArrayUtils.indexOf()
+          → ComputerEngine$Settings.getRenamedPackageLPr()
+          → ComputerEngine.getPackagesForUidInternal()
+          → SharedLibrariesRead.getStaticLibraryInfos()
+          → PackageState.getUsesStaticLibraries()
+          → PackageState.getUsesStaticLibrariesVersions()
+          → WatchedLongSparseArray.size()
+          → WatchedLongSparseArray.valueAt()
+          → PackageManagerServiceInjector$ServiceProducer.produce()
+          → Settings.getSettingLPr()
+          → WatchedSparseIntArray.get()
+          → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+          → SparseArray.get()
+          → PackageStateInternal.getUserStates()
+          → <android.content.pm.AuxiliaryResolveInfo$AuxiliaryFilter: vo
+          → <android.content.pm.AuxiliaryResolveInfo: void <init>(androi
+          → <android.content.ComponentName: void <init>(java.lang.String
+          → Intent.setPackage()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → WatchedSparseBooleanArray.get()
+          → InstantAppResolveInfo$InstantAppDigest.getDigestPrefix()
+          → Random.nextInt()
+          → Random.nextInt()
+          → <android.content.pm.AuxiliaryResolveInfo: void <init>(java.l
+          → InstantAppResolver.createFailureIntent()
+          → InstantAppResolver.filterInstantAppIntent()
+          → InstantAppResolver.buildRequestInfo()
+          → InstantAppResolver.logMetrics()
+          → InstantAppResolverConnection.getInstantAppResolveInfoList()
+          → <android.content.pm.InstantAppResolveInfo$InstantAppDigest: 
+          → PackageUserStateUtils.isEnabled()
+          → <android.content.pm.ActivityInfo: void <init>(android.conten
+          → PackageInfoWithoutStateUtils.generateDelegateApplicationInfo()
+          → PackageInfoWithoutStateUtils.checkUseInstalledOrHidden()
+          → Context.checkCallingOrSelfPermission()
+          → ComputerEngine.getDefaultHomeActivity()
+          → PackageManagerService.getSafeMode()
+          → ComputerEngine.updateFlags()
+          → ComputerEngine.hasCrossUserPermission()
+          → ComputerEngine.buildInvalidCrossUserPermissionMessage()
+          → PackageManagerServiceInjector.getUserManagerInternal()
+          → PackageManagerServiceUtils.enforceShellRestriction()
+          → <java.lang.SecurityException: void <init>(java.lang.String)>
+          → PackageManagerServiceInjector$Producer.produce()
+          → PlatformCompat.isChangeEnabledInternalNoLogging()
+          → PlatformCompat.reportChangeInternal()
+          → AtomicBoolean.get()
+          → ArraySet.contains()
+          → ReentrantReadWriteLock$ReadLock.lock()
+          → ReentrantReadWriteLock$ReadLock.unlock()
+          → ReentrantReadWriteLock.readLock()
+          → <com.android.server.pm.UserManagerService: android.content.p
+            → Log.println_native()
+            → ISemDualAppManager$Stub.asInterface()
+            → ISemDualAppManager.getAllWhitelistedPackages()
+            → <java.util.HashMap: void <init>()>
+            → ComponentName.equals()
+            → ComputerEngine$Settings.isEnabledAndMatch()
+            → ComputerEngine.resolveComponentName()
+            → PackageInfoUtils.generateActivityInfo()
+            → ParsedComponent.getPackageName()
+            → ActivityManager.getCurrentUser()
+            → UserManagerService.isSameProfileGroup()
+            → ActivityTaskManagerInternal.isCallerRecents()
+            → IntentResolver.queryIntent()
+            → Settings.getPersistentPreferredActivities()
+            → PackageManagerService.getSdkSandboxPackageName()
+            → AndroidPackageApi.getUid()
+            → ComputerEngine.isComponentVisibleToInstantApp()
+            → ParsedComponent.getFlags()
+            → ComponentResolverApi.getProvider()
+            → WatchedSparseArray.get()
+            → ArrayMap.get()
+            → CollectionUtils.isEmpty()
+            → UserManagerService.getProfileParentLU()
+            → UserManagerService.hasManageUsersOrPermission()
+            → CharSequence.length()
+            → <android.content.IntentFilter: void <init>(android.content.I
+            → UserInfo.isKnoxWorkspace()
+            → UserInfo.isManagedProfile()
+            → UserInfo.isSecureFolder()
+            → UserInfo.isUserTypeAppSeparation()
+            → ComputerEngine.androidApplication()
+            → PersonaServiceHelper.isSpfKnoxSupported()
+            → UserManagerService.getUserInfo()
+            → WatchedIntentFilter.getIntentFilter()
+            → UserManagerService$LocalService.hasUserRestriction()
+            → UserManagerService.checkManageOrInteractPermissionIfCallerInOtherProfileGroup()
+            → <com.android.server.utils.WatchableImpl: void <init>()>
+            → SparseBooleanArray.get()
+            → <android.util.SparseBooleanArray: void <init>(int)>
+            → ContainerHelpers.binarySearch()
+            → GrowingArrayUtils.insert()
+            → GrowingArrayUtils.insert()
+            → UserInfo.isEnabled()
+            → ComponentName.getClassName()
+            → <com.android.server.pm.ComputerEngine$$ExternalSyntheticLamb
+            → DefaultAppProvider.getDefaultBrowser()
+            → DomainVerificationManagerInternal.filterToApprovedApp()
+            → DomainVerificationUtils.isDomainVerificationIntent()
+            → IApplicationPolicy$Stub.asInterface()
+            → IApplicationPolicy.getDefaultApplicationInternal()
+            → ArrayList.add()
+            → ArrayList.addAll()
+            → ArrayList.size()
+            → ArrayList.get()
+            → Objects.requireNonNull()
+            → Collection.size()
+            → Settings.getCrossProfileIntentResolver()
+            → ContainerHelpers.binarySearch()
+            → <android.util.LongSparseLongArray: void <init>(int)>
+            → LongSparseLongArray.put()
+            → GrowingArrayUtils.append()
+            → Settings.getRenamedPackageLPr()
+            → ComputerEngine.getBaseSdkSandboxUid()
+            → ComputerEngine.getPackagesForUidInternalBody()
+            → LongSparseArray.size()
+            → LongSparseArray.valueAt()
+            → AppIdSettingMap.getSetting()
+            → SparseIntArray.get()
+            → SparseArray.get()
+            → Intent.setFlags()
+            → <android.content.Intent: void <init>(android.content.Intent)
+            → Intent.setLaunchToken()
+            → InstantAppResolveInfo$InstantAppDigest.getDigestBytes()
+            → InstantAppResolveInfo.shouldLetInstallerDecide()
+            → InstantAppResolveInfo.getDigestBytes()
+            → InstantAppResolver.computeResolveFilters()
+            → ArrayList.isEmpty()
+            → <java.util.ArrayList: void <init>(java.util.Collection)>
+            → <android.content.pm.InstantAppRequestInfo: void <init>(andro
+            → UserHandle.of()
+            → InstantAppResolver.sanitizeIntent()
+            → LogMaker.addTaggedData()
+            → LogMaker.setType()
+            → <android.metrics.LogMaker: void <init>(int)>
+            → MetricsLogger.write()
+            → InstantAppResolver.getLogger()
+            → InstantAppRequestInfo.getToken()
+            → <com.android.server.pm.InstantAppResolverConnection$Connecti
+            → InstantAppResolverConnection$GetInstantAppResolveInfoCaller.getInstantAppResolveInfoList()
+            → InstantAppResolverConnection.getRemoteInstanceLazy()
+            → InstantAppResolverConnection.throwIfCalledOnMainThread()
+            → InstantAppResolveInfo$InstantAppDigest.generateDigest()
+            → <java.lang.IllegalArgumentException: void <init>()>
+            → PackageUserState.getDisabledComponents()
+            → PackageUserState.getEnabledComponents()
+            → PackageUserState.isComponentDisabled()
+            → PackageUserState.isComponentEnabled()
+            → PackageUserState.getEnabledState()
+            → PackageUserState.getLastDisableAppCaller()
+            → <android.content.pm.ApplicationInfo: void <init>(android.con
+            → ApplicationInfo.initForUser()
+            → PackageInfoWithoutStateUtils.updateApplicationInfo()
+            → ApplicationInfo.isSystemApp()
+            → PackageUserState.isInstalled()
+            → PackageUserStateUtils.isAvailable()
+            → ActivityInfo.getComponentName()
+            → ComputerEngine.getHomeActivitiesAsUser()
+            → UserManagerInternal.isUserUnlockingOrUnlocked()
+            → DualAppManagerService.isCrossAccessAllowed()
+            → ComputerEngine.hasPermission()
+            → PackageManagerServiceInjector.getUserManagerService()
+            → UserManagerService.getInternalForInjectorOnly()
+            → Debug.getCallers()
+            → UserManagerInternal.hasUserRestriction()
+            → CompatConfig.isChangeEnabled()
+            → ChangeReporter.reportChange()
+            → ArraySet.indexOf()
+            → UserManagerService.getUserInfoNoChecks()
+              → <com.samsung.android.app.ISemDualAppManager$Stub$Proxy: void
+              → AndroidPackageApi.isSystem()
+              → PackageUserStateUtils.isMatch()
+              → PkgWithoutStateAppInfo.isEnabled()
+              → PackageInfoUtils.generateActivityInfo()
+              → UserManagerService.isSameProfileGroupNoChecks()
+              → UserManagerService.checkQueryUsersPermission()
+              → Intent.getScheme()
+              → IntentResolver.getFastIntentCategories()
+              → IntentResolver.buildResolveList()
+              → IntentResolver.filterResults()
+              → IntentResolver.sortResults()
+              → ArrayMap.indexOfKey()
+              → UserManagerService.getUserInfoLU()
+              → UserManagerService.hasManageUsersPermission()
+              → UserManagerService.hasPermissionGranted()
+              → UserManager.isUserTypeManagedProfile()
+              → UserManagerService.userWithName()
+              → UserManagerService.checkQueryOrCreateUsersPermission()
+              → Bundle.getBoolean()
+              → <com.android.server.pm.UserManagerService: android.os.Bundle
+              → UserRestrictionsUtils.isValidRestriction()
+              → UserHandle.getCallingUserId()
+              → UserManagerService.hasManageUsersPermission()
+              → ArrayUtils.newUnpaddedIntArray()
+              → DefaultAppProvider.getRoleHolder()
+              → Intent.getCategories()
+              → ThreadLocal.get()
+              → Matcher.matches()
+              → Matcher.reset()
+              → <com.samsung.android.knox.application.IApplicationPolicy$Stu
+              → ArrayUtils.newUnpaddedLongArray()
+              → GrowingArrayUtils.insert()
+              → ComputerEngine.getPackage()
+              → ArraySet.size()
+              → ArraySet.valueAt()
+              → ArrayUtils.trimToSize()
+              → SharedUserSetting.getPackageStates()
+              → LongSparseArray.gc()
+              → <java.lang.ArrayIndexOutOfBoundsException: void <init>(int)>
+              → WatchedArrayList.size()
+              → WatchedArrayList.get()
+              → <android.content.pm.InstantAppResolveInfo$InstantAppDigest: 
+              → IntentFilter.hasAction()
+              → IntentFilter.hasCategory()
+              → IntentFilter.hasDataScheme()
+              → IntentFilter.authoritiesIterator()
+              → <android.content.pm.AuxiliaryResolveInfo$AuxiliaryFilter: vo
+              → <android.content.pm.AuxiliaryResolveInfo$AuxiliaryFilter: vo
+              → InstantAppIntentFilter.getSplitName()
+              → InstantAppIntentFilter.getFilters()
+              → InstantAppResolveInfo.getExtras()
+              → InstantAppResolveInfo.getVersionCode()
+              → InstantAppResolveInfo.getPackageName()
+              → InstantAppResolveInfo.getIntentFilters()
+              → IntentResolver.addFilter()
+              → <com.android.server.pm.resolution.ComponentResolver$InstantA
+              → AnnotationValidations.validate()
+              → Intent.addCategory()
+              → Intent.addFlags()
+              → Intent.setDataAndType()
+              → Intent.getType()
+              → Uri.fromParts()
+              → LogMaker.clearTaggedData()
+              → LogMaker.isValidValue()
+              → SparseArray.put()
+              → LogMaker.setCategory()
+              → <android.util.SparseArray: void <init>()>
+              → <com.android.internal.logging.MetricsLogger: void <init>()>
+              → <java.lang.Exception: void <init>()>
+              → IInstantAppResolver.getInstantAppResolveInfoList()
+              → TimedRemoteCaller.onBeforeRemoteCall()
+              → TimedRemoteCaller.getResultTimed()
+              → InstantAppResolverConnection.bind()
+              → Context.getMainLooper()
+              → Looper.getThread()
+              → <java.lang.RuntimeException: void <init>(java.lang.String)>
+              → Thread.currentThread()
+              → MessageDigest.digest()
+              → MessageDigest.getInstance()
+              → ArrayList.toArray()
+              → ApplicationInfo.disableCompatibilityMode()
+              → FallbackCategoryProvider.getFallbackCategory()
+              → OverlayPaths.getOverlayPaths()
+              → OverlayPaths.getResourceDirs()
+              → PackageUserState.getAllOverlayPaths()
+              → PackageUserState.isHidden()
+              → PackageUserState.isStopped()
+              → PackageUserState.isSuspended()
+              → PackageUserState.isVirtualPreload()
+              → SELinuxUtil.getSeinfoUser()
+              → PackageInfoWithoutStateUtils.flag()
+              → List.toArray()
+              → TextUtils.equals()
+              → ComputerEngine.getHomeIntent()
+              → ComputerEngine.findPreferredActivityInternal()
+              → ComputerEngine.queryIntentActivitiesInternal()
+              → DefaultAppProvider.getDefaultHome()
+              → List.clear()
+              → CompatChange.isEnabled()
+              → ConcurrentHashMap.get()
+              → <com.android.internal.compat.ChangeReporter$ChangeReport: vo
+              → ChangeReporter.shouldWriteToDebug()
+              → ChangeReporter.shouldWriteToStatsLog()
+              → ChangeReporter.debugLog()
+              → ChangeReporter.markAsReported()
+              → FrameworkStatsLog.write()
+              → ArraySet.indexOf()
+              → ArraySet.indexOfNull()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: boolean isFromApprovedInstaller(int,int)>
+  Line:     28982
+  Register: v13 := "com.google.android.packageinstaller"
+  Usage:    [invoke] invoke-virtual {v13, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v13 → [branch] if-eqz v13, :cond_191 → [other] sget-object v13,
+
+  CALLEES (what this method invokes):
+      → PackageManager$NameNotFoundException.printStackTrace()
+      → PackageManager.getPackageUidAsUser()
+      → PackageManager.getPackagesForUid()
+      → SystemProperties.get()
+      → UserHandle.getUserId()
+      → IPersonaManagerAdapter.isContainerAgent()
+      → IPersonaManagerAdapter.isContainerCore()
+      → IPersonaManagerAdapter.isContainerDesktop()
+      → IPersonaManagerAdapter.isDeviceOrProfileOwnerEnabled()
+      → IPersonaManagerAdapter.isDoEnabled()
+      → IPersonaManagerAdapter.isKnoxId()
+      → ApplicationPolicy.checkPkgNameMatch()
+      → ApplicationPolicy.isApplicationInstalled()
+      → EdmStorageProviderBase.getMUMContainerOwnerUid()
+      → KpuHelper.isKpuPermissionGranted()
+      → KpuHelper.getInstance()
+      → Utils.comparePackageSignature()
+      → Exception.printStackTrace()
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.iterator()
+      → Map.isEmpty()
+      → Map.get()
+      → Map.keySet()
+      → Set.isEmpty()
+      → Set.iterator()
+        → PackageManagerAdapter.isApplicationInstalled()
+        → <android.content.ContentValues: void <init>()>
+        → ContentValues.put()
+        → EdmStorageProviderBase.getInt()
+        → Context.getPackageManager()
+        → PackageManager.getNameForUid()
+        → KpuHelper.isKpuPermissionGranted()
+        → <com.android.server.enterprise.utils.KpuHelper: void <init>(
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+        → Signature.toCharsString()
+        → SigningInfo.getApkContentsSigners()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+          → PackageManagerAdapter.getValidStr()
+          → <android.util.ArrayMap: void <init>()>
+          → ArrayMap.put()
+          → EdmStorageProviderBase.getIntList()
+          → List.size()
+          → List.get()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → Signature.toChars()
+          → SoftReference.get()
+          → <java.lang.ref.SoftReference: void <init>(java.lang.Object)>
+          → SigningDetails.getSignatures()
+            → IPackageManager.getApplicationInfo() [PKG_QUERY]
+            → Exception.getMessage()
+            → <android.util.ArrayMap: void <init>(int,boolean)>
+            → ArrayMap.indexOf()
+            → ArrayMap.indexOfNull()
+            → ArrayMap.allocArrays()
+            → ArrayMap.freeArrays()
+            → <java.util.ConcurrentModificationException: void <init>()>
+            → Cursor.isNull()
+            → Cursor.moveToNext()
+            → Cursor.getInt()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → EdmStorageProviderBase.getCursor()
+            → <java.util.ArrayList: void <init>()>
+            → List.add()
+            → Signature.toChars()
+              → ArrayMap.binarySearchHashes()
+              → <java.lang.UnsupportedOperationException: void <init>(java.l
+              → EdmStorageProviderBase.getCursor()
+              → EdmStorageProviderBase.formatContentValues()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.integrity.AppIntegrityManagerServiceImpl
+  Method:   <com.android.server.integrity.AppIntegrityManagerServiceImpl: void <clinit>()>
+  Line:     99
+  Register: v1 := "com.google.android.packageinstaller"
+  Usage:    [array_init] filled-new-array {v1, v2}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+

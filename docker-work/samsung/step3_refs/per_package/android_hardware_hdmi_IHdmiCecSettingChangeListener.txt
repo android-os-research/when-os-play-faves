@@ -1,0 +1,9 @@
+# android.hardware.hdmi.IHdmiCecSettingChangeListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.hardware.hdmi.IHdmiCecSettingChangeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.hdmi.IHdmiCecSettingChangeListener$Stub$Proxy: void onChange(java.lang.String)>
+<android.hardware.hdmi.IHdmiCecSettingChangeListener$Stub: android.hardware.hdmi.IHdmiCecSettingChangeListener asInterface(android.os.IBinder)>
+<android.hardware.hdmi.IHdmiCecSettingChangeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.hdmi.IHdmiCecSettingChangeListener$Stub: void <init>()>

@@ -1,0 +1,6 @@
+# persist.service.bgkeycount [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.input.InputKeyCounter: void kickOldies(android.content.Context)>
+<com.android.server.input.InputKeyCounter: void saveCount()>

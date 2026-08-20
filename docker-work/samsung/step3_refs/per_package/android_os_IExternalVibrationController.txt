@@ -1,0 +1,10 @@
+# android.os.IExternalVibrationController [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.os.IExternalVibrationController$Stub$Proxy: boolean mute()>
+<android.os.IExternalVibrationController$Stub$Proxy: boolean unmute()>
+<android.os.IExternalVibrationController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IExternalVibrationController$Stub: android.os.IExternalVibrationController asInterface(android.os.IBinder)>
+<android.os.IExternalVibrationController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IExternalVibrationController$Stub: void <init>()>

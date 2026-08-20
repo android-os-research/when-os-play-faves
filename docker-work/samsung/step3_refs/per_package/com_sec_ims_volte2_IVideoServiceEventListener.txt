@@ -1,0 +1,21 @@
+# com.sec.ims.volte2.IVideoServiceEventListener [NEW]
+# Refs: 17
+# JARs: imsmanager
+
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: com.sec.ims.volte2.IImsCallSession getSession()>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void changeCameraCapabilities(int,int,int)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void onCameraState(int,int)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void onChangeCallDataUsage(int,long)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void onChangePeerDimension(int,int,int)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void onEmojiState(int,int)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void onRecordState(int,int)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void onVideoOrientChanged(int)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void onVideoQualityChanged(int,int)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void onVideoState(int,int)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void receiveSessionModifyRequest(int,com.sec.ims.volte2.data.CallProfile)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void receiveSessionModifyResponse(int,int,com.sec.ims.volte2.data.CallProfile,com.sec.ims.volte2.data.CallProfile)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub$Proxy: void setVideoPause(int,boolean)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub: com.sec.ims.volte2.IVideoServiceEventListener asInterface(android.os.IBinder)>
+<com.sec.ims.volte2.IVideoServiceEventListener$Stub: void <init>()>

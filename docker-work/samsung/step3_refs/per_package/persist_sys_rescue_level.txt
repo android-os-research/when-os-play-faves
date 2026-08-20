@@ -1,0 +1,15 @@
+# persist.sys.rescue_level [NEW]
+# Refs: 11
+# JARs: services
+
+<com.android.server.BootReceiver: boolean isNotRescueParty()>
+<com.android.server.BootReceiver: void logBootEvents(android.content.Context)>
+<com.android.server.BootReceiver: void sendResetLog(android.content.Context,java.lang.String)>
+<com.android.server.BootReceiver: void setISRBmode()>
+<com.android.server.RescueParty: int getRescueLevel(int,boolean,java.lang.String)>
+<com.android.server.RescueParty: void executeRescueLevel(android.content.Context,java.lang.String,int)>
+<com.android.server.SystemServiceManager: com.android.server.SystemService startService(java.lang.Class)>
+<com.android.server.SystemServiceManager: void startBootPhase(com.android.server.utils.TimingsTraceAndSlog,int)>
+<com.android.server.SystemServiceManager: void startService(com.android.server.SystemService)>
+<com.android.server.isrb.IsrbManagerServiceImpl: void rebootExitisrbInternal()>
+<com.android.server.power.ShutdownThread: void shutdownInner(android.content.Context)>

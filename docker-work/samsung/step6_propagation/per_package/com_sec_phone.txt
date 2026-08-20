@@ -1,0 +1,130 @@
+######################################################################
+# Propagation: com.sec.phone
+######################################################################
+
+JARs:                 framework, sec_platform_library, services
+Classes:              3
+Occurrences:          5
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.net.LowLatencyModeManager
+  Method:   <android.net.LowLatencyModeManager: void connectToRilService()>
+  Line:     177
+  Register: v1 := "com.sec.phone"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Landroid/net/LowLatencyModeManager;->mCo → 
+
+  CALLERS (who invokes this method):
+      ← LowLatencyModeManager.getLowLatencyMode()
+      ← LowLatencyModeManager.setLowLatencyMode()
+        ← LowLatencyModeManager.getLowLatencyMode()
+        ← LowLatencyModeManager.setLowLatencyMode()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → LowLatencyModeManager.log()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.net.LowLatencyModeManager
+  Method:   <android.net.LowLatencyModeManager: void connectToRilService2()>
+  Line:     211
+  Register: v1 := "com.sec.phone"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Landroid/net/LowLatencyModeManager;->mCo → 
+
+  CALLERS (who invokes this method):
+      ← LowLatencyModeManager.getLowLatencyMode()
+      ← LowLatencyModeManager.setLowLatencyMode()
+        ← LowLatencyModeManager.getLowLatencyMode()
+        ← LowLatencyModeManager.setLowLatencyMode()
+
+  CALLEES (what this method invokes):
+      → Context.bindService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → LowLatencyModeManager.log()
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      sec_platform_library
+  Class:    com.samsung.android.sec_platform_library.FactoryPhone
+  Method:   <com.samsung.android.sec_platform_library.FactoryPhone: void connectToRilService()>
+  Line:     811
+  Register: v4 := "com.sec.phone"
+  Usage:    [invoke] invoke-virtual {v2, v4, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v4, p0, Lcom/samsung/android/sec_platform_librar → 
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.sec_platform_library.FactoryPhone: void
+      ← <com.samsung.android.sec_platform_library.FactoryPhone: void
+
+  CALLEES (what this method invokes):
+      → Context.semBindServiceAsUser()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → Exception.printStackTrace()
+      → Method.invoke()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      sec_platform_library
+  Class:    com.samsung.android.sec_platform_library.FactoryPhone
+  Method:   <com.samsung.android.sec_platform_library.FactoryPhone: void connectToRilService(android.content.BroadcastReceiver)>
+  Line:     862
+  Register: v1 := "com.sec.phone"
+  Usage:    [invoke] invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setClassName() → [other] iget-object v1, p0, Lcom/samsung/android/sec_platform_librar → 
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.sec_platform_library.FactoryPhone: void
+
+  CALLEES (what this method invokes):
+      → BroadcastReceiver.peekService()
+      → Intent.setClassName()
+      → <android.content.Intent: void <init>()>
+      → <android.os.Messenger: void <init>(android.os.IBinder)>
+        → ActivityManager.getService()
+        → IActivityManager.peekService()
+        → Context.getContentResolver()
+        → Context.getOpPackageName()
+        → Intent.resolveTypeIfNeeded()
+        → Intent.prepareToLeaveProcess()
+        → IMessenger$Stub.asInterface()
+          → IBinder.queryLocalInterface()
+          → <android.os.IMessenger$Stub$Proxy: void <init>(android.os.IB
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     44
+  Register: v2 := "com.sec.phone"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+

@@ -1,0 +1,48 @@
+######################################################################
+# Propagation: com.samsung.android.scpm
+######################################################################
+
+JARs:                 services, vendor.samsung.frameworks.codecsolution-service
+Classes:              2
+Occurrences:          2
+Usage types:          array_init, invoke
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.vr.HmtManager
+  Method:   <com.android.server.vr.HmtManager: boolean isScpmV2Available(android.content.Context)>
+  Line:     1108
+  Register: v1 := "com.samsung.android.scpm"
+  Usage:    [invoke] invoke-virtual {p1, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [other] new-instance v1, Ljava/lang/StringBuilder; → [invo
+
+  CALLERS (who invokes this method):
+      ← HmtManager.register()
+      ← HmtManager.updateSupportDevicePolicy()
+        ← <com.android.server.vr.XrManagerService$2: void lambda$onRec
+        ← XrManagerService$2.onReceive()
+          ← <com.android.server.vr.XrManagerService$2: void $r8$lambda$g
+            ← XrManagerService$2$$ExternalSyntheticLambda0.run()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → Exception.getMessage()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      vendor.samsung.frameworks.codecsolution-service
+  Class:    com.samsung.android.scloud.lib.platform.api.Configuration
+  Method:   <com.samsung.android.scloud.lib.platform.api.Configuration: void <clinit>()>
+  Line:     23
+  Register: v0 := "com.samsung.android.scpm"
+  Usage:    [array_init] filled-new-array {v0, v1}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1}, [Ljava/lang/String;
+

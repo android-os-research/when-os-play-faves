@@ -1,0 +1,7 @@
+# ril.skt.network_regist [NEW]
+# Refs: 3
+# JARs: framework, telephony-common
+
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: java.util.List network_reject_cause()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.List network_reject_cause()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void network_reject_cause(java.util.List)>

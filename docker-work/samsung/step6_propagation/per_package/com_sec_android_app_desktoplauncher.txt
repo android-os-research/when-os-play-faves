@@ -1,0 +1,1478 @@
+######################################################################
+# Propagation: com.sec.android.app.desktoplauncher
+######################################################################
+
+JARs:                 framework, knoxsdk, services
+Classes:              14
+Occurrences:          20
+Usage types:          array_init, invoke
+Enforcement patterns: allowlist_check, early_return, string_compare, system_property_read
+Security tags:        APPOPS, PERM_CHECK, PKG_MGMT, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.app.SemAppIconSolution
+  Method:   <android.app.SemAppIconSolution: boolean isThemeActive(android.app.ContextImpl)>
+  Line:     6925
+  Register: v4 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLEES (what this method invokes):
+      → ContextImpl.getPackageName()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.content.om.SamsungThemeConstants
+  Method:   <android.content.om.SamsungThemeConstants: void <clinit>()>
+  Line:     150
+  Register: v1 := "com.sec.android.app.desktoplauncher"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v1, v2}, [Ljava/lang/String;
+
+  CALLEES (what this method invokes):
+      → <android.content.om.SamsungThemeConstants$1: void <init>()>
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+      → <java.util.HashSet: void <init>(java.util.Collection)>
+        → SamsungThemeConstants$1.put()
+        → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.multiwindow.DecorCaptionCompatWindow
+  Method:   <com.samsung.android.multiwindow.DecorCaptionCompatWindow: boolean existsDexLabsActivity(android.app.Activity)>
+  Line:     113
+  Register: v3 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>() → [other] move-result v3 → [other] if-lez v3, :cond_29
+
+  CALLEES (what this method invokes):
+      → Activity.getPackageManager()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Intent.setComponent()
+      → <android.content.Intent: void <init>()>
+      → PackageManager.queryIntentActivities()
+      → List.size()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: java.lang.String getPersonaName(android.content.Context,int)>
+  Line:     3469
+  Register: v1 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← KnoxMUMContainerPolicy.setCustomResource()
+
+  CALLEES (what this method invokes):
+      → DevicePolicyManager.getResources()
+      → DevicePolicyResourcesManager.getString()
+      → Context.getSystemService()
+      → Context.getPackageName()
+      → <com.samsung.android.knox.SemPersonaManager$$ExternalSynthet
+      → SemPersonaManager.getWorkName()
+        → IDevicePolicyManager.getString()
+        → ParcelableResource.getString()
+        → ParcelableResource.loadDefaultString()
+        → DeviceConfig.getBoolean()
+        → Objects.requireNonNull()
+        → <com.samsung.android.knox.SemPersonaManager$$ExternalSynthet
+        → Exception.printStackTrace()
+          → ParcelableResource.getAppResourcesWithCallersConfiguration()
+          → ParcelableResource.verifyResourceName()
+          → Resources.getString()
+          → Supplier.get()
+          → DeviceConfig.getProperty()
+            → Context.getPackageManager()
+            → Context.getResources()
+            → PackageManager.getApplicationInfo() [PKG_QUERY]
+            → PackageManager.getResourcesForApplication()
+            → Resources.getConfiguration()
+            → Resources.getResourceName()
+            → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+            → DeviceConfig$Properties.getString()
+            → DeviceConfig.getProperties()
+              → Preconditions.checkNotNull()
+              → HashMap.get()
+              → ActivityThread.currentApplication()
+              → Application.getContentResolver()
+              → <android.provider.DeviceConfig$Properties: void <init>(java.
+              → Settings$Config.getStrings()
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      knoxsdk
+  Class:    com.samsung.android.knox.EdmConstants$1
+  Method:   <com.samsung.android.knox.EdmConstants$1: void <init>()>
+  Line:     156
+  Register: v0 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lan
+  Patterns: early_return
+  Flow:     [invoke] java.util.HashMap.put() → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.knox.EdmConstants: void <clinit>()>
+
+  CALLEES (what this method invokes):
+      → HashMap.put()
+      → <java.util.HashMap: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.ActivityManagerService
+  Method:   <com.android.server.am.ActivityManagerService: void checkLongLivePermissions(java.lang.String)>
+  Line:     23643
+  Register: v3 := "com.sec.android.app.desktoplauncher"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← ActivityManagerService.addLongLiveApp()
+      ← ActivityManagerService.clearLongLiveTask()
+      ← ActivityManagerService.getAutoRemoveRecents()
+      ← ActivityManagerService.removeLongLiveApp()
+      ← ActivityManagerService.setLongLiveApp()
+      ← ActivityManagerService.setLongLiveTask()
+      ← ActivityManagerService.getMaxLongLiveApps()
+      ← ActivityManagerService.getLongLiveApp()
+      ← ActivityManagerService.getLongLiveApps()
+      ← ActivityManagerService.getLongLiveProcesses()
+      ← ActivityManagerService.getLongLiveProcessesForUser()
+      ← ActivityManagerService.getLongLiveTaskIdsForUser()
+      ← ActivityManagerService.registerDedicatedCallback()
+        ← SystemRepositoryDefault.getLongLiveProcessesForUser()
+
+  CALLEES (what this method invokes):
+      → Binder.getCallingUid() [UID_CHECK]
+      → Process.myUid()
+      → ActivityManagerService.enforceCallingPermission()
+      → ActivityManagerService.ensureCallingPkg()
+        → Binder.getCallingPid() [UID_CHECK]
+        → ActivityManagerService.checkCallingPermission()
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getPackagesForUid()
+          → ActivityManagerService.checkPermission() [PERM_CHECK]
+          → ActivityThread.getPackageManager()
+            → ActivityManagerService.checkComponentPermission()
+              → ActivityManager.checkComponentPermission()
+              → ASKSManager.getASKSManager()
+              → ASKSManager.isRestrictedTarget()
+              → ASKSManager.getPackageNameFromPid()
+              → IASKSManager.checkRestrictedPermission()
+              → ArraySet.contains()
+              → SparseArray.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.PackageStateManager
+  Method:   <com.android.server.desktopmode.PackageStateManager: void <init>(android.content.Context,com.android.server.desktopmode.IStateManager,com.android.server.ServiceThread,android.content.pm.IPackageManager)>
+  Line:     158
+  Register: p1 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-interface {v1, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/
+  Patterns: early_return
+  Flow:     [invoke] java.util.Map.put() → [other] new-instance p1, Landroid/os/Handler; → [invoke] android.os.Handler.<init>() → [i
+
+  CALLERS (who invokes this method):
+      ← Injector.getPackageStateManager()
+        ← <com.android.server.desktopmode.Injector: com.android.server
+          ← Injector$$ExternalSyntheticLambda5.createDependency()
+
+  CALLEES (what this method invokes):
+      → <android.os.Handler: void <init>(android.os.Looper)>
+      → HandlerThread.getLooper()
+      → <android.util.ArrayMap: void <init>()>
+      → <com.android.internal.content.PackageMonitor: void <init>()>
+      → IStateManager.registerListener()
+      → <com.android.server.desktopmode.PackageStateManager$StateLis
+      → PackageStateManager.register()
+      → EnterpriseDeviceManager.getInstance()
+      → Map.put()
+        → HandlerThread.isAlive()
+        → Thread.currentThread()
+        → Thread.interrupt()
+        → <android.util.ArrayMap: void <init>(int,boolean)>
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <java.util.HashSet: void <init>()>
+        → <com.android.server.desktopmode.PackageStateManager$StateLis
+        → Context.registerReceiverAsUser()
+        → <android.content.IntentFilter: void <init>()>
+        → IntentFilter.addAction()
+        → IntentFilter.addDataScheme()
+        → IntentFilter.addDataSchemeSpecificPart()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Map.keySet()
+        → Set.iterator()
+        → Process.myPid()
+        → Process.myTid()
+        → Process.myUid()
+        → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+        → KnoxsdkFileLog.d()
+        → KnoxsdkFileLog.w()
+          → ArrayMap.allocArrays()
+          → <com.android.server.desktopmode.StateManager$StateListener: 
+          → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+          → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+          → KnoxsdkFileLog.fileLog()
+          → SemLog.d()
+          → SemLog.w()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → UserHandle.getUserId()
+            → SemPersonaManager.isKnoxId()
+            → Context.getSystemService()
+            → Binder.getCallingUid() [UID_CHECK]
+            → ContextInfo$$ExternalSyntheticOutline0.m()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int,int,b
+            → KnoxsdkFileLog.d()
+            → <java.lang.Exception: void <init>(java.lang.String)>
+            → <java.util.HashMap: void <init>()>
+            → Logger.log()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.PackageStateManager
+  Method:   <com.android.server.desktopmode.PackageStateManager: void onPackageDataCleared(java.lang.String,int)>
+  Line:     383
+  Register: p2 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p2 → [branch] if-eqz p2, :cond_32 → [other] sget-boolean p2, Lc
+
+  CALLEES (what this method invokes):
+      → IStateManager.getState()
+      → IStateManager.notifyLauncherPackageReplaced()
+      → Log.d()
+      → PackageStateManager.setSettingsComponent()
+        → Log.save()
+        → PackageStateManager.setComponentFromList()
+        → State.getDesktopModeState()
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+          → ComponentName.unflattenFromString()
+          → ComponentName.getPackageName()
+          → Context.getResources()
+          → IPackageManager.isPackageAvailable()
+          → IPackageManager.setComponentEnabledSetting() [PKG_MGMT]
+          → Resources.getStringArray()
+          → Log.e()
+          → State.getCurrentUserId()
+            → ArrayDeque.size()
+            → ArrayDeque.removeFirst()
+            → ArrayDeque.addLast()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.PackageStateManager
+  Method:   <com.android.server.desktopmode.PackageStateManager: void onPackageUpdateFinished(java.lang.String,int)>
+  Line:     439
+  Register: p2 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p2 → [branch] if-eqz p2, :cond_32 → [other] sget-boolean p2, Lc
+
+  CALLEES (what this method invokes):
+      → IStateManager.getState()
+      → IStateManager.notifyLauncherPackageReplaced()
+      → Log.d()
+      → PackageStateManager.setSettingsComponent()
+        → Log.save()
+        → PackageStateManager.setComponentFromList()
+        → State.getDesktopModeState()
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+          → ComponentName.unflattenFromString()
+          → ComponentName.getPackageName()
+          → Context.getResources()
+          → IPackageManager.isPackageAvailable()
+          → IPackageManager.setComponentEnabledSetting() [PKG_MGMT]
+          → Resources.getStringArray()
+          → Log.e()
+          → State.getCurrentUserId()
+            → ArrayDeque.size()
+            → ArrayDeque.removeFirst()
+            → ArrayDeque.addLast()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DualModeChanger
+  Method:   <com.android.server.desktopmode.DualModeChanger: void handleStopLoadingScreen(boolean,int)>
+  Line:     1089
+  Register: v3 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {p0, p2, v3, v1}, Lcom/android/server/desktopmode/ModeChanger;->hasPackageTask(ILjava
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.desktopmode.ModeChanger.hasPackageTask() → [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.desktopmode.DualModeChanger: void -$$Nes
+        ← DualModeChanger$ModeChangeHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getString()
+      → Handler.sendEmptyMessageDelayed()
+      → Handler.removeMessages()
+      → DesktopModeSettings.getSettings()
+      → <com.android.server.desktopmode.DualModeChanger$ModeChangeRe
+      → DualModeChanger.setDesktopModeState()
+      → DualModeChanger.setModeChangeLock() [APPOPS]
+      → DualModeChanger.showDisplayUnsupportDialogIfNeeded()
+      → DualModeChanger.showStabilizerModeDialogIfNeeded()
+      → DualModeChanger.startHome()
+      → IStateManager.getState()
+      → IStateManager.notifyDualModeStopLoadingScreen()
+      → IStateManager.notifyScheduleUpdateDesktopMode()
+      → Log.d()
+      → Log.i()
+      → Log.w()
+      → ModeChanger.hasPackageTask()
+      → ModeChanger.bringTaskToForeground()
+      → ModeChanger.forceKillProcessWhenExit()
+      → ModeChanger.showDexMirroringTipsNotification()
+      → State.isWirelessDexConnected()
+      → State.getDesktopModeState()
+      → State.getDesktopDisplayId()
+      → ToastManager.showToast()
+      → UiManager.dismissOverlay()
+      → UiManager.showNotification()
+        → DesktopModeSettings.getSettingsAsUser()
+        → DualModeChanger$ModeChangeReceiver.unregister()
+        → IStateManager.setDesktopModeState()
+        → SemDesktopModeStateNotifier.notifyDesktopModeStateChanged()
+        → SemDesktopModeState.equals()
+        → <com.samsung.android.desktopmode.SemDesktopModeState: void <
+        → IStateManager.setModeChangeLocked() [APPOPS]
+        → State.isDisplayResolutionUnsupported()
+        → UiManager.showDialog()
+        → <com.android.server.desktopmode.DualModeChanger$4: void <ini
+        → DualModeChanger.startHome()
+        → Log.save()
+        → ActivityTaskManagerInternal.hasPackageTask()
+        → WindowConfiguration.windowingModeToString()
+        → ModeChanger.canTaskBeBroughtToForeground()
+        → ActivityTaskManagerInternal.bringTaskToForeground()
+        → ActivityManagerInternal.killProcessWhenDexExit()
+        → DesktopModeSettings.setSettings()
+        → Utils.showTipsNotification()
+        → ToastManager.showToast()
+        → <com.android.server.desktopmode.UiManager$$ExternalSynthetic
+        → UiManager$UiCommandHandler.schedule()
+        → DesktopModeUiConstants.typeToString()
+        → DesktopModeUiConstants.whereToString()
+        → <com.android.server.desktopmode.UiManager$$ExternalSynthetic
+        → UiManager.removeUnbindServiceRunnable()
+          → DesktopModeSettings.getSettingsAsUser()
+          → Context.unregisterReceiver()
+          → Log.e()
+          → SemDesktopModeStateNotifier.getListenersCopy()
+          → SemDesktopModeStateNotifier.sendBroadcast()
+          → IDesktopModeListener.onDesktopModeStateChanged()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.iterator()
+          → SemDesktopModeState.compareTo()
+          → SemDesktopModeState.update()
+          → <com.android.server.desktopmode.UiManager$$ExternalSynthetic
+          → <com.android.server.desktopmode.UiManager$InternalUiCallback
+          → ActivityOptions.makeBasic()
+          → ActivityOptions.setLaunchDisplayId()
+          → ActivityOptions.toBundle()
+          → Context.startActivityAsUser()
+          → Intent.addCategory()
+          → Intent.putExtra()
+          → Intent.setFlags()
+          → Intent.setPackage()
+          → <android.content.Intent: void <init>(java.lang.String)>
+          → UserHandle.of()
+          → State.getCurrentUserId()
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+          → Context.getContentResolver()
+          → ActivityTaskManagerInternal.getRealActivityForTaskId()
+          → PrivateCustomDeviceManager.stayInForeground()
+          → PrivateCustomDeviceManager.getInstance()
+          → PrivateCustomDeviceManager.isAutoOpenLastAppAllowed()
+          → DesktopModeSettings.setSettingsAsUser()
+          → Context.startForegroundService()
+          → Context.getPackageName()
+          → Intent.putExtra()
+          → Intent.putExtra()
+          → Intent.putExtra()
+          → Intent.setClassName()
+          → <android.content.Intent: void <init>()>
+          → ToastManager.showToast()
+          → Handler.obtainMessage()
+          → Handler.post()
+          → Handler.sendMessageDelayed()
+          → UiManager$DockTaWarningDialogMessage.setCommand()
+          → UiManager$UiCommandHandler.getDelayedUiCommandMessageId()
+          → UiManager$UiCommandHandler.messageIdToString()
+          → <com.android.server.desktopmode.UiManager: java.lang.String 
+          → Handler.removeCallbacks()
+            → DesktopModeSettings.getSettingsAsUserOrThrowException()
+            → <java.util.ArrayList: void <init>(java.util.Collection)>
+            → Map.values()
+            → Context.sendBroadcastAsUser()
+            → Intent.addFlags()
+            → SemDesktopModeState.getDisplayType()
+            → <android.app.ActivityOptions: void <init>()>
+            → ComponentOptions.toBundle()
+            → Bitmap.copy()
+            → Bitmap.getHardwareBuffer()
+            → Bundle.putBinder()
+            → Bundle.putBoolean()
+            → Bundle.putBundle()
+            → Bundle.putFloatArray()
+            → Bundle.putInt()
+            → Bundle.putIntArray()
+            → Bundle.putParcelable()
+            → Bundle.putParcelableArray()
+            → Bundle.putString()
+            → Bundle.putStringArrayList()
+            → Bundle.remove()
+            → IRemoteCallback.asBinder()
+            → IAppTransitionAnimationSpecsFuture.asBinder()
+            → ArrayDeque.size()
+            → ArrayDeque.removeFirst()
+            → ArrayDeque.addLast()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+            → IKnoxCustomManager.stayInDexForegroundMode()
+            → PrivateCustomDeviceManager.getService()
+            → <com.samsung.android.knox.ContextInfo: void <init>()>
+            → <com.samsung.android.knox.custom.PrivateCustomDeviceManager:
+            → IKnoxCustomManager.isDexAutoOpenLastAppAllowed()
+            → DesktopModeSettings.setSettingsAsUserOrThrowException()
+            → UiThread.getHandler()
+            → <com.android.server.desktopmode.ToastManager$$ExternalSynthe
+              → ContentResolver.call()
+              → Bundle.getString()
+              → <android.os.Bundle: void <init>(int)>
+              → DesktopModeSettings.getUriAsUser()
+              → <android.app.ComponentOptions: void <init>()>
+              → <android.os.Bundle: void <init>()>
+              → ServiceManager.getService()
+              → IKnoxCustomManager$Stub.asInterface()
+              → UserHandle.getUserId()
+              → SemPersonaManager.isKnoxId()
+              → UiThread.ensureThreadLocked()
+
+────────────────────────────────────────────────────────────
+Occurrence #11
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DualModeChanger
+  Method:   <com.android.server.desktopmode.DualModeChanger: void startHome(com.android.server.desktopmode.State,int)>
+  Line:     2477
+  Register: v1 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← DualModeChanger.handleDesktopDisplayConfigured()
+      ← DualModeChanger.startHome()
+        ← <com.android.server.desktopmode.DualModeChanger: void lambda
+        ← DesktopModeService.startHome()
+        ← DualModeChanger.handleStopLoadingScreen()
+          ← <com.android.server.desktopmode.DualModeChanger: void $r8$la
+          ← <com.android.server.desktopmode.DesktopModeService: void -$$
+          ← <com.android.server.desktopmode.DesktopModeService: void lam
+          ← DesktopModeService.startHome()
+          ← <com.android.server.desktopmode.DualModeChanger: void -$$Nes
+            ← DualModeChanger$$ExternalSyntheticLambda0.run()
+            ← DesktopModeService$1.onLauncherPackageReplaced()
+            ← <com.android.server.desktopmode.DesktopModeService: void $r8
+            ← <com.android.server.desktopmode.DesktopModeService: void -$$
+            ← DualModeChanger$ModeChangeHandler.handleMessage()
+              ← DesktopModeService$$ExternalSyntheticLambda3.run()
+              ← DesktopModeService$LocalService.startHome()
+
+  CALLEES (what this method invokes):
+      → ActivityOptions.makeBasic()
+      → ActivityOptions.setLaunchDisplayId()
+      → ActivityOptions.toBundle()
+      → Context.startActivityAsUser()
+      → Intent.addCategory()
+      → Intent.putExtra()
+      → Intent.setFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UserHandle.of()
+      → Log.d()
+      → State.getCurrentUserId()
+        → <android.app.ActivityOptions: void <init>()>
+        → ComponentOptions.toBundle()
+        → Bitmap.copy()
+        → Bitmap.getHardwareBuffer()
+        → Bundle.putBinder()
+        → Bundle.putBoolean()
+        → Bundle.putBundle()
+        → Bundle.putFloatArray()
+        → Bundle.putInt()
+        → Bundle.putIntArray()
+        → Bundle.putParcelable()
+        → Bundle.putParcelableArray()
+        → Bundle.putString()
+        → Bundle.putStringArrayList()
+        → Bundle.remove()
+        → IRemoteCallback.asBinder()
+        → IAppTransitionAnimationSpecsFuture.asBinder()
+        → Log.save()
+          → <android.app.ComponentOptions: void <init>()>
+          → <android.os.Bundle: void <init>()>
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+            → ArrayDeque.size()
+            → ArrayDeque.removeFirst()
+            → ArrayDeque.addLast()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+
+────────────────────────────────────────────────────────────
+Occurrence #12
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.DualModeChanger
+  Method:   <com.android.server.desktopmode.DualModeChanger: void startSPenModeSettingActivity(com.android.server.desktopmode.State)>
+  Line:     2522
+  Register: v2 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/Str
+  Patterns: early_return
+  Flow:     [invoke] android.content.ComponentName.<init>()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.desktopmode.DualModeChanger: void -$$Nes
+        ← DualModeChanger$ModeChangeReceiver.onReceive()
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → Intent.setComponent()
+      → Intent.setFlags()
+      → <android.content.Intent: void <init>()>
+      → DualModeChanger.startActivityInDesktopDisplay()
+        → ActivityOptions.makeBasic()
+        → ActivityOptions.setLaunchDisplayId()
+        → ActivityOptions.toBundle()
+        → Context.startActivityAsUser()
+        → UserHandle.of()
+        → State.getCurrentUserId()
+        → State.getDesktopDisplayId()
+          → <android.app.ActivityOptions: void <init>()>
+          → ComponentOptions.toBundle()
+          → Bitmap.copy()
+          → Bitmap.getHardwareBuffer()
+          → Bundle.putBinder()
+          → Bundle.putBoolean()
+          → Bundle.putBundle()
+          → Bundle.putFloatArray()
+          → Bundle.putInt()
+          → Bundle.putIntArray()
+          → Bundle.putParcelable()
+          → Bundle.putParcelableArray()
+          → Bundle.putString()
+          → Bundle.putStringArrayList()
+          → Bundle.remove()
+          → IRemoteCallback.asBinder()
+          → IAppTransitionAnimationSpecsFuture.asBinder()
+            → <android.app.ComponentOptions: void <init>()>
+            → <android.os.Bundle: void <init>()>
+
+────────────────────────────────────────────────────────────
+Occurrence #13
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.Utils
+  Method:   <com.android.server.desktopmode.Utils: java.lang.String getPostDataForMuse(android.content.Context)>
+  Line:     605
+  Register: v1 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-static {p0, v1}, Lcom/android/server/desktopmode/Utils;->getVersionName(Landroid/content/Cont
+  Patterns: system_property_read
+  Flow:     [invoke] com.android.server.desktopmode.Utils.getVersionName() → [reassigned] v1 overwritten
+
+  CALLERS (who invokes this method):
+      ← Utils.getMuseUrl()
+
+  CALLEES (what this method invokes):
+      → SystemProperties.get()
+      → Utils.getMcc()
+      → Utils.getMnc()
+      → Utils.getSamsungAccountId()
+      → Utils.getSupportLocaleLang()
+      → Utils.getVersionName()
+        → Context.getSystemService()
+        → TelephonyManager.getSimOperator()
+        → AccountManager.get()
+        → AccountManager.getAccounts()
+        → Context.getResources()
+        → Configuration.getLocales()
+        → Resources.getConfiguration()
+        → LocaleList.get()
+        → Utils.isChineseUtils()
+        → Locale.getCountry()
+        → Locale.getLanguage()
+        → Locale.toString()
+        → Context.getPackageManager()
+        → PackageManager$NameNotFoundException.getMessage()
+        → PackageManager.getPackageInfo() [PKG_QUERY]
+        → Log.e()
+          → Log.save()
+            → Log$EvictingArrayQueue.add()
+            → Log.buildLogString()
+              → ArrayDeque.size()
+              → ArrayDeque.removeFirst()
+              → ArrayDeque.addLast()
+              → Process.myPid()
+              → Process.myTid()
+              → Process.myUid()
+              → Character.valueOf()
+              → LocalDateTime.format()
+              → LocalDateTime.now()
+
+────────────────────────────────────────────────────────────
+Occurrence #14
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.StandaloneModeChanger
+  Method:   <com.android.server.desktopmode.StandaloneModeChanger: void handleStopLoadingScreen(boolean,int)>
+  Line:     1175
+  Register: p2 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {p0, v1, p2, v0}, Lcom/android/server/desktopmode/ModeChanger;->hasPackageTask(ILjava
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.desktopmode.ModeChanger.hasPackageTask() → [other] move-result p2 → [branch] if-nez p2, :con
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.desktopmode.StandaloneModeChanger: void 
+        ← StandaloneModeChanger$ModeChangeHandler.handleMessage()
+
+  CALLEES (what this method invokes):
+      → Context.getString()
+      → Trace.asyncTraceEnd()
+      → IStateManager.getState()
+      → IStateManager.notifyScheduleUpdateDesktopMode()
+      → IStateManager.notifyStopLoadingScreen()
+      → Log.d()
+      → Log.e()
+      → Log.i()
+      → Log.w()
+      → ModeChanger$ModeToModeChangeInfo.showModeChangeScreen()
+      → ModeChanger$ModeToModeChangeInfo.getModeToMode()
+      → ModeChanger.hasPackageTask()
+      → ModeChanger.bringTaskToForeground()
+      → ModeChanger.forceKillProcessWhenExit()
+      → ModeChanger.showDexMirroringTipsNotification()
+      → <com.android.server.desktopmode.StandaloneModeChanger$ModeCh
+      → StandaloneModeChanger.verifyCurrentState()
+      → StandaloneModeChanger.setDesktopModeState()
+      → StandaloneModeChanger.setModeChangeLock() [APPOPS]
+      → StandaloneModeChanger.startHome()
+      → UiManager.dismissOverlay()
+      → SemDvfsManager.release()
+        → Log.save()
+        → ActivityTaskManagerInternal.hasPackageTask()
+        → WindowConfiguration.windowingModeToString()
+        → ModeChanger.canTaskBeBroughtToForeground()
+        → ActivityTaskManagerInternal.bringTaskToForeground()
+        → ActivityManagerInternal.killProcessWhenDexExit()
+        → DesktopModeSettings.getSettings()
+        → DesktopModeSettings.setSettings()
+        → Utils.showTipsNotification()
+        → StandaloneModeChanger$ModeChangeReceiver.unregister()
+        → Context.getResources()
+        → Resources.getConfiguration()
+        → Handler.sendEmptyMessageDelayed()
+        → Handler.removeMessages()
+        → MultiResolutionManager.getStandaloneModeDensity()
+        → StandaloneModeChanger.getConfigurationState()
+        → StandaloneModeChanger.handleOnConfigurationChanged()
+        → State.getDesktopModeState()
+        → ToastManager.showToast()
+        → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → IStateManager.setDesktopModeState()
+        → SemDesktopModeStateNotifier.notifyDesktopModeStateChanged()
+        → SemDesktopModeState.equals()
+        → <com.samsung.android.desktopmode.SemDesktopModeState: void <
+        → IStateManager.setModeChangeLocked() [APPOPS]
+        → UiManager.setChangingStandaloneMode()
+        → Context.startActivityAsUser()
+        → Intent.addCategory()
+        → Intent.putExtra()
+        → Intent.setFlags()
+        → <android.content.Intent: void <init>(java.lang.String)>
+        → UserHandle.of()
+        → State.getCurrentUserId()
+        → <com.android.server.desktopmode.UiManager$$ExternalSynthetic
+        → UiManager$UiCommandHandler.schedule()
+        → DesktopModeUiConstants.typeToString()
+        → DesktopModeUiConstants.whereToString()
+        → SemDvfsManager$DvfsRequester.release()
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+          → Context.getContentResolver()
+          → ActivityTaskManagerInternal.getRealActivityForTaskId()
+          → PrivateCustomDeviceManager.stayInForeground()
+          → PrivateCustomDeviceManager.getInstance()
+          → PrivateCustomDeviceManager.isAutoOpenLastAppAllowed()
+          → DesktopModeSettings.getSettingsAsUser()
+          → DesktopModeSettings.setSettingsAsUser()
+          → Context.startForegroundService()
+          → Context.getPackageName()
+          → Intent.putExtra()
+          → Intent.putExtra()
+          → Intent.putExtra()
+          → Intent.setClassName()
+          → <android.content.Intent: void <init>()>
+          → Context.unregisterReceiver()
+          → MultiResolutionManager$StandaloneModeDisplayMetrics.getSelectedDisplayMetrics()
+          → MultiResolutionManager.getStandaloneModeOriginalDensity()
+          → TelecomManager.isInCall()
+          → TelecomManager.showInCallScreen()
+          → IStateManager.notifyOnConfigurationChanged()
+          → Log.v()
+          → ModeChanger.clearSettingsBadgeCount()
+          → SettingsHelper.backupOrRestoreSettings()
+          → StandaloneModeChanger.usingNativeInCallUi()
+          → StandaloneModeChanger.scheduleStopLoadingScreenIfPossible()
+          → ActivityTaskManagerInternal.clearHomeStack()
+          → SemDesktopModeState.getDisplayType()
+          → Handler.post()
+          → UiThread.getHandler()
+          → <com.android.server.desktopmode.ToastManager$$ExternalSynthe
+          → Log.e()
+          → SemDesktopModeStateNotifier.getListenersCopy()
+          → SemDesktopModeStateNotifier.sendBroadcast()
+          → IDesktopModeListener.onDesktopModeStateChanged()
+          → Iterator.hasNext()
+          → Iterator.next()
+          → List.iterator()
+          → SemDesktopModeState.compareTo()
+          → SemDesktopModeState.update()
+          → PendingUiCommands.flushCommands()
+          → Handler.obtainMessage()
+          → Handler.sendMessageDelayed()
+          → UiManager$DockTaWarningDialogMessage.setCommand()
+          → UiManager$UiCommandHandler.getDelayedUiCommandMessageId()
+          → UiManager$UiCommandHandler.messageIdToString()
+          → <com.android.server.desktopmode.UiManager: java.lang.String 
+          → SemDvfsManager$RequestFunc.release()
+            → ArrayDeque.size()
+            → ArrayDeque.removeFirst()
+            → ArrayDeque.addLast()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+            → IKnoxCustomManager.stayInDexForegroundMode()
+            → PrivateCustomDeviceManager.getService()
+            → <com.samsung.android.knox.ContextInfo: void <init>()>
+            → <com.samsung.android.knox.custom.PrivateCustomDeviceManager:
+            → IKnoxCustomManager.isDexAutoOpenLastAppAllowed()
+            → DesktopModeSettings.getSettingsAsUser()
+            → DesktopModeSettings.setSettingsAsUserOrThrowException()
+            → <com.android.server.desktopmode.MultiResolutionManager: com.
+            → <com.android.server.desktopmode.MultiResolutionManager$Stand
+            → Context.getAttributionTag()
+            → Context.getOpPackageName()
+            → TelecomManager.getTelecomService()
+            → ITelecomService.isInCall()
+            → ITelecomService.showInCallScreen()
+            → Settings$System.putIntForUser()
+            → SettingsHelper.backupOrRestoreSettings()
+            → Context.getPackageManager()
+            → PackageManager.queryIntentServices()
+            → Settings$System.getIntForUser()
+            → DefaultDialerManager.getDefaultDialerApplication()
+            → UiManager.hasOverlay()
+            → UiManager.getCurrentOverlayType()
+            → UiThread.ensureThreadLocked()
+            → <java.util.ArrayList: void <init>(java.util.Collection)>
+            → Map.values()
+            → Context.sendBroadcastAsUser()
+            → Intent.addFlags()
+            → PendingUiCommands.clear()
+            → Runnable.run()
+            → ArrayList.iterator()
+              → ServiceManager.getService()
+              → IKnoxCustomManager$Stub.asInterface()
+              → UserHandle.getUserId()
+              → SemPersonaManager.isKnoxId()
+              → DesktopModeSettings.getSettingsAsUserOrThrowException()
+              → ContentResolver.call()
+              → <android.os.Bundle: void <init>(int)>
+              → Bundle.putString()
+              → DesktopModeSettings.getUriAsUser()
+              → MultiResolutionManager$StandaloneModeDisplayMetrics.getOriginalDisplaySizeDensity()
+              → IBinder.linkToDeath()
+              → ITelecomService$Stub.asInterface()
+              → ITelecomService.asBinder()
+              → DesktopModeSettings.setSettingsAsUser()
+              → SettingsHelper.setPsmSpeedLimit()
+              → SettingsHelper.setScreensaver()
+              → SettingsHelper.setTouchKeyboard()
+              → SettingsHelper.setVirtualKeyboard()
+              → SemDesktopModeState.displayTypeToString()
+              → RoleManager.getRoleHoldersAsUser()
+              → Context.getSystemService()
+              → Binder.clearCallingIdentity()
+              → Binder.restoreCallingIdentity()
+              → CollectionUtils.firstOrNull()
+              → UiManager.handleRemoteException()
+              → IDesktopModeUiService.hasOverlay()
+              → IDesktopModeUiService.getCurrentOverlayType()
+              → <android.os.Handler: void <init>(android.os.Looper)>
+              → HandlerThread.getLooper()
+              → HandlerThread.start()
+              → Looper.setSlowLogThresholdMs()
+              → Looper.setTraceTag()
+              → <com.android.server.UiThread: void <init>()>
+              → List.clear()
+
+────────────────────────────────────────────────────────────
+Occurrence #15
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.desktopmode.StandaloneModeChanger
+  Method:   <com.android.server.desktopmode.StandaloneModeChanger: void storeDefaultHomePackageName(boolean,java.util.function.Consumer)>
+  Line:     2291
+  Register: v3 := "com.sec.android.app.desktoplauncher"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← StandaloneModeChanger.setDesktopMode()
+      ← <com.android.server.desktopmode.StandaloneModeChanger: void 
+        ← DesktopModeService$TabletPreconditionChecker.updateDesktopMode()
+        ← StandaloneModeChanger$1.onUserChanged()
+
+  CALLEES (what this method invokes):
+      → RoleManager.addRoleHolderAsUser()
+      → Context.getSystemService()
+      → Context.getMainExecutor()
+      → Process.myUserHandle()
+      → DesktopModeSettings.getSettings()
+      → DesktopModeSettings.deleteSettings()
+      → DesktopModeSettings.setSettings()
+      → Log.w()
+      → StandaloneModeChanger.getDefaultHomePackageName()
+      → Consumer.accept()
+        → DesktopModeSettings.getSettingsAsUser()
+        → DesktopModeSettings.deleteSettingsAsUser()
+        → DesktopModeSettings.setSettingsAsUser()
+        → Log.save()
+        → RoleManager.getRoleHoldersAsUser()
+        → List.isEmpty()
+        → List.get()
+          → DesktopModeSettings.getSettingsAsUserOrThrowException()
+          → Log.e()
+          → DesktopModeSettings.deleteSettingsAsUserOrThrowException()
+          → DesktopModeSettings.setSettingsAsUserOrThrowException()
+          → Log$EvictingArrayQueue.add()
+          → Log.buildLogString()
+            → ContentResolver.call()
+            → Bundle.getString()
+            → <android.os.Bundle: void <init>(int)>
+            → Bundle.putString()
+            → DesktopModeSettings.getUriAsUser()
+            → ArrayDeque.size()
+            → ArrayDeque.removeFirst()
+            → ArrayDeque.addLast()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → Character.valueOf()
+            → LocalDateTime.format()
+            → LocalDateTime.now()
+              → Uri.parse()
+
+────────────────────────────────────────────────────────────
+Occurrence #16
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.server.wallpaper.DefaultWallpaper
+  Method:   <com.samsung.server.wallpaper.DefaultWallpaper: void updateTransparencySettingIfNeed(java.lang.String,int,boolean)>
+  Line:     453
+  Register: v0 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals()
+
+  CALLERS (who invokes this method):
+      ← WallpaperManagerService.setWallpaper()
+      ← WallpaperManagerService.copyFileToWallpaperFile()
+        ← WallpaperManagerService.setWallpaper()
+        ← WallpaperManagerService.setWallpaperWithExtras()
+        ← WallpaperManagerService.copyFileToWallpaperFile()
+        ← WallpaperManagerService.copyPreloadedFileToWallpaperFile()
+
+  CALLEES (what this method invokes):
+      → WhichChecker.isDex()
+      → WhichChecker.isLock()
+      → WhichChecker.isSystem()
+      → DefaultWallpaper.setKWPTypePreload()
+      → DefaultWallpaper.setSWPTypePreload()
+        → Handler.obtainMessage()
+        → Handler.sendMessage()
+
+────────────────────────────────────────────────────────────
+Occurrence #17
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.knox.custom.KnoxCustomManagerService
+  Method:   <com.samsung.android.knox.custom.KnoxCustomManagerService: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])>
+  Line:     29142
+  Register: p3 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {p0, p3}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->copyBundle(Ljav
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.knox.custom.KnoxCustomManagerService.cop → [reassigned] p3 overwritten
+
+  CALLEES (what this method invokes):
+      → Context.checkCallingOrSelfPermission()
+      → Binder.getCallingPid() [UID_CHECK]
+      → Binder.getCallingUid() [UID_CHECK]
+      → Bundle.toString()
+      → KnoxCustomManagerService.copyBundle()
+      → KnoxCustomManagerService.getAirGestureOptionState()
+      → KnoxCustomManagerService.getBackupRestoreState()
+      → KnoxCustomManagerService.getDeviceSpeakerEnabledState()
+      → KnoxCustomManagerService.getDisplayMirroringState()
+      → KnoxCustomManagerService.getEthernetStateInternal()
+      → KnoxCustomManagerService.getExtendedCallInfoState()
+      → KnoxCustomManagerService.getGearNotificationState()
+      → KnoxCustomManagerService.getHardKeyIntentState()
+      → KnoxCustomManagerService.getInfraredState()
+      → KnoxCustomManagerService.getInputMethodRestrictionState()
+      → KnoxCustomManagerService.getLTESettingState()
+      → KnoxCustomManagerService.getLcdBacklightState()
+      → KnoxCustomManagerService.getMultiWindowState()
+      → KnoxCustomManagerService.getPowerDialogCustomItemsState()
+      → KnoxCustomManagerService.getPowerMenuLockedState()
+      → KnoxCustomManagerService.getProKioskNotificationMessagesState()
+      → KnoxCustomManagerService.getProKioskPowerDialogCustomItemsState()
+      → KnoxCustomManagerService.getProKioskState()
+      → KnoxCustomManagerService.getProKioskStatusBarClockState()
+      → KnoxCustomManagerService.getProKioskStatusBarIconsState()
+      → KnoxCustomManagerService.getProKioskUsbMassStorageState()
+      → KnoxCustomManagerService.getProKioskUsbNetState()
+      → KnoxCustomManagerService.getProtectBatteryState()
+      → KnoxCustomManagerService.getScreenOffOnHomeLongPressState()
+      → KnoxCustomManagerService.getScreenOffOnStatusBarDoubleTapState()
+      → KnoxCustomManagerService.getScreenWakeupOnPowerState()
+      → KnoxCustomManagerService.getStatusBarClockState()
+      → KnoxCustomManagerService.getStatusBarIconsState()
+      → KnoxCustomManagerService.getStatusBarNotificationsState()
+      → KnoxCustomManagerService.getToastEnabledState()
+      → KnoxCustomManagerService.getToastGravityEnabledState()
+      → KnoxCustomManagerService.getToastShowPackageNameState()
+      → KnoxCustomManagerService.getUnlockSimOnBootState()
+      → KnoxCustomManagerService.getUsbMassStorageState()
+      → KnoxCustomManagerService.getUsbNetStateInternal()
+      → KnoxCustomManagerService.getVolumeButtonRotationState()
+      → KnoxCustomManagerService.getVolumeKeyAppState()
+      → KnoxCustomManagerService.getVolumePanelEnabledState()
+      → KnoxCustomManagerService.getWifiConnectionMonitorState()
+      → KnoxCustomManagerService.isDataAllowedFromKnox()
+      → KnoxCustomManagerService.getBatteryLevelColourItem()
+      → KnoxCustomManagerService.getAccessibilitySettingsItems()
+      → KnoxCustomManagerService.getAutoCallPickupState()
+      → KnoxCustomManagerService.getCallScreenDisabledItems()
+      → KnoxCustomManagerService.getDexHDMIAutoEnterState()
+      → KnoxCustomManagerService.getDexHomeAlignment()
+      → KnoxCustomManagerService.getDexScreenTimeout()
+      → KnoxCustomManagerService.getForceAutoStartUpState()
+      → KnoxCustomManagerService.getHardKeyIntentMode()
+      → KnoxCustomManagerService.getHideNotificationMessages()
+      → KnoxCustomManagerService.getHomeScreenMode()
+      → KnoxCustomManagerService.getKeyboardModeInternal()
+      → KnoxCustomManagerService.getLockScreenHiddenItems()
+      → KnoxCustomManagerService.getLockScreenOverrideMode()
+      → KnoxCustomManagerService.getMobileNetworkType()
+      → KnoxCustomManagerService.getPowerDialogItems()
+      → KnoxCustomManagerService.getPowerDialogOptionMode()
+      → KnoxCustomManagerService.getProKioskStatusBarMode()
+      → KnoxCustomManagerService.getQuickPanelButtons()
+      → KnoxCustomManagerService.getQuickPanelEditMode()
+      → KnoxCustomManagerService.getRecentLongPressMode()
+      → KnoxCustomManagerService.getSensorDisabled()
+      → KnoxCustomManagerService.getSettingsEnabledItems()
+      → KnoxCustomManagerService.getSettingsHiddenState()
+      → KnoxCustomManagerService.getShowIMEWithHardKeyboard()
+      → KnoxCustomManagerService.getStatusBarMode()
+      → KnoxCustomManagerService.getStatusBarTextScrollWidth()
+      → KnoxCustomManagerService.getStatusBarTextSize()
+      → KnoxCustomManagerService.getStatusBarTextStyle()
+      → KnoxCustomManagerService.getSystemSoundsEnabledState()
+      → KnoxCustomManagerService.getToastGravity()
+      → KnoxCustomManagerService.getToastGravityXOffset()
+      → KnoxCustomManagerService.getToastGravityYOffset()
+      → KnoxCustomManagerService.getUsbConnectionType()
+      → KnoxCustomManagerService.getUserInactivityTimeout()
+      → KnoxCustomManagerService.getVibrationIntensity()
+      → KnoxCustomManagerService.getVolumeControlStream()
+      → KnoxCustomManagerService.getWifiFrequencyBand()
+      → KnoxCustomManagerService.getWifiHotspotEnabledState()
+      → KnoxCustomManagerService.isDexAutoOpenLastAppAllowed()
+      → KnoxCustomManagerService.getExitUI()
+      → KnoxCustomManagerService.getHomeActivity()
+      → KnoxCustomManagerService.getLockScreenShortcut()
+      → KnoxCustomManagerService.getProKioskString()
+      → KnoxCustomManagerService.getProKioskUsbNetAddress()
+      → KnoxCustomManagerService.getQuickPanelItems()
+      → KnoxCustomManagerService.getQuickPanelItemsDisabled()
+      → KnoxCustomManagerService.getRecentLongPressActivity()
+      → KnoxCustomManagerService.getStatusBarText()
+      → KnoxCustomManagerService.getUsbNetAddress()
+      → KnoxCustomManagerService.getAutoCallNumberList()
+      → KnoxCustomManagerService.getDexForegroundModePackageList()
+      → KnoxCustomManagerService.getPowerDialogCustomItems()
+      → KnoxCustomManagerService.getProKioskPowerDialogCustomItems()
+      → KnoxCustomManagerService.getUltraPowerSavingPackages()
+      → KnoxCustomManagerService.getVolumeKeyAppsList()
+      → PrintWriter.println()
+      → Exception.getStackTrace()
+      → List.size()
+        → Bundle.getBundle()
+        → Bundle.keySet()
+        → <android.os.Bundle: void <init>()>
+        → Bundle.putBundle()
+        → KnoxCustomManagerService.getApplicationRestrictionsInternal()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Set.iterator()
+        → Context.getContentResolver()
+        → Settings$System.getInt()
+        → EdmStorageProvider.getBoolean()
+        → Exception.printStackTrace()
+        → Settings$Secure.getInt()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → KnoxCustomManagerService$Injector.binderWithCleanCallingIdentity()
+        → Context.getSystemService()
+        → AudioManager.isForceSpeakerOn()
+        → ConsumerIrManager.hasIrEmitter()
+        → EdmStorageProvider.getInt()
+        → Settings$Global.getInt()
+        → TextUtils.isEmpty()
+        → SemFloatingFeature.getBoolean()
+        → SemFloatingFeature.getInstance()
+        → BufferedReader.readLine()
+        → <java.io.BufferedReader: void <init>(java.io.Reader)>
+        → BufferedReader.close()
+        → File.canWrite()
+        → File.exists()
+        → <java.io.File: void <init>(java.lang.String)>
+        → <java.io.FileReader: void <init>(java.lang.String)>
+        → Bundle.containsKey()
+        → Bundle.isEmpty()
+        → Bundle.getString()
+        → EnterpriseDeviceManager.getPhoneRestrictionPolicy()
+        → KnoxCustomManagerService.getEDM()
+        → PhoneRestrictionPolicy.isDataAllowedFromSimSlot()
+        → EdmStorageProvider.getBlob()
+        → KnoxCustomManagerService.deserializeStatusbarIconItem()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → LocalServices.getService()
+        → DesktopModeManagerInternal.getDexHDMIAutoEnterState()
+        → DeXLauncherConfigurationInternal.getOrder()
+        → KnoxCustomManagerService.getScreenTimeoutForDesktopMode()
+        → PrivateKnoxCustom.isKnoxCustomAutoStartUpEnabled()
+        → PrivateKnoxCustom.getInstance()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → Context.getPackageManager()
+        → PackageManager.hasSystemFeature()
+        → TelephonyManager.isDataCapable()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → SystemProperties.get()
+        → Settings$System.getInt()
+        → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+        → WifiManager.getWifiApState()
+        → EdmStorageProvider.getString()
+        → Settings$System.getString()
+        → KnoxCustomManagerService.getQuickPanelItemId()
+        → StringBuffer.toString()
+        → StringBuffer.append()
+        → <java.lang.StringBuffer: void <init>()>
+        → ArrayList.add()
+        → <java.util.ArrayList: void <init>()>
+        → KnoxCustomManagerService.deserializeObject()
+        → List.add()
+        → List.clear()
+        → <android.text.TextUtils$SimpleStringSplitter: void <init>(ch
+        → TextUtils$StringSplitter.iterator()
+        → TextUtils$StringSplitter.setString()
+          → ApplicationRestrictionsInternal.getApplicationRestrictionsInternal()
+          → EdmStorageProviderBase.getBoolean()
+          → Binder.withCleanCallingIdentity()
+          → IConsumerIrService.hasIrEmitter()
+          → RemoteException.rethrowFromSystemServer()
+          → EdmStorageProviderBase.getInt()
+          → CharSequence.length()
+          → SemFloatingFeature.loge()
+          → Hashtable.get()
+          → EnterpriseDeviceManager.getPhoneRestrictionPolicy()
+          → KnoxCustomManagerService$Injector.getEDM()
+          → RemoteException.printStackTrace()
+          → IPhoneRestrictionPolicy.isDataAllowedFromSimSlot()
+          → PhoneRestrictionPolicy.getService()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → EdmStorageProviderBase.getBlob()
+          → EdmStorageProviderBase.translateToAdminLUID()
+          → Parcel.obtain()
+          → Parcel.readValue()
+          → Parcel.recycle()
+          → Parcel.setDataPosition()
+          → Parcel.unmarshall()
+          → Exception.getMessage()
+          → ArrayMap.get()
+          → ContentResolver.call()
+          → Bundle.getInt()
+          → Bundle.putString()
+          → <com.samsung.android.knox.custom.KnoxCustomManagerService$$E
+          → KnoxCustomManagerService.useSettingDbForScreenTimeout()
+          → KnoxCustomManagerService.screenTimeoutKey()
+          → PrivateKnoxCustom.readBooleanDataValue()
+          → <com.samsung.android.knox.custom.PrivateKnoxCustom: void <in
+          → EdmStorageProviderBase.getString()
+          → Parcel.createTypedArray()
+            → EdmStorageProviderBase.getBooleanList()
+            → <com.android.server.enterprise.storage.SettingNotFoundExcept
+            → List.get()
+            → ExceptionUtils.propagate()
+            → FunctionalUtils$ThrowingSupplier.getOrThrow()
+            → <android.os.DeadSystemRuntimeException: void <init>()>
+            → <java.lang.RuntimeException: void <init>(java.lang.Throwable
+            → EdmStorageProviderBase.getIntList()
+            → <com.samsung.android.knox.restriction.PhoneRestrictionPolicy
+            → <java.util.HashMap: void <init>()>
+            → Map.containsKey()
+            → Map.get()
+            → Map.put()
+            → EnterpriseDeviceManager.getInstance()
+            → ServiceManager.getService()
+            → IPhoneRestrictionPolicy$Stub.asInterface()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.put()
+            → EdmStorageProviderBase.getBlobList()
+            → SemPersonaManager.isKnoxId()
+            → ArrayMap.indexOfKey()
+            → PrivateKnoxCustom.readParamData()
+            → EdmStorageProviderBase.getString()
+              → Cursor.isNull()
+              → Cursor.moveToNext()
+              → Cursor.getInt()
+              → Cursor.close()
+              → SQLException.getMessage()
+              → EdmStorageProviderBase.getCursor()
+              → <android.util.AndroidException: void <init>(java.lang.String
+              → ExceptionUtils.propagateIfInstanceOf()
+              → Preconditions.checkNotNull()
+              → <android.os.DeadSystemException: void <init>()>
+              → Process.myPid()
+              → Process.myTid()
+              → Process.myUid()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.d()
+              → KnoxsdkFileLog.w()
+              → IBinder.queryLocalInterface()
+              → <com.samsung.android.knox.restriction.IPhoneRestrictionPolic
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → Cursor.getBlob()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+              → EdmStorageProviderBase.getStringList()
+
+────────────────────────────────────────────────────────────
+Occurrence #18
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.appconfig.ApplicationRestrictionsService
+  Method:   <com.android.server.enterprise.appconfig.ApplicationRestrictionsService: void sendBroadcastAsUserInternal(java.lang.String,int)>
+  Line:     1401
+  Register: v2 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.util.ArrayList.add() → [other] iget-object v2, p0, Lcom/android/server/enterprise/appconfig → [invoke] and
+
+  CALLERS (who invokes this method):
+      ← ApplicationRestrictionsService$1.onReceive()
+      ← ApplicationRestrictionsService.setApplicationRestrictionsInternal()
+        ← ApplicationRestrictionsService.setKeyedAppStatesReport()
+
+  CALLEES (what this method invokes):
+      → ActivityManager.clearApplicationUserData()
+      → Context.sendBroadcastAsUser()
+      → Intent.addFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → UserHandle.of()
+      → ArrayList.add()
+      → ArrayList.iterator()
+      → <java.util.ArrayList: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → Map.get()
+      → Map.keySet()
+      → Set.iterator()
+
+────────────────────────────────────────────────────────────
+Occurrence #19
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: java.util.List getHomeShortcuts(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+  Line:     17660
+  Register: v9 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-virtual {v1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, system_property_read
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v5 → [branch] if-nez v5, :cond_bc → [other] move-result v5 → [b
+
+  CALLEES (what this method invokes):
+      → ContentResolver.query()
+      → Context.getContentResolver()
+      → Intent.getComponent()
+      → Intent.parseUri()
+      → <android.content.Intent: void <init>()>
+      → Cursor.moveToFirst()
+      → Cursor.moveToNext()
+      → Cursor.getColumnIndex()
+      → Cursor.getInt()
+      → Cursor.getString()
+      → Cursor.close()
+      → SQLException.getMessage()
+      → Uri.parse()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → SystemProperties.get()
+      → UserHandle.getUserId()
+      → ApplicationPolicy.enforceAppPermission()
+      → Utils.createContextAsUser()
+      → DexManager.isDexActivated()
+      → DexManager.getInstance()
+      → KioskMode.isKioskModeEnabled()
+      → KioskMode.getInstance()
+      → URISyntaxException.getMessage()
+      → URISyntaxException.printStackTrace()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → Context.createPackageContextAsUser()
+        → PackageManager$NameNotFoundException.getMessage()
+        → <android.os.UserHandle: void <init>(int)>
+        → DexManager.getService()
+        → IDexPolicy.isDexActivated()
+        → <com.samsung.android.knox.dex.DexManager: void <init>()>
+        → IKioskMode.isKioskModeEnabled()
+        → KioskMode.getService()
+        → Context.getApplicationContext()
+        → Process.myUid()
+        → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+        → <com.samsung.android.knox.kiosk.KioskMode: void <init>(com.s
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+          → AccessController.enforceActiveAdminPermissionByContext()
+          → ServiceManager.getService()
+          → IDexPolicy$Stub.asInterface()
+          → <com.samsung.android.knox.ContextInfo: void <init>()>
+          → IKioskMode$Stub.asInterface()
+          → SemPersonaManager.isKnoxId()
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+            → AccessController.getService()
+            → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+            → IBinder.queryLocalInterface()
+            → <com.samsung.android.knox.dex.IDexPolicy$Stub$Proxy: void <i
+            → <com.samsung.android.knox.kiosk.IKioskMode$Stub$Proxy: void 
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → SemDualAppManager.isDualAppId()
+
+────────────────────────────────────────────────────────────
+Occurrence #20
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: boolean manageHomeShorcut(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String,java.lang.String)>
+  Line:     31959
+  Register: v6 := "com.sec.android.app.desktoplauncher"
+  Usage:    [invoke] invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: allowlist_check, string_compare, early_return
+  Flow:     [invoke] java.util.List.add() → [reassigned] v6 overwritten
+
+  CALLERS (who invokes this method):
+      ← ApplicationPolicy.addHomeShortcut()
+      ← ApplicationPolicy.deleteHomeShortcut()
+
+  CALLEES (what this method invokes):
+      → ComponentName.equals()
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → ContentResolver.call()
+      → Context.getContentResolver()
+      → Context.getPackageManager()
+      → Context.getResources()
+      → Context.sendBroadcastAsUser()
+      → Intent.addCategory()
+      → Intent.addFlags()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → <android.content.Intent: void <init>(java.lang.String,androi
+      → ActivityInfo.loadLabel()
+      → IShortcutService$Stub.asInterface()
+      → IShortcutService.isRequestPinItemSupported()
+      → PackageManager.getApplicationIcon()
+      → PackageManager.getApplicationLabel()
+      → PackageManager.queryIntentActivitiesAsUser()
+      → Resources.getDimensionPixelSize()
+      → Bitmap.getHeight()
+      → Bitmap.getWidth()
+      → Uri.parse()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → <android.os.Bundle: void <init>()>
+      → Bundle.putBoolean()
+      → Bundle.putParcelable()
+      → ServiceManager.getService()
+      → <android.os.UserHandle: void <init>(int)>
+      → TextUtils.isEmpty()
+      → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+      → ApplicationPolicy.getLaunchIntentForPackageLocal()
+      → ApplicationPolicy.convertDrawableToBitmap()
+      → ApplicationPolicy.scaleDownIconBitmap()
+      → ApplicationPolicy.getAppIcon()
+      → ApplicationPolicy.getPackageNameForUid()
+      → Utils.createContextAsUser()
+      → Utils.getCallingOrCurrentUserId()
+      → CharSequence.toString()
+      → Exception.getMessage()
+      → Exception.printStackTrace()
+      → Thread.sleep()
+      → <java.util.ArrayList: void <init>()>
+      → Iterator.hasNext()
+      → Iterator.next()
+      → List.add()
+      → List.contains()
+      → List.isEmpty()
+      → List.size()
+      → List.get()
+      → List.iterator()
+        → <android.content.pm.IShortcutService$Stub$Proxy: void <init>
+        → IBinder.queryLocalInterface()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → CharSequence.length()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Intent.setClassName()
+        → Intent.setFlags()
+        → <android.content.Intent: void <init>(android.content.Intent)
+        → Intent.removeCategory()
+        → PackageManager.queryIntentActivities()
+        → List.addAll()
+        → Bitmap.createBitmap()
+        → Canvas.getHeight()
+        → Canvas.getWidth()
+        → <android.graphics.Canvas: void <init>(android.graphics.Bitma
+        → Drawable.getIntrinsicHeight()
+        → Drawable.getIntrinsicWidth()
+        → Drawable.draw()
+        → Drawable.setBounds()
+        → Bitmap.createScaledBitmap()
+        → ActivityInfo.loadIcon()
+        → PackageManager.getResourcesForApplication()
+        → ResolveInfo.getIconResource()
+        → Resources.getDrawableForDensity()
+        → ApplicationPolicy.PkgResCache()
+        → EdmStorageProviderBase.getPackageNameForUid()
+        → Context.createPackageContextAsUser()
+        → PackageManager$NameNotFoundException.getMessage()
+        → ActivityManager.getCurrentUser()
+        → Binder.getCallingPid() [UID_CHECK]
+        → Binder.getCallingUid() [UID_CHECK]
+        → UserHandle.getUserId()
+        → IPersonaManagerAdapter.isValidKnoxId()
+        → Utils.getPersonaManagerAdapter()
+        → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+          → Resources.getSystem()
+          → Resources.getDisplayMetrics()
+          → ComponentName.getPackageName()
+          → EdmStorageProviderBase.getComponentNameForUid()
+          → AdapterRegistry.getAdapter()
+          → SemPersonaManager.isKnoxId()
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+            → ComponentName.unflattenFromString()
+            → EdmStorageProviderBase.getString()
+            → HashMap.get()
+            → SemPersonaManager.checkContainerType()
+            → SemPersonaManager.isDualAppId()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+              → <android.content.ContentValues: void <init>()>
+              → ContentValues.put()
+              → EdmStorageProviderBase.getString()
+              → EdmStorageProviderBase.translateToAdminLUID()
+              → SystemProperties.get()
+              → SemDualAppManager.isDualAppId()
+

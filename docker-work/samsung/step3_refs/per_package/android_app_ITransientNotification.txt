@@ -1,0 +1,10 @@
+# android.app.ITransientNotification [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.ITransientNotification$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.ITransientNotification$Stub$Proxy: void hide()>
+<android.app.ITransientNotification$Stub$Proxy: void show(android.os.IBinder)>
+<android.app.ITransientNotification$Stub: android.app.ITransientNotification asInterface(android.os.IBinder)>
+<android.app.ITransientNotification$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.ITransientNotification$Stub: void <init>()>

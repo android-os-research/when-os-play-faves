@@ -1,0 +1,29 @@
+######################################################################
+# Propagation: com.samsung.android.visionarapps
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          array_init
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.camera.CameraServiceProxy
+  Method:   <com.android.server.camera.CameraServiceProxy: void <clinit>()>
+  Line:     283
+  Register: v3 := "com.samsung.android.visionarapps"
+  Usage:    [array_init] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String; → [reassigned] v3 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.os.Binder: void <init>()>
+        → <android.os.Binder: void <init>(java.lang.String)>
+          → Binder.getNativeBBinderHolder()
+          → NativeAllocationRegistry.registerNativeAllocation()
+

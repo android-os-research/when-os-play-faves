@@ -1,0 +1,9 @@
+# com.mediatek.advcam.IAdvCamService [NEW]
+# Refs: 5
+# JARs: mediatek-framework
+
+<com.mediatek.advcam.IAdvCamService$Stub$Proxy: int setConfigureParam(int,android.hardware.camera2.CaptureRequest)>
+<com.mediatek.advcam.IAdvCamService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.mediatek.advcam.IAdvCamService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.mediatek.advcam.IAdvCamService$Stub: com.mediatek.advcam.IAdvCamService asInterface(android.os.IBinder)>
+<com.mediatek.advcam.IAdvCamService$Stub: void <init>()>

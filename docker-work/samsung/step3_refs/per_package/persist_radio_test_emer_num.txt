@@ -1,0 +1,7 @@
+# persist.radio.test_emer_num [NEW]
+# Refs: 3
+# JARs: framework, telephony-common
+
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: java.util.Optional test_emer_num()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.Optional test_emer_num()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void test_emer_num(java.lang.String)>

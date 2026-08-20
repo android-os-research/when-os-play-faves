@@ -1,0 +1,6 @@
+# telephony.sms.send [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.internal.telephony.sysprop.TelephonyProperties: java.util.List sms_send()>
+<android.sysprop.TelephonyProperties: java.util.List sms_send()>

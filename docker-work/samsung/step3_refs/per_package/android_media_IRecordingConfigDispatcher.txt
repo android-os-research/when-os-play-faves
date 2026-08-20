@@ -1,0 +1,9 @@
+# android.media.IRecordingConfigDispatcher [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.IRecordingConfigDispatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IRecordingConfigDispatcher$Stub$Proxy: void dispatchRecordingConfigChange(java.util.List)>
+<android.media.IRecordingConfigDispatcher$Stub: android.media.IRecordingConfigDispatcher asInterface(android.os.IBinder)>
+<android.media.IRecordingConfigDispatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IRecordingConfigDispatcher$Stub: void <init>()>

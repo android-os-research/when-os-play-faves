@@ -1,0 +1,10 @@
+# android.hardware.hdmi.IHdmiVendorCommandListener [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.hardware.hdmi.IHdmiVendorCommandListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.hdmi.IHdmiVendorCommandListener$Stub$Proxy: void onControlStateChanged(boolean,int)>
+<android.hardware.hdmi.IHdmiVendorCommandListener$Stub$Proxy: void onReceived(int,int,byte[],boolean)>
+<android.hardware.hdmi.IHdmiVendorCommandListener$Stub: android.hardware.hdmi.IHdmiVendorCommandListener asInterface(android.os.IBinder)>
+<android.hardware.hdmi.IHdmiVendorCommandListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.hdmi.IHdmiVendorCommandListener$Stub: void <init>()>

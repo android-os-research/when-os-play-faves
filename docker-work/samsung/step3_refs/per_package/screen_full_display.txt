@@ -1,0 +1,6 @@
+# screen.full.display [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.android.internal.os.PowerProfile: void initDisplays()>
+<com.android.internal.os.ScreenPowerCalculator: void <init>(com.android.internal.os.PowerProfile,boolean)>

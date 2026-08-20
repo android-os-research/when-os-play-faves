@@ -1,0 +1,7 @@
+# runtime.manifest.overlay [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<com.samsung.android.core.pm.runtimemanifest.RuntimeManifestCoreOverlayUtils: android.content.res.XmlResourceParser getRuntimeManifestOverlayParser(android.content.pm.PackageParser$Package,android.content.res.Resources)>
+<com.samsung.android.core.pm.runtimemanifest.RuntimeManifestUtils: boolean useLegacyRuntimeManifest(android.os.Bundle)>
+<com.samsung.android.server.pm.runtimemanifest.RuntimeManifestOverlayUtils: android.content.res.XmlResourceParser getRuntimeManifestOverlayParser(com.android.server.pm.pkg.parsing.ParsingPackage,android.content.res.Resources)>

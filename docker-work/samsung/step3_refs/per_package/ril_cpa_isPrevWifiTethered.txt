@@ -1,0 +1,6 @@
+# ril.cpa.isPrevWifiTethered [NEW]
+# Refs: 2
+# JARs: framework
+
+<com.kddi.android.CpaNotiReceiver: int changeMode(java.lang.String,com.kddi.android.CpaNotiReceiver$NaviSettings,android.content.Context)>
+<com.kddi.android.CpaNotiReceiver: void broadcastState(int,int)>

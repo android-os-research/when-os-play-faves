@@ -1,0 +1,6 @@
+# android.telephony.NetworkService [NEW]
+# Refs: 2
+# JARs: framework, telephony-common
+
+<android.telephony.NetworkService: android.os.IBinder onBind(android.content.Intent)>
+<com.android.internal.telephony.NetworkRegistrationManager: void bindService(java.lang.String)>

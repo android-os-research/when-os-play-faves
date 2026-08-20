@@ -1,0 +1,19 @@
+# ro.factory.factory_binary [NEW]
+# Refs: 15
+# JARs: framework, semwifi-service, services, telephony-common
+
+<android.os.FactoryTest: boolean isFactoryBinary()>
+<com.android.internal.telephony.MccTable: boolean isFactoryBinary()>
+<com.android.internal.telephony.uicc.UiccSlot: void onIccSwap(boolean)>
+<com.android.server.DevRootKeyATCmd: java.lang.String processCmd(java.lang.String)>
+<com.android.server.FMRadioService: void <clinit>()>
+<com.android.server.SystemServer: void startOtherServices(com.android.server.utils.TimingsTraceAndSlog)>
+<com.android.server.UserDeviceATCmd: boolean isFactoryBinary()>
+<com.android.server.biometrics.Utils: boolean isFactoryBinary()>
+<com.android.server.sepunion.cover.CoverVerifier: boolean isFactoryMode()>
+<com.samsung.android.jdsms.Sender: void <init>(android.content.Context)>
+<com.samsung.android.media.fmradio.SemFmPlayer: boolean enableRadio()>
+<com.samsung.android.rune.PMRune: void <clinit>()>
+<com.samsung.android.server.continuity.autoswitch.AutoSwitchSettingHelper: void setStandAloneBleMode(boolean)>
+<com.samsung.android.server.wifi.SemFrameworkFacade: boolean isFactoryBinary()>
+<com.samsung.android.service.ProtectedATCommand.PACMClassifier: int checkAttribute(com.samsung.android.service.ProtectedATCommand.list.ATCommands,boolean,int)>

@@ -1,0 +1,7 @@
+# org.apache.commons.logging.impl.Jdk13LumberjackLogger [NEW]
+# Refs: 3
+# JARs: org.apache.http.legacy
+
+<org.apache.commons.logging.impl.LogFactoryImpl: boolean isJdk13LumberjackAvailable()>
+<org.apache.commons.logging.impl.LogFactoryImpl: org.apache.commons.logging.Log discoverLogImplementation(java.lang.String)>
+<org.apache.commons.logging.impl.LogFactoryImpl: void <clinit>()>

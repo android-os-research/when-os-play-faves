@@ -1,0 +1,18 @@
+# com.samsung.android.knox.remotecontrol.IRemoteInjection [NEW]
+# Refs: 14
+# JARs: knoxsdk
+
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub$Proxy: boolean allowRemoteControl(com.samsung.android.knox.ContextInfo,boolean,boolean)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub$Proxy: boolean injectKeyEvent(android.view.KeyEvent,boolean)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub$Proxy: boolean injectKeyEventDex(android.view.KeyEvent,boolean)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub$Proxy: boolean injectPointerEvent(android.view.MotionEvent,boolean)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub$Proxy: boolean injectPointerEventDex(android.view.MotionEvent,boolean)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub$Proxy: boolean injectTrackballEvent(android.view.MotionEvent,boolean)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub$Proxy: boolean isRemoteControlAllowed(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub$Proxy: boolean isRemoteControlDisabled(int)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub$Proxy: void updateDexScreenDimensions(int,int,int)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub$Proxy: void updateRemoteScreenDimensionsAndCallerUid(int,int,int)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub: com.samsung.android.knox.remotecontrol.IRemoteInjection asInterface(android.os.IBinder)>
+<com.samsung.android.knox.remotecontrol.IRemoteInjection$Stub: void <init>()>

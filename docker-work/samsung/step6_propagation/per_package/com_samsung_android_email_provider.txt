@@ -1,0 +1,589 @@
+######################################################################
+# Propagation: com.samsung.android.email.provider
+######################################################################
+
+JARs:                 framework, services
+Classes:              8
+Occurrences:          10
+Usage types:          array_init, invoke, unknown
+Enforcement patterns: early_return, string_compare, system_property_read
+Security tags:        DEVICE_ID, PERM_CHECK, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.knox.SemPersonaManager
+  Method:   <com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+  Line:     1330
+  Register: v40 := "com.samsung.android.email.provider"
+  Usage:    [] 
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] android.content.ComponentName.<init>() → [reassigned] v2 overwritten
+
+  CALLEES (what this method invokes):
+      → <android.content.ComponentName: void <init>(java.lang.String
+      → SystemProperties.get()
+      → <android.util.ArraySet: void <init>()>
+      → SemPersonaManager.getFloatingPackageName()
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+        → <android.util.ArraySet: void <init>(int,boolean)>
+        → SemFloatingFeature.getInstance()
+        → SemFloatingFeature.getString()
+          → ArraySet.allocArrays()
+          → SemFloatingFeature.loge()
+          → SemFloatingFeature.logw()
+          → Hashtable.get()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.am.mars.database.MARsExemptionManager
+  Method:   <com.android.server.am.mars.database.MARsExemptionManager: void <init>()>
+  Line:     112
+  Register: v36 := "com.samsung.android.email.provider"
+  Usage:    [] 
+  Patterns: early_return
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.am.mars.database.MARsExemptionManager: v
+        ← <com.android.server.am.mars.database.MARsExemptionManager$MA
+
+  CALLEES (what this method invokes):
+      → <java.util.ArrayList: void <init>(java.util.Collection)>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: void <clinit>()>
+  Line:     333
+  Register: v3 := "com.samsung.android.email.provider"
+  Usage:    [invoke] invoke-static {v3, v2}, Lcom/android/server/enterprise/EnterpriseDeviceManagerServiceImpl;->isPackag
+  Patterns: string_compare, early_return, system_property_read
+  Flow:     [invoke] java.util.List.add() → [other] new-instance v0, Landroid/os/ConditionVariable; → [invoke] android.os.ConditionV
+
+  CALLEES (what this method invokes):
+      → <android.os.ConditionVariable: void <init>()>
+      → Process.myPid()
+      → SystemProperties.get()
+      → EnterpriseDeviceManagerServiceImpl.isPackageInstalled()
+      → <java.util.ArrayList: void <init>()>
+      → List.add()
+        → AppGlobals.getPackageManager()
+        → IPackageManager.getApplicationInfo() [PKG_QUERY]
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+          → ActivityThread.getPackageManager()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl
+  Method:   <com.android.server.enterprise.EnterpriseDeviceManagerServiceImpl: boolean isEmailAdminPkg(java.lang.String)>
+  Line:     8462
+  Register: p0 := "com.samsung.android.email.provider"
+  Usage:    [invoke] invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result p0 → [other] return p0
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.security.SecurityPolicy
+  Method:   <com.android.server.enterprise.security.SecurityPolicy: void <init>(com.android.server.enterprise.security.SecurityPolicy$Injector)>
+  Line:     342
+  Register: v3 := "com.samsung.android.email.provider"
+  Usage:    [invoke] invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.ArrayList.add() → [reassigned] v3 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.enterprise.security.SecurityPolicy: void
+        ← EnterpriseDeviceManagerServiceImpl.createDeferredServices()
+          ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+          ← EnterpriseDeviceManagerServiceImpl.systemReady()
+            ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+            ← EnterpriseDeviceManagerServiceImpl.systemReady()
+              ← EnterpriseDeviceManagerServiceImpl$$ExternalSyntheticLambda1.run()
+              ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+
+  CALLEES (what this method invokes):
+      → ActivityManagerNative.getDefault()
+      → IActivityManager.registerUserSwitchObserver()
+      → Context.registerReceiverAsUser()
+      → <android.content.IntentFilter: void <init>()>
+      → IntentFilter.addAction()
+      → <android.os.Binder: void <init>()>
+      → <android.os.Handler: void <init>()>
+      → LocalServices.addService()
+      → EnterpriseDeviceManagerService.getFirmwareUpgrade()
+      → EnterpriseDeviceManagerService.getInstance()
+      → <com.android.server.enterprise.security.SecurityPolicy$1: vo
+      → <com.android.server.enterprise.security.SecurityPolicy$3: vo
+      → SecurityPolicy$Injector.getStorageProvider()
+      → SecurityPolicy$Injector.getEnterpriseDumpHelper()
+      → SecurityPolicy$Injector.getSemEmergencyManager()
+      → <com.android.server.enterprise.security.SecurityPolicy$Local
+      → <com.android.server.enterprise.security.SecurityPolicy$UserS
+      → SecurityPolicy.isRebootBannerEnabled()
+      → SecurityPolicy.addBannerAppToBatteryOptimizationWhitelist()
+      → <com.samsung.android.knox.ContextInfo: void <init>()>
+      → <com.samsung.android.knox.ISecurityPolicy$Stub: void <init>(
+      → ArrayList.add()
+      → <java.util.ArrayList: void <init>()>
+      → <java.util.HashMap: void <init>()>
+      → Objects.requireNonNull()
+        → ActivityManager.getService()
+        → <android.os.Binder: void <init>(java.lang.String)>
+        → ArrayMap.containsKey()
+        → ArrayMap.put()
+        → <java.lang.IllegalStateException: void <init>(java.lang.Stri
+        → EnterpriseService.getEdmsInstance()
+        → <android.content.BroadcastReceiver: void <init>()>
+        → <com.android.server.enterprise.storage.EdmStorageProvider: v
+        → <com.android.server.enterprise.utils.EnterpriseDumpHelper: v
+        → SemEmergencyManager.getInstance()
+        → <com.android.server.enterprise.security.SecurityPolicy$Local
+        → <com.android.server.enterprise.security.SecurityPolicy$UserS
+        → EdmStorageProvider.getBooleanListAsUser()
+        → ArrayList.iterator()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → EnterpriseService.getPolicyService()
+        → ApplicationPolicy.addPackageToBatteryOptimizationWhiteList()
+        → ApplicationPolicy.removePackageFromBatteryOptimizationWhiteList()
+        → <com.samsung.android.knox.AppIdentity: void <init>(java.lang
+        → Process.myUid()
+        → UserHandle.getUserId()
+        → SemPersonaManager.isKnoxId()
+        → Binder.attachInterface()
+          → Binder.getNativeBBinderHolder()
+          → NativeAllocationRegistry.registerNativeAllocation()
+          → ArrayMap.indexOfKey()
+          → ArrayMap.indexOf()
+          → ArrayMap.indexOfNull()
+          → ArrayMap.allocArrays()
+          → ArrayMap.freeArrays()
+          → <java.util.ConcurrentModificationException: void <init>()>
+          → <com.android.server.enterprise.storage.EdmStorageProviderBas
+          → Context.createPackageContext()
+          → Context.getMainLooper()
+          → Context.getPackageName()
+          → <android.os.Handler: void <init>(android.os.Looper)>
+          → Elog.d()
+          → <com.samsung.android.emergencymode.SemEmergencyManager: void
+          → Exception.printStackTrace()
+          → <com.samsung.android.knox.localservice.SecurityPolicyInterna
+          → <android.app.IUserSwitchObserver$Stub: void <init>()>
+          → EdmStorageProviderBase.getBooleanListAsUser()
+          → Map.get()
+          → Context.getSystemService()
+          → Binder.clearCallingIdentity()
+          → Binder.restoreCallingIdentity()
+          → IDeviceIdleController$Stub.asInterface()
+          → IDeviceIdleController.addPowerSaveWhitelistApp()
+          → PowerManager.isIgnoringBatteryOptimizations()
+          → ServiceManager.getService()
+          → ApplicationPolicy.checkRegex()
+          → ApplicationPolicy.isApplicationInstalled()
+          → ApplicationPolicy.setApplicationPkgNameControlState()
+          → ApplicationPolicy.enforceAppPermission()
+          → ApplicationPolicy.getValidStr()
+          → Utils.comparePackageSignature()
+          → AppIdentity.getPackageName()
+          → AppIdentity.getSignature()
+          → IDeviceIdleController.removePowerSaveWhitelistApp()
+          → ApplicationPolicy.getAllPackagesFromBatteryOptimizationWhiteList()
+          → List.isEmpty()
+          → List.iterator()
+          → SemPersonaManager.checkContainerType()
+          → SemPersonaManager.isDualAppId()
+            → ArrayMap.binarySearchHashes()
+            → <java.lang.UnsupportedOperationException: void <init>(java.l
+            → SQLiteDatabase.enableWriteAheadLogging()
+            → SQLiteOpenHelper.getWritableDatabase()
+            → EdmStorageHelper.getInstance()
+            → <com.samsung.android.emergencymode.SemEmergencyManager$1: vo
+            → SemEmergencyManager.ensureServiceConnected()
+            → SemEmergencyManager.loadFloatingFeatures()
+            → IUserSwitchObserver$Stub.attachInterface()
+            → <android.content.ContentValues: void <init>()>
+            → ContentValues.put()
+            → EdmStorageProviderBase.getAdminLUIDWhereIn()
+            → EdmStorageProviderBase.getBooleanList()
+            → <java.util.ArrayList: void <init>(java.util.Collection)>
+            → IBinder.queryLocalInterface()
+            → <android.os.IDeviceIdleController$Stub$Proxy: void <init>(an
+            → Pattern.compile()
+            → PackageManagerAdapter.isApplicationInstalled()
+            → ApplicationPolicy.enforceAppPermissionByContext()
+            → Utils.getCallingOrCurrentUserId()
+            → ApplicationPolicy.setApplicationPkgNameControlState()
+            → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+            → Context.getPackageManager()
+            → PackageManager$NameNotFoundException.printStackTrace()
+            → PackageManager.getPackageInfo() [PKG_QUERY]
+            → PackageManager.getPackageInfoAsUser() [PKG_QUERY]
+            → Signature.toCharsString()
+            → SigningInfo.getApkContentsSigners()
+            → <java.util.HashSet: void <init>()>
+            → Map$Entry.getValue()
+            → Map.entrySet()
+            → Map.keySet()
+            → Set.add()
+            → Set.iterator()
+            → SystemProperties.get()
+            → SemDualAppManager.isDualAppId()
+              → ContainerHelpers.binarySearch()
+              → SQLiteOpenHelper.getDatabaseLocked()
+              → <com.android.server.enterprise.storage.EdmStorageHelper: voi
+              → IBinder.isBinderAlive()
+              → IEmergencyManager$Stub.asInterface()
+              → IEmergencyManager.asBinder()
+              → SemFloatingFeature.getBoolean()
+              → SemFloatingFeature.getInstance()
+              → <android.util.ArrayMap: void <init>()>
+              → EdmStorageProviderBase.getAdminLUIDWhereInArgs()
+              → Cursor.isNull()
+              → Cursor.moveToNext()
+              → Cursor.getInt()
+              → Cursor.close()
+              → SQLException.getMessage()
+              → EdmStorageProviderBase.getCursor()
+              → List.add()
+              → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+              → PackageManagerAdapter.getValidStr()
+              → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+              → ActivityManager.getCurrentUser()
+              → Binder.getCallingPid() [UID_CHECK]
+              → Binder.getCallingUid() [UID_CHECK]
+              → IPersonaManagerAdapter.isValidKnoxId()
+              → Utils.getPersonaManagerAdapter()
+              → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+              → ContentValues.put()
+              → ContentValues.putNull()
+              → TextUtils.isEmpty()
+              → ApplicationPolicy.getControlState()
+              → ApplicationPolicy.removeAppSignature()
+              → ApplicationPolicy.updateAppControlState()
+              → EdmStorageProvider.putValuesForAdminAndField()
+              → AccessController.enforceActiveAdminPermissionByContext()
+              → Signature.toChars()
+              → SoftReference.get()
+              → <java.lang.ref.SoftReference: void <init>(java.lang.Object)>
+              → SigningDetails.getSignatures()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.vpn.knoxvpn.KnoxVpnConstants
+  Method:   <com.android.server.enterprise.vpn.knoxvpn.KnoxVpnConstants: void <clinit>()>
+  Line:     517
+  Register: v0 := "com.samsung.android.email.provider"
+  Usage:    [array_init] filled-new-array {v0, v2, v4, v6, v7}, [Ljava/lang/String;
+  Patterns: early_return
+  Flow:     [other] filled-new-array {v0, v2, v4, v6, v7}, [Ljava/lang/String;
+
+────────────────────────────────────────────────────────────
+Occurrence #7
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.application.ApplicationPolicy
+  Method:   <com.android.server.enterprise.application.ApplicationPolicy: void onAdminRemoved(int)>
+  Line:     33337
+  Register: v1 := "com.samsung.android.email.provider"
+  Usage:    [invoke] invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare, early_return
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v1 → [branch] if-nez v1, :cond_9d → [other] move-result v1 → [b
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Context.sendBroadcastAsUser()
+      → Intent.putExtra()
+      → Intent.putExtra()
+      → <android.content.Intent: void <init>(java.lang.String)>
+      → PackageManager.getNameForUid()
+      → Uri.parse()
+      → Binder.clearCallingIdentity()
+      → Binder.restoreCallingIdentity()
+      → UserHandle.getUserId()
+      → <android.os.UserHandle: void <init>(int)>
+      → <com.android.server.enterprise.application.ApplicationPolicy
+      → ApplicationPolicy.isKnoxCore()
+      → ApplicationPolicy.getApplicationUninstallationMode()
+      → ApplicationPolicy.loadApplicationBlacklistWhitelist()
+      → ApplicationPolicy.reapplyRuntimePermissions()
+      → EdmStorageProviderBase.translateToAdminLUID()
+      → SecContentProviderUtil.notifyPolicyChangesAllUser()
+      → <com.samsung.android.knox.ContextInfo: void <init>(int,int)>
+      → Thread.start()
+      → Map.remove()
+        → <android.net.Uri$StringUri: void <init>(java.lang.String,and
+        → <java.lang.Thread: void <init>()>
+        → Utils.getCallingOrCurrentUserId()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → Map$Entry.getKey()
+        → Map$Entry.getValue()
+        → Map.isEmpty()
+        → Map.get()
+        → Map.entrySet()
+        → Set.contains()
+        → Set.iterator()
+        → Cursor.moveToNext()
+        → Cursor.getColumnIndex()
+        → Cursor.getInt()
+        → Cursor.getString()
+        → Cursor.close()
+        → SQLException.getMessage()
+        → TextUtils.isEmpty()
+        → ApplicationPolicy$AppControlStateEnum.getAppApiMaskKeyMap()
+        → ApplicationPolicy.getAppControlSetMap()
+        → EdmStorageProviderBase.getCursorByAdmin()
+        → EdmStorageProviderBase.getAdminUidFromLUID()
+        → EdmStorageProviderBase.getContainerIdFromLUID()
+        → EdmStorageProviderBase.getInt()
+        → EdmStorageProviderBase.getAdminLUidList()
+        → ArrayList.iterator()
+        → <java.util.HashMap: void <init>()>
+        → Map.containsKey()
+        → Map.put()
+        → Map.clear()
+        → Set.add()
+        → Binder.getCallingPid() [UID_CHECK]
+        → <com.android.server.enterprise.application.ApplicationPolicy
+        → <java.lang.SecurityException: void <init>(java.lang.String)>
+        → SemPersonaManager.isKnoxId()
+        → ContentResolver.notifyChange()
+        → Context.getContentResolver()
+        → PackageManagerAdapter.getUsers()
+        → List.iterator()
+          → <android.net.Uri$StringUri: void <init>(java.lang.String)>
+          → ActivityManager.getCurrentUser()
+          → Binder.getCallingUid() [UID_CHECK]
+          → IPersonaManagerAdapter.isValidKnoxId()
+          → Utils.getPersonaManagerAdapter()
+          → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+          → CharSequence.length()
+          → <java.util.HashMap: void <init>(java.util.Map)>
+          → <com.android.server.enterprise.application.ApplicationPolicy
+          → ApplicationPolicy$AppControlStateEnum.values()
+          → List.forEach()
+          → <android.content.ContentValues: void <init>()>
+          → ContentValues.put()
+          → EdmStorageProviderBase.getCursor()
+          → EdmStorageProviderBase.getIntList()
+          → <com.android.server.enterprise.storage.SettingNotFoundExcept
+          → List.size()
+          → List.get()
+          → ContentValues.put()
+          → EdmStorageProviderBase.getLongList()
+          → <java.util.ArrayList: void <init>(java.util.Collection)>
+          → SemPersonaManager.checkContainerType()
+          → SemPersonaManager.isDualAppId()
+          → Context.getSystemService()
+          → UserManager.getUsers()
+            → <android.net.Uri$AbstractHierarchicalUri: void <init>(androi
+            → <java.lang.NullPointerException: void <init>(java.lang.Strin
+            → AdapterRegistry.getAdapter()
+            → <android.util.ArrayMap: void <init>()>
+            → ArrayMap.put()
+            → EdmStorageProviderBase.getCursor()
+            → EdmStorageProviderBase.formatContentValues()
+            → Cursor.isNull()
+            → <java.util.ArrayList: void <init>()>
+            → List.add()
+            → <android.util.AndroidException: void <init>(java.lang.String
+            → Cursor.getLong()
+            → SystemProperties.get()
+            → SemDualAppManager.isDualAppId()
+              → <android.net.Uri$AbstractHierarchicalUri: void <init>()>
+              → HashMap.get()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → SQLiteDatabase.query()
+              → SQLiteOpenHelper.getReadableDatabase()
+              → ContentValues.size()
+              → ContentValues.valueSet()
+              → List.toArray()
+              → <java.lang.Exception: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #8
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.email.SettingsUtils
+  Method:   <com.android.server.enterprise.email.SettingsUtils: java.lang.String getEasPackageName(int)>
+  Line:     2727
+  Register: p0 := "com.samsung.android.email.provider"
+  Usage:    [unknown] return-object p0
+  Patterns: (none)
+  Flow:     [other] return-object p0
+
+  CALLERS (who invokes this method):
+      ← ExchangeAccountPolicy$2.handleMessage()
+      ← ExchangeAccountPolicy.getExchangeServiceName()
+      ← <com.android.server.enterprise.email.ExchangeAccountPolicy: 
+        ← <com.android.server.enterprise.email.ExchangeAccountPolicy: 
+        ← EnterpriseDeviceManagerServiceImpl.createDeferredServices()
+          ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+          ← EnterpriseDeviceManagerServiceImpl.systemReady()
+            ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+            ← EnterpriseDeviceManagerServiceImpl.systemReady()
+              ← EnterpriseDeviceManagerServiceImpl$$ExternalSyntheticLambda1.run()
+              ← <com.android.server.enterprise.EnterpriseDeviceManagerServic
+
+────────────────────────────────────────────────────────────
+Occurrence #9
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.email.SettingsUtils
+  Method:   <com.android.server.enterprise.email.SettingsUtils: java.lang.String getEmailPackageName(int)>
+  Line:     2735
+  Register: p0 := "com.samsung.android.email.provider"
+  Usage:    [unknown] return-object p0
+  Patterns: (none)
+  Flow:     [other] return-object p0
+
+  CALLERS (who invokes this method):
+      ← EmailAccountPolicy.deleteAccount()
+      ← EmailAccountPolicy.addNewAccount_ex()
+      ← EmailAccountPolicy.addNewAccount_new()
+      ← EmailAccountPolicy.removePendingAccount()
+      ← EmailPolicy.allowAccountAddition()
+      ← EmailPolicy.isAccountAdditionAllowed()
+      ← EmailProviderHelper.createEmailContentProviderCursor()
+      ← ExchangeAccountPolicy.deleteAccount()
+      ← ExchangeAccountPolicy.getDeviceId() [DEVICE_ID]
+      ← ExchangeAccountPolicy.addNewAccount_ex()
+      ← ExchangeAccountPolicy.addNewAccount_new()
+      ← ExchangeAccountPolicy.removePendingAccount()
+      ← LDAPAccountPolicy.createLDAPAccount()
+      ← SettingsUtils.getAccountContentUri()
+      ← SettingsUtils.getHostAuthContentUri()
+      ← SettingsUtils.getPoliciesContentUri()
+      ← SettingsUtils.getAccount()
+      ← SettingsUtils.getPackageNameForUid()
+      ← SettingsUtils.getSMIMEAlias()
+      ← SettingsUtils.getAccountIdInternal()
+      ← SettingsUtils.sendAccountsChangedBroadcast()
+        ← EmailAccountPolicy.addNewAccount()
+        ← SecContentProvider2.query()
+        ← EmailProviderHelper.getEnterpriseEmailAccount()
+        ← EmailProviderHelper.getEnterpriseExchangeAccount()
+        ← EmailProviderHelper.getEnterpriseLDAPAccount()
+        ← EmailProviderHelper.deleteLDAPAccount()
+        ← EmailProviderHelper.updateEnterpriseEmailAccount()
+        ← EmailProviderHelper.updateEnterpriseExchangeAccount()
+        ← EmailProviderHelper.getAllLDAPAccount()
+        ← EmailProviderHelper.getAllAccountIDS()
+        ← ExchangeAccountPolicy.addNewAccount()
+        ← SettingsUtils.getAccountDetails()
+        ← SettingsUtils.getAccountDetails()
+        ← SettingsUtils.getAccountId()
+        ← ExchangeAccountPolicy.getSMIMECertificateAlias()
+        ← EmailAccountPolicy.sendAccountsChangedBroadcast()
+        ← ExchangeAccountPolicy.sendAccountsChangedBroadcast()
+          ← EmailAccountPolicy.setAccountName()
+          ← EmailAccountPolicy.setAlwaysVibrateOnEmailNotification()
+          ← EmailAccountPolicy.setAsDefaultAccount()
+          ← EmailAccountPolicy.setInComingProtocol()
+          ← EmailAccountPolicy.setInComingServerAcceptAllCertificates()
+          ← EmailAccountPolicy.setInComingServerPassword()
+          ← EmailAccountPolicy.setInComingServerPort()
+          ← EmailAccountPolicy.setInComingServerSSL()
+          ← EmailAccountPolicy.setOutGoingServerAcceptAllCertificates()
+          ← EmailAccountPolicy.setOutGoingServerPassword()
+          ← EmailAccountPolicy.setOutGoingServerPort()
+          ← EmailAccountPolicy.setOutGoingServerSSL()
+          ← EmailAccountPolicy.setSenderName()
+          ← EmailAccountPolicy.setSignature()
+          ← EmailAccountPolicy.getAccountDetails()
+          ← EmailAccountPolicy.setInComingServerAddress()
+          ← EmailAccountPolicy.setOutGoingServerAddress()
+          ← EmailProviderHelper.getAllEnterpriseEmailAccount()
+          ← EmailProviderHelper.getAllEnterpriseExchangeAccount()
+          ← ExchangeAccountPolicy.isValidEASAccountId()
+          ← ExchangeAccountPolicy.setAcceptAllCertificates()
+          ← ExchangeAccountPolicy.setAccountName()
+          ← ExchangeAccountPolicy.setAlwaysVibrateOnEmailNotification()
+          ← ExchangeAccountPolicy.setAsDefaultAccount()
+          ← ExchangeAccountPolicy.setDataSyncs()
+          ← ExchangeAccountPolicy.setMaxCalendarAgeFilter()
+          ← ExchangeAccountPolicy.setMaxEmailAgeFilter()
+          ← ExchangeAccountPolicy.setMaxEmailBodyTruncationSize()
+          ← ExchangeAccountPolicy.setMaxEmailHTMLBodyTruncationSize()
+          ← ExchangeAccountPolicy.setPassword()
+          ← ExchangeAccountPolicy.setPastDaysToSync()
+          ← ExchangeAccountPolicy.setSSL()
+          ← ExchangeAccountPolicy.setSignature()
+          ← ExchangeAccountPolicy.setSyncPeakTimings()
+          ← ExchangeAccountPolicy.setSyncSchedules()
+          ← ExchangeAccountPolicy.getAccountDetails()
+          ← LDAPAccountPolicy.getLDAPAccount()
+          ← LDAPAccountPolicy.deleteLDAPAccount()
+          ← LDAPAccountPolicy.getAllLDAPAccounts()
+          ← ExchangeAccountPolicy.createAccount()
+          ← EmailAccountPolicy.setInComingServerPathPrefix()
+          ← EmailAccountPolicy.setOutGoingProtocol()
+          ← EmailAccountPolicy.setOutGoingServerPathPrefix()
+          ← EmailAccountPolicy.setSyncInterval()
+          ← EmailAccountPolicy.setInComingServerLogin()
+          ← EmailAccountPolicy.setOutGoingServerLogin()
+          ← EmailPolicy.allowEmailSettingsChange()
+          ← EmailPolicy.isEmailNotificationsEnabled()
+          ← EmailPolicy.isEmailSettingsChangeAllowed()
+          ← EmailPolicy.setEmailNotificationsState()
+          ← EmailAccountPolicy.getAccountId()
+          ← ExchangeAccountPolicy.getAccountId()
+            ← EmailAccountPolicy.getAllEmailAccounts()
+            ← EmailProviderHelper.getAccountId()
+            ← ExchangeAccountPolicy.getAllEASAccounts()
+            ← ExchangeAccountPolicy.allowEmailSettingsChange()
+            ← ExchangeAccountPolicy.allowInComingAttachments()
+            ← ExchangeAccountPolicy.setEmailNotificationsState()
+            ← ExchangeAccountPolicy.setForceSMIMECertificateAlias()
+            ← ExchangeAccountPolicy.setIncomingAttachmentsSize()
+            ← ExchangeAccountPolicy.setReleaseSMIMECertificateInternal()
+            ← ExchangeAccountPolicy.setRequireEncryptedSMIMEMessages()
+            ← ExchangeAccountPolicy.setRequireSignedSMIMEMessages()
+            ← ExchangeAccountPolicy.setForceSMIMECertificateInternal()
+            ← ExchangeAccountPolicy.setClientAuthCert()
+              ← ExchangeAccountPolicy.setReleaseSMIMECertificate()
+              ← ExchangeAccountPolicy.setReleaseSMIMECertificateForEncryption()
+              ← ExchangeAccountPolicy.setReleaseSMIMECertificateForSigning()
+              ← ExchangeAccountPolicy.setForceSMIMECertificate()
+              ← ExchangeAccountPolicy.setForceSMIMECertificateForEncryption()
+              ← ExchangeAccountPolicy.setForceSMIMECertificateForSigning()
+
+────────────────────────────────────────────────────────────
+Occurrence #10
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.knox.dar.sdp.engine.SdpServiceKeeper
+  Method:   <com.android.server.knox.dar.sdp.engine.SdpServiceKeeper: void initWhitelist()>
+  Line:     720
+  Register: v0 := "com.samsung.android.email.provider"
+  Usage:    [invoke] invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+  Patterns: early_return
+  Flow:     [invoke] java.util.List.add()
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.knox.dar.sdp.engine.SdpServiceKeeper: vo
+        ← <com.android.server.knox.dar.sdp.SdpManagerImpl: void <init>
+        ← SdpServiceKeeper.getInstance()
+
+  CALLEES (what this method invokes):
+      → List.add()
+

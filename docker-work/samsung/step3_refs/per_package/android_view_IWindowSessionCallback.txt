@@ -1,0 +1,9 @@
+# android.view.IWindowSessionCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.IWindowSessionCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IWindowSessionCallback$Stub$Proxy: void onAnimatorScaleChanged(float)>
+<android.view.IWindowSessionCallback$Stub: android.view.IWindowSessionCallback asInterface(android.os.IBinder)>
+<android.view.IWindowSessionCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IWindowSessionCallback$Stub: void <init>()>

@@ -1,0 +1,7 @@
+# com.samsung.android.app.cocktailbarservice.permission.ACCESS_PANEL [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.cocktailbar.CocktailBarManagerServiceContainer: boolean bindRemoteViewsService(java.lang.String,int,android.content.Intent,android.app.IApplicationThread,android.os.IBinder,android.app.IServiceConnection,int)>
+<com.android.server.cocktailbar.CocktailBarManagerServiceContainer: void closeCocktail(java.lang.String,int,int)>
+<com.android.server.cocktailbar.CocktailBarManagerServiceContainer: void showCocktail(java.lang.String,int)>

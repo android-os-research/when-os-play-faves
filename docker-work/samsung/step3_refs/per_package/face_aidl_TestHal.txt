@@ -1,0 +1,20 @@
+# face.aidl.TestHal [NEW]
+# Refs: 16
+# JARs: services
+
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: android.hardware.biometrics.common.ICancellationSignal authenticate(long)>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: android.hardware.biometrics.common.ICancellationSignal detectInteraction()>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: android.hardware.biometrics.common.ICancellationSignal enroll(android.hardware.keymaster.HardwareAuthToken,byte,byte[],android.hardware.common.NativeHandle)>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: void close()>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: void enumerateEnrollments()>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: void generateChallenge()>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: void getAuthenticatorId()>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: void getFeatures()>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: void invalidateAuthenticatorId()>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: void onContextChanged(android.hardware.biometrics.common.OperationContext)>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: void removeEnrollments(int[])>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: void resetLockout(android.hardware.keymaster.HardwareAuthToken)>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: void revokeChallenge(long)>
+<com.android.server.biometrics.sensors.face.aidl.TestHal$1: void setFeature(android.hardware.keymaster.HardwareAuthToken,byte,boolean)>
+<com.android.server.biometrics.sensors.face.aidl.TestHal: android.hardware.biometrics.face.ISession createSession(int,int,android.hardware.biometrics.face.ISessionCallback)>
+<com.android.server.biometrics.sensors.face.aidl.TestHal: android.hardware.biometrics.face.SensorProps[] getSensorProps()>

@@ -1,0 +1,25 @@
+# com.sec.ims.options.ICapabilityService [NEW]
+# Refs: 21
+# JARs: imsmanager
+
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: boolean isOwnInfoPublished()>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: com.sec.ims.options.Capabilities getCapabilities(com.sec.ims.util.ImsUri,int,int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: com.sec.ims.options.Capabilities getCapabilitiesById(int,int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: com.sec.ims.options.Capabilities getCapabilitiesByNumber(java.lang.String,int,int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: com.sec.ims.options.Capabilities getCapabilitiesWithDelay(java.lang.String,int,int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: com.sec.ims.options.Capabilities getCapabilitiesWithFeature(java.lang.String,int,int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: com.sec.ims.options.Capabilities getOwnCapabilities(int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: com.sec.ims.options.Capabilities[] getAllCapabilities(int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: com.sec.ims.options.Capabilities[] getCapabilitiesByContactId(java.lang.String,int,int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: com.sec.ims.options.Capabilities[] getCapabilitiesWithFeatureByUriList(java.util.List,int,int,int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: java.lang.String registerListener(com.sec.ims.options.ICapabilityServiceEventListener,int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: void addFakeCapabilityInfo(java.util.List,boolean,int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: void deRegisterService(java.util.List)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: void registerListenerWithToken(com.sec.ims.options.ICapabilityServiceEventListener,java.lang.String,int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: void registerService(java.lang.String,java.lang.String)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: void setUserActivity(boolean,int)>
+<com.sec.ims.options.ICapabilityService$Stub$Proxy: void unregisterListener(java.lang.String,int)>
+<com.sec.ims.options.ICapabilityService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.options.ICapabilityService$Stub: com.sec.ims.options.ICapabilityService asInterface(android.os.IBinder)>
+<com.sec.ims.options.ICapabilityService$Stub: void <init>()>

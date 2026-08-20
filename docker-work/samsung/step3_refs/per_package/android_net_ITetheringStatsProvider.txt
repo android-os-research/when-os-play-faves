@@ -1,0 +1,10 @@
+# android.net.ITetheringStatsProvider [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.net.ITetheringStatsProvider$Stub$Proxy: android.net.NetworkStats getTetherStats(int)>
+<android.net.ITetheringStatsProvider$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.ITetheringStatsProvider$Stub$Proxy: void setInterfaceQuota(java.lang.String,long)>
+<android.net.ITetheringStatsProvider$Stub: android.net.ITetheringStatsProvider asInterface(android.os.IBinder)>
+<android.net.ITetheringStatsProvider$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.ITetheringStatsProvider$Stub: void <init>()>

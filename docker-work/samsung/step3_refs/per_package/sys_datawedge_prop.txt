@@ -1,0 +1,7 @@
+# sys.datawedge.prop [NEW]
+# Refs: 3
+# JARs: framework, services
+
+<android.view.ViewRootImpl$ViewPostImeInputStage: int processKeyEvent(android.view.ViewRootImpl$QueuedInputEvent)>
+<com.android.server.DualAppManagerService: void notifyActivityResumedLocked(int,java.lang.String)>
+<com.android.server.DualAppManagerService: void notifyInputContextChanged(int,java.lang.String,boolean)>

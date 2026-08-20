@@ -1,0 +1,9 @@
+# android.media.IAudioServerStateDispatcher [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.IAudioServerStateDispatcher$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.IAudioServerStateDispatcher$Stub$Proxy: void dispatchAudioServerStateChange(boolean)>
+<android.media.IAudioServerStateDispatcher$Stub: android.media.IAudioServerStateDispatcher asInterface(android.os.IBinder)>
+<android.media.IAudioServerStateDispatcher$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.IAudioServerStateDispatcher$Stub: void <init>()>

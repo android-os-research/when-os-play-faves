@@ -1,0 +1,9 @@
+# android.view.IRemoteAnimationFinishedCallback [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.view.IRemoteAnimationFinishedCallback$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IRemoteAnimationFinishedCallback$Stub$Proxy: void onAnimationFinished()>
+<android.view.IRemoteAnimationFinishedCallback$Stub: android.view.IRemoteAnimationFinishedCallback asInterface(android.os.IBinder)>
+<android.view.IRemoteAnimationFinishedCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IRemoteAnimationFinishedCallback$Stub: void <init>()>

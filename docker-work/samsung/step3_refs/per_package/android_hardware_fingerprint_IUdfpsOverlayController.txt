@@ -1,0 +1,14 @@
+# android.hardware.fingerprint.IUdfpsOverlayController [NEW]
+# Refs: 10
+# JARs: framework
+
+<android.hardware.fingerprint.IUdfpsOverlayController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.fingerprint.IUdfpsOverlayController$Stub$Proxy: void hideUdfpsOverlay(int)>
+<android.hardware.fingerprint.IUdfpsOverlayController$Stub$Proxy: void onAcquired(int,int)>
+<android.hardware.fingerprint.IUdfpsOverlayController$Stub$Proxy: void onEnrollmentHelp(int)>
+<android.hardware.fingerprint.IUdfpsOverlayController$Stub$Proxy: void onEnrollmentProgress(int,int)>
+<android.hardware.fingerprint.IUdfpsOverlayController$Stub$Proxy: void setDebugMessage(int,java.lang.String)>
+<android.hardware.fingerprint.IUdfpsOverlayController$Stub$Proxy: void showUdfpsOverlay(long,int,int,android.hardware.fingerprint.IUdfpsOverlayControllerCallback)>
+<android.hardware.fingerprint.IUdfpsOverlayController$Stub: android.hardware.fingerprint.IUdfpsOverlayController asInterface(android.os.IBinder)>
+<android.hardware.fingerprint.IUdfpsOverlayController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.fingerprint.IUdfpsOverlayController$Stub: void <init>()>

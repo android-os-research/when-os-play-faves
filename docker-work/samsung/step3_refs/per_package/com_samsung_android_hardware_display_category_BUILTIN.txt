@@ -1,0 +1,8 @@
+# com.samsung.android.hardware.display.category.BUILTIN [NEW]
+# Refs: 4
+# JARs: secinputdev-service, services
+
+<com.android.server.accessibility.AccessibilityManagerService$AccessibilityDisplayListener: void initializeDisplayList()>
+<com.android.server.accessibility.AccessibilityManagerService: android.view.WindowManager getCoverDisplayWindowManager()>
+<com.android.server.power.ShutdownDialog: void onCreate(android.os.Bundle)>
+<com.samsung.android.hardware.secinputdev.SemInputDeviceManagerService: void registerServiceListener()>

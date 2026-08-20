@@ -1,0 +1,13 @@
+# com.samsung.android.scpm.policy.CLEAR_DATA [NEW]
+# Refs: 9
+# JARs: semwifi-service, services
+
+<com.android.server.audio.AudioService$SamsungBroadcastReceiver: void handleIntent(android.content.Context,android.content.Intent)>
+<com.android.server.audio.AudioService: void addSamsungIntentFilter(android.content.IntentFilter)>
+<com.android.server.ibs.IntelligentBatterySaverService$SCPMReceiver: void <init>(com.android.server.ibs.IntelligentBatterySaverService)>
+<com.android.server.ibs.IntelligentBatterySaverService$SCPMReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.vr.XrManagerService$2: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.vr.XrManagerService: void onBootPhase(int)>
+<com.samsung.android.server.corescpm.ScpmControllerImpl: void lambda$registerScpm$0(java.util.Set)>
+<com.samsung.android.server.corescpm.ScpmControllerImpl: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.scpm.WifiScpmMonitor: void setScpmPackageReceiver()>

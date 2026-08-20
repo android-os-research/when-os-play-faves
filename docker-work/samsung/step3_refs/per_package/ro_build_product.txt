@@ -1,0 +1,7 @@
+# ro.build.product [NEW]
+# Refs: 3
+# JARs: services, vendor.samsung.frameworks.hdrsolution-service
+
+<com.android.server.power.ShutdownDialog: java.lang.String getQmgCodeById(int)>
+<com.samsung.server.wallpaper.CMFWallpaper$ProductFeatures: java.lang.String getProductInfo()>
+<vendor.samsung.frameworks.hdrsolution.HdrDisplayNitMapper: void <init>(android.content.Context)>

@@ -1,0 +1,17 @@
+# com.samsung.android.internal.telecom.ISamsungTelecomService [NEW]
+# Refs: 13
+# JARs: framework
+
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub$Proxy: android.content.pm.ParceledListSlice getAllowedPhoneAccountInfo(java.lang.String,java.lang.String)>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub$Proxy: android.content.pm.ParceledListSlice getAllowedPhoneAccountInfos(boolean,boolean,java.lang.String,java.lang.String)>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub$Proxy: android.content.pm.ParceledListSlice getAllowedPhoneAccounts(boolean,boolean,java.lang.String,java.lang.String)>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub$Proxy: android.content.pm.ParceledListSlice getAllowedSelfManagedPhoneAccounts(java.lang.String,java.lang.String)>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub$Proxy: boolean endCall(int,android.os.Bundle,java.lang.String,java.lang.String)>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub$Proxy: void acceptRingingCall(int,android.os.Bundle,java.lang.String,java.lang.String)>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub$Proxy: void acceptRingingCallWithVideoState(int,int,android.os.Bundle,java.lang.String,java.lang.String)>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub$Proxy: void addConferenceParticipants(java.util.List,android.os.Bundle,java.lang.String,java.lang.String)>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub$Proxy: void silenceRinger(int,android.os.Bundle,java.lang.String,java.lang.String)>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub: com.samsung.android.internal.telecom.ISamsungTelecomService asInterface(android.os.IBinder)>
+<com.samsung.android.internal.telecom.ISamsungTelecomService$Stub: void <init>()>

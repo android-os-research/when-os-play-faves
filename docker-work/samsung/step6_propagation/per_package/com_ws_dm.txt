@@ -1,0 +1,346 @@
+######################################################################
+# Propagation: com.ws.dm
+######################################################################
+
+JARs:                 framework, services
+Classes:              5
+Occurrences:          6
+Usage types:          field_store, invoke
+Enforcement patterns: early_return, string_compare
+Security tags:        PERM_CHECK, PKG_MGMT, PKG_QUERY, UID_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    android.os.RecoverySystem
+  Method:   <android.os.RecoverySystem: void installPackage(android.content.Context,java.io.File,boolean)>
+  Line:     2783
+  Register: v12 := "com.ws.dm"
+  Usage:    [invoke] invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  Patterns: string_compare
+  Flow:     [invoke] java.lang.String.equals() → [other] move-result v12 → [branch] if-eqz v12, :cond_16e → [other] new-instance v12
+
+  CALLERS (who invokes this method):
+      ← RecoverySystem.installPackage() [PKG_MGMT]
+        ← NonAbUpdateInstaller.installUpdateInThread()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → Context.getSystemService()
+      → Context.getSystemService()
+      → Context.getPackageName()
+      → PackageManager.hasSystemFeature()
+      → DisplayManager.getDisplay()
+      → PowerManager.reboot()
+      → Display.getState()
+      → File.delete()
+      → File.exists()
+      → File.setReadable()
+      → File.setWritable()
+      → File.getCanonicalPath()
+      → FileDescriptor.sync()
+      → <java.io.FileWriter: void <init>(java.io.File)>
+      → <java.io.FileWriter: void <init>(java.lang.String)>
+      → FileWriter.close()
+      → FileWriter.write()
+      → <java.io.IOException: void <init>(java.lang.String)>
+      → RandomAccessFile.getFD()
+      → <java.io.RandomAccessFile: void <init>(java.io.File,java.lan
+      → RandomAccessFile.close()
+      → RandomAccessFile.writeBytes()
+      → Throwable.addSuppressed()
+      → Locale.toLanguageTag()
+      → Locale.getDefault()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.globalactions.util.SystemController
+  Method:   <com.samsung.android.globalactions.util.SystemController: void startATTForceUpdate()>
+  Line:     309
+  Register: v1 := "com.ws.dm"
+  Usage:    [invoke] invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/In
+  Patterns: early_return
+  Flow:     [invoke] android.content.Intent.setPackage() → [other] iget-object v1, p0, Lcom/samsung/android/globalactions/util/ → [i
+
+  CALLERS (who invokes this method):
+      ← FOTAForceUpdateStrategy.update()
+
+  CALLEES (what this method invokes):
+      → Context.sendBroadcast()
+      → Intent.addFlags()
+      → Intent.setPackage()
+      → <android.content.Intent: void <init>(java.lang.String)>
+
+────────────────────────────────────────────────────────────
+Occurrence #3
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.globalactions.util.PackageManagerWrapper
+  Method:   <com.samsung.android.globalactions.util.PackageManagerWrapper: void <init>(android.content.Context)>
+  Line:     44
+  Register: v0 := "com.ws.dm"
+  Usage:    [field_store] iput-object v0, p0, Lcom/samsung/android/globalactions/util/PackageManagerWrapper;->ATT_FOTA_CLIENT_
+  Patterns: early_return
+  Flow:     [field_store] com.samsung.android.globalactions.util.PackageManagerWrapper → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.globalactions.util.DefaultUtilFactory: 
+        ← SamsungGlobalActionsDialog.initDependencies()
+          ← <com.android.server.policy.globalactions.presentation.view.S
+            ← GlobalActions.ensureLegacyCreated()
+              ← <com.android.server.policy.GlobalActions: void -$$Nest$mensu
+              ← GlobalActions.onGlobalActionsAvailableChanged()
+              ← GlobalActions.showDialog()
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+
+────────────────────────────────────────────────────────────
+Occurrence #4
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.globalactions.util.PackageManagerWrapper
+  Method:   <com.samsung.android.globalactions.util.PackageManagerWrapper: boolean isATTFOTAPackageAvailable()>
+  Line:     98
+  Register: v0 := "com.ws.dm"
+  Usage:    [invoke] invoke-virtual {p0, v0, v1}, Lcom/samsung/android/globalactions/util/PackageManagerWrapper;->getAppl
+  Patterns: early_return
+  Flow:     [invoke] com.samsung.android.globalactions.util.PackageManagerWrapper → [reassigned] v0 overwritten
+
+  CALLERS (who invokes this method):
+      ← SystemConditionChecker.isEnabled()
+        ← SystemConditionChecker.isEnabled()
+
+  CALLEES (what this method invokes):
+      → PackageManagerWrapper.getApplicationInfo() [PKG_QUERY]
+        → PackageManager.getApplicationInfo() [PKG_QUERY]
+
+────────────────────────────────────────────────────────────
+Occurrence #5
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.samsung.android.server.pm.install.SilentUninstallerList
+  Method:   <com.samsung.android.server.pm.install.SilentUninstallerList: void <init>()>
+  Line:     35
+  Register: v5 := "com.ws.dm"
+  Usage:    [] 
+  Patterns: early_return
+  Flow:     [other] filled-new-array/range {v0 .. v15}, [Ljava/lang/String;
+
+  CALLERS (who invokes this method):
+      ← <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+      ← <com.android.server.pm.DeletePackageHelper: void <init>(com. [PKG_MGMT]
+        ← <com.android.server.pm.AsecInstallHelper: void <init>(com.an
+        ← InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+        ← InstallPackageHelper.commitPackagesLocked() [PKG_MGMT]
+        ← PackageInstallerSession.onSystemDataLoaderUnrecoverable()
+        ← <com.android.server.pm.PackageManagerService: void <init>(co
+          ← InstallPackageHelper.handlePackagePostInstall() [PKG_MGMT]
+          ← PackageHandler.doHandleMessage()
+          ← <com.android.server.pm.PackageManagerService: void <init>(co
+          ← InstallPackageHelper.addForInitLI() [PKG_MGMT]
+          ← InstallPackageHelper.installPackagesLI() [PKG_MGMT]
+          ← <com.android.server.pm.PackageInstallerSession: void -$$Nest
+          ← PackageManagerService.main()
+            ← PackageHandler.handleMessage()
+            ← InstallPackageHelper.addSamsungOverlayForInitLI() [PKG_MGMT]
+            ← InstallPackageHelper.scanSystemPackageLI() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesFromAppRootDir() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesFromDir() [PKG_MGMT]
+            ← InstallPackageHelper.installPackagesTracedLI() [PKG_MGMT]
+            ← PackageInstallerSession$6.onStatusChanged()
+            ← SystemServer.startBootstrapServices()
+              ← PackageManagerService$PackageManagerInternalImpl.parseSamsungThemeOverlayPackages()
+              ← InstallPackageHelper.scanSystemPackageTracedLI() [PKG_MGMT]
+              ← <com.android.server.pm.InstallPackageHelper: void lambda$upd [PKG_MGMT]
+              ← InitAppsHelper.scanDirTracedLI()
+              ← InstallPackageHelper.processInstallRequests() [PKG_MGMT]
+              ← SystemServer.run()
+
+────────────────────────────────────────────────────────────
+Occurrence #6
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.enterprise.restriction.RestrictionPolicy
+  Method:   <com.android.server.enterprise.restriction.RestrictionPolicy: boolean allowOTAUpgrade(com.samsung.android.knox.ContextInfo,boolean)>
+  Line:     3615
+  Register: v3 := "com.ws.dm"
+  Usage:    [invoke] invoke-virtual {v0, v2, v3, v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setA
+  Patterns: early_return
+  Flow:     [invoke] com.android.server.enterprise.application.ApplicationPolicy.
+
+  CALLEES (what this method invokes):
+      → ApplicationPolicy.setApplicationState()
+      → RestrictionPolicy.isOTAUpgradeAllowed()
+      → RestrictionPolicy.getApplicationPolicy()
+      → RestrictionPolicy.enforceOwnerOnlyAndRestrictionPermission()
+      → RestrictionPolicyCache.update()
+      → EdmStorageProvider.putBoolean()
+        → Binder.clearCallingIdentity()
+        → Binder.restoreCallingIdentity()
+        → UserHandle.getUserId()
+        → AuditLog.logAsUser()
+        → PackageManagerAdapter.setApplicationEnabledSetting() [PKG_MGMT]
+        → PackageManagerAdapter.getApplicationEnabledSetting()
+        → ApplicationPolicy.getApplicationStateEnabledAsUser()
+        → ApplicationPolicy.hasKnoxInternalExceptionPermission()
+        → ApplicationPolicy.isActiveAdmin()
+        → ApplicationPolicy.isApplicationInstalled()
+        → ApplicationPolicy.setApplicationPkgNameControlState()
+        → ApplicationPolicy.enforceAppPermission()
+        → ApplicationPolicy.getValidStr()
+        → Exception.printStackTrace()
+        → RestrictionPolicyCache.extract()
+        → EnterpriseService.getPolicyService()
+        → RestrictionPolicy.getEDM()
+        → EnterpriseDeviceManager.enforceOwnerOnlyAndActiveAdminPermission()
+        → <java.util.ArrayList: void <init>(java.util.Collection)>
+        → UserManager.getUserInfo()
+        → RestrictionPolicyCache$ApplyingAdmins.update()
+        → RestrictionPolicyCache.getUserManager()
+        → RestrictionPolicyCache.getCachedPolicies()
+        → RestrictionPolicyCache.init()
+        → EdmStorageProviderBase.getBooleanListAsUser()
+        → ArrayList.iterator()
+        → HashMap.put()
+        → Iterator.hasNext()
+        → Iterator.next()
+        → ReentrantReadWriteLock$WriteLock.lock()
+        → ReentrantReadWriteLock$WriteLock.unlock()
+        → ReentrantReadWriteLock.writeLock()
+        → EdmStorageProviderBase.putBoolean()
+          → EnterpriseDeviceManager$EDMProxyServiceHelper.getService()
+          → IEDMProxy.RedactedAuditLoggerAsUser()
+          → IPackageManager.setApplicationEnabledSetting() [PKG_MGMT]
+          → IPackageManager.getApplicationEnabledSetting()
+          → ContentValues.size()
+          → ContentValues.getAsInteger()
+          → <android.content.ContentValues: void <init>()>
+          → ApplicationPolicy.getContentValues()
+          → List.isEmpty()
+          → List.iterator()
+          → Context.getPackageManager()
+          → PackageManager.checkPermission() [PERM_CHECK]
+          → EnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+          → PackageManagerAdapter.isApplicationInstalled()
+          → ApplicationPolicy.enforceAppPermissionByContext()
+          → Utils.getCallingOrCurrentUserId()
+          → ApplicationPolicy.setApplicationPkgNameControlState()
+          → EnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+          → Map.get()
+          → EnterpriseDeviceManager.getInstance()
+          → AccessController.enforceOwnerOnlyAndActiveAdminPermission()
+          → RestrictionPolicyCache$ApplyingAdmins.put()
+          → RestrictionPolicyCache$ApplyingAdmins.remove()
+          → Context.getSystemService()
+          → HashMap.get()
+          → ReentrantReadWriteLock$ReadLock.lock()
+          → ReentrantReadWriteLock$ReadLock.unlock()
+          → ReentrantReadWriteLock.readLock()
+          → RestrictionPolicyCache$ApplyingAdmins.init()
+          → ContentValues.put()
+          → EdmStorageProviderBase.getAdminLUIDWhereIn()
+          → EdmStorageProviderBase.getBooleanList()
+          → ContentValues.put()
+          → ContentValues.put()
+          → EdmStorageProviderBase.put()
+          → EdmStorageProviderBase.translateToAdminLUID()
+            → ServiceManager.getService()
+            → IEDMProxy$Stub.asInterface()
+            → ArrayMap.size()
+            → ArrayMap.get()
+            → Number.intValue()
+            → <android.util.ArrayMap: void <init>()>
+            → EdmStorageProvider.getValuesList()
+            → EnterpriseDeviceManager.getService()
+            → IEnterpriseDeviceManager.packageHasActiveAdminsAsUser()
+            → PackageManagerAdapter.getApplicationInfo() [PKG_QUERY]
+            → PackageManagerAdapter.getValidStr()
+            → EnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+            → ActivityManager.getCurrentUser()
+            → Binder.getCallingPid() [UID_CHECK]
+            → Binder.getCallingUid() [UID_CHECK]
+            → IPersonaManagerAdapter.isValidKnoxId()
+            → Utils.getPersonaManagerAdapter()
+            → <com.samsung.android.knox.ContextInfo: void <init>(int)>
+            → ContentValues.putNull()
+            → TextUtils.isEmpty()
+            → ApplicationPolicy.getControlState()
+            → ApplicationPolicy.removeAppSignature()
+            → ApplicationPolicy.updateAppControlState()
+            → EdmStorageProvider.putValuesForAdminAndField()
+            → AccessController.enforceActiveAdminPermissionByContext()
+            → Process.myPid()
+            → Process.myTid()
+            → Process.myUid()
+            → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+            → KnoxsdkFileLog.d()
+            → KnoxsdkFileLog.w()
+            → AccessController.getService()
+            → IEnterpriseDeviceManager.enforceOwnerOnlyAndActiveAdminPermission()
+            → <java.util.HashSet: void <init>()>
+            → Map.containsKey()
+            → Map.put()
+            → Set.add()
+            → Map.remove()
+            → Set.isEmpty()
+            → Set.remove()
+            → <java.util.HashMap: void <init>()>
+            → ArrayMap.put()
+            → EdmStorageProviderBase.getAdminLUIDWhereInArgs()
+            → Cursor.isNull()
+            → Cursor.moveToNext()
+            → Cursor.getInt()
+            → Cursor.close()
+            → SQLException.getMessage()
+            → EdmStorageProviderBase.getCursor()
+            → <java.util.ArrayList: void <init>()>
+            → List.add()
+            → ContentValues.putAll()
+            → EdmStorageProviderBase.update()
+            → EdmStorageProviderBase.formatContentValues()
+            → EdmStorageProviderBase.insert()
+            → SemPersonaManager.isKnoxId()
+              → IBinder.queryLocalInterface()
+              → <android.sec.enterprise.IEDMProxy$Stub$Proxy: void <init>(an
+              → ArrayMap.indexOfKey()
+              → <android.util.ArrayMap: void <init>(int,boolean)>
+              → EdmStorageProviderBase.getValuesList()
+              → IEnterpriseDeviceManager$Stub.asInterface()
+              → IPackageManager.getApplicationInfo() [PKG_QUERY]
+              → Exception.getMessage()
+              → IEnterpriseDeviceManager.enforcePermissionByContext() [PERM_CHECK]
+              → AdapterRegistry.getAdapter()
+              → CharSequence.length()
+              → EdmStorageProvider.getIntByAdminAndField()
+              → AuditLog.logAsUser()
+              → ApplicationPolicy.createAdminMap()
+              → EdmStorageProviderBase.putValuesForAdminAndField()
+              → IEnterpriseDeviceManager.enforceActiveAdminPermissionByContext()
+              → <com.samsung.android.knox.EnterpriseDeviceManager: void <ini
+              → KnoxsdkFileLog.fileLog()
+              → SemLog.d()
+              → SemLog.w()
+              → ArrayMap.indexOf()
+              → ArrayMap.indexOfNull()
+              → ArrayMap.allocArrays()
+              → ArrayMap.freeArrays()
+              → <java.util.ConcurrentModificationException: void <init>()>
+              → <java.lang.IllegalArgumentException: void <init>(java.lang.S
+              → EdmStorageProviderBase.getCursor()
+              → ArrayMap.putAll()
+              → SQLiteDatabase.update()
+              → SQLiteOpenHelper.getWritableDatabase()
+              → ContentValues.valueSet()
+              → List.size()
+              → List.toArray()
+              → Map$Entry.getKey()
+              → Map$Entry.getValue()
+              → Set.iterator()
+              → SQLiteDatabase.insert()
+              → SemPersonaManager.checkContainerType()
+              → SemPersonaManager.isDualAppId()
+

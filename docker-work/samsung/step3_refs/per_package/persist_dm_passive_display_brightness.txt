@@ -1,0 +1,6 @@
+# persist.dm.passive.display_brightness [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.display.DisplayModeDirector$BrightnessObserver: com.android.server.display.DisplayModeDirector$BrightnessObserver$BrightnessThreshold getBrightnessThreshold()>
+<com.samsung.android.displaysolution.MdnieScenarioControlService: void <init>(android.content.Context)>

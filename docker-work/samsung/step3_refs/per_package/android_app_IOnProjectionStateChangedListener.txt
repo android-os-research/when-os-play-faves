@@ -1,0 +1,9 @@
+# android.app.IOnProjectionStateChangedListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.IOnProjectionStateChangedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IOnProjectionStateChangedListener$Stub$Proxy: void onProjectionStateChanged(int,java.util.List)>
+<android.app.IOnProjectionStateChangedListener$Stub: android.app.IOnProjectionStateChangedListener asInterface(android.os.IBinder)>
+<android.app.IOnProjectionStateChangedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IOnProjectionStateChangedListener$Stub: void <init>()>

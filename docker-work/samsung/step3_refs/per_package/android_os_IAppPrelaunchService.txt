@@ -1,0 +1,12 @@
+# android.os.IAppPrelaunchService [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.os.IAppPrelaunchService$Stub$Proxy: boolean isAppPrelaunched(int)>
+<android.os.IAppPrelaunchService$Stub$Proxy: boolean killApp(int)>
+<android.os.IAppPrelaunchService$Stub$Proxy: boolean prelaunchApp(java.lang.String,int)>
+<android.os.IAppPrelaunchService$Stub$Proxy: boolean prelaunchAppTillStage(java.lang.String,int,int)>
+<android.os.IAppPrelaunchService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.os.IAppPrelaunchService$Stub: android.os.IAppPrelaunchService asInterface(android.os.IBinder)>
+<android.os.IAppPrelaunchService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.os.IAppPrelaunchService$Stub: void <init>()>

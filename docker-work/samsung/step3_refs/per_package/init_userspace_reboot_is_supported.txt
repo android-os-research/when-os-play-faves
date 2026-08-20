@@ -1,0 +1,5 @@
+# init.userspace_reboot.is_supported [NEW]
+# Refs: 1
+# JARs: framework
+
+<android.sysprop.InitProperties: java.util.Optional is_userspace_reboot_supported()>

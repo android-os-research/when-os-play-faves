@@ -1,0 +1,12 @@
+# com.samsung.android.multiwindow.IRemoteAppTransitionListener [NEW]
+# Refs: 8
+# JARs: framework
+
+<com.samsung.android.multiwindow.IRemoteAppTransitionListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.multiwindow.IRemoteAppTransitionListener$Stub$Proxy: void onFinishRecentsAnimation(boolean)>
+<com.samsung.android.multiwindow.IRemoteAppTransitionListener$Stub$Proxy: void onStartHomeAnimation(boolean)>
+<com.samsung.android.multiwindow.IRemoteAppTransitionListener$Stub$Proxy: void onStartRecentsAnimation(boolean)>
+<com.samsung.android.multiwindow.IRemoteAppTransitionListener$Stub$Proxy: void onWallpaperVisibilityChanged(boolean,boolean)>
+<com.samsung.android.multiwindow.IRemoteAppTransitionListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.multiwindow.IRemoteAppTransitionListener$Stub: com.samsung.android.multiwindow.IRemoteAppTransitionListener asInterface(android.os.IBinder)>
+<com.samsung.android.multiwindow.IRemoteAppTransitionListener$Stub: void <init>()>

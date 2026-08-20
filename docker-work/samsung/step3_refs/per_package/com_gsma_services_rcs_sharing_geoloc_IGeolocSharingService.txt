@@ -1,0 +1,20 @@
+# com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService [NEW]
+# Refs: 16
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: boolean isServiceRegistered()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: com.gsma.services.rcs.sharing.geoloc.IGeolocSharing getGeolocSharing(java.lang.String)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: com.gsma.services.rcs.sharing.geoloc.IGeolocSharing shareGeoloc(com.gsma.services.rcs.contact.ContactId,com.gsma.services.rcs.Geoloc)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: int getServiceVersion()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: java.util.List getGeolocSharings()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: void addEventListener(com.gsma.services.rcs.sharing.geoloc.IGeolocSharingListener)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: void addServiceRegistrationListener(com.gsma.services.rcs.IRcsServiceRegistrationListener)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: void deleteAllGeolocSharings()>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: void deleteGeolocSharingBySharingId(java.lang.String)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: void deleteGeolocSharingsByContactId(com.gsma.services.rcs.contact.ContactId)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: void removeEventListener(com.gsma.services.rcs.sharing.geoloc.IGeolocSharingListener)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub$Proxy: void removeServiceRegistrationListener(com.gsma.services.rcs.IRcsServiceRegistrationListener)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub: com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.sharing.geoloc.IGeolocSharingService$Stub: void <init>()>

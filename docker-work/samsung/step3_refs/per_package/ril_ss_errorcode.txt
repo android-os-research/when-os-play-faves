@@ -1,0 +1,8 @@
+# ril.ss.errorcode [NEW]
+# Refs: 4
+# JARs: framework, telephony-common
+
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: java.util.List ss_error_code()>
+<com.samsung.internal.telephony.sysprop.SemTelephonyProps: void ss_error_code(java.util.List)>
+<com.samsung.telephony.sysprop.SemTelephonyProps: java.util.List ss_error_code()>
+<com.samsung.telephony.sysprop.SemTelephonyProps: void ss_error_code(java.util.List)>

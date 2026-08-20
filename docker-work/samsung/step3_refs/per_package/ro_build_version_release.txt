@@ -1,0 +1,8 @@
+# ro.build.version.release [NEW]
+# Refs: 4
+# JARs: framework, services
+
+<android.os.Build$VERSION: void <clinit>()>
+<android.os.Build: java.lang.String deriveFingerprint()>
+<com.android.server.enterprise.device.DeviceInfo: java.lang.String getDevicePlatform(com.samsung.android.knox.ContextInfo)>
+<com.android.server.enterprise.device.DeviceInfo: java.lang.String getPlatformVersion(com.samsung.android.knox.ContextInfo)>

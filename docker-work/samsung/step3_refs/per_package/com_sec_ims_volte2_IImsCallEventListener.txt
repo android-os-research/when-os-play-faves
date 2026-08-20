@@ -1,0 +1,27 @@
+# com.sec.ims.volte2.IImsCallEventListener [NEW]
+# Refs: 23
+# JARs: imsmanager
+
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onCallEnded(com.sec.ims.volte2.data.ImsCallInfo,int)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onCallEstablished(com.sec.ims.volte2.data.ImsCallInfo)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onCallHeld(com.sec.ims.volte2.data.ImsCallInfo,boolean,boolean)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onCallModified(com.sec.ims.volte2.data.ImsCallInfo)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onCallModifyRequested(com.sec.ims.volte2.data.ImsCallInfo,int)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onCallResumed(com.sec.ims.volte2.data.ImsCallInfo)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onCallRinging(com.sec.ims.volte2.data.ImsCallInfo)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onCallRingingBack(com.sec.ims.volte2.data.ImsCallInfo)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onCallStarted(com.sec.ims.volte2.data.ImsCallInfo)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onCallTrying(com.sec.ims.volte2.data.ImsCallInfo)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onConferenceParticipantAdded(com.sec.ims.volte2.data.ImsCallInfo,java.lang.String)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onConferenceParticipantRemoved(com.sec.ims.volte2.data.ImsCallInfo,java.lang.String)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onDedicatedBearerEvent(com.sec.ims.volte2.data.ImsCallInfo,int,int)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onIncomingCall(com.sec.ims.volte2.data.ImsCallInfo,java.lang.String)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onIncomingPreAlerting(com.sec.ims.volte2.data.ImsCallInfo,java.lang.String)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onRtpLossRateNoti(int,float,float,int)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onVideoAvailable(com.sec.ims.volte2.data.ImsCallInfo)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onVideoHeld(com.sec.ims.volte2.data.ImsCallInfo)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub$Proxy: void onVideoResumed(com.sec.ims.volte2.data.ImsCallInfo)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub: com.sec.ims.volte2.IImsCallEventListener asInterface(android.os.IBinder)>
+<com.sec.ims.volte2.IImsCallEventListener$Stub: void <init>()>

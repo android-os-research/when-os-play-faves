@@ -1,0 +1,9 @@
+# android.media.session.IOnMediaKeyEventSessionChangedListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.media.session.IOnMediaKeyEventSessionChangedListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.media.session.IOnMediaKeyEventSessionChangedListener$Stub$Proxy: void onMediaKeyEventSessionChanged(java.lang.String,android.media.session.MediaSession$Token)>
+<android.media.session.IOnMediaKeyEventSessionChangedListener$Stub: android.media.session.IOnMediaKeyEventSessionChangedListener asInterface(android.os.IBinder)>
+<android.media.session.IOnMediaKeyEventSessionChangedListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.media.session.IOnMediaKeyEventSessionChangedListener$Stub: void <init>()>

@@ -1,0 +1,21 @@
+# android.net.sip.ISipSessionListener [NEW]
+# Refs: 17
+# JARs: voip-common
+
+<android.net.sip.ISipSessionListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onCallBusy(android.net.sip.ISipSession)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onCallChangeFailed(android.net.sip.ISipSession,int,java.lang.String)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onCallEnded(android.net.sip.ISipSession)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onCallEstablished(android.net.sip.ISipSession,java.lang.String)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onCallTransferring(android.net.sip.ISipSession,java.lang.String)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onCalling(android.net.sip.ISipSession)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onError(android.net.sip.ISipSession,int,java.lang.String)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onRegistering(android.net.sip.ISipSession)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onRegistrationDone(android.net.sip.ISipSession,int)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onRegistrationFailed(android.net.sip.ISipSession,int,java.lang.String)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onRegistrationTimeout(android.net.sip.ISipSession)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onRinging(android.net.sip.ISipSession,android.net.sip.SipProfile,java.lang.String)>
+<android.net.sip.ISipSessionListener$Stub$Proxy: void onRingingBack(android.net.sip.ISipSession)>
+<android.net.sip.ISipSessionListener$Stub: android.net.sip.ISipSessionListener asInterface(android.os.IBinder)>
+<android.net.sip.ISipSessionListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.net.sip.ISipSessionListener$Stub: void <init>()>

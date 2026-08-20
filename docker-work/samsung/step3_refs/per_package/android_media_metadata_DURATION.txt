@@ -1,0 +1,6 @@
+# android.media.metadata.DURATION [NEW]
+# Refs: 2
+# JARs: framework
+
+<android.media.session.MediaSession: void setMetadata(android.media.MediaMetadata)>
+<android.media.session.MediaSessionLegacyHelper: android.os.Bundle getOldMetadata(android.media.MediaMetadata,int,int)>

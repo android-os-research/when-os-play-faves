@@ -1,0 +1,13 @@
+# android.net.VpnService [NEW]
+# Refs: 9
+# JARs: framework, knoxsdk, services
+
+<android.net.VpnService: android.os.IBinder onBind(android.content.Intent)>
+<com.android.internal.net.VpnConfig: java.lang.CharSequence getVpnLabel(android.content.Context,java.lang.String)>
+<com.android.server.am.MARsPolicyManager: void onSpecialBindServiceActions(java.lang.String,java.lang.String,int,java.lang.String)>
+<com.android.server.am.MARsPolicyManager: void onSpecialUnBindServiceActions(java.lang.String,java.lang.String,int,java.lang.String)>
+<com.android.server.connectivity.EnterpriseVpn: android.os.ParcelFileDescriptor establish(com.android.internal.net.VpnConfig)>
+<com.android.server.connectivity.Vpn: android.os.ParcelFileDescriptor establish(com.android.internal.net.VpnConfig)>
+<com.android.server.connectivity.Vpn: boolean isAlwaysOnPackageSupported(java.lang.String)>
+<com.android.server.connectivity.Vpn: boolean startAlwaysOnVpn()>
+<com.samsung.android.knox.net.vpn.serviceprovider.GenericVpnService: android.os.IBinder onBind(android.content.Intent)>

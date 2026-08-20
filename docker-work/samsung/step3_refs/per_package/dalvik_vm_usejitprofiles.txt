@@ -1,0 +1,6 @@
+# dalvik.vm.usejitprofiles [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.pm.PackageManagerShellCommand: int runCompile()>
+<com.android.server.pm.dex.ArtManagerService: boolean isRuntimeProfilingEnabled(int,java.lang.String)>

@@ -1,0 +1,10 @@
+# android.security.attestationverification.IAttestationVerificationManagerService [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.security.attestationverification.IAttestationVerificationManagerService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.security.attestationverification.IAttestationVerificationManagerService$Stub$Proxy: void verifyAttestation(android.security.attestationverification.AttestationProfile,int,android.os.Bundle,byte[],com.android.internal.infra.AndroidFuture)>
+<android.security.attestationverification.IAttestationVerificationManagerService$Stub$Proxy: void verifyToken(android.security.attestationverification.VerificationToken,android.os.ParcelDuration,com.android.internal.infra.AndroidFuture)>
+<android.security.attestationverification.IAttestationVerificationManagerService$Stub: android.security.attestationverification.IAttestationVerificationManagerService asInterface(android.os.IBinder)>
+<android.security.attestationverification.IAttestationVerificationManagerService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.security.attestationverification.IAttestationVerificationManagerService$Stub: void <init>()>

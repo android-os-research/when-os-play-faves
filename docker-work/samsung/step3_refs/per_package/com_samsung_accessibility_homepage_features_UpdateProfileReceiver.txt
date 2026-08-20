@@ -1,0 +1,6 @@
+# com.samsung.accessibility.homepage.features.UpdateProfileReceiver [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<com.android.internal.accessibility.util.AccessibilityUtils: void updateProfile(android.content.Context,java.lang.String)>
+<com.android.server.accessibility.AccessibilityManagerService: void sendComponentForUpdateProfile(java.lang.String)>

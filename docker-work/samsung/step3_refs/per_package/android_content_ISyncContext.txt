@@ -1,0 +1,10 @@
+# android.content.ISyncContext [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.content.ISyncContext$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.content.ISyncContext$Stub$Proxy: void onFinished(android.content.SyncResult)>
+<android.content.ISyncContext$Stub$Proxy: void sendHeartbeat()>
+<android.content.ISyncContext$Stub: android.content.ISyncContext asInterface(android.os.IBinder)>
+<android.content.ISyncContext$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.content.ISyncContext$Stub: void <init>()>

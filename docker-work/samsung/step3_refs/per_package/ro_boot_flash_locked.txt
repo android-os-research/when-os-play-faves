@@ -1,0 +1,7 @@
+# ro.boot.flash.locked [NEW]
+# Refs: 3
+# JARs: services, telephony-common
+
+<com.android.server.PersistentDataBlockService$1: int getFlashLockState()>
+<com.android.server.oemlock.OemLockService$2: boolean isDeviceOemUnlocked()>
+<com.sec.tmodiagnostics.DeviceReportingSecurityChecker: boolean getICDStatus()>

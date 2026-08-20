@@ -1,0 +1,6 @@
+# com.samsung.android.mcfds.permission.START_SERVICE [NEW]
+# Refs: 2
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.ap.mcf.SemWifiApContinuityAdapter: void registerMcfBroadcast()>
+<com.samsung.android.server.wifi.share.WifiContinuityService: void registerBroadcast()>

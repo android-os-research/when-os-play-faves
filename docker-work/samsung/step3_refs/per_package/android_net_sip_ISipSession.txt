@@ -1,0 +1,18 @@
+# android.net.sip.ISipSession [NEW]
+# Refs: 14
+# JARs: voip-common
+
+<android.net.sip.ISipSession$Stub$Proxy: android.net.sip.SipProfile getLocalProfile()>
+<android.net.sip.ISipSession$Stub$Proxy: android.net.sip.SipProfile getPeerProfile()>
+<android.net.sip.ISipSession$Stub$Proxy: boolean isInCall()>
+<android.net.sip.ISipSession$Stub$Proxy: int getState()>
+<android.net.sip.ISipSession$Stub$Proxy: java.lang.String getCallId()>
+<android.net.sip.ISipSession$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.net.sip.ISipSession$Stub$Proxy: java.lang.String getLocalIp()>
+<android.net.sip.ISipSession$Stub$Proxy: void answerCall(java.lang.String,int)>
+<android.net.sip.ISipSession$Stub$Proxy: void changeCall(java.lang.String,int)>
+<android.net.sip.ISipSession$Stub$Proxy: void endCall()>
+<android.net.sip.ISipSession$Stub$Proxy: void makeCall(android.net.sip.SipProfile,java.lang.String,int)>
+<android.net.sip.ISipSession$Stub$Proxy: void register(int)>
+<android.net.sip.ISipSession$Stub$Proxy: void setListener(android.net.sip.ISipSessionListener)>
+<android.net.sip.ISipSession$Stub$Proxy: void unregister()>

@@ -1,0 +1,6 @@
+# com.samsung.android.knox.intent.extra.SMIME_RESULT [NEW]
+# Refs: 2
+# JARs: services
+
+<com.android.server.enterprise.email.ExchangeAccountPolicy$SMIMEIntentReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.enterprise.email.ExchangeAccountPolicy: void sendSMIMEAliasResultIntent(long,int,int)>

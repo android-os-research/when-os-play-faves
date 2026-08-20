@@ -1,0 +1,9 @@
+# com.samsung.android.desktopmode.IDesktopModeListener [NEW]
+# Refs: 5
+# JARs: framework
+
+<com.samsung.android.desktopmode.IDesktopModeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.desktopmode.IDesktopModeListener$Stub$Proxy: void onDesktopModeStateChanged(com.samsung.android.desktopmode.SemDesktopModeState)>
+<com.samsung.android.desktopmode.IDesktopModeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.desktopmode.IDesktopModeListener$Stub: com.samsung.android.desktopmode.IDesktopModeListener asInterface(android.os.IBinder)>
+<com.samsung.android.desktopmode.IDesktopModeListener$Stub: void <init>()>

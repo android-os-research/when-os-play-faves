@@ -1,0 +1,8 @@
+# persist.sys.usb.q_config [NEW]
+# Refs: 4
+# JARs: services
+
+<com.android.server.usb.UsbDeviceManager: boolean isHiddenMenuActivated()>
+<com.android.server.usb.UsbDeviceManager: java.lang.String getPersistProp(boolean)>
+<com.android.server.usb.UsbDeviceManager: long getDefaultUsbValue()>
+<com.android.server.usb.UsbDeviceManager: void setCurrentFunctions(long)>

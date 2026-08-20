@@ -1,0 +1,10 @@
+# com.samsung.knox.vpn.tether.auth [NEW]
+# Refs: 6
+# JARs: services
+
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnApiValidation: int allowUsbTetheringValidation(com.samsung.android.knox.net.vpn.KnoxVpnContext,java.lang.String,android.os.Bundle)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnEngineService: int allowAuthUsbTetheringOverVpn(com.samsung.android.knox.net.vpn.KnoxVpnContext,java.lang.String,android.os.Bundle)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnEngineService: int disallowUsbTetheringOverVpn(com.samsung.android.knox.net.vpn.KnoxVpnContext,java.lang.String)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnTetherAuthentication: void bindTetherAuthService(java.lang.String,int)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnTetherAuthentication: void bindTetherAuthService(java.lang.String,int,android.os.Bundle)>
+<com.android.server.enterprise.vpn.knoxvpn.KnoxVpnTetherAuthentication: void startTetherAuthProcess(int,java.lang.String,java.util.List)>

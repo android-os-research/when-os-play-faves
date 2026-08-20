@@ -1,0 +1,22 @@
+######################################################################
+# Propagation: com.android.angryGps
+######################################################################
+
+JARs:                 services
+Classes:              1
+Occurrences:          1
+Usage types:          (none)
+Enforcement patterns: early_return
+Security tags:        (none)
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      services
+  Class:    com.android.server.location.gnss.sec.GnssConstants
+  Method:   <com.android.server.location.gnss.sec.GnssConstants: void <clinit>()>
+  Line:     168
+  Register: v0 := "com.android.angryGps"
+  Usage:    [] 
+  Patterns: early_return
+

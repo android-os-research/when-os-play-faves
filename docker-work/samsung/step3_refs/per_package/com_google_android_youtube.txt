@@ -1,0 +1,13 @@
+# com.google.android.youtube [NEW]
+# Refs: 9
+# JARs: framework, knoxsdk, motionrecognitionservice, services
+
+<com.android.server.am.FreecessController: void enterOLAF(java.lang.String,int,int)>
+<com.samsung.android.content.smartclip.SemSmartClipDataRepository: boolean determineContentType()>
+<com.samsung.android.content.smartclip.SmartClipDataCropperImpl: int extractDefaultSmartClipData(android.view.View,com.samsung.android.content.smartclip.SemSmartClipCroppedArea,com.samsung.android.content.smartclip.SmartClipDataElementImpl)>
+<com.samsung.android.gesture.AutoRotationHandler: void <init>(android.content.Context)>
+<com.samsung.android.hardware.display.AdaptiveDisplayColorService: void <init>(android.content.Context)>
+<com.samsung.android.knox.SemPersonaManager: void <clinit>()>
+<com.samsung.android.knox.application.ApplicationPolicy: void disableYouTube()>
+<com.samsung.android.knox.application.ApplicationPolicy: void enableYouTube()>
+<com.samsung.android.server.audio.SoundAppPolicyManager: void setDefaultAllowList()>

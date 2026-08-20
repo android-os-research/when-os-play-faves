@@ -1,0 +1,12 @@
+# android.hardware.camera2.extension.IPreviewImageProcessorImpl [NEW]
+# Refs: 8
+# JARs: framework
+
+<android.hardware.camera2.extension.IPreviewImageProcessorImpl$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.hardware.camera2.extension.IPreviewImageProcessorImpl$Stub$Proxy: void onImageFormatUpdate(int)>
+<android.hardware.camera2.extension.IPreviewImageProcessorImpl$Stub$Proxy: void onOutputSurface(android.view.Surface,int)>
+<android.hardware.camera2.extension.IPreviewImageProcessorImpl$Stub$Proxy: void onResolutionUpdate(android.hardware.camera2.extension.Size)>
+<android.hardware.camera2.extension.IPreviewImageProcessorImpl$Stub$Proxy: void process(android.hardware.camera2.extension.ParcelImage,android.hardware.camera2.impl.CameraMetadataNative,int,android.hardware.camera2.extension.IProcessResultImpl)>
+<android.hardware.camera2.extension.IPreviewImageProcessorImpl$Stub: android.hardware.camera2.extension.IPreviewImageProcessorImpl asInterface(android.os.IBinder)>
+<android.hardware.camera2.extension.IPreviewImageProcessorImpl$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.hardware.camera2.extension.IPreviewImageProcessorImpl$Stub: void <init>()>

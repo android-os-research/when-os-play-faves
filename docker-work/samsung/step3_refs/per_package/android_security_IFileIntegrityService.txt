@@ -1,0 +1,10 @@
+# android.security.IFileIntegrityService [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.security.IFileIntegrityService$Stub$Proxy: boolean isApkVeritySupported()>
+<android.security.IFileIntegrityService$Stub$Proxy: boolean isAppSourceCertificateTrusted(byte[],java.lang.String)>
+<android.security.IFileIntegrityService$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.security.IFileIntegrityService$Stub: android.security.IFileIntegrityService asInterface(android.os.IBinder)>
+<android.security.IFileIntegrityService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.security.IFileIntegrityService$Stub: void <init>()>

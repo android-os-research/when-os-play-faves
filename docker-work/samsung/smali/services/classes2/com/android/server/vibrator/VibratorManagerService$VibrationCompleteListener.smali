@@ -1,0 +1,92 @@
+.class public final Lcom/android/server/vibrator/VibratorManagerService$VibrationCompleteListener;
+.super Ljava/lang/Object;
+.source "VibratorManagerService.java"
+
+# interfaces
+.implements Lcom/android/server/vibrator/VibratorController$OnVibrationCompleteListener;
+.implements Lcom/android/server/vibrator/VibratorManagerService$OnSyncedVibrationCompleteListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/vibrator/VibratorManagerService;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "VibrationCompleteListener"
+.end annotation
+
+
+# instance fields
+.field public mServiceRef:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference<",
+            "Lcom/android/server/vibrator/VibratorManagerService;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Lcom/android/server/vibrator/VibratorManagerService;)V
+    .registers 3
+
+    .line 1516
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 1517
+    new-instance v0, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object v0, p0, Lcom/android/server/vibrator/VibratorManagerService$VibrationCompleteListener;->mServiceRef:Ljava/lang/ref/WeakReference;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onComplete(IJ)V
+    .registers 4
+
+    .line 1530
+    iget-object p0, p0, Lcom/android/server/vibrator/VibratorManagerService$VibrationCompleteListener;->mServiceRef:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/server/vibrator/VibratorManagerService;
+
+    if-eqz p0, :cond_d
+
+    .line 1532
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/vibrator/VibratorManagerService;->-$$Nest$monVibrationComplete(Lcom/android/server/vibrator/VibratorManagerService;IJ)V
+
+    :cond_d
+    return-void
+.end method
+
+.method public onComplete(J)V
+    .registers 3
+
+    .line 1522
+    iget-object p0, p0, Lcom/android/server/vibrator/VibratorManagerService$VibrationCompleteListener;->mServiceRef:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/server/vibrator/VibratorManagerService;
+
+    if-eqz p0, :cond_d
+
+    .line 1524
+    invoke-static {p0, p1, p2}, Lcom/android/server/vibrator/VibratorManagerService;->-$$Nest$monSyncedVibrationComplete(Lcom/android/server/vibrator/VibratorManagerService;J)V
+
+    :cond_d
+    return-void
+.end method

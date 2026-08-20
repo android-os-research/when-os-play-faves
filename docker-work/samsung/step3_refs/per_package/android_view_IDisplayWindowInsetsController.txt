@@ -1,0 +1,13 @@
+# android.view.IDisplayWindowInsetsController [NEW]
+# Refs: 9
+# JARs: framework
+
+<android.view.IDisplayWindowInsetsController$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.view.IDisplayWindowInsetsController$Stub$Proxy: void hideInsets(int,boolean)>
+<android.view.IDisplayWindowInsetsController$Stub$Proxy: void insetsChanged(android.view.InsetsState)>
+<android.view.IDisplayWindowInsetsController$Stub$Proxy: void insetsControlChanged(android.view.InsetsState,android.view.InsetsSourceControl[])>
+<android.view.IDisplayWindowInsetsController$Stub$Proxy: void showInsets(int,boolean)>
+<android.view.IDisplayWindowInsetsController$Stub$Proxy: void topFocusedWindowChanged(java.lang.String,android.view.InsetsVisibilities)>
+<android.view.IDisplayWindowInsetsController$Stub: android.view.IDisplayWindowInsetsController asInterface(android.os.IBinder)>
+<android.view.IDisplayWindowInsetsController$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.view.IDisplayWindowInsetsController$Stub: void <init>()>

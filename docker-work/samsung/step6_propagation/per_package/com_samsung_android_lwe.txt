@@ -1,0 +1,66 @@
+######################################################################
+# Propagation: com.samsung.android.lwe
+######################################################################
+
+JARs:                 framework
+Classes:              1
+Occurrences:          2
+Usage types:          invoke
+Enforcement patterns: early_return
+Security tags:        PKG_QUERY, SIG_CHECK
+
+────────────────────────────────────────────────────────────
+Occurrence #1
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.lwe.SemWebView
+  Method:   <com.samsung.android.lwe.SemWebView: boolean checkSignature(android.content.Context)>
+  Line:     216
+  Register: v5 := "com.samsung.android.lwe"
+  Usage:    [invoke] invoke-virtual {v2, v5, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I
+  Patterns: early_return
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [other] iget-object v5, v3, Landroid/content/pm/PackageInf
+
+  CALLERS (who invokes this method):
+      ← SemWebView.getLWEWebViewInstance()
+        ← <com.samsung.android.lwe.SemWebView: void <init>(android.con
+          ← <com.samsung.android.lwe.SemWebView: void <init>(android.con
+            ← <com.samsung.android.lwe.SemWebView: void <init>(android.con
+
+  CALLEES (what this method invokes):
+      → Context.getPackageManager()
+      → PackageManager$NameNotFoundException.printStackTrace()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → Signature.equals()
+
+────────────────────────────────────────────────────────────
+Occurrence #2
+────────────────────────────────────────────────────────────
+  JAR:      framework
+  Class:    com.samsung.android.lwe.SemWebView
+  Method:   <com.samsung.android.lwe.SemWebView: com.samsung.android.lwe.LweWebView getLWEWebViewInstance(android.content.Context,android.util.AttributeSet,int)>
+  Line:     395
+  Register: v2 := "com.samsung.android.lwe"
+  Usage:    [] 
+  Patterns: (none)
+  Flow:     [invoke] android.content.pm.PackageManager.getPackageInfo() → [invoke] android.content.pm.PackageManager.getPackageInfo(
+
+  CALLERS (who invokes this method):
+      ← <com.samsung.android.lwe.SemWebView: void <init>(android.con
+        ← <com.samsung.android.lwe.SemWebView: void <init>(android.con
+          ← <com.samsung.android.lwe.SemWebView: void <init>(android.con
+
+  CALLEES (what this method invokes):
+      → Context.getApplicationInfo() [PKG_QUERY]
+      → Context.getPackageManager()
+      → Context.getClassLoader()
+      → PackageManager$NameNotFoundException.printStackTrace()
+      → PackageManager.getPackageInfo() [PKG_QUERY]
+      → SemWebView.getContext()
+      → SemWebView.checkSignature() [SIG_CHECK]
+      → PathClassLoader.loadClass()
+      → <dalvik.system.PathClassLoader: void <init>(java.lang.String
+      → Exception.printStackTrace()
+      → Constructor.newInstance()
+        → Signature.equals()
+

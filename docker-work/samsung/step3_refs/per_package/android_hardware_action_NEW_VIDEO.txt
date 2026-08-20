@@ -1,0 +1,5 @@
+# android.hardware.action.NEW_VIDEO [NEW]
+# Refs: 1
+# JARs: services
+
+<com.android.server.am.ActivityManagerService: int broadcastIntentLocked(com.android.server.am.ProcessRecord,java.lang.String,java.lang.String,android.content.Intent,java.lang.String,android.content.IIntentReceiver,int,java.lang.String,android.os.Bundle,java.lang.String[],java.lang.String[],java.lang.String[],int,android.os.Bundle,boolean,boolean,int,int,int,int,int,boolean,android.os.IBinder,int[],boolean)>

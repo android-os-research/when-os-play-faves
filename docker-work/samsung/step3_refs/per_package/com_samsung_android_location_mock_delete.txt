@@ -1,0 +1,7 @@
+# com.samsung.android.location.mock.delete [NEW]
+# Refs: 3
+# JARs: services
+
+<com.android.server.location.LocationManagerService$2: void onReceive(android.content.Context,android.content.Intent)>
+<com.android.server.location.LocationManagerService: void createNotificationForMockLocation(java.lang.String)>
+<com.android.server.location.LocationManagerService: void onSystemReady()>

@@ -1,0 +1,13 @@
+# com.gsma.services.rcs.filetransfer.IGroupFileTransferListener [NEW]
+# Refs: 9
+# JARs: rcsopenapi
+
+<com.gsma.services.rcs.filetransfer.IGroupFileTransferListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.gsma.services.rcs.filetransfer.IGroupFileTransferListener$Stub$Proxy: void onDeleted(java.lang.String,java.util.List)>
+<com.gsma.services.rcs.filetransfer.IGroupFileTransferListener$Stub$Proxy: void onDeliveryInfoChanged(java.lang.String,java.lang.String,com.gsma.services.rcs.contact.ContactId,com.gsma.services.rcs.groupdelivery.GroupDeliveryInfo$Status,com.gsma.services.rcs.groupdelivery.GroupDeliveryInfo$ReasonCode)>
+<com.gsma.services.rcs.filetransfer.IGroupFileTransferListener$Stub$Proxy: void onDeliveryInfoChanged1(java.lang.String,java.lang.String,com.gsma.services.rcs.contact.ContactId,com.gsma.services.rcs.groupdelivery.GroupDeliveryInfo$Status,com.gsma.services.rcs.groupdelivery.GroupDeliveryInfo$ReasonCode)>
+<com.gsma.services.rcs.filetransfer.IGroupFileTransferListener$Stub$Proxy: void onProgressUpdate(java.lang.String,java.lang.String,long,long)>
+<com.gsma.services.rcs.filetransfer.IGroupFileTransferListener$Stub$Proxy: void onStateChanged(java.lang.String,java.lang.String,com.gsma.services.rcs.filetransfer.FileTransfer$State,com.gsma.services.rcs.filetransfer.FileTransfer$ReasonCode)>
+<com.gsma.services.rcs.filetransfer.IGroupFileTransferListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.gsma.services.rcs.filetransfer.IGroupFileTransferListener$Stub: com.gsma.services.rcs.filetransfer.IGroupFileTransferListener asInterface(android.os.IBinder)>
+<com.gsma.services.rcs.filetransfer.IGroupFileTransferListener$Stub: void <init>()>

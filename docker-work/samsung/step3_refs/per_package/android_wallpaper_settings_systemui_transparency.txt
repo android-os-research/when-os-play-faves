@@ -1,0 +1,9 @@
+# android.wallpaper.settings_systemui_transparency [NEW]
+# Refs: 5
+# JARs: framework, services
+
+<android.service.wallpaper.WallpaperService$Engine: java.lang.String getSettingKey()>
+<com.samsung.android.wallpaperbackup.WallpaperBackupRestoreManager$WallpaperBNRHelper: void setSettingsName()>
+<com.samsung.server.wallpaper.DefaultWallpaper$1: void handleMessage(android.os.Message)>
+<com.samsung.server.wallpaper.snapshot.SnapshotHelper$SettingsData$1: void <init>()>
+<com.samsung.server.wallpaper.snapshot.SnapshotHelper$SettingsData: void <clinit>()>

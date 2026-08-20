@@ -1,0 +1,27 @@
+# com.samsung.android.knox.container.IRCPPolicy [NEW]
+# Refs: 23
+# JARs: knoxsdk
+
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean allowMoveAppsToContainer(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean allowMoveFilesToContainer(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean allowMoveFilesToOwner(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean allowShareClipboardDataToContainer(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean allowShareClipboardDataToOwner(com.samsung.android.knox.ContextInfo,boolean)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean getAllowChangeDataSyncPolicy(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean isMoveAppsToContainerAllowed(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean isMoveFilesToContainerAllowed(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean isMoveFilesToOwnerAllowed(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean isShareClipboardDataToContainerAllowed(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean isShareClipboardDataToOwnerAllowed(com.samsung.android.knox.ContextInfo)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean setAllowChangeDataSyncPolicy(com.samsung.android.knox.ContextInfo,java.util.List,java.lang.String,boolean)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: boolean setNotificationSyncPolicy(com.samsung.android.knox.ContextInfo,java.util.List,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: java.lang.String getNotificationSyncPolicy(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: java.util.List getListFromAllowChangeDataSyncPolicy(com.samsung.android.knox.ContextInfo,java.lang.String,boolean)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: java.util.List getPackagesFromNotificationSyncPolicy(com.samsung.android.knox.ContextInfo,java.lang.String,java.lang.String)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: void sendRCPPolicyChangeBroadcast(java.lang.String,java.lang.String,int)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: void sendRCPPolicyChangedBroadcast(int)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub$Proxy: void sendRCPPolicyChangedBroadcastToGearManager(java.lang.String,int)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub: com.samsung.android.knox.container.IRCPPolicy asInterface(android.os.IBinder)>
+<com.samsung.android.knox.container.IRCPPolicy$Stub: void <init>()>

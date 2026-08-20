@@ -1,0 +1,9 @@
+# android.app.IGameManager [NEW]
+# Refs: 5
+# JARs: framework
+
+<android.app.IGameManager$Stub$Proxy: int getGameMode()>
+<android.app.IGameManager$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IGameManager$Stub: android.app.IGameManager asInterface(android.os.IBinder)>
+<android.app.IGameManager$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IGameManager$Stub: void <init>()>

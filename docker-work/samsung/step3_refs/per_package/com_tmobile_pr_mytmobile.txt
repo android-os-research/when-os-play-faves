@@ -1,0 +1,9 @@
+# com.tmobile.pr.mytmobile [NEW]
+# Refs: 5
+# JARs: services, telephony-common
+
+<com.android.server.am.AppStateBroadcaster: void <clinit>()>
+<com.android.server.pm.permission.DefaultPermissionGrantPolicy: void grantDefaultPermissionsToTmoApp(com.android.server.pm.permission.DefaultPermissionGrantPolicy$PackageManagerWrapper,int)>
+<com.sec.tmodiagnostics.DeviceReportingSecurityChecker: boolean getMyaccountSignature()>
+<com.tmobile.echolocate.DataMetrics5gSa: boolean isMyAccountSigPresent()>
+<com.tmobile.echolocate.DataMetrics: boolean isMyAccountSigPresent()>

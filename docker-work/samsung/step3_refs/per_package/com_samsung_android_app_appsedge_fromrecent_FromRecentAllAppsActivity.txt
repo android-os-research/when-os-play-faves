@@ -1,0 +1,6 @@
+# com.samsung.android.app.appsedge.fromrecent.FromRecentAllAppsActivity [NEW]
+# Refs: 2
+# JARs: framework, services
+
+<com.android.server.wm.ActivityRecord: boolean isRecentAllAppsActivity()>
+<com.samsung.android.multiwindow.MultiWindowUtils: android.content.Intent getEdgeAllAppsActivityIntent(android.content.ComponentName,int,int)>

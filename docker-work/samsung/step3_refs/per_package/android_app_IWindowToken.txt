@@ -1,0 +1,10 @@
+# android.app.IWindowToken [NEW]
+# Refs: 6
+# JARs: framework
+
+<android.app.IWindowToken$Stub$Proxy: java.lang.String getInterfaceDescriptor()>
+<android.app.IWindowToken$Stub$Proxy: void onConfigurationChanged(android.content.res.Configuration,int)>
+<android.app.IWindowToken$Stub$Proxy: void onWindowTokenRemoved()>
+<android.app.IWindowToken$Stub: android.app.IWindowToken asInterface(android.os.IBinder)>
+<android.app.IWindowToken$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)>
+<android.app.IWindowToken$Stub: void <init>()>

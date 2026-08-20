@@ -1,0 +1,7 @@
+# com.samsung.android.mobileservice [NEW]
+# Refs: 3
+# JARs: semwifi-service
+
+<com.samsung.android.server.wifi.ap.SemWifiApUtils: boolean isGroupSharingAppDisabled(android.content.Context)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartBleScanner$SemWifiApSmartBleScannerAppDisableReceiver: void onReceive(android.content.Context,android.content.Intent)>
+<com.samsung.android.server.wifi.ap.smarttethering.SemWifiApSmartBleScanner$SemWifiApSmartBleScannerReceiver: void onReceive(android.content.Context,android.content.Intent)>
