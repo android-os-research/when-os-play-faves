@@ -19,6 +19,12 @@ fi
 
 mkdir -p ../docker-work
 
+# macOS: a bind source created after the container started isn't visible until recreate.
+if ! docker compose exec -T pipeline test -d /artifact/work 2>/dev/null; then
+    echo "[docker-run] Re-binding work directory..."
+    docker compose up -d --force-recreate pipeline
+fi
+
 echo "[docker-run] Running the bundled sample (Steps 1-6 + Phase 1)..."
 docker compose exec -T pipeline \
     bash scripts/pipeline/run_pipeline.sh \

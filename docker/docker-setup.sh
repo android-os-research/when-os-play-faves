@@ -51,6 +51,7 @@ if [[ -n "$AVAIL_GB" && "$AVAIL_GB" -lt "$REQUIRED_GB" && "${SKIP_SPACE_CHECK:-}
 fi
 
 echo "[docker-setup] Building the pipeline image and starting Ollama..."
+mkdir -p ../docker-work   # ensure the bind-mount source exists before the container is created (macOS)
 docker compose up -d --build
 
 echo "[docker-setup] Waiting for the Ollama API..."
