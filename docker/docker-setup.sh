@@ -31,7 +31,7 @@ AVAIL_GB=""
 STORE_DIR="$DOCKER_ROOT"
 for d in "$DOCKER_ROOT" /var/lib/containerd; do
     [[ -d "$d" ]] || continue
-    a="$(df -P -BG "$d" 2>/dev/null | awk 'NR==2{gsub(/G/,"",$4); print $4+0}')"
+    a="$(df -Pk "$d" 2>/dev/null | awk 'NR==2{print int($4/1048576)}')"
     [[ -n "$a" ]] || continue
     if [[ -z "$AVAIL_GB" || "$a" -lt "$AVAIL_GB" ]]; then AVAIL_GB="$a"; STORE_DIR="$d"; fi
 done
@@ -65,10 +65,10 @@ echo "[docker-setup] Registering $LABEL as 'dolphin3-r1' (pulls the GGUF on firs
 docker compose exec -T ollama ollama create dolphin3-r1 -f "$MODELFILE"
 
 echo "[docker-setup] Running a minimal inference test..."
-INFER_OUT="$(timeout 180 docker compose exec -T pipeline \
-    curl -sS http://localhost:11434/api/generate \
+INFER_OUT="$(docker compose exec -T pipeline \
+    curl -sS --max-time 180 http://localhost:11434/api/generate \
     -d '{"model":"dolphin3-r1","prompt":"Reply with exactly the word OK.","stream":false}' 2>/dev/null || true)"
-if echo "$INFER_OUT" | grep -qi "OK"; then
+if echo "$INFER_OUT" | grep -q '"done":true'; then
     echo "[docker-setup] Inference OK."
 else
     echo "[docker-setup] ERROR: inference test failed (model did not respond)."
