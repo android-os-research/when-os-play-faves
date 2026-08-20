@@ -24,6 +24,23 @@ if ! docker compose version >/dev/null 2>&1; then
     exit 1
 fi
 
+REQUIRED_GB=25
+[[ "${1:-}" == "--lite" ]] && REQUIRED_GB=15
+DOCKER_ROOT="$(docker info --format '{{.DockerRootDir}}' 2>/dev/null || echo /var/lib/docker)"
+AVAIL_GB="$(df -P -BG "$DOCKER_ROOT" 2>/dev/null | awk 'NR==2{gsub(/G/,"",$4); print $4+0}')"
+if [[ -n "$AVAIL_GB" && "$AVAIL_GB" -lt "$REQUIRED_GB" && "${SKIP_SPACE_CHECK:-}" != "1" ]]; then
+    echo "[docker-setup] ERROR: only ${AVAIL_GB} GB free on Docker's data dir ($DOCKER_ROOT); need ~${REQUIRED_GB} GB."
+    echo "  Docker keeps its images and the Ollama model here, so a small/full partition fails mid-pull."
+    echo "  Fix one of:"
+    echo "    - Free space, or move Docker to a partition with room:"
+    echo "        sudo systemctl stop docker docker.socket"
+    echo "        echo '{ \"data-root\": \"/PATH/WITH/SPACE/docker\" }' | sudo tee /etc/docker/daemon.json"
+    echo "        sudo systemctl restart docker"
+    [[ "${1:-}" != "--lite" ]] && echo "    - Use the smaller 8B model:  ./docker-setup.sh --lite  (needs ~15 GB)"
+    echo "    - Images already built? Bypass this check:  SKIP_SPACE_CHECK=1 ./docker-setup.sh ${1:-}"
+    exit 1
+fi
+
 echo "[docker-setup] Building the pipeline image and starting Ollama..."
 docker compose up -d --build
 
