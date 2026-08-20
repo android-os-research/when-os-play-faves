@@ -228,9 +228,13 @@ produced by the full default (24B) pipeline on the reference run:
 | Total confirmed (after Phase 2b) | 104 |
 
 For comparison, the paper's own run of this sample reported 37 / 66 / 497 (103
-confirmed). The small differences reflect local-LLM (Tier-1) and cloud-LLM
-(Tier-2) non-determinism; the Tier-2 stage uses temperature 0 and is close to
-deterministic.
+confirmed), and the AEC-spec 16 GB VM run via `--skip-phase1` reported 102
+(39 CONFIRMED_HIGH / 62 CONFIRMED_MEDIUM / 1 promoted in Phase 2b). The small
+differences reflect local-LLM (Tier-1) and cloud-LLM (Tier-2) non-determinism:
+even at temperature 0 the cloud models are not bit-exact run to run, and the
+NEEDS_INVESTIGATION → Sonnet escalation adds a branch. Expect a total in the
+range of roughly 100–105 confirmed, not an exact 103 — a count in that band
+reproduces the paper and does not indicate a failed run.
 
 TODO-AE: Add per-machine total/Tier-1 runtime and peak RAM for Environments A
 and B once those runs complete. A completed high-core reference run is recorded
@@ -349,6 +353,12 @@ quality even on a memory-constrained machine that would otherwise use `--lite`.
 It requires no Ollama or GPU. Add `--skip-phase2` to stop after loading the
 precomputed triage (no cloud validation).
 
+Expect a total of roughly 100–105 confirmed findings, not an exact number: Phase 2
+and Phase 2b are cloud-LLM calls that are not bit-exact run to run (even at
+temperature 0), so counts vary slightly between runs. The AEC-spec 16 GB VM run
+of this path produced 102 confirmed; the reference 24B run produced 104. Any
+count in that band reproduces the paper.
+
 ## Repository Structure
 ```bash
 when-os-play-faves/
@@ -432,6 +442,7 @@ documented reproduction.
 |---|---|---|---|
 | Debian 13 server (128 cores, 251 GB) | x86-64 | Dolphin R1 24B | **COMPLETED** — output counts reproduced (above) |
 | Ubuntu 24.04 VM (16 GB, Debian host) | x86-64 | Dolphin 8B (`--lite`) | **COMPLETED** — Steps 1–6 + Phase 1 in 2 h 34 m, no swap, exit 0 (see note) |
+| Ubuntu 24.04 VM (16 GB, Debian host) | x86-64 | `--skip-phase1` (bundled 24B triage) + cloud Phase 2/2b | **COMPLETED** — 102 confirmed (39 CONFIRMED_HIGH / 62 CONFIRMED_MEDIUM / 1 promoted in Phase 2b); no local model, no GPU |
 | Ubuntu 24.04.3 VM | x86-64 | Dolphin R1 24B | **TEST IN PROGRESS** |
 | Ubuntu VM on Apple Silicon | ARM64 | Dolphin 8B (`--lite`) | **TEST IN PROGRESS** |
 

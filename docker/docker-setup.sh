@@ -65,12 +65,14 @@ echo "[docker-setup] Registering $LABEL as 'dolphin3-r1' (pulls the GGUF on firs
 docker compose exec -T ollama ollama create dolphin3-r1 -f "$MODELFILE"
 
 echo "[docker-setup] Running a minimal inference test..."
-INFER_OUT="$(timeout 180 docker compose exec -T ollama ollama run dolphin3-r1 "Reply with exactly the word OK." 2>/dev/null || true)"
+INFER_OUT="$(timeout 180 docker compose exec -T pipeline \
+    curl -sS http://localhost:11434/api/generate \
+    -d '{"model":"dolphin3-r1","prompt":"Reply with exactly the word OK.","stream":false}' 2>/dev/null || true)"
 if echo "$INFER_OUT" | grep -qi "OK"; then
     echo "[docker-setup] Inference OK."
 else
-    echo "[docker-setup] ERROR: inference test failed."
-    echo "  The 24B model may not fit in this machine's RAM — retry with:  ./docker/docker-setup.sh --lite"
+    echo "[docker-setup] ERROR: inference test failed (model did not respond)."
+    echo "  If using the default 24B model it may not fit in RAM — retry with:  ./docker-setup.sh --lite"
     exit 1
 fi
 
