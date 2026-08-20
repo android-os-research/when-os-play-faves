@@ -6,7 +6,10 @@
 
 services:
   ollama:
-    image: ollama/ollama:latest
+    image: ollama/ollama:0.32.14
+    environment:
+      # Vulkan-enabled builds hang enumerating a GPU on CPU-only x86 hosts.
+      - OLLAMA_VULKAN=false
     volumes:
       - ollama-models:/root/.ollama          # persist pulled models
       - ../Modelfile:/models/Modelfile:ro     # 24B definition (default)
