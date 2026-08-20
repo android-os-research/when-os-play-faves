@@ -140,6 +140,36 @@ earlier run was reused, which the `rm` step above prevents). This run lands in
 the ~100–105 confirmed range (see the reproduced-counts note). Do not store API
 credentials in the repository, Dockerfile, Compose file, or command examples.
 
+## Full pipeline (both LLM phases)
+To exercise both LLM stages in one pass — local Phase 1 (Dolphin) **and** cloud
+Phase 2/2b (Claude) — drop both skip flags and keep only `--skip-filter`. This
+requires a registered local model (`./docker-setup.sh --lite`) and an Anthropic
+credential.
+
+```bash
+export ANTHROPIC_API_KEY="<your-key>"
+
+# ensure the work mount, then start Phase 1 from a clean triage
+mkdir -p ../docker-work
+docker compose exec -T pipeline test -d /artifact/work 2>/dev/null \
+  || docker compose up -d --force-recreate pipeline
+docker compose exec -T pipeline rm -rf /artifact/work/samsung
+
+docker compose exec -T -e ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY" pipeline \
+  bash scripts/pipeline/run_pipeline.sh \
+    examples/sample_device/ /artifact/work/ samsung \
+    --skip-filter
+```
+
+This runs Steps 1–6 → Phase 1 (local model) → Phase 2 (Haiku) → Phase 2b
+(Sonnet), writing `triage.json`, `claude_validated.json`, and `ni_recheck.json`
+under `docker-work/samsung/`. It confirms both LLM stages work end-to-end but is
+**not** a paper-numbers run: the `--lite` 8B model over-triages, so Phase 2
+validates a larger, different hot-spot set and the confirmed count will not match
+the paper. It is also slower (Phase 1 over ~778 items on CPU) and costs more in
+API calls. For paper-matching confirmed counts (~100–105), use the
+`--skip-phase1` cloud validation above with the bundled 24B triage.
+
 ## Docker Troubleshooting
 
 **`docker compose` is not recognized.** The artifact uses Compose v2; note the
@@ -156,6 +186,17 @@ docker info | grep -E 'CPUs|Total Memory'    # resources visible to Docker
 docker compose exec pipeline free -h         # memory inside the container
 docker compose exec pipeline df -h /artifact  # disk
 docker stats                                  # live usage during a run
+```
+
+**No live output / appears stuck at "Verifying API key".** `docker compose exec
+-T` allocates no TTY, so Python block-buffers stdout and progress only appears
+when the run ends — the pipeline is running, not hung. A freshly built image
+carries `PYTHONUNBUFFERED=1` (set in the Dockerfile) and streams normally; against
+an older image, rebuild (`docker compose build pipeline`) or add
+`-e PYTHONUNBUFFERED=1` to the exec:
+```bash
+docker compose exec -T -e PYTHONUNBUFFERED=1 -e ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY" pipeline \
+  bash scripts/pipeline/run_pipeline.sh examples/sample_device/ /artifact/work/ samsung --skip-filter --skip-phase1
 ```
 
 **Model is listed but inference fails (e.g. `EOF` from `/api/generate`).**
