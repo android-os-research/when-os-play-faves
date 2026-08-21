@@ -19,8 +19,9 @@ fi
 
 mkdir -p ../docker-work
 
-# macOS: a bind source created after the container started isn't visible until recreate.
-if ! docker compose exec -T pipeline test -d /artifact/work 2>/dev/null; then
+# Re-bind if the work mount is missing OR stale (host dir created/removed after
+# the container started — a bare `test -d` passes on a stale mountpoint, so probe a write).
+if ! docker compose exec -T pipeline sh -c 'mkdir -p /artifact/work && : > /artifact/work/.probe && rm -f /artifact/work/.probe' 2>/dev/null; then
     echo "[docker-run] Re-binding work directory..."
     docker compose up -d --force-recreate pipeline
 fi

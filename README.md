@@ -18,6 +18,12 @@ The artifact provides:
    production devices.
 The repository also contains a bundled Samsung Galaxy A22 5G framework sample
 for a scaled-down reproduction of the analysis workflow.
+
+## Evaluation Roadmap
+- **E1 — Pipeline functionality:** Quick Start + Bundled Reproduction
+- **E2 — Finding evidence:** `reproducibility/vuln/` + the smali verification guide
+- **E3 — Dynamic validation:** `poc-videos/`
+
 ---
 # Quick Start — Docker (Recommended)
 
@@ -95,12 +101,10 @@ This performs the following operations:
 7. performs a minimal inference test.
 
 The `--lite` model makes the bundled reproduction practical on
-memory-constrained evaluator machines. The 8B triage over-triages relative to
-the 24B paper model; for paper-matching confirmed counts use the cloud
-validation below with the bundled 24B triage.
-
-TODO-AE: state whether the `--lite` output should be compared directly with the
-paper-model Phase-1 results, or is intended for execution/testing only.
+memory-constrained machines. Because the 8B model over-triages, its Phase-1
+distribution is not a substitute for the paper's 24B result and should not be
+compared directly against it. Use `--skip-phase1` with the bundled 24B triage
+and run Phase 2/2b (cloud validation) for paper-matching confirmed counts.
 
 ## Run the bundled experiment
 ```bash
@@ -207,11 +211,21 @@ docker compose exec ollama ollama list
 If the model is present but inference terminates with an error, the model may
 not fit in the Docker VM's memory. Check memory (`docker info | grep 'Total
 Memory'`, `docker stats`); for a 16 GB-class environment use
-`./docker-setup.sh --lite`. The original 24B configuration has substantially
-higher memory requirements.
+`./docker-setup.sh --lite`. The 24B configuration uses ~18–20 GB resident
+(≈13 GB Q4_0 weights plus a ~5 GB KV cache at the model's 32768 context):
+tested working under a 24 GB memory limit and insufficient at 16 GB. A machine
+with ~24 GB is the safe recommendation for the default 24B model.
 
-TODO-AE: insert the tested minimum RAM for the 24B model after the
-clean-environment experiment.
+**Local Phase 1 is very slow on macOS / Apple Silicon.** Docker on macOS runs
+Ollama inside a Linux VM with no Metal/GPU passthrough, so the local model runs
+CPU-only on the VM's cores — on macOS, expect a significant processing delay.
+The full 8B Phase-1 triage this way is impractical (our run was still in Phase 1
+after 12 h, on the order of ~18 h to complete). On macOS, skip the local triage
+with `--skip-phase1` (bundled 24B triage, no local model needed):
+```bash
+docker compose exec -T -e ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY" pipeline \
+  bash scripts/pipeline/run_pipeline.sh examples/sample_device/ /artifact/work/ samsung --skip-filter --skip-phase1
+```
 
 **`ollama serve` reports "address already in use".** Do not start a second
 Ollama server manually — the Compose environment manages it. Check with:
@@ -249,9 +263,10 @@ sudo apt-get install -y git
 # 2. Clone the public artifact repository
 git clone https://github.com/android-os-research/when-os-play-faves.git
 cd when-os-play-faves
-# 3. Install and verify artifact dependencies
+# 3. Install and verify artifact dependencies (choose ONE model)
 chmod +x setup.sh
-./setup.sh
+./setup.sh --lite          # 8B model — recommended for artifact evaluation on a commodity 16 GB machine
+# ./setup.sh               # default 24B model — full fidelity, needs ~24 GB RAM
 # 4. Activate the Python virtual environment
 source .venv/bin/activate
 # 5. Run the bundled artifact reproduction
@@ -265,8 +280,9 @@ source .venv/bin/activate
 python3 -m json.tool /tmp/work/samsung/triage.json | head -40
 ```
 
-The default setup uses the original Dolphin 3.0 R1 Mistral 24B
-configuration.
+The `--lite` command above uses the 8B model (recommended for artifact
+evaluation on commodity machines); the default `./setup.sh` uses the original
+Dolphin 3.0 R1 Mistral 24B configuration.
 
 No Anthropic API key is required for the command above.
 
@@ -279,12 +295,12 @@ required for the basic reproduction.
 
 ### Default — Original 24B Model
 
-The normal evaluator configuration is:
+The default setup reproduces the local model configuration used by the analysis
+pipeline:
 ```bash
 ./setup.sh
 ```
-This installs and registers the original local model configuration used by the
-pipeline:
+It installs and registers the original 24B model:
 ```bash
 Dolphin 3.0 R1 Mistral 24B
 ```
@@ -307,19 +323,22 @@ dolphin3-r1
 ```
 This allows the same pipeline command to be used in both configurations.
 
---lite is intended primarily for functionality testing on constrained
-machines. Unless otherwise stated, reproduction results should be obtained
-using the default 24B configuration.
+`--lite` is intended primarily for functionality testing on constrained
+machines. For a commodity 16 GB evaluator machine, use either the `--lite`
+functionality path (8B, local) or — for paper-matching confirmed counts —
+`--skip-phase1` with the bundled 24B triage and Phase 2/2b. Results that match
+the paper are obtained with the 24B model (run locally, or via the bundled 24B
+triage), not with the 8B model.
 
-Note on lite-mode triage quality: the 8B model over-triages. On the bundled
-sample it classified 564/34/4 as HIGH/MEDIUM/LOW, versus 159/60/380 for the
-default 24B model (the deterministic SKIP count, 175, is identical). This does
-not lose findings — Tier-1 only triages, and everything HIGH/MEDIUM is forwarded
-to Tier-2 for validation, so over-triaging costs extra Tier-2 calls rather than
-dropping candidates — but the lite Tier-1 distribution is not representative of
-the paper's. On a memory-constrained machine, prefer `--skip-phase1` with the
-bundled precomputed 24B triage (see "Skipping the Local Triage" below) to obtain
-the representative Tier-1 result without running the 24B model locally.
+Note on lite-mode triage quality: the 8B model's observed behaviour is
+predominantly over-triage. On the bundled sample it classified 564/34/4 as
+HIGH/MEDIUM/LOW, versus 159/60/380 for the default 24B model (the deterministic
+SKIP count, 175, is identical) — substantially more candidates forwarded to
+Tier-2 than the 24B configuration. Accordingly, its Tier-1 distribution should
+not be interpreted as reproducing the paper's triage result. On a
+memory-constrained machine, prefer `--skip-phase1` with the bundled precomputed
+24B triage (see "Skipping the Local Triage" below) to obtain the representative
+Tier-1 result without running the 24B model locally.
 
 
 ## What setup.sh Installs
@@ -406,35 +425,12 @@ This exercises:
 
 No cloud API key is required.
 
-## Expected runtime
+## Reproduced Output Counts (bundled Samsung A22 5G sample)
 
-TODO-AE: Replace these values after the clean x86-64/24B and ARM64/8B runs
-complete.
-
-Current test environments:
-
-### Environment A
-
-* OS: Ubuntu 24.04.3 LTS
-* Architecture: x86-64
-* vCPUs: 12
-* RAM: 32 GB
-* Model: Dolphin 3.0 R1 Mistral 24B
-* GPU: none
-* Status: TEST IN PROGRESS
-
-### Environment B
-
-* OS: Ubuntu VM on Apple Silicon
-* Architecture: ARM64
-* Model: Dolphin 8B (--lite)
-* GPU: none
-* Status: TEST IN PROGRESS
-
-### Reproduced output counts (bundled Samsung A22 5G sample)
-
-These counts are model/sample-dependent, not hardware-dependent. They were
-produced by the full default (24B) pipeline on the reference run:
+These counts are model/sample-dependent, not hardware-dependent; they were
+produced by the full default (24B) pipeline on the reference run. Per-machine
+runtimes and completed configurations are listed under *Tested Environments*
+below.
 
 | Stage | Output |
 |---|---|
@@ -446,17 +442,15 @@ produced by the full default (24B) pipeline on the reference run:
 | Total confirmed (after Phase 2b) | 104 |
 
 For comparison, the paper's own run of this sample reported 37 / 66 / 497 (103
-confirmed), and the AEC-spec 16 GB VM run via `--skip-phase1` reported 102
-(39 CONFIRMED_HIGH / 62 CONFIRMED_MEDIUM / 1 promoted in Phase 2b). The small
-differences reflect local-LLM (Tier-1) and cloud-LLM (Tier-2) non-determinism:
+confirmed). Across independent `--skip-phase1` runs of the bundled 24B triage,
+the 16 GB VM reported 102, a 24 GB VM reported 103 (matching the paper exactly:
+39 CONFIRMED_HIGH / 63 CONFIRMED_MEDIUM / 1 promoted in Phase 2b), and the
+reference run reported 104. The small differences reflect local-LLM (Tier-1) and
+cloud-LLM (Tier-2) non-determinism:
 even at temperature 0 the cloud models are not bit-exact run to run, and the
 NEEDS_INVESTIGATION → Sonnet escalation adds a branch. Expect a total in the
-range of roughly 100–105 confirmed, not an exact 103 — a count in that band
-reproduces the paper and does not indicate a failed run.
-
-TODO-AE: Add per-machine total/Tier-1 runtime and peak RAM for Environments A
-and B once those runs complete. A completed high-core reference run is recorded
-in the Tested Environments table below.
+range of roughly 100–105 confirmed, not an exact 103; in our repeated runs,
+totals in this range were consistent with the reference result.
 
 
 ## APK-Store Filtering
@@ -537,13 +531,9 @@ python3 scripts/pipeline/phase2b_ni_recheck.py \
 
 Phase 2 and the re-evaluation stage accept either a funded Anthropic API key
 (`sk-ant-api03-…`) or an OAuth token with API access (`sk-ant-oat01-…`); both
-are passed the same way, via `ANTHROPIC_API_KEY` or `--api-key`.
-
-A plain API key is billed per token. Our reference runs instead use an OAuth
-token, because it draws on an existing Claude plan and therefore avoids
-additional per-usage API charges. Reviewers may use whichever credential is
-more cost-effective for them — an OAuth token if it is covered by an existing
-plan, or a funded API key otherwise; both produce identical results.
+are supplied the same way, via `ANTHROPIC_API_KEY` or `--api-key`, and produce
+identical results. Evaluators may skip these stages and inspect the bundled
+reference outputs instead.
 
 ## Skipping the Local Triage (Precomputed Tier-1)
 
@@ -568,14 +558,16 @@ export ANTHROPIC_API_KEY="YOUR_API_KEY_OR_OAUTH_TOKEN"
 ```
 Because the bundled triage is the 24B output, this path yields the same Tier-1
 quality even on a memory-constrained machine that would otherwise use `--lite`.
-It requires no Ollama or GPU. Add `--skip-phase2` to stop after loading the
-precomputed triage (no cloud validation).
+The execution path itself does not invoke Ollama or require a GPU. Add
+`--skip-phase2` to stop after loading the precomputed triage (no cloud
+validation).
 
 Expect a total of roughly 100–105 confirmed findings, not an exact number: Phase 2
 and Phase 2b are cloud-LLM calls that are not bit-exact run to run (even at
-temperature 0), so counts vary slightly between runs. The AEC-spec 16 GB VM run
-of this path produced 102 confirmed; the reference 24B run produced 104. Any
-count in that band reproduces the paper.
+temperature 0), so counts vary slightly between runs. The 16 GB VM run of this
+path produced 102 confirmed; the reference 24B run produced 104. In our repeated
+runs, totals in this range were consistent with the reference result; small
+differences arise from LLM nondeterminism.
 
 ## Repository Structure
 ```bash
@@ -642,7 +634,7 @@ The bundled reproduction is designed for a standard Linux machine.
 | **OS** | Ubuntu 22.04/24.04 LTS or Debian 13 |
 | **Architecture** | x86-64 recommended for artifact evaluation |
 | **CPU** | 8+ cores recommended |
-| **RAM — default model** | 32 GB currently recommended; final requirement pending clean 24B reproduction |
+| **RAM — default model** | ~24 GB (tested: the 24B model uses ~18–20 GB resident; 16 GB is insufficient) |
 | **RAM — lite mode** | 16 GB recommended |
 | **Disk** | 30–50 GB free recommended |
 | **GPU** | Not required |
@@ -661,8 +653,15 @@ documented reproduction.
 | Debian 13 server (128 cores, 251 GB) | x86-64 | Dolphin R1 24B | **COMPLETED** — output counts reproduced (above) |
 | Ubuntu 24.04 VM (16 GB, Debian host) | x86-64 | Dolphin 8B (`--lite`) | **COMPLETED** — Steps 1–6 + Phase 1 in 2 h 34 m, no swap, exit 0 (see note) |
 | Ubuntu 24.04 VM (16 GB, Debian host) | x86-64 | `--skip-phase1` (bundled 24B triage) + cloud Phase 2/2b | **COMPLETED** — 102 confirmed (39 CONFIRMED_HIGH / 62 CONFIRMED_MEDIUM / 1 promoted in Phase 2b); no local model, no GPU |
-| Ubuntu 24.04.3 VM | x86-64 | Dolphin R1 24B | **TEST IN PROGRESS** |
-| Ubuntu VM on Apple Silicon | ARM64 | Dolphin 8B (`--lite`) | **TEST IN PROGRESS** |
+| Ubuntu VM (nested, Debian host) | x86-64 | Dolphin 8B (`--lite`), full pipeline (both phases) | **COMPLETED** — 147 confirmed (46 CONFIRMED_HIGH / 101 CONFIRMED_MEDIUM), 4 h 24 m wall clock, ~816 MB pipeline RSS, exit 0 (8B over-triage; see note) |
+| Debian server via Docker (24 GB Ollama cap) | x86-64 | Dolphin R1 24B | **COMPLETED** — 24B loads at ~18–20 GB (fits 24 GB); Phase 1 triage 140 / 56 / 398 / 175 in ~2 h 20 m |
+| Ubuntu VM (24 GB, Debian host) | x86-64 | `--skip-phase1` (bundled 24B triage) + cloud Phase 2/2b | **COMPLETED** — 103 confirmed (39 CONFIRMED_HIGH / 63 CONFIRMED_MEDIUM / 1 promoted in Phase 2b), 1 h 41 m, ~816 MB RSS, exit 0 |
+
+Two environments are not yet recorded as completed runs. **Environment A**
+(native x86-64, 12 vCPU, 32 GB, 24B): the representative native 24B Phase-1
+runtime is still being measured. **Environment B** (Apple Silicon, ARM64, 8B):
+local Phase 1 in a Mac VM/Docker is impractically slow (no Metal passthrough,
+~18 h), so on macOS use `--skip-phase1` (see Docker Troubleshooting).
 
 The 16 GB `--lite` run completed Steps 1–6 + Phase 1 (`--skip-filter
 --skip-phase2`) in ~2 h 34 m wall clock with a peak pipeline RSS of ~816 MB and
@@ -671,6 +670,12 @@ wall clock is 8B inference in the separate Ollama process (the pipeline itself
 uses only ~4.5 min of CPU). As noted under "Lite — 8B Model", the 8B triage
 distribution (564/34/4 HIGH/MEDIUM/LOW) over-triages relative to the 24B model;
 use `--skip-phase1` for a representative Tier-1 result on such machines.
+
+A full `--lite` run (both LLM phases) on a nested x86-64 VM completed in 4 h 24 m
+and confirmed 147 findings (46 CONFIRMED_HIGH / 101 CONFIRMED_MEDIUM) — more than
+the paper's 103 because the 8B over-triage feeds a larger hot-spot set into
+Phase 2 at lower precision. For paper-matching confirmed counts, use
+`--skip-phase1` with the bundled 24B triage.
 
 Reference full run (Debian 13, 128-core server, live filter):
 Steps 1–3 ≈ 2 min · live Step 3b ≈ 4.5 h · Tier-1 (24B) ≈ 4.5 h ·
