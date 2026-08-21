@@ -217,8 +217,8 @@ tested working under a 24 GB memory limit and insufficient at 16 GB. A machine
 with ~24 GB is the safe recommendation for the default 24B model.
 
 **Local Phase 1 is very slow on macOS / Apple Silicon.** Docker on macOS runs
-Ollama inside a Linux VM with no Metal/GPU passthrough, so the local model runs
-CPU-only on the VM's cores — on macOS, expect a significant processing delay.
+Ollama inside a Linux VM that cannot use the Mac's GPU, so the local model runs
+on the VM's CPU cores only — expect a significant processing delay.
 The full 8B Phase-1 triage this way is impractical (our run was still in Phase 1
 after 12 h, on the order of ~18 h to complete). On macOS, skip the local triage
 with `--skip-phase1` (bundled 24B triage, no local model needed):
@@ -657,11 +657,13 @@ documented reproduction.
 | Debian server via Docker (24 GB Ollama cap) | x86-64 | Dolphin R1 24B | **COMPLETED** — 24B loads at ~18–20 GB (fits 24 GB); Phase 1 triage 140 / 56 / 398 / 175 in ~2 h 20 m |
 | Ubuntu VM (24 GB, Debian host) | x86-64 | `--skip-phase1` (bundled 24B triage) + cloud Phase 2/2b | **COMPLETED** — 103 confirmed (39 CONFIRMED_HIGH / 63 CONFIRMED_MEDIUM / 1 promoted in Phase 2b), 1 h 41 m, ~816 MB RSS, exit 0 |
 
-Two environments are not yet recorded as completed runs. **Environment A**
-(native x86-64, 12 vCPU, 32 GB, 24B): the representative native 24B Phase-1
-runtime is still being measured. **Environment B** (Apple Silicon, ARM64, 8B):
-local Phase 1 in a Mac VM/Docker is impractically slow (no Metal passthrough,
-~18 h), so on macOS use `--skip-phase1` (see Docker Troubleshooting).
+The x86-64 + 24B configuration is covered twice above — natively on the Debian
+reference server and via Docker with a 24 GB Ollama cap — so a separate
+bare-metal 24B timing row adds nothing and is intentionally omitted. On Apple
+Silicon (ARM64) local Phase 1 in a Mac VM/Docker is impractically slow
+(~18 h): a VM or container on a Mac cannot use the Mac's GPU, so the model runs
+on CPU only. On macOS use `--skip-phase1` with the bundled 24B triage (see
+Docker Troubleshooting).
 
 The 16 GB `--lite` run completed Steps 1–6 + Phase 1 (`--skip-filter
 --skip-phase2`) in ~2 h 34 m wall clock with a peak pipeline RSS of ~816 MB and
