@@ -438,8 +438,21 @@ below.
 | Identity references / unique packages (Step 3) | 26,051 / 5,247 |
 | Per-package propagation reports (Step 6) | 779 |
 | Tier-1 — HIGH / MEDIUM / LOW / SKIP | 159 / 60 / 380 / 175 |
+| Tier-1 — HIGH\|MEDIUM (dual-label) | 5 |
 | Tier-2 — CONFIRMED_HIGH / CONFIRMED_MEDIUM / LIKELY_FP | 36 / 68 / 495 |
 | Total confirmed (after Phase 2b) | 104 |
+
+The four canonical Tier-1 labels cover 774 of the 779 per-package reports; the
+remaining 5 carry the nonstandard combined label `HIGH|MEDIUM`, which the local
+model occasionally emits by echoing two enum values instead of choosing one
+(the Phase-1 prompt lists the labels as `HIGH|MEDIUM|LOW|SKIP`). These 5 are not
+matched by the Phase-2 priority filter and so are not forwarded to Tier-2; they
+are listed separately here so the Tier-1 counts reconcile to 779. On the bundled
+sample the affected packages are five Samsung system apps
+(`com.sec.android.app.launcher`, `com.sec.android.app.samsungapps`,
+`com.sec.android.app.desktoplauncher`, `com.samsung.android.honeyboard`,
+`com.samsung.android.kgclient`); each has a single per-package report carrying
+this label.
 
 For comparison, the paper's own run of this sample reported 37 / 66 / 497 (103
 confirmed). Across independent `--skip-phase1` runs of the bundled 24B triage,
@@ -638,10 +651,17 @@ The bundled reproduction is designed for a standard Linux machine.
 | **RAM — lite mode** | 16 GB recommended |
 | **Disk** | 30–50 GB free recommended |
 | **GPU** | Not required |
+| **Python** | Python 3.10+ with `venv` and `pip` — required by the pipeline; installed by setup.sh (`python3`, `python3-venv`, `python3-pip`) if absent |
+| **Java** | JRE 17 — required by baksmali; installed by setup.sh if absent |
 | **Network** | Required during setup; additionally required for live Step 3b and optional cloud validation |
 
-Java, Python, baksmali, Ollama, and Python dependencies are installed by
-setup.sh.
+Prerequisites: on a fresh Ubuntu machine, `git` is the only package you install
+manually (to clone the repository). `setup.sh` installs everything else the
+pipeline needs — including Python 3 (`python3`, `python3-venv`, `python3-pip`),
+Java, baksmali, Ollama, and the Python dependencies — via `apt-get`, which
+requires `sudo`. On minimal images that ship without Python (e.g. some AWS
+Ubuntu AMIs), Python is installed by this step; if you skip `setup.sh` and run
+the pipeline directly, install Python 3.10+ with `venv` and `pip` first.
 
 ### Tested Environments
 

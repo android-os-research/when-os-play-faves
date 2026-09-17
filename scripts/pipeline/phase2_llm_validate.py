@@ -423,19 +423,57 @@ def get_shared_cache_key(
     return hashlib.sha256(hash_input.encode("utf-8", errors="replace")).hexdigest()
 
 
+def _escape_stray_quotes(text: str, max_fixes: int = 50) -> Optional[str]:
+    """Best-effort repair of unescaped double quotes inside JSON string values.
+
+    A stray quote closes a string early, so the decoder fails at the character
+    right after it (expecting a delimiter). We escape that quote and retry, up to
+    max_fixes times. Returns a decodable string, or None if this repair does not
+    apply (leaving the original response untouched for the caller to record).
+    """
+    decoder = json.JSONDecoder()
+    for _ in range(max_fixes):
+        try:
+            decoder.raw_decode(text)
+            return text
+        except json.JSONDecodeError as e:
+            # The premature closing quote is the last '"' before the error
+            # position, possibly separated from it by whitespace.
+            j = min(e.pos, len(text)) - 1
+            while j >= 0 and text[j] in " \t\r\n":
+                j -= 1
+            if j < 0 or text[j] != '"':
+                return None
+            text = text[:j] + "\\" + text[j:]
+    return None
+
+
 def parse_json_response(text: str) -> dict:
-    """Extract JSON from model response, stripping any markdown fences."""
+    """Extract JSON from model response, stripping any markdown fences.
+
+    On a strict-parse failure, attempt a bounded repair of unescaped double
+    quotes inside string values before giving up; the raw response is preserved
+    on the record when the repair does not recover a valid object.
+    """
     clean = re.sub(r"```(?:json)?|```", "", text).strip()
     # Find the start of the first { block
     start = clean.find("{")
     if start != -1:
         clean = clean[start:]
+    decoder = json.JSONDecoder()
     try:
         # raw_decode stops after the first valid JSON object, ignoring trailing text
-        decoder = json.JSONDecoder()
         obj, _ = decoder.raw_decode(clean)
         return obj
     except json.JSONDecodeError as e:
+        repaired = _escape_stray_quotes(clean)
+        if repaired is not None:
+            try:
+                obj, _ = decoder.raw_decode(repaired)
+                obj["json_repaired"] = True
+                return obj
+            except json.JSONDecodeError:
+                pass
         return {"error": f"Could not parse model JSON: {e}", "raw_response": text[:2000]}
 
 
